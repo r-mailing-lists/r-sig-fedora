@@ -1,0 +1,6 @@
+{
+  "list": "r-sig-fedora",
+  "description": "Fedora/Redhat ports",
+  "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/",
+  "archive_type": "monthly"
+}
