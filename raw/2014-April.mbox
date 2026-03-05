@@ -1,0 +1,231 @@
+From kaufmann at slu.edu  Wed Apr  2 22:05:40 2014
+From: kaufmann at slu.edu (Eric Kaufmann)
+Date: Wed, 2 Apr 2014 15:05:40 -0500
+Subject: [R-sig-Fedora] RJAGS Installation Issues
+Message-ID: <CAP2vBum3nUdsUqrkoAPNFcU0qzC0PunaEedDPNftuNx7=RcfQA@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140402/3890ca95/attachment.pl>
+
+From marc_schwartz at me.com  Wed Apr  2 22:48:47 2014
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Wed, 02 Apr 2014 15:48:47 -0500
+Subject: [R-sig-Fedora] RJAGS Installation Issues
+In-Reply-To: <CAP2vBum3nUdsUqrkoAPNFcU0qzC0PunaEedDPNftuNx7=RcfQA@mail.gmail.com>
+References: <CAP2vBum3nUdsUqrkoAPNFcU0qzC0PunaEedDPNftuNx7=RcfQA@mail.gmail.com>
+Message-ID: <3F79C36C-F1E2-4DBD-A5AC-22853B58658B@me.com>
+
+On Apr 2, 2014, at 3:05 PM, Eric Kaufmann <kaufmann at slu.edu> wrote:
+
+> Hello,
+> 
+> I am trying to install rjags on R 3.0.0 that is running on CentOS 6.4. Jags
+> is installed and seems to be working correctly.
+> 
+> I get the following error when trying to install from source or CRAN,
+> 
+> configure: error: "Problem with header file /usr/include/JAGS/Console.h "
+> See `config.log' for more details
+> 
+> JAGS was intalled with an rpm. Does not look like the rpm included
+> Console.h The package has the following contents:
+> 
+> *Content of RPM :*
+> /usr/bin/jags
+> /usr/lib64/JAGS
+> /usr/lib64/JAGS/modules-2.2.0
+> /usr/lib64/JAGS/modules-2.2.0/basemod.la
+> /usr/lib64/JAGS/modules-2.2.0/basemod.so
+> /usr/lib64/JAGS/modules-2.2.0/bugs.la
+> /usr/lib64/JAGS/modules-2.2.0/bugs.so
+> /usr/lib64/JAGS/modules-2.2.0/dic.la
+> /usr/lib64/JAGS/modules-2.2.0/dic.so
+> /usr/lib64/JAGS/modules-2.2.0/glm.la
+> /usr/lib64/JAGS/modules-2.2.0/glm.so
+> /usr/lib64/JAGS/modules-2.2.0/lecuyer.la
+> /usr/lib64/JAGS/modules-2.2.0/lecuyer.so
+> /usr/lib64/JAGS/modules-2.2.0/mix.la
+> /usr/lib64/JAGS/modules-2.2.0/mix.so
+> /usr/lib64/JAGS/modules-2.2.0/msm.la
+> /usr/lib64/JAGS/modules-2.2.0/msm.so
+> /usr/lib64/libjags.la
+> /usr/lib64/libjags.so.2
+> /usr/lib64/libjags.so.2.0.2
+> /usr/lib64/libjrmath.la
+> /usr/lib64/libjrmath.so.0
+> /usr/lib64/libjrmath.so.0.0.0
+> /usr/libexec/jags-terminal
+> /usr/share/man/man1/jags<http://rpm.pbone.net/index.php3/stat/45/idpl/21879959/numer/1/nazwa/jags>
+> .1.gz
+
+
+Hi Eric,
+
+It occurs to me, did you install the 'jags-devel' RPM along with the jags RPM?
+
+Header and other files to facilitate local compilation would typically be installed in the 'xxx-devel' RPM for the relevant binary package RPM.
+
+It looks like you used rpm.pbone.net and they do have the jags-devel RPM there:
+
+  http://rpm.pbone.net/index.php3/stat/4/idpl/21879958/dir/centos_6/com/jags-devel-1.0.4-7.3.x86_64.rpm.html
+
+Checking the RPM content, Console.h is listed there.
+
+Regards,
+
+Marc Schwartz
+
+
+From steve.taylor.nz at gmail.com  Sat Apr 19 23:33:41 2014
+From: steve.taylor.nz at gmail.com (Steve Taylor)
+Date: Sun, 20 Apr 2014 09:33:41 +1200
+Subject: [R-sig-Fedora] Nonexistent include directory
+	"/usr/lib/gfortran/modules"
+Message-ID: <CALJKDF_bRoQ0JQ-LJ-n3ikQTrf4VrMp+BYzV=heiXmYPb_k5Gg@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140420/a04bb049/attachment.pl>
+
+From pdalgd at gmail.com  Sun Apr 20 00:08:54 2014
+From: pdalgd at gmail.com (peter dalgaard)
+Date: Sun, 20 Apr 2014 00:08:54 +0200
+Subject: [R-sig-Fedora] Nonexistent include directory
+	"/usr/lib/gfortran/modules"
+In-Reply-To: <CALJKDF_bRoQ0JQ-LJ-n3ikQTrf4VrMp+BYzV=heiXmYPb_k5Gg@mail.gmail.com>
+References: <CALJKDF_bRoQ0JQ-LJ-n3ikQTrf4VrMp+BYzV=heiXmYPb_k5Gg@mail.gmail.com>
+Message-ID: <D514B42E-69E3-4BF4-B615-2AA865F62481@gmail.com>
+
+
+On 19 Apr 2014, at 23:33 , Steve Taylor <steve.taylor.nz at gmail.com> wrote:
+
+> Hi there,
+> 
+> Can anyone help with this?
+> 
+> I tried to install.packages('lme4') and got lots of warning and error
+> messages, starting with the one in the subject and ending with failed
+> compilation.  The same went for the 'minqa' package which is needed by lme4.
+> 
+> I have R version 3.0.2 running on Fedora 20.
+> "yum update R" says that's the latest available.
+> 
+> Is my system missing something necessary for compilation?
+
+gfortran, maybe? I'm a little out of touch with Fedora these days, but there used to be a meta-package called R-devel or so, which would bring in all tools needed for source compilation of R and most of the packages. 
+
+> 
+> cheers,
+>   Steve
+> 
+> 	[[alternative HTML version deleted]]
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+-- 
+Peter Dalgaard, Professor,
+Center for Statistics, Copenhagen Business School
+Solbjerg Plads 3, 2000 Frederiksberg, Denmark
+Phone: (+45)38153501
+Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+
+
+From steve.taylor.nz at gmail.com  Sun Apr 20 00:48:19 2014
+From: steve.taylor.nz at gmail.com (Steve Taylor)
+Date: Sun, 20 Apr 2014 10:48:19 +1200
+Subject: [R-sig-Fedora] Nonexistent include directory
+	"/usr/lib/gfortran/modules"
+In-Reply-To: <D514B42E-69E3-4BF4-B615-2AA865F62481@gmail.com>
+References: <CALJKDF_bRoQ0JQ-LJ-n3ikQTrf4VrMp+BYzV=heiXmYPb_k5Gg@mail.gmail.com>
+	<D514B42E-69E3-4BF4-B615-2AA865F62481@gmail.com>
+Message-ID: <CALJKDF-ipMNeh9OGwZhDHZhv1SKXksxwGuiw-2g_jT2iXpDvMA@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140420/4b9cb9eb/attachment.pl>
+
+From marc_schwartz at me.com  Sun Apr 20 03:27:26 2014
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Sat, 19 Apr 2014 20:27:26 -0500
+Subject: [R-sig-Fedora] Nonexistent include directory
+ "/usr/lib/gfortran/modules"
+In-Reply-To: <CALJKDF-ipMNeh9OGwZhDHZhv1SKXksxwGuiw-2g_jT2iXpDvMA@mail.gmail.com>
+References: <CALJKDF_bRoQ0JQ-LJ-n3ikQTrf4VrMp+BYzV=heiXmYPb_k5Gg@mail.gmail.com>
+	<D514B42E-69E3-4BF4-B615-2AA865F62481@gmail.com>
+	<CALJKDF-ipMNeh9OGwZhDHZhv1SKXksxwGuiw-2g_jT2iXpDvMA@mail.gmail.com>
+Message-ID: <9A05E65B-B8A4-4442-A018-8281548A3852@me.com>
+
+Hi,
+
+If you are installing to default system-wide locations, you will need to be SU/root in order to have the requisite privileges. If you try to install as a regular user, you will need to define alternative target locations for the library tree within your username tree.
+
+As with Peter, it has been some time since I have used Fedora. Going on about 5 years at this point.
+
+The confounding issue here may be that there are various iterations of the lme4 package in the wild and there may be some subtleties in the installation process. There is a README file here:
+
+  http://cran.r-project.org/web/packages/lme4/README.html
+
+It is also possible that you may need to use:
+
+  install.packages('lme4', dependencies = TRUE)
+
+in order to bring in various dependencies for the package during installation.
+
+You may also be best served posting to the R-SIG-Mixed-Models list:
+
+  https://stat.ethz.ch/mailman/listinfo/r-sig-mixed-models
+
+where the maintainers of lme4 tend to be located. Even though this appears to be a Fedora issue, it may be in reality an lme4 issue.
+
+Regards,
+
+Marc Schwartz
+
+
+On Apr 19, 2014, at 5:48 PM, Steve Taylor <steve.taylor.nz at gmail.com> wrote:
+
+> Thanks for your response Peter
+> 
+> Yes I have gfortran installed.  I also have R-devel-3.0.2-1.fc20.i686
+> installed already.
+> 
+> It seems I can install the packages as superuser su.  However, there are
+> still many fortran warnings about variables potentially being used before
+> being initialised.  I'll ignore those for the moment.
+> 
+> cheers,
+>   Steve
+> 
+> 
+> On 20 April 2014 10:08, peter dalgaard <pdalgd at gmail.com> wrote:
+> 
+>> 
+>> On 19 Apr 2014, at 23:33 , Steve Taylor <steve.taylor.nz at gmail.com> wrote:
+>> 
+>>> Hi there,
+>>> 
+>>> Can anyone help with this?
+>>> 
+>>> I tried to install.packages('lme4') and got lots of warning and error
+>>> messages, starting with the one in the subject and ending with failed
+>>> compilation.  The same went for the 'minqa' package which is needed by
+>> lme4.
+>>> 
+>>> I have R version 3.0.2 running on Fedora 20.
+>>> "yum update R" says that's the latest available.
+>>> 
+>>> Is my system missing something necessary for compilation?
+>> 
+>> gfortran, maybe? I'm a little out of touch with Fedora these days, but
+>> there used to be a meta-package called R-devel or so, which would bring in
+>> all tools needed for source compilation of R and most of the packages.
+>> 
+>>> 
+>>> cheers,
+>>>  Steve
+
+

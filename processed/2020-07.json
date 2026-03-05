@@ -1,0 +1,757 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2020-07",
+  "messages": [
+    {
+      "id": "msg-bcf502463613",
+      "message_id": "<3065076.44csPzL39Z@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-03T17:28:32+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CAJP_izfBFBE9nroyc90hDS866TRT6mmd5gd3qQStcYGQ09d8ZQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<796569981.0ifERbkFSE@myth>",
+        "<CAJP_izfBFBE9nroyc90hDS866TRT6mmd5gd3qQStcYGQ09d8ZQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Friday, 26 June 2020 10.52.44 WEST Elliott Sales de Andrade wrote:\n> glue            1.4.1      1.3.2         - requires new vctrs; do not bump\n\nThis process takes time but I think that I am on the right track (to the abyss \n?). :-)\n\nI am now rebuilding packages that need bootstrap and/or from Bioconductor.\n\nAn example of how this is done can be seen here:\nhttps://src.fedoraproject.org/rpms/R-glue/blob/master/f/R-glue.spec\n\nIn this case the bootstrap mode is off to make it on it would be enough to \nchange one from\n\n%bcond_with bootstrap\n\nto\n\n%bcond_without bootstrap\n\nAnd yes at first sight it looks like the it should be the other way around.\n\nThe question is read it as _allow_ to build the file conditionally with/\nwithout bootstrap.\n\nSince most of the packages do not need this I propose to only add this snippet \nwhere it is really needed and not everywhere as I have hinted initially. Or \nelse the spec files becomes noisy unnecessarily.\n\nRegards,\n-- \nJos? Ab?lio",
+      "body_snippet": "On Friday, 26 June 2020 10.52.44 WEST Elliott Sales de Andrade wrote:\n> glue            1.4.1      1.3.2         - requires new vctrs; do not bump\n\nThis process takes time but I think that I am on the",
+      "thread_id": "thread-bcf502463613",
+      "thread_depth": 0,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-2b0107202d18",
+      "message_id": "<7818695.NyiUUSuA9g@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-03T18:03:16+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq3CHTOta-gjajcmGUeX8R+drQTGn_pLHZRyh3DhgcA4eg@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<2491154.BddDVKsqQX@myth>",
+        "<CALEXWq3CHTOta-gjajcmGUeX8R+drQTGn_pLHZRyh3DhgcA4eg@mail.gmail.com>"
+      ],
+      "body_plain": "On Monday, 29 June 2020 13.46.02 WEST I?aki Ucar wrote:\n> But the mass rebuild process is very different, because releng doesn't\n> follow any particular order (they don't need to, because nothing\n> really changed).\n> \n> The question is whether there is any tool to resolve dependencies and\n> generate a list of builds, as I do with the CRAN database, for an\n> arbitrary list of RPMs. That would be perfect. In theory, this should\n> be possible with dnf, but when I tried, I failed (or my script would\n> theoretically work, but it would take ages to complete). I also took a\n> look at releng's repos on Pagure, but I didn't find any tool to do\n> this either.\n> \n> We should bring this to devel, maybe ask Miro and other Python folks\n> who may have The Method(TM), as they are rebuilding stuff on a daily\n> basis.\n\nI think that I meant the way that the python packages are rebuilt for each new \npython version. I should have said Python mass rebuild.\n\nI took your work as the basis, together with Tom's help and I used dnf to get \na list of R packages (assuming that their name starts with R- ). The advantage \nof this approach is that it works for CRAN and Bioconductor.\n\n$ dnf list available --disablerepo=\\* --enablerepo=rawhide-source R-* | tail -\nn +3 | awk -e '{print $1};' | sed -e 's/\\.src$//' > r-packages.txt\n\nThat gave the list of the (source) packages to rebuild.\n\nIn order to get the list of dependencies I used a similar strategy:\n$ (for p in $(cat r-packages.txt); do echo -n $p, ; dnf -q repoquery --\ndisablerepo=\\* --enablerepo=rawhide-source --requires $p | sed ':a;N;$!ba;s/\n\\n/,/g'; done) > r-packages-dependencies.csv\n\nThe resulting file is a csv file with the first column as the package and the \nremaining columns as the dependencies.\n\nNow the idea was to process this file using a python script to create a direct \ngraph of dependencies (using networkx). In the process non R packages are \nremoved and some dependencies are cleaned (e.g. -devel packages direct to the \nsource package).\n\n\nThe advantage of this is that it allows to identify cycles.\n\nMy only surprise in this process was to find that several packages require R-\nrpm-macros.\n\nThat causes some dependency cycles because R-rpm-macros also requires\nR-rprintf,R-devel,R-knitr,R-stringi,R-testthat.\n\nSince R-rpm-macros is used for Fedora and epel 8 I suggest to remove the \ndependency. Do you agree?\n\n\n-- \nJos? Ab?lio",
+      "body_snippet": "On Monday, 29 June 2020 13.46.02 WEST I?aki Ucar wrote:\n> But the mass rebuild process is very different, because releng doesn't\n> follow any particular order (they don't need to, because nothing\n> re",
+      "thread_id": "thread-2b0107202d18",
+      "thread_depth": 0,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-c1016a0b90ee",
+      "message_id": "<CALEXWq1QXs4wi8AS0CgNxJJvjMur62jxBSY1DdYT-8wtO77j5w@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-07-03T19:36:17+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<7818695.NyiUUSuA9g@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<2491154.BddDVKsqQX@myth>",
+        "<CALEXWq3CHTOta-gjajcmGUeX8R+drQTGn_pLHZRyh3DhgcA4eg@mail.gmail.com>",
+        "<7818695.NyiUUSuA9g@myth>"
+      ],
+      "body_plain": "On Fri, 3 Jul 2020 at 19:03, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Monday, 29 June 2020 13.46.02 WEST I?aki Ucar wrote:\n> > But the mass rebuild process is very different, because releng doesn't\n> > follow any particular order (they don't need to, because nothing\n> > really changed).\n> >\n> > The question is whether there is any tool to resolve dependencies and\n> > generate a list of builds, as I do with the CRAN database, for an\n> > arbitrary list of RPMs. That would be perfect. In theory, this should\n> > be possible with dnf, but when I tried, I failed (or my script would\n> > theoretically work, but it would take ages to complete). I also took a\n> > look at releng's repos on Pagure, but I didn't find any tool to do\n> > this either.\n> >\n> > We should bring this to devel, maybe ask Miro and other Python folks\n> > who may have The Method(TM), as they are rebuilding stuff on a daily\n> > basis.\n>\n> I think that I meant the way that the python packages are rebuilt for each new\n> python version. I should have said Python mass rebuild.\n>\n> I took your work as the basis, together with Tom's help and I used dnf to get\n> a list of R packages (assuming that their name starts with R- ). The advantage\n> of this approach is that it works for CRAN and Bioconductor.\n>\n> $ dnf list available --disablerepo=\\* --enablerepo=rawhide-source R-* | tail -\n> n +3 | awk -e '{print $1};' | sed -e 's/\\.src$//' > r-packages.txt\n>\n> That gave the list of the (source) packages to rebuild.\n>\n> In order to get the list of dependencies I used a similar strategy:\n> $ (for p in $(cat r-packages.txt); do echo -n $p, ; dnf -q repoquery --\n> disablerepo=\\* --enablerepo=rawhide-source --requires $p | sed ':a;N;$!ba;s/\n> \\n/,/g'; done) > r-packages-dependencies.csv\n>\n> The resulting file is a csv file with the first column as the package and the\n> remaining columns as the dependencies.\n>\n> Now the idea was to process this file using a python script to create a direct\n> graph of dependencies (using networkx). In the process non R packages are\n> removed and some dependencies are cleaned (e.g. -devel packages direct to the\n> source package).\n\nNice! What if we create a group \"R\" on Pagure and a repo\n\"fedora-scripts\" or something like that?\n\n> The advantage of this is that it allows to identify cycles.\n>\n> My only surprise in this process was to find that several packages require R-\n> rpm-macros.\n>\n> That causes some dependency cycles because R-rpm-macros also requires\n> R-rprintf,R-devel,R-knitr,R-stringi,R-testthat.\n\nAre these the packages that require R-rpm-macros or others?\n\n> Since R-rpm-macros is used for Fedora and epel 8 I suggest to remove the\n> dependency. Do you agree?\n\nThe packages are most probably maintained by Elliott, right? He would\nknow better why they have this dependency.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Fri, 3 Jul 2020 at 19:03, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Monday, 29 June 2020 13.46.02 WEST I?aki Ucar wrote:\n> > But the mass rebuild process is very different, because rele",
+      "thread_id": "thread-2b0107202d18",
+      "thread_depth": 1,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-c8b3e45c171d",
+      "message_id": "<CAJP_izfiHrtvK3mPdW9PYmifXgn9tx59=AB0XE4dFt9mBMNL8A@mail.gmail.com>",
+      "from_name": "Elliott Sales de Andrade",
+      "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
+      "date": "2020-07-03T18:06:43-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<7818695.NyiUUSuA9g@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<2491154.BddDVKsqQX@myth>",
+        "<CALEXWq3CHTOta-gjajcmGUeX8R+drQTGn_pLHZRyh3DhgcA4eg@mail.gmail.com>",
+        "<7818695.NyiUUSuA9g@myth>"
+      ],
+      "body_plain": "On Fri, 3 Jul 2020 at 13:03, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Monday, 29 June 2020 13.46.02 WEST I?aki Ucar wrote:\n> > But the mass rebuild process is very different, because releng doesn't\n> > follow any particular order (they don't need to, because nothing\n> > really changed).\n> >\n> > The question is whether there is any tool to resolve dependencies and\n> > generate a list of builds, as I do with the CRAN database, for an\n> > arbitrary list of RPMs. That would be perfect. In theory, this should\n> > be possible with dnf, but when I tried, I failed (or my script would\n> > theoretically work, but it would take ages to complete). I also took a\n> > look at releng's repos on Pagure, but I didn't find any tool to do\n> > this either.\n> >\n> > We should bring this to devel, maybe ask Miro and other Python folks\n> > who may have The Method(TM), as they are rebuilding stuff on a daily\n> > basis.\n>\n> I think that I meant the way that the python packages are rebuilt for each new\n> python version. I should have said Python mass rebuild.\n>\n> I took your work as the basis, together with Tom's help and I used dnf to get\n> a list of R packages (assuming that their name starts with R- ). The advantage\n> of this approach is that it works for CRAN and Bioconductor.\n>\n> $ dnf list available --disablerepo=\\* --enablerepo=rawhide-source R-* | tail -\n> n +3 | awk -e '{print $1};' | sed -e 's/\\.src$//' > r-packages.txt\n>\n> That gave the list of the (source) packages to rebuild.\n>\n> In order to get the list of dependencies I used a similar strategy:\n> $ (for p in $(cat r-packages.txt); do echo -n $p, ; dnf -q repoquery --\n> disablerepo=\\* --enablerepo=rawhide-source --requires $p | sed ':a;N;$!ba;s/\n> \\n/,/g'; done) > r-packages-dependencies.csv\n>\n> The resulting file is a csv file with the first column as the package and the\n> remaining columns as the dependencies.\n>\n> Now the idea was to process this file using a python script to create a direct\n> graph of dependencies (using networkx). In the process non R packages are\n> removed and some dependencies are cleaned (e.g. -devel packages direct to the\n> source package).\n>\n>\n> The advantage of this is that it allows to identify cycles.\n>\n> My only surprise in this process was to find that several packages require R-\n> rpm-macros.\n>\n> That causes some dependency cycles because R-rpm-macros also requires\n> R-rprintf,R-devel,R-knitr,R-stringi,R-testthat.\n>\n\nYour process must have an error, because R-rpm-macros only Requires\nR-core. It also BuildRequires nothing.\n\nR-devel depends on R-rpm-macros, and this is intended, in order to\npull in automated dependency generators. If anything else directly\nrequires R-rpm-macros, that is an error, and these are all in packages\nI don't own.\n\n> Since R-rpm-macros is used for Fedora and epel 8 I suggest to remove the\n> dependency. Do you agree?\n>\n>\n> --\n> Jos? Ab?lio\n>\n\n-- \nElliott",
+      "body_snippet": "On Fri, 3 Jul 2020 at 13:03, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Monday, 29 June 2020 13.46.02 WEST I?aki Ucar wrote:\n> > But the mass rebuild process is very different, because rele",
+      "thread_id": "thread-2b0107202d18",
+      "thread_depth": 1,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-9f79e2fe32c1",
+      "message_id": "<5081827.Sb9uPGUboI@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-04T00:30:44+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CAJP_izfiHrtvK3mPdW9PYmifXgn9tx59=AB0XE4dFt9mBMNL8A@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<7818695.NyiUUSuA9g@myth>",
+        "<CAJP_izfiHrtvK3mPdW9PYmifXgn9tx59=AB0XE4dFt9mBMNL8A@mail.gmail.com>"
+      ],
+      "body_plain": "[Apologies if this message is a dupe but I do not find evidence of the other \nmessage I wrote]\n\nOn Friday, 3 July 2020 23.06.43 WEST Elliott Sales de Andrade wrote:\n> Your process must have an error, because R-rpm-macros only Requires\n> R-core. It also BuildRequires nothing.\n\nYou are right.\nThis caught a blind spot in my shell script. If there are no dependencies the \nscript does not change line and thus R-rpm-macros and R-rprintf entries were \nmerged.\n\n> R-devel depends on R-rpm-macros, and this is intended, in order to\n> pull in automated dependency generators. If anything else directly\n> requires R-rpm-macros, that is an error, and these are all in packages\n> I don't own.\n\nThere are several Rccp related packages that require R-rpm-macros. Currently \nit is no-op so not a problem although it is unnecessary.\n\nRegards,\n-- \nJos? Ab?lio",
+      "body_snippet": "[Apologies if this message is a dupe but I do not find evidence of the other \nmessage I wrote]\n\nOn Friday, 3 July 2020 23.06.43 WEST Elliott Sales de Andrade wrote:\n> Your process must have an error, ",
+      "thread_id": "thread-2b0107202d18",
+      "thread_depth": 2,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-aa3f524dcc9d",
+      "message_id": "<1848215.usQuhbGJ8B@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-06T15:39:36+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>"
+      ],
+      "body_plain": "On Tuesday, 9 June 2020 03.40.52 WEST Tom Callaway wrote:\n> Over the last several days, I've been working hard to get all of the Fedora\n> R packages rebuilt against R 4.0 in rawhide (in the F33-R-4 side tag). With\n> the exception of R-biomaRt, R-BSgenome, R-GenomicAlignments, and\n> R-rtracklayer, I believe everything is built and updated to the latest\n> versions. And of those packages, they're all ready to go when Fedora\n> infrastructure is working reliably again (the great datacenter migration\n> has started and I can no longer git push). I'll also push R 4.0.1 into the\n> tag when that's possible.\n\nIn line with what we discussed here I have the updates for R 4.0.2 ready.\n\nThe exception is R-BiocFileCache and in that line R-biomaRt. They have an \nasterisk in front of them because of that.\n\nThe packages that were rebuilt are in the list attached, together with the \nrespective build order.\n\nI pushed an update to updates-testing where I disabled the automatic \npush (both karma and time based).\n\nReport problems either here or on bodhi:\nhttps://bodhi.fedoraproject.org/updates/FEDORA-2020-4c0ce71810\n\nBest regards,\n-- \nJos? Ab?lio\n\n-------------- next part --------------\nAn embedded and charset-unspecified text was scrubbed...\nName: build-list.txt\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20200706/96f841b2/attachment.txt>",
+      "body_snippet": "On Tuesday, 9 June 2020 03.40.52 WEST Tom Callaway wrote:\n> Over the last several days, I've been working hard to get all of the Fedora\n> R packages rebuilt against R 4.0 in rawhide (in the F33-R-4 si",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 0,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-44ef06c8f9ac",
+      "message_id": "<CALEXWq3mDDv8oMfEUgJ7d7fHUBKafXfNMRtCqie+z-NLShGH9g@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-07-06T19:34:55+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<1848215.usQuhbGJ8B@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<1848215.usQuhbGJ8B@myth>"
+      ],
+      "body_plain": "On Mon, 6 Jul 2020 at 16:40, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Tuesday, 9 June 2020 03.40.52 WEST Tom Callaway wrote:\n> > Over the last several days, I've been working hard to get all of the Fedora\n> > R packages rebuilt against R 4.0 in rawhide (in the F33-R-4 side tag). With\n> > the exception of R-biomaRt, R-BSgenome, R-GenomicAlignments, and\n> > R-rtracklayer, I believe everything is built and updated to the latest\n> > versions. And of those packages, they're all ready to go when Fedora\n> > infrastructure is working reliably again (the great datacenter migration\n> > has started and I can no longer git push). I'll also push R 4.0.1 into the\n> > tag when that's possible.\n>\n> In line with what we discussed here I have the updates for R 4.0.2 ready.\n>\n> The exception is R-BiocFileCache and in that line R-biomaRt. They have an\n> asterisk in front of them because of that.\n>\n> The packages that were rebuilt are in the list attached, together with the\n> respective build order.\n>\n> I pushed an update to updates-testing where I disabled the automatic\n> push (both karma and time based).\n>\n> Report problems either here or on bodhi:\n> https://bodhi.fedoraproject.org/updates/FEDORA-2020-4c0ce71810\n\n[Sorry for the dupe, I didn't hit \"reply all\"]\n\nWonderful! Now I have 15k packages to rebuild. :)\n\nHave you thought about creating an \"R\" group in Pagure and toss the\nscripts you used into a repo?\n\n-- \nI?aki ?car",
+      "body_snippet": "On Mon, 6 Jul 2020 at 16:40, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Tuesday, 9 June 2020 03.40.52 WEST Tom Callaway wrote:\n> > Over the last several days, I've been working hard to get ",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 1,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-2b8e82bd74b4",
+      "message_id": "<CACp8Zr+9wsTdknDDBFhoJ7r4y65v+Pd+1mjPf5qKh=vppyE=xQ@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "4c62ad279bd6222ba841f6ee81e7796b9d37828a7872803f2e701c687ad903ea",
+      "date": "2020-07-06T16:08:53-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<1848215.usQuhbGJ8B@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<1848215.usQuhbGJ8B@myth>"
+      ],
+      "body_plain": "R-BiocFileCache is now branched for f32 (finally). You should be able to\nbuild it if/when the PDC comes back up. Lotta random outages right now.\n\nTom\n\nOn Mon, Jul 6, 2020 at 10:40 AM Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n\n> On Tuesday, 9 June 2020 03.40.52 WEST Tom Callaway wrote:\n> > Over the last several days, I've been working hard to get all of the\n> Fedora\n> > R packages rebuilt against R 4.0 in rawhide (in the F33-R-4 side tag).\n> With\n> > the exception of R-biomaRt, R-BSgenome, R-GenomicAlignments, and\n> > R-rtracklayer, I believe everything is built and updated to the latest\n> > versions. And of those packages, they're all ready to go when Fedora\n> > infrastructure is working reliably again (the great datacenter migration\n> > has started and I can no longer git push). I'll also push R 4.0.1 into\n> the\n> > tag when that's possible.\n>\n> In line with what we discussed here I have the updates for R 4.0.2 ready.\n>\n> The exception is R-BiocFileCache and in that line R-biomaRt. They have an\n> asterisk in front of them because of that.\n>\n> The packages that were rebuilt are in the list attached, together with the\n> respective build order.\n>\n> I pushed an update to updates-testing where I disabled the automatic\n> push (both karma and time based).\n>\n> Report problems either here or on bodhi:\n> https://bodhi.fedoraproject.org/updates/FEDORA-2020-4c0ce71810\n>\n> Best regards,\n> --\n> Jos? Ab?lio\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "R-BiocFileCache is now branched for f32 (finally). You should be able to\nbuild it if/when the PDC comes back up. Lotta random outages right now.\n\nTom\n\nOn Mon, Jul 6, 2020 at 10:40 AM Jos? Ab?lio Matos",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 1,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-50744042d56a",
+      "message_id": "<2730429.e9J7NaK4W3@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-07T11:37:52+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CACp8Zr+9wsTdknDDBFhoJ7r4y65v+Pd+1mjPf5qKh=vppyE=xQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<1848215.usQuhbGJ8B@myth>",
+        "<CACp8Zr+9wsTdknDDBFhoJ7r4y65v+Pd+1mjPf5qKh=vppyE=xQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Monday, 6 July 2020 21.08.53 WEST Tom Callaway wrote:\n> R-BiocFileCache is now branched for f32 (finally). You should be able to\n> build it if/when the PDC comes back up. Lotta random outages right now.\n> \n> Tom\n\nI have re/built them using the side tag but I do not see how to add them to the \n(bodhi) update.\nI would like to add R-BiocFileCache and R-biomaRt to the update to finish the \nprocess.\n\nI see that Elliot added three new packages there (thank you) but when I edit the \nupdate I do not see any field to add new packages, or even to change the existing.\n\n-- \nJos? Ab?lio\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On Monday, 6 July 2020 21.08.53 WEST Tom Callaway wrote:\n> R-BiocFileCache is now branched for f32 (finally). You should be able to\n> build it if/when the PDC comes back up. Lotta random outages right",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 2,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-0e04e3a30d5d",
+      "message_id": "<CALEXWq3QDjSuROs3aafHU3efdMvjEFv+Snk+Krhk_zb3TPh2ew@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-07-07T12:44:48+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<2730429.e9J7NaK4W3@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<1848215.usQuhbGJ8B@myth>",
+        "<CACp8Zr+9wsTdknDDBFhoJ7r4y65v+Pd+1mjPf5qKh=vppyE=xQ@mail.gmail.com>",
+        "<2730429.e9J7NaK4W3@myth>"
+      ],
+      "body_plain": "On Tue, 7 Jul 2020 at 12:38, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Monday, 6 July 2020 21.08.53 WEST Tom Callaway wrote:\n> > R-BiocFileCache is now branched for f32 (finally). You should be able to\n> > build it if/when the PDC comes back up. Lotta random outages right now.\n> >\n> > Tom\n>\n> I have re/built them using the side tag but I do not see how to add them to the\n> (bodhi) update.\n> I would like to add R-BiocFileCache and R-biomaRt to the update to finish the\n> process.\n>\n> I see that Elliot added three new packages there (thank you) but when I edit the\n> update I do not see any field to add new packages, or even to change the existing.\n\nTry with the CLI (see \"man bodhi\"):\n\n$ bodhi updates edit <update> --addbuilds <builds>\n\nBTW, could we coordinate to merge this into stable when I finish\nrebuilding stuff in Copr?\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 7 Jul 2020 at 12:38, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Monday, 6 July 2020 21.08.53 WEST Tom Callaway wrote:\n> > R-BiocFileCache is now branched for f32 (finally). You shou",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 3,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-d5f1d3234f00",
+      "message_id": "<CALEXWq2ExY6NPhMURVhweVtp8b6SWJQ6at8-Q5y6JGOijXVk6g@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-07-07T15:04:14+02:00",
+      "subject": "[R-sig-Fedora] R package RPMs for Fedora",
+      "subject_clean": "R package RPMs for Fedora",
+      "in_reply_to": "<CALEXWq2Pv1Pp8xOzXmTDm572J7Ad1c=uFdrCj71McAkiPn_PYA@mail.gmail.com>",
+      "references": [
+        "<CALEXWq2Pv1Pp8xOzXmTDm572J7Ad1c=uFdrCj71McAkiPn_PYA@mail.gmail.com>"
+      ],
+      "body_plain": "FYI, the CRAN page has been updated. Now, we have:\n\nhttps://cran.r-project.org/bin/linux/fedora\nhttps://cran.r-project.org/bin/linux/redhat\n\nThe second one is just a symlink to the first one.\n\nI?aki\n\n\nOn Mon, 4 May 2020 at 15:14, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> Hi all,\n>\n> Three months ago, I wrote to Martyn Plummer (to his Warwick email) and\n> offered my help to maintain and modernize this [1] rather updated\n> README, but received no response. Does anyone know how to reach him,\n> or maybe I should contact CRAN directly?\n>\n> [1] https://cran.r-project.org/bin/linux/redhat/README\n>\n> Regards,\n> --\n> I?aki ?car\n\n\n\n--\nI?aki ?car",
+      "body_snippet": "FYI, the CRAN page has been updated. Now, we have:\n\nhttps://cran.r-project.org/bin/linux/fedora\nhttps://cran.r-project.org/bin/linux/redhat\n\nThe second one is just a symlink to the first one.\n\nI?aki\n\n",
+      "thread_id": "thread-d5f1d3234f00",
+      "thread_depth": 0,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-b4e116d44a89",
+      "message_id": "<CANA0HMZmepGBH2x3Lm-SKY_gBearCMnynQpy=4o1yFN2qqzwgA@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "b0864efc945ad746d5bce55bf7c4d85fa011a673c705bb017c133f1ae5ab7506",
+      "date": "2020-07-07T09:11:02-04:00",
+      "subject": "[R-sig-Fedora] R package RPMs for Fedora",
+      "subject_clean": "R package RPMs for Fedora",
+      "in_reply_to": "<CALEXWq2ExY6NPhMURVhweVtp8b6SWJQ6at8-Q5y6JGOijXVk6g@mail.gmail.com>",
+      "references": [
+        "<CALEXWq2Pv1Pp8xOzXmTDm572J7Ad1c=uFdrCj71McAkiPn_PYA@mail.gmail.com>",
+        "<CALEXWq2ExY6NPhMURVhweVtp8b6SWJQ6at8-Q5y6JGOijXVk6g@mail.gmail.com>"
+      ],
+      "body_plain": "Nice work.\n\nTom\n\nOn Tue, Jul 7, 2020, 9:05 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n\n> FYI, the CRAN page has been updated. Now, we have:\n>\n> https://cran.r-project.org/bin/linux/fedora\n> https://cran.r-project.org/bin/linux/redhat\n>\n> The second one is just a symlink to the first one.\n>\n> I?aki\n>\n>\n> On Mon, 4 May 2020 at 15:14, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > Hi all,\n> >\n> > Three months ago, I wrote to Martyn Plummer (to his Warwick email) and\n> > offered my help to maintain and modernize this [1] rather updated\n> > README, but received no response. Does anyone know how to reach him,\n> > or maybe I should contact CRAN directly?\n> >\n> > [1] https://cran.r-project.org/bin/linux/redhat/README\n> >\n> > Regards,\n> > --\n> > I?aki ?car\n>\n>\n>\n> --\n> I?aki ?car\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Nice work.\n\nTom\n\nOn Tue, Jul 7, 2020, 9:05 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n\n> FYI, the CRAN page has been updated. Now, we have:\n>\n> https://cran.r-project.org/bin/linux/fedora\n> htt",
+      "thread_id": "thread-d5f1d3234f00",
+      "thread_depth": 1,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-91efa2ce1d05",
+      "message_id": "<3238970.QJadu78ljV@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-07T14:58:04+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq3QDjSuROs3aafHU3efdMvjEFv+Snk+Krhk_zb3TPh2ew@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<2730429.e9J7NaK4W3@myth>",
+        "<CALEXWq3QDjSuROs3aafHU3efdMvjEFv+Snk+Krhk_zb3TPh2ew@mail.gmail.com>"
+      ],
+      "body_plain": "On Tuesday, 7 July 2020 11.44.48 WEST I?aki Ucar wrote:\n> Try with the CLI (see \"man bodhi\"):\n> \n> $ bodhi updates edit <update> --addbuilds <builds>\n\nI found that the best call in this case is instead of --addbuilds to use\n--from-tag since then \"this will update the builds to the latest ones in the \ntag.\"\n\n> BTW, could we coordinate to merge this into stable when I finish\n> rebuilding stuff in Copr?\n\nSure. I am in no rush to submit this to stable. :-)\n\n-- \nJos? Ab?lio",
+      "body_snippet": "On Tuesday, 7 July 2020 11.44.48 WEST I?aki Ucar wrote:\n> Try with the CLI (see \"man bodhi\"):\n> \n> $ bodhi updates edit <update> --addbuilds <builds>\n\nI found that the best call in this case is instea",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 4,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-d47ae706d596",
+      "message_id": "<21842842.6Emhk5qWAg@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-07T14:58:58+01:00",
+      "subject": "[R-sig-Fedora] R package RPMs for Fedora",
+      "subject_clean": "R package RPMs for Fedora",
+      "in_reply_to": "<CANA0HMZmepGBH2x3Lm-SKY_gBearCMnynQpy=4o1yFN2qqzwgA@mail.gmail.com>",
+      "references": [
+        "<CALEXWq2Pv1Pp8xOzXmTDm572J7Ad1c=uFdrCj71McAkiPn_PYA@mail.gmail.com>",
+        "<CALEXWq2ExY6NPhMURVhweVtp8b6SWJQ6at8-Q5y6JGOijXVk6g@mail.gmail.com>",
+        "<CANA0HMZmepGBH2x3Lm-SKY_gBearCMnynQpy=4o1yFN2qqzwgA@mail.gmail.com>"
+      ],
+      "body_plain": "On Tuesday, 7 July 2020 14.11.02 WEST Tom Callaway wrote:\n> Nice work.\n> \n> Tom\n\nI agree. :-)\n\n-- \nJos? Ab?lio",
+      "body_snippet": "On Tuesday, 7 July 2020 14.11.02 WEST Tom Callaway wrote:\n> Nice work.\n> \n> Tom\n\nI agree. :-)\n\n-- \nJos? Ab?lio",
+      "thread_id": "thread-d5f1d3234f00",
+      "thread_depth": 2,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-976ca7ce00fb",
+      "message_id": "<CALEXWq1WWoBK_CAeCnv5joTrctKy=M=gYSihZNbfP3n_qK9hyg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-07-07T16:15:06+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<3238970.QJadu78ljV@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<2730429.e9J7NaK4W3@myth>",
+        "<CALEXWq3QDjSuROs3aafHU3efdMvjEFv+Snk+Krhk_zb3TPh2ew@mail.gmail.com>",
+        "<3238970.QJadu78ljV@myth>"
+      ],
+      "body_plain": "On Tue, 7 Jul 2020 at 15:58, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Tuesday, 7 July 2020 11.44.48 WEST I?aki Ucar wrote:\n> > Try with the CLI (see \"man bodhi\"):\n> >\n> > $ bodhi updates edit <update> --addbuilds <builds>\n>\n> I found that the best call in this case is instead of --addbuilds to use\n> --from-tag since then \"this will update the builds to the latest ones in the\n> tag.\"\n>\n> > BTW, could we coordinate to merge this into stable when I finish\n> > rebuilding stuff in Copr?\n>\n> Sure. I am in no rush to submit this to stable. :-)\n\nGreat, I already started. I'll keep you posted.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 7 Jul 2020 at 15:58, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Tuesday, 7 July 2020 11.44.48 WEST I?aki Ucar wrote:\n> > Try with the CLI (see \"man bodhi\"):\n> >\n> > $ bodhi updates ",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 5,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-296e0e1ed4d9",
+      "message_id": "<CAJP_izcvDzbDON3PoJyOkg+hD_m2e73S2JhwofgKG1D4N3w8MA@mail.gmail.com>",
+      "from_name": "Elliott Sales de Andrade",
+      "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
+      "date": "2020-07-09T03:41:39-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<3238970.QJadu78ljV@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<2730429.e9J7NaK4W3@myth>",
+        "<CALEXWq3QDjSuROs3aafHU3efdMvjEFv+Snk+Krhk_zb3TPh2ew@mail.gmail.com>",
+        "<3238970.QJadu78ljV@myth>"
+      ],
+      "body_plain": "On Tue, 7 Jul 2020 at 09:58, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Tuesday, 7 July 2020 11.44.48 WEST I?aki Ucar wrote:\n> > Try with the CLI (see \"man bodhi\"):\n> >\n> > $ bodhi updates edit <update> --addbuilds <builds>\n>\n> I found that the best call in this case is instead of --addbuilds to use\n> --from-tag since then \"this will update the builds to the latest ones in the\n> tag.\"\n>\n\nNote, if the side tag was turned into an update, you need to tag new\nbuilds into f32-updates-candidate first. I've done that for:\n* R-biomaRt-2.44.0-1.fc32\n* R-BiocFileCache-1.12.0-2.fc32\n* rpy-3.3.5-1.fc32\n\n> > BTW, could we coordinate to merge this into stable when I finish\n> > rebuilding stuff in Copr?\n>\n> Sure. I am in no rush to submit this to stable. :-)\n>\n> --\n> Jos? Ab?lio\n>\n\n-- \nElliott",
+      "body_snippet": "On Tue, 7 Jul 2020 at 09:58, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Tuesday, 7 July 2020 11.44.48 WEST I?aki Ucar wrote:\n> > Try with the CLI (see \"man bodhi\"):\n> >\n> > $ bodhi updates ",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 5,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-f740da6ff892",
+      "message_id": "<3065821.44csPzL39Z@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-09T19:17:24+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CAJP_izcvDzbDON3PoJyOkg+hD_m2e73S2JhwofgKG1D4N3w8MA@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<3238970.QJadu78ljV@myth>",
+        "<CAJP_izcvDzbDON3PoJyOkg+hD_m2e73S2JhwofgKG1D4N3w8MA@mail.gmail.com>"
+      ],
+      "body_plain": "On Thursday, 9 July 2020 08.41.39 WEST Elliott Sales de Andrade wrote:\n> Note, if the side tag was turned into an update, you need to tag new\n> builds into f32-updates-candidate first. I've done that for:\n> * R-biomaRt-2.44.0-1.fc32\n> * R-BiocFileCache-1.12.0-2.fc32\n> * rpy-3.3.5-1.fc32\n\nThank you Elliot.\n\n-- \nJos? Ab?lio",
+      "body_snippet": "On Thursday, 9 July 2020 08.41.39 WEST Elliott Sales de Andrade wrote:\n> Note, if the side tag was turned into an update, you need to tag new\n> builds into f32-updates-candidate first. I've done that ",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 6,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-55325e9187d7",
+      "message_id": "<CALEXWq0udt0BVUM3cjbkmCJKqQaWwwsyofwzb-sMvKveFPrehQ@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-07-09T22:25:05+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq1WWoBK_CAeCnv5joTrctKy=M=gYSihZNbfP3n_qK9hyg@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<2730429.e9J7NaK4W3@myth>",
+        "<CALEXWq3QDjSuROs3aafHU3efdMvjEFv+Snk+Krhk_zb3TPh2ew@mail.gmail.com>",
+        "<3238970.QJadu78ljV@myth>",
+        "<CALEXWq1WWoBK_CAeCnv5joTrctKy=M=gYSihZNbfP3n_qK9hyg@mail.gmail.com>"
+      ],
+      "body_plain": "On Tue, 7 Jul 2020 at 16:15, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Tue, 7 Jul 2020 at 15:58, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n> >\n> > On Tuesday, 7 July 2020 11.44.48 WEST I?aki Ucar wrote:\n> > > Try with the CLI (see \"man bodhi\"):\n> > >\n> > > $ bodhi updates edit <update> --addbuilds <builds>\n> >\n> > I found that the best call in this case is instead of --addbuilds to use\n> > --from-tag since then \"this will update the builds to the latest ones in the\n> > tag.\"\n> >\n> > > BTW, could we coordinate to merge this into stable when I finish\n> > > rebuilding stuff in Copr?\n> >\n> > Sure. I am in no rush to submit this to stable. :-)\n>\n> Great, I already started. I'll keep you posted.\n\nCRAN rebuilt on Copr. Ready to push to stable.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 7 Jul 2020 at 16:15, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Tue, 7 Jul 2020 at 15:58, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n> >\n> > On Tuesday, 7 July 2020 11.44.48 WES",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 6,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-c4176c69dd4b",
+      "message_id": "<12560113.uLZWGnKmhe@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-11T11:32:32+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq0udt0BVUM3cjbkmCJKqQaWwwsyofwzb-sMvKveFPrehQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq1WWoBK_CAeCnv5joTrctKy=M=gYSihZNbfP3n_qK9hyg@mail.gmail.com>",
+        "<CALEXWq0udt0BVUM3cjbkmCJKqQaWwwsyofwzb-sMvKveFPrehQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Thursday, 9 July 2020 21.25.05 WEST I?aki Ucar wrote:\n> CRAN rebuilt on Copr. Ready to push to stable.\n\nThe update also has the karma necessary to be pushed to stable.\n\nDoes any one has any objection for this to be pushed to stable?\n\nIf I do not hear until then I will push the update Monday night (Western \nEurope time zone, and yes we are in the Summer and the days are larger) in \ntime for the daily batch update.\n\nRegards,\n-- \nJos? Ab?lio",
+      "body_snippet": "On Thursday, 9 July 2020 21.25.05 WEST I?aki Ucar wrote:\n> CRAN rebuilt on Copr. Ready to push to stable.\n\nThe update also has the karma necessary to be pushed to stable.\n\nDoes any one has any objecti",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 7,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-6787b2374dfb",
+      "message_id": "<12561799.uLZWGnKmhe@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-14T00:18:11+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<12560113.uLZWGnKmhe@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq0udt0BVUM3cjbkmCJKqQaWwwsyofwzb-sMvKveFPrehQ@mail.gmail.com>",
+        "<12560113.uLZWGnKmhe@myth>"
+      ],
+      "body_plain": "On Saturday, 11 July 2020 11.32.32 WEST Jos? Ab?lio Matos wrote:\n> If I do not hear until then I will push the update Monday night (Western\n> Europe time zone.\n\nWell I tried but I did not succeeded both using the web interface and cli \ninterfaces:\n\nb\"<html><body><h1>504 Gateway Time-out</h1>\\nThe server didn't \nrespond in time.\\n</body></html>\\n\"\n\n-- \nJos? Ab?lio\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On Saturday, 11 July 2020 11.32.32 WEST Jos? Ab?lio Matos wrote:\n> If I do not hear until then I will push the update Monday night (Western\n> Europe time zone.\n\nWell I tried but I did not succeeded bo",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 8,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-f4bd4ec98f73",
+      "message_id": "<CALEXWq0Pd_sRBsviTvSQxFyekCS8Uuz57-tmB+Gpvis2KhC3bg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-07-14T10:47:55+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<12561799.uLZWGnKmhe@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq0udt0BVUM3cjbkmCJKqQaWwwsyofwzb-sMvKveFPrehQ@mail.gmail.com>",
+        "<12560113.uLZWGnKmhe@myth>",
+        "<12561799.uLZWGnKmhe@myth>"
+      ],
+      "body_plain": "On Tue, 14 Jul 2020 at 01:19, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Saturday, 11 July 2020 11.32.32 WEST Jos? Ab?lio Matos wrote:\n> > If I do not hear until then I will push the update Monday night (Western\n> > Europe time zone.\n>\n> Well I tried but I did not succeeded both using the web interface and cli\n> interfaces:\n>\n> b\"<html><body><h1>504 Gateway Time-out</h1>\\nThe server didn't\n> respond in time.\\n</body></html>\\n\"\n\nMaybe it's due to the size of the update? File an issue here:\nhttps://github.com/fedora-infra/bodhi/issues\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 14 Jul 2020 at 01:19, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Saturday, 11 July 2020 11.32.32 WEST Jos? Ab?lio Matos wrote:\n> > If I do not hear until then I will push the update",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 9,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-9b3a2d10f81d",
+      "message_id": "<1891732.usQuhbGJ8B@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-14T17:23:28+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq0Pd_sRBsviTvSQxFyekCS8Uuz57-tmB+Gpvis2KhC3bg@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<12561799.uLZWGnKmhe@myth>",
+        "<CALEXWq0Pd_sRBsviTvSQxFyekCS8Uuz57-tmB+Gpvis2KhC3bg@mail.gmail.com>"
+      ],
+      "body_plain": "On Tuesday, 14 July 2020 09.47.55 WEST I?aki Ucar wrote:\n> Maybe it's due to the size of the update? File an issue here:\n> https://github.com/fedora-infra/bodhi/issues\n\nBefore resorting to this I tried again and this time it worked.\n\nElliot before had already tried, I got an email message saying:\nbodhi - 2020-07-14 04:47:02.353824 (karma: 0)\nThis update has been submitted for stable by qulogic. \n\nNow I got another one saying:\nbodhi - 2020-07-14 16:11:38.021756 (karma: 0)\nThis update has been submitted for stable by jamatos. \n\nLet us see if it works this time. :-)\n-- \nJos? Ab?lio",
+      "body_snippet": "On Tuesday, 14 July 2020 09.47.55 WEST I?aki Ucar wrote:\n> Maybe it's due to the size of the update? File an issue here:\n> https://github.com/fedora-infra/bodhi/issues\n\nBefore resorting to this I trie",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 10,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-5722d7f342a5",
+      "message_id": "<CALEXWq0XL01wiDyDADOoFxyodr9b-Tpf0Yi+kSbY+eD-ihy_-Q@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-07-14T22:39:48+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<1891732.usQuhbGJ8B@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<12561799.uLZWGnKmhe@myth>",
+        "<CALEXWq0Pd_sRBsviTvSQxFyekCS8Uuz57-tmB+Gpvis2KhC3bg@mail.gmail.com>",
+        "<1891732.usQuhbGJ8B@myth>"
+      ],
+      "body_plain": "On Tue, 14 Jul 2020 at 18:24, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Tuesday, 14 July 2020 09.47.55 WEST I?aki Ucar wrote:\n> > Maybe it's due to the size of the update? File an issue here:\n> > https://github.com/fedora-infra/bodhi/issues\n>\n> Before resorting to this I tried again and this time it worked.\n>\n> Elliot before had already tried, I got an email message saying:\n> bodhi - 2020-07-14 04:47:02.353824 (karma: 0)\n> This update has been submitted for stable by qulogic.\n>\n> Now I got another one saying:\n> bodhi - 2020-07-14 16:11:38.021756 (karma: 0)\n> This update has been submitted for stable by jamatos.\n>\n> Let us see if it works this time. :-)\n\nGreat, thanks for all the work!\n\nFYI, anyway I opened an issue, because this is likely to hit us in the\nfuture unless it's resolved:\nhttps://github.com/fedora-infra/bodhi/issues/4083\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 14 Jul 2020 at 18:24, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Tuesday, 14 July 2020 09.47.55 WEST I?aki Ucar wrote:\n> > Maybe it's due to the size of the update? File an issue he",
+      "thread_id": "thread-aa3f524dcc9d",
+      "thread_depth": 11,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-bb078bab0bf1",
+      "message_id": "<CAFLvaCm7wifi7iWBPCfweAqPOYYC01atNTYhtVb5aHsBJjKs-Q@mail.gmail.com>",
+      "from_name": "Tim Taylor",
+      "from_email_hash": "e3071ae8257bda4085d8999a9801b324cc930f4864ac0aec1c44601958781446",
+      "date": "2020-07-15T09:46:54+01:00",
+      "subject": "[R-sig-Fedora] installing from copr after update",
+      "subject_clean": "installing from copr after update",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I've just updated to R 4.0.2 but am unsure how to get packages from the\nCOPR repository to update to those built under the new version of R.\nFI - I'm not currently using CoprManager just trying to update/install from\nterminal.\n\nRegards\n\nTim\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I've just updated to R 4.0.2 but am unsure how to get packages from the\nCOPR repository to update to those built under the new version of R.\nFI - I'm not currently using CoprManager just trying to upd",
+      "thread_id": "thread-bb078bab0bf1",
+      "thread_depth": 0,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-7c7854032c26",
+      "message_id": "<CALEXWq33FvXPwhijEf2uH9FMzoV6xKx208vqpTo0Y888PH2eEw@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-07-15T10:56:09+02:00",
+      "subject": "[R-sig-Fedora] installing from copr after update",
+      "subject_clean": "installing from copr after update",
+      "in_reply_to": "<CAFLvaCm7wifi7iWBPCfweAqPOYYC01atNTYhtVb5aHsBJjKs-Q@mail.gmail.com>",
+      "references": [
+        "<CAFLvaCm7wifi7iWBPCfweAqPOYYC01atNTYhtVb5aHsBJjKs-Q@mail.gmail.com>"
+      ],
+      "body_plain": "On Wed, 15 Jul 2020 at 10:47, Tim Taylor\n<tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> I've just updated to R 4.0.2 but am unsure how to get packages from the\n> COPR repository to update to those built under the new version of R.\n> FI - I'm not currently using CoprManager just trying to update/install from\n> terminal.\n\nThe Copr repo has been rebuilt under R 4.0.2. Maybe you need to\nrefresh the metadata to see those updates:\n\nsudo dnf upgrade --refresh\n\n-- \nI?aki ?car",
+      "body_snippet": "On Wed, 15 Jul 2020 at 10:47, Tim Taylor\n<tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> I've just updated to R 4.0.2 but am unsure how to get packages from the\n> COPR repository to update to those b",
+      "thread_id": "thread-bb078bab0bf1",
+      "thread_depth": 1,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-0bd5d1b986d7",
+      "message_id": "<CAFLvaC=aq0A3=kTCz+R5VN+a3j7L4pyoR4FbXt2nkYejnfdKdQ@mail.gmail.com>",
+      "from_name": "Tim Taylor",
+      "from_email_hash": "e3071ae8257bda4085d8999a9801b324cc930f4864ac0aec1c44601958781446",
+      "date": "2020-07-15T09:58:15+01:00",
+      "subject": "[R-sig-Fedora] installing from copr after update",
+      "subject_clean": "installing from copr after update",
+      "in_reply_to": "<CALEXWq33FvXPwhijEf2uH9FMzoV6xKx208vqpTo0Y888PH2eEw@mail.gmail.com>",
+      "references": [
+        "<CAFLvaCm7wifi7iWBPCfweAqPOYYC01atNTYhtVb5aHsBJjKs-Q@mail.gmail.com>",
+        "<CALEXWq33FvXPwhijEf2uH9FMzoV6xKx208vqpTo0Y888PH2eEw@mail.gmail.com>"
+      ],
+      "body_plain": "Apologies, that was it.  Thank you!\n\nOn Wed, 15 Jul 2020 at 09:56, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Wed, 15 Jul 2020 at 10:47, Tim Taylor\n> <tim.taylor at hiddenelephants.co.uk> wrote:\n> >\n> > I've just updated to R 4.0.2 but am unsure how to get packages from the\n> > COPR repository to update to those built under the new version of R.\n> > FI - I'm not currently using CoprManager just trying to update/install from\n> > terminal.\n>\n> The Copr repo has been rebuilt under R 4.0.2. Maybe you need to\n> refresh the metadata to see those updates:\n>\n> sudo dnf upgrade --refresh\n>\n> --\n> I?aki ?car",
+      "body_snippet": "Apologies, that was it.  Thank you!\n\nOn Wed, 15 Jul 2020 at 09:56, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Wed, 15 Jul 2020 at 10:47, Tim Taylor\n> <tim.taylor at hiddenelephants.co.uk> w",
+      "thread_id": "thread-bb078bab0bf1",
+      "thread_depth": 2,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-651a441bc5a1",
+      "message_id": "<4004305.mogB4TqSGs@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-21T16:04:49+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq1QXs4wi8AS0CgNxJJvjMur62jxBSY1DdYT-8wtO77j5w@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<7818695.NyiUUSuA9g@myth>",
+        "<CALEXWq1QXs4wi8AS0CgNxJJvjMur62jxBSY1DdYT-8wtO77j5w@mail.gmail.com>"
+      ],
+      "body_plain": "On Friday, 3 July 2020 18.36.17 WEST I?aki Ucar wrote:\n> Nice! What if we create a group \"R\" on Pagure and a repo\n> \"fedora-scripts\" or something like that?\n\nI would like to improve the scripts but FWIW here it comes a rough version of \nthe script I used.\n\nThe python script loads the csv file and constructs a directed graph and it \nstarts to remove the leave packages (pruning or trimming if you take a \ngardening analogy).\n\nThe csv files has the dependency of the packages. It is always possible to go \nto the packages that remain after the first stage and using a bootstrap mode \nto remove most of the dependencies and then to run the code again.\n\nThis procedure was enough to process all the packages.\n-- \nJos? Ab?lio\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: clean-deps.py\nType: text/x-python\nSize: 1675 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20200721/705e2cb4/attachment-0001.py>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: r-packages-dependencies.csv\nType: text/csv\nSize: 33479 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20200721/705e2cb4/attachment-0001.csv>",
+      "body_snippet": "On Friday, 3 July 2020 18.36.17 WEST I?aki Ucar wrote:\n> Nice! What if we create a group \"R\" on Pagure and a repo\n> \"fedora-scripts\" or something like that?\n\nI would like to improve the scripts but FW",
+      "thread_id": "thread-2b0107202d18",
+      "thread_depth": 2,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-9bb8390ef2ff",
+      "message_id": "<5603650.alqRGMn8q6@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-21T16:16:27+01:00",
+      "subject": "[R-sig-Fedora] Problem with the update to R 4.0.2 in the Fedora users' list",
+      "subject_clean": "Problem with the update to R 4.0.2 in the Fedora users' list",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "There was a thread this weekend in the fedora users' mailing list where a user \nhad problems updating R 4.0.2:\n\n\"non-rpm R libraries not accessible now w R v 4.0.x\"\nhttps://lists.fedoraproject.org/archives/list/users at lists.fedoraproject.org/\nthread/2FFST3GWZCNM45SX53VKB255TO4LOV4C/\n\nTLDR; as far as I can see the user had installed (as root) a package from cran \nand had installed the same package (R-here) from the Fedora repositories.\n\nSince the package were installed in different locations the package installed \nby the user appeared first and thus it won regarding the Fedora package. The \nonly problem was that the other package was installed using R 3.6 and thus the \nuser had the warning that seemed confusing.\n\nAre there any kind of tools to pick these cases or this is one of those corner \ncases that are not worth the trouble?\n\nBest regards,\n-- \nJos? Ab?lio",
+      "body_snippet": "There was a thread this weekend in the fedora users' mailing list where a user \nhad problems updating R 4.0.2:\n\n\"non-rpm R libraries not accessible now w R v 4.0.x\"\nhttps://lists.fedoraproject.org/arc",
+      "thread_id": "thread-9bb8390ef2ff",
+      "thread_depth": 0,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-519007cb36e3",
+      "message_id": "<CALEXWq2XEgzqaZJZh038qsNztbXegtBYotuQ8HrEqCUXRy4Mtw@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-07-21T17:38:39+02:00",
+      "subject": "[R-sig-Fedora] Problem with the update to R 4.0.2 in the Fedora users' list",
+      "subject_clean": "Problem with the update to R 4.0.2 in the Fedora users' list",
+      "in_reply_to": "<5603650.alqRGMn8q6@myth>",
+      "references": [
+        "<5603650.alqRGMn8q6@myth>"
+      ],
+      "body_plain": "On Tue, 21 Jul 2020 at 17:17, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> There was a thread this weekend in the fedora users' mailing list where a user\n> had problems updating R 4.0.2:\n>\n> \"non-rpm R libraries not accessible now w R v 4.0.x\"\n> https://lists.fedoraproject.org/archives/list/users at lists.fedoraproject.org/\n> thread/2FFST3GWZCNM45SX53VKB255TO4LOV4C/\n\nI don't follow that list, but I see you have everything under control, thanks.\n\n> TLDR; as far as I can see the user had installed (as root) a package from cran\n> and had installed the same package (R-here) from the Fedora repositories.\n>\n> Since the package were installed in different locations the package installed\n> by the user appeared first and thus it won regarding the Fedora package. The\n> only problem was that the other package was installed using R 3.6 and thus the\n> user had the warning that seemed confusing.\n>\n> Are there any kind of tools to pick these cases or this is one of those corner\n> cases that are not worth the trouble?\n\nIMO it's not worth the trouble. Users should never install packages as\nroot. That's it. This may sound harsh, but, if they do, then they\nshould know what they're doing, and it's their problem. This is like\nthe seals on the screws of an electronic device: we ship one\nconfiguration that works; we simply cannot foresee the countless ways\nto break it once you start tinkering with it. :)\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 21 Jul 2020 at 17:17, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> There was a thread this weekend in the fedora users' mailing list where a user\n> had problems updating R 4.0.2:\n>\n> \"no",
+      "thread_id": "thread-9bb8390ef2ff",
+      "thread_depth": 1,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-a7df6efcf64b",
+      "message_id": "<CANA0HMamx_2ewOe1BSqxSSu8N4cvF5-T04JRrF7Xb7=A4pk-Jw@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "b0864efc945ad746d5bce55bf7c4d85fa011a673c705bb017c133f1ae5ab7506",
+      "date": "2020-07-21T11:43:31-04:00",
+      "subject": "[R-sig-Fedora] Problem with the update to R 4.0.2 in the Fedora users' list",
+      "subject_clean": "Problem with the update to R 4.0.2 in the Fedora users' list",
+      "in_reply_to": "<CALEXWq2XEgzqaZJZh038qsNztbXegtBYotuQ8HrEqCUXRy4Mtw@mail.gmail.com>",
+      "references": [
+        "<5603650.alqRGMn8q6@myth>",
+        "<CALEXWq2XEgzqaZJZh038qsNztbXegtBYotuQ8HrEqCUXRy4Mtw@mail.gmail.com>"
+      ],
+      "body_plain": "I'm inclined to agree. Users are expecting that things they install\nmanually will override the system default (if any).\n\nTom\n\nOn Tue, Jul 21, 2020, 11:39 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n\n> On Tue, 21 Jul 2020 at 17:17, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n> >\n> > There was a thread this weekend in the fedora users' mailing list where\n> a user\n> > had problems updating R 4.0.2:\n> >\n> > \"non-rpm R libraries not accessible now w R v 4.0.x\"\n> >\n> https://lists.fedoraproject.org/archives/list/users at lists.fedoraproject.org/\n> > thread/2FFST3GWZCNM45SX53VKB255TO4LOV4C/\n>\n> I don't follow that list, but I see you have everything under control,\n> thanks.\n>\n> > TLDR; as far as I can see the user had installed (as root) a package\n> from cran\n> > and had installed the same package (R-here) from the Fedora repositories.\n> >\n> > Since the package were installed in different locations the package\n> installed\n> > by the user appeared first and thus it won regarding the Fedora package.\n> The\n> > only problem was that the other package was installed using R 3.6 and\n> thus the\n> > user had the warning that seemed confusing.\n> >\n> > Are there any kind of tools to pick these cases or this is one of those\n> corner\n> > cases that are not worth the trouble?\n>\n> IMO it's not worth the trouble. Users should never install packages as\n> root. That's it. This may sound harsh, but, if they do, then they\n> should know what they're doing, and it's their problem. This is like\n> the seals on the screws of an electronic device: we ship one\n> configuration that works; we simply cannot foresee the countless ways\n> to break it once you start tinkering with it. :)\n>\n> --\n> I?aki ?car\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I'm inclined to agree. Users are expecting that things they install\nmanually will override the system default (if any).\n\nTom\n\nOn Tue, Jul 21, 2020, 11:39 AM I?aki Ucar <iucar at fedoraproject.org> wro",
+      "thread_id": "thread-9bb8390ef2ff",
+      "thread_depth": 2,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-01a50be0cc3a",
+      "message_id": "<CALEXWq2oML8fPeaVHjGCPHE4gmo4Cod0XXBTUoLFi=yue0FVzg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-07-21T19:20:02+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<4004305.mogB4TqSGs@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<7818695.NyiUUSuA9g@myth>",
+        "<CALEXWq1QXs4wi8AS0CgNxJJvjMur62jxBSY1DdYT-8wtO77j5w@mail.gmail.com>",
+        "<4004305.mogB4TqSGs@myth>"
+      ],
+      "body_plain": "On Tue, 21 Jul 2020 at 17:05, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Friday, 3 July 2020 18.36.17 WEST I?aki Ucar wrote:\n> > Nice! What if we create a group \"R\" on Pagure and a repo\n> > \"fedora-scripts\" or something like that?\n>\n> I would like to improve the scripts but FWIW here it comes a rough version of\n> the script I used.\n>\n> The python script loads the csv file and constructs a directed graph and it\n> starts to remove the leave packages (pruning or trimming if you take a\n> gardening analogy).\n>\n> The csv files has the dependency of the packages. It is always possible to go\n> to the packages that remain after the first stage and using a bootstrap mode\n> to remove most of the dependencies and then to run the code again.\n>\n> This procedure was enough to process all the packages.\n\nLooks great! I've created an R group on Pagure and added you all\n(jamatos, qulogic, spot) to it (feel free to add anyone else that may\nbe interested). Please, create a repo there with these tools. I'll\ntransfer https://pagure.io/fedora-r-packages there too (if that's\npossible; or just mirror it if not).\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 21 Jul 2020 at 17:05, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Friday, 3 July 2020 18.36.17 WEST I?aki Ucar wrote:\n> > Nice! What if we create a group \"R\" on Pagure and a repo\n> >",
+      "thread_id": "thread-2b0107202d18",
+      "thread_depth": 3,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-0fdbf87f9fc4",
+      "message_id": "<2040803.Mh6RI2rZIc@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-07-23T17:57:21+01:00",
+      "subject": "[R-sig-Fedora] Problem with the update to R 4.0.2 in the Fedora users' list",
+      "subject_clean": "Problem with the update to R 4.0.2 in the Fedora users' list",
+      "in_reply_to": "<CANA0HMamx_2ewOe1BSqxSSu8N4cvF5-T04JRrF7Xb7=A4pk-Jw@mail.gmail.com>",
+      "references": [
+        "<5603650.alqRGMn8q6@myth>",
+        "<CALEXWq2XEgzqaZJZh038qsNztbXegtBYotuQ8HrEqCUXRy4Mtw@mail.gmail.com>",
+        "<CANA0HMamx_2ewOe1BSqxSSu8N4cvF5-T04JRrF7Xb7=A4pk-Jw@mail.gmail.com>"
+      ],
+      "body_plain": "On Tuesday, 21 July 2020 16.43.31 WEST Tom Callaway wrote:\n> I'm inclined to agree. Users are expecting that things they install\n> manually will override the system default (if any).\n> \n> Tom\n\nFWIW I agree with both of you.\n\nOTOH someone who never did that kind of error please raise your hand. :-)\n\nDoes anyone knows if there is some kind of packages repository lint that could \ncatch this type of problems.\n\n\nThose were the main points of this message.\nWhat comes next it is just me thinking aloud since I am not proposing any, \nimmediate or medium term, change this are just what I have been thinking for a \nlong time.\n\nOne way to avoid this kind of errors would be to have the library directories \nwith R version like I suggested in May. Searching for this on the web I see \nthat users (mostly from windows and mac backgrounds) have some tips where the \ndirectories that R version used to installed them is present in the name.\n\nThe recipes for upgrading were basically to take the names from installed \npackages, save it into an external (csv) file and then with the new R version \nto install those packages. In another context I do the same thing when I need \nto install a new computer with Fedora and to have it working as soon as \npossible:\n\n in the previous computer\n# rpm -qa --queryformat '%{name}\\n' | sort | uniq > packages-list.txt\n\n in the new computer\n# dnf install $(cat packages-list.txt)\n\nAnd voil? a new computer is ready will all the same packages as the previous \none.\n\nI still think that this is a better naming scheme but looking briefly into the \ninstalled packages I see that perl and ruby do not follow it.\n\nEnd of thinking aloud...\n-- \nJos? Ab?lio\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On Tuesday, 21 July 2020 16.43.31 WEST Tom Callaway wrote:\n> I'm inclined to agree. Users are expecting that things they install\n> manually will override the system default (if any).\n> \n> Tom\n\nFWIW I ",
+      "thread_id": "thread-9bb8390ef2ff",
+      "thread_depth": 3,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-de2c32b8d089",
+      "message_id": "<CAJP_izf5Lkgin5zm_WOvwyDbCWv91axte7C8xiNHtnybmyVwNg@mail.gmail.com>",
+      "from_name": "Elliott Sales de Andrade",
+      "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
+      "date": "2020-07-27T03:08:58-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<4004305.mogB4TqSGs@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<7818695.NyiUUSuA9g@myth>",
+        "<CALEXWq1QXs4wi8AS0CgNxJJvjMur62jxBSY1DdYT-8wtO77j5w@mail.gmail.com>",
+        "<4004305.mogB4TqSGs@myth>"
+      ],
+      "body_plain": "On Tue, 21 Jul 2020 at 11:05, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Friday, 3 July 2020 18.36.17 WEST I?aki Ucar wrote:\n> > Nice! What if we create a group \"R\" on Pagure and a repo\n> > \"fedora-scripts\" or something like that?\n>\n> I would like to improve the scripts but FWIW here it comes a rough version of\n> the script I used.\n>\n> The python script loads the csv file and constructs a directed graph and it\n> starts to remove the leave packages (pruning or trimming if you take a\n> gardening analogy).\n>\n\nI'm not exactly fluent in Haskell, but Jens Petersen has a tool called\nfbrnch [1], which is able to calculate the build order, and then\nsubmit them, and even handles override for non-Rawhide builds. It does\nneed you to handle some of the bootstrap conditions yourself, but with\na defined workflow, it might be possible to request that it handle\nthat too.\n\n> The csv files has the dependency of the packages. It is always possible to go\n> to the packages that remain after the first stage and using a bootstrap mode\n> to remove most of the dependencies and then to run the code again.\n>\n> This procedure was enough to process all the packages.\n> --\n> Jos? Ab?lio\n\n[1] https://github.com/juhp/fbrnch/\n\n-- \nElliott",
+      "body_snippet": "On Tue, 21 Jul 2020 at 11:05, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Friday, 3 July 2020 18.36.17 WEST I?aki Ucar wrote:\n> > Nice! What if we create a group \"R\" on Pagure and a repo\n> >",
+      "thread_id": "thread-2b0107202d18",
+      "thread_depth": 3,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-69865722a422",
+      "message_id": "<CALEXWq03SjEmLa98sxoCnZ-Hk+ctheS=h-QC9uVvU4zL28hOUg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-07-27T10:25:01+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CAJP_izf5Lkgin5zm_WOvwyDbCWv91axte7C8xiNHtnybmyVwNg@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<7818695.NyiUUSuA9g@myth>",
+        "<CALEXWq1QXs4wi8AS0CgNxJJvjMur62jxBSY1DdYT-8wtO77j5w@mail.gmail.com>",
+        "<4004305.mogB4TqSGs@myth>",
+        "<CAJP_izf5Lkgin5zm_WOvwyDbCWv91axte7C8xiNHtnybmyVwNg@mail.gmail.com>"
+      ],
+      "body_plain": "On Mon, 27 Jul 2020 at 09:09, Elliott Sales de Andrade\n<quantum.analyst at gmail.com> wrote:\n>\n> On Tue, 21 Jul 2020 at 11:05, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n> >\n> > On Friday, 3 July 2020 18.36.17 WEST I?aki Ucar wrote:\n> > > Nice! What if we create a group \"R\" on Pagure and a repo\n> > > \"fedora-scripts\" or something like that?\n> >\n> > I would like to improve the scripts but FWIW here it comes a rough version of\n> > the script I used.\n> >\n> > The python script loads the csv file and constructs a directed graph and it\n> > starts to remove the leave packages (pruning or trimming if you take a\n> > gardening analogy).\n> >\n>\n> I'm not exactly fluent in Haskell, but Jens Petersen has a tool called\n> fbrnch [1], which is able to calculate the build order, and then\n> submit them, and even handles override for non-Rawhide builds. It does\n> need you to handle some of the bootstrap conditions yourself, but with\n> a defined workflow, it might be possible to request that it handle\n> that too.\n\nVery interesting! I poked around a bit and discovered that they use a\nHaskell library [1] for that, and a quick search led me to a package\ncalled rpmbuild-order [2]. Never heard of it. So\n\n$ rpmbuild-order sort pkg1 pkg2 pkg3 ...\n\nworks nicely. It works by scanning for the packages' SPEC files in the\ncurrent working directory, so you need to clone all the repos locally\nin the first place.\n\n[1] https://github.com/juhp/fbrnch/blob/d37825c1012d35ae3277d0d0185bd55213fdecd2/src/Cmd/Local.hs#L10\n[2] https://hackage.haskell.org/package/rpmbuild-order\n\n-- \nI?aki ?car",
+      "body_snippet": "On Mon, 27 Jul 2020 at 09:09, Elliott Sales de Andrade\n<quantum.analyst at gmail.com> wrote:\n>\n> On Tue, 21 Jul 2020 at 11:05, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n> >\n> > On Friday, 3 July ",
+      "thread_id": "thread-2b0107202d18",
+      "thread_depth": 4,
+      "month": "2020-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-bcf502463613",
+      "subject": "R 4.0.0 rebuild status",
+      "message_count": 1,
+      "participants": [
+        "José Abílio Matos"
+      ],
+      "started": "2020-07-03T17:28:32+01:00",
+      "last_reply": "2020-07-03T17:28:32+01:00",
+      "root_message_id": "msg-bcf502463613"
+    },
+    {
+      "id": "thread-2b0107202d18",
+      "subject": "R 4.0.0 rebuild status",
+      "message_count": 8,
+      "participants": [
+        "Elliott Sales de Andrade",
+        "Iñaki Ucar",
+        "José Abílio Matos"
+      ],
+      "started": "2020-07-03T18:03:16+01:00",
+      "last_reply": "2020-07-27T10:25:01+02:00",
+      "root_message_id": "msg-2b0107202d18"
+    },
+    {
+      "id": "thread-aa3f524dcc9d",
+      "subject": "R 4.0.0 rebuild status",
+      "message_count": 15,
+      "participants": [
+        "Elliott Sales de Andrade",
+        "Iñaki Ucar",
+        "José Abílio Matos",
+        "Tom Callaway"
+      ],
+      "started": "2020-07-06T15:39:36+01:00",
+      "last_reply": "2020-07-14T22:39:48+02:00",
+      "root_message_id": "msg-aa3f524dcc9d"
+    },
+    {
+      "id": "thread-d5f1d3234f00",
+      "subject": "R package RPMs for Fedora",
+      "message_count": 3,
+      "participants": [
+        "Iñaki Ucar",
+        "José Abílio Matos",
+        "Tom Callaway"
+      ],
+      "started": "2020-07-07T15:04:14+02:00",
+      "last_reply": "2020-07-07T14:58:58+01:00",
+      "root_message_id": "msg-d5f1d3234f00"
+    },
+    {
+      "id": "thread-bb078bab0bf1",
+      "subject": "installing from copr after update",
+      "message_count": 3,
+      "participants": [
+        "Iñaki Ucar",
+        "Tim Taylor"
+      ],
+      "started": "2020-07-15T09:46:54+01:00",
+      "last_reply": "2020-07-15T09:58:15+01:00",
+      "root_message_id": "msg-bb078bab0bf1"
+    },
+    {
+      "id": "thread-9bb8390ef2ff",
+      "subject": "Problem with the update to R 4.0.2 in the Fedora users' list",
+      "message_count": 4,
+      "participants": [
+        "Iñaki Ucar",
+        "José Abílio Matos",
+        "Tom Callaway"
+      ],
+      "started": "2020-07-21T16:16:27+01:00",
+      "last_reply": "2020-07-23T17:57:21+01:00",
+      "root_message_id": "msg-9bb8390ef2ff"
+    }
+  ]
+}

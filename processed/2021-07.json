@@ -1,0 +1,135 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2021-07",
+  "messages": [
+    {
+      "id": "msg-4a365e3c193a",
+      "message_id": "<CADdpgawrBwtdGq3pVd1Y4cpCXOcpekq3bAQdZdiOrL3a4CRpMQ@mail.gmail.com>",
+      "from_name": "Yifan Liu",
+      "from_email_hash": "c55216003e8ed40372fe29f327e8406fd29a01add76d11133ef8fd5c080670b6",
+      "date": "2021-07-12T00:01:13-05:00",
+      "subject": "[R-sig-Fedora] RStudio discounts with R when restarting R",
+      "subject_clean": "RStudio discounts with R when restarting R",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi All,\n\nI am currently using R 4.0.5 on RStudio 1.4.1717 on Fedora 34. When I\nrestart R (Ctrl + Shift + F10), RStudio will always discount with R. This\nissue occurs to my two computers and has been around for about one month.\nDid anyone experience the same issue?\n\nSincerely,\n\nYifan Liu\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi All,\n\nI am currently using R 4.0.5 on RStudio 1.4.1717 on Fedora 34. When I\nrestart R (Ctrl + Shift + F10), RStudio will always discount with R. This\nissue occurs to my two computers and has been a",
+      "thread_id": "thread-4a365e3c193a",
+      "thread_depth": 0,
+      "month": "2021-07"
+    },
+    {
+      "id": "msg-f02a0353260c",
+      "message_id": "<CALEXWq3oWKOLOMhkox+0OiJ3Dsg-R6FWpNVgC3CAx87Ns_pESQ@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-07-12T13:24:34+02:00",
+      "subject": "[R-sig-Fedora] RStudio discounts with R when restarting R",
+      "subject_clean": "RStudio discounts with R when restarting R",
+      "in_reply_to": "<CADdpgawrBwtdGq3pVd1Y4cpCXOcpekq3bAQdZdiOrL3a4CRpMQ@mail.gmail.com>",
+      "references": [
+        "<CADdpgawrBwtdGq3pVd1Y4cpCXOcpekq3bAQdZdiOrL3a4CRpMQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Mon, 12 Jul 2021 at 13:19, Yifan Liu <theyifanliu at gmail.com> wrote:\n>\n> Hi All,\n>\n> I am currently using R 4.0.5 on RStudio 1.4.1717 on Fedora 34. When I\n> restart R (Ctrl + Shift + F10), RStudio will always discount with R. This\n> issue occurs to my two computers and has been around for about one month.\n> Did anyone experience the same issue?\n\nSorry, what do you mean by \"discount with R\"?\n\n-- \nI?aki ?car",
+      "body_snippet": "On Mon, 12 Jul 2021 at 13:19, Yifan Liu <theyifanliu at gmail.com> wrote:\n>\n> Hi All,\n>\n> I am currently using R 4.0.5 on RStudio 1.4.1717 on Fedora 34. When I\n> restart R (Ctrl + Shift + F10), RStudi",
+      "thread_id": "thread-4a365e3c193a",
+      "thread_depth": 1,
+      "month": "2021-07"
+    },
+    {
+      "id": "msg-cadebacfa75d",
+      "message_id": "<CALEXWq1xqwdDOn9TU1o29MdmMB8UZWS09g8xM_r4h4Jif8GOxQ@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-07-12T23:43:33+02:00",
+      "subject": "[R-sig-Fedora] RStudio discounts with R when restarting R",
+      "subject_clean": "RStudio discounts with R when restarting R",
+      "in_reply_to": "<CADdpgayxRX9x_HO-fvo1=P-_np6DXBW8s6FKj91gc6FWJ5kfeQ@mail.gmail.com>",
+      "references": [
+        "<CADdpgawrBwtdGq3pVd1Y4cpCXOcpekq3bAQdZdiOrL3a4CRpMQ@mail.gmail.com>",
+        "<CALEXWq3oWKOLOMhkox+0OiJ3Dsg-R6FWpNVgC3CAx87Ns_pESQ@mail.gmail.com>",
+        "<CADdpgayxRX9x_HO-fvo1=P-_np6DXBW8s6FKj91gc6FWJ5kfeQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Mon, 12 Jul 2021 at 17:56, Yifan Liu <theyifanliu at gmail.com> wrote:\n>\n> Sorry, it is a typo. I actually mean disconnect.\n\nI can't reproduce the issue. My session just restarts as expected. So\nprobably the cause of the issue is some session state or local\nconfiguration. Try renaming the ~/.rstudio folder and/or report this\nupstream.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Mon, 12 Jul 2021 at 17:56, Yifan Liu <theyifanliu at gmail.com> wrote:\n>\n> Sorry, it is a typo. I actually mean disconnect.\n\nI can't reproduce the issue. My session just restarts as expected. So\npr",
+      "thread_id": "thread-cadebacfa75d",
+      "thread_depth": 0,
+      "month": "2021-07"
+    },
+    {
+      "id": "msg-f8cd7c3dbc1d",
+      "message_id": "<627170618.417505.1627466249658@mail.yahoo.com>",
+      "from_name": "Bintao Cui",
+      "from_email_hash": "4daec4daf5961aede6524f6407983fd567b9d9b4a06e44c8665d542a62ff0250",
+      "date": "2021-07-28T09:57:29Z",
+      "subject": "[R-sig-Fedora] Makefile error",
+      "subject_clean": "Makefile error",
+      "in_reply_to": null,
+      "references": [
+        "<627170618.417505.1627466249658.ref@mail.yahoo.com>"
+      ],
+      "body_plain": "Makefile.in:87: *** missing separator.? Stop. \n\nI am trying to install R-4.1.0 version to fedora, and got the error above, please help!\nThanks.\n\nWith regards,Bintao\n\n\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20210728/5853593d/attachment.html>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: Makefile.in\nType: application/octet-stream\nSize: 10088 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20210728/5853593d/attachment.obj>",
+      "body_snippet": "Makefile.in:87: *** missing separator.? Stop. \n\nI am trying to install R-4.1.0 version to fedora, and got the error above, please help!\nThanks.\n\nWith regards,Bintao\n\n\n-------------- next part --------",
+      "thread_id": "thread-f8cd7c3dbc1d",
+      "thread_depth": 0,
+      "month": "2021-07"
+    },
+    {
+      "id": "msg-3cc7aa1cc2bc",
+      "message_id": "<CALEXWq2g_P8Qv3st-f_ChtVK5fxryrC9OJ2iLvU76ksEPsH_Yg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-07-29T15:08:23+02:00",
+      "subject": "[R-sig-Fedora] Makefile error",
+      "subject_clean": "Makefile error",
+      "in_reply_to": "<627170618.417505.1627466249658@mail.yahoo.com>",
+      "references": [
+        "<627170618.417505.1627466249658.ref@mail.yahoo.com>",
+        "<627170618.417505.1627466249658@mail.yahoo.com>"
+      ],
+      "body_plain": "On Wed, 28 Jul 2021 at 11:59, Bintao Cui <bintaoc at yahoo.com.au> wrote:\n>\n> Makefile.in:87: *** missing separator.  Stop.\n>\n> I am trying to install R-4.1.0 version to fedora, and got the error above, please help!\n\nThis version is available in rawhide. See [1] about how to install it.\n\n[1] https://stat.ethz.ch/pipermail/r-sig-fedora/2021-June/000770.html\n\n-- \nI?aki ?car",
+      "body_snippet": "On Wed, 28 Jul 2021 at 11:59, Bintao Cui <bintaoc at yahoo.com.au> wrote:\n>\n> Makefile.in:87: *** missing separator.  Stop.\n>\n> I am trying to install R-4.1.0 version to fedora, and got the error abov",
+      "thread_id": "thread-f8cd7c3dbc1d",
+      "thread_depth": 1,
+      "month": "2021-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-4a365e3c193a",
+      "subject": "RStudio discounts with R when restarting R",
+      "message_count": 2,
+      "participants": [
+        "Iñaki Ucar",
+        "Yifan Liu"
+      ],
+      "started": "2021-07-12T00:01:13-05:00",
+      "last_reply": "2021-07-12T13:24:34+02:00",
+      "root_message_id": "msg-4a365e3c193a"
+    },
+    {
+      "id": "thread-cadebacfa75d",
+      "subject": "RStudio discounts with R when restarting R",
+      "message_count": 1,
+      "participants": [
+        "Iñaki Ucar"
+      ],
+      "started": "2021-07-12T23:43:33+02:00",
+      "last_reply": "2021-07-12T23:43:33+02:00",
+      "root_message_id": "msg-cadebacfa75d"
+    },
+    {
+      "id": "thread-f8cd7c3dbc1d",
+      "subject": "Makefile error",
+      "message_count": 2,
+      "participants": [
+        "Bintao Cui",
+        "Iñaki Ucar"
+      ],
+      "started": "2021-07-28T09:57:29+00:00",
+      "last_reply": "2021-07-29T15:08:23+02:00",
+      "root_message_id": "msg-f8cd7c3dbc1d"
+    }
+  ]
+}

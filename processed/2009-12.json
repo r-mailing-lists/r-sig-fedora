@@ -1,0 +1,140 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2009-12",
+  "messages": [
+    {
+      "id": "msg-917bffedc9c2",
+      "message_id": "<cab59a750912082333i1d700d1eqc7d9709cf886087@mail.gmail.com>",
+      "from_name": "subhajit dutta",
+      "from_email_hash": "6d8ac8856c6a5fcf63937026b2b1377e928160a80570f0b638bc2e704b7a8941",
+      "date": "2009-12-09T13:03:55+05:30",
+      "subject": "[R-sig-Fedora] Running a C program in R",
+      "subject_clean": "Running a C program in R",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20091209/178aae02/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20091209/178aae02/attachment.pl>",
+      "thread_id": "thread-917bffedc9c2",
+      "thread_depth": 0,
+      "month": "2009-12"
+    },
+    {
+      "id": "msg-eb9c6aa54dfc",
+      "message_id": "<ff1904540912090414l5c19e306m76c71e4f7516d7b7@mail.gmail.com>",
+      "from_name": "Gray Calhoun",
+      "from_email_hash": "0d5f2a2f429200098176a942628c07da7a1e3f8dbaac622a82c416557445f269",
+      "date": "2009-12-09T04:14:05-08:00",
+      "subject": "[R-sig-Fedora] Running a C program in R",
+      "subject_clean": "Running a C program in R",
+      "in_reply_to": "<cab59a750912082333i1d700d1eqc7d9709cf886087@mail.gmail.com>",
+      "references": [
+        "<cab59a750912082333i1d700d1eqc7d9709cf886087@mail.gmail.com>"
+      ],
+      "body_plain": "Hi Subhajit,\nThis isn't a Fedora-specific issue. You should look at the archives of\nthe R-help and R-developers mailing lists and the \"Writing R\nExtensions\" manual.\n--Gray\n\n2009/12/8 subhajit dutta <tijahbus at gmail.com>:\n> Dear all,\n> ? ? ? ? ?I would like to know how to run a C program in R. It would be\n> great if you all can help or suggest some references.\n>\n> Regards,\n> Subhajit.\n>\n> ? ? ? ?[[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\n\n-- \nGray Calhoun\n\nAssistant Professor of Economics\nIowa State University",
+      "body_snippet": "Hi Subhajit,\nThis isn't a Fedora-specific issue. You should look at the archives of\nthe R-help and R-developers mailing lists and the \"Writing R\nExtensions\" manual.\n--Gray\n\n2009/12/8 subhajit dutta <t",
+      "thread_id": "thread-917bffedc9c2",
+      "thread_depth": 1,
+      "month": "2009-12"
+    },
+    {
+      "id": "msg-af72505767ce",
+      "message_id": "<1261606193.9982.6.camel@localhost.localdomain>",
+      "from_name": "Christos Hatzis",
+      "from_email_hash": "4273e12e6654616fbe248daecf63ecd3c7897a6ec64e8d6a3229fe97233b6070",
+      "date": "2009-12-23T17:09:53-05:00",
+      "subject": "[R-sig-Fedora] installing RKWard on RHEL",
+      "subject_clean": "installing RKWard on RHEL",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,\n\nI am trying to install RKWard to an RHEL workstation.  I tried\n\n$ yum install rkward\n\nbut that did not work as it could not find the package in the standard\nrepositories.  The RKWard project page suggests that \n\nYou can also find the build (of all versions of RKWard) at koji and\nother information regarding the package at pkgdb\n\nIs there a way to install the package on RHEL or the above resources are\nonly built for Fedora?\n\nThank you.\n-Christos\n \n-- \nChristos Hatzis, Ph.D.\nNuvera Biosciences\nWoburn, MA 01801",
+      "body_snippet": "Hello,\n\nI am trying to install RKWard to an RHEL workstation.  I tried\n\n$ yum install rkward\n\nbut that did not work as it could not find the package in the standard\nrepositories.  The RKWard project p",
+      "thread_id": "thread-af72505767ce",
+      "thread_depth": 0,
+      "month": "2009-12"
+    },
+    {
+      "id": "msg-4af24d611cfb",
+      "message_id": "<C8E0EC82-63EC-492B-8293-C598BB7F1C1D@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2009-12-23T16:31:24-06:00",
+      "subject": "[R-sig-Fedora] installing RKWard on RHEL",
+      "subject_clean": "installing RKWard on RHEL",
+      "in_reply_to": "<1261606193.9982.6.camel@localhost.localdomain>",
+      "references": [
+        "<1261606193.9982.6.camel@localhost.localdomain>"
+      ],
+      "body_plain": "On Dec 23, 2009, at 4:09 PM, Christos Hatzis wrote:\n\n> Hello,\n>\n> I am trying to install RKWard to an RHEL workstation.  I tried\n>\n> $ yum install rkward\n>\n> but that did not work as it could not find the package in the standard\n> repositories.  The RKWard project page suggests that\n>\n> You can also find the build (of all versions of RKWard) at koji and\n> other information regarding the package at pkgdb\n>\n> Is there a way to install the package on RHEL or the above resources  \n> are\n> only built for Fedora?\n>\n> Thank you.\n> -Christos\n\n\nChristos,\n\nThe EPEL is the yum based repo for RHEL and more info is here:\n\n   http://fedoraproject.org/wiki/EPEL\n\nThat being said, I did not see the package listed in Bodhi for RHEL,  \nonly for FC11 and FC12, which are the currently supported versions of  \nFedora. F10 went EOL in the past week.\n\nThe Bodhi link is here:\n\n   https://admin.fedoraproject.org/updates/search/rkward\n\nThe same for Koji:\n\n   http://koji.fedoraproject.org/koji/packageinfo?packageID=4881\n\nThe RKWard site does not list pre-built binaries being available for  \nRHEL, only Fedora within the domain of RH distros:\n\n   http://sourceforge.net/apps/mediawiki/rkward/index.php?title=Binaries_and_Build_Scripts\n\nThus, you will likely have to install from source for the time being.  \nInformation on that path is here:\n\n   http://rkward.sourceforge.net/\n\nHTH,\n\nMarc Schwartz",
+      "body_snippet": "On Dec 23, 2009, at 4:09 PM, Christos Hatzis wrote:\n\n> Hello,\n>\n> I am trying to install RKWard to an RHEL workstation.  I tried\n>\n> $ yum install rkward\n>\n> but that did not work as it could not find",
+      "thread_id": "thread-af72505767ce",
+      "thread_depth": 1,
+      "month": "2009-12"
+    },
+    {
+      "id": "msg-6b8d27c71bc3",
+      "message_id": "<1261608091.9982.19.camel@localhost.localdomain>",
+      "from_name": "Christos Hatzis",
+      "from_email_hash": "4273e12e6654616fbe248daecf63ecd3c7897a6ec64e8d6a3229fe97233b6070",
+      "date": "2009-12-23T17:41:31-05:00",
+      "subject": "[R-sig-Fedora] installing RKWard on RHEL",
+      "subject_clean": "installing RKWard on RHEL",
+      "in_reply_to": "<C8E0EC82-63EC-492B-8293-C598BB7F1C1D@me.com>",
+      "references": [
+        "<1261606193.9982.6.camel@localhost.localdomain>",
+        "<C8E0EC82-63EC-492B-8293-C598BB7F1C1D@me.com>"
+      ],
+      "body_plain": "Thank you Marc.\n\nTo be clear for future reference, binaries packaged for Fedora distro's\nare not to be installed on RHEL and vice versa.  Same holds for rpm's?\n\nThanks.\n-Christos\n\nOn Wed, 2009-12-23 at 16:31 -0600, Marc Schwartz wrote:\n> On Dec 23, 2009, at 4:09 PM, Christos Hatzis wrote:\n> \n> > Hello,\n> >\n> > I am trying to install RKWard to an RHEL workstation.  I tried\n> >\n> > $ yum install rkward\n> >\n> > but that did not work as it could not find the package in the standard\n> > repositories.  The RKWard project page suggests that\n> >\n> > You can also find the build (of all versions of RKWard) at koji and\n> > other information regarding the package at pkgdb\n> >\n> > Is there a way to install the package on RHEL or the above resources  \n> > are\n> > only built for Fedora?\n> >\n> > Thank you.\n> > -Christos\n> \n> \n> Christos,\n> \n> The EPEL is the yum based repo for RHEL and more info is here:\n> \n>    http://fedoraproject.org/wiki/EPEL\n> \n> That being said, I did not see the package listed in Bodhi for RHEL,  \n> only for FC11 and FC12, which are the currently supported versions of  \n> Fedora. F10 went EOL in the past week.\n> \n> The Bodhi link is here:\n> \n>    https://admin.fedoraproject.org/updates/search/rkward\n> \n> The same for Koji:\n> \n>    http://koji.fedoraproject.org/koji/packageinfo?packageID=4881\n> \n> The RKWard site does not list pre-built binaries being available for  \n> RHEL, only Fedora within the domain of RH distros:\n> \n>    http://sourceforge.net/apps/mediawiki/rkward/index.php?title=Binaries_and_Build_Scripts\n> \n> Thus, you will likely have to install from source for the time being.  \n> Information on that path is here:\n> \n>    http://rkward.sourceforge.net/\n> \n> HTH,\n> \n> Marc Schwartz\n> \n> \n-- \nChristos Hatzis, Ph.D.\nNuvera Biosciences\nWoburn, MA 01801",
+      "body_snippet": "Thank you Marc.\n\nTo be clear for future reference, binaries packaged for Fedora distro's\nare not to be installed on RHEL and vice versa.  Same holds for rpm's?\n\nThanks.\n-Christos\n\nOn Wed, 2009-12-23 a",
+      "thread_id": "thread-af72505767ce",
+      "thread_depth": 2,
+      "month": "2009-12"
+    },
+    {
+      "id": "msg-d82c38b4fd0c",
+      "message_id": "<0732D810-76EB-4AAF-AC77-76257173FD3B@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2009-12-23T17:15:11-06:00",
+      "subject": "[R-sig-Fedora] installing RKWard on RHEL",
+      "subject_clean": "installing RKWard on RHEL",
+      "in_reply_to": "<1261608091.9982.19.camel@localhost.localdomain>",
+      "references": [
+        "<1261606193.9982.6.camel@localhost.localdomain>",
+        "<C8E0EC82-63EC-492B-8293-C598BB7F1C1D@me.com>",
+        "<1261608091.9982.19.camel@localhost.localdomain>"
+      ],
+      "body_plain": "That is correct, albeit there may very well be exceptions. RPMs and  \nbinary packages on Red Hat based distros are one and the same. The RPM  \npackage is the default means by which software is installed on RH  \nbased distros, in the same way as .debs are used for Debian based  \ndistros (eg. Ubuntu) or DMG/PKGs are used on OSX. See:\n\n   http://en.wikipedia.org/wiki/RPM_Package_Manager\n\nThe key difference is the more rapid development path for Fedora,  \ngiven it's \"raison d'etre\" to be a bleeding edge platform for desktop  \nLinux. The rapid development cycle translates into short post release  \ntimelines and frequent upgrades.\n\nThus, the versions of applications, kernels and the underlying  \nlibraries on Fedora are going to be much more recent than RHEL. RHEL  \n(like it's cousin CentOS) is designed to be a stable server platform  \nwith multi-year post-release support. Stability and up time are the  \npriorities at the expense of bleeding edge technology, given the  \nnature of servers and the desire for reliability.\n\nRHEL 4 (2005) is roughly equivalent to Fedora 3 and RHEL 5 (2007) is  \nroughly equivalent to Fedora 6. So you can get a feel for where they  \nare relative to Fedora 11 and 12, which are the currently supported  \nversions.\n\nWith RPMs, there will be dependencies on certain versions of other  \nlibraries and those dependencies may be incompatible across the  \ndistributions. The mixing and matching of RPMs across distros, or even  \ndifferent versions of the same distro, is typically a rapid path to  \nthe netherworld colloquially known as \"RPM Hell\" and the need for  \nsignificant amounts of 18 year old single malt Scotch...although yum  \nand similar intelligent package management tools have aided greatly in  \nreducing that path by better controlling for dependencies.\n\nHTH,\n\nMarc Schwartz\n\nOn Dec 23, 2009, at 4:41 PM, Christos Hatzis wrote:\n\n> Thank you Marc.\n>\n> To be clear for future reference, binaries packaged for Fedora  \n> distro's\n> are not to be installed on RHEL and vice versa.  Same holds for rpm's?\n>\n> Thanks.\n> -Christos\n>\n> On Wed, 2009-12-23 at 16:31 -0600, Marc Schwartz wrote:\n>> On Dec 23, 2009, at 4:09 PM, Christos Hatzis wrote:\n>>\n>>> Hello,\n>>>\n>>> I am trying to install RKWard to an RHEL workstation.  I tried\n>>>\n>>> $ yum install rkward\n>>>\n>>> but that did not work as it could not find the package in the  \n>>> standard\n>>> repositories.  The RKWard project page suggests that\n>>>\n>>> You can also find the build (of all versions of RKWard) at koji and\n>>> other information regarding the package at pkgdb\n>>>\n>>> Is there a way to install the package on RHEL or the above resources\n>>> are\n>>> only built for Fedora?\n>>>\n>>> Thank you.\n>>> -Christos\n>>\n>>\n>> Christos,\n>>\n>> The EPEL is the yum based repo for RHEL and more info is here:\n>>\n>>   http://fedoraproject.org/wiki/EPEL\n>>\n>> That being said, I did not see the package listed in Bodhi for RHEL,\n>> only for FC11 and FC12, which are the currently supported versions of\n>> Fedora. F10 went EOL in the past week.\n>>\n>> The Bodhi link is here:\n>>\n>>   https://admin.fedoraproject.org/updates/search/rkward\n>>\n>> The same for Koji:\n>>\n>>   http://koji.fedoraproject.org/koji/packageinfo?packageID=4881\n>>\n>> The RKWard site does not list pre-built binaries being available for\n>> RHEL, only Fedora within the domain of RH distros:\n>>\n>>   http://sourceforge.net/apps/mediawiki/rkward/index.php?title=Binaries_and_Build_Scripts\n>>\n>> Thus, you will likely have to install from source for the time being.\n>> Information on that path is here:\n>>\n>>   http://rkward.sourceforge.net/\n>>\n>> HTH,\n>>\n>> Marc Schwartz\n>>\n>>\n> -- \n> Christos Hatzis, Ph.D.\n> Nuvera Biosciences\n> Woburn, MA 01801\n>",
+      "body_snippet": "That is correct, albeit there may very well be exceptions. RPMs and  \nbinary packages on Red Hat based distros are one and the same. The RPM  \npackage is the default means by which software is install",
+      "thread_id": "thread-af72505767ce",
+      "thread_depth": 3,
+      "month": "2009-12"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-917bffedc9c2",
+      "subject": "Running a C program in R",
+      "message_count": 2,
+      "participants": [
+        "Gray Calhoun",
+        "subhajit dutta"
+      ],
+      "started": "2009-12-09T13:03:55+05:30",
+      "last_reply": "2009-12-09T04:14:05-08:00",
+      "root_message_id": "msg-917bffedc9c2"
+    },
+    {
+      "id": "thread-af72505767ce",
+      "subject": "installing RKWard on RHEL",
+      "message_count": 4,
+      "participants": [
+        "Christos Hatzis",
+        "Marc Schwartz"
+      ],
+      "started": "2009-12-23T17:09:53-05:00",
+      "last_reply": "2009-12-23T17:15:11-06:00",
+      "root_message_id": "msg-af72505767ce"
+    }
+  ]
+}

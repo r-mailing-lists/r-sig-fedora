@@ -1,0 +1,60 @@
+From jaomatos at gmail.com  Tue Feb  1 09:46:05 2011
+From: jaomatos at gmail.com (=?iso-8859-1?q?Jos=E9_Matos?=)
+Date: Tue, 1 Feb 2011 08:46:05 +0000
+Subject: [R-sig-Fedora] Fwd: [Rd] Warning: you may need to use R-patched
+	with recent R distros
+Message-ID: <201102010846.06343.jaomatos@gmail.com>
+
+Hi,
+	I noted this message yesterday in R-devel. I think it would sensible to 
+package a patched version while 2.12.2 is not delivered.
+
+----------  Forwarded Message  ----------
+
+Subject: [Rd] Warning: you may need to use R-patched with recent R distros
+Date: Monday 31 January 2011, 19:48:33
+From: Prof Brian Ripley <ripley at stats.ox.ac.uk>
+To: R-devel at r-project.org
+
+Two things have emerged in testing on x86_64 Fedora 14 which mean that 
+a recent R-patched is probably needed.
+
+1) That OS uses zlib 1.2.5: that claims to be binary-compatible with 
+zlib 1.2.3 but is not, as we found (painfully) on Windows.  The remedy 
+was to remap _all_ the symbols in R's own copy of zlib (not just those 
+zlib arranged to remap).
+
+The symptoms were crashes using packages XML and rgoobi (both of which 
+link to zlib) and incorrect results in RJaCGH (which contains a copy 
+of zlib).  There may well be other problems ....
+
+2)  Fedora 14 uses gcc 4.5.1. With CFLAGS containing the default -O2 
+or higher, HAVE_C99_COMPLEX was detected as false because there is a 
+(genuine) incompatibility between types Rcomplex and C99's double 
+complex.  This means that R's fallback code is used, and regretably 
+that contains a serious bug in an 'optimization' by a colleague, so 
+z^n is incorrect for most complex z and integer n (and has been since 
+2.10.0).  The remedy is to use R-patched or R-devel, or only optimize 
+to -O.
+
+We've also seen incorrect results from package mvtnorm when C 
+optimization was -O3.
+
+The upshot is that there is likely to be a 2.12.2 to fix these issues.
+
+-- 
+Brian D. Ripley,                  ripley at stats.ox.ac.uk
+Professor of Applied Statistics,  http://www.stats.ox.ac.uk/~ripley/
+University of Oxford,             Tel:  +44 1865 272861 (self)
+1 South Parks Road,                     +44 1865 272866 (PA)
+Oxford OX1 3TG, UK                Fax:  +44 1865 272595
+
+______________________________________________
+R-devel at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-devel
+
+-----------------------------------------
+-- 
+Jos? Ab?lio
+
+

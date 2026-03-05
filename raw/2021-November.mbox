@@ -1,0 +1,545 @@
+From ||ebund@rt|g @end|ng |rom |reenet@de  Thu Nov  4 18:23:58 2021
+From: ||ebund@rt|g @end|ng |rom |reenet@de (=?UTF-8?Q?Ren=c3=a9_Genz?=)
+Date: Thu, 4 Nov 2021 18:23:58 +0100
+Subject: [R-sig-Fedora] R code works on Fedora 32, but not since Fedora 33
+Message-ID: <5fe621a3-ebcf-134d-6245-05543fc5d060@freenet.de>
+
+Hi,
+
+the other day I was asked to investigate a problem regarding R. The R 
+code works on Fedora 32, but not since Fedora 33. I am stuck and need 
+help. I can test and provide more information if needed.
+
+On Fedora 32 the code produces a PDF file (397 KiB) containing 6 pages. 
+It can be viewed.
+Since Fedora 33 the R calculation stalls after a second. The PDF file 
+(3.5 KiB) cannot be viewed.
+
+I tested with virtual machines with Fedora 32 to 35. I installed with 
+the netinstall ISO the "Xfce Desktop" group. After installation was done 
+I ran as root:
+# dnf update -y --refresh ; dnf install -y R ; reboot
+
+After reboot I logged in as user, received the CSV file and ran:
+$ cd 2021-11-02-R-F32-F34 ; R
+and copy-pasted the R code. The R package "plotly" requires the R 
+package "httr" which requires:
+# dnf install -y curl-devel openssl-devel
+Maybe you need to quit and re-run that R package installation command.
+
+
+Attached is the execution log for F32 and F33. If you compare them 
+(`diff` or `meld`), you will notice different compiler options and some 
+different compiler messages. I do not know if they are related.
+
+
+Attached is the R code. I added the print commands at the end (not 
+included in the logs). The command 'print("a")' results in output '[1] 
+"a"'. On F32 the output a to f repeats 6 times (matches page number). In 
+`top` during PDF creation you can see 3 rsession processes during most 
+of calculation. Calculation takes approximately 30 seconds.
+
+Since F33 you see only this output:
+[1] "a"
+[1] "b"
+That means the problem is at "cvm[[i]] <- cvrisk(model[[i]])" line. It 
+is part of the R package mboost.
+In `top` you see only 1 rsession process for a second. Calculcation 
+stalls. You must abort with Ctrl+c. The PDF file cannot be viewed.
+
+You can leave the R environment (prompt ">") with either:
+- Ctrl+d
+- quit()
+No need to save the workspace image (press n and enter).
+
+
+
+Additional information:
+
+Fedora 32:
+ > sessionInfo()
+R version 4.0.5 (2021-03-31)
+Platform: x86_64-redhat-linux-gnu (64-bit)
+Running under: Fedora 32 (Thirty Two)
+
+Matrix products: default
+BLAS/LAPACK: /usr/lib64/libopenblas-r0.3.12.so
+
+locale:
+  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+  [7] LC_PAPER=C.UTF-8           LC_NAME=C
+  [9] LC_ADDRESS=C               LC_TELEPHONE=C
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+
+attached base packages:
+[1] parallel  stats     graphics  grDevices utils     datasets  methods
+[8] base
+
+other attached packages:
+[1] GGally_2.1.2  stringi_1.7.5 plotly_4.10.0 Amelia_1.8.0  Rcpp_1.0.7
+[6] ggplot2_3.3.5 mboost_2.9-5  stabs_0.6-4
+
+loaded via a namespace (and not attached):
+  [1] tidyselect_1.1.1   inum_1.0-4         purrr_0.3.4 
+splines_4.0.5
+  [5] lattice_0.20-41    colorspace_2.0-2   vctrs_0.3.8 
+generics_0.1.1
+  [9] htmltools_0.5.2    viridisLite_0.4.0  utf8_1.2.2 
+survival_3.2-10
+[13] rlang_0.4.12       pillar_1.6.4       foreign_0.8-81     glue_1.4.2 
+
+[17] withr_2.4.2        RColorBrewer_1.1-2 plyr_1.8.6 
+lifecycle_1.0.1
+[21] munsell_0.5.0      gtable_0.3.0       htmlwidgets_1.5.4 
+mvtnorm_1.1-3
+[25] fastmap_1.1.0      fansi_0.5.0        scales_1.1.1 
+jsonlite_1.7.2
+[29] digest_0.6.28      dplyr_1.0.7        grid_4.0.5 
+quadprog_1.5-8
+[33] tools_4.0.5        magrittr_2.0.1     lazyeval_0.2.2 
+tibble_3.1.5
+[37] Formula_1.2-4      crayon_1.4.2       tidyr_1.1.4 
+pkgconfig_2.0.3
+[41] partykit_1.2-15    ellipsis_0.3.2     libcoin_1.0-9 
+Matrix_1.3-2
+[45] data.table_1.14.2  nnls_1.4           reshape_0.8.8      httr_1.4.2 
+
+[49] R6_2.5.1           rpart_4.1-15       compiler_4.0.5
+ > Sys.getlocale()
+[1] 
+"LC_CTYPE=en_US.UTF-8;LC_NUMERIC=C;LC_TIME=en_US.UTF-8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=en_US.UTF-8;LC_MESSAGES=en_US.UTF-8;LC_PAPER=C.UTF-8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.UTF-8;LC_IDENTIFICATION=C"
+
+
+
+Fedora 33:
+ > sessionInfo()
+R version 4.0.5 (2021-03-31)
+Platform: x86_64-redhat-linux-gnu (64-bit)
+Running under: Fedora 33 (Thirty Three)
+
+Matrix products: default
+BLAS/LAPACK: /usr/lib64/libflexiblas.so.3.0
+
+locale:
+  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+  [7] LC_PAPER=C.UTF-8           LC_NAME=C
+  [9] LC_ADDRESS=C               LC_TELEPHONE=C
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+
+attached base packages:
+[1] parallel  stats     graphics  grDevices utils     datasets  methods
+[8] base
+
+other attached packages:
+[1] GGally_2.1.2  stringi_1.7.5 plotly_4.10.0 Amelia_1.8.0  Rcpp_1.0.7
+[6] ggplot2_3.3.5 mboost_2.9-5  stabs_0.6-4
+
+loaded via a namespace (and not attached):
+  [1] tidyselect_1.1.1   inum_1.0-4         purrr_0.3.4 
+splines_4.0.5
+  [5] lattice_0.20-41    colorspace_2.0-2   vctrs_0.3.8 
+generics_0.1.1
+  [9] htmltools_0.5.2    viridisLite_0.4.0  utf8_1.2.2 
+survival_3.2-10
+[13] rlang_0.4.12       pillar_1.6.4       foreign_0.8-81     glue_1.4.2 
+
+[17] withr_2.4.2        RColorBrewer_1.1-2 plyr_1.8.6 
+lifecycle_1.0.1
+[21] munsell_0.5.0      gtable_0.3.0       htmlwidgets_1.5.4 
+mvtnorm_1.1-3
+[25] fastmap_1.1.0      fansi_0.5.0        scales_1.1.1 
+jsonlite_1.7.2
+[29] digest_0.6.28      dplyr_1.0.7        grid_4.0.5 
+quadprog_1.5-8
+[33] tools_4.0.5        magrittr_2.0.1     lazyeval_0.2.2 
+tibble_3.1.5
+[37] Formula_1.2-4      crayon_1.4.2       tidyr_1.1.4 
+pkgconfig_2.0.3
+[41] partykit_1.2-15    ellipsis_0.3.2     libcoin_1.0-9 
+Matrix_1.3-2
+[45] data.table_1.14.2  nnls_1.4           reshape_0.8.8      httr_1.4.2 
+
+[49] R6_2.5.1           rpart_4.1-15       compiler_4.0.5
+ > Sys.getlocale()
+[1] 
+"LC_CTYPE=en_US.UTF-8;LC_NUMERIC=C;LC_TIME=en_US.UTF-8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=en_US.UTF-8;LC_MESSAGES=en_US.UTF-8;LC_PAPER=C.UTF-8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.UTF-8;LC_IDENTIFICATION=C"
+
+Thank you for your help.
+-- 
+Best regards,
+Ren?
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: R_CSV_TXT.7z
+Type: application/x-7z-compressed
+Size: 117189 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20211104/86c2b432/attachment-0001.bin>
+
+From |uc@r @end|ng |rom |edor@project@org  Thu Nov  4 21:02:09 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Thu, 4 Nov 2021 21:02:09 +0100
+Subject: [R-sig-Fedora] 
+ R code works on Fedora 32, but not since Fedora 33
+In-Reply-To: <5fe621a3-ebcf-134d-6245-05543fc5d060@freenet.de>
+References: <5fe621a3-ebcf-134d-6245-05543fc5d060@freenet.de>
+Message-ID: <CALEXWq2-=ACNBzSZ5Ja05m_GSN7F7c5Z2SYZfQwfbNCnptFK-g@mail.gmail.com>
+
+Hi,
+
+Since F33, openblas-openmp is the default BLAS implementation in
+Fedora. I see that mboost::cvrisk uses parallelization via mclapply by
+default, which may not play well with OpenMP. So you have 3 options
+here:
+
+Option 1. Force mboost::cvrisk to run sequentially by providing
+papply=lapply as an argument.
+
+Option 2. Limit the number of OpenMP threads to 1:
+
+$ sudo dnf -y install R-flexiblas
+$ R
+> flexiblas::flexiblas_set_num_threads(1)
+> # then, run your script
+
+or simply:
+
+$ OMP_NUM_THREADS=1 R
+$ # then, run your script
+
+Option 3. Switch to sequential OpenBLAS:
+
+$ sudo dnf -y install flexiblas-openblas-serial R-flexiblas
+$ R
+> flexiblas::flexiblas_switch(flexiblas::flexiblas_load_backend("openblas-serial"))
+> # then, run your script
+
+or simply:
+
+$ sudo dnf -y install flexiblas-openblas-serial
+$ FLEXIBLAS=openblas-serial R
+> # then, run your script
+
+See [1] for more info. Hope it helps.
+
+I?aki
+
+[1] https://cran.r-project.org/bin/linux/fedora/#blaslapack-switching
+
+On Thu, 4 Nov 2021 at 18:47, Ren? Genz <liebundartig at freenet.de> wrote:
+>
+> Hi,
+>
+> the other day I was asked to investigate a problem regarding R. The R
+> code works on Fedora 32, but not since Fedora 33. I am stuck and need
+> help. I can test and provide more information if needed.
+>
+> On Fedora 32 the code produces a PDF file (397 KiB) containing 6 pages.
+> It can be viewed.
+> Since Fedora 33 the R calculation stalls after a second. The PDF file
+> (3.5 KiB) cannot be viewed.
+>
+> I tested with virtual machines with Fedora 32 to 35. I installed with
+> the netinstall ISO the "Xfce Desktop" group. After installation was done
+> I ran as root:
+> # dnf update -y --refresh ; dnf install -y R ; reboot
+>
+> After reboot I logged in as user, received the CSV file and ran:
+> $ cd 2021-11-02-R-F32-F34 ; R
+> and copy-pasted the R code. The R package "plotly" requires the R
+> package "httr" which requires:
+> # dnf install -y curl-devel openssl-devel
+> Maybe you need to quit and re-run that R package installation command.
+>
+>
+> Attached is the execution log for F32 and F33. If you compare them
+> (`diff` or `meld`), you will notice different compiler options and some
+> different compiler messages. I do not know if they are related.
+>
+>
+> Attached is the R code. I added the print commands at the end (not
+> included in the logs). The command 'print("a")' results in output '[1]
+> "a"'. On F32 the output a to f repeats 6 times (matches page number). In
+> `top` during PDF creation you can see 3 rsession processes during most
+> of calculation. Calculation takes approximately 30 seconds.
+>
+> Since F33 you see only this output:
+> [1] "a"
+> [1] "b"
+> That means the problem is at "cvm[[i]] <- cvrisk(model[[i]])" line. It
+> is part of the R package mboost.
+> In `top` you see only 1 rsession process for a second. Calculcation
+> stalls. You must abort with Ctrl+c. The PDF file cannot be viewed.
+>
+> You can leave the R environment (prompt ">") with either:
+> - Ctrl+d
+> - quit()
+> No need to save the workspace image (press n and enter).
+>
+>
+>
+> Additional information:
+>
+> Fedora 32:
+>  > sessionInfo()
+> R version 4.0.5 (2021-03-31)
+> Platform: x86_64-redhat-linux-gnu (64-bit)
+> Running under: Fedora 32 (Thirty Two)
+>
+> Matrix products: default
+> BLAS/LAPACK: /usr/lib64/libopenblas-r0.3.12.so
+>
+> locale:
+>   [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+>   [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+>   [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+>   [7] LC_PAPER=C.UTF-8           LC_NAME=C
+>   [9] LC_ADDRESS=C               LC_TELEPHONE=C
+> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+>
+> attached base packages:
+> [1] parallel  stats     graphics  grDevices utils     datasets  methods
+> [8] base
+>
+> other attached packages:
+> [1] GGally_2.1.2  stringi_1.7.5 plotly_4.10.0 Amelia_1.8.0  Rcpp_1.0.7
+> [6] ggplot2_3.3.5 mboost_2.9-5  stabs_0.6-4
+>
+> loaded via a namespace (and not attached):
+>   [1] tidyselect_1.1.1   inum_1.0-4         purrr_0.3.4
+> splines_4.0.5
+>   [5] lattice_0.20-41    colorspace_2.0-2   vctrs_0.3.8
+> generics_0.1.1
+>   [9] htmltools_0.5.2    viridisLite_0.4.0  utf8_1.2.2
+> survival_3.2-10
+> [13] rlang_0.4.12       pillar_1.6.4       foreign_0.8-81     glue_1.4.2
+>
+> [17] withr_2.4.2        RColorBrewer_1.1-2 plyr_1.8.6
+> lifecycle_1.0.1
+> [21] munsell_0.5.0      gtable_0.3.0       htmlwidgets_1.5.4
+> mvtnorm_1.1-3
+> [25] fastmap_1.1.0      fansi_0.5.0        scales_1.1.1
+> jsonlite_1.7.2
+> [29] digest_0.6.28      dplyr_1.0.7        grid_4.0.5
+> quadprog_1.5-8
+> [33] tools_4.0.5        magrittr_2.0.1     lazyeval_0.2.2
+> tibble_3.1.5
+> [37] Formula_1.2-4      crayon_1.4.2       tidyr_1.1.4
+> pkgconfig_2.0.3
+> [41] partykit_1.2-15    ellipsis_0.3.2     libcoin_1.0-9
+> Matrix_1.3-2
+> [45] data.table_1.14.2  nnls_1.4           reshape_0.8.8      httr_1.4.2
+>
+> [49] R6_2.5.1           rpart_4.1-15       compiler_4.0.5
+>  > Sys.getlocale()
+> [1]
+> "LC_CTYPE=en_US.UTF-8;LC_NUMERIC=C;LC_TIME=en_US.UTF-8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=en_US.UTF-8;LC_MESSAGES=en_US.UTF-8;LC_PAPER=C.UTF-8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.UTF-8;LC_IDENTIFICATION=C"
+>
+>
+>
+> Fedora 33:
+>  > sessionInfo()
+> R version 4.0.5 (2021-03-31)
+> Platform: x86_64-redhat-linux-gnu (64-bit)
+> Running under: Fedora 33 (Thirty Three)
+>
+> Matrix products: default
+> BLAS/LAPACK: /usr/lib64/libflexiblas.so.3.0
+>
+> locale:
+>   [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+>   [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+>   [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+>   [7] LC_PAPER=C.UTF-8           LC_NAME=C
+>   [9] LC_ADDRESS=C               LC_TELEPHONE=C
+> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+>
+> attached base packages:
+> [1] parallel  stats     graphics  grDevices utils     datasets  methods
+> [8] base
+>
+> other attached packages:
+> [1] GGally_2.1.2  stringi_1.7.5 plotly_4.10.0 Amelia_1.8.0  Rcpp_1.0.7
+> [6] ggplot2_3.3.5 mboost_2.9-5  stabs_0.6-4
+>
+> loaded via a namespace (and not attached):
+>   [1] tidyselect_1.1.1   inum_1.0-4         purrr_0.3.4
+> splines_4.0.5
+>   [5] lattice_0.20-41    colorspace_2.0-2   vctrs_0.3.8
+> generics_0.1.1
+>   [9] htmltools_0.5.2    viridisLite_0.4.0  utf8_1.2.2
+> survival_3.2-10
+> [13] rlang_0.4.12       pillar_1.6.4       foreign_0.8-81     glue_1.4.2
+>
+> [17] withr_2.4.2        RColorBrewer_1.1-2 plyr_1.8.6
+> lifecycle_1.0.1
+> [21] munsell_0.5.0      gtable_0.3.0       htmlwidgets_1.5.4
+> mvtnorm_1.1-3
+> [25] fastmap_1.1.0      fansi_0.5.0        scales_1.1.1
+> jsonlite_1.7.2
+> [29] digest_0.6.28      dplyr_1.0.7        grid_4.0.5
+> quadprog_1.5-8
+> [33] tools_4.0.5        magrittr_2.0.1     lazyeval_0.2.2
+> tibble_3.1.5
+> [37] Formula_1.2-4      crayon_1.4.2       tidyr_1.1.4
+> pkgconfig_2.0.3
+> [41] partykit_1.2-15    ellipsis_0.3.2     libcoin_1.0-9
+> Matrix_1.3-2
+> [45] data.table_1.14.2  nnls_1.4           reshape_0.8.8      httr_1.4.2
+>
+> [49] R6_2.5.1           rpart_4.1-15       compiler_4.0.5
+>  > Sys.getlocale()
+> [1]
+> "LC_CTYPE=en_US.UTF-8;LC_NUMERIC=C;LC_TIME=en_US.UTF-8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=en_US.UTF-8;LC_MESSAGES=en_US.UTF-8;LC_PAPER=C.UTF-8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.UTF-8;LC_IDENTIFICATION=C"
+>
+> Thank you for your help.
+> --
+> Best regards,
+> Ren?_______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+
+From ||ebund@rt|g @end|ng |rom |reenet@de  Fri Nov  5 13:10:10 2021
+From: ||ebund@rt|g @end|ng |rom |reenet@de (=?UTF-8?Q?Ren=c3=a9_Genz?=)
+Date: Fri, 5 Nov 2021 13:10:10 +0100
+Subject: [R-sig-Fedora] 
+ R code works on Fedora 32, but not since Fedora 33
+In-Reply-To: <CALEXWq2-=ACNBzSZ5Ja05m_GSN7F7c5Z2SYZfQwfbNCnptFK-g@mail.gmail.com>
+References: <5fe621a3-ebcf-134d-6245-05543fc5d060@freenet.de>
+ <CALEXWq2-=ACNBzSZ5Ja05m_GSN7F7c5Z2SYZfQwfbNCnptFK-g@mail.gmail.com>
+Message-ID: <65ff4e4f-c1a6-8238-a8be-09d219ea4ba9@freenet.de>
+
+Hi I?aki,
+
+thank you very much. :)
+All 3 solutions work for me. The easiest solution for me is to change 
+the line:
+cvm[[i]] <- cvrisk(model[[i]])
+to:
+cvm[[i]] <- cvrisk(model[[i]], papply=lapply)
+-- 
+Best regards,
+Ren?
+
+
+From john@w||||@m@ @end|ng |rom ot@go@@c@nz  Sun Nov 14 21:08:42 2021
+From: john@w||||@m@ @end|ng |rom ot@go@@c@nz (John Williams)
+Date: Sun, 14 Nov 2021 20:08:42 +0000
+Subject: [R-sig-Fedora] Unable to install Rstudio on fresh Fedora 35 upgrade
+Message-ID: <93adbca6c9f73b9f71e5d02a897993c013e5d160.camel@otago.ac.nz>
+
+Firstly, _thank you_ for making RStudio available as a Fedora RPM!  This is a dream come true for me.
+
+Sadly, I have run into problems. I upgraded from Fedora 34 to Fedora 35 this morning, and found that my existing installation of RStudio (download from rstudio.com) opens the main window but no contents; the menus appear but are not clickable; and the main window is unresponsive also (can't be closed) and so I had to use xkill to close it.
+
+When googling for help, I found that Fedora now includes RStudio!  Oh, the joy I felt.
+
+But when I went to install, I got the following.
+
+
+$ dnf install rstudio-desktop
+
+Last metadata expiration check: 0:22:17 ago on Mon 15 Nov 2021 08:44:47.
+
+Error:
+Problem: conflicting requests
+- package rstudio-desktop-1.4.1717-4.fc35.x86_64 requires rstudio(x86-64) = 1.4.1717-4.fc35, but none of the providers can be installed
+- package rstudio-desktop-2021.09.0+351-2.fc35.x86_64 requires rstudio(x86-64) = 2021.09.0+351-2.fc35, but none of the providers can be installed
+- package rstudio-1.4.1717-4.fc35.x86_64 is filtered out by exclude filtering
+- package rstudio-2021.09.0+351-2.fc35.x86_64 is filtered out by exclude filtering
+(try to add '--skip-broken' to skip uninstallable packages)
+
+
+Any clues?
+
+Thanks again for making more R goodness available on Fedora,
+
+John
+
+
+--
+
+Senior Lecturer
+Department of Marketing
+Room OBS 412
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Sun Nov 14 22:26:43 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Sun, 14 Nov 2021 22:26:43 +0100
+Subject: [R-sig-Fedora] 
+ Unable to install Rstudio on fresh Fedora 35 upgrade
+In-Reply-To: <93adbca6c9f73b9f71e5d02a897993c013e5d160.camel@otago.ac.nz>
+References: <93adbca6c9f73b9f71e5d02a897993c013e5d160.camel@otago.ac.nz>
+Message-ID: <CALEXWq1ALz0E8Wbq23sPRO8f6KbKWbSTMZEin_4izDUtwD=4Uw@mail.gmail.com>
+
+RStudio-official (RStudio downloaded from rstudio.com) and
+rstudio-desktop from Fedora repos are not compatible. Uninstall
+RStudio-official first and then install rstudio-desktop.
+
+I?aki
+
+
+On Sun, 14 Nov 2021 at 22:17, John Williams <john.williams at otago.ac.nz> wrote:
+>
+> Firstly, _thank you_ for making RStudio available as a Fedora RPM!  This is a dream come true for me.
+>
+> Sadly, I have run into problems. I upgraded from Fedora 34 to Fedora 35 this morning, and found that my existing installation of RStudio (download from rstudio.com) opens the main window but no contents; the menus appear but are not clickable; and the main window is unresponsive also (can't be closed) and so I had to use xkill to close it.
+>
+> When googling for help, I found that Fedora now includes RStudio!  Oh, the joy I felt.
+>
+> But when I went to install, I got the following.
+>
+>
+> $ dnf install rstudio-desktop
+>
+> Last metadata expiration check: 0:22:17 ago on Mon 15 Nov 2021 08:44:47.
+>
+> Error:
+> Problem: conflicting requests
+> - package rstudio-desktop-1.4.1717-4.fc35.x86_64 requires rstudio(x86-64) = 1.4.1717-4.fc35, but none of the providers can be installed
+> - package rstudio-desktop-2021.09.0+351-2.fc35.x86_64 requires rstudio(x86-64) = 2021.09.0+351-2.fc35, but none of the providers can be installed
+> - package rstudio-1.4.1717-4.fc35.x86_64 is filtered out by exclude filtering
+> - package rstudio-2021.09.0+351-2.fc35.x86_64 is filtered out by exclude filtering
+> (try to add '--skip-broken' to skip uninstallable packages)
+>
+>
+> Any clues?
+>
+> Thanks again for making more R goodness available on Fedora,
+>
+> John
+>
+>
+> --
+>
+> Senior Lecturer
+> Department of Marketing
+> Room OBS 412
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+

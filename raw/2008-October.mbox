@@ -1,0 +1,1900 @@
+From hdevries at rand.org  Fri Oct 17 18:12:00 2008
+From: hdevries at rand.org (Vries, Han de)
+Date: Fri, 17 Oct 2008 09:12:00 -0700
+Subject: [R-sig-Fedora] missing Rversion.h and Rconfig.h when installing
+	RSQLite under FC8
+Message-ID: <16CCEAF248B1244B89643CD01B3C20DEE05171@smmail12.rand.org>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20081017/e0ddf3ff/attachment.pl>
+
+From plummer at iarc.fr  Fri Oct 17 19:02:53 2008
+From: plummer at iarc.fr (Martyn Plummer)
+Date: Fri, 17 Oct 2008 19:02:53 +0200
+Subject: [R-sig-Fedora] missing Rversion.h and Rconfig.h when	installing
+	RSQLite under FC8
+In-Reply-To: <16CCEAF248B1244B89643CD01B3C20DEE05171@smmail12.rand.org>
+References: <16CCEAF248B1244B89643CD01B3C20DEE05171@smmail12.rand.org>
+Message-ID: <1224262973.2756.22.camel@seurat.iarc.fr>
+
+Dear Han,
+
+The short answer to your question is that you need to install the
+R-devel package, which contains the header files.  This question comes
+up a lot. Most people ask on R-help so I have to thank you for asking
+here as it gives us a chance to discuss this.
+
+The good news is that R 2.8.0 will produce a sensible error message
+suggesting that you have a missing R-devel RPM. But the real question is
+why are we splitting off the header files into a separate RPM at all? It
+certainly isn't to save disk space:
+
+[martyn at seurat i386]$ ls -l R-2.7.2-1.fc9.i386.rpm R-devel-2.7.2-1.fc9.i386.rpm 
+-rw-r--r-- 1 martyn mock 26469726 2008-08-26 16:17 R-2.7.2-1.fc9.i386.rpm
+-rw-r--r-- 1 martyn mock    92558 2008-08-26 16:17 R-devel-2.7.2-1.fc9.i386.rpm
+
+Brian Ripley considers this to be a bug, and I have to say he has a
+point.
+
+I would very much prefer if the R-devel files were merged back into the
+main R rpm. Would anyone from Fedora like to comment?
+
+Martyn
+
+
+On Fri, 2008-10-17 at 09:12 -0700, Vries, Han de wrote:
+> Hello,
+> 
+> I am having problems installing RSQLite under FC8. The error message
+> seems to indicate Rversion.h and Rconfig.h are missing. To illustrate
+> the problem, I have copied below the output shown when I first install R
+> (binary distribution) and then try to install RSQLite. Because the
+> problem does not occur when installing RSQLite with R under Windows I
+> suspect the problem is perhaps due to my limited understanding about the
+> correct way to install R under Fedora.
+> 
+> Kind regards,
+> 
+> Han de Vries
+> 
+>  
+> 
+> 
+> 
+> 
+> 
+> [hdevries at models6-cambr R]$ sudo rpm -U
+> ~/Desktop/R-2.7.2-1.fc8.x86_64.rpm
+> 
+> warning: /home/hdevries/Desktop/R-2.7.2-1.fc8.x86_64.rpm: Header V3 DSA
+> signature: NOKEY, key ID 97d3544e
+> 
+>  
+> 
+> [hdevries at models6-cambr R]$ sudo R
+> 
+>  
+> 
+> R version 2.7.2 (2008-08-25)
+> 
+> Copyright (C) 2008 The R Foundation for Statistical Computing
+> 
+> ISBN 3-900051-07-0
+> 
+>  
+> 
+> R is free software and comes with ABSOLUTELY NO WARRANTY.
+> 
+> You are welcome to redistribute it under certain conditions.
+> 
+> Type 'license()' or 'licence()' for distribution details.
+> 
+>  
+> 
+>   Natural language support but running in an English locale
+> 
+>  
+> 
+> R is a collaborative project with many contributors.
+> 
+> Type 'contributors()' for more information and
+> 
+> 'citation()' on how to cite R or R packages in publications.
+> 
+>  
+> 
+> Type 'demo()' for some demos, 'help()' for on-line help, or
+> 
+> 'help.start()' for an HTML browser interface to help.
+> 
+> Type 'q()' to quit R.
+> 
+>  
+> 
+> > install.packages("RSQLite")
+> 
+> Warning in install.packages("RSQLite") :
+> 
+>   argument 'lib' is missing: using '/usr/lib64/R/library'
+> 
+> --- Please select a CRAN mirror for use in this session ---
+> 
+> Loading Tcl/Tk interface ... done
+> 
+> trying URL 'http://cran.stat.ucla.edu/src/contrib/RSQLite_0.7-0.tar.gz'
+> 
+> Content type 'application/x-tar' length 975692 bytes (952 Kb)
+> 
+> opened URL
+> 
+> ==================================================
+> 
+> downloaded 952 Kb
+> 
+>  
+> 
+> * Installing *source* package 'RSQLite' ...
+> 
+> checking for gcc... gcc -m64 -std=gnu99
+> 
+> checking for C compiler default output file name... a.out
+> 
+> checking whether the C compiler works... yes
+> 
+> checking whether we are cross compiling... no
+> 
+> checking for suffix of executables... 
+> 
+> checking for suffix of object files... o
+> 
+> checking whether we are using the GNU C compiler... yes
+> 
+> checking whether gcc -m64 -std=gnu99 accepts -g... yes
+> 
+> checking for gcc -m64 -std=gnu99 option to accept ISO C89... none needed
+> 
+> checking how to run the C preprocessor... gcc -m64 -std=gnu99 -E
+> 
+> checking for gcc... (cached) gcc -m64 -std=gnu99
+> 
+> checking whether we are using the GNU C compiler... (cached) yes
+> 
+> checking whether gcc -m64 -std=gnu99 accepts -g... (cached) yes
+> 
+> checking for gcc -m64 -std=gnu99 option to accept ISO C89... (cached)
+> none needed
+> 
+> checking for library containing fdatasync... none required
+> 
+> configure: creating ./config.status
+> 
+> config.status: creating src/Makevars
+> 
+> ** libs
+> 
+> gcc -m64 -std=gnu99 -I/usr/include/R -DRSQLITE_USE_BUNDLED_SQLITE
+> -DSQLITE_MAX_SQL_LENGTH=2000000 -DSQLITE_ENABLE_RTREE=1 -DTHREADSAFE=0
+> -I/usr/local/include    -fpic  -O2 -g -pipe -Wall
+> -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector
+> --param=ssp-buffer-size=4 -m64 -mtune=generic -c RS-DBI.c -o RS-DBI.o
+> 
+> In file included from RS-DBI.h:32,
+> 
+>                  from RS-DBI.c:19:
+> 
+> Rhelpers.h:16:24: error: Rversion.h: No such file or directory
+> 
+> In file included from /usr/include/R/Rdefines.h:26,
+> 
+>                  from Rhelpers.h:18,
+> 
+>                  from RS-DBI.h:32,
+> 
+>                  from RS-DBI.c:19:
+> 
+> /usr/include/R/R_ext/RS.h:27:54: error: Rconfig.h: No such file or
+> directory
+> 
+> In file included from RS-DBI.h:32,
+> 
+>                  from RS-DBI.c:19:
+> 
+> Rhelpers.h:75:49: error: missing binary operator before token "("
+> 
+> Rhelpers.h:93:49: error: missing binary operator before token "("
+> 
+> RS-DBI.c: In function 'RS_DBI_makeDataFrame':
+> 
+> RS-DBI.c:396: warning: implicit declaration of function 'SET_CHR_EL'
+> 
+> RS-DBI.c:399: warning: implicit declaration of function 'LST_EL'
+> 
+> RS-DBI.c:399: warning: passing argument 1 of 'Rf_length' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c: In function 'RS_DBI_allocOutput':
+> 
+> RS-DBI.c:426: warning: assignment makes pointer from integer without a
+> cast
+> 
+> RS-DBI.c: In function 'RS_DBI_copyfields':
+> 
+> RS-DBI.c:627: warning: implicit declaration of function 'CHR_EL'
+> 
+> RS-DBI.c:627: error: invalid lvalue in assignment
+> 
+> RS-DBI.c:628: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:629: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:630: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:631: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:632: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:633: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:634: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c: In function 'RS_DBI_managerInfo':
+> 
+> RS-DBI.c:926: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:928: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:929: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:930: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:931: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:932: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:933: error: invalid lvalue in assignment
+> 
+> RS-DBI.c: In function 'RS_DBI_connectionInfo':
+> 
+> RS-DBI.c:962: error: invalid lvalue in assignment
+> 
+> RS-DBI.c:963: error: invalid lvalue in assignment
+> 
+> RS-DBI.c:964: error: invalid lvalue in assignment
+> 
+> RS-DBI.c:965: error: invalid lvalue in assignment
+> 
+> RS-DBI.c:966: error: invalid lvalue in assignment
+> 
+> RS-DBI.c:968: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:969: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:972: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c: In function 'RS_DBI_resultSetInfo':
+> 
+> RS-DBI.c:996: error: invalid lvalue in assignment
+> 
+> RS-DBI.c:997: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:998: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:999: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:1000: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:1001: warning: passing argument 1 of 'SET_VECTOR_ELT' makes
+> pointer from integer without a cast
+> 
+> RS-DBI.c: In function 'RS_DBI_getFieldDescriptions':
+> 
+> RS-DBI.c:1026: error: invalid lvalue in assignment
+> 
+> RS-DBI.c:1027: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:1028: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:1029: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:1030: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:1031: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> RS-DBI.c:1032: warning: passing argument 1 of 'INTEGER' makes pointer
+> from integer without a cast
+> 
+> make: *** [RS-DBI.o] Error 1
+> 
+> chmod: cannot access `/usr/lib64/R/library/RSQLite/libs/*': No such file
+> or directory
+> 
+> ERROR: compilation failed for package 'RSQLite'
+> 
+> ** Removing '/usr/lib64/R/library/RSQLite'
+> 
+>  
+> 
+> The downloaded packages are in
+> 
+>         /tmp/RtmpsE6PGQ/downloaded_packages
+> 
+> Updating HTML index of packages in '.Library'
+> 
+> Warning message:
+> 
+> In install.packages("RSQLite") :
+> 
+>   installation of package 'RSQLite' had non-zero exit status
+> 
+> > sessionInfo()
+> 
+> R version 2.7.2 (2008-08-25) 
+> 
+> x86_64-redhat-linux-gnu 
+> 
+>  
+> 
+> locale:
+> 
+> LC_CTYPE=en_US.UTF-8;LC_NUMERIC=C;LC_TIME=en_US.UTF-8;LC_COLLATE=en_US.U
+> TF-8;LC_MONETARY=C;LC_MESSAGES=en_US.UTF-8;LC_PAPER=en_US.UTF-8;LC_NAME=
+> C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.UTF-8;LC_IDENTIFICATI
+> ON=C
+> 
+>  
+> 
+> attached base packages:
+> 
+> [1] stats     graphics  grDevices utils     datasets  methods   base
+> 
+> 
+>  
+> 
+> loaded via a namespace (and not attached):
+> 
+> [1] tcltk_2.7.2 tools_2.7.2
+> 
+>  
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> -------------------------------------------------
+> 
+> Han de Vries
+> 
+> Senior Analyst
+> 
+> 
+> 
+> RAND Europe
+> 
+> Westbrook Centre, Milton Road
+> 
+> Cambridge CB4 1YG
+> 
+> United Kingdom
+> 
+> Tel +44.1223.353.329
+> 
+> Fax +44.1223.358.845
+> 
+> Mob +44.7894.593.530
+> 
+> www.rand.org
+> 
+> -------------------------------------------------
+> 
+> 
+> 
+> 
+> __________________________________________________________________________
+> 
+> This email message is for the sole use of the intended...{{dropped:16}}
+
+
+From tcallawa at redhat.com  Fri Oct 17 19:09:17 2008
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Fri, 17 Oct 2008 13:09:17 -0400
+Subject: [R-sig-Fedora] missing Rversion.h and Rconfig.h when	installing
+	RSQLite under FC8
+In-Reply-To: <1224262973.2756.22.camel@seurat.iarc.fr>
+References: <16CCEAF248B1244B89643CD01B3C20DEE05171@smmail12.rand.org>
+	<1224262973.2756.22.camel@seurat.iarc.fr>
+Message-ID: <1224263357.3176.26.camel@localhost.localdomain>
+
+On Fri, 2008-10-17 at 19:02 +0200, Martyn Plummer wrote:
+> Dear Han,
+> 
+> The short answer to your question is that you need to install the
+> R-devel package, which contains the header files.  This question comes
+> up a lot. Most people ask on R-help so I have to thank you for asking
+> here as it gives us a chance to discuss this.
+> 
+> The good news is that R 2.8.0 will produce a sensible error message
+> suggesting that you have a missing R-devel RPM. But the real question is
+> why are we splitting off the header files into a separate RPM at all? It
+> certainly isn't to save disk space:
+> 
+> [martyn at seurat i386]$ ls -l R-2.7.2-1.fc9.i386.rpm R-devel-2.7.2-1.fc9.i386.rpm 
+> -rw-r--r-- 1 martyn mock 26469726 2008-08-26 16:17 R-2.7.2-1.fc9.i386.rpm
+> -rw-r--r-- 1 martyn mock    92558 2008-08-26 16:17 R-devel-2.7.2-1.fc9.i386.rpm
+> 
+> Brian Ripley considers this to be a bug, and I have to say he has a
+> point.
+> 
+> I would very much prefer if the R-devel files were merged back into the
+> main R rpm. Would anyone from Fedora like to comment?
+
+You do not need these files unless you're building something for R,
+thus, the average end-user does not need them. The -devel subpackage is
+correct for this case, and it matches the rest of Fedora.
+
+Sorry, I don't agree that this is a bug, this is an intentional design
+design in Fedora that all of our packages follow.
+
+~spot
+
+
+From plummer at iarc.fr  Tue Oct 21 13:21:09 2008
+From: plummer at iarc.fr (Martyn Plummer)
+Date: Tue, 21 Oct 2008 13:21:09 +0200
+Subject: [R-sig-Fedora] missing Rversion.h and Rconfig.h when	installing
+	RSQLite under FC8
+In-Reply-To: <1224263357.3176.26.camel@localhost.localdomain>
+References: <16CCEAF248B1244B89643CD01B3C20DEE05171@smmail12.rand.org>
+	<1224262973.2756.22.camel@seurat.iarc.fr>
+	<1224263357.3176.26.camel@localhost.localdomain>
+Message-ID: <1224588069.2756.137.camel@seurat.iarc.fr>
+
+On Fri, 2008-10-17 at 13:09 -0400, Tom "spot" Callaway wrote:
+> On Fri, 2008-10-17 at 19:02 +0200, Martyn Plummer wrote:
+> > Dear Han,
+> > 
+> > The short answer to your question is that you need to install the
+> > R-devel package, which contains the header files.  This question comes
+> > up a lot. Most people ask on R-help so I have to thank you for asking
+> > here as it gives us a chance to discuss this.
+> > 
+> > The good news is that R 2.8.0 will produce a sensible error message
+> > suggesting that you have a missing R-devel RPM. But the real question is
+> > why are we splitting off the header files into a separate RPM at all? It
+> > certainly isn't to save disk space:
+> > 
+> > [martyn at seurat i386]$ ls -l R-2.7.2-1.fc9.i386.rpm R-devel-2.7.2-1.fc9.i386.rpm 
+> > -rw-r--r-- 1 martyn mock 26469726 2008-08-26 16:17 R-2.7.2-1.fc9.i386.rpm
+> > -rw-r--r-- 1 martyn mock    92558 2008-08-26 16:17 R-devel-2.7.2-1.fc9.i386.rpm
+> > 
+> > Brian Ripley considers this to be a bug, and I have to say he has a
+> > point.
+> > 
+> > I would very much prefer if the R-devel files were merged back into the
+> > main R rpm. Would anyone from Fedora like to comment?
+> 
+> You do not need these files unless you're building something for R,
+> thus, the average end-user does not need them. 
+
+This is where we disagree. The average end-user needs to install
+packages.  Although CRAN supports binary packages for Windows and Mac Os
+X, it only provides source packages for Linux.
+
+>From the conversations that Marc and I had at the UseR! conference with
+Jose Matos, I understand that you plan to provide Fedora RPMs of R
+packages. But you are still a long way from providing a full service.
+
+There are currently 1533 packages/bundles on CRAN, not counting the
+recommended packages that are already distributed with R. Of these
+packages, 420 require to the R headers. Fedora only supplies RPMs for 9
+of them.
+
+That leaves 411 packages that fall between two stools. They cannot be
+installed by the user using the built-in R functions and they cannot be
+installed via yum.  If you also count the packages that depend on these
+(directly or indirectly) you get a total of 607 packages, or 40% of
+CRAN, which cannot be installed by a Fedora user.
+
+> The -devel subpackage is
+> correct for this case, and it matches the rest of Fedora.
+> 
+> Sorry, I don't agree that this is a bug, this is an intentional design
+> design in Fedora that all of our packages follow.
+> 
+> ~spot
+
+I understand that this is standard practice, not only in Fedora but also
+in other Linux distributions.  But I think the user/developer
+distinction has been misapplied.  Most people who want to install a
+package would not consider themselves to be developers. They just need
+to build a source package as a means to an end.
+
+Martyn
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+
+From Roger.Bivand at nhh.no  Tue Oct 21 20:27:21 2008
+From: Roger.Bivand at nhh.no (Roger Bivand)
+Date: Tue, 21 Oct 2008 20:27:21 +0200 (CEST)
+Subject: [R-sig-Fedora] missing Rversion.h and Rconfig.h when installing
+ RSQLite under FC8
+In-Reply-To: <1224588069.2756.137.camel@seurat.iarc.fr>
+References: <16CCEAF248B1244B89643CD01B3C20DEE05171@smmail12.rand.org>
+	<1224262973.2756.22.camel@seurat.iarc.fr>
+	<1224263357.3176.26.camel@localhost.localdomain>
+	<1224588069.2756.137.camel@seurat.iarc.fr>
+Message-ID: <Pine.LNX.4.64.0810212019250.27045@reclus.nhh.no>
+
+On Tue, 21 Oct 2008, Martyn Plummer wrote:
+
+> On Fri, 2008-10-17 at 13:09 -0400, Tom "spot" Callaway wrote:
+>> On Fri, 2008-10-17 at 19:02 +0200, Martyn Plummer wrote:
+>>> Dear Han,
+>>>
+>>> The short answer to your question is that you need to install the
+>>> R-devel package, which contains the header files.  This question comes
+>>> up a lot. Most people ask on R-help so I have to thank you for asking
+>>> here as it gives us a chance to discuss this.
+>>>
+>>> The good news is that R 2.8.0 will produce a sensible error message
+>>> suggesting that you have a missing R-devel RPM. But the real question is
+>>> why are we splitting off the header files into a separate RPM at all? It
+>>> certainly isn't to save disk space:
+>>>
+>>> [martyn at seurat i386]$ ls -l R-2.7.2-1.fc9.i386.rpm R-devel-2.7.2-1.fc9.i386.rpm
+>>> -rw-r--r-- 1 martyn mock 26469726 2008-08-26 16:17 R-2.7.2-1.fc9.i386.rpm
+>>> -rw-r--r-- 1 martyn mock    92558 2008-08-26 16:17 R-devel-2.7.2-1.fc9.i386.rpm
+>>>
+>>> Brian Ripley considers this to be a bug, and I have to say he has a
+>>> point.
+>>>
+>>> I would very much prefer if the R-devel files were merged back into the
+>>> main R rpm. Would anyone from Fedora like to comment?
+>>
+>> You do not need these files unless you're building something for R,
+>> thus, the average end-user does not need them.
+>
+> This is where we disagree. The average end-user needs to install
+> packages.  Although CRAN supports binary packages for Windows and Mac Os
+> X, it only provides source packages for Linux.
+>
+>> From the conversations that Marc and I had at the UseR! conference with
+> Jose Matos, I understand that you plan to provide Fedora RPMs of R
+> packages. But you are still a long way from providing a full service.
+>
+> There are currently 1533 packages/bundles on CRAN, not counting the
+> recommended packages that are already distributed with R. Of these
+> packages, 420 require to the R headers. Fedora only supplies RPMs for 9
+> of them.
+>
+> That leaves 411 packages that fall between two stools. They cannot be
+> installed by the user using the built-in R functions and they cannot be
+> installed via yum.  If you also count the packages that depend on these
+> (directly or indirectly) you get a total of 607 packages, or 40% of
+> CRAN, which cannot be installed by a Fedora user.
+>
+>> The -devel subpackage is
+>> correct for this case, and it matches the rest of Fedora.
+>>
+>> Sorry, I don't agree that this is a bug, this is an intentional design
+>> design in Fedora that all of our packages follow.
+>>
+>> ~spot
+>
+> I understand that this is standard practice, not only in Fedora but also
+> in other Linux distributions.  But I think the user/developer
+> distinction has been misapplied.  Most people who want to install a
+> package would not consider themselves to be developers. They just need
+> to build a source package as a means to an end.
+
+I agree with Martyn. The user/developer distinction should be between 
+people developing R and people using R - here the second group do need 
+access to the header files to use contributed packages, a normal user 
+activity. This is however in some degree conditional on having the 
+same build train that was used to build the R base binary. People 
+developing R base need much more than just the headers.
+
+Roger
+
+>
+> Martyn
+>
+
+-- 
+Roger Bivand
+Economic Geography Section, Department of Economics, Norwegian School of
+Economics and Business Administration, Helleveien 30, N-5045 Bergen,
+Norway. voice: +47 55 95 93 55; fax +47 55 95 95 43
+e-mail: Roger.Bivand at nhh.no
+
+
+From tcallawa at redhat.com  Thu Oct 23 15:55:08 2008
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Thu, 23 Oct 2008 09:55:08 -0400
+Subject: [R-sig-Fedora] R-devel going away
+Message-ID: <1224770108.3601.40.camel@localhost.localdomain>
+
+This email serves as an announcement that I plan to swallow up R-devel
+into the base R package. Why?
+
+* It is causing no end of user complaints. The typical R user expects to
+be able to do a "CPAN" (really, I should say "CRAN") style package
+install through the R interface:
+
+install.packages("RSQLite")
+
+This doesn't work unless you have R-devel installed. The average R user
+is a professor or a student, and neither of them are going to
+necessarily possess the necessary Linux/Fedora knowledge to be able to
+understand why this doesn't work like the R documentation says it
+should. 
+
+* The size of the R-devel is tiny, about 440K installed. It will not
+bloat the main package to absorb the .h files and a .pc file into the
+main package. There are no libraries in the R-devel package.
+
+* The primary users of R-devel are R addon packages. They can continue
+to BuildRequires: R-devel safely (hooray for Provides/Requires).
+
+* libRmath (the R shared library) will still be a separate package.
+libRmath-devel will still be a separate package. As far as I know,
+nothing in Fedora uses libRmath, nor is libRmath-devel necessary for
+building R addons.
+
+Now, I recognize that this is a violation of the Fedora Packaging
+Guidelines, and I've given a lot of thought to this over the last few
+days, and technically, this is a reversal of my earlier stance (which is
+to stick to the guidelines). However, I think this is a key
+functionality that Fedora R users expect to just work, and I want to try
+to make sure that they get the best R experience out of the box that
+they can. 
+
+As Martyn Plummer pointed out:
+
+   There are currently 1533 packages/bundles on CRAN, not counting the
+   recommended packages that are already distributed with R. Of these
+   packages, 420 require to the R headers. Fedora only supplies RPMs for
+9
+   of them.
+
+I'm not entirely sure if I need FESCo or FPC approval to take this
+action, if so, this is my notice of requesting it. ;)
+
+I'm also looking for feedback and comments, of course. 
+
+Thanks,
+
+~spot (Fedora R maintainer)
+
+
+From mattdm at mattdm.org  Thu Oct 23 16:27:50 2008
+From: mattdm at mattdm.org (Matthew Miller)
+Date: Thu, 23 Oct 2008 10:27:50 -0400
+Subject: [R-sig-Fedora] R-devel going away
+In-Reply-To: <1224770108.3601.40.camel@localhost.localdomain>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+Message-ID: <20081023142750.GA20579@jadzia.bu.edu>
+
+On Thu, Oct 23, 2008 at 09:55:08AM -0400, Tom spot Callaway wrote:
+> * It is causing no end of user complaints. The typical R user expects to
+> be able to do a "CPAN" (really, I should say "CRAN") style package
+> install through the R interface:
+> install.packages("RSQLite")
+> This doesn't work unless you have R-devel installed. The average R user
+> is a professor or a student, and neither of them are going to
+> necessarily possess the necessary Linux/Fedora knowledge to be able to
+> understand why this doesn't work like the R documentation says it
+> should. 
+
+Where do R packages installed this way go? I'd rather have people say "hey,
+we're missing an R package" and then have that packaged up for Fedora, so we
+can then later do a consistant install via kickstart. (Like perl modules,
+they're generally relatively easy to package.)
+
+-- 
+Matthew Miller <mattdm at mattdm.org>
+Senior Systems Architect 
+Cyberinfrastructure Labs
+Computing & Information Technology 
+Harvard School of Engineering & Applied Sciences
+
+
+From plummer at iarc.fr  Thu Oct 23 16:38:03 2008
+From: plummer at iarc.fr (Martyn Plummer)
+Date: Thu, 23 Oct 2008 16:38:03 +0200
+Subject: [R-sig-Fedora] R-devel going away
+In-Reply-To: <1224770108.3601.40.camel@localhost.localdomain>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+Message-ID: <1224772683.2821.57.camel@seurat.iarc.fr>
+
+Thank you. We really appreciate this.
+Martyn
+
+On Thu, 2008-10-23 at 09:55 -0400, Tom "spot" Callaway wrote:
+> This email serves as an announcement that I plan to swallow up R-devel
+> into the base R package. Why?
+> 
+> * It is causing no end of user complaints. The typical R user expects to
+> be able to do a "CPAN" (really, I should say "CRAN") style package
+> install through the R interface:
+> 
+> install.packages("RSQLite")
+> 
+> This doesn't work unless you have R-devel installed. The average R user
+> is a professor or a student, and neither of them are going to
+> necessarily possess the necessary Linux/Fedora knowledge to be able to
+> understand why this doesn't work like the R documentation says it
+> should. 
+> 
+> * The size of the R-devel is tiny, about 440K installed. It will not
+> bloat the main package to absorb the .h files and a .pc file into the
+> main package. There are no libraries in the R-devel package.
+> 
+> * The primary users of R-devel are R addon packages. They can continue
+> to BuildRequires: R-devel safely (hooray for Provides/Requires).
+> 
+> * libRmath (the R shared library) will still be a separate package.
+> libRmath-devel will still be a separate package. As far as I know,
+> nothing in Fedora uses libRmath, nor is libRmath-devel necessary for
+> building R addons.
+> 
+> Now, I recognize that this is a violation of the Fedora Packaging
+> Guidelines, and I've given a lot of thought to this over the last few
+> days, and technically, this is a reversal of my earlier stance (which is
+> to stick to the guidelines). However, I think this is a key
+> functionality that Fedora R users expect to just work, and I want to try
+> to make sure that they get the best R experience out of the box that
+> they can. 
+> 
+> As Martyn Plummer pointed out:
+> 
+>    There are currently 1533 packages/bundles on CRAN, not counting the
+>    recommended packages that are already distributed with R. Of these
+>    packages, 420 require to the R headers. Fedora only supplies RPMs for
+> 9
+>    of them.
+> 
+> I'm not entirely sure if I need FESCo or FPC approval to take this
+> action, if so, this is my notice of requesting it. ;)
+> 
+> I'm also looking for feedback and comments, of course. 
+> 
+> Thanks,
+> 
+> ~spot (Fedora R maintainer)
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+
+From tibbs at math.uh.edu  Thu Oct 23 16:34:56 2008
+From: tibbs at math.uh.edu (Jason L Tibbitts III)
+Date: 23 Oct 2008 09:34:56 -0500
+Subject: [R-sig-Fedora] R-devel going away
+In-Reply-To: <20081023142750.GA20579@jadzia.bu.edu>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+	<20081023142750.GA20579@jadzia.bu.edu>
+Message-ID: <ufaej27fkhb.fsf@epithumia.math.uh.edu>
+
+>>>>> "MM" == Matthew Miller <mattdm at mattdm.org> writes:
+
+MM> Where do R packages installed this way go?
+
+Into the installing user's home directory.
+
+Honestly I don't mind either way; as an admin, I know that R-devel
+needs to be installed for users to get full functionality.  But I also
+know that a C compiler needs to be installed, and so forth, and I
+don't think that gcc should necessarily be in R's dependency chain.
+
+ - J<
+
+
+From tcallawa at redhat.com  Thu Oct 23 16:42:19 2008
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Thu, 23 Oct 2008 10:42:19 -0400
+Subject: [R-sig-Fedora] R-devel going away
+In-Reply-To: <87mygvcrd0.fsf@fc5.bigo.ensc.de>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+	<87mygvcrd0.fsf@fc5.bigo.ensc.de>
+Message-ID: <1224772939.3601.54.camel@localhost.localdomain>
+
+On Thu, 2008-10-23 at 16:34 +0200, Enrico Scholz wrote:
+> Better solutions:
+> 
+> * add it to comps.xml
+> * move 'R' to R-core, and add 'R' which depends on 'R-core' +
+> 'R-devel'
+> 
+> 
+> > * The size of the R-devel is tiny, about 440K installed.
+> 
+> You miss its dependencies:
+> 
+> bzip2-devel
+> gcc-c++
+> gcc-gfortran
+> libICE-devel
+> libSM-devel
+> libX11-devel
+> libXmu-devel
+> libXt-devel
+> libjpeg-devel
+> libpng-devel
+> ncurses-devel
+> pkgconfig
+> readline-devel
+> tcl-devel
+> tetex-latex
+> texinfo
+> tk-devel
+
+These are very good points, thanks Enrico. What would people think about
+doing the suggested R/R-core/R-devel split instead? Users would still be
+able to get everything with yum install R, it would meet the guidelines,
+and minimal installs with R can simply have R-core.
+
+~spot
+
+
+From pingou at pingoured.fr  Thu Oct 23 16:46:09 2008
+From: pingou at pingoured.fr (Pierre-Yves)
+Date: Thu, 23 Oct 2008 16:46:09 +0200
+Subject: [R-sig-Fedora] R-devel going away
+In-Reply-To: <1224772939.3601.54.camel@localhost.localdomain>
+References: <1224770108.3601.40.camel@localhost.localdomain>	<87mygvcrd0.fsf@fc5.bigo.ensc.de>
+	<1224772939.3601.54.camel@localhost.localdomain>
+Message-ID: <49008E31.7050204@pingoured.fr>
+
+Tom "spot" Callaway wrote:
+> These are very good points, thanks Enrico. What would people think about
+> doing the suggested R/R-core/R-devel split instead? Users would still be
+> able to get everything with yum install R, it would meet the guidelines,
+> and minimal installs with R can simply have R-core.
+
+Sounds like a good idea to me :)
+
+
+Pierre
+~ pingou
+
+
+From j.w.r.degoede at hhs.nl  Thu Oct 23 16:50:19 2008
+From: j.w.r.degoede at hhs.nl (Hans de Goede)
+Date: Thu, 23 Oct 2008 16:50:19 +0200
+Subject: [R-sig-Fedora] R-devel going away
+In-Reply-To: <1224772939.3601.54.camel@localhost.localdomain>
+References: <1224770108.3601.40.camel@localhost.localdomain>	<87mygvcrd0.fsf@fc5.bigo.ensc.de>
+	<1224772939.3601.54.camel@localhost.localdomain>
+Message-ID: <49008F2B.9070908@hhs.nl>
+
+Tom "spot" Callaway wrote:
+> On Thu, 2008-10-23 at 16:34 +0200, Enrico Scholz wrote:
+>> Better solutions:
+>>
+>> * add it to comps.xml
+>> * move 'R' to R-core, and add 'R' which depends on 'R-core' +
+>> 'R-devel'
+>>
+>>
+>>> * The size of the R-devel is tiny, about 440K installed.
+>> You miss its dependencies:
+>>
+>> bzip2-devel
+>> gcc-c++
+>> gcc-gfortran
+>> libICE-devel
+>> libSM-devel
+>> libX11-devel
+>> libXmu-devel
+>> libXt-devel
+>> libjpeg-devel
+>> libpng-devel
+>> ncurses-devel
+>> pkgconfig
+>> readline-devel
+>> tcl-devel
+>> tetex-latex
+>> texinfo
+>> tk-devel
+> 
+> These are very good points, thanks Enrico. What would people think about
+> doing the suggested R/R-core/R-devel split instead? Users would still be
+> able to get everything with yum install R, it would meet the guidelines,
+> and minimal installs with R can simply have R-core.
+> 
+
++1
+
+(esp after seeing the R-devel Requirements)
+
+Regards,
+
+Hans
+
+
+From plummer at iarc.fr  Thu Oct 23 18:51:18 2008
+From: plummer at iarc.fr (Martyn Plummer)
+Date: Thu, 23 Oct 2008 18:51:18 +0200
+Subject: [R-sig-Fedora] R-devel going away
+In-Reply-To: <1224772939.3601.54.camel@localhost.localdomain>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+	<87mygvcrd0.fsf@fc5.bigo.ensc.de>
+	<1224772939.3601.54.camel@localhost.localdomain>
+Message-ID: <1224780678.2821.109.camel@seurat.iarc.fr>
+
+On Thu, 2008-10-23 at 10:42 -0400, Tom "spot" Callaway wrote:
+> On Thu, 2008-10-23 at 16:34 +0200, Enrico Scholz wrote:
+> > Better solutions:
+> > 
+> > * add it to comps.xml
+> > * move 'R' to R-core, and add 'R' which depends on 'R-core' +
+> > 'R-devel'
+> > 
+> > 
+> > > * The size of the R-devel is tiny, about 440K installed.
+> > 
+> > You miss its dependencies:
+> > 
+> > bzip2-devel
+> > gcc-c++
+> > gcc-gfortran
+> > libICE-devel
+> > libSM-devel
+> > libX11-devel
+> > libXmu-devel
+> > libXt-devel
+> > libjpeg-devel
+> > libpng-devel
+> > ncurses-devel
+> > pkgconfig
+> > readline-devel
+> > tcl-devel
+> > tetex-latex
+> > texinfo
+> > tk-devel
+> 
+> These are very good points, thanks Enrico. What would people think about
+> doing the suggested R/R-core/R-devel split instead? Users would still be
+> able to get everything with yum install R, it would meet the guidelines,
+> and minimal installs with R can simply have R-core.
+> 
+> ~spot
+
+Those dependencies are not correct, and I think I have to admit
+responsibility for this.  I don't know what brainstorm I had when I put
+these in. 
+
+For a start, tetex-latex should  be a dependency of R, not R-devel,
+since the "Rd2dvi" command included in the R RPM calls pdflatex (I can't
+remember if it was Peter Dalgaard or Brian Ripley who pointed this out).
+
+Apart from this, R records certain aspects of its build-time environment
+in the file $RHOME/etc/Makeconf and these settings are used when
+building packages.  If you want to ensure that *all* packages build
+correctly, then you need to match the settings in this file. This would
+require:
+
+gcc
+gcc-gfortran
+gcc-c++
+tcl-devel
+tk-devel
+
+There are also some JAVA* variables in Makeconf. However, unlike the
+other variables, these can be modified post-installation so do not need
+to be matched.
+
+The Debian project has an "r-base-dev" package, which is payload free (I
+believe) and only exists to ensure that the dependencies for package
+development are satisfied.   In fact the R-devel RPMs distributed via
+CRAN used to do something similar.
+
+If you are unhappy about putting these last 5 dependencies in R, then
+you could have a separate R-devel RPM that contains nothing (or just the
+libR.pc file if you need a payload) but requires these packages.
+
+Martyn
+
+
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+
+From james at fedoraproject.org  Thu Oct 23 20:22:07 2008
+From: james at fedoraproject.org (James Antill)
+Date: Thu, 23 Oct 2008 14:22:07 -0400
+Subject: [R-sig-Fedora] R-devel going away
+In-Reply-To: <1224772939.3601.54.camel@localhost.localdomain>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+	<87mygvcrd0.fsf@fc5.bigo.ensc.de>
+	<1224772939.3601.54.camel@localhost.localdomain>
+Message-ID: <1224786127.3898.97.camel@code.and.org>
+
+On Thu, 2008-10-23 at 10:42 -0400, Tom "spot" Callaway wrote:
+
+> > > * The size of the R-devel is tiny, about 440K installed.
+
+ Also, even without the deps.: yum list-installed-sizes \*-devel
+
+...440K is way past the 50% mark for the size of a *-devel package.
+
+> These are very good points, thanks Enrico. What would people think about
+> doing the suggested R/R-core/R-devel split instead? Users would still be
+> able to get everything with yum install R, it would meet the guidelines,
+> and minimal installs with R can simply have R-core.
+
+ Well it kinda fits the "people expect foo-core + additions" _assuming_
+CRAN is a requirement, but really why don't we just package more of the
+R modules so CRAN usage isn't a requirement?
+
+-- 
+James Antill <james at fedoraproject.org>
+Fedora
+
+
+From jamatos at fc.up.pt  Thu Oct 23 20:41:41 2008
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Matos?=)
+Date: Thu, 23 Oct 2008 19:41:41 +0100
+Subject: [R-sig-Fedora] R-devel going away
+In-Reply-To: <1224786127.3898.97.camel@code.and.org>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+	<1224772939.3601.54.camel@localhost.localdomain>
+	<1224786127.3898.97.camel@code.and.org>
+Message-ID: <200810231941.41824.jamatos@fc.up.pt>
+
+On Thursday 23 October 2008 19:22:07 James Antill wrote:
+> ?Well it kinda fits the "people expect foo-core + additions" _assuming_
+> CRAN is a requirement, but really why don't we just package more of the
+> R modules so CRAN usage isn't a requirement?
+
+There are more than 1500 modules (the have been growing at an exponential rate 
+in the last years). So while we would like to see more R packages in Fedora in 
+are not even near to have a reasonable subset of R packaged.
+
+So for the moment CRAN is really a requirement to use R in Fedora.
+
+> --
+> James Antill <james at fedoraproject.org>
+> Fedora
+
+-- 
+Jos? Ab?lio
+
+
+From mattdm at mattdm.org  Thu Oct 23 21:28:02 2008
+From: mattdm at mattdm.org (Matthew Miller)
+Date: Thu, 23 Oct 2008 15:28:02 -0400
+Subject: [R-sig-Fedora] R-devel going away
+In-Reply-To: <ufaej27fkhb.fsf@epithumia.math.uh.edu>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+	<20081023142750.GA20579@jadzia.bu.edu>
+	<ufaej27fkhb.fsf@epithumia.math.uh.edu>
+Message-ID: <20081023192802.GA17205@jadzia.bu.edu>
+
+On Thu, Oct 23, 2008 at 09:34:56AM -0500, Jason L Tibbitts III wrote:
+> MM> Where do R packages installed this way go?
+> Into the installing user's home directory.
+
+In that case, sounds fine to me.
+
+-- 
+Matthew Miller <mattdm at mattdm.org>
+Senior Systems Architect 
+Cyberinfrastructure Labs
+Computing & Information Technology 
+Harvard School of Engineering & Applied Sciences
+
+
+From james at fedoraproject.org  Thu Oct 23 23:10:12 2008
+From: james at fedoraproject.org (James Antill)
+Date: Thu, 23 Oct 2008 17:10:12 -0400
+Subject: [R-sig-Fedora] R-devel going away
+In-Reply-To: <200810231941.41824.jamatos@fc.up.pt>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+	<1224772939.3601.54.camel@localhost.localdomain>
+	<1224786127.3898.97.camel@code.and.org>
+	<200810231941.41824.jamatos@fc.up.pt>
+Message-ID: <1224796212.3898.106.camel@code.and.org>
+
+On Thu, 2008-10-23 at 19:41 +0100, Jos? Matos wrote:
+> On Thursday 23 October 2008 19:22:07 James Antill wrote:
+> >  Well it kinda fits the "people expect foo-core + additions" _assuming_
+> > CRAN is a requirement, but really why don't we just package more of the
+> > R modules so CRAN usage isn't a requirement?
+> 
+> There are more than 1500 modules (the have been growing at an exponential rate 
+> in the last years). So while we would like to see more R packages in Fedora in 
+> are not even near to have a reasonable subset of R packaged.
+
+ My main concern was that you could use that argument a lot (there are
+probably still more unpackaged libc using things than packaged).
+ But I ran:
+
+ repoquery --whatrequires '*-devel' | \
+   fgrep -v -- '-devel-' | \
+   fgrep -v -- '-static-'
+
+...and there's a lot of stuff there, including a lot of the "small"
+languages (and perl-core, although that's not actually required by perl
+which seems like a bug). So this isn't unusual (bad spot for asking,
+instead of just doing it like everyone else ;).
+
+-- 
+James Antill <james at fedoraproject.org>
+Fedora
+
+
+From gnwiii at gmail.com  Fri Oct 24 00:08:53 2008
+From: gnwiii at gmail.com (George N. White III)
+Date: Thu, 23 Oct 2008 19:08:53 -0300
+Subject: [R-sig-Fedora] [Fedora-r-devel-list] Re: R-devel going away
+In-Reply-To: <200810231941.41824.jamatos@fc.up.pt>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+	<1224772939.3601.54.camel@localhost.localdomain>
+	<1224786127.3898.97.camel@code.and.org>
+	<200810231941.41824.jamatos@fc.up.pt>
+Message-ID: <22af238a0810231508j183fd334m6a1dc272e518f6b0@mail.gmail.com>
+
+On Thu, Oct 23, 2008 at 3:41 PM, Jos? Matos <jamatos at fc.up.pt> wrote:
+
+> On Thursday 23 October 2008 19:22:07 James Antill wrote:
+>>  Well it kinda fits the "people expect foo-core + additions" _assuming_
+>> CRAN is a requirement, but really why don't we just package more of the
+>> R modules so CRAN usage isn't a requirement?
+>
+> There are more than 1500 modules (the have been growing at an exponential rate
+> in the last years). So while we would like to see more R packages in Fedora in
+> are not even near to have a reasonable subset of R packaged.
+>
+> So for the moment CRAN is really a requirement to use R in Fedora.
+
+There have always been conflicts between the CRAN package system and
+Fedora or other linux packaging Guidelines.   Users can install CRAN packages
+without root privileges, but then the search function won't know about the
+user's packages, and packages that rely on other library (gsl, hdf5, etc)
+still need -dev RPM's.   Linux distros should not be trying to enforce
+guidelines
+for mainstream packages with their own robust package management and
+archive networks.  Instead, they should look for ways to improve support
+for users who rely on those 3rd party systems.  For example:
+
+R-base: basic runtime without dev dependencies, for sites that provide binary
+CRAN packages (e.g., on a shared directory) so users don't need to do compiles.
+
+R-core: R-base + -dev dependencies for those who want to install source packages
+from CRAN (e.g., most individual R users)
+
+R-X-sup(plement): -dev dependencies needed to build package X (e.g.,
+R-hdf5-sup requires hdf5-dev for the hdf5 package from CRAN, gsl-dev
+for gsl, etc.).  These aren't strictly necessary, but would serve to
+link package versions on CRAN with the versions of the support libs in
+Fed,
+something that can take some effort (e.g., peeking in the sources) to
+determine.   For sites
+where users need to ask admins to install libraries, this simplifies
+the problem of telling the admin which libs to install.
+
+In the long run, linux distros should look at devising ways to capture
+information from these
+3rd party package managers to help resolve dependencies automatically.
+
+-- 
+George N. White III <aa056 at chebucto.ns.ca>
+Head of St. Margarets Bay, Nova Scotia
+
+
+From mjs at clemson.edu  Fri Oct 24 03:37:26 2008
+From: mjs at clemson.edu (Matthew Saltzman)
+Date: Thu, 23 Oct 2008 21:37:26 -0400
+Subject: [R-sig-Fedora] R-devel going away
+In-Reply-To: <200810231941.41824.jamatos@fc.up.pt>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+	<1224772939.3601.54.camel@localhost.localdomain>
+	<1224786127.3898.97.camel@code.and.org>
+	<200810231941.41824.jamatos@fc.up.pt>
+Message-ID: <1224812246.5246.44.camel@valkyrie.localdomain>
+
+
+On Thu, 2008-10-23 at 19:41 +0100, Jos? Matos wrote:
+> On Thursday 23 October 2008 19:22:07 James Antill wrote:
+> >  Well it kinda fits the "people expect foo-core + additions" _assuming_
+> > CRAN is a requirement, but really why don't we just package more of the
+> > R modules so CRAN usage isn't a requirement?
+> 
+> There are more than 1500 modules (the have been growing at an exponential rate 
+> in the last years). So while we would like to see more R packages in Fedora in 
+> are not even near to have a reasonable subset of R packaged.
+> 
+> So for the moment CRAN is really a requirement to use R in Fedora.
+
+This situation seems to cry out for a solution like cpan2rpm for the
+Perl Archive.
+-- 
+                Matthew Saltzman
+
+Clemson University Math Sciences
+mjs AT clemson DOT edu
+http://www.math.clemson.edu/~mjs
+
+
+From tibbs at math.uh.edu  Fri Oct 24 03:39:32 2008
+From: tibbs at math.uh.edu (Jason L Tibbitts III)
+Date: 23 Oct 2008 20:39:32 -0500
+Subject: [R-sig-Fedora] R-devel going away
+In-Reply-To: <1224812246.5246.44.camel@valkyrie.localdomain>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+	<1224772939.3601.54.camel@localhost.localdomain>
+	<1224786127.3898.97.camel@code.and.org>
+	<200810231941.41824.jamatos@fc.up.pt>
+	<1224812246.5246.44.camel@valkyrie.localdomain>
+Message-ID: <ufazlkueppn.fsf@epithumia.math.uh.edu>
+
+>>>>> "MS" == Matthew Saltzman <mjs at clemson.edu> writes:
+
+MS> This situation seems to cry out for a solution like cpan2rpm for
+MS> the Perl Archive.
+
+I believe the existing R2spec handles this nicely.
+
+ - J<
+
+
+From jamatos at fc.up.pt  Fri Oct 24 08:52:17 2008
+From: jamatos at fc.up.pt (=?iso-8859-1?q?Jos=E9_Matos?=)
+Date: Fri, 24 Oct 2008 07:52:17 +0100
+Subject: [R-sig-Fedora] [Fedora-r-devel-list] Re: R-devel going away
+In-Reply-To: <22af238a0810231508j183fd334m6a1dc272e518f6b0@mail.gmail.com>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+	<200810231941.41824.jamatos@fc.up.pt>
+	<22af238a0810231508j183fd334m6a1dc272e518f6b0@mail.gmail.com>
+Message-ID: <200810240752.18594.jamatos@fc.up.pt>
+
+On Thursday 23 October 2008 23:08:53 George N. White III wrote:
+>
+> There have always been conflicts between the CRAN package system and
+> Fedora or other linux packaging Guidelines.   Users can install CRAN
+> packages without root privileges, but then the search function won't know
+> about the user's packages, and packages that rely on other library (gsl,
+> hdf5, etc) still need -dev RPM's.   Linux distros should not be trying to
+> enforce guidelines
+> for mainstream packages with their own robust package management and
+> archive networks.
+
+Playing devil's advocate I should remark that first each language is building 
+its own repository and packaging system in a sense we have lots of equivalents 
+of (yum+rpm) for each language (perl,  php, python, R, tex, ...).
+
+On the other hand for the system to be really useful it must use the least 
+possible denominator (read the dumbest wins- pun intended ;-) ).
+
+> Instead, they should look for ways to improve support
+> for users who rely on those 3rd party systems.  For example:
+>
+> R-base: basic runtime without dev dependencies, for sites that provide
+> binary CRAN packages (e.g., on a shared directory) so users don't need to
+> do compiles.
+>
+> R-core: R-base + -dev dependencies for those who want to install source
+> packages from CRAN (e.g., most individual R users)
+>
+> R-X-sup(plement): -dev dependencies needed to build package X (e.g.,
+> R-hdf5-sup requires hdf5-dev for the hdf5 package from CRAN, gsl-dev
+> for gsl, etc.).  These aren't strictly necessary, but would serve to
+> link package versions on CRAN with the versions of the support libs in
+> Fed,
+> something that can take some effort (e.g., peeking in the sources) to
+> determine.   For sites
+> where users need to ask admins to install libraries, this simplifies
+> the problem of telling the admin which libs to install.
+
+I am not sure if this is right path or the right balance.
+
+Another possible choice is to expand R2spec in scope and not only create rpm 
+spec files but to discover the different dependencies and how they are solved 
+inside.
+
+There is no reason that we can not rebuild the whole CRAN (or almost all of 
+it) automatically.
+
+> In the long run, linux distros should look at devising ways to capture
+> information from these
+> 3rd party package managers to help resolve dependencies automatically.
+
+As everything with free software the survival of the fittest means that this 
+will only happen if there are people interested in spending resources to make 
+this possible.
+-- 
+Jos? Ab?lio
+
+
+From pingou at pingoured.fr  Fri Oct 24 09:43:19 2008
+From: pingou at pingoured.fr (Pierre-Yves)
+Date: Fri, 24 Oct 2008 09:43:19 +0200
+Subject: [R-sig-Fedora] [Fedora-r-devel-list] Re: R-devel going away
+In-Reply-To: <200810240752.18594.jamatos@fc.up.pt>
+References: <1224770108.3601.40.camel@localhost.localdomain>	<200810231941.41824.jamatos@fc.up.pt>	<22af238a0810231508j183fd334m6a1dc272e518f6b0@mail.gmail.com>
+	<200810240752.18594.jamatos@fc.up.pt>
+Message-ID: <49017C97.6040808@pingoured.fr>
+
+Jos? Matos wrote:
+> On Thursday 23 October 2008 23:08:53 George N. White III wrote:
+>> There have always been conflicts between the CRAN package system and
+>> Fedora or other linux packaging Guidelines.   Users can install CRAN
+>> packages without root privileges, but then the search function won't know
+>> about the user's packages, and packages that rely on other library (gsl,
+>> hdf5, etc) still need -dev RPM's.   Linux distros should not be trying to
+>> enforce guidelines
+>> for mainstream packages with their own robust package management and
+>> archive networks.
+> 
+> Playing devil's advocate I should remark that first each language is building 
+> its own repository and packaging system in a sense we have lots of equivalents 
+> of (yum+rpm) for each language (perl,  php, python, R, tex, ...).
+> 
+> On the other hand for the system to be really useful it must use the least 
+> possible denominator (read the dumbest wins- pun intended ;-) ).
+> 
+>> Instead, they should look for ways to improve support
+>> for users who rely on those 3rd party systems.  For example:
+>>
+>> R-base: basic runtime without dev dependencies, for sites that provide
+>> binary CRAN packages (e.g., on a shared directory) so users don't need to
+>> do compiles.
+>>
+>> R-core: R-base + -dev dependencies for those who want to install source
+>> packages from CRAN (e.g., most individual R users)
+>>
+>> R-X-sup(plement): -dev dependencies needed to build package X (e.g.,
+>> R-hdf5-sup requires hdf5-dev for the hdf5 package from CRAN, gsl-dev
+>> for gsl, etc.).  These aren't strictly necessary, but would serve to
+>> link package versions on CRAN with the versions of the support libs in
+>> Fed,
+>> something that can take some effort (e.g., peeking in the sources) to
+>> determine.   For sites
+>> where users need to ask admins to install libraries, this simplifies
+>> the problem of telling the admin which libs to install.
+> 
+> I am not sure if this is right path or the right balance.
+> 
+> Another possible choice is to expand R2spec in scope and not only create rpm 
+> spec files but to discover the different dependencies and how they are solved 
+> inside.
+> 
+> There is no reason that we can not rebuild the whole CRAN (or almost all of 
+> it) automatically.
+
+R2spec [1] can handles the generation of spec for R-libraries pretty 
+easily, but the spec always needs some revision behind.
+
+However, I had started some time ago a small script to update the spec 
+file when there is a new release of an already package R-library. This 
+might be something that I should develop maybe a bit more now 
+(especially since Bioconductor 2.3 has been released with R 2.8.0)
+
+Should that be included in R2spec or in a separate tool ?
+
+> 
+>> In the long run, linux distros should look at devising ways to capture
+>> information from these
+>> 3rd party package managers to help resolve dependencies automatically.
+> 
+> As everything with free software the survival of the fittest means that this 
+> will only happen if there are people interested in spending resources to make 
+> this possible.
+
+--
+For those who do not know it
+R2spec https://fedorahosted.org/r2spec
+Present in Fedora 8,9 and rawhide (10) and in EPEL 4 and 5.
+--
+
+Regards,
+Pierre
+
+
+From gnwiii at gmail.com  Fri Oct 24 12:13:35 2008
+From: gnwiii at gmail.com (George N. White III)
+Date: Fri, 24 Oct 2008 07:13:35 -0300
+Subject: [R-sig-Fedora] [Fedora-r-devel-list] Re: R-devel going away
+In-Reply-To: <200810240752.18594.jamatos@fc.up.pt>
+References: <1224770108.3601.40.camel@localhost.localdomain>
+	<200810231941.41824.jamatos@fc.up.pt>
+	<22af238a0810231508j183fd334m6a1dc272e518f6b0@mail.gmail.com>
+	<200810240752.18594.jamatos@fc.up.pt>
+Message-ID: <22af238a0810240313t6c9aa737y98ceea53c2ef0118@mail.gmail.com>
+
+On Fri, Oct 24, 2008 at 3:52 AM, Jos? Matos <jamatos at fc.up.pt> wrote:
+
+> On Thursday 23 October 2008 23:08:53 George N. White III wrote:
+>>
+>> There have always been conflicts between the CRAN package system and
+>> Fedora or other linux packaging Guidelines.   Users can install CRAN
+>> packages without root privileges, but then the search function won't know
+>> about the user's packages, and packages that rely on other library (gsl,
+>> hdf5, etc) still need -dev RPM's.   Linux distros should not be trying to
+>> enforce guidelines
+>> for mainstream packages with their own robust package management and
+>> archive networks.
+>
+> Playing devil's advocate I should remark that first each language is building
+> its own repository and packaging system in a sense we have lots of equivalents
+> of (yum+rpm) for each language (perl,  php, python, R, tex, ...).
+>
+> On the other hand for the system to be really useful it must use the least
+> possible denominator (read the dumbest wins- pun intended ;-) ).
+
+It is really a question of the minimal effort needed to learn how to install
+the desired package.  People will try to to use a tool they already know, then
+use the simplest tool.  There is an advantage to being able to use the same
+tools on more than one platform.  R and TeX are a bit different in that many
+users rely on them throughout their careers, using multiple platforms or
+working with colleagues who use different platforms.  A colleague using
+Windows says: "you should do (in R): install.packages('hdf5')".   When that
+fails, that colleague is unlikely to know how to solve the problem.
+
+There is another elephant in this room:  security policies are being revised
+to require that end-user apps be installed and managed with user privileges.
+In practice, large organizations are moving to a model where "root" must have
+training/certification, with chargebacks when users need rpm package installs.
+At such sites, users are going back to the pre-package days where apps are
+installed from sources, or adopting a system like openpkg that uses RPM
+packages but can (if used to manage only applications) be used without root
+privs.   Sooner or later, linux distros will have to deal with this.
+
+
+-- 
+George N. White III <aa056 at chebucto.ns.ca>
+Head of St. Margarets Bay, Nova Scotia
+
+
+From marc_schwartz at comcast.net  Fri Oct 24 16:16:55 2008
+From: marc_schwartz at comcast.net (Marc Schwartz)
+Date: Fri, 24 Oct 2008 09:16:55 -0500
+Subject: [R-sig-Fedora] [Fedora-r-devel-list] Re: R-devel going away
+In-Reply-To: <22af238a0810240313t6c9aa737y98ceea53c2ef0118@mail.gmail.com>
+References: <1224770108.3601.40.camel@localhost.localdomain>	<200810231941.41824.jamatos@fc.up.pt>	<22af238a0810231508j183fd334m6a1dc272e518f6b0@mail.gmail.com>	<200810240752.18594.jamatos@fc.up.pt>
+	<22af238a0810240313t6c9aa737y98ceea53c2ef0118@mail.gmail.com>
+Message-ID: <4901D8D7.2070001@comcast.net>
+
+Hi all,
+
+First, thanks to all for this conversation and the directions it is taking.
+
+Just a quick Admin note.
+
+This thread is going to three different lists, including
+"r-sig-fedora at r-project.org", which is the R e-mail list focused on
+Fedora/RH ports.
+
+That in contrast to "fedora-r-devel-list at redhat.com", which is the
+Fedora/RH list focused on R...  :-)
+
+The former requires registered subscriptions to post to the list, which
+means that for those participating in this thread who are not
+subscribed, the Admins (currently Martyn and myself) need to go to the
+Mailman interface to approve each post individually. As I was travelling
+and in meetings yesterday, Martyn has born the workload over the past 24
+hours or so.
+
+I would like to respectfully ask those who are or will be participating
+in this and perhaps future such threads, to go to:
+
+  https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+and subscribe, so that the Admin overhead can be minimized.
+
+We appreciate your participation and cooperation.
+
+Regards,
+
+Marc Schwartz
+
+
+From phhs80 at gmail.com  Sun Oct 26 14:43:22 2008
+From: phhs80 at gmail.com (Paul Smith)
+Date: Sun, 26 Oct 2008 13:43:22 +0000
+Subject: [R-sig-Fedora] When will R 2.8.0 be available for F9
+Message-ID: <6ade6f6c0810260643v38826d45kad5b5ef5d183fb6d@mail.gmail.com>
+
+Dear All,
+
+When will R 2.8.0 be available for F9?
+
+Thanks in advance,
+
+Paul
+
+
+From marc_schwartz at comcast.net  Sun Oct 26 15:20:48 2008
+From: marc_schwartz at comcast.net (Marc Schwartz)
+Date: Sun, 26 Oct 2008 09:20:48 -0500
+Subject: [R-sig-Fedora] When will R 2.8.0 be available for F9
+In-Reply-To: <6ade6f6c0810260643v38826d45kad5b5ef5d183fb6d@mail.gmail.com>
+References: <6ade6f6c0810260643v38826d45kad5b5ef5d183fb6d@mail.gmail.com>
+Message-ID: <49047CC0.2020300@comcast.net>
+
+on 10/26/2008 08:43 AM Paul Smith wrote:
+> Dear All,
+> 
+> When will R 2.8.0 be available for F9?
+> 
+> Thanks in advance,
+> 
+> Paul
+
+Thanks to Martyn, it is available from CRAN mirrors, such as:
+
+http://cran.us.r-project.org/bin/linux/redhat/fedora9/i386/R-2.8.0-1.fc9.i386.rpm
+
+
+If you want to add a CRAN mirror to your yum list of repos, see:
+
+http://cran.us.r-project.org/bin/linux/redhat/fedora7/i386/ReadMe
+
+
+It would appear that 2.8.0 is not yet in Koji, which is the Fedora build
+system. Given the Fedora Karma system, it can be at least a couple of
+weeks after it is available there:
+
+http://koji.fedoraproject.org/koji/packageinfo?packageID=1230
+
+
+It would then show up in Bodhi:
+
+https://admin.fedoraproject.org/updates/R
+
+where folks can test the RPM and bump the Karma to push it to release.
+
+
+I am guessing that there might be a delay in availability due to the
+activity surrounding the very recent discussion on the consolidation of
+R and R-devel to facilitate the installation of CRAN source code
+packages, but would defer to Tom on that.
+
+HTH,
+
+Marc Schwartz
+
+
+From tcallawa at redhat.com  Sun Oct 26 15:49:29 2008
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Sun, 26 Oct 2008 10:49:29 -0400
+Subject: [R-sig-Fedora] When will R 2.8.0 be available for F9
+In-Reply-To: <49047CC0.2020300@comcast.net>
+References: <6ade6f6c0810260643v38826d45kad5b5ef5d183fb6d@mail.gmail.com>
+	<49047CC0.2020300@comcast.net>
+Message-ID: <1225032570.6677.17.camel@localhost.localdomain>
+
+On Sun, 2008-10-26 at 09:20 -0500, Marc Schwartz wrote:
+> I am guessing that there might be a delay in availability due to the
+> activity surrounding the very recent discussion on the consolidation
+> of R and R-devel to facilitate the installation of CRAN source code
+> packages, but would defer to Tom on that.
+
+Also, the fact that I just noticed 2.8.0 was out might have something to
+do with it... :/
+
+Give me an hour or so, and I should be able to have the new and improved
+version out.
+
+~tom
+
+
+From plummer at iarc.fr  Sun Oct 26 20:59:27 2008
+From: plummer at iarc.fr (plummer at iarc.fr)
+Date: Sun, 26 Oct 2008 20:59:27 +0100
+Subject: [R-sig-Fedora] When will R 2.8.0 be available for F9
+In-Reply-To: <1225032570.6677.17.camel@localhost.localdomain>
+References: <6ade6f6c0810260643v38826d45kad5b5ef5d183fb6d@mail.gmail.com>
+	<49047CC0.2020300@comcast.net>
+	<1225032570.6677.17.camel@localhost.localdomain>
+Message-ID: <1225051167.4904cc1fd3dd1@webmail.iarc.fr>
+
+[Apologies if you get this twice.  I am resending this because the
+ webmail interface seems to have eaten the last one]
+
+Quoting "Tom \\spot\\ Callaway" <tcallawa at redhat.com>:
+
+> On Sun, 2008-10-26 at 09:20 -0500, Marc Schwartz wrote:
+> > I am guessing that there might be a delay in availability due to the
+> > activity surrounding the very recent discussion on the consolidation
+> > of R and R-devel to facilitate the installation of CRAN source code
+> > packages, but would defer to Tom on that.
+>
+> Also, the fact that I just noticed 2.8.0 was out might have something to
+> do with it... :/
+
+You can subscribe to the R-announce list. This is a very low-volume list
+that has only official R announcements from the core team or the foundation:
+
+https://stat.ethz.ch/mailman/listinfo/r-announce
+
+> Give me an hour or so, and I should be able to have the new and improved
+> version out.
+>
+> ~tom
+
+If its not too late, can you add libtiff-devel as a build requirement?
+This will enable the tiff() graphics device, which is not currently
+enabled. Its cousins, the png() and jpeg() devices are enabled.
+
+Thanks also for the bzip2 patch. I will see to this in the morning.
+
+Martyn
+
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+
+From tcallawa at redhat.com  Sun Oct 26 21:10:36 2008
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Sun, 26 Oct 2008 16:10:36 -0400
+Subject: [R-sig-Fedora] When will R 2.8.0 be available for F9
+In-Reply-To: <1225051167.4904cc1fd3dd1@webmail.iarc.fr>
+References: <6ade6f6c0810260643v38826d45kad5b5ef5d183fb6d@mail.gmail.com>
+	<49047CC0.2020300@comcast.net>
+	<1225032570.6677.17.camel@localhost.localdomain>
+	<1225051167.4904cc1fd3dd1@webmail.iarc.fr>
+Message-ID: <1225051836.1067.2.camel@localhost.localdomain>
+
+On Sun, 2008-10-26 at 20:59 +0100, plummer at iarc.fr wrote:
+> If its not too late, can you add libtiff-devel as a build requirement?
+> This will enable the tiff() graphics device, which is not currently
+> enabled. Its cousins, the png() and jpeg() devices are enabled.
+
+Sure, I'll enable that. Thanks for the headsup.
+
+~tom
+
+
+From pingou at pingoured.fr  Sun Oct 26 19:22:05 2008
+From: pingou at pingoured.fr (Pierre-Yves)
+Date: Sun, 26 Oct 2008 19:22:05 +0100
+Subject: [R-sig-Fedora] When will R 2.8.0 be available for F9
+In-Reply-To: <1225032570.6677.17.camel@localhost.localdomain>
+References: <6ade6f6c0810260643v38826d45kad5b5ef5d183fb6d@mail.gmail.com>	<49047CC0.2020300@comcast.net>
+	<1225032570.6677.17.camel@localhost.localdomain>
+Message-ID: <4904B54D.7080807@pingoured.fr>
+
+Tom "spot" Callaway wrote:
+> Give me an hour or so, and I should be able to have the new and improved
+> version out.
+
+Please let us know when it will be available I have ~15 packages from 
+Bioconductor to update with this version of R :)
+
+Thanks,
+
+Pierre
+
+
+From phhs80 at gmail.com  Mon Oct 27 10:00:05 2008
+From: phhs80 at gmail.com (Paul Smith)
+Date: Mon, 27 Oct 2008 09:00:05 +0000
+Subject: [R-sig-Fedora] When will R 2.8.0 be available for F9
+In-Reply-To: <1225032570.6677.17.camel@localhost.localdomain>
+References: <6ade6f6c0810260643v38826d45kad5b5ef5d183fb6d@mail.gmail.com>
+	<49047CC0.2020300@comcast.net>
+	<1225032570.6677.17.camel@localhost.localdomain>
+Message-ID: <6ade6f6c0810270200q2900661eie42d31759458b59b@mail.gmail.com>
+
+On Sun, Oct 26, 2008 at 2:49 PM, Tom spot Callaway <tcallawa at redhat.com> wrote:
+>> I am guessing that there might be a delay in availability due to the
+>> activity surrounding the very recent discussion on the consolidation
+>> of R and R-devel to facilitate the installation of CRAN source code
+>> packages, but would defer to Tom on that.
+>
+> Also, the fact that I just noticed 2.8.0 was out might have something to
+> do with it... :/
+>
+> Give me an hour or so, and I should be able to have the new and improved
+> version out.
+
+Many thanks, Tom, for having put R 2.8.0 at Koji:
+
+http://koji.fedoraproject.org/koji/buildinfo?buildID=67601
+
+Paul
+
+
+From tcallawa at redhat.com  Mon Oct 27 18:55:31 2008
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Mon, 27 Oct 2008 13:55:31 -0400
+Subject: [R-sig-Fedora] When will R 2.8.0 be available for F9
+In-Reply-To: <4904B54D.7080807@pingoured.fr>
+References: <6ade6f6c0810260643v38826d45kad5b5ef5d183fb6d@mail.gmail.com>
+	<49047CC0.2020300@comcast.net>
+	<1225032570.6677.17.camel@localhost.localdomain>
+	<4904B54D.7080807@pingoured.fr>
+Message-ID: <1225130131.3270.10.camel@localhost.localdomain>
+
+On Sun, 2008-10-26 at 19:22 +0100, Pierre-Yves wrote:
+> Tom "spot" Callaway wrote:
+> > Give me an hour or so, and I should be able to have the new and improved
+> > version out.
+> 
+> Please let us know when it will be available I have ~15 packages from 
+> Bioconductor to update with this version of R :)
+
+I just finished submitting the update for R-2.8.0 for Fedora 8 and
+Fedora 9. Rawhide (aka, Fedora 10) has it already.
+
+Please test these new R packages and leave a "works-for-me" comment on
+the update if it works for you. :)
+
+F8:
+https://admin.fedoraproject.org/updates/rpy-1.0.3-4.fc8,R-2.8.0-2.fc8
+
+F9:
+https://admin.fedoraproject.org/updates/rpy-1.0.3-4.fc9,R-2.8.0-2.fc9
+
+Thanks,
+
+~spot
+
+
+From p.dalgaard at biostat.ku.dk  Mon Oct 27 19:15:37 2008
+From: p.dalgaard at biostat.ku.dk (Peter Dalgaard)
+Date: Mon, 27 Oct 2008 19:15:37 +0100
+Subject: [R-sig-Fedora] When will R 2.8.0 be available for F9
+In-Reply-To: <1225130131.3270.10.camel@localhost.localdomain>
+References: <6ade6f6c0810260643v38826d45kad5b5ef5d183fb6d@mail.gmail.com>	<49047CC0.2020300@comcast.net>	<1225032570.6677.17.camel@localhost.localdomain>	<4904B54D.7080807@pingoured.fr>
+	<1225130131.3270.10.camel@localhost.localdomain>
+Message-ID: <49060549.80206@biostat.ku.dk>
+
+Tom "spot" Callaway wrote:
+> On Sun, 2008-10-26 at 19:22 +0100, Pierre-Yves wrote:
+>> Tom "spot" Callaway wrote:
+>>> Give me an hour or so, and I should be able to have the new and improved
+>>> version out.
+>> Please let us know when it will be available I have ~15 packages from 
+>> Bioconductor to update with this version of R :)
+> 
+> I just finished submitting the update for R-2.8.0 for Fedora 8 and
+> Fedora 9. Rawhide (aka, Fedora 10) has it already.
+> 
+> Please test these new R packages and leave a "works-for-me" comment on
+> the update if it works for you. :)
+> 
+> F8:
+> https://admin.fedoraproject.org/updates/rpy-1.0.3-4.fc8,R-2.8.0-2.fc8
+> 
+> F9:
+> https://admin.fedoraproject.org/updates/rpy-1.0.3-4.fc9,R-2.8.0-2.fc9
+> 
+
+Tom, just one more thing:
+
+I wonder if this bundling of R and rpy is fortunate. Most R users don't 
+(AFAIK) use rpy, and won't be able to test whether it works.
+
+	-pd
+
+> Thanks,
+> 
+> ~spot
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+-- 
+    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B
+   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K
+  (*) \(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918
+~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907
+
+
+From tcallawa at redhat.com  Mon Oct 27 19:20:15 2008
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Mon, 27 Oct 2008 14:20:15 -0400
+Subject: [R-sig-Fedora] When will R 2.8.0 be available for F9
+In-Reply-To: <49060549.80206@biostat.ku.dk>
+References: <6ade6f6c0810260643v38826d45kad5b5ef5d183fb6d@mail.gmail.com>
+	<49047CC0.2020300@comcast.net>
+	<1225032570.6677.17.camel@localhost.localdomain>
+	<4904B54D.7080807@pingoured.fr>
+	<1225130131.3270.10.camel@localhost.localdomain>
+	<49060549.80206@biostat.ku.dk>
+Message-ID: <1225131615.3270.15.camel@localhost.localdomain>
+
+On Mon, 2008-10-27 at 19:15 +0100, Peter Dalgaard wrote:
+> Tom "spot" Callaway wrote:
+> > On Sun, 2008-10-26 at 19:22 +0100, Pierre-Yves wrote:
+> >> Tom "spot" Callaway wrote:
+> >>> Give me an hour or so, and I should be able to have the new and improved
+> >>> version out.
+> >> Please let us know when it will be available I have ~15 packages from 
+> >> Bioconductor to update with this version of R :)
+> > 
+> > I just finished submitting the update for R-2.8.0 for Fedora 8 and
+> > Fedora 9. Rawhide (aka, Fedora 10) has it already.
+> > 
+> > Please test these new R packages and leave a "works-for-me" comment on
+> > the update if it works for you. :)
+> > 
+> > F8:
+> > https://admin.fedoraproject.org/updates/rpy-1.0.3-4.fc8,R-2.8.0-2.fc8
+> > 
+> > F9:
+> > https://admin.fedoraproject.org/updates/rpy-1.0.3-4.fc9,R-2.8.0-2.fc9
+> > 
+> 
+> Tom, just one more thing:
+> 
+> I wonder if this bundling of R and rpy is fortunate. Most R users don't 
+> (AFAIK) use rpy, and won't be able to test whether it works.
+
+Since rpy is tied so closely to R, we have to do them both at the same
+time or else rpy won't even install. On the plus side, rpy almost never
+breaks. 
+
+Testing R is good enough for me to flip it to stable. :)
+
+~spot
+
+
+From pingou at pingoured.fr  Mon Oct 27 20:57:46 2008
+From: pingou at pingoured.fr (Pierre-Yves)
+Date: Mon, 27 Oct 2008 20:57:46 +0100
+Subject: [R-sig-Fedora] Heads-up - Bioconductor - Requires R >= 2.x.y
+In-Reply-To: <49061CCD.6060404@yahoo.fr>
+References: <49061CCD.6060404@yahoo.fr>
+Message-ID: <49061D3A.8030300@pingoured.fr>
+
+Dear all,
+
+I am currently updating the libraries from bioconductor to the version 
+2.3 of bioconductor made for R 2.8.0.
+
+I am adding to all these package a global variable Rversion which is 
+then used in the Requires and BuilRequires sections.
+This means that those packages will not be available for previous 
+version of R.
+
+I am planning to generalize this and to add this in R2spec.
+
+Regards,
+
+Pierre
+
+

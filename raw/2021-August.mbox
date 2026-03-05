@@ -1,0 +1,456 @@
+From phh@80 @end|ng |rom gm@||@com  Thu Aug 12 23:18:11 2021
+From: phh@80 @end|ng |rom gm@||@com (Paul Smith)
+Date: Thu, 12 Aug 2021 22:18:11 +0100
+Subject: [R-sig-Fedora] RStudio does not open completly
+Message-ID: <CALS=5mqCUii26Sz++nK2VUMhcJYngRDytUSmMk3b8LzJd=00fQ@mail.gmail.com>
+
+Dear All,
+
+I have just installed R 4.1 and RStudio on Fedora Toolbox. Everything
+went fine, but when I try to run RStudio, it opens as a white window
+flickering permanently, and does not progress from that.
+
+Any ideas?
+
+Thanks in advance,
+
+Paul
+
+
+From |uc@r @end|ng |rom |edor@project@org  Fri Aug 13 09:29:38 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Fri, 13 Aug 2021 09:29:38 +0200
+Subject: [R-sig-Fedora] RStudio does not open completly
+In-Reply-To: <CALS=5mqCUii26Sz++nK2VUMhcJYngRDytUSmMk3b8LzJd=00fQ@mail.gmail.com>
+References: <CALS=5mqCUii26Sz++nK2VUMhcJYngRDytUSmMk3b8LzJd=00fQ@mail.gmail.com>
+Message-ID: <CALEXWq0c9JWXx0__4+BhpVrzPHJT1T5aneWz7tvVTCkVDjmRzw@mail.gmail.com>
+
+Xorg or Wayland session? RStudio doesn't support the latter yet.
+
+I?aki
+
+On Thu, 12 Aug 2021 at 23:19, Paul Smith <phhs80 at gmail.com> wrote:
+>
+> Dear All,
+>
+> I have just installed R 4.1 and RStudio on Fedora Toolbox. Everything
+> went fine, but when I try to run RStudio, it opens as a white window
+> flickering permanently, and does not progress from that.
+>
+> Any ideas?
+>
+> Thanks in advance,
+>
+> Paul
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+
+From phh@80 @end|ng |rom gm@||@com  Fri Aug 13 12:39:40 2021
+From: phh@80 @end|ng |rom gm@||@com (Paul Smith)
+Date: Fri, 13 Aug 2021 11:39:40 +0100
+Subject: [R-sig-Fedora] RStudio does not open completly
+In-Reply-To: <CALEXWq0c9JWXx0__4+BhpVrzPHJT1T5aneWz7tvVTCkVDjmRzw@mail.gmail.com>
+References: <CALS=5mqCUii26Sz++nK2VUMhcJYngRDytUSmMk3b8LzJd=00fQ@mail.gmail.com>
+ <CALEXWq0c9JWXx0__4+BhpVrzPHJT1T5aneWz7tvVTCkVDjmRzw@mail.gmail.com>
+Message-ID: <CALS=5mqVi-gAQmnex=g4qHaKTqYXD3txDjeMCode4FU=xo7x7Q@mail.gmail.com>
+
+Thanks, I?aki. Toolbox as well as my computer are running Xorg:
+
+-------------------------------------
+$ echo $XDG_SESSION_TYPE
+x11
+-------------------------------------
+
+Paul
+
+
+On Fri, Aug 13, 2021 at 8:29 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> Xorg or Wayland session? RStudio doesn't support the latter yet.
+>
+> I?aki
+>
+> On Thu, 12 Aug 2021 at 23:19, Paul Smith <phhs80 at gmail.com> wrote:
+> >
+> > Dear All,
+> >
+> > I have just installed R 4.1 and RStudio on Fedora Toolbox. Everything
+> > went fine, but when I try to run RStudio, it opens as a white window
+> > flickering permanently, and does not progress from that.
+> >
+> > Any ideas?
+> >
+> > Thanks in advance,
+> >
+> > Paul
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+>
+> --
+> I?aki ?car
+
+
+From phh@80 @end|ng |rom gm@||@com  Fri Aug 13 12:44:11 2021
+From: phh@80 @end|ng |rom gm@||@com (Paul Smith)
+Date: Fri, 13 Aug 2021 11:44:11 +0100
+Subject: [R-sig-Fedora] Installing R 4.1 on F34
+Message-ID: <CALS=5moU5nZaLr2p=0cDncYECA2+2v-Q9pW0-0++F80_vKb=_g@mail.gmail.com>
+
+Dear All,
+
+I have found out that R 4.1 is not available for Fedora 34, and you
+have here advised us to install the rawhide version. However, the
+rawhide version seems to be for Fedora 35. Can that still be installed
+on Fedora 34, despite the fact that it is for Fedora 35?
+
+Thanks in advance,
+
+Paul
+
+
+From t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk  Fri Aug 13 17:38:36 2021
+From: t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk (Tim Taylor)
+Date: Fri, 13 Aug 2021 15:38:36 +0000
+Subject: [R-sig-Fedora] Installing R 4.1 on F34
+In-Reply-To: <CALS=5moU5nZaLr2p=0cDncYECA2+2v-Q9pW0-0++F80_vKb=_g@mail.gmail.com>
+References: <CALS=5moU5nZaLr2p=0cDncYECA2+2v-Q9pW0-0++F80_vKb=_g@mail.gmail.com>
+Message-ID: <d17a96ac-fa28-ce40-650e-9e9e677c9b44@hiddenelephants.co.uk>
+
+On 13/08/2021 11:44, Paul Smith wrote:
+> Dear All,
+> 
+> I have found out that R 4.1 is not available for Fedora 34, and you
+> have here advised us to install the rawhide version. However, the
+> rawhide version seems to be for Fedora 35. Can that still be installed
+> on Fedora 34, despite the fact that it is for Fedora 35?
+> 
+> Thanks in advance,
+> 
+> Paul
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> 
+
+Hi Paul
+
+See I?aki's response (quoted below) from this thread:
+https://stat.ethz.ch/pipermail/r-sig-fedora/2021-June/000770.html
+It's worth checking out the full thread for more info.
+
+On 23/06/2021 14:45, I?aki Ucar wrote:
+ > On Wed, 23 Jun 2021 at 14:50, Gavin Simpson <ucfagls at gmail.com> wrote:
+ >>
+ >> How would one go about installing R 4.1 from rawhide? (October is a 
+little too far away to be off r-release for that long while maintaining 
+R packages on CRAN that depend on tidyverse packages.)
+ >
+ > $ sudo dnf update R --release rawhide
+ >
+ > should do. Be aware though that this means updating other dependencies
+ > too. This may or may not cause problems. A safer option would be to
+ > use a containerized environment. Toolbox [1, 2] is perfect for this,
+ > especially for development purposes:
+ >
+ > $ sudo dnf install toolbox
+ > $ toolbox enter -r 35
+ > [toolbox]$ sudo dnf install R rstudio-desktop
+ > [toolbox]$ rstudio
+ > # rstudio opens
+ >
+ > or directly without entering the toolbox first:
+ >
+ > $ toolbox run -r 35 rstudio
+ > # rstudio opens
+ >
+ > Remember to install any additional repos and/or system dependencies
+ > you may need (e.g., to install R packages from source) *inside* your
+ > toolbox. Hope it helps.
+ >
+ > [1] https://docs.fedoraproject.org/en-US/fedora-silverblue/toolbox/
+ > [2] https://fedoramagazine.org/a-quick-introduction-to-toolbox-on-fedora/
+ >
+ > I?aki
+
+Tim
+
+From phh@80 @end|ng |rom gm@||@com  Fri Aug 13 18:22:27 2021
+From: phh@80 @end|ng |rom gm@||@com (Paul Smith)
+Date: Fri, 13 Aug 2021 17:22:27 +0100
+Subject: [R-sig-Fedora] Installing R 4.1 on F34
+In-Reply-To: <d17a96ac-fa28-ce40-650e-9e9e677c9b44@hiddenelephants.co.uk>
+References: <CALS=5moU5nZaLr2p=0cDncYECA2+2v-Q9pW0-0++F80_vKb=_g@mail.gmail.com>
+ <d17a96ac-fa28-ce40-650e-9e9e677c9b44@hiddenelephants.co.uk>
+Message-ID: <CALS=5mqBWKdE_AtzUtKbRsK0ZN7djvjgTyB_fS6ik6FO6g8Xow@mail.gmail.com>
+
+Thanks, Tim. I did install R 4.1 and RStudio on toolbox, following the
+referred I?aki's directions, but, unfortunately, RStudio opens as a
+never ending flickering white window and it never proceeds.
+
+Paul
+
+
+On Fri, Aug 13, 2021 at 4:38 PM Tim Taylor
+<tim.taylor at hiddenelephants.co.uk> wrote:
+>
+> On 13/08/2021 11:44, Paul Smith wrote:
+> > Dear All,
+> >
+> > I have found out that R 4.1 is not available for Fedora 34, and you
+> > have here advised us to install the rawhide version. However, the
+> > rawhide version seems to be for Fedora 35. Can that still be installed
+> > on Fedora 34, despite the fact that it is for Fedora 35?
+> >
+> > Thanks in advance,
+> >
+> > Paul
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+>
+> Hi Paul
+>
+> See I?aki's response (quoted below) from this thread:
+> https://stat.ethz.ch/pipermail/r-sig-fedora/2021-June/000770.html
+> It's worth checking out the full thread for more info.
+>
+> On 23/06/2021 14:45, I?aki Ucar wrote:
+>  > On Wed, 23 Jun 2021 at 14:50, Gavin Simpson <ucfagls at gmail.com> wrote:
+>  >>
+>  >> How would one go about installing R 4.1 from rawhide? (October is a
+> little too far away to be off r-release for that long while maintaining
+> R packages on CRAN that depend on tidyverse packages.)
+>  >
+>  > $ sudo dnf update R --release rawhide
+>  >
+>  > should do. Be aware though that this means updating other dependencies
+>  > too. This may or may not cause problems. A safer option would be to
+>  > use a containerized environment. Toolbox [1, 2] is perfect for this,
+>  > especially for development purposes:
+>  >
+>  > $ sudo dnf install toolbox
+>  > $ toolbox enter -r 35
+>  > [toolbox]$ sudo dnf install R rstudio-desktop
+>  > [toolbox]$ rstudio
+>  > # rstudio opens
+>  >
+>  > or directly without entering the toolbox first:
+>  >
+>  > $ toolbox run -r 35 rstudio
+>  > # rstudio opens
+>  >
+>  > Remember to install any additional repos and/or system dependencies
+>  > you may need (e.g., to install R packages from source) *inside* your
+>  > toolbox. Hope it helps.
+>  >
+>  > [1] https://docs.fedoraproject.org/en-US/fedora-silverblue/toolbox/
+>  > [2] https://fedoramagazine.org/a-quick-introduction-to-toolbox-on-fedora/
+>  >
+>  > I?aki
+>
+> Tim
+
+
+From |uc@r @end|ng |rom |edor@project@org  Mon Aug 16 01:19:44 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Mon, 16 Aug 2021 01:19:44 +0200
+Subject: [R-sig-Fedora] RStudio does not open completly
+In-Reply-To: <CALS=5mqVi-gAQmnex=g4qHaKTqYXD3txDjeMCode4FU=xo7x7Q@mail.gmail.com>
+References: <CALS=5mqCUii26Sz++nK2VUMhcJYngRDytUSmMk3b8LzJd=00fQ@mail.gmail.com>
+ <CALEXWq0c9JWXx0__4+BhpVrzPHJT1T5aneWz7tvVTCkVDjmRzw@mail.gmail.com>
+ <CALS=5mqVi-gAQmnex=g4qHaKTqYXD3txDjeMCode4FU=xo7x7Q@mail.gmail.com>
+Message-ID: <CALEXWq0FwJEs0tVFPoKfQOHWgc62NFCAtHRps9POXqBh+6fcpw@mail.gmail.com>
+
+The issue seems to be caused by the QtWebEngine. Fedora 35 was
+recently branched from rawhide. Try the following to stop using
+rawhide and follow this release:
+
+[toolbox]$ sudo dnf config-manager --set-disabled rawhide
+[toolbox]$ sudo dnf config-manager --set-enabled fedora,updates
+[toolbox]$ sudo dnf distro-sync --releasever=35
+
+If the problem persists, my recommendation is to install
+rstudio-server and run this:
+
+[toolbox]$ rserver --server-daemonize=0 --auth-none=1 --server-user=$(whoami)
+
+Then, open a browser and navigate to localhost:8787 to access RStudio Server.
+
+I?aki
+
+
+On Fri, 13 Aug 2021 at 12:40, Paul Smith <phhs80 at gmail.com> wrote:
+>
+> Thanks, I?aki. Toolbox as well as my computer are running Xorg:
+>
+> -------------------------------------
+> $ echo $XDG_SESSION_TYPE
+> x11
+> -------------------------------------
+>
+> Paul
+>
+>
+> On Fri, Aug 13, 2021 at 8:29 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+> >
+> > Xorg or Wayland session? RStudio doesn't support the latter yet.
+> >
+> > I?aki
+> >
+> > On Thu, 12 Aug 2021 at 23:19, Paul Smith <phhs80 at gmail.com> wrote:
+> > >
+> > > Dear All,
+> > >
+> > > I have just installed R 4.1 and RStudio on Fedora Toolbox. Everything
+> > > went fine, but when I try to run RStudio, it opens as a white window
+> > > flickering permanently, and does not progress from that.
+> > >
+> > > Any ideas?
+> > >
+> > > Thanks in advance,
+> > >
+> > > Paul
+> > >
+> > > _______________________________________________
+> > > R-SIG-Fedora mailing list
+> > > R-SIG-Fedora at r-project.org
+> > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+> >
+> >
+> > --
+> > I?aki ?car
+
+
+
+--
+I?aki ?car
+
+
+From phh@80 @end|ng |rom gm@||@com  Mon Aug 16 02:25:52 2021
+From: phh@80 @end|ng |rom gm@||@com (Paul Smith)
+Date: Mon, 16 Aug 2021 01:25:52 +0100
+Subject: [R-sig-Fedora] RStudio does not open completly
+In-Reply-To: <CALEXWq0FwJEs0tVFPoKfQOHWgc62NFCAtHRps9POXqBh+6fcpw@mail.gmail.com>
+References: <CALS=5mqCUii26Sz++nK2VUMhcJYngRDytUSmMk3b8LzJd=00fQ@mail.gmail.com>
+ <CALEXWq0c9JWXx0__4+BhpVrzPHJT1T5aneWz7tvVTCkVDjmRzw@mail.gmail.com>
+ <CALS=5mqVi-gAQmnex=g4qHaKTqYXD3txDjeMCode4FU=xo7x7Q@mail.gmail.com>
+ <CALEXWq0FwJEs0tVFPoKfQOHWgc62NFCAtHRps9POXqBh+6fcpw@mail.gmail.com>
+Message-ID: <CALS=5moZaFn9CH0z16MmZ_NNp0wHaNU77DeVZJLxjxj+YbEFyQ@mail.gmail.com>
+
+Thanks, I?aki! I followed your first recommendation, but the same
+reported problem occurs. However, it works with rstudio-server.
+
+Paul
+
+
+On Mon, Aug 16, 2021 at 12:19 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> The issue seems to be caused by the QtWebEngine. Fedora 35 was
+> recently branched from rawhide. Try the following to stop using
+> rawhide and follow this release:
+>
+> [toolbox]$ sudo dnf config-manager --set-disabled rawhide
+> [toolbox]$ sudo dnf config-manager --set-enabled fedora,updates
+> [toolbox]$ sudo dnf distro-sync --releasever=35
+>
+> If the problem persists, my recommendation is to install
+> rstudio-server and run this:
+>
+> [toolbox]$ rserver --server-daemonize=0 --auth-none=1 --server-user=$(whoami)
+>
+> Then, open a browser and navigate to localhost:8787 to access RStudio Server.
+>
+> I?aki
+>
+>
+> On Fri, 13 Aug 2021 at 12:40, Paul Smith <phhs80 at gmail.com> wrote:
+> >
+> > Thanks, I?aki. Toolbox as well as my computer are running Xorg:
+> >
+> > -------------------------------------
+> > $ echo $XDG_SESSION_TYPE
+> > x11
+> > -------------------------------------
+> >
+> > Paul
+> >
+> >
+> > On Fri, Aug 13, 2021 at 8:29 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+> > >
+> > > Xorg or Wayland session? RStudio doesn't support the latter yet.
+> > >
+> > > I?aki
+> > >
+> > > On Thu, 12 Aug 2021 at 23:19, Paul Smith <phhs80 at gmail.com> wrote:
+> > > >
+> > > > Dear All,
+> > > >
+> > > > I have just installed R 4.1 and RStudio on Fedora Toolbox. Everything
+> > > > went fine, but when I try to run RStudio, it opens as a white window
+> > > > flickering permanently, and does not progress from that.
+> > > >
+> > > > Any ideas?
+> > > >
+> > > > Thanks in advance,
+> > > >
+> > > > Paul
+> > > >
+> > > > _______________________________________________
+> > > > R-SIG-Fedora mailing list
+> > > > R-SIG-Fedora at r-project.org
+> > > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> > >
+> > >
+> > >
+> > > --
+> > > I?aki ?car
+>
+>
+>
+> --
+> I?aki ?car
+
+
+From |uc@r @end|ng |rom |edor@project@org  Mon Aug 16 19:51:34 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Mon, 16 Aug 2021 19:51:34 +0200
+Subject: [R-sig-Fedora] New section about containerized environments
+Message-ID: <CALEXWq16vRBY7RcXZX9oXAxxVWT8-Ff8RacSb3wbxZw2Xn6z5Q@mail.gmail.com>
+
+Dear all,
+
+The "Fedora Packages of R Software" CRAN page has been updated
+(thanks, Kurt!) to include answers to some questions raised here
+during the last few months. Specifically, there is a new section about
+containerized environments [1] detailing the usage of Fedora Docker
+images and Toolbox environments. As always, suggestions and
+improvements (either here or as a new issue in [2]) are welcome.
+
+[1] https://cran.r-project.org/bin/linux/fedora/#containerized-environments
+[2] https://pagure.io/R/fedora-r-packages
+
+Regards,
+-- 
+I?aki ?car
+
+

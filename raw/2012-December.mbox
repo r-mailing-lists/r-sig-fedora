@@ -1,0 +1,758 @@
+From chatzis-rhel at nuverabio.com  Wed Dec 19 00:09:14 2012
+From: chatzis-rhel at nuverabio.com (Christos Hatzis)
+Date: Tue, 18 Dec 2012 18:09:14 -0500
+Subject: [R-sig-Fedora] Updating R on RHL5
+Message-ID: <1355872154.6249.7.camel@localhost.localdomain>
+
+Hi,
+
+I haven't used my system in a while now and wanted to update R.
+Running yum update R fails because of missing dependency texinfo-tex
+I have installed the EPEL yum repo configurations but
+yum install texinfo-tex does not find the package.
+How can I install that missing package?
+
+Any help is appreciated.
+Thanks.
+-Christos
+
+## ===========================================
+
+[root at localhost ~]# yum update R
+Loaded plugins: rhnplugin, security
+There was an error communicating with RHN.
+RHN support will be disabled.
+Error communicating with server. The message was:
+
+Error Message:
+        Please run rhn_register as root on this client
+Error Class Code: 9
+Error Class Info: Invalid System Credentials.
+Explanation:
+     An error has occurred while processing your request. If this
+problem
+     persists please enter a bug report at bugzilla.redhat.com.
+     If you choose to submit the bug report, please be sure to include
+     details of what you were trying to do when this error occurred and
+     details on how to reproduce this problem.
+
+Skipping security plugin, no data
+Setting up Update Process
+Resolving Dependencies
+There are unfinished transactions remaining. You might consider running
+yum-complete-transaction first to finish them.
+The program yum-complete-transaction is found in the yum-utils package.
+Skipping security plugin, no data
+--> Running transaction check
+---> Package R.x86_64 0:2.15.2-1.el5 set to be updated
+--> Processing Dependency: libRmath-devel = 2.15.2-1.el5 for package: R
+--> Processing Dependency: R-devel = 2.15.2-1.el5 for package: R
+--> Running transaction check
+---> Package R-devel.x86_64 0:2.15.2-1.el5 set to be updated
+--> Processing Dependency: R-core = 2.15.2-1.el5 for package: R-devel
+--> Processing Dependency: texinfo-tex for package: R-devel
+---> Package libRmath-devel.x86_64 0:2.15.2-1.el5 set to be updated
+--> Processing Dependency: libRmath = 2.15.2-1.el5 for package:
+libRmath-devel
+--> Running transaction check
+---> Package R-core.x86_64 0:2.15.2-1.el5 set to be updated
+---> Package R-devel.x86_64 0:2.15.2-1.el5 set to be updated
+--> Processing Dependency: texinfo-tex for package: R-devel
+---> Package libRmath.x86_64 0:2.15.2-1.el5 set to be updated
+--> Finished Dependency Resolution
+R-devel-2.15.2-1.el5.x86_64 from epel has depsolving problems
+  --> Missing Dependency: texinfo-tex is needed by package
+R-devel-2.15.2-1.el5.x86_64 (epel)
+Error: Missing Dependency: texinfo-tex is needed by package
+R-devel-2.15.2-1.el5.x86_64 (epel)
+ You could try using --skip-broken to work around the problem
+ You could try running: package-cleanup --problems
+                        package-cleanup --dupes
+                        rpm -Va --nofiles --nodigest
+The program package-cleanup is found in the yum-utils package.
+[root at localhost ~]#
+
+
+-- 
+Christos Hatzis, Ph.D.
+Nuvera Biosciences
+Saugus, MA 01801
+
+
+From marc_schwartz at me.com  Wed Dec 19 00:32:48 2012
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Tue, 18 Dec 2012 17:32:48 -0600
+Subject: [R-sig-Fedora] Updating R on RHL5
+In-Reply-To: <1355872154.6249.7.camel@localhost.localdomain>
+References: <1355872154.6249.7.camel@localhost.localdomain>
+Message-ID: <32B21B2F-E04D-4F29-9265-4F986704BB1D@me.com>
+
+On Dec 18, 2012, at 5:09 PM, Christos Hatzis <chatzis-rhel at nuverabio.com> wrote:
+
+> Hi,
+> 
+> I haven't used my system in a while now and wanted to update R.
+> Running yum update R fails because of missing dependency texinfo-tex
+> I have installed the EPEL yum repo configurations but
+> yum install texinfo-tex does not find the package.
+> How can I install that missing package?
+> 
+> Any help is appreciated.
+> Thanks.
+> -Christos
+> 
+> ## ===========================================
+> 
+> [root at localhost ~]# yum update R
+> Loaded plugins: rhnplugin, security
+> There was an error communicating with RHN.
+> RHN support will be disabled.
+> Error communicating with server. The message was:
+> 
+> Error Message:
+>        Please run rhn_register as root on this client
+> Error Class Code: 9
+> Error Class Info: Invalid System Credentials.
+> Explanation:
+>     An error has occurred while processing your request. If this
+> problem
+>     persists please enter a bug report at bugzilla.redhat.com.
+>     If you choose to submit the bug report, please be sure to include
+>     details of what you were trying to do when this error occurred and
+>     details on how to reproduce this problem.
+> 
+> Skipping security plugin, no data
+> Setting up Update Process
+> Resolving Dependencies
+> There are unfinished transactions remaining. You might consider running
+> yum-complete-transaction first to finish them.
+> The program yum-complete-transaction is found in the yum-utils package.
+> Skipping security plugin, no data
+> --> Running transaction check
+> ---> Package R.x86_64 0:2.15.2-1.el5 set to be updated
+> --> Processing Dependency: libRmath-devel = 2.15.2-1.el5 for package: R
+> --> Processing Dependency: R-devel = 2.15.2-1.el5 for package: R
+> --> Running transaction check
+> ---> Package R-devel.x86_64 0:2.15.2-1.el5 set to be updated
+> --> Processing Dependency: R-core = 2.15.2-1.el5 for package: R-devel
+> --> Processing Dependency: texinfo-tex for package: R-devel
+> ---> Package libRmath-devel.x86_64 0:2.15.2-1.el5 set to be updated
+> --> Processing Dependency: libRmath = 2.15.2-1.el5 for package:
+> libRmath-devel
+> --> Running transaction check
+> ---> Package R-core.x86_64 0:2.15.2-1.el5 set to be updated
+> ---> Package R-devel.x86_64 0:2.15.2-1.el5 set to be updated
+> --> Processing Dependency: texinfo-tex for package: R-devel
+> ---> Package libRmath.x86_64 0:2.15.2-1.el5 set to be updated
+> --> Finished Dependency Resolution
+> R-devel-2.15.2-1.el5.x86_64 from epel has depsolving problems
+>  --> Missing Dependency: texinfo-tex is needed by package
+> R-devel-2.15.2-1.el5.x86_64 (epel)
+> Error: Missing Dependency: texinfo-tex is needed by package
+> R-devel-2.15.2-1.el5.x86_64 (epel)
+> You could try using --skip-broken to work around the problem
+> You could try running: package-cleanup --problems
+>                        package-cleanup --dupes
+>                        rpm -Va --nofiles --nodigest
+> The program package-cleanup is found in the yum-utils package.
+> [root at localhost ~]#
+
+
+I don't use RHEL, but a quick search suggests that texinfo is part of the RHEL default yum repos. The error message above regarding the RHN (Red Hat Network) might be consistent with a lapse in your support agreement with RH, which is a paid service.
+
+Thus, you might want to verify that your support agreement is still active and/or that you have the correct login credentials for the service. If not, you will have to renew and/or correct the login information. The EPEL does not require these.
+
+If it is still active, you might try running a full system update, since you may have other out of date components, contributing to the problem. That should be:
+
+  yum update
+
+Once you have resolved these issues, you can then install/update R.
+
+Regards,
+
+Marc Schwartz
+
+
+From chatzis-rhel at nuverabio.com  Wed Dec 19 14:57:02 2012
+From: chatzis-rhel at nuverabio.com (Christos Hatzis)
+Date: Wed, 19 Dec 2012 08:57:02 -0500
+Subject: [R-sig-Fedora] Updating R on RHL5
+In-Reply-To: <32B21B2F-E04D-4F29-9265-4F986704BB1D@me.com>
+References: <1355872154.6249.7.camel@localhost.localdomain>
+	<32B21B2F-E04D-4F29-9265-4F986704BB1D@me.com>
+Message-ID: <1355925422.5594.4.camel@localhost.localdomain>
+
+Thank you Marc.
+
+That's right, my subscription to RHEL has lapsed as this system has
+remained unused for a couple of years and I am debating whether it would
+be worth it for the occasional use.
+
+My apologies if this question is off-topic but is there a way to switch
+from RHEL to EPEL for system updates now or this is much more involved.
+Any direction or pointers are appreciated.
+
+Thanks again.
+-Christos
+
+On Tue, 2012-12-18 at 17:32 -0600, Marc Schwartz wrote:
+> On Dec 18, 2012, at 5:09 PM, Christos Hatzis <chatzis-rhel at nuverabio.com> wrote:
+> 
+> > Hi,
+> > 
+> > I haven't used my system in a while now and wanted to update R.
+> > Running yum update R fails because of missing dependency texinfo-tex
+> > I have installed the EPEL yum repo configurations but
+> > yum install texinfo-tex does not find the package.
+> > How can I install that missing package?
+> > 
+> > Any help is appreciated.
+> > Thanks.
+> > -Christos
+> > 
+> > ## ===========================================
+> > 
+> > [root at localhost ~]# yum update R
+> > Loaded plugins: rhnplugin, security
+> > There was an error communicating with RHN.
+> > RHN support will be disabled.
+> > Error communicating with server. The message was:
+> > 
+> > Error Message:
+> >        Please run rhn_register as root on this client
+> > Error Class Code: 9
+> > Error Class Info: Invalid System Credentials.
+> > Explanation:
+> >     An error has occurred while processing your request. If this
+> > problem
+> >     persists please enter a bug report at bugzilla.redhat.com.
+> >     If you choose to submit the bug report, please be sure to include
+> >     details of what you were trying to do when this error occurred and
+> >     details on how to reproduce this problem.
+> > 
+> > Skipping security plugin, no data
+> > Setting up Update Process
+> > Resolving Dependencies
+> > There are unfinished transactions remaining. You might consider running
+> > yum-complete-transaction first to finish them.
+> > The program yum-complete-transaction is found in the yum-utils package.
+> > Skipping security plugin, no data
+> > --> Running transaction check
+> > ---> Package R.x86_64 0:2.15.2-1.el5 set to be updated
+> > --> Processing Dependency: libRmath-devel = 2.15.2-1.el5 for package: R
+> > --> Processing Dependency: R-devel = 2.15.2-1.el5 for package: R
+> > --> Running transaction check
+> > ---> Package R-devel.x86_64 0:2.15.2-1.el5 set to be updated
+> > --> Processing Dependency: R-core = 2.15.2-1.el5 for package: R-devel
+> > --> Processing Dependency: texinfo-tex for package: R-devel
+> > ---> Package libRmath-devel.x86_64 0:2.15.2-1.el5 set to be updated
+> > --> Processing Dependency: libRmath = 2.15.2-1.el5 for package:
+> > libRmath-devel
+> > --> Running transaction check
+> > ---> Package R-core.x86_64 0:2.15.2-1.el5 set to be updated
+> > ---> Package R-devel.x86_64 0:2.15.2-1.el5 set to be updated
+> > --> Processing Dependency: texinfo-tex for package: R-devel
+> > ---> Package libRmath.x86_64 0:2.15.2-1.el5 set to be updated
+> > --> Finished Dependency Resolution
+> > R-devel-2.15.2-1.el5.x86_64 from epel has depsolving problems
+> >  --> Missing Dependency: texinfo-tex is needed by package
+> > R-devel-2.15.2-1.el5.x86_64 (epel)
+> > Error: Missing Dependency: texinfo-tex is needed by package
+> > R-devel-2.15.2-1.el5.x86_64 (epel)
+> > You could try using --skip-broken to work around the problem
+> > You could try running: package-cleanup --problems
+> >                        package-cleanup --dupes
+> >                        rpm -Va --nofiles --nodigest
+> > The program package-cleanup is found in the yum-utils package.
+> > [root at localhost ~]#
+> 
+> 
+> I don't use RHEL, but a quick search suggests that texinfo is part of the RHEL default yum repos. The error message above regarding the RHN (Red Hat Network) might be consistent with a lapse in your support agreement with RH, which is a paid service.
+> 
+> Thus, you might want to verify that your support agreement is still active and/or that you have the correct login credentials for the service. If not, you will have to renew and/or correct the login information. The EPEL does not require these.
+> 
+> If it is still active, you might try running a full system update, since you may have other out of date components, contributing to the problem. That should be:
+> 
+>   yum update
+> 
+> Once you have resolved these issues, you can then install/update R.
+> 
+> Regards,
+> 
+> Marc Schwartz
+> 
+> 
+-- 
+Christos Hatzis, Ph.D.
+Nuvera Biosciences
+Woburn, MA 01801
+
+
+From marc_schwartz at me.com  Wed Dec 19 15:55:11 2012
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Wed, 19 Dec 2012 08:55:11 -0600
+Subject: [R-sig-Fedora] Updating R on RHL5
+In-Reply-To: <1355925422.5594.4.camel@localhost.localdomain>
+References: <1355872154.6249.7.camel@localhost.localdomain>
+	<32B21B2F-E04D-4F29-9265-4F986704BB1D@me.com>
+	<1355925422.5594.4.camel@localhost.localdomain>
+Message-ID: <FCCCDBD8-A8DD-4F3D-BCBA-AE3426C717C6@me.com>
+
+Happy to help Christos,
+
+The EPEL (*Extra* Packages for Enterprise Linux) only provides supplementary binaries, like R, that are not otherwise in the RHEL repos. Thus, the EPEL cannot be used for installing/updating binaries like texinfo, that are a standard part of RHEL.
+
+You have, of course, a variety of options relative to Linux.
+
+If you want to stay with an RHEL-like distribution, because you prefer a more stable Linux distribution targeted for server use, then you should look at moving the system to CentOS:
+
+  http://www.centos.org/
+
+CentOS is a free, community supported RHEL compatible distribution, that is based upon using the RH source RPMs as the basis for their implementation. Since RHEL is based upon open source (eg GPL) software, they have to make the source available and this is done via source RPMs, which are openly accessible.
+
+You would be better off simply replacing your RHEL installation fully with CentOS and then you can use the EPEL with CentOS in the same way as with RHEL. You would have ongoing free access to the CentOS main repos for keeping the base system fully updated.
+
+Alternatively, if you want to stay with an "RH-based" distribution, but one which is more targeted to desktop use and is "bleeding edge" in terms of kernels, system components, applications, etc., then consider moving to Fedora:
+
+  http://fedoraproject.org/
+
+Fedora is on an aggressive update schedule, with new versions coming twice per year (save the current delays in Fedora 18) and a support timeline that is only about 13 months for each new version, as compared to many years for RHEL/CentOS. So you would find yourself fully upgrading the system quite frequently.
+
+There are of course many others (eg. Ubuntu) as well.
+
+Regards,
+
+Marc
+
+On Dec 19, 2012, at 7:57 AM, Christos Hatzis <chatzis-rhel at nuverabio.com> wrote:
+
+> Thank you Marc.
+> 
+> That's right, my subscription to RHEL has lapsed as this system has
+> remained unused for a couple of years and I am debating whether it would
+> be worth it for the occasional use.
+> 
+> My apologies if this question is off-topic but is there a way to switch
+> from RHEL to EPEL for system updates now or this is much more involved.
+> Any direction or pointers are appreciated.
+> 
+> Thanks again.
+> -Christos
+> 
+> On Tue, 2012-12-18 at 17:32 -0600, Marc Schwartz wrote:
+>> On Dec 18, 2012, at 5:09 PM, Christos Hatzis <chatzis-rhel at nuverabio.com> wrote:
+>> 
+>>> Hi,
+>>> 
+>>> I haven't used my system in a while now and wanted to update R.
+>>> Running yum update R fails because of missing dependency texinfo-tex
+>>> I have installed the EPEL yum repo configurations but
+>>> yum install texinfo-tex does not find the package.
+>>> How can I install that missing package?
+>>> 
+>>> Any help is appreciated.
+>>> Thanks.
+>>> -Christos
+>>> 
+>>> ## ===========================================
+>>> 
+>>> [root at localhost ~]# yum update R
+>>> Loaded plugins: rhnplugin, security
+>>> There was an error communicating with RHN.
+>>> RHN support will be disabled.
+>>> Error communicating with server. The message was:
+>>> 
+>>> Error Message:
+>>>       Please run rhn_register as root on this client
+>>> Error Class Code: 9
+>>> Error Class Info: Invalid System Credentials.
+>>> Explanation:
+>>>    An error has occurred while processing your request. If this
+>>> problem
+>>>    persists please enter a bug report at bugzilla.redhat.com.
+>>>    If you choose to submit the bug report, please be sure to include
+>>>    details of what you were trying to do when this error occurred and
+>>>    details on how to reproduce this problem.
+>>> 
+>>> Skipping security plugin, no data
+>>> Setting up Update Process
+>>> Resolving Dependencies
+>>> There are unfinished transactions remaining. You might consider running
+>>> yum-complete-transaction first to finish them.
+>>> The program yum-complete-transaction is found in the yum-utils package.
+>>> Skipping security plugin, no data
+>>> --> Running transaction check
+>>> ---> Package R.x86_64 0:2.15.2-1.el5 set to be updated
+>>> --> Processing Dependency: libRmath-devel = 2.15.2-1.el5 for package: R
+>>> --> Processing Dependency: R-devel = 2.15.2-1.el5 for package: R
+>>> --> Running transaction check
+>>> ---> Package R-devel.x86_64 0:2.15.2-1.el5 set to be updated
+>>> --> Processing Dependency: R-core = 2.15.2-1.el5 for package: R-devel
+>>> --> Processing Dependency: texinfo-tex for package: R-devel
+>>> ---> Package libRmath-devel.x86_64 0:2.15.2-1.el5 set to be updated
+>>> --> Processing Dependency: libRmath = 2.15.2-1.el5 for package:
+>>> libRmath-devel
+>>> --> Running transaction check
+>>> ---> Package R-core.x86_64 0:2.15.2-1.el5 set to be updated
+>>> ---> Package R-devel.x86_64 0:2.15.2-1.el5 set to be updated
+>>> --> Processing Dependency: texinfo-tex for package: R-devel
+>>> ---> Package libRmath.x86_64 0:2.15.2-1.el5 set to be updated
+>>> --> Finished Dependency Resolution
+>>> R-devel-2.15.2-1.el5.x86_64 from epel has depsolving problems
+>>> --> Missing Dependency: texinfo-tex is needed by package
+>>> R-devel-2.15.2-1.el5.x86_64 (epel)
+>>> Error: Missing Dependency: texinfo-tex is needed by package
+>>> R-devel-2.15.2-1.el5.x86_64 (epel)
+>>> You could try using --skip-broken to work around the problem
+>>> You could try running: package-cleanup --problems
+>>>                       package-cleanup --dupes
+>>>                       rpm -Va --nofiles --nodigest
+>>> The program package-cleanup is found in the yum-utils package.
+>>> [root at localhost ~]#
+>> 
+>> 
+>> I don't use RHEL, but a quick search suggests that texinfo is part of the RHEL default yum repos. The error message above regarding the RHN (Red Hat Network) might be consistent with a lapse in your support agreement with RH, which is a paid service.
+>> 
+>> Thus, you might want to verify that your support agreement is still active and/or that you have the correct login credentials for the service. If not, you will have to renew and/or correct the login information. The EPEL does not require these.
+>> 
+>> If it is still active, you might try running a full system update, since you may have other out of date components, contributing to the problem. That should be:
+>> 
+>>  yum update
+>> 
+>> Once you have resolved these issues, you can then install/update R.
+>> 
+>> Regards,
+>> 
+>> Marc Schwartz
+
+
+From chatzis-rhel at nuverabio.com  Wed Dec 19 17:35:34 2012
+From: chatzis-rhel at nuverabio.com (Christos Hatzis)
+Date: Wed, 19 Dec 2012 11:35:34 -0500
+Subject: [R-sig-Fedora] Updating R on RHL5
+In-Reply-To: <FCCCDBD8-A8DD-4F3D-BCBA-AE3426C717C6@me.com>
+References: <1355872154.6249.7.camel@localhost.localdomain>
+	<32B21B2F-E04D-4F29-9265-4F986704BB1D@me.com>
+	<1355925422.5594.4.camel@localhost.localdomain>
+	<FCCCDBD8-A8DD-4F3D-BCBA-AE3426C717C6@me.com>
+Message-ID: <1355934934.5594.10.camel@localhost.localdomain>
+
+Thanks again Marc.  This is very helpful.
+
+I will probably move my system to CentOS (with help from someone who
+knows what he/she is doing). 
+
+So it not really advised to mix and match components, i.e. I shouldn't
+be attempting to install texinfo from a CentOS repository on my RHEL.
+
+-Christos
+
+On Wed, 2012-12-19 at 08:55 -0600, Marc Schwartz wrote:
+> Happy to help Christos,
+> 
+> The EPEL (*Extra* Packages for Enterprise Linux) only provides supplementary binaries, like R, that are not otherwise in the RHEL repos. Thus, the EPEL cannot be used for installing/updating binaries like texinfo, that are a standard part of RHEL.
+> 
+> You have, of course, a variety of options relative to Linux.
+> 
+> If you want to stay with an RHEL-like distribution, because you prefer a more stable Linux distribution targeted for server use, then you should look at moving the system to CentOS:
+> 
+>   http://www.centos.org/
+> 
+> CentOS is a free, community supported RHEL compatible distribution, that is based upon using the RH source RPMs as the basis for their implementation. Since RHEL is based upon open source (eg GPL) software, they have to make the source available and this is done via source RPMs, which are openly accessible.
+> 
+> You would be better off simply replacing your RHEL installation fully with CentOS and then you can use the EPEL with CentOS in the same way as with RHEL. You would have ongoing free access to the CentOS main repos for keeping the base system fully updated.
+> 
+> Alternatively, if you want to stay with an "RH-based" distribution, but one which is more targeted to desktop use and is "bleeding edge" in terms of kernels, system components, applications, etc., then consider moving to Fedora:
+> 
+>   http://fedoraproject.org/
+> 
+> Fedora is on an aggressive update schedule, with new versions coming twice per year (save the current delays in Fedora 18) and a support timeline that is only about 13 months for each new version, as compared to many years for RHEL/CentOS. So you would find yourself fully upgrading the system quite frequently.
+> 
+> There are of course many others (eg. Ubuntu) as well.
+> 
+> Regards,
+> 
+> Marc
+> 
+> On Dec 19, 2012, at 7:57 AM, Christos Hatzis <chatzis-rhel at nuverabio.com> wrote:
+> 
+> > Thank you Marc.
+> > 
+> > That's right, my subscription to RHEL has lapsed as this system has
+> > remained unused for a couple of years and I am debating whether it would
+> > be worth it for the occasional use.
+> > 
+> > My apologies if this question is off-topic but is there a way to switch
+> > from RHEL to EPEL for system updates now or this is much more involved.
+> > Any direction or pointers are appreciated.
+> > 
+> > Thanks again.
+> > -Christos
+> > 
+> > On Tue, 2012-12-18 at 17:32 -0600, Marc Schwartz wrote:
+> >> On Dec 18, 2012, at 5:09 PM, Christos Hatzis <chatzis-rhel at nuverabio.com> wrote:
+> >> 
+> >>> Hi,
+> >>> 
+> >>> I haven't used my system in a while now and wanted to update R.
+> >>> Running yum update R fails because of missing dependency texinfo-tex
+> >>> I have installed the EPEL yum repo configurations but
+> >>> yum install texinfo-tex does not find the package.
+> >>> How can I install that missing package?
+> >>> 
+> >>> Any help is appreciated.
+> >>> Thanks.
+> >>> -Christos
+> >>> 
+> >>> ## ===========================================
+> >>> 
+> >>> [root at localhost ~]# yum update R
+> >>> Loaded plugins: rhnplugin, security
+> >>> There was an error communicating with RHN.
+> >>> RHN support will be disabled.
+> >>> Error communicating with server. The message was:
+> >>> 
+> >>> Error Message:
+> >>>       Please run rhn_register as root on this client
+> >>> Error Class Code: 9
+> >>> Error Class Info: Invalid System Credentials.
+> >>> Explanation:
+> >>>    An error has occurred while processing your request. If this
+> >>> problem
+> >>>    persists please enter a bug report at bugzilla.redhat.com.
+> >>>    If you choose to submit the bug report, please be sure to include
+> >>>    details of what you were trying to do when this error occurred and
+> >>>    details on how to reproduce this problem.
+> >>> 
+> >>> Skipping security plugin, no data
+> >>> Setting up Update Process
+> >>> Resolving Dependencies
+> >>> There are unfinished transactions remaining. You might consider running
+> >>> yum-complete-transaction first to finish them.
+> >>> The program yum-complete-transaction is found in the yum-utils package.
+> >>> Skipping security plugin, no data
+> >>> --> Running transaction check
+> >>> ---> Package R.x86_64 0:2.15.2-1.el5 set to be updated
+> >>> --> Processing Dependency: libRmath-devel = 2.15.2-1.el5 for package: R
+> >>> --> Processing Dependency: R-devel = 2.15.2-1.el5 for package: R
+> >>> --> Running transaction check
+> >>> ---> Package R-devel.x86_64 0:2.15.2-1.el5 set to be updated
+> >>> --> Processing Dependency: R-core = 2.15.2-1.el5 for package: R-devel
+> >>> --> Processing Dependency: texinfo-tex for package: R-devel
+> >>> ---> Package libRmath-devel.x86_64 0:2.15.2-1.el5 set to be updated
+> >>> --> Processing Dependency: libRmath = 2.15.2-1.el5 for package:
+> >>> libRmath-devel
+> >>> --> Running transaction check
+> >>> ---> Package R-core.x86_64 0:2.15.2-1.el5 set to be updated
+> >>> ---> Package R-devel.x86_64 0:2.15.2-1.el5 set to be updated
+> >>> --> Processing Dependency: texinfo-tex for package: R-devel
+> >>> ---> Package libRmath.x86_64 0:2.15.2-1.el5 set to be updated
+> >>> --> Finished Dependency Resolution
+> >>> R-devel-2.15.2-1.el5.x86_64 from epel has depsolving problems
+> >>> --> Missing Dependency: texinfo-tex is needed by package
+> >>> R-devel-2.15.2-1.el5.x86_64 (epel)
+> >>> Error: Missing Dependency: texinfo-tex is needed by package
+> >>> R-devel-2.15.2-1.el5.x86_64 (epel)
+> >>> You could try using --skip-broken to work around the problem
+> >>> You could try running: package-cleanup --problems
+> >>>                       package-cleanup --dupes
+> >>>                       rpm -Va --nofiles --nodigest
+> >>> The program package-cleanup is found in the yum-utils package.
+> >>> [root at localhost ~]#
+> >> 
+> >> 
+> >> I don't use RHEL, but a quick search suggests that texinfo is part of the RHEL default yum repos. The error message above regarding the RHN (Red Hat Network) might be consistent with a lapse in your support agreement with RH, which is a paid service.
+> >> 
+> >> Thus, you might want to verify that your support agreement is still active and/or that you have the correct login credentials for the service. If not, you will have to renew and/or correct the login information. The EPEL does not require these.
+> >> 
+> >> If it is still active, you might try running a full system update, since you may have other out of date components, contributing to the problem. That should be:
+> >> 
+> >>  yum update
+> >> 
+> >> Once you have resolved these issues, you can then install/update R.
+> >> 
+> >> Regards,
+> >> 
+> >> Marc Schwartz
+> 
+> 
+-- 
+Christos Hatzis, Ph.D.
+Nuvera Biosciences
+Woburn, MA 01801
+
+
+From marc_schwartz at me.com  Wed Dec 19 17:50:21 2012
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Wed, 19 Dec 2012 10:50:21 -0600
+Subject: [R-sig-Fedora] Updating R on RHL5
+In-Reply-To: <1355934934.5594.10.camel@localhost.localdomain>
+References: <1355872154.6249.7.camel@localhost.localdomain>
+	<32B21B2F-E04D-4F29-9265-4F986704BB1D@me.com>
+	<1355925422.5594.4.camel@localhost.localdomain>
+	<FCCCDBD8-A8DD-4F3D-BCBA-AE3426C717C6@me.com>
+	<1355934934.5594.10.camel@localhost.localdomain>
+Message-ID: <6BB4C015-8688-4EA8-AF63-7FAABDDB1FC8@me.com>
+
+Theoretically, CentOS and RHEL are binary compatible, presuming you use the correct repos.
+
+However, theory does not always reflect reality.
+
+If this is a system that you have any intentions of using on an ongoing basis, I would fully switch to CentOS. The potential for headaches you can face by dealing with mixing and matching may not be worth the time. 
+
+Keep in mind that you have not updated the system in two years, which means that a lot of the system is already out of date vis-a-vis bug fixes, security updates, updated kernels, etc.
+
+I would advise that you invest some time now to get the system on CentOS, so that you can more easily maintain it moving forward. While RHEL 5 is still supported, version 6 has been out for some time, both from RHEL and CentOS, so I would also upgrade the version to avail yourself of more recent technology.
+
+Regards,
+
+Marc
+
+On Dec 19, 2012, at 10:35 AM, Christos Hatzis <chatzis-rhel at nuverabio.com> wrote:
+
+> Thanks again Marc.  This is very helpful.
+> 
+> I will probably move my system to CentOS (with help from someone who
+> knows what he/she is doing). 
+> 
+> So it not really advised to mix and match components, i.e. I shouldn't
+> be attempting to install texinfo from a CentOS repository on my RHEL.
+> 
+> -Christos
+> 
+> On Wed, 2012-12-19 at 08:55 -0600, Marc Schwartz wrote:
+>> Happy to help Christos,
+>> 
+>> The EPEL (*Extra* Packages for Enterprise Linux) only provides supplementary binaries, like R, that are not otherwise in the RHEL repos. Thus, the EPEL cannot be used for installing/updating binaries like texinfo, that are a standard part of RHEL.
+>> 
+>> You have, of course, a variety of options relative to Linux.
+>> 
+>> If you want to stay with an RHEL-like distribution, because you prefer a more stable Linux distribution targeted for server use, then you should look at moving the system to CentOS:
+>> 
+>>  http://www.centos.org/
+>> 
+>> CentOS is a free, community supported RHEL compatible distribution, that is based upon using the RH source RPMs as the basis for their implementation. Since RHEL is based upon open source (eg GPL) software, they have to make the source available and this is done via source RPMs, which are openly accessible.
+>> 
+>> You would be better off simply replacing your RHEL installation fully with CentOS and then you can use the EPEL with CentOS in the same way as with RHEL. You would have ongoing free access to the CentOS main repos for keeping the base system fully updated.
+>> 
+>> Alternatively, if you want to stay with an "RH-based" distribution, but one which is more targeted to desktop use and is "bleeding edge" in terms of kernels, system components, applications, etc., then consider moving to Fedora:
+>> 
+>>  http://fedoraproject.org/
+>> 
+>> Fedora is on an aggressive update schedule, with new versions coming twice per year (save the current delays in Fedora 18) and a support timeline that is only about 13 months for each new version, as compared to many years for RHEL/CentOS. So you would find yourself fully upgrading the system quite frequently.
+>> 
+>> There are of course many others (eg. Ubuntu) as well.
+>> 
+>> Regards,
+>> 
+>> Marc
+>> 
+>> On Dec 19, 2012, at 7:57 AM, Christos Hatzis <chatzis-rhel at nuverabio.com> wrote:
+>> 
+>>> Thank you Marc.
+>>> 
+>>> That's right, my subscription to RHEL has lapsed as this system has
+>>> remained unused for a couple of years and I am debating whether it would
+>>> be worth it for the occasional use.
+>>> 
+>>> My apologies if this question is off-topic but is there a way to switch
+>>> from RHEL to EPEL for system updates now or this is much more involved.
+>>> Any direction or pointers are appreciated.
+>>> 
+>>> Thanks again.
+>>> -Christos
+>>> 
+>>> On Tue, 2012-12-18 at 17:32 -0600, Marc Schwartz wrote:
+>>>> On Dec 18, 2012, at 5:09 PM, Christos Hatzis <chatzis-rhel at nuverabio.com> wrote:
+>>>> 
+>>>>> Hi,
+>>>>> 
+>>>>> I haven't used my system in a while now and wanted to update R.
+>>>>> Running yum update R fails because of missing dependency texinfo-tex
+>>>>> I have installed the EPEL yum repo configurations but
+>>>>> yum install texinfo-tex does not find the package.
+>>>>> How can I install that missing package?
+>>>>> 
+>>>>> Any help is appreciated.
+>>>>> Thanks.
+>>>>> -Christos
+>>>>> 
+>>>>> ## ===========================================
+>>>>> 
+>>>>> [root at localhost ~]# yum update R
+>>>>> Loaded plugins: rhnplugin, security
+>>>>> There was an error communicating with RHN.
+>>>>> RHN support will be disabled.
+>>>>> Error communicating with server. The message was:
+>>>>> 
+>>>>> Error Message:
+>>>>>      Please run rhn_register as root on this client
+>>>>> Error Class Code: 9
+>>>>> Error Class Info: Invalid System Credentials.
+>>>>> Explanation:
+>>>>>   An error has occurred while processing your request. If this
+>>>>> problem
+>>>>>   persists please enter a bug report at bugzilla.redhat.com.
+>>>>>   If you choose to submit the bug report, please be sure to include
+>>>>>   details of what you were trying to do when this error occurred and
+>>>>>   details on how to reproduce this problem.
+>>>>> 
+>>>>> Skipping security plugin, no data
+>>>>> Setting up Update Process
+>>>>> Resolving Dependencies
+>>>>> There are unfinished transactions remaining. You might consider running
+>>>>> yum-complete-transaction first to finish them.
+>>>>> The program yum-complete-transaction is found in the yum-utils package.
+>>>>> Skipping security plugin, no data
+>>>>> --> Running transaction check
+>>>>> ---> Package R.x86_64 0:2.15.2-1.el5 set to be updated
+>>>>> --> Processing Dependency: libRmath-devel = 2.15.2-1.el5 for package: R
+>>>>> --> Processing Dependency: R-devel = 2.15.2-1.el5 for package: R
+>>>>> --> Running transaction check
+>>>>> ---> Package R-devel.x86_64 0:2.15.2-1.el5 set to be updated
+>>>>> --> Processing Dependency: R-core = 2.15.2-1.el5 for package: R-devel
+>>>>> --> Processing Dependency: texinfo-tex for package: R-devel
+>>>>> ---> Package libRmath-devel.x86_64 0:2.15.2-1.el5 set to be updated
+>>>>> --> Processing Dependency: libRmath = 2.15.2-1.el5 for package:
+>>>>> libRmath-devel
+>>>>> --> Running transaction check
+>>>>> ---> Package R-core.x86_64 0:2.15.2-1.el5 set to be updated
+>>>>> ---> Package R-devel.x86_64 0:2.15.2-1.el5 set to be updated
+>>>>> --> Processing Dependency: texinfo-tex for package: R-devel
+>>>>> ---> Package libRmath.x86_64 0:2.15.2-1.el5 set to be updated
+>>>>> --> Finished Dependency Resolution
+>>>>> R-devel-2.15.2-1.el5.x86_64 from epel has depsolving problems
+>>>>> --> Missing Dependency: texinfo-tex is needed by package
+>>>>> R-devel-2.15.2-1.el5.x86_64 (epel)
+>>>>> Error: Missing Dependency: texinfo-tex is needed by package
+>>>>> R-devel-2.15.2-1.el5.x86_64 (epel)
+>>>>> You could try using --skip-broken to work around the problem
+>>>>> You could try running: package-cleanup --problems
+>>>>>                      package-cleanup --dupes
+>>>>>                      rpm -Va --nofiles --nodigest
+>>>>> The program package-cleanup is found in the yum-utils package.
+>>>>> [root at localhost ~]#
+>>>> 
+>>>> 
+>>>> I don't use RHEL, but a quick search suggests that texinfo is part of the RHEL default yum repos. The error message above regarding the RHN (Red Hat Network) might be consistent with a lapse in your support agreement with RH, which is a paid service.
+>>>> 
+>>>> Thus, you might want to verify that your support agreement is still active and/or that you have the correct login credentials for the service. If not, you will have to renew and/or correct the login information. The EPEL does not require these.
+>>>> 
+>>>> If it is still active, you might try running a full system update, since you may have other out of date components, contributing to the problem. That should be:
+>>>> 
+>>>> yum update
+>>>> 
+>>>> Once you have resolved these issues, you can then install/update R.
+>>>> 
+>>>> Regards,
+>>>> 
+>>>> Marc Schwartz
+>> 
+>> 
+> -- 
+> Christos Hatzis, Ph.D.
+> Nuvera Biosciences
+> Woburn, MA 01801
+>
+
+

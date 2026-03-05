@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2009-08",
+  "messages": [
+    {
+      "id": "msg-bd0498cd8d7c",
+      "message_id": "<1249243934.2573.23.camel@red.localdomain>",
+      "from_name": "Pierre-Yves",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-08-02T22:12:14+02:00",
+      "subject": "[R-sig-Fedora] R2spec v2.5.3",
+      "subject_clean": "R2spec v2.5.3",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear list,\n\nAs just announced on my blog I released a new version of R2spec and\nthere is the changelog for this version:\n\nVersion 2.5.3 -- 02nd Aug 2009\n- Features added\n  * Prints warning if summary is empty\n  * Prints warning if description is empty\n  * Add support for r-forge.net (option --rforge)\n  * Add support for r-forge.r-project.org (option --rproject)\n  * Add the prefix R- to the list of dependencies with a list of package\nto ignore (ie: R)\n  * Add a default source0 and url if the bioconductor release is not set\n- Bugs correction\n  * Does not add the 'Requires:' to the spec if they are empty\n  * Changes the '-' into '.' if the version of the R library contains\nany '-'\n\nPackage is available for F-10, F-11, rawhide, EPEL-4 and EPEL-5.\n\nFeel free to add some karma if you test it :)\n\nThanks,\n\nBest regards,\n\nPierre",
+      "body_snippet": "Dear list,\n\nAs just announced on my blog I released a new version of R2spec and\nthere is the changelog for this version:\n\nVersion 2.5.3 -- 02nd Aug 2009\n- Features added\n  * Prints warning if summary ",
+      "thread_id": "thread-bd0498cd8d7c",
+      "thread_depth": 0,
+      "month": "2009-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-bd0498cd8d7c",
+      "subject": "R2spec v2.5.3",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves"
+      ],
+      "started": "2009-08-02T22:12:14+02:00",
+      "last_reply": "2009-08-02T22:12:14+02:00",
+      "root_message_id": "msg-bd0498cd8d7c"
+    }
+  ]
+}

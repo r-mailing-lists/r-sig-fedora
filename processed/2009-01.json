@@ -1,0 +1,322 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2009-01",
+  "messages": [
+    {
+      "id": "msg-442416df897f",
+      "message_id": "<49609EA6.5010006@biostat.ku.dk>",
+      "from_name": "Peter Dalgaard",
+      "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
+      "date": "2009-01-04T12:33:58+01:00",
+      "subject": "[R-sig-Fedora] R 2.8.1",
+      "subject_clean": "R 2.8.1",
+      "in_reply_to": "<1229983083.4528.58.camel@localhost.localdomain>",
+      "references": [
+        "<1229980888.4528.53.camel@localhost.localdomain>",
+        "<49500BA6.6010200@biostat.ku.dk>",
+        "<1229983083.4528.58.camel@localhost.localdomain>"
+      ],
+      "body_plain": "Tom \"spot\" Callaway wrote:\n> On Mon, 2008-12-22 at 22:50 +0100, Peter Dalgaard wrote:\n> \n>> Er, I don't think you can be sure that everyone knows the magic \n>> incantations...\n>>\n>> Is this it?\n>>\n>>   yum --enablerepo=updates-testing-newkey update R\n>>\n>> but, first we need to wait for the package to move from pending to \n>> testing, right?\n> \n> That's F-9, yes. F-10 should be just updates-testing (I think)\n> \n> You could also manually download the files locally, and call:\n> \n> yum update R-*.rpm libRmath-*\n> \n> ~spot\n> \n\nFinally got around to testing it (sorry, but it didn't reach testing \ntill the 24th, and we have this thing call Christmas around here...).\n\nHowever, it now seems that I cannot update the karma system. Yesterday, \nI got an \"internal error\" or some such when submitting, and now I can \nsubmit, but only the text comes through, not my email addr. nor the \n\"works for me\". So there's now two \"anonymous tester\" entries with a \nbland smiley icon.\n\n\n\n-- \n    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B\n   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K\n  (*) \\(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918\n~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907",
+      "body_snippet": "Tom \"spot\" Callaway wrote:\n> On Mon, 2008-12-22 at 22:50 +0100, Peter Dalgaard wrote:\n> \n>> Er, I don't think you can be sure that everyone knows the magic \n>> incantations...\n>>\n>> Is this it?\n>>\n>> ",
+      "thread_id": "thread-442416df897f",
+      "thread_depth": 0,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-f9e1e85b6ca2",
+      "message_id": "<1231079857.3132.27.camel@localhost.localdomain>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-01-04T09:37:37-05:00",
+      "subject": "[R-sig-Fedora] R 2.8.1",
+      "subject_clean": "R 2.8.1",
+      "in_reply_to": "<49609EA6.5010006@biostat.ku.dk>",
+      "references": [
+        "<1229980888.4528.53.camel@localhost.localdomain>",
+        "<49500BA6.6010200@biostat.ku.dk>",
+        "<1229983083.4528.58.camel@localhost.localdomain>",
+        "<49609EA6.5010006@biostat.ku.dk>"
+      ],
+      "body_plain": "On Sun, 2009-01-04 at 12:33 +0100, Peter Dalgaard wrote:\n\n> Finally got around to testing it (sorry, but it didn't reach testing \n> till the 24th, and we have this thing call Christmas around here...).\n> \n> However, it now seems that I cannot update the karma system. Yesterday, \n> I got an \"internal error\" or some such when submitting, and now I can \n> submit, but only the text comes through, not my email addr. nor the \n> \"works for me\". So there's now two \"anonymous tester\" entries with a \n> bland smiley icon.\n\nHmm, they came through to my inbox with your name/email. Very odd. :)\n\n~spot",
+      "body_snippet": "On Sun, 2009-01-04 at 12:33 +0100, Peter Dalgaard wrote:\n\n> Finally got around to testing it (sorry, but it didn't reach testing \n> till the 24th, and we have this thing call Christmas around here...)",
+      "thread_id": "thread-442416df897f",
+      "thread_depth": 1,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-6661dcc097ef",
+      "message_id": "<4960CCFE.8010704@biostat.ku.dk>",
+      "from_name": "Peter Dalgaard",
+      "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
+      "date": "2009-01-04T15:51:42+01:00",
+      "subject": "[R-sig-Fedora] R 2.8.1",
+      "subject_clean": "R 2.8.1",
+      "in_reply_to": "<1231079857.3132.27.camel@localhost.localdomain>",
+      "references": [
+        "<1229980888.4528.53.camel@localhost.localdomain>",
+        "<49500BA6.6010200@biostat.ku.dk>",
+        "<1229983083.4528.58.camel@localhost.localdomain>",
+        "<49609EA6.5010006@biostat.ku.dk>",
+        "<1231079857.3132.27.camel@localhost.localdomain>"
+      ],
+      "body_plain": "Tom \"spot\" Callaway wrote:\n> On Sun, 2009-01-04 at 12:33 +0100, Peter Dalgaard wrote:\n> \n>> Finally got around to testing it (sorry, but it didn't reach testing \n>> till the 24th, and we have this thing call Christmas around here...).\n>>\n>> However, it now seems that I cannot update the karma system. Yesterday, \n>> I got an \"internal error\" or some such when submitting, and now I can \n>> submit, but only the text comes through, not my email addr. nor the \n>> \"works for me\". So there's now two \"anonymous tester\" entries with a \n>> bland smiley icon.\n> \n> Hmm, they came through to my inbox with your name/email. Very odd. :)\n> \n> ~spot\n> \n\nI spoke slightly too soon. This version has the same \"missing mu\" \nsyndrome as 2.8.0 did (and which occurs on SUSE too), try\n\n  plot(1, type=\"n\");text(1,1,quote(kappa+lambda+mu+nu+rho+sigma))\n\nIt doesn't happen when building on my own machine, so I can only assume \nthat something is up with the build machine or the chrooted build \nenvironment.\n\n-- \n    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B\n   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K\n  (*) \\(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918\n~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907",
+      "body_snippet": "Tom \"spot\" Callaway wrote:\n> On Sun, 2009-01-04 at 12:33 +0100, Peter Dalgaard wrote:\n> \n>> Finally got around to testing it (sorry, but it didn't reach testing \n>> till the 24th, and we have this thi",
+      "thread_id": "thread-442416df897f",
+      "thread_depth": 2,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-0f1a0e400da2",
+      "message_id": "<4960DEA0.4050304@pingoured.fr>",
+      "from_name": "Pierre-Yves",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-01-04T17:06:56+01:00",
+      "subject": "[R-sig-Fedora] How to predict the files installed ?",
+      "subject_clean": "How to predict the files installed ?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear list(s),\n\nSeveral people are actually really interested to package the CRAN or \nBioconductor in RPM using R2spec.\nOne of the features that R2spec should handle is the %file section of \nthe spec file, to handle it I would like to be able to predict which \nfiles are installed while running the `R CMD INSTALL package_name` \ncommand from the tarball directly.\nI could always make R2spec compiling the spec files but I would prefer \nnot to.\n\nI have started to look at it but I have not find my way to do it yet, so \nI am asking here if anyone has an idea how I could do this. How I could \nfrom the tarball predict the file that are installed and thus that \nshould be listed in the %file section.\n\nThanks in advance for your help,\n\nBest regards,\n\nPierre\n\n\nPS:\nI am emailing the lists fedora-r-devel-list and r-sig-fedora, feel free \nto remove one of the two while replying, I follow both.",
+      "body_snippet": "Dear list(s),\n\nSeveral people are actually really interested to package the CRAN or \nBioconductor in RPM using R2spec.\nOne of the features that R2spec should handle is the %file section of \nthe spec f",
+      "thread_id": "thread-0f1a0e400da2",
+      "thread_depth": 0,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-a749d3233915",
+      "message_id": "<1231155085.2945.16.camel@localhost.localdomain>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "bad7df6428e60802a46077187eab20a1a370b32627a90006d8a8b1573c1a099d",
+      "date": "2009-01-05T12:31:25+01:00",
+      "subject": "[R-sig-Fedora] R 2.8.1",
+      "subject_clean": "R 2.8.1",
+      "in_reply_to": "<4960CCFE.8010704@biostat.ku.dk>",
+      "references": [
+        "<1229980888.4528.53.camel@localhost.localdomain>",
+        "<49500BA6.6010200@biostat.ku.dk>",
+        "<1229983083.4528.58.camel@localhost.localdomain>",
+        "<49609EA6.5010006@biostat.ku.dk>",
+        "<1231079857.3132.27.camel@localhost.localdomain>",
+        "<4960CCFE.8010704@biostat.ku.dk>"
+      ],
+      "body_plain": "On Sun, 2009-01-04 at 15:51 +0100, Peter Dalgaard wrote:\n> Tom \"spot\" Callaway wrote:\n> > On Sun, 2009-01-04 at 12:33 +0100, Peter Dalgaard wrote:\n> > \n> >> Finally got around to testing it (sorry, but it didn't reach testing \n> >> till the 24th, and we have this thing call Christmas around here...).\n> >>\n> >> However, it now seems that I cannot update the karma system. Yesterday, \n> >> I got an \"internal error\" or some such when submitting, and now I can \n> >> submit, but only the text comes through, not my email addr. nor the \n> >> \"works for me\". So there's now two \"anonymous tester\" entries with a \n> >> bland smiley icon.\n> > \n> > Hmm, they came through to my inbox with your name/email. Very odd. :)\n> > \n> > ~spot\n> > \n> \n> I spoke slightly too soon. This version has the same \"missing mu\" \n> syndrome as 2.8.0 did (and which occurs on SUSE too), try\n> \n>   plot(1, type=\"n\");text(1,1,quote(kappa+lambda+mu+nu+rho+sigma))\n> \n> It doesn't happen when building on my own machine, so I can only assume \n> that something is up with the build machine or the chrooted build \n> environment.\n\nI think we need to add pango-devel as a build requirement, so that the\ncairo graphics device uses the pango layout engine.\n\nIf you want to test this, I have rebuilt the RPMS with mock, after\nadding pango-devel to BuildRequires, and put them here:\nhttp://calvin.iarc.fr/~martyn/R-2.8.1/\n\nI don't get the same \"missing mu\" bug, but I have some commercial fonts\ninstalled. I do get error messages about missing font metrics, however,\nwhich would be due to the lack of pango.\n\n\nI also noticed that libRmath-devel does not pull in the right release of\nlibRmath. The requirements for libRmath-devel are currently:\n\nRequires: libRmath = %{version}, pkgconfig\n\nbut should be:\n\nRequires: libRmath = %{version}-%{release}, pkgconfig\n\n\nMartyn\n\n\n\n\n-----------------------------------------------------------------------\nThis message and its attachments are strictly confidenti...{{dropped:8}}",
+      "body_snippet": "On Sun, 2009-01-04 at 15:51 +0100, Peter Dalgaard wrote:\n> Tom \"spot\" Callaway wrote:\n> > On Sun, 2009-01-04 at 12:33 +0100, Peter Dalgaard wrote:\n> > \n> >> Finally got around to testing it (sorry, bu",
+      "thread_id": "thread-442416df897f",
+      "thread_depth": 3,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-867754eefde6",
+      "message_id": "<1231168169.18570.24.camel@localhost.localdomain>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-01-05T10:09:29-05:00",
+      "subject": "[R-sig-Fedora] R 2.8.1",
+      "subject_clean": "R 2.8.1",
+      "in_reply_to": "<1231155085.2945.16.camel@localhost.localdomain>",
+      "references": [
+        "<1229980888.4528.53.camel@localhost.localdomain>",
+        "<49500BA6.6010200@biostat.ku.dk>",
+        "<1229983083.4528.58.camel@localhost.localdomain>",
+        "<49609EA6.5010006@biostat.ku.dk>",
+        "<1231079857.3132.27.camel@localhost.localdomain>",
+        "<4960CCFE.8010704@biostat.ku.dk>",
+        "<1231155085.2945.16.camel@localhost.localdomain>"
+      ],
+      "body_plain": "On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:\n\n> I think we need to add pango-devel as a build requirement, so that the\n> cairo graphics device uses the pango layout engine.\n> \n> If you want to test this, I have rebuilt the RPMS with mock, after\n> adding pango-devel to BuildRequires, and put them here:\n> http://calvin.iarc.fr/~martyn/R-2.8.1/\n> \n> I don't get the same \"missing mu\" bug, but I have some commercial fonts\n> installed. I do get error messages about missing font metrics, however,\n> which would be due to the lack of pango.\n> \n> \n> I also noticed that libRmath-devel does not pull in the right release of\n> libRmath. The requirements for libRmath-devel are currently:\n> \n> Requires: libRmath = %{version}, pkgconfig\n> \n> but should be:\n> \n> Requires: libRmath = %{version}-%{release}, pkgconfig\n\nSee, this is why testing the updates is such a good thing. :)\n\nThanks Martyn and Peter for figuring this out, I'll do new builds right\nnow.\n\n~spot",
+      "body_snippet": "On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:\n\n> I think we need to add pango-devel as a build requirement, so that the\n> cairo graphics device uses the pango layout engine.\n> \n> If you wan",
+      "thread_id": "thread-442416df897f",
+      "thread_depth": 4,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-1af36c818d66",
+      "message_id": "<1231182282.3428.2.camel@localhost.localdomain>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-01-05T14:04:42-05:00",
+      "subject": "[R-sig-Fedora] R 2.8.1",
+      "subject_clean": "R 2.8.1",
+      "in_reply_to": "<1231168169.18570.24.camel@localhost.localdomain>",
+      "references": [
+        "<1229980888.4528.53.camel@localhost.localdomain>",
+        "<49500BA6.6010200@biostat.ku.dk>",
+        "<1229983083.4528.58.camel@localhost.localdomain>",
+        "<49609EA6.5010006@biostat.ku.dk>",
+        "<1231079857.3132.27.camel@localhost.localdomain>",
+        "<4960CCFE.8010704@biostat.ku.dk>",
+        "<1231155085.2945.16.camel@localhost.localdomain>",
+        "<1231168169.18570.24.camel@localhost.localdomain>"
+      ],
+      "body_plain": "On Mon, 2009-01-05 at 10:09 -0500, Tom \"spot\" Callaway wrote:\n> On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:\n> \n> > I think we need to add pango-devel as a build requirement, so that the\n> > cairo graphics device uses the pango layout engine.\n> > \n> > If you want to test this, I have rebuilt the RPMS with mock, after\n> > adding pango-devel to BuildRequires, and put them here:\n> > http://calvin.iarc.fr/~martyn/R-2.8.1/\n> > \n> > I don't get the same \"missing mu\" bug, but I have some commercial fonts\n> > installed. I do get error messages about missing font metrics, however,\n> > which would be due to the lack of pango.\n> > \n> > \n> > I also noticed that libRmath-devel does not pull in the right release of\n> > libRmath. The requirements for libRmath-devel are currently:\n> > \n> > Requires: libRmath = %{version}, pkgconfig\n> > \n> > but should be:\n> > \n> > Requires: libRmath = %{version}-%{release}, pkgconfig\n> \n> See, this is why testing the updates is such a good thing. :)\n> \n> Thanks Martyn and Peter for figuring this out, I'll do new builds right\n> now.\n\nIt has not pushed to testing yet, but here are the URLs for the updated\nbuilds:\n\nhttps://admin.fedoraproject.org/updates/R-2.8.1-2.fc9\nhttps://admin.fedoraproject.org/updates/R-2.8.1-2.fc10\n\n~spot",
+      "body_snippet": "On Mon, 2009-01-05 at 10:09 -0500, Tom \"spot\" Callaway wrote:\n> On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:\n> \n> > I think we need to add pango-devel as a build requirement, so that the\n>",
+      "thread_id": "thread-442416df897f",
+      "thread_depth": 5,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-4c6413e5f478",
+      "message_id": "<49627545.1040908@biostat.ku.dk>",
+      "from_name": "Peter Dalgaard",
+      "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
+      "date": "2009-01-05T22:01:57+01:00",
+      "subject": "[R-sig-Fedora] R 2.8.1",
+      "subject_clean": "R 2.8.1",
+      "in_reply_to": "<1231182282.3428.2.camel@localhost.localdomain>",
+      "references": [
+        "<1229980888.4528.53.camel@localhost.localdomain>",
+        "<49500BA6.6010200@biostat.ku.dk>",
+        "<1229983083.4528.58.camel@localhost.localdomain>",
+        "<49609EA6.5010006@biostat.ku.dk>",
+        "<1231079857.3132.27.camel@localhost.localdomain>",
+        "<4960CCFE.8010704@biostat.ku.dk>",
+        "<1231155085.2945.16.camel@localhost.localdomain>",
+        "<1231168169.18570.24.camel@localhost.localdomain>",
+        "<1231182282.3428.2.camel@localhost.localdomain>"
+      ],
+      "body_plain": "Tom \"spot\" Callaway wrote:\n> On Mon, 2009-01-05 at 10:09 -0500, Tom \"spot\" Callaway wrote:\n>> On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:\n>>\n>>> I think we need to add pango-devel as a build requirement, so that the\n>>> cairo graphics device uses the pango layout engine.\n>>>\n>>> If you want to test this, I have rebuilt the RPMS with mock, after\n>>> adding pango-devel to BuildRequires, and put them here:\n>>> http://calvin.iarc.fr/~martyn/R-2.8.1/\n>>>\n>>> I don't get the same \"missing mu\" bug, but I have some commercial fonts\n>>> installed. I do get error messages about missing font metrics, however,\n>>> which would be due to the lack of pango.\n>>>\n>>>\n>>> I also noticed that libRmath-devel does not pull in the right release of\n>>> libRmath. The requirements for libRmath-devel are currently:\n>>>\n>>> Requires: libRmath = %{version}, pkgconfig\n>>>\n>>> but should be:\n>>>\n>>> Requires: libRmath = %{version}-%{release}, pkgconfig\n>> See, this is why testing the updates is such a good thing. :)\n>>\n>> Thanks Martyn and Peter for figuring this out, I'll do new builds right\n>> now.\n> \n> It has not pushed to testing yet, but here are the URLs for the updated\n> builds:\n> \n> https://admin.fedoraproject.org/updates/R-2.8.1-2.fc9\n> https://admin.fedoraproject.org/updates/R-2.8.1-2.fc10\n> \n> ~spot\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\nHmm...\n\nPackage R-devel-2.8.1-2.fc9.i386.rpm is not signed\n\nIs this to be expected?\n\n-- \n    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B\n   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K\n  (*) \\(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918\n~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907",
+      "body_snippet": "Tom \"spot\" Callaway wrote:\n> On Mon, 2009-01-05 at 10:09 -0500, Tom \"spot\" Callaway wrote:\n>> On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:\n>>\n>>> I think we need to add pango-devel as a bu",
+      "thread_id": "thread-442416df897f",
+      "thread_depth": 6,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-d4201d8c59fc",
+      "message_id": "<49627BE9.9060009@biostat.ku.dk>",
+      "from_name": "Peter Dalgaard",
+      "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
+      "date": "2009-01-05T22:30:17+01:00",
+      "subject": "[R-sig-Fedora] R 2.8.1",
+      "subject_clean": "R 2.8.1",
+      "in_reply_to": "<4962765F.8090109@pingoured.fr>",
+      "references": [
+        "<1229980888.4528.53.camel@localhost.localdomain>",
+        "<49500BA6.6010200@biostat.ku.dk>",
+        "<1229983083.4528.58.camel@localhost.localdomain>",
+        "<49609EA6.5010006@biostat.ku.dk>",
+        "<1231079857.3132.27.camel@localhost.localdomain>",
+        "<4960CCFE.8010704@biostat.ku.dk>",
+        "<1231155085.2945.16.camel@localhost.localdomain>",
+        "<1231168169.18570.24.camel@localhost.localdomain>",
+        "<1231182282.3428.2.camel@localhost.localdomain>",
+        "<49627545.1040908@biostat.ku.dk>",
+        "<4962765F.8090109@pingoured.fr>"
+      ],
+      "body_plain": "Pierre-Yves wrote:\n  [...]\n>>>\n>>> It has not pushed to testing yet, but here are the URLs for the updated\n>>> builds:\n>>>\n>>> https://admin.fedoraproject.org/updates/R-2.8.1-2.fc9\n>>> https://admin.fedoraproject.org/updates/R-2.8.1-2.fc10\n  [...]\n>> Hmm...\n>>\n>> Package R-devel-2.8.1-2.fc9.i386.rpm is not signed\n>>\n>> Is this to be expected?\n>>\n>  From Koji build yes it is :)\n> \n> Regards,\n> \n> Pierre\n\nSuspected so, but better safe than sorry...\n\nLooks like it works now (Tom has fixed the Omega issue at the same time \nas the mu, I see ;-) )\n\n\t-p\n\n-- \n    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B\n   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K\n  (*) \\(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918\n~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907",
+      "body_snippet": "Pierre-Yves wrote:\n  [...]\n>>>\n>>> It has not pushed to testing yet, but here are the URLs for the updated\n>>> builds:\n>>>\n>>> https://admin.fedoraproject.org/updates/R-2.8.1-2.fc9\n>>> https://admin.f",
+      "thread_id": "thread-d4201d8c59fc",
+      "thread_depth": 0,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-336210f58612",
+      "message_id": "<1231191133.3428.8.camel@localhost.localdomain>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-01-05T16:32:13-05:00",
+      "subject": "[R-sig-Fedora] R 2.8.1",
+      "subject_clean": "R 2.8.1",
+      "in_reply_to": "<49627545.1040908@biostat.ku.dk>",
+      "references": [
+        "<1229980888.4528.53.camel@localhost.localdomain>",
+        "<49500BA6.6010200@biostat.ku.dk>",
+        "<1229983083.4528.58.camel@localhost.localdomain>",
+        "<49609EA6.5010006@biostat.ku.dk>",
+        "<1231079857.3132.27.camel@localhost.localdomain>",
+        "<4960CCFE.8010704@biostat.ku.dk>",
+        "<1231155085.2945.16.camel@localhost.localdomain>",
+        "<1231168169.18570.24.camel@localhost.localdomain>",
+        "<1231182282.3428.2.camel@localhost.localdomain>",
+        "<49627545.1040908@biostat.ku.dk>"
+      ],
+      "body_plain": "On Mon, 2009-01-05 at 22:01 +0100, Peter Dalgaard wrote:\n\n> Package R-devel-2.8.1-2.fc9.i386.rpm is not signed\n> \n> Is this to be expected?\n\nYes. Packages are signed as part of the updates push process, and this\nupdate hasn't been pushed yet.\n\n~spot",
+      "body_snippet": "On Mon, 2009-01-05 at 22:01 +0100, Peter Dalgaard wrote:\n\n> Package R-devel-2.8.1-2.fc9.i386.rpm is not signed\n> \n> Is this to be expected?\n\nYes. Packages are signed as part of the updates push proces",
+      "thread_id": "thread-442416df897f",
+      "thread_depth": 7,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-21867876d8d5",
+      "message_id": "<cab59a750901290536u5cabe276w17c483f10bb1bf3c@mail.gmail.com>",
+      "from_name": "subhajit dutta",
+      "from_email_hash": "6d8ac8856c6a5fcf63937026b2b1377e928160a80570f0b638bc2e704b7a8941",
+      "date": "2009-01-29T19:06:35+05:30",
+      "subject": "[R-sig-Fedora] svmpath",
+      "subject_clean": "svmpath",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090129/8bba291b/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090129/8bba291b/attachment.pl>",
+      "thread_id": "thread-21867876d8d5",
+      "thread_depth": 0,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-87f4ec1d40a7",
+      "message_id": "<4981B495.6070905@comcast.net>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "6b69db75158c6a64599f027a17f3ea4ee49917322d20dbb731688b8fd4f10e1f",
+      "date": "2009-01-29T07:52:21-06:00",
+      "subject": "[R-sig-Fedora] svmpath",
+      "subject_clean": "svmpath",
+      "in_reply_to": "<cab59a750901290536u5cabe276w17c483f10bb1bf3c@mail.gmail.com>",
+      "references": [
+        "<cab59a750901290536u5cabe276w17c483f10bb1bf3c@mail.gmail.com>"
+      ],
+      "body_plain": "on 01/29/2009 07:36 AM subhajit dutta wrote:\n> Hi everyone,\n>              I cannot install package \"svmpath\" on R 2.8.1 on Redhat Linux\n> .In fact I cannot install package externally.I am new to Linux so it would\n> be of great help if you all can help me out.\n> \n> Regards,\n> Subhajit.\n\nYou are going to need to provide more information.\n\n1. Which version of RH Linux?\n\n2. Do you have 'root' or Administrative privileges on the system?\n\n3. What have you done so far to attempt to install the package?\n\n4. Have you read the relevant section of the R Admin Manual:\n\nhttp://cran.r-project.org/doc/manuals/R-admin.html#Add_002don-packages\n\n5. Have you read the relevant section of the FAQ:\n\nhttp://cran.r-project.org/doc/FAQ/R-FAQ.html#How-can-add_002don-packages-be-installed_003f\n\n\nWith more information from you, we can provide more competent support to\nyou.\n\nMarc Schwartz",
+      "body_snippet": "on 01/29/2009 07:36 AM subhajit dutta wrote:\n> Hi everyone,\n>              I cannot install package \"svmpath\" on R 2.8.1 on Redhat Linux\n> .In fact I cannot install package externally.I am new to Linu",
+      "thread_id": "thread-21867876d8d5",
+      "thread_depth": 1,
+      "month": "2009-01"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-442416df897f",
+      "subject": "R 2.8.1",
+      "message_count": 8,
+      "participants": [
+        "Martyn Plummer",
+        "Peter Dalgaard",
+        "Tom \"spot\" Callaway"
+      ],
+      "started": "2009-01-04T12:33:58+01:00",
+      "last_reply": "2009-01-05T16:32:13-05:00",
+      "root_message_id": "msg-442416df897f"
+    },
+    {
+      "id": "thread-0f1a0e400da2",
+      "subject": "How to predict the files installed ?",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves"
+      ],
+      "started": "2009-01-04T17:06:56+01:00",
+      "last_reply": "2009-01-04T17:06:56+01:00",
+      "root_message_id": "msg-0f1a0e400da2"
+    },
+    {
+      "id": "thread-d4201d8c59fc",
+      "subject": "R 2.8.1",
+      "message_count": 1,
+      "participants": [
+        "Peter Dalgaard"
+      ],
+      "started": "2009-01-05T22:30:17+01:00",
+      "last_reply": "2009-01-05T22:30:17+01:00",
+      "root_message_id": "msg-d4201d8c59fc"
+    },
+    {
+      "id": "thread-21867876d8d5",
+      "subject": "svmpath",
+      "message_count": 2,
+      "participants": [
+        "Marc Schwartz",
+        "subhajit dutta"
+      ],
+      "started": "2009-01-29T19:06:35+05:30",
+      "last_reply": "2009-01-29T07:52:21-06:00",
+      "root_message_id": "msg-21867876d8d5"
+    }
+  ]
+}

@@ -1,0 +1,1604 @@
+From phh@80 @ending from gm@il@com  Tue May  8 14:46:03 2018
+From: phh@80 @ending from gm@il@com (Paul Smith)
+Date: Tue, 8 May 2018 13:46:03 +0100
+Subject: [R-sig-Fedora] Cannot install package bibliometrix on F28
+Message-ID: <CALS=5mq5wkSCYB22Lm2fYFjKV9Ca--RafQnEhcUJXvWM6EFaww@mail.gmail.com>
+
+Dear All,
+
+I am trying to install the package bibliometrix on F28, but getting thsi error:
+
+-------------------
+** preparing package for lazy loading
+Error in dyn.load(file, DLLpath = DLLpath, ...) :
+  unable to load shared object '/usr/lib64/R/library/leaps/libs/leaps.so':
+  libgfortran.so.4: cannot open shared object file: No such file or directory
+ERROR: lazy loading failed for package ?bibliometrix?
+* removing ?/usr/lib64/R/library/bibliometrix?
+-------------------
+
+Any ideas?
+
+Thanks in advance,
+
+Paul
+
+
+From m@rtyn@plummer @ending from gm@il@com  Tue May  8 15:18:54 2018
+From: m@rtyn@plummer @ending from gm@il@com (Martyn Plummer)
+Date: Tue, 8 May 2018 15:18:54 +0200
+Subject: [R-sig-Fedora] Cannot install package bibliometrix on F28
+In-Reply-To: <CALS=5mq5wkSCYB22Lm2fYFjKV9Ca--RafQnEhcUJXvWM6EFaww@mail.gmail.com>
+References: <CALS=5mq5wkSCYB22Lm2fYFjKV9Ca--RafQnEhcUJXvWM6EFaww@mail.gmail.com>
+Message-ID: <CA+aisX2bUQXeqm4Btyhn3a=mx8DxkTeENJeNPdB_J_FmB_PCBQ@mail.gmail.com>
+
+I haven't upgraded yet but it looks like libgfortran.so.4 is gone in F28
+[to be replaced by libgfortran.so.5].
+
+Packages with Fortran code that you installed into your library before
+upgrading will need to be reinstalled.
+
+Martyn
+
+On Tue, May 8, 2018 at 2:46 PM, Paul Smith <phhs80 at gmail.com> wrote:
+
+> Dear All,
+>
+> I am trying to install the package bibliometrix on F28, but getting thsi
+> error:
+>
+> -------------------
+> ** preparing package for lazy loading
+> Error in dyn.load(file, DLLpath = DLLpath, ...) :
+>   unable to load shared object '/usr/lib64/R/library/leaps/libs/leaps.so':
+>   libgfortran.so.4: cannot open shared object file: No such file or
+> directory
+> ERROR: lazy loading failed for package ?bibliometrix?
+> * removing ?/usr/lib64/R/library/bibliometrix?
+> -------------------
+>
+> Any ideas?
+>
+> Thanks in advance,
+>
+> Paul
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+	[[alternative HTML version deleted]]
+
+
+From edd @ending from debi@n@org  Tue May 29 22:17:18 2018
+From: edd @ending from debi@n@org (Dirk Eddelbuettel)
+Date: Tue, 29 May 2018 15:17:18 -0500
+Subject: [R-sig-Fedora] CentOS 7 issues with pdf manual / tex conversion
+Message-ID: <23309.46414.943203.403128@rob.eddelbuettel.com>
+
+
+On a CentOS 7 machine, I am at a loss with respect to an inability to run a
+full R CMD check as anything involving tex files ends in tears.
+
+We followed the README at CRAN and installed a large number of tex-live
+packages on this machine. But when a manual is created, we end up with what
+follows below.  Here, I chopped some of the error messages, the key seems to
+be 'Insufficient extension fonts' which gets repeated a bit.
+
+I have been using latex for a long time, but I can't make heads and tails of
+it.  Any idea?
+
+Dirk
+
+
+$ R CMD Rd2pdf pkgKitten        ## just because I know the manual builds
+Hmm ... looks like a package
+Converting Rd files to LaTeX 
+Creating pdf output from LaTeX ...
+Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
+  Running 'texi2dvi' on 'Rd2.tex' failed.
+LaTeX errors:
+! Math formula deleted: Insufficient extension fonts.
+\@iiiparbox ...bm@#3\endcsname }\if at pboxsw \m at th $
+                                                  \fi \@end at tempboxa 
+l.34 ...itten} function.}{pkgKitten.Rdash.package}
+                                                  
+! Emergency stop.
+\@iiiparbox ...bm@#3\endcsname }\if at pboxsw \m at th $
+                                                  \fi \@end at tempboxa 
+l.34 ...itten} function.}{pkgKitten.Rdash.package}
+                                                  
+!  ==> Fatal error occurred, no output PDF file produced!
+Output:
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
+(./Rd2.tex (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+[...]
+
+
+(/usr/share/R/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg))
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 366.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 366.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu))
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def))
+Writing index file Rd2.idx
+No file Rd2.aux.
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+! Math formula deleted: Insufficient extension fonts.
+\@iiiparbox ...bm@#3\endcsname }\if at pboxsw \m at th $
+                                                  \fi \@end at tempboxa 
+l.34 ...itten} function.}{pkgKitten.Rdash.package}
+                                                  
+? 
+! Emergency stop.
+\@iiiparbox ...bm@#3\endcsname }\if at pboxsw \m at th $
+                                                  \fi \@end at tempboxa 
+l.34 ...itten} function.}{pkgKitten.Rdash.package}
+                                                  
+!  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on Rd2.log.
+Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
+  Running 'texi2dvi' on 'Rd2.tex' failed.
+LaTeX errors:
+! Math formula deleted: Insufficient extension fonts.
+\@iiiparbox ...bm@#3\endcsname }\if at pboxsw \m at th $
+                                                  \fi \@end at tempboxa 
+l.34 ...itten} function.}{pkgKitten.Rdash.package}
+                                                  
+! Emergency stop.
+\@iiiparbox ...bm@#3\endcsname }\if at pboxsw \m at th $
+                                                  \fi \@end at tempboxa 
+l.34 ...itten} function.}{pkgKitten.Rdash.package}
+                                                  
+!  ==> Fatal error occurred, no output PDF file produced!
+Output:
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
+(./Rd2.tex (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+(/usr/share/R/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg))
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 366.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 366.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu))
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def))
+Writing index file Rd2.idx
+(./Rd2.aux) (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+(./Rd2.out) (./Rd2.out)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd) (./Rd2.toc)
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+! Math formula deleted: Insufficient extension fonts.
+\@iiiparbox ...bm@#3\endcsname }\if at pboxsw \m at th $
+                                                  \fi \@end at tempboxa 
+l.34 ...itten} function.}{pkgKitten.Rdash.package}
+                                                  
+? 
+! Emergency stop.
+\@iiiparbox ...bm@#3\endcsname }\if at pboxsw \m at th $
+                                                  \fi \@end at tempboxa 
+l.34 ...itten} function.}{pkgKitten.Rdash.package}
+                                                  
+!  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on Rd2.log.
+Error in running tools::texi2pdf()
+
+-- 
+http://dirk.eddelbuettel.com | @eddelbuettel | edd at debian.org
+
+
+From herrold @ending from owlriver@com  Tue May 29 22:37:46 2018
+From: herrold @ending from owlriver@com (R P Herrold)
+Date: Tue, 29 May 2018 16:37:46 -0400 (EDT)
+Subject: [R-sig-Fedora] CentOS 7 issues with pdf manual / tex conversion
+In-Reply-To: <23309.46414.943203.403128@rob.eddelbuettel.com>
+References: <23309.46414.943203.403128@rob.eddelbuettel.com>
+Message-ID: <alpine.LRH.2.03.1805291633070.8058@bjyevire.pbz>
+
+On Tue, 29 May 2018, Dirk Eddelbuettel wrote:
+
+> On a CentOS 7 machine, I am at a loss with respect to an inability to run a
+> full R CMD check as anything involving tex files ends in tears.
+
+Hi, Dirk
+
+Have fun at the upcoming conference at UIC
+
+I seem to have 56 font packages installed under CentOS 7 
+locally, but then I work pretty carefully to cull them down
+
+What is the specific 'leaf node' package you are trying to 
+attain.   Long ago and far away, I packaged several hundred, 
+inspired by your Debian effort, and I may have a working .spec 
+file about
+
+with my regards,
+
+-- Russ herrold
+
+
+From edd @ending from debi@n@org  Tue May 29 22:53:42 2018
+From: edd @ending from debi@n@org (Dirk Eddelbuettel)
+Date: Tue, 29 May 2018 15:53:42 -0500
+Subject: [R-sig-Fedora] CentOS 7 issues with pdf manual / tex conversion
+In-Reply-To: <alpine.LRH.2.03.1805291633070.8058@bjyevire.pbz>
+References: <23309.46414.943203.403128@rob.eddelbuettel.com>
+ <alpine.LRH.2.03.1805291633070.8058@bjyevire.pbz>
+Message-ID: <23309.48598.133726.78426@rob.eddelbuettel.com>
+
+
+On 29 May 2018 at 16:37, R P Herrold wrote:
+| On Tue, 29 May 2018, Dirk Eddelbuettel wrote:
+| 
+| > On a CentOS 7 machine, I am at a loss with respect to an inability to run a
+| > full R CMD check as anything involving tex files ends in tears.
+| 
+| Hi, Dirk
+| 
+| Have fun at the upcoming conference at UIC
+| 
+| I seem to have 56 font packages installed under CentOS 7 
+| locally, but then I work pretty carefully to cull them down
+| 
+| What is the specific 'leaf node' package you are trying to 
+
+I noticed it with a local, not-public package -- but it appears to apply with
+any source package. I replicated with pkgKitten straight off CRAN and after
+checking that it has a six page manual there.  Here, I get an aborted (!!)
+source file, same happens with the local, non-public package:
+
+-----------------------------------------------------------------------------
+\documentclass[a4paper]{book}
+\usepackage[times,hyper]{Rd}
+\usepackage{makeidx}
+\usepackage[latin1]{inputenc} % @SET ENCODING@
+% \usepackage{graphicx} % @USE GRAPHICX@
+\makeindex{}
+\begin{document}
+\chapter*{}
+\begin{center}
+{\textbf{\huge \R{} documentation}} \par\bigskip{{\Large of \file{pkgKitten\_0.1.4.tar.gz}}}
+\par\bigskip{\large \today}
+\end{center}
+-----------------------------------------------------------------------------
+
+Note that it ends on \end{center}, not \end{document}.
+
+Dirk
+
+| attain.   Long ago and far away, I packaged several hundred, 
+| inspired by your Debian effort, and I may have a working .spec 
+| file about
+| 
+| with my regards,
+| 
+| -- Russ herrold
+
+-- 
+http://dirk.eddelbuettel.com | @eddelbuettel | edd at debian.org
+
+
+From tc@ll@w@ @ending from redh@t@com  Wed May 30 17:34:21 2018
+From: tc@ll@w@ @ending from redh@t@com (Tom Callaway)
+Date: Wed, 30 May 2018 11:34:21 -0400
+Subject: [R-sig-Fedora] CentOS 7 issues with pdf manual / tex conversion
+In-Reply-To: <23309.48598.133726.78426@rob.eddelbuettel.com>
+References: <23309.46414.943203.403128@rob.eddelbuettel.com>
+ <alpine.LRH.2.03.1805291633070.8058@bjyevire.pbz>
+ <23309.48598.133726.78426@rob.eddelbuettel.com>
+Message-ID: <074e37f8-e298-3630-caeb-08042847d775@redhat.com>
+
+On 05/29/2018 04:53 PM, Dirk Eddelbuettel wrote:
+> I noticed it with a local, not-public package -- but it appears to apply with
+> any source package. I replicated with pkgKitten straight off CRAN and after
+> checking that it has a six page manual there.
+
+I'm having trouble reproducing this one. In my fresh CentOS 7 VM, I can
+pull the pkgKitten source down, and run R CMD Rd2pdf pkgKitten without
+issue:
+
+[spot at localhost ~]$ tar xf pkgKitten_0.1.4.tar.gz
+[spot at localhost ~]$ R CMD Rd2pdf pkgKitten
+Hmm ... looks like a package
+Converting Rd files to LaTeX
+Creating pdf output from LaTeX ...
+
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang,
+nohyphenation, lo
+aded.
+(./Rd2.tex (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+(/usr/share/R/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg))
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line
+366.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line
+366.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu))
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def))
+Writing index file Rd2.idx
+No file Rd2.aux.
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+[1{/usr/share/texlive/t
+exmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (0.78088pt too wide) in paragraph at lines 65--65
+ []\T1/pcr/m/n/10 kitten(name = "anRpackage", path = ".", author,
+maintainer, e
+mail,[]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [2]
+No file Rd2.ind.
+[3] (./Rd2.aux)
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)pdfTeX warning
+(dest): name
+{Rfn.email.Rul.address} has been referenced but does not exist, replaced
+by a f
+ixed one
+
+pdfTeX warning (dest): name{Rfn.fullname} has been referenced but does
+not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Rfn.package.skeleton} has been referenced
+but does
+not exist, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
+texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (3 pages, 69080 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.15 [TeX Live 2013] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (9 entries accepted, 0 rejected).
+Sorting entries....done (36 comparisons).
+Generating output file Rd2.ind....done (26 lines written, 0 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang,
+nohyphenation, lo
+aded.
+(./Rd2.tex (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+(/usr/share/R/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg))
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line
+366.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line
+366.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu))
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def))
+Writing index file Rd2.idx
+(./Rd2.aux) (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+(./Rd2.out) (./Rd2.out)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd) (./Rd2.toc)
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+[1{/usr/share/texlive/t
+exmf/fonts/map/pdftex/updmap/pdftex.map}]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (0.78088pt too wide) in paragraph at lines 65--65
+ []\T1/pcr/m/n/10 kitten(name = "anRpackage", path = ".", author,
+maintainer, e
+mail,[]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [2] (./Rd2.ind [3]
+[4]) (./Rd2.aux)
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)pdfTeX warning
+(dest): name
+{Rfn.email.Rul.address} has been referenced but does not exist, replaced
+by a f
+ixed one
+
+pdfTeX warning (dest): name{Rfn.fullname} has been referenced but does
+not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Rfn.package.skeleton} has been referenced
+but does
+not exist, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/courier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helv
+etic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (4 pages, 85455 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.15 [TeX Live 2013] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (9 entries accepted, 0 rejected).
+Sorting entries....done (36 comparisons).
+Generating output file Rd2.ind....done (26 lines written, 0 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang,
+nohyphenation, lo
+aded.
+(./Rd2.tex (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+(/usr/share/R/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg))
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line
+366.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line
+366.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu))
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def))
+Writing index file Rd2.idx
+(./Rd2.aux) (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+(./Rd2.out) (./Rd2.out)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd) (./Rd2.toc)
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+[1{/usr/share/texlive/t
+exmf/fonts/map/pdftex/updmap/pdftex.map}]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+Overfull \hbox (0.78088pt too wide) in paragraph at lines 65--65
+ []\T1/pcr/m/n/10 kitten(name = "anRpackage", path = ".", author,
+maintainer, e
+mail,[]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [2] (./Rd2.ind [3]
+[4]) (./Rd2.aux) )
+(see the transcript file for additional information)pdfTeX warning
+(dest): name
+{Rfn.email.Rul.address} has been referenced but does not exist, replaced
+by a f
+ixed one
+
+pdfTeX warning (dest): name{Rfn.fullname} has been referenced but does
+not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Rfn.package.skeleton} has been referenced
+but does
+not exist, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/courier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helv
+etic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (4 pages, 85995 bytes).
+Transcript written on Rd2.log.
+Saving output to ?pkgKitten.pdf? ...
+Done
+
+*****
+
+Do you have a ~/.texlive2013 ? If so, try deleting it and retrying.
+
+Here's the list of texlive components I have on my CentOS 7 system:
+
+texlive-ae-svn15878.1.4-38.el7.noarch
+texlive-algorithms-svn15878.0.1-38.el7.noarch
+texlive-amscls-svn29207.0-38.el7.noarch
+texlive-amsfonts-svn29208.3.04-38.el7.noarch
+texlive-amsmath-svn29327.2.14-38.el7.noarch
+texlive-anysize-svn15878.0-38.el7.noarch
+texlive-attachfile-svn21866.v1.5b-38.el7.noarch
+texlive-avantgar-svn28614.0-38.el7.noarch
+texlive-babelbib-svn25245.1.31-38.el7.noarch
+texlive-babel-svn24756.3.8m-38.el7.noarch
+texlive-base-2012-38.20130427_r30134.el7.noarch
+texlive-beamer-svn29349.3.26-38.el7.noarch
+texlive-bera-svn20031.0-38.el7.noarch
+texlive-beton-svn15878.0-38.el7.noarch
+texlive-bibtex-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+texlive-bibtex-svn26689.0.99d-38.el7.noarch
+texlive-bookman-svn28614.0-38.el7.noarch
+texlive-booktabs-svn15878.1.61803-38.el7.noarch
+texlive-breakurl-svn15878.1.30-38.el7.noarch
+texlive-caption-svn29026.3.3__2013_02_03_-38.el7.noarch
+texlive-carlisle-svn18258.0-38.el7.noarch
+texlive-charter-svn15878.0-38.el7.noarch
+texlive-chngcntr-svn17157.1.0a-38.el7.noarch
+texlive-cite-svn19955.5.3-38.el7.noarch
+texlive-cmap-svn26568.0-38.el7.noarch
+texlive-cmextra-svn14075.0-38.el7.noarch
+texlive-cm-super-svn15878.0-38.el7.noarch
+texlive-cm-svn29581.0-38.el7.noarch
+texlive-collection-basic-svn26314.0-38.20130427_r30134.el7.noarch
+texlive-collection-documentation-base-svn17091.0-38.20130427_r30134.el7.noarch
+texlive-collection-fontsrecommended-svn28082.0-38.20130427_r30134.el7.noarch
+texlive-collection-latexrecommended-svn25795.0-38.20130427_r30134.el7.noarch
+texlive-collection-latex-svn25030.0-38.20130427_r30134.el7.noarch
+texlive-colortbl-svn25394.v1.0a-38.el7.noarch
+texlive-courier-svn28614.0-38.el7.noarch
+texlive-crop-svn15878.1.5-38.el7.noarch
+texlive-csquotes-svn24393.5.1d-38.el7.noarch
+texlive-ctable-svn26694.1.23-38.el7.noarch
+texlive-currfile-svn29012.0.7b-38.el7.noarch
+texlive-dvipdfm-bin-svn13663.0-38.20130427_r30134.el7.noarch
+texlive-dvipdfm-svn26689.0.13.2d-38.el7.noarch
+texlive-dvipdfmx-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+texlive-dvipdfmx-def-svn15878.0-38.el7.noarch
+texlive-dvipdfmx-svn26765.0-38.el7.noarch
+texlive-dvips-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+texlive-dvips-svn29585.0-38.el7.noarch
+texlive-ec-svn25033.1.0-38.el7.noarch
+texlive-enctex-svn28602.0-38.el7.noarch
+texlive-enumitem-svn24146.3.5.2-38.el7.noarch
+texlive-epsf-svn21461.2.7.4-38.el7.noarch
+texlive-eso-pic-svn21515.2.0c-38.el7.noarch
+texlive-etex-pkg-svn15878.2.0-38.el7.noarch
+texlive-etex-svn22198.2.1-38.el7.noarch
+texlive-etoolbox-svn20922.2.1-38.el7.noarch
+texlive-euler-svn17261.2.5-38.el7.noarch
+texlive-euro-svn22191.1.1-38.el7.noarch
+texlive-eurosym-svn17265.1.4_subrfix-38.el7.noarch
+texlive-extsizes-svn17263.1.4a-38.el7.noarch
+texlive-fancybox-svn18304.1.4-38.el7.noarch
+texlive-fancyhdr-svn15878.3.1-38.el7.noarch
+texlive-fancyref-svn15878.0.9c-38.el7.noarch
+texlive-fancyvrb-svn18492.2.8-38.el7.noarch
+texlive-filecontents-svn24250.1.3-38.el7.noarch
+texlive-filehook-svn24280.0.5d-38.el7.noarch
+texlive-fix2col-svn17133.0-38.el7.noarch
+texlive-float-svn15878.1.3d-38.el7.noarch
+texlive-fontspec-svn29412.v2.3a-38.el7.noarch
+texlive-footmisc-svn23330.5.5b-38.el7.noarch
+texlive-fpl-svn15878.1.002-38.el7.noarch
+texlive-fp-svn15878.0-38.el7.noarch
+texlive-geometry-svn19716.5.6-38.el7.noarch
+texlive-glyphlist-svn28576.0-38.el7.noarch
+texlive-graphics-svn25405.1.0o-38.el7.noarch
+texlive-gsftopk-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+texlive-gsftopk-svn26689.1.19.2-38.el7.noarch
+texlive-helvetic-svn28614.0-38.el7.noarch
+texlive-hyperref-svn28213.6.83m-38.el7.noarch
+texlive-hyphen-base-svn29197.0-38.el7.noarch
+texlive-hyph-utf8-svn29641.0-38.el7.noarch
+texlive-ifetex-svn24853.1.2-38.el7.noarch
+texlive-ifluatex-svn26725.1.3-38.el7.noarch
+texlive-ifxetex-svn19685.0.5-38.el7.noarch
+texlive-index-svn24099.4.1beta-38.el7.noarch
+texlive-jknapltx-svn19440.0-38.el7.noarch
+texlive-kastrup-svn15878.0-38.el7.noarch
+texlive-koma-script-svn27255.3.11b-38.el7.noarch
+texlive-kpathsea-bin-svn27347.0-38.20130427_r30134.el7.x86_64
+texlive-kpathsea-lib-2012-38.20130427_r30134.el7.x86_64
+texlive-kpathsea-svn28792.0-38.el7.noarch
+texlive-l3experimental-svn29361.SVN_4467-38.el7.noarch
+texlive-l3kernel-svn29409.SVN_4469-38.el7.noarch
+texlive-l3packages-svn29361.SVN_4467-38.el7.noarch
+texlive-latex-bin-bin-svn14050.0-38.20130427_r30134.el7.noarch
+texlive-latex-bin-svn26689.0-38.el7.noarch
+texlive-latexconfig-svn28991.0-38.el7.noarch
+texlive-latex-fonts-svn28888.0-38.el7.noarch
+texlive-latex-svn27907.0-38.el7.noarch
+texlive-listings-svn15878.1.4-38.el7.noarch
+texlive-lm-math-svn29044.1.958-38.el7.noarch
+texlive-lm-svn28119.2.004-38.el7.noarch
+texlive-ltxmisc-svn21927.0-38.el7.noarch
+texlive-lua-alt-getopt-svn29349.0.7.0-38.el7.noarch
+texlive-lualatex-math-svn29346.1.2-38.el7.noarch
+texlive-luaotfload-bin-svn18579.0-38.20130427_r30134.el7.noarch
+texlive-luaotfload-svn26718.1.26-38.el7.noarch
+texlive-luatexbase-svn22560.0.31-38.el7.noarch
+texlive-luatex-bin-svn26912.0-38.20130427_r30134.el7.x86_64
+texlive-luatex-svn26689.0.70.1-38.el7.noarch
+texlive-makeindex-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+texlive-makeindex-svn26689.2.12-38.el7.noarch
+texlive-marginnote-svn25880.v1.1i-38.el7.noarch
+texlive-marvosym-svn29349.2.2a-38.el7.noarch
+texlive-mathpazo-svn15878.1.003-38.el7.noarch
+texlive-mdwtools-svn15878.1.05.4-38.el7.noarch
+texlive-memoir-svn21638.3.6j_patch_6.0g-38.el7.noarch
+texlive-metafont-bin-svn26912.0-38.20130427_r30134.el7.x86_64
+texlive-metafont-svn26689.2.718281-38.el7.noarch
+texlive-metalogo-svn18611.0.12-38.el7.noarch
+texlive-mflogo-svn17487.0-38.el7.noarch
+texlive-mfnfss-svn19410.0-38.el7.noarch
+texlive-mfware-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+texlive-mfware-svn26689.0-38.el7.noarch
+texlive-mh-svn29420.0-38.el7.noarch
+texlive-microtype-svn29392.2.5-38.el7.noarch
+texlive-misc-svn24955.0-38.el7.noarch
+texlive-mparhack-svn15878.1.4-38.el7.noarch
+texlive-mptopdf-bin-svn18674.0-38.20130427_r30134.el7.noarch
+texlive-mptopdf-svn26689.0-38.el7.noarch
+texlive-ms-svn24467.0-38.el7.noarch
+texlive-multido-svn18302.1.42-38.el7.noarch
+texlive-natbib-svn20668.8.31b-38.el7.noarch
+texlive-ncntrsbk-svn28614.0-38.el7.noarch
+texlive-ntgclass-svn15878.0-38.el7.noarch
+texlive-oberdiek-svn26725.0-38.el7.noarch
+texlive-palatino-svn28614.0-38.el7.noarch
+texlive-paralist-svn15878.2.3b-38.el7.noarch
+texlive-parallel-svn15878.0-38.el7.noarch
+texlive-parskip-svn19963.2.0-38.el7.noarch
+texlive-pdfpages-svn27574.0.4t-38.el7.noarch
+texlive-pdftex-bin-svn27321.0-38.20130427_r30134.el7.x86_64
+texlive-pdftex-def-svn22653.0.06d-38.el7.noarch
+texlive-pdftex-svn29585.1.40.11-38.el7.noarch
+texlive-pgf-svn22614.2.10-38.el7.noarch
+texlive-plain-svn26647.0-38.el7.noarch
+texlive-powerdot-svn25656.1.4i-38.el7.noarch
+texlive-psfrag-svn15878.3.04-38.el7.noarch
+texlive-pslatex-svn16416.0-38.el7.noarch
+texlive-psnfss-svn23394.9.2a-38.el7.noarch
+texlive-pspicture-svn15878.0-38.el7.noarch
+texlive-pst-3d-svn17257.1.10-38.el7.noarch
+texlive-pst-blur-svn15878.2.0-38.el7.noarch
+texlive-pst-coil-svn24020.1.06-38.el7.noarch
+texlive-pst-eps-svn15878.1.0-38.el7.noarch
+texlive-pst-fill-svn15878.1.01-38.el7.noarch
+texlive-pst-grad-svn15878.1.06-38.el7.noarch
+texlive-pst-math-svn20176.0.61-38.el7.noarch
+texlive-pst-node-svn27799.1.25-38.el7.noarch
+texlive-pst-plot-svn28729.1.44-38.el7.noarch
+texlive-pstricks-add-svn28750.3.59-38.el7.noarch
+texlive-pstricks-svn29678.2.39-38.el7.noarch
+texlive-pst-slpe-svn24391.1.31-38.el7.noarch
+texlive-pst-text-svn15878.1.00-38.el7.noarch
+texlive-pst-tree-svn24142.1.12-38.el7.noarch
+texlive-pxfonts-svn15878.0-38.el7.noarch
+texlive-qstest-svn15878.0-38.el7.noarch
+texlive-rcs-svn15878.0-38.el7.noarch
+texlive-rotating-svn16832.2.16b-38.el7.noarch
+texlive-rsfs-svn15878.0-38.el7.noarch
+texlive-sansmath-svn17997.1.1-38.el7.noarch
+texlive-sauerj-svn15878.0-38.el7.noarch
+texlive-section-svn20180.0-38.el7.noarch
+texlive-seminar-svn18322.1.5-38.el7.noarch
+texlive-sepnum-svn20186.2.0-38.el7.noarch
+texlive-setspace-svn24881.6.7a-38.el7.noarch
+texlive-showexpl-svn27790.v0.3j-38.el7.noarch
+texlive-soul-svn15878.2.4-38.el7.noarch
+texlive-subfig-svn15878.1.3-38.el7.noarch
+texlive-symbol-svn28614.0-38.el7.noarch
+texlive-tetex-bin-svn27344.0-38.20130427_r30134.el7.noarch
+texlive-tetex-svn29585.3.0-38.el7.noarch
+texlive-tex-bin-svn26912.0-38.20130427_r30134.el7.x86_64
+texlive-texconfig-bin-svn27344.0-38.20130427_r30134.el7.noarch
+texlive-texconfig-svn29349.0-38.el7.noarch
+texlive-tex-gyre-math-svn29045.0-38.el7.noarch
+texlive-tex-gyre-svn18651.2.004-38.el7.noarch
+texlive-texlive.infra-bin-svn22566.0-38.20130427_r30134.el7.x86_64
+texlive-texlive.infra-svn28217.0-38.el7.noarch
+texlive-tex-svn26689.3.1415926-38.el7.noarch
+texlive-textcase-svn15878.0-38.el7.noarch
+texlive-thumbpdf-bin-svn6898.0-38.20130427_r30134.el7.noarch
+texlive-thumbpdf-svn26689.3.15-38.el7.noarch
+texlive-times-svn28614.0-38.el7.noarch
+texlive-tipa-svn29349.1.3-38.el7.noarch
+texlive-tools-svn26263.0-38.el7.noarch
+texlive-txfonts-svn15878.0-38.el7.noarch
+texlive-type1cm-svn21820.0-38.el7.noarch
+texlive-typehtml-svn17134.0-38.el7.noarch
+texlive-ucs-svn27549.2.1-38.el7.noarch
+texlive-underscore-svn18261.0-38.el7.noarch
+texlive-unicode-math-svn29413.0.7d-38.el7.noarch
+texlive-url-svn16864.3.2-38.el7.noarch
+texlive-utopia-svn15878.0-38.el7.noarch
+texlive-varwidth-svn24104.0.92-38.el7.noarch
+texlive-wasy-svn15878.0-38.el7.noarch
+texlive-wasysym-svn15878.2.0-38.el7.noarch
+texlive-xcolor-svn15878.2.11-38.el7.noarch
+texlive-xdvi-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+texlive-xdvi-svn26689.22.85-38.el7.noarch
+texlive-xkeyval-svn27995.2.6a-38.el7.noarch
+texlive-xunicode-svn23897.0.981-38.el7.noarch
+texlive-zapfchan-svn28614.0-38.el7.noarch
+texlive-zapfding-svn28614.0-38.el7.noarch
+
+
+From edd @ending from debi@n@org  Wed May 30 18:10:30 2018
+From: edd @ending from debi@n@org (Dirk Eddelbuettel)
+Date: Wed, 30 May 2018 11:10:30 -0500
+Subject: [R-sig-Fedora] CentOS 7 issues with pdf manual / tex conversion
+In-Reply-To: <074e37f8-e298-3630-caeb-08042847d775@redhat.com>
+References: <23309.46414.943203.403128@rob.eddelbuettel.com>
+ <alpine.LRH.2.03.1805291633070.8058@bjyevire.pbz>
+ <23309.48598.133726.78426@rob.eddelbuettel.com>
+ <074e37f8-e298-3630-caeb-08042847d775@redhat.com>
+Message-ID: <23310.52470.142514.748638@rob.eddelbuettel.com>
+
+
+Tom,
+
+On 30 May 2018 at 11:34, Tom Callaway wrote:
+| On 05/29/2018 04:53 PM, Dirk Eddelbuettel wrote:
+| > I noticed it with a local, not-public package -- but it appears to apply with
+| > any source package. I replicated with pkgKitten straight off CRAN and after
+| > checking that it has a six page manual there.
+| 
+| I'm having trouble reproducing this one. In my fresh CentOS 7 VM, I can
+| pull the pkgKitten source down, and run R CMD Rd2pdf pkgKitten without
+| issue:
+
+Thank you. That is the expected behaviour and also what I see on Ubuntu /
+Debian. We may be missing a font metrics or font package.  Will check
+locally.
+
+Dirk
+| 
+| [spot at localhost ~]$ tar xf pkgKitten_0.1.4.tar.gz
+| [spot at localhost ~]$ R CMD Rd2pdf pkgKitten
+| Hmm ... looks like a package
+| Converting Rd files to LaTeX
+| Creating pdf output from LaTeX ...
+| 
+| This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+|  restricted \write18 enabled.
+| entering extended mode
+| LaTeX2e <2011/06/27>
+| Babel <v3.8m> and hyphenation patterns for english, dumylang,
+| nohyphenation, lo
+| aded.
+| (./Rd2.tex (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+| Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+| (/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+| (/usr/share/R/texmf/tex/latex/Rd.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def))
+| (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def))
+| (/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg)
+| (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)))
+| (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+| (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+| (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+| (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg))
+| 
+| Package hyperref Message: Driver (autodetected): hpdftex.
+| 
+| (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+| (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+| 
+| Package hyperref Warning: Option `hyperindex' has already been used,
+| (hyperref)                setting the option has no effect on input line
+| 366.
+| 
+| 
+| Package hyperref Warning: Option `pagebackref' has already been used,
+| (hyperref)                setting the option has no effect on input line
+| 366.
+| 
+| ) (/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+| (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu))
+| (/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def))
+| Writing index file Rd2.idx
+| No file Rd2.aux.
+| (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd)
+| (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+| (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+| [Loading MPS to PDF converter (version 2006.09.02).]
+| ) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+| (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+| (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+| [1{/usr/share/texlive/t
+| exmf/fonts/map/pdftex/updmap/pdftex.map}]
+| Overfull \hbox (0.78088pt too wide) in paragraph at lines 65--65
+|  []\T1/pcr/m/n/10 kitten(name = "anRpackage", path = ".", author,
+| maintainer, e
+| mail,[]
+| (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [2]
+| No file Rd2.ind.
+| [3] (./Rd2.aux)
+| 
+| Package rerunfilecheck Warning: File `Rd2.out' has changed.
+| (rerunfilecheck)                Rerun to get outlines right
+| (rerunfilecheck)                or use package `bookmark'.
+| 
+|  )
+| (see the transcript file for additional information)pdfTeX warning
+| (dest): name
+| {Rfn.email.Rul.address} has been referenced but does not exist, replaced
+| by a f
+| ixed one
+| 
+| pdfTeX warning (dest): name{Rfn.fullname} has been referenced but does
+| not exis
+| t, replaced by a fixed one
+| 
+| pdfTeX warning (dest): name{Rfn.package.skeleton} has been referenced
+| but does
+| not exist, replaced by a fixed one
+| 
+| {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
+| texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fo
+| nts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+| w/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
+| pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
+| /texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+| Output written on Rd2.pdf (3 pages, 69080 bytes).
+| Transcript written on Rd2.log.
+| This is makeindex, version 2.15 [TeX Live 2013] (kpathsea + Thai support).
+| Scanning input file Rd2.idx....done (9 entries accepted, 0 rejected).
+| Sorting entries....done (36 comparisons).
+| Generating output file Rd2.ind....done (26 lines written, 0 warnings).
+| Output written in Rd2.ind.
+| Transcript written in Rd2.ilg.
+| This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+|  restricted \write18 enabled.
+| entering extended mode
+| LaTeX2e <2011/06/27>
+| Babel <v3.8m> and hyphenation patterns for english, dumylang,
+| nohyphenation, lo
+| aded.
+| (./Rd2.tex (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+| Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+| (/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+| (/usr/share/R/texmf/tex/latex/Rd.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def))
+| (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def))
+| (/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg)
+| (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)))
+| (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+| (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+| (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+| (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg))
+| 
+| Package hyperref Message: Driver (autodetected): hpdftex.
+| 
+| (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+| (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+| 
+| Package hyperref Warning: Option `hyperindex' has already been used,
+| (hyperref)                setting the option has no effect on input line
+| 366.
+| 
+| 
+| Package hyperref Warning: Option `pagebackref' has already been used,
+| (hyperref)                setting the option has no effect on input line
+| 366.
+| 
+| ) (/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+| (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu))
+| (/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def))
+| Writing index file Rd2.idx
+| (./Rd2.aux) (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd)
+| (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+| (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+| [Loading MPS to PDF converter (version 2006.09.02).]
+| ) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+| (./Rd2.out) (./Rd2.out)
+| (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+| (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd) (./Rd2.toc)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+| [1{/usr/share/texlive/t
+| exmf/fonts/map/pdftex/updmap/pdftex.map}]
+| (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+| Overfull \hbox (0.78088pt too wide) in paragraph at lines 65--65
+|  []\T1/pcr/m/n/10 kitten(name = "anRpackage", path = ".", author,
+| maintainer, e
+| mail,[]
+| (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [2] (./Rd2.ind [3]
+| [4]) (./Rd2.aux)
+| 
+| Package rerunfilecheck Warning: File `Rd2.out' has changed.
+| (rerunfilecheck)                Rerun to get outlines right
+| (rerunfilecheck)                or use package `bookmark'.
+| 
+|  )
+| (see the transcript file for additional information)pdfTeX warning
+| (dest): name
+| {Rfn.email.Rul.address} has been referenced but does not exist, replaced
+| by a f
+| ixed one
+| 
+| pdfTeX warning (dest): name{Rfn.fullname} has been referenced but does
+| not exis
+| t, replaced by a fixed one
+| 
+| pdfTeX warning (dest): name{Rfn.package.skeleton} has been referenced
+| but does
+| not exist, replaced by a fixed one
+| 
+| {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
+| texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
+| dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
+| pe1/urw/courier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helv
+| etic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
+| ></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
+| xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
+| t/fonts/type1/urw/times/utmri8a.pfb>
+| Output written on Rd2.pdf (4 pages, 85455 bytes).
+| Transcript written on Rd2.log.
+| This is makeindex, version 2.15 [TeX Live 2013] (kpathsea + Thai support).
+| Scanning input file Rd2.idx....done (9 entries accepted, 0 rejected).
+| Sorting entries....done (36 comparisons).
+| Generating output file Rd2.ind....done (26 lines written, 0 warnings).
+| Output written in Rd2.ind.
+| Transcript written in Rd2.ilg.
+| This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+|  restricted \write18 enabled.
+| entering extended mode
+| LaTeX2e <2011/06/27>
+| Babel <v3.8m> and hyphenation patterns for english, dumylang,
+| nohyphenation, lo
+| aded.
+| (./Rd2.tex (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+| Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+| (/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo))
+| (/usr/share/R/texmf/tex/latex/Rd.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def))
+| (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def))
+| (/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg)
+| (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)))
+| (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+| (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+| (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+| (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg))
+| 
+| Package hyperref Message: Driver (autodetected): hpdftex.
+| 
+| (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+| (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+| 
+| Package hyperref Warning: Option `hyperindex' has already been used,
+| (hyperref)                setting the option has no effect on input line
+| 366.
+| 
+| 
+| Package hyperref Warning: Option `pagebackref' has already been used,
+| (hyperref)                setting the option has no effect on input line
+| 366.
+| 
+| ) (/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+| (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+| (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu))
+| (/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def))
+| Writing index file Rd2.idx
+| (./Rd2.aux) (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd)
+| (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+| (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+| [Loading MPS to PDF converter (version 2006.09.02).]
+| ) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+| (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty))
+| (./Rd2.out) (./Rd2.out)
+| (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+| (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd) (./Rd2.toc)
+| (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+| [1{/usr/share/texlive/t
+| exmf/fonts/map/pdftex/updmap/pdftex.map}]
+| (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def)
+| Overfull \hbox (0.78088pt too wide) in paragraph at lines 65--65
+|  []\T1/pcr/m/n/10 kitten(name = "anRpackage", path = ".", author,
+| maintainer, e
+| mail,[]
+| (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def) [2] (./Rd2.ind [3]
+| [4]) (./Rd2.aux) )
+| (see the transcript file for additional information)pdfTeX warning
+| (dest): name
+| {Rfn.email.Rul.address} has been referenced but does not exist, replaced
+| by a f
+| ixed one
+| 
+| pdfTeX warning (dest): name{Rfn.fullname} has been referenced but does
+| not exis
+| t, replaced by a fixed one
+| 
+| pdfTeX warning (dest): name{Rfn.package.skeleton} has been referenced
+| but does
+| not exist, replaced by a fixed one
+| 
+| {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
+| texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
+| dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
+| pe1/urw/courier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helv
+| etic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
+| ></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
+| xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
+| t/fonts/type1/urw/times/utmri8a.pfb>
+| Output written on Rd2.pdf (4 pages, 85995 bytes).
+| Transcript written on Rd2.log.
+| Saving output to ?pkgKitten.pdf? ...
+| Done
+| 
+| *****
+| 
+| Do you have a ~/.texlive2013 ? If so, try deleting it and retrying.
+| 
+| Here's the list of texlive components I have on my CentOS 7 system:
+| 
+| texlive-ae-svn15878.1.4-38.el7.noarch
+| texlive-algorithms-svn15878.0.1-38.el7.noarch
+| texlive-amscls-svn29207.0-38.el7.noarch
+| texlive-amsfonts-svn29208.3.04-38.el7.noarch
+| texlive-amsmath-svn29327.2.14-38.el7.noarch
+| texlive-anysize-svn15878.0-38.el7.noarch
+| texlive-attachfile-svn21866.v1.5b-38.el7.noarch
+| texlive-avantgar-svn28614.0-38.el7.noarch
+| texlive-babelbib-svn25245.1.31-38.el7.noarch
+| texlive-babel-svn24756.3.8m-38.el7.noarch
+| texlive-base-2012-38.20130427_r30134.el7.noarch
+| texlive-beamer-svn29349.3.26-38.el7.noarch
+| texlive-bera-svn20031.0-38.el7.noarch
+| texlive-beton-svn15878.0-38.el7.noarch
+| texlive-bibtex-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+| texlive-bibtex-svn26689.0.99d-38.el7.noarch
+| texlive-bookman-svn28614.0-38.el7.noarch
+| texlive-booktabs-svn15878.1.61803-38.el7.noarch
+| texlive-breakurl-svn15878.1.30-38.el7.noarch
+| texlive-caption-svn29026.3.3__2013_02_03_-38.el7.noarch
+| texlive-carlisle-svn18258.0-38.el7.noarch
+| texlive-charter-svn15878.0-38.el7.noarch
+| texlive-chngcntr-svn17157.1.0a-38.el7.noarch
+| texlive-cite-svn19955.5.3-38.el7.noarch
+| texlive-cmap-svn26568.0-38.el7.noarch
+| texlive-cmextra-svn14075.0-38.el7.noarch
+| texlive-cm-super-svn15878.0-38.el7.noarch
+| texlive-cm-svn29581.0-38.el7.noarch
+| texlive-collection-basic-svn26314.0-38.20130427_r30134.el7.noarch
+| texlive-collection-documentation-base-svn17091.0-38.20130427_r30134.el7.noarch
+| texlive-collection-fontsrecommended-svn28082.0-38.20130427_r30134.el7.noarch
+| texlive-collection-latexrecommended-svn25795.0-38.20130427_r30134.el7.noarch
+| texlive-collection-latex-svn25030.0-38.20130427_r30134.el7.noarch
+| texlive-colortbl-svn25394.v1.0a-38.el7.noarch
+| texlive-courier-svn28614.0-38.el7.noarch
+| texlive-crop-svn15878.1.5-38.el7.noarch
+| texlive-csquotes-svn24393.5.1d-38.el7.noarch
+| texlive-ctable-svn26694.1.23-38.el7.noarch
+| texlive-currfile-svn29012.0.7b-38.el7.noarch
+| texlive-dvipdfm-bin-svn13663.0-38.20130427_r30134.el7.noarch
+| texlive-dvipdfm-svn26689.0.13.2d-38.el7.noarch
+| texlive-dvipdfmx-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+| texlive-dvipdfmx-def-svn15878.0-38.el7.noarch
+| texlive-dvipdfmx-svn26765.0-38.el7.noarch
+| texlive-dvips-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+| texlive-dvips-svn29585.0-38.el7.noarch
+| texlive-ec-svn25033.1.0-38.el7.noarch
+| texlive-enctex-svn28602.0-38.el7.noarch
+| texlive-enumitem-svn24146.3.5.2-38.el7.noarch
+| texlive-epsf-svn21461.2.7.4-38.el7.noarch
+| texlive-eso-pic-svn21515.2.0c-38.el7.noarch
+| texlive-etex-pkg-svn15878.2.0-38.el7.noarch
+| texlive-etex-svn22198.2.1-38.el7.noarch
+| texlive-etoolbox-svn20922.2.1-38.el7.noarch
+| texlive-euler-svn17261.2.5-38.el7.noarch
+| texlive-euro-svn22191.1.1-38.el7.noarch
+| texlive-eurosym-svn17265.1.4_subrfix-38.el7.noarch
+| texlive-extsizes-svn17263.1.4a-38.el7.noarch
+| texlive-fancybox-svn18304.1.4-38.el7.noarch
+| texlive-fancyhdr-svn15878.3.1-38.el7.noarch
+| texlive-fancyref-svn15878.0.9c-38.el7.noarch
+| texlive-fancyvrb-svn18492.2.8-38.el7.noarch
+| texlive-filecontents-svn24250.1.3-38.el7.noarch
+| texlive-filehook-svn24280.0.5d-38.el7.noarch
+| texlive-fix2col-svn17133.0-38.el7.noarch
+| texlive-float-svn15878.1.3d-38.el7.noarch
+| texlive-fontspec-svn29412.v2.3a-38.el7.noarch
+| texlive-footmisc-svn23330.5.5b-38.el7.noarch
+| texlive-fpl-svn15878.1.002-38.el7.noarch
+| texlive-fp-svn15878.0-38.el7.noarch
+| texlive-geometry-svn19716.5.6-38.el7.noarch
+| texlive-glyphlist-svn28576.0-38.el7.noarch
+| texlive-graphics-svn25405.1.0o-38.el7.noarch
+| texlive-gsftopk-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+| texlive-gsftopk-svn26689.1.19.2-38.el7.noarch
+| texlive-helvetic-svn28614.0-38.el7.noarch
+| texlive-hyperref-svn28213.6.83m-38.el7.noarch
+| texlive-hyphen-base-svn29197.0-38.el7.noarch
+| texlive-hyph-utf8-svn29641.0-38.el7.noarch
+| texlive-ifetex-svn24853.1.2-38.el7.noarch
+| texlive-ifluatex-svn26725.1.3-38.el7.noarch
+| texlive-ifxetex-svn19685.0.5-38.el7.noarch
+| texlive-index-svn24099.4.1beta-38.el7.noarch
+| texlive-jknapltx-svn19440.0-38.el7.noarch
+| texlive-kastrup-svn15878.0-38.el7.noarch
+| texlive-koma-script-svn27255.3.11b-38.el7.noarch
+| texlive-kpathsea-bin-svn27347.0-38.20130427_r30134.el7.x86_64
+| texlive-kpathsea-lib-2012-38.20130427_r30134.el7.x86_64
+| texlive-kpathsea-svn28792.0-38.el7.noarch
+| texlive-l3experimental-svn29361.SVN_4467-38.el7.noarch
+| texlive-l3kernel-svn29409.SVN_4469-38.el7.noarch
+| texlive-l3packages-svn29361.SVN_4467-38.el7.noarch
+| texlive-latex-bin-bin-svn14050.0-38.20130427_r30134.el7.noarch
+| texlive-latex-bin-svn26689.0-38.el7.noarch
+| texlive-latexconfig-svn28991.0-38.el7.noarch
+| texlive-latex-fonts-svn28888.0-38.el7.noarch
+| texlive-latex-svn27907.0-38.el7.noarch
+| texlive-listings-svn15878.1.4-38.el7.noarch
+| texlive-lm-math-svn29044.1.958-38.el7.noarch
+| texlive-lm-svn28119.2.004-38.el7.noarch
+| texlive-ltxmisc-svn21927.0-38.el7.noarch
+| texlive-lua-alt-getopt-svn29349.0.7.0-38.el7.noarch
+| texlive-lualatex-math-svn29346.1.2-38.el7.noarch
+| texlive-luaotfload-bin-svn18579.0-38.20130427_r30134.el7.noarch
+| texlive-luaotfload-svn26718.1.26-38.el7.noarch
+| texlive-luatexbase-svn22560.0.31-38.el7.noarch
+| texlive-luatex-bin-svn26912.0-38.20130427_r30134.el7.x86_64
+| texlive-luatex-svn26689.0.70.1-38.el7.noarch
+| texlive-makeindex-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+| texlive-makeindex-svn26689.2.12-38.el7.noarch
+| texlive-marginnote-svn25880.v1.1i-38.el7.noarch
+| texlive-marvosym-svn29349.2.2a-38.el7.noarch
+| texlive-mathpazo-svn15878.1.003-38.el7.noarch
+| texlive-mdwtools-svn15878.1.05.4-38.el7.noarch
+| texlive-memoir-svn21638.3.6j_patch_6.0g-38.el7.noarch
+| texlive-metafont-bin-svn26912.0-38.20130427_r30134.el7.x86_64
+| texlive-metafont-svn26689.2.718281-38.el7.noarch
+| texlive-metalogo-svn18611.0.12-38.el7.noarch
+| texlive-mflogo-svn17487.0-38.el7.noarch
+| texlive-mfnfss-svn19410.0-38.el7.noarch
+| texlive-mfware-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+| texlive-mfware-svn26689.0-38.el7.noarch
+| texlive-mh-svn29420.0-38.el7.noarch
+| texlive-microtype-svn29392.2.5-38.el7.noarch
+| texlive-misc-svn24955.0-38.el7.noarch
+| texlive-mparhack-svn15878.1.4-38.el7.noarch
+| texlive-mptopdf-bin-svn18674.0-38.20130427_r30134.el7.noarch
+| texlive-mptopdf-svn26689.0-38.el7.noarch
+| texlive-ms-svn24467.0-38.el7.noarch
+| texlive-multido-svn18302.1.42-38.el7.noarch
+| texlive-natbib-svn20668.8.31b-38.el7.noarch
+| texlive-ncntrsbk-svn28614.0-38.el7.noarch
+| texlive-ntgclass-svn15878.0-38.el7.noarch
+| texlive-oberdiek-svn26725.0-38.el7.noarch
+| texlive-palatino-svn28614.0-38.el7.noarch
+| texlive-paralist-svn15878.2.3b-38.el7.noarch
+| texlive-parallel-svn15878.0-38.el7.noarch
+| texlive-parskip-svn19963.2.0-38.el7.noarch
+| texlive-pdfpages-svn27574.0.4t-38.el7.noarch
+| texlive-pdftex-bin-svn27321.0-38.20130427_r30134.el7.x86_64
+| texlive-pdftex-def-svn22653.0.06d-38.el7.noarch
+| texlive-pdftex-svn29585.1.40.11-38.el7.noarch
+| texlive-pgf-svn22614.2.10-38.el7.noarch
+| texlive-plain-svn26647.0-38.el7.noarch
+| texlive-powerdot-svn25656.1.4i-38.el7.noarch
+| texlive-psfrag-svn15878.3.04-38.el7.noarch
+| texlive-pslatex-svn16416.0-38.el7.noarch
+| texlive-psnfss-svn23394.9.2a-38.el7.noarch
+| texlive-pspicture-svn15878.0-38.el7.noarch
+| texlive-pst-3d-svn17257.1.10-38.el7.noarch
+| texlive-pst-blur-svn15878.2.0-38.el7.noarch
+| texlive-pst-coil-svn24020.1.06-38.el7.noarch
+| texlive-pst-eps-svn15878.1.0-38.el7.noarch
+| texlive-pst-fill-svn15878.1.01-38.el7.noarch
+| texlive-pst-grad-svn15878.1.06-38.el7.noarch
+| texlive-pst-math-svn20176.0.61-38.el7.noarch
+| texlive-pst-node-svn27799.1.25-38.el7.noarch
+| texlive-pst-plot-svn28729.1.44-38.el7.noarch
+| texlive-pstricks-add-svn28750.3.59-38.el7.noarch
+| texlive-pstricks-svn29678.2.39-38.el7.noarch
+| texlive-pst-slpe-svn24391.1.31-38.el7.noarch
+| texlive-pst-text-svn15878.1.00-38.el7.noarch
+| texlive-pst-tree-svn24142.1.12-38.el7.noarch
+| texlive-pxfonts-svn15878.0-38.el7.noarch
+| texlive-qstest-svn15878.0-38.el7.noarch
+| texlive-rcs-svn15878.0-38.el7.noarch
+| texlive-rotating-svn16832.2.16b-38.el7.noarch
+| texlive-rsfs-svn15878.0-38.el7.noarch
+| texlive-sansmath-svn17997.1.1-38.el7.noarch
+| texlive-sauerj-svn15878.0-38.el7.noarch
+| texlive-section-svn20180.0-38.el7.noarch
+| texlive-seminar-svn18322.1.5-38.el7.noarch
+| texlive-sepnum-svn20186.2.0-38.el7.noarch
+| texlive-setspace-svn24881.6.7a-38.el7.noarch
+| texlive-showexpl-svn27790.v0.3j-38.el7.noarch
+| texlive-soul-svn15878.2.4-38.el7.noarch
+| texlive-subfig-svn15878.1.3-38.el7.noarch
+| texlive-symbol-svn28614.0-38.el7.noarch
+| texlive-tetex-bin-svn27344.0-38.20130427_r30134.el7.noarch
+| texlive-tetex-svn29585.3.0-38.el7.noarch
+| texlive-tex-bin-svn26912.0-38.20130427_r30134.el7.x86_64
+| texlive-texconfig-bin-svn27344.0-38.20130427_r30134.el7.noarch
+| texlive-texconfig-svn29349.0-38.el7.noarch
+| texlive-tex-gyre-math-svn29045.0-38.el7.noarch
+| texlive-tex-gyre-svn18651.2.004-38.el7.noarch
+| texlive-texlive.infra-bin-svn22566.0-38.20130427_r30134.el7.x86_64
+| texlive-texlive.infra-svn28217.0-38.el7.noarch
+| texlive-tex-svn26689.3.1415926-38.el7.noarch
+| texlive-textcase-svn15878.0-38.el7.noarch
+| texlive-thumbpdf-bin-svn6898.0-38.20130427_r30134.el7.noarch
+| texlive-thumbpdf-svn26689.3.15-38.el7.noarch
+| texlive-times-svn28614.0-38.el7.noarch
+| texlive-tipa-svn29349.1.3-38.el7.noarch
+| texlive-tools-svn26263.0-38.el7.noarch
+| texlive-txfonts-svn15878.0-38.el7.noarch
+| texlive-type1cm-svn21820.0-38.el7.noarch
+| texlive-typehtml-svn17134.0-38.el7.noarch
+| texlive-ucs-svn27549.2.1-38.el7.noarch
+| texlive-underscore-svn18261.0-38.el7.noarch
+| texlive-unicode-math-svn29413.0.7d-38.el7.noarch
+| texlive-url-svn16864.3.2-38.el7.noarch
+| texlive-utopia-svn15878.0-38.el7.noarch
+| texlive-varwidth-svn24104.0.92-38.el7.noarch
+| texlive-wasy-svn15878.0-38.el7.noarch
+| texlive-wasysym-svn15878.2.0-38.el7.noarch
+| texlive-xcolor-svn15878.2.11-38.el7.noarch
+| texlive-xdvi-bin-svn26509.0-38.20130427_r30134.el7.x86_64
+| texlive-xdvi-svn26689.22.85-38.el7.noarch
+| texlive-xkeyval-svn27995.2.6a-38.el7.noarch
+| texlive-xunicode-svn23897.0.981-38.el7.noarch
+| texlive-zapfchan-svn28614.0-38.el7.noarch
+| texlive-zapfding-svn28614.0-38.el7.noarch
+
+-- 
+http://dirk.eddelbuettel.com | @eddelbuettel | edd at debian.org
+
+
+From edd @ending from debi@n@org  Wed May 30 22:18:50 2018
+From: edd @ending from debi@n@org (Dirk Eddelbuettel)
+Date: Wed, 30 May 2018 15:18:50 -0500
+Subject: [R-sig-Fedora] CentOS 7 issues with pdf manual / tex conversion
+In-Reply-To: <23310.52470.142514.748638@rob.eddelbuettel.com>
+References: <23309.46414.943203.403128@rob.eddelbuettel.com>
+ <alpine.LRH.2.03.1805291633070.8058@bjyevire.pbz>
+ <23309.48598.133726.78426@rob.eddelbuettel.com>
+ <074e37f8-e298-3630-caeb-08042847d775@redhat.com>
+ <23310.52470.142514.748638@rob.eddelbuettel.com>
+Message-ID: <23311.1834.610610.249346@rob.eddelbuettel.com>
+
+
+On 30 May 2018 at 11:10, Dirk Eddelbuettel wrote:
+| 
+| Tom,
+| 
+| On 30 May 2018 at 11:34, Tom Callaway wrote:
+| | On 05/29/2018 04:53 PM, Dirk Eddelbuettel wrote:
+| | > I noticed it with a local, not-public package -- but it appears to apply with
+| | > any source package. I replicated with pkgKitten straight off CRAN and after
+| | > checking that it has a six page manual there.
+| | 
+| | I'm having trouble reproducing this one. In my fresh CentOS 7 VM, I can
+| | pull the pkgKitten source down, and run R CMD Rd2pdf pkgKitten without
+| | issue:
+| 
+| Thank you. That is the expected behaviour and also what I see on Ubuntu /
+| Debian. We may be missing a font metrics or font package.  Will check
+| locally.
+
+Weird. We have the exact same packages, yet mine bonk.  I wonder what else
+could be going on.  Maybe it is write permission on the cache font metrics or
+something like that...
+
+Dirk
+
+-- 
+http://dirk.eddelbuettel.com | @eddelbuettel | edd at debian.org
+
+

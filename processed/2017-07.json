@@ -1,0 +1,115 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2017-07",
+  "messages": [
+    {
+      "id": "msg-8cd6ac9c07ca",
+      "message_id": "<CACwCsY6Tkn2en=DW2EPt0SxHarP9Q0Ca03tZj65c0BZPM8cRqA@mail.gmail.com>",
+      "from_name": "Larry Martell",
+      "from_email_hash": "d954a0a7764ff90cda3343f3837f17a14c92fffa0e601a21628b36b55296e137",
+      "date": "2017-07-21T11:18:09-04:00",
+      "subject": "[R-sig-Fedora] Installing R 3.4.0 on Red Hat 6",
+      "subject_clean": "Installing R 3.4.0 on Red Hat 6",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I am trying to install R 3.4.0 on RHEL6. If I look here is it there:\n\nhttp://mirror.sjc02.svwh.net/fedora-epel/6/x86_64/\n\nI did this:\n\nsudo subscription-manager repos --enable rhel-6-server-optional-rpms\nsudo subscription-manager repos --enable rhel-6-server-extras-rpms\nwget https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm\nrpm epel-release-latest-6.noarch.rpm\n\nWhich all worked OK. And then I did:\n\nsudo yum install R\n\nLoaded plugins: dellsysid, product-id, refresh-packagekit, security,\nsubscription-manager\nSetting up Install Process\nNo package R available.\n\nHow can I install 3.4.0?\n\nThanks!",
+      "body_snippet": "I am trying to install R 3.4.0 on RHEL6. If I look here is it there:\n\nhttp://mirror.sjc02.svwh.net/fedora-epel/6/x86_64/\n\nI did this:\n\nsudo subscription-manager repos --enable rhel-6-server-optional-r",
+      "thread_id": "thread-8cd6ac9c07ca",
+      "thread_depth": 0,
+      "month": "2017-07"
+    },
+    {
+      "id": "msg-cf13ee813dcf",
+      "message_id": "<CANA0HMZx_Z7uZPXq9wwhZeVJnz7qPqqdSDhN-L_zNTiLSJLe+Q@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2017-07-21T11:39:57-04:00",
+      "subject": "[R-sig-Fedora] Installing R 3.4.0 on Red Hat 6",
+      "subject_clean": "Installing R 3.4.0 on Red Hat 6",
+      "in_reply_to": "<CACwCsY6Tkn2en=DW2EPt0SxHarP9Q0Ca03tZj65c0BZPM8cRqA@mail.gmail.com>",
+      "references": [
+        "<CACwCsY6Tkn2en=DW2EPt0SxHarP9Q0Ca03tZj65c0BZPM8cRqA@mail.gmail.com>"
+      ],
+      "body_plain": "On 07/21/2017 11:18 AM, Larry Martell wrote:\n> I am trying to install R 3.4.0 on RHEL6. If I look here is it there:\n>\n> http://mirror.sjc02.svwh.net/fedora-epel/6/x86_64/\n>\n> I did this:\n>\n> sudo subscription-manager repos --enable rhel-6-server-optional-rpms\n> sudo subscription-manager repos --enable rhel-6-server-extras-rpms\n> wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm\n> rpm epel-release-latest-6.noarch.rpm\n\nTry this instead:\n\nrpm -Uvh epel-release-latest-6.noarch.rpm\n\nYou also may want to install from epel-testing, 3.4.1 is in there.\n\nsudo yum --enablerepo=epel-testing install R\n\n~tom",
+      "body_snippet": "On 07/21/2017 11:18 AM, Larry Martell wrote:\n> I am trying to install R 3.4.0 on RHEL6. If I look here is it there:\n>\n> http://mirror.sjc02.svwh.net/fedora-epel/6/x86_64/\n>\n> I did this:\n>\n> sudo subs",
+      "thread_id": "thread-8cd6ac9c07ca",
+      "thread_depth": 1,
+      "month": "2017-07"
+    },
+    {
+      "id": "msg-67f03c866e5c",
+      "message_id": "<CACwCsY7WXLh_ZUr3mHWnGspZoDN=2q4qwUbjSROnCLMBrXHPdA@mail.gmail.com>",
+      "from_name": "Larry Martell",
+      "from_email_hash": "d954a0a7764ff90cda3343f3837f17a14c92fffa0e601a21628b36b55296e137",
+      "date": "2017-07-21T11:41:59-04:00",
+      "subject": "[R-sig-Fedora] Installing R 3.4.0 on Red Hat 6",
+      "subject_clean": "Installing R 3.4.0 on Red Hat 6",
+      "in_reply_to": "<CANA0HMZx_Z7uZPXq9wwhZeVJnz7qPqqdSDhN-L_zNTiLSJLe+Q@mail.gmail.com>",
+      "references": [
+        "<CACwCsY6Tkn2en=DW2EPt0SxHarP9Q0Ca03tZj65c0BZPM8cRqA@mail.gmail.com>",
+        "<CANA0HMZx_Z7uZPXq9wwhZeVJnz7qPqqdSDhN-L_zNTiLSJLe+Q@mail.gmail.com>"
+      ],
+      "body_plain": "On Fri, Jul 21, 2017 at 11:39 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n> On 07/21/2017 11:18 AM, Larry Martell wrote:\n>> I am trying to install R 3.4.0 on RHEL6. If I look here is it there:\n>>\n>> http://mirror.sjc02.svwh.net/fedora-epel/6/x86_64/\n>>\n>> I did this:\n>>\n>> sudo subscription-manager repos --enable rhel-6-server-optional-rpms\n>> sudo subscription-manager repos --enable rhel-6-server-extras-rpms\n>> wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm\n>> rpm epel-release-latest-6.noarch.rpm\n>\n> Try this instead:\n>\n> rpm -Uvh epel-release-latest-6.noarch.rpm\n\nThat gave me:\n\npackage epel-release-6-8.noarch is already installed\n\n> You also may want to install from epel-testing, 3.4.1 is in there.\n>\n> sudo yum --enablerepo=epel-testing install R\n\nThat gave me:\n\nError getting repository data for epel-testing, repository not found",
+      "body_snippet": "On Fri, Jul 21, 2017 at 11:39 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n> On 07/21/2017 11:18 AM, Larry Martell wrote:\n>> I am trying to install R 3.4.0 on RHEL6. If I look here is it there:\n>>",
+      "thread_id": "thread-8cd6ac9c07ca",
+      "thread_depth": 2,
+      "month": "2017-07"
+    },
+    {
+      "id": "msg-67e9452fd2de",
+      "message_id": "<CANA0HMY3n_ppmmd5YKM8PxUfA=yuCthDx30Jtfz9EgXnkG+FiA@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2017-07-21T11:44:43-04:00",
+      "subject": "[R-sig-Fedora] Installing R 3.4.0 on Red Hat 6",
+      "subject_clean": "Installing R 3.4.0 on Red Hat 6",
+      "in_reply_to": "<CACwCsY7WXLh_ZUr3mHWnGspZoDN=2q4qwUbjSROnCLMBrXHPdA@mail.gmail.com>",
+      "references": [
+        "<CACwCsY6Tkn2en=DW2EPt0SxHarP9Q0Ca03tZj65c0BZPM8cRqA@mail.gmail.com>",
+        "<CANA0HMZx_Z7uZPXq9wwhZeVJnz7qPqqdSDhN-L_zNTiLSJLe+Q@mail.gmail.com>",
+        "<CACwCsY7WXLh_ZUr3mHWnGspZoDN=2q4qwUbjSROnCLMBrXHPdA@mail.gmail.com>"
+      ],
+      "body_plain": "Hmmm. When I look at the contents of epel-release-latest-6.noarch.rpm, I\nsee:\n\n/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6\n/etc/rpm/macros.ghc-srpm\n/etc/yum.repos.d/epel-testing.repo\n/etc/yum.repos.d/epel.repo\n/usr/share/doc/epel-release-6\n/usr/share/doc/epel-release-6/GPL\n\nDo you have those .repo files in /etc/yum.repos.d/ ?\n\n~tom\n\n\nOn Fri, Jul 21, 2017 at 11:41 AM, Larry Martell <larry.martell at gmail.com>\nwrote:\n\n> On Fri, Jul 21, 2017 at 11:39 AM, Tom Callaway <tcallawa at redhat.com>\n> wrote:\n> > On 07/21/2017 11:18 AM, Larry Martell wrote:\n> >> I am trying to install R 3.4.0 on RHEL6. If I look here is it there:\n> >>\n> >> http://mirror.sjc02.svwh.net/fedora-epel/6/x86_64/\n> >>\n> >> I did this:\n> >>\n> >> sudo subscription-manager repos --enable rhel-6-server-optional-rpms\n> >> sudo subscription-manager repos --enable rhel-6-server-extras-rpms\n> >> wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-\n> 6.noarch.rpm\n> >> rpm epel-release-latest-6.noarch.rpm\n> >\n> > Try this instead:\n> >\n> > rpm -Uvh epel-release-latest-6.noarch.rpm\n>\n> That gave me:\n>\n> package epel-release-6-8.noarch is already installed\n>\n> > You also may want to install from epel-testing, 3.4.1 is in there.\n> >\n> > sudo yum --enablerepo=epel-testing install R\n>\n> That gave me:\n>\n> Error getting repository data for epel-testing, repository not found\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hmmm. When I look at the contents of epel-release-latest-6.noarch.rpm, I\nsee:\n\n/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6\n/etc/rpm/macros.ghc-srpm\n/etc/yum.repos.d/epel-testing.repo\n/etc/yum.repos.d/epel.rep",
+      "thread_id": "thread-8cd6ac9c07ca",
+      "thread_depth": 3,
+      "month": "2017-07"
+    },
+    {
+      "id": "msg-26a7c16a80c3",
+      "message_id": "<CACwCsY5EYhVpAWWLHSx2fpja8HEiGKyuNSnvet_wV+HBQ3Mosg@mail.gmail.com>",
+      "from_name": "Larry Martell",
+      "from_email_hash": "d954a0a7764ff90cda3343f3837f17a14c92fffa0e601a21628b36b55296e137",
+      "date": "2017-07-21T11:50:30-04:00",
+      "subject": "[R-sig-Fedora] Installing R 3.4.0 on Red Hat 6",
+      "subject_clean": "Installing R 3.4.0 on Red Hat 6",
+      "in_reply_to": "<CANA0HMY3n_ppmmd5YKM8PxUfA=yuCthDx30Jtfz9EgXnkG+FiA@mail.gmail.com>",
+      "references": [
+        "<CACwCsY6Tkn2en=DW2EPt0SxHarP9Q0Ca03tZj65c0BZPM8cRqA@mail.gmail.com>",
+        "<CANA0HMZx_Z7uZPXq9wwhZeVJnz7qPqqdSDhN-L_zNTiLSJLe+Q@mail.gmail.com>",
+        "<CACwCsY7WXLh_ZUr3mHWnGspZoDN=2q4qwUbjSROnCLMBrXHPdA@mail.gmail.com>",
+        "<CANA0HMY3n_ppmmd5YKM8PxUfA=yuCthDx30Jtfz9EgXnkG+FiA@mail.gmail.com>"
+      ],
+      "body_plain": "On Fri, Jul 21, 2017 at 11:44 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n> Hmmm. When I look at the contents of epel-release-latest-6.noarch.rpm, I\n> see:\n>\n> /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6\n> /etc/rpm/macros.ghc-srpm\n> /etc/yum.repos.d/epel-testing.repo\n> /etc/yum.repos.d/epel.repo\n> /usr/share/doc/epel-release-6\n> /usr/share/doc/epel-release-6/GPL\n>\n> Do you have those .repo files in /etc/yum.repos.d/ ?\n\nThis is the contents of that dir:\n\ndocker.repo\njenkins.repo\nmysql-community.repo\nmysql-community-source.repo\nredhat.repo\nremi.repo\nrhel-source.repo\nrhscl-python27-epel-6-x86_64.repo\nscl.repo\n\n\n> On Fri, Jul 21, 2017 at 11:41 AM, Larry Martell <larry.martell at gmail.com>\n> wrote:\n>>\n>> On Fri, Jul 21, 2017 at 11:39 AM, Tom Callaway <tcallawa at redhat.com>\n>> wrote:\n>> > On 07/21/2017 11:18 AM, Larry Martell wrote:\n>> >> I am trying to install R 3.4.0 on RHEL6. If I look here is it there:\n>> >>\n>> >> http://mirror.sjc02.svwh.net/fedora-epel/6/x86_64/\n>> >>\n>> >> I did this:\n>> >>\n>> >> sudo subscription-manager repos --enable rhel-6-server-optional-rpms\n>> >> sudo subscription-manager repos --enable rhel-6-server-extras-rpms\n>> >> wget\n>> >> https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm\n>> >> rpm epel-release-latest-6.noarch.rpm\n>> >\n>> > Try this instead:\n>> >\n>> > rpm -Uvh epel-release-latest-6.noarch.rpm\n>>\n>> That gave me:\n>>\n>> package epel-release-6-8.noarch is already installed\n>>\n>> > You also may want to install from epel-testing, 3.4.1 is in there.\n>> >\n>> > sudo yum --enablerepo=epel-testing install R\n>>\n>> That gave me:\n>>\n>> Error getting repository data for epel-testing, repository not found\n>\n>",
+      "body_snippet": "On Fri, Jul 21, 2017 at 11:44 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n> Hmmm. When I look at the contents of epel-release-latest-6.noarch.rpm, I\n> see:\n>\n> /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6",
+      "thread_id": "thread-8cd6ac9c07ca",
+      "thread_depth": 4,
+      "month": "2017-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-8cd6ac9c07ca",
+      "subject": "Installing R 3.4.0 on Red Hat 6",
+      "message_count": 5,
+      "participants": [
+        "Larry Martell",
+        "Tom Callaway"
+      ],
+      "started": "2017-07-21T11:18:09-04:00",
+      "last_reply": "2017-07-21T11:50:30-04:00",
+      "root_message_id": "msg-8cd6ac9c07ca"
+    }
+  ]
+}

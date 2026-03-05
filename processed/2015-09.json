@@ -1,0 +1,241 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2015-09",
+  "messages": [
+    {
+      "id": "msg-bfdb8919b1e4",
+      "message_id": "<CAK1hC9vyw8p1xugFfrGL7eC2nn2AkZkeLohkfBia3ko6bktJ=g@mail.gmail.com>",
+      "from_name": "arnaud gaboury",
+      "from_email_hash": "3fd1ca79c7c6068e196062a46bb8918874de6d5ebc4e1c82dbd5d8787c97a20d",
+      "date": "2015-09-07T12:16:00+02:00",
+      "subject": "[R-sig-Fedora] Build rpm package for R-MKL",
+      "subject_clean": "Build rpm package for R-MKL",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I want to create a clean .rpm package for R built with MKL and ICC. I\nfollow Fedora instrcutions[0] to create the package. As a base, I use\nthe R-3.2.2.src.rpm.\n\nI am left with this error:\n\n------------------------------------------\ninstalling R info pages ...\nupdating '/usr/share/info/dir' ...\nmake[1]: Leaving directory '/home/poisonivy/rpmbuild/BUILD/R-3.2.2/doc/manual'\n+ mv doc/manual/R-exts.texi.spot doc/manual/R-exts.texi\nmv: cannot stat 'doc/manual/R-exts.texi.spot': No such file or directory\n---------------------------------------\n\nThere is indeed no doc/manual/R-exts.texi.spot file. This make\ninstruction comes form this in R.spec:\n\n---------\n%if 0%{?fedora} >= 19\n# What a hack.\n# Current texinfo doesn't like @eqn. Use @math instead where stuff breaks.\ncp doc/manual/R-exts.texi doc/manual/R-exts.texi.spot\ncp doc/manual/R-intro.texi doc/manual/R-intro.texi.spot\nsed -i 's|@eqn|@math|g' doc/manual/R-exts.texi\nsed -i 's|@eqn|@math|g' doc/manual/R-intro.texi\n%endif\n\n# And now, undo the hack. :P\n%if 0%{?fedora} >= 19\nmv doc/manual/R-exts.texi.spot doc/manual/R-exts.texi\nmv doc/manual/R-intro.texi.spot doc/manual/R-intro.texi\n%endif\n------------------------------\n\nHow can I solve this issue? Maybe remove the hack?\nI will post configure and make options if needed.\n\nThank you for hints.\n\n\n\n[0]https://fedoraproject.org/wiki/How_to_create_an_RPM_package\n-- \n\ngoogle.com/+arnaudgabourygabx",
+      "body_snippet": "I want to create a clean .rpm package for R built with MKL and ICC. I\nfollow Fedora instrcutions[0] to create the package. As a base, I use\nthe R-3.2.2.src.rpm.\n\nI am left with this error:\n\n----------",
+      "thread_id": "thread-bfdb8919b1e4",
+      "thread_depth": 0,
+      "month": "2015-09"
+    },
+    {
+      "id": "msg-612aed9c85ed",
+      "message_id": "<55EF1C93.3010809@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2015-09-08T13:36:19-04:00",
+      "subject": "[R-sig-Fedora] Build rpm package for R-MKL",
+      "subject_clean": "Build rpm package for R-MKL",
+      "in_reply_to": "<CAK1hC9vyw8p1xugFfrGL7eC2nn2AkZkeLohkfBia3ko6bktJ=g@mail.gmail.com>",
+      "references": [
+        "<CAK1hC9vyw8p1xugFfrGL7eC2nn2AkZkeLohkfBia3ko6bktJ=g@mail.gmail.com>"
+      ],
+      "body_plain": "On 09/07/2015 06:16 AM, arnaud gaboury wrote:\n> I want to create a clean .rpm package for R built with MKL and ICC. I\n> follow Fedora instrcutions[0] to create the package. As a base, I use\n> the R-3.2.2.src.rpm.\n> \n> I am left with this error:\n> \n> ------------------------------------------\n> installing R info pages ...\n> updating '/usr/share/info/dir' ...\n> make[1]: Leaving directory '/home/poisonivy/rpmbuild/BUILD/R-3.2.2/doc/manual'\n> + mv doc/manual/R-exts.texi.spot doc/manual/R-exts.texi\n> mv: cannot stat 'doc/manual/R-exts.texi.spot': No such file or directory\n> ---------------------------------------\n> \n> There is indeed no doc/manual/R-exts.texi.spot file. This make\n> instruction comes form this in R.spec:\n> \n> ---------\n> %if 0%{?fedora} >= 19\n> # What a hack.\n> # Current texinfo doesn't like @eqn. Use @math instead where stuff breaks.\n> cp doc/manual/R-exts.texi doc/manual/R-exts.texi.spot\n> cp doc/manual/R-intro.texi doc/manual/R-intro.texi.spot\n> sed -i 's|@eqn|@math|g' doc/manual/R-exts.texi\n> sed -i 's|@eqn|@math|g' doc/manual/R-intro.texi\n> %endif\n> \n> # And now, undo the hack. :P\n> %if 0%{?fedora} >= 19\n> mv doc/manual/R-exts.texi.spot doc/manual/R-exts.texi\n> mv doc/manual/R-intro.texi.spot doc/manual/R-intro.texi\n> %endif\n> ------------------------------\n> \n> How can I solve this issue? Maybe remove the hack?\n> I will post configure and make options if needed.\n\nNot sure how you managed that. The first conditional makes the \".spot\"\nfiles, the second one undoes it, both conditionals are the same. You can\ntry removing them both, but you might run into the exact texinfo issue\nthey were added to dodge.\n\n~tom\n\n==\nRed Hat",
+      "body_snippet": "On 09/07/2015 06:16 AM, arnaud gaboury wrote:\n> I want to create a clean .rpm package for R built with MKL and ICC. I\n> follow Fedora instrcutions[0] to create the package. As a base, I use\n> the R-3.",
+      "thread_id": "thread-bfdb8919b1e4",
+      "thread_depth": 1,
+      "month": "2015-09"
+    },
+    {
+      "id": "msg-58edd4400580",
+      "message_id": "<CAK1hC9vZMf-g7+kGKRoFU7vR_haQ3WnZZvSFYgUbJOyJqPg-aA@mail.gmail.com>",
+      "from_name": "arnaud gaboury",
+      "from_email_hash": "3fd1ca79c7c6068e196062a46bb8918874de6d5ebc4e1c82dbd5d8787c97a20d",
+      "date": "2015-09-08T19:51:29+02:00",
+      "subject": "[R-sig-Fedora] Build rpm package for R-MKL",
+      "subject_clean": "Build rpm package for R-MKL",
+      "in_reply_to": "<55EF1C93.3010809@redhat.com>",
+      "references": [
+        "<CAK1hC9vyw8p1xugFfrGL7eC2nn2AkZkeLohkfBia3ko6bktJ=g@mail.gmail.com>",
+        "<55EF1C93.3010809@redhat.com>"
+      ],
+      "body_plain": "On Tue, Sep 8, 2015 at 7:36 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n> On 09/07/2015 06:16 AM, arnaud gaboury wrote:\n>> I want to create a clean .rpm package for R built with MKL and ICC. I\n>> follow Fedora instrcutions[0] to create the package. As a base, I use\n>> the R-3.2.2.src.rpm.\n>>\n>> I am left with this error:\n>>\n>> ------------------------------------------\n>> installing R info pages ...\n>> updating '/usr/share/info/dir' ...\n>> make[1]: Leaving directory '/home/poisonivy/rpmbuild/BUILD/R-3.2.2/doc/manual'\n>> + mv doc/manual/R-exts.texi.spot doc/manual/R-exts.texi\n>> mv: cannot stat 'doc/manual/R-exts.texi.spot': No such file or directory\n>> ---------------------------------------\n>>\n>> There is indeed no doc/manual/R-exts.texi.spot file. This make\n>> instruction comes form this in R.spec:\n>>\n>> ---------\n>> %if 0%{?fedora} >= 19\n>> # What a hack.\n>> # Current texinfo doesn't like @eqn. Use @math instead where stuff breaks.\n>> cp doc/manual/R-exts.texi doc/manual/R-exts.texi.spot\n>> cp doc/manual/R-intro.texi doc/manual/R-intro.texi.spot\n>> sed -i 's|@eqn|@math|g' doc/manual/R-exts.texi\n>> sed -i 's|@eqn|@math|g' doc/manual/R-intro.texi\n>> %endif\n>>\n>> # And now, undo the hack. :P\n>> %if 0%{?fedora} >= 19\n>> mv doc/manual/R-exts.texi.spot doc/manual/R-exts.texi\n>> mv doc/manual/R-intro.texi.spot doc/manual/R-intro.texi\n>> %endif\n>> ------------------------------\n>>\n>> How can I solve this issue? Maybe remove the hack?\n>> I will post configure and make options if needed.\n>\n> Not sure how you managed that. The first conditional makes the \".spot\"\n> files, the second one undoes it, both conditionals are the same. You can\n> try removing them both, but you might run into the exact texinfo issue\n> they were added to dodge.\n\nFor now, I just commented this hack part of the spec file.\nI have some issues I do not understand with the icc compiler. Build is\ngoing well, but at one point make complains:\n\nmake[2]: Entering directory '/home/poisonivy/rpmbuild/BUILD/R-3.2.1/src/unix'\nicc -std=c99 -I. -I../../src/include -I../../src/include\n-I/usr/local/include -DHAVE_CONFIG_H    -fpic  -ip -O3\n-opt-mem-layout-trans=3 -xHost -mavx -fp-model precise -wd188\n-DMKL_ILP64 -qopenmp -parallel\n-I/opt/intel/compilers_and_libraries_2016.0.109/linux/mkl/include\n-Wl,-z,relro  -DR_HOME='\"/usr/lib64/R\"' \\\n  -o Rscript ./Rscript.c\nmake[2]: icc: Command not found\n\nWeird, as i had same line many times before with no complain. E.g:\n\nicc -std=c99 -I. -I../../../src/include -I../../../src/include\n-I/usr/local/include -DHAVE_CONFIG_H    -fpic  -ip -O3\n-opt-mem-layout-trans=3 -xHost -mavx -fp-model precise -wd188\n-DMKL_ILP64 -qopenmp -parallel\n-I/opt/intel/compilers_and_libraries_2016.0.109/linux/mkl/include\n-c libcurl.c -o libcurl.o\n\nSo no idea why, at this part of the process, icc is not found. Weird,\nas building manually from source (no rpmbuild) is OK.\n\n\n>\n> ~tom\n>\n> ==\n> Red Hat\n\n\n\n-- \n\ngoogle.com/+arnaudgabourygabx",
+      "body_snippet": "On Tue, Sep 8, 2015 at 7:36 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n> On 09/07/2015 06:16 AM, arnaud gaboury wrote:\n>> I want to create a clean .rpm package for R built with MKL and ICC. I\n>>",
+      "thread_id": "thread-bfdb8919b1e4",
+      "thread_depth": 2,
+      "month": "2015-09"
+    },
+    {
+      "id": "msg-c77b92af331a",
+      "message_id": "<55EF21D5.9040401@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2015-09-08T13:58:45-04:00",
+      "subject": "[R-sig-Fedora] Build rpm package for R-MKL",
+      "subject_clean": "Build rpm package for R-MKL",
+      "in_reply_to": "<CAK1hC9vZMf-g7+kGKRoFU7vR_haQ3WnZZvSFYgUbJOyJqPg-aA@mail.gmail.com>",
+      "references": [
+        "<CAK1hC9vyw8p1xugFfrGL7eC2nn2AkZkeLohkfBia3ko6bktJ=g@mail.gmail.com>",
+        "<55EF1C93.3010809@redhat.com>",
+        "<CAK1hC9vZMf-g7+kGKRoFU7vR_haQ3WnZZvSFYgUbJOyJqPg-aA@mail.gmail.com>"
+      ],
+      "body_plain": "On 09/08/2015 01:51 PM, arnaud gaboury wrote:\n> So no idea why, at this part of the process, icc is not found. Weird,\n> as building manually from source (no rpmbuild) is OK.\n\nHm. Is icc in a normal place that is in a standard PATH (e.g. /usr/bin\nor /bin) or are you overriding PATH?\n\n~tom\n\n==\nRed Hat",
+      "body_snippet": "On 09/08/2015 01:51 PM, arnaud gaboury wrote:\n> So no idea why, at this part of the process, icc is not found. Weird,\n> as building manually from source (no rpmbuild) is OK.\n\nHm. Is icc in a normal pl",
+      "thread_id": "thread-bfdb8919b1e4",
+      "thread_depth": 3,
+      "month": "2015-09"
+    },
+    {
+      "id": "msg-31fb8357e31a",
+      "message_id": "<CAK1hC9siAA-SU=HiZ6w6TBfkDTHbsRF8QJycC2eMwR20iYjdMA@mail.gmail.com>",
+      "from_name": "arnaud gaboury",
+      "from_email_hash": "3fd1ca79c7c6068e196062a46bb8918874de6d5ebc4e1c82dbd5d8787c97a20d",
+      "date": "2015-09-08T21:30:16+02:00",
+      "subject": "[R-sig-Fedora] Build rpm package for R-MKL",
+      "subject_clean": "Build rpm package for R-MKL",
+      "in_reply_to": "<55EF21D5.9040401@redhat.com>",
+      "references": [
+        "<CAK1hC9vyw8p1xugFfrGL7eC2nn2AkZkeLohkfBia3ko6bktJ=g@mail.gmail.com>",
+        "<55EF1C93.3010809@redhat.com>",
+        "<CAK1hC9vZMf-g7+kGKRoFU7vR_haQ3WnZZvSFYgUbJOyJqPg-aA@mail.gmail.com>",
+        "<55EF21D5.9040401@redhat.com>"
+      ],
+      "body_plain": "On Tue, Sep 8, 2015 at 7:58 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n> On 09/08/2015 01:51 PM, arnaud gaboury wrote:\n>> So no idea why, at this part of the process, icc is not found. Weird,\n>> as building manually from source (no rpmbuild) is OK.\n>\n> Hm. Is icc in a normal place that is in a standard PATH (e.g. /usr/bin\n> or /bin) or are you overriding PATH?\n\nPfff, 10 years of Linux, and still don't manage my path correctly. Shame on me.\n\n$ ls /opt/intel/bin\n.....\nicc@\n\nPATH=${PATH}:/opt/intel/bin\n\nNow I am left with only one issue, the texinfo stuff.\n\nBzw, are you interested in my spec file to build R with MKL and ICC ?\nI would be happy this can help other Fedora users.\n\nThank you for your attention.\n>\n> ~tom\n>\n> ==\n> Red Hat\n\n\n\n-- \n\ngoogle.com/+arnaudgabourygabx",
+      "body_snippet": "On Tue, Sep 8, 2015 at 7:58 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n> On 09/08/2015 01:51 PM, arnaud gaboury wrote:\n>> So no idea why, at this part of the process, icc is not found. Weird,\n>>",
+      "thread_id": "thread-bfdb8919b1e4",
+      "thread_depth": 4,
+      "month": "2015-09"
+    },
+    {
+      "id": "msg-b7a1f42e9438",
+      "message_id": "<loom.20150915T140315-621@post.gmane.org>",
+      "from_name": "Ashley Ford",
+      "from_email_hash": "a4fc480e25f849e55cca942a1129b4bb6be1c4a4a2944669173e2a0e58412b5a",
+      "date": "2015-09-15T13:12:57Z",
+      "subject": "[R-sig-Fedora] x11() hangs in R 3.2.1",
+      "subject_clean": "x11() hangs in R 3.2.1",
+      "in_reply_to": null,
+      "references": [
+        "<201507312315.t6VNFHPw016262@genepi.med.utah.edu>"
+      ],
+      "body_plain": "Steven Backus <backus at ...> writes:\n\n> \n> I'm on RHEL 6.6, R version 3.2.1 Patched (2015-07-30 r68761) --\n> \"World-Famous Astronaut\".  Issuing the x11() command hangs R and\n> does not complete.  A window is partially drawn then freezes.\n> Does anyone know of a solution?\n> \n> Thanks,\n>   Steve\n\n\nI have the same problem, have you found a solution ?\nIt's an X server issue as it works from a remote X session.\nWhy is only R affected ?\nAshley",
+      "body_snippet": "Steven Backus <backus at ...> writes:\n\n> \n> I'm on RHEL 6.6, R version 3.2.1 Patched (2015-07-30 r68761) --\n> \"World-Famous Astronaut\".  Issuing the x11() command hangs R and\n> does not complete.  A w",
+      "thread_id": "thread-b7a1f42e9438",
+      "thread_depth": 0,
+      "month": "2015-09"
+    },
+    {
+      "id": "msg-b1356202e9b0",
+      "message_id": "<55F833E9.7090306@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2015-09-15T11:06:17-04:00",
+      "subject": "[R-sig-Fedora] x11() hangs in R 3.2.1",
+      "subject_clean": "x11() hangs in R 3.2.1",
+      "in_reply_to": "<loom.20150915T140315-621@post.gmane.org>",
+      "references": [
+        "<201507312315.t6VNFHPw016262@genepi.med.utah.edu>",
+        "<loom.20150915T140315-621@post.gmane.org>"
+      ],
+      "body_plain": "On 09/15/2015 09:12 AM, Ashley Ford wrote:\n> Steven Backus <backus at ...> writes:\n> \n>>\n>> I'm on RHEL 6.6, R version 3.2.1 Patched (2015-07-30 r68761) --\n>> \"World-Famous Astronaut\".  Issuing the x11() command hangs R and\n>> does not complete.  A window is partially drawn then freezes.\n>> Does anyone know of a solution?\n>>\n>> Thanks,\n>>   Steve\n> \n> \n> I have the same problem, have you found a solution ?\n> It's an X server issue as it works from a remote X session.\n> Why is only R affected ?\n\nFirst question: Are you using the nvidia binary driver?\n\n~tom\n\n==\nRed Hat",
+      "body_snippet": "On 09/15/2015 09:12 AM, Ashley Ford wrote:\n> Steven Backus <backus at ...> writes:\n> \n>>\n>> I'm on RHEL 6.6, R version 3.2.1 Patched (2015-07-30 r68761) --\n>> \"World-Famous Astronaut\".  Issuing the x1",
+      "thread_id": "thread-b7a1f42e9438",
+      "thread_depth": 1,
+      "month": "2015-09"
+    },
+    {
+      "id": "msg-922e0851ac4b",
+      "message_id": "<201509151548.t8FFmHsO024983@whimsy.med.utah.edu>",
+      "from_name": "Steven Backus",
+      "from_email_hash": "3202cf163dbb5179acdba081f54ef30fea58a13691187b1b22ed085f04cffbb0",
+      "date": "2015-09-15T09:48:17-06:00",
+      "subject": "[R-sig-Fedora] x11() hangs in R 3.2.1",
+      "subject_clean": "x11() hangs in R 3.2.1",
+      "in_reply_to": "<55F833E9.7090306@redhat.com>",
+      "references": [
+        "<201507312315.t6VNFHPw016262@genepi.med.utah.edu>",
+        "<loom.20150915T140315-621@post.gmane.org>",
+        "<55F833E9.7090306@redhat.com>"
+      ],
+      "body_plain": "> First question: Are you using the nvidia binary driver?\n\nYes, yum downgrade xorg-x11-server-Xorg-1.15.0-36.el6.x86_64 /root/xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm\nand editing /etc/yum.conf to contain 'exclude=xorg*' fixes the problem.\n\nSteve\n-- \nSteven J. Backus                        Computer Systems Manager\nUniversity of Utah                      E-Mail:  steven.backus at utah.edu\nGenetic Epidemiology                    Alternate:  backus at math.utah.edu\n391 Chipeta Way -- Suite D              Office:  801.587.9308\nSalt Lake City, UT 84108-1266           http://www.math.utah.edu/~backus",
+      "body_snippet": "> First question: Are you using the nvidia binary driver?\n\nYes, yum downgrade xorg-x11-server-Xorg-1.15.0-36.el6.x86_64 /root/xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm\nand editing /etc/yum.conf ",
+      "thread_id": "thread-b7a1f42e9438",
+      "thread_depth": 2,
+      "month": "2015-09"
+    },
+    {
+      "id": "msg-e95c8b52bd36",
+      "message_id": "<6207435.388298.1442404434001.JavaMail.yahoo@mail.yahoo.com>",
+      "from_name": "Ashley Ford",
+      "from_email_hash": "a4fc480e25f849e55cca942a1129b4bb6be1c4a4a2944669173e2a0e58412b5a",
+      "date": "2015-09-16T11:53:53Z",
+      "subject": "[R-sig-Fedora]  x11() hangs in R 3.2.1",
+      "subject_clean": "x11() hangs in R 3.2.1",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Yes, I have nvidia,\nrecent updates includexorg-x11-drv-nvidia-devel-352.39-1.el6.x86_64 Tue 08 Sep 2015 04:07:42 PM BSTxorg-x11-drv-nvidia-gl-352.39-1.el6.x86_64 ? ?Tue 08 Sep 2015 04:04:03 PM BSTxorg-x11-drv-nvidia-libs-352.39-1.el6.x86_64 ?Tue 08 Sep 2015 04:04:01 PM BSTxorg-x11-drv-nvidia-352.39-1.el6.x86_64 ? ? ? Tue 08 Sep 2015 04:04:00 PM BST\n So far I have failed to find a copy of the old centos rpm \n? \n?http://rpm.pbone.net/ points at a location that doesn't exist, So? I tried using the redhat rpm? xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm but the downgrade fails, is yum out of step with rpm ?\nas given\n# yum downgrade xorg-x11-server-Xorg-1.15.0-36.el6.x86_64 ./xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm\nLoaded plugins: auto-update-debuginfo, fastestmirror, refresh-packagekit, security\nSetting up Downgrade Process\nLoading mirror speeds from cached hostfile\n?* base: mirror.ox.ac.uk\n?* epel: mirror.nl.leaseweb.net\n?* epel-debuginfo: mirror.nl.leaseweb.net\n?* extras: centos.serverspace.co.uk\n?* updates: centos.serverspace.co.uk\nNo package xorg-x11-server-Xorg-1.15.0-36.el6.x86_64 available.\nExamining ./xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm: xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64\nNothing to do\nand omitting the last part of the rpm name \n# yum downgrade xorg-x11-server-Xorg-1.15.0 ./xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpmLoaded plugins: auto-update-debuginfo, fastestmirror, refresh-packagekit, security\nSetting up Downgrade Process\n...\nExamining ./xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm: xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64\nNothing to do\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Yes, I have nvidia,\nrecent updates includexorg-x11-drv-nvidia-devel-352.39-1.el6.x86_64 Tue 08 Sep 2015 04:07:42 PM BSTxorg-x11-drv-nvidia-gl-352.39-1.el6.x86_64 ? ?Tue 08 Sep 2015 04:04:03 PM BSTxorg",
+      "thread_id": "thread-e95c8b52bd36",
+      "thread_depth": 0,
+      "month": "2015-09"
+    },
+    {
+      "id": "msg-205b5d6dc571",
+      "message_id": "<768101FE1D349B478581B8E778C096CE34784E1A@EXXCMPD1DAG3.cmpd1.metoffice.gov.uk>",
+      "from_name": "Brown, Simon",
+      "from_email_hash": "1bff5e33f39cef1f8b67e372fbded65d29873b1712335b92a5c52486cd3985a9",
+      "date": "2015-09-17T14:03:12Z",
+      "subject": "[R-sig-Fedora] x11() hangs in R 3.2.1",
+      "subject_clean": "x11() hangs in R 3.2.1",
+      "in_reply_to": "<mailman.7.1442484003.31023.r-sig-fedora@r-project.org>",
+      "references": [
+        "<mailman.7.1442484003.31023.r-sig-fedora@r-project.org>"
+      ],
+      "body_plain": "This bug is also being looked at on the main R bug list.  \n\nhttps://bugs.r-project.org/bugzilla3/show_bug.cgi?id=16497\n\nhttps://bugs.r-project.org/bugzilla3/show_bug.cgi?id=16535\n\n\nRed Hat have found the bug in the x11() code and have posted solutions I believe.\n\nSimon \n\n-----Original Message-----\nFrom: R-SIG-Fedora [mailto:r-sig-fedora-bounces at r-project.org] On Behalf Of r-sig-fedora-request at r-project.org\nSent: 17 September 2015 11:00\nTo: r-sig-fedora at r-project.org\nSubject: R-SIG-Fedora Digest, Vol 58, Issue 5\n\nSend R-SIG-Fedora mailing list submissions to\n\tr-sig-fedora at r-project.org\n\nTo subscribe or unsubscribe via the World Wide Web, visit\n\thttps://stat.ethz.ch/mailman/listinfo/r-sig-fedora\nor, via email, send a message with subject or body 'help' to\n\tr-sig-fedora-request at r-project.org\n\nYou can reach the person managing the list at\n\tr-sig-fedora-owner at r-project.org\n\nWhen replying, please edit your Subject line so it is more specific than \"Re: Contents of R-SIG-Fedora digest...\"\n\n\nToday's Topics:\n\n   1.  x11() hangs in R 3.2.1 (Ashley Ford)\n\n\n----------------------------------------------------------------------\n\nMessage: 1\nDate: Wed, 16 Sep 2015 11:53:53 +0000 (UTC)\nFrom: Ashley Ford <apford07 at yahoo.co.uk>\nTo: \"r-sig-fedora at r-project.org\" <r-sig-fedora at r-project.org>\nSubject: [R-sig-Fedora]  x11() hangs in R 3.2.1\nMessage-ID:\n\t<6207435.388298.1442404434001.JavaMail.yahoo at mail.yahoo.com>\nContent-Type: text/plain; charset=\"UTF-8\"\n\nYes, I have nvidia,\nrecent updates includexorg-x11-drv-nvidia-devel-352.39-1.el6.x86_64 Tue 08 Sep 2015 04:07:42 PM BSTxorg-x11-drv-nvidia-gl-352.39-1.el6.x86_64 ? ?Tue 08 Sep 2015 04:04:03 PM BSTxorg-x11-drv-nvidia-libs-352.39-1.el6.x86_64 ?Tue 08 Sep 2015 04:04:01 PM BSTxorg-x11-drv-nvidia-352.39-1.el6.x86_64 ? ? ? Tue 08 Sep 2015 04:04:00 PM BST  So far I have failed to find a copy of the old centos rpm ? \n?http://rpm.pbone.net/ points at a location that doesn't exist, So? I tried using the redhat rpm? xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm but the downgrade fails, is yum out of step with rpm ?\nas given\n# yum downgrade xorg-x11-server-Xorg-1.15.0-36.el6.x86_64 ./xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm\nLoaded plugins: auto-update-debuginfo, fastestmirror, refresh-packagekit, security Setting up Downgrade Process Loading mirror speeds from cached hostfile\n?* base: mirror.ox.ac.uk\n?* epel: mirror.nl.leaseweb.net\n?* epel-debuginfo: mirror.nl.leaseweb.net\n?* extras: centos.serverspace.co.uk\n?* updates: centos.serverspace.co.uk\nNo package xorg-x11-server-Xorg-1.15.0-36.el6.x86_64 available.\nExamining ./xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm: xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64\nNothing to do\nand omitting the last part of the rpm name # yum downgrade xorg-x11-server-Xorg-1.15.0 ./xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpmLoaded plugins: auto-update-debuginfo, fastestmirror, refresh-packagekit, security Setting up Downgrade Process ...\nExamining ./xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm: xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64\nNothing to do\n\t[[alternative HTML version deleted]]\n\n\n\n------------------------------\n\nSubject: Digest Footer\n\n_______________________________________________\nR-SIG-Fedora mailing list\nR-SIG-Fedora at r-project.org\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n------------------------------\n\nEnd of R-SIG-Fedora Digest, Vol 58, Issue 5",
+      "body_snippet": "This bug is also being looked at on the main R bug list.  \n\nhttps://bugs.r-project.org/bugzilla3/show_bug.cgi?id=16497\n\nhttps://bugs.r-project.org/bugzilla3/show_bug.cgi?id=16535\n\n\nRed Hat have found ",
+      "thread_id": "thread-205b5d6dc571",
+      "thread_depth": 0,
+      "month": "2015-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-bfdb8919b1e4",
+      "subject": "Build rpm package for R-MKL",
+      "message_count": 5,
+      "participants": [
+        "Tom Callaway",
+        "arnaud gaboury"
+      ],
+      "started": "2015-09-07T12:16:00+02:00",
+      "last_reply": "2015-09-08T21:30:16+02:00",
+      "root_message_id": "msg-bfdb8919b1e4"
+    },
+    {
+      "id": "thread-b7a1f42e9438",
+      "subject": "x11() hangs in R 3.2.1",
+      "message_count": 3,
+      "participants": [
+        "Ashley Ford",
+        "Steven Backus",
+        "Tom Callaway"
+      ],
+      "started": "2015-09-15T13:12:57+00:00",
+      "last_reply": "2015-09-15T09:48:17-06:00",
+      "root_message_id": "msg-b7a1f42e9438"
+    },
+    {
+      "id": "thread-e95c8b52bd36",
+      "subject": "x11() hangs in R 3.2.1",
+      "message_count": 1,
+      "participants": [
+        "Ashley Ford"
+      ],
+      "started": "2015-09-16T11:53:53+00:00",
+      "last_reply": "2015-09-16T11:53:53+00:00",
+      "root_message_id": "msg-e95c8b52bd36"
+    },
+    {
+      "id": "thread-205b5d6dc571",
+      "subject": "x11() hangs in R 3.2.1",
+      "message_count": 1,
+      "participants": [
+        "Brown, Simon"
+      ],
+      "started": "2015-09-17T14:03:12+00:00",
+      "last_reply": "2015-09-17T14:03:12+00:00",
+      "root_message_id": "msg-205b5d6dc571"
+    }
+  ]
+}

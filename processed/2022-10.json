@@ -1,0 +1,99 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2022-10",
+  "messages": [
+    {
+      "id": "msg-1b41d4f2e1e7",
+      "message_id": "<1577501568.28563.1666104865780@office.mailbox.org>",
+      "from_name": "tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk",
+      "from_email_hash": "46f7c5e79299983b806b65a66f502227438fa8315befcfdb1647eac40f0785d4",
+      "date": "2022-10-18T15:54:25+01:00",
+      "subject": "[R-sig-Fedora] C diagnostics in rstudio",
+      "subject_clean": "C diagnostics in rstudio",
+      "in_reply_to": "<553439579.28186.1666104688532@office.mailbox.org>",
+      "references": [
+        "<553439579.28186.1666104688532@office.mailbox.org>"
+      ],
+      "body_plain": "Apologies if this is double posted as I initially sent from an account not registered.\n \nI've noticed that diagnostics and completions for C code do not seem to be working within rstudio on f36 (2022.02.4+500-1). Is there something additional required to enable them outside of rstudio itself? Using .rs.setClangDiagnostics(2) within rstudio gives me the following output:\n\nAttemping to load libclang for x86_64-redhat-linux-gnu \n/usr/libexec/rstudio/bin/rsclang/libclang.so\n(Not Found)\n/usr/lib/libclang.so\n(Not Found)\n/usr/lib/llvm/libclang.so\n(Not Found)\n/usr/lib64/libclang.so\n(Not Found)\n/usr/lib64/llvm/libclang.so\n(Not Found)\n/usr/lib64/llvm13/lib/libclang.so.1\n(Not Found)\n\nFor reference in /usr/lib64 I have\nclang\nlibclang-cpp.so.14\nlibclang.so.14.0.5\nlibclang.so.14.0.5\nllvm13\n\nCheers\n\nTim",
+      "body_snippet": "Apologies if this is double posted as I initially sent from an account not registered.\n \nI've noticed that diagnostics and completions for C code do not seem to be working within rstudio on f36 (2022.",
+      "thread_id": "thread-1b41d4f2e1e7",
+      "thread_depth": 0,
+      "month": "2022-10"
+    },
+    {
+      "id": "msg-bed5c24f2930",
+      "message_id": "<CALEXWq3Y=_5rDh9sr45KBJV-xTV+nURkKHkYpDBEOqUe=4i+CA@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2022-10-18T20:10:59+02:00",
+      "subject": "[R-sig-Fedora] C diagnostics in rstudio",
+      "subject_clean": "C diagnostics in rstudio",
+      "in_reply_to": "<1577501568.28563.1666104865780@office.mailbox.org>",
+      "references": [
+        "<553439579.28186.1666104688532@office.mailbox.org>",
+        "<1577501568.28563.1666104865780@office.mailbox.org>"
+      ],
+      "body_plain": "On Tue, 18 Oct 2022 at 16:54, <tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> Apologies if this is double posted as I initially sent from an account not registered.\n>\n> I've noticed that diagnostics and completions for C code do not seem to be working within rstudio on f36 (2022.02.4+500-1). Is there something additional required to enable them outside of rstudio itself?\n\nYes, you need to install clang-devel, both for our build as well as\nfor the official build.\n\nIn general, this is how you can find which package provides a certain file:\n\n$ dnf repoquery --provides */<file>\n\nwhere <file>=libclang.so in our case.\n\nI?aki\n\n> Using .rs.setClangDiagnostics(2) within rstudio gives me the following output:\n>\n> Attemping to load libclang for x86_64-redhat-linux-gnu\n> /usr/libexec/rstudio/bin/rsclang/libclang.so\n> (Not Found)\n> /usr/lib/libclang.so\n> (Not Found)\n> /usr/lib/llvm/libclang.so\n> (Not Found)\n> /usr/lib64/libclang.so\n> (Not Found)\n> /usr/lib64/llvm/libclang.so\n> (Not Found)\n> /usr/lib64/llvm13/lib/libclang.so.1\n> (Not Found)\n>\n> For reference in /usr/lib64 I have\n> clang\n> libclang-cpp.so.14\n> libclang.so.14.0.5\n> libclang.so.14.0.5\n> llvm13\n>\n> Cheers\n>\n> Tim\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 18 Oct 2022 at 16:54, <tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> Apologies if this is double posted as I initially sent from an account not registered.\n>\n> I've noticed that diagnostics ",
+      "thread_id": "thread-1b41d4f2e1e7",
+      "thread_depth": 1,
+      "month": "2022-10"
+    },
+    {
+      "id": "msg-efb6243a166d",
+      "message_id": "<1973960754.43221.1666117447573@office.mailbox.org>",
+      "from_name": "tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk",
+      "from_email_hash": "46f7c5e79299983b806b65a66f502227438fa8315befcfdb1647eac40f0785d4",
+      "date": "2022-10-18T19:24:07+01:00",
+      "subject": "[R-sig-Fedora] C diagnostics in rstudio",
+      "subject_clean": "C diagnostics in rstudio",
+      "in_reply_to": "<CALEXWq3Y=_5rDh9sr45KBJV-xTV+nURkKHkYpDBEOqUe=4i+CA@mail.gmail.com>",
+      "references": [
+        "<553439579.28186.1666104688532@office.mailbox.org>",
+        "<1577501568.28563.1666104865780@office.mailbox.org>",
+        "<CALEXWq3Y=_5rDh9sr45KBJV-xTV+nURkKHkYpDBEOqUe=4i+CA@mail.gmail.com>"
+      ],
+      "body_plain": "Great - thank you. Even though it's the same with the official build do you think it's worth a small addendum within https://cran.r-project.org/bin/linux/fedora/#add-ons?\n\nTim\n\n\n> On 18/10/2022 19:10 BST I?aki Ucar <iucar at fedoraproject.org> wrote:\n> \n>  \n> On Tue, 18 Oct 2022 at 16:54, <tim.taylor at hiddenelephants.co.uk> wrote:\n> >\n> > Apologies if this is double posted as I initially sent from an account not registered.\n> >\n> > I've noticed that diagnostics and completions for C code do not seem to be working within rstudio on f36 (2022.02.4+500-1). Is there something additional required to enable them outside of rstudio itself?\n> \n> Yes, you need to install clang-devel, both for our build as well as\n> for the official build.\n> \n> In general, this is how you can find which package provides a certain file:\n> \n> $ dnf repoquery --provides */<file>\n> \n> where <file>=libclang.so in our case.\n> \n> I?aki\n> \n> > Using .rs.setClangDiagnostics(2) within rstudio gives me the following output:\n> >\n> > Attemping to load libclang for x86_64-redhat-linux-gnu\n> > /usr/libexec/rstudio/bin/rsclang/libclang.so\n> > (Not Found)\n> > /usr/lib/libclang.so\n> > (Not Found)\n> > /usr/lib/llvm/libclang.so\n> > (Not Found)\n> > /usr/lib64/libclang.so\n> > (Not Found)\n> > /usr/lib64/llvm/libclang.so\n> > (Not Found)\n> > /usr/lib64/llvm13/lib/libclang.so.1\n> > (Not Found)\n> >\n> > For reference in /usr/lib64 I have\n> > clang\n> > libclang-cpp.so.14\n> > libclang.so.14.0.5\n> > libclang.so.14.0.5\n> > llvm13\n> >\n> > Cheers\n> >\n> > Tim\n> >\n> > _______________________________________________\n> > R-SIG-Fedora mailing list\n> > R-SIG-Fedora at r-project.org\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> \n> \n> \n> -- \n> I?aki ?car",
+      "body_snippet": "Great - thank you. Even though it's the same with the official build do you think it's worth a small addendum within https://cran.r-project.org/bin/linux/fedora/#add-ons?\n\nTim\n\n\n> On 18/10/2022 19:10 ",
+      "thread_id": "thread-1b41d4f2e1e7",
+      "thread_depth": 2,
+      "month": "2022-10"
+    },
+    {
+      "id": "msg-63ed182dc405",
+      "message_id": "<CALEXWq3p8SowovcXwRA34Y8cjajiSzxw3mOMEyBbYbb4XZNu-w@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2022-10-18T20:34:30+02:00",
+      "subject": "[R-sig-Fedora] C diagnostics in rstudio",
+      "subject_clean": "C diagnostics in rstudio",
+      "in_reply_to": "<1973960754.43221.1666117447573@office.mailbox.org>",
+      "references": [
+        "<553439579.28186.1666104688532@office.mailbox.org>",
+        "<1577501568.28563.1666104865780@office.mailbox.org>",
+        "<CALEXWq3Y=_5rDh9sr45KBJV-xTV+nURkKHkYpDBEOqUe=4i+CA@mail.gmail.com>",
+        "<1973960754.43221.1666117447573@office.mailbox.org>"
+      ],
+      "body_plain": "On Tue, 18 Oct 2022 at 20:24, <tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> Great - thank you. Even though it's the same with the official build do you think it's worth a small addendum within https://cran.r-project.org/bin/linux/fedora/#add-ons?\n\nOr, better, we could add \"Recommends: clang-devel\" to our build in the\nnext release, and in this way it would be pulled automatically by\ndefault.\n\nI?aki\n\n>\n> Tim\n>\n>\n> > On 18/10/2022 19:10 BST I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> >\n> > On Tue, 18 Oct 2022 at 16:54, <tim.taylor at hiddenelephants.co.uk> wrote:\n> > >\n> > > Apologies if this is double posted as I initially sent from an account not registered.\n> > >\n> > > I've noticed that diagnostics and completions for C code do not seem to be working within rstudio on f36 (2022.02.4+500-1). Is there something additional required to enable them outside of rstudio itself?\n> >\n> > Yes, you need to install clang-devel, both for our build as well as\n> > for the official build.\n> >\n> > In general, this is how you can find which package provides a certain file:\n> >\n> > $ dnf repoquery --provides */<file>\n> >\n> > where <file>=libclang.so in our case.\n> >\n> > I?aki\n> >\n> > > Using .rs.setClangDiagnostics(2) within rstudio gives me the following output:\n> > >\n> > > Attemping to load libclang for x86_64-redhat-linux-gnu\n> > > /usr/libexec/rstudio/bin/rsclang/libclang.so\n> > > (Not Found)\n> > > /usr/lib/libclang.so\n> > > (Not Found)\n> > > /usr/lib/llvm/libclang.so\n> > > (Not Found)\n> > > /usr/lib64/libclang.so\n> > > (Not Found)\n> > > /usr/lib64/llvm/libclang.so\n> > > (Not Found)\n> > > /usr/lib64/llvm13/lib/libclang.so.1\n> > > (Not Found)\n> > >\n> > > For reference in /usr/lib64 I have\n> > > clang\n> > > libclang-cpp.so.14\n> > > libclang.so.14.0.5\n> > > libclang.so.14.0.5\n> > > llvm13\n> > >\n> > > Cheers\n> > >\n> > > Tim\n> > >\n> > > _______________________________________________\n> > > R-SIG-Fedora mailing list\n> > > R-SIG-Fedora at r-project.org\n> > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> >\n> >\n> >\n> > --\n> > I?aki ?car\n\n\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 18 Oct 2022 at 20:24, <tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> Great - thank you. Even though it's the same with the official build do you think it's worth a small addendum within http",
+      "thread_id": "thread-1b41d4f2e1e7",
+      "thread_depth": 3,
+      "month": "2022-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-1b41d4f2e1e7",
+      "subject": "C diagnostics in rstudio",
+      "message_count": 4,
+      "participants": [
+        "Iñaki Ucar",
+        "tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk"
+      ],
+      "started": "2022-10-18T15:54:25+01:00",
+      "last_reply": "2022-10-18T20:34:30+02:00",
+      "root_message_id": "msg-1b41d4f2e1e7"
+    }
+  ]
+}

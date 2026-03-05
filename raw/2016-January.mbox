@@ -1,0 +1,2245 @@
+From Wittner.Ben at mgh.harvard.edu  Mon Jan 11 16:55:41 2016
+From: Wittner.Ben at mgh.harvard.edu (Wittner, Ben, Ph.D.)
+Date: Mon, 11 Jan 2016 15:55:41 +0000
+Subject: [R-sig-Fedora] rgl.snapshot only captures a small portion what's
+ visible in the RGL device window on CentOS 7
+In-Reply-To: <56905E85.8040604@gmail.com>
+References: <C402B4BC4499874FBA9869DA6E7A13F964B18628@PHSX10MB8.partners.org>
+	<56905E85.8040604@gmail.com>
+Message-ID: <C402B4BC4499874FBA9869DA6E7A13F964B197AF@PHSX10MB8.partners.org>
+
+Dear R-SIG-Fedora,
+
+I'm finding that on CentOS 7, rgl.snapshot (a function in the R package rgl, which provides an R interface to the OpenGL 3-d graphics library) only captures a small portion what's visible in the RGL device window. This does not happen with the same R and rgl versions on CentOS 5.3 (see details below).
+
+The maintainer of rgl, Duncan Murdoch, responded (see below) that the rgl code has not changed in a long time, so it's likely, although not certain, that the problem lies with CentOS 7.
+
+I know very little about graphics, but it seems to me from looking at the rgl source code that the fundamental work of rgl.snapshot is done by calls to glReadBuffer, glPixelStorei, and glReadPixels, which seem to be functions in the OpenGL library.
+
+Can anyone take a look at this or advise me on how to proceed?
+
+Thanks very much in advance.
+
+-Ben
+
+-----Original Message-----
+From: Duncan Murdoch [mailto:murdoch.duncan at gmail.com] 
+Sent: Friday, January 08, 2016 8:13 PM
+To: Wittner, Ben, Ph.D.; r-help at r-project.org
+Subject: Re: [R] rgl.snapshot only captures a small portion what's visible in the RGL device window on CentOS 7
+
+On 08/01/2016 4:13 PM, Wittner, Ben, Ph.D. wrote:
+> Hello,
+>
+> As an example, I ran the following code:
+>
+> library("rgl")
+> example(plot3d)
+> rgl.snapshot("test.png")
+>
+> The full plot is visible in the window titled RGL device 1 [Focus], 
+> but only a small portion of the upper left part of the plot is visible 
+> in test.png (see attached test.png, if the list server attaches it. 
+> Otherwise, email me if you like and I'll send it directly to you.)
+>
+> The output of sessionInfo() is as follows:
+>
+> R version 3.2.3 (2015-12-10)
+> Platform: x86_64-pc-linux-gnu (64-bit) Running under: CentOS Linux 7 
+> (Core)
+>
+> locale:
+>   [1] LC_CTYPE=en_US.utf8       LC_NUMERIC=C
+>   [3] LC_TIME=en_US.utf8        LC_COLLATE=en_US.utf8
+>   [5] LC_MONETARY=en_US.utf8    LC_MESSAGES=en_US.utf8
+>   [7] LC_PAPER=en_US.utf8       LC_NAME=C
+>   [9] LC_ADDRESS=C              LC_TELEPHONE=C
+> [11] LC_MEASUREMENT=en_US.utf8 LC_IDENTIFICATION=C
+>
+> attached base packages:
+> [1] stats     graphics  grDevices utils     datasets  methods   base
+>
+> other attached packages:
+> [1] rgl_0.95.1441
+>
+> loaded via a namespace (and not attached):
+> [1] tools_3.2.3
+>
+> In addition to the CentOS 7 machine, I have a CentOS 5.3 machine, which has R 3.0.2 and rgl 0.93.996. I tried the code above on it and it captured the full window in the output of rgl.snapshot (i.e., it worked properly).
+>
+> To see whether the difference could be attributed to the CentOS version or the R/rgl version, I put R 3.0.2 with rgl 0.93.996 on the CentOS 7 machine and ran the code above. As with the earlier CentOS 7 run, only a small portion of the plot was visible in the output of rgl.snapshot. So it seems the difference is due to a difference in the CentOS versions and not the R/rgl versions.
+>
+> Thanks in advance for any help.
+>
+
+I think you'll need to contact CentOS about this.  That code hasn't changed in rgl in a long time.  It's possible that rgl is wrong, but I'd need more information from them to convince me.
+
+Duncan Murdoch
+
+
+
+The information in this e-mail is intended only for the person to whom it is
+addressed. If you believe this e-mail was sent to you in error and the e-mail
+contains patient information, please contact the Partners Compliance HelpLine at
+http://www.partners.org/complianceline . If the e-mail was sent to you in error
+but does not contain patient information, please contact the sender and properly
+dispose of the e-mail.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: test.png
+Type: image/png
+Size: 968 bytes
+Desc: test.png
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20160111/ddb795d6/attachment.png>
+
+From tcallawa at redhat.com  Mon Jan 11 17:04:29 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 11 Jan 2016 11:04:29 -0500
+Subject: [R-sig-Fedora] rgl.snapshot only captures a small portion
+ what's visible in the RGL device window on CentOS 7
+In-Reply-To: <C402B4BC4499874FBA9869DA6E7A13F964B197AF@PHSX10MB8.partners.org>
+References: <C402B4BC4499874FBA9869DA6E7A13F964B18628@PHSX10MB8.partners.org>
+	<56905E85.8040604@gmail.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B197AF@PHSX10MB8.partners.org>
+Message-ID: <5693D28D.70609@redhat.com>
+
+On 01/11/2016 10:55 AM, Wittner, Ben, Ph.D. wrote:
+> Dear R-SIG-Fedora,
+> 
+> I'm finding that on CentOS 7, rgl.snapshot (a function in the R package rgl, which provides an R interface to the OpenGL 3-d graphics library) only captures a small portion what's visible in the RGL device window. This does not happen with the same R and rgl versions on CentOS 5.3 (see details below).
+> 
+> The maintainer of rgl, Duncan Murdoch, responded (see below) that the rgl code has not changed in a long time, so it's likely, although not certain, that the problem lies with CentOS 7.
+> 
+> I know very little about graphics, but it seems to me from looking at the rgl source code that the fundamental work of rgl.snapshot is done by calls to glReadBuffer, glPixelStorei, and glReadPixels, which seem to be functions in the OpenGL library.
+> 
+> Can anyone take a look at this or advise me on how to proceed?
+
+Are you using the EPEL R 3.2.3 builds? What version of Centos 7? 7.2? Is
+the NVIDIA driver in play? What version of the NVIDIA driver are you using?
+
+~tom
+
+==
+Red Hat
+
+
+From Wittner.Ben at mgh.harvard.edu  Mon Jan 11 19:24:10 2016
+From: Wittner.Ben at mgh.harvard.edu (Wittner, Ben, Ph.D.)
+Date: Mon, 11 Jan 2016 18:24:10 +0000
+Subject: [R-sig-Fedora] rgl.snapshot only captures a small portion
+ what's visible in the RGL device window on CentOS 7
+In-Reply-To: <5693D28D.70609@redhat.com>
+References: <C402B4BC4499874FBA9869DA6E7A13F964B18628@PHSX10MB8.partners.org>
+	<56905E85.8040604@gmail.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B197AF@PHSX10MB8.partners.org>,
+	<5693D28D.70609@redhat.com>
+Message-ID: <C402B4BC4499874FBA9869DA6E7A13F964B19CF7@PHSX10MB8.partners.org>
+
+Dear Tom, Thank you very much for thinking about this. Please see my replies below. -Ben
+
+> Are you using the EPEL R 3.2.3 builds?
+
+I'm not sure what the question means, but I'm pretty sure the answer is no. I know I built the versions of R I used from source code (i.e., ./configure followed by make).
+
+> What version of Centos 7? 7.2?
+
+[bwittner at kagoshima ~]$ cat /etc/redhat-release
+CentOS Linux release 7.2.1511 (Core) 
+[bwittner at kagoshima ~]$ rpm -q centos-release
+centos-release-7-2.1511.el7.centos.2.10.x86_64
+[bwittner at kagoshima ~]$ uname -rmi
+3.10.0-327.3.1.el7.x86_64 x86_64 x86_64
+
+> Is the NVIDIA driver in play?
+
+I think so. When I execute the command lspci -v, the only block that has mention of VGA is the following:
+
+07:00.0 VGA compatible controller: NVIDIA Corporation G84GL [Quadro FX 370] (rev a1) (prog-if 00 [VGA controller])        
+        Subsystem: NVIDIA Corporation Device 0491                                                                         
+        Flags: bus master, fast devsel, latency 0, IRQ 42                                                                 
+        Memory at df000000 (32-bit, non-prefetchable) [size=16M]                                                          
+        Memory at c0000000 (64-bit, prefetchable) [size=256M]                                                             
+        Memory at dc000000 (64-bit, non-prefetchable) [size=32M]                                                          
+        I/O ports at dc00 [size=128]                                                                                      
+        Expansion ROM at defe0000 [disabled] [size=128K]                                                                  
+        Capabilities: <access denied>                                                                                     
+        Kernel driver in use: nouveau                                                                                     
+                                                                                                                          
+> What version of the NVIDIA driver are you using?
+
+Since the output of lspci above said "Kernel driver in use: nouveau", I executed the command modinfo nouveau, getting the following output:
+
+filename:       /lib/modules/3.10.0-327.3.1.el7.x86_64/kernel/drivers/gpu/drm/nouveau/nouveau.ko
+license:        GPL and additional rights
+description:    nVidia Riva/TNT/GeForce/Quadro/Tesla
+author:         Nouveau Project
+rhelversion:    7.2
+srcversion:     C131306B4DEC7AB88BC647D
+alias:          pci:v000012D2d*sv*sd*bc03sc*i*
+alias:          pci:v000010DEd*sv*sd*bc03sc*i*
+depends:        drm,drm_kms_helper,ttm,mxm-wmi,i2c-core,wmi,video,i2c-algo-bit
+intree:         Y
+vermagic:       3.10.0-327.3.1.el7.x86_64 SMP mod_unload modversions 
+signer:         CentOS Linux kernel signing key
+sig_key:        3D:4E:71:B0:42:9A:39:8B:8B:78:3B:6F:8B:ED:3B:AF:09:9E:E9:A7
+sig_hashalgo:   sha256
+parm:           tv_norm:Default TV norm.
+		Supported: PAL, PAL-M, PAL-N, PAL-Nc, NTSC-M, NTSC-J,
+			hd480i, hd480p, hd576i, hd576p, hd720p, hd1080i.
+		Default: PAL
+		*NOTE* Ignored for cards with external TV encoders. (charp)
+parm:           vram_pushbuf:Create DMA push buffers in VRAM (int)
+parm:           nofbaccel:Disable fbcon acceleration (int)
+parm:           tv_disable:Disable TV-out detection (int)
+parm:           ignorelid:Ignore ACPI lid status (int)
+parm:           duallink:Allow dual-link TMDS (default: enabled) (int)
+parm:           pstate:enable sysfs pstate file, which will be moved in the future (int)
+parm:           config:option string to pass to driver core (charp)
+parm:           debug:debug string to pass to driver core (charp)
+parm:           noaccel:disable kernel/abi16 acceleration (int)
+parm:           modeset:enable driver (default: auto, 0 = disabled, 1 = enabled, 2 = headless) (int)
+parm:           runpm:disable (0), force enable (1), optimus only default (-1) (int)
+parm:           agpmode:AGP mode (0 to disable AGP) (int)
+
+
+
+
+The information in this e-mail is intended only for the ...{{dropped:11}}
+
+
+From tcallawa at redhat.com  Mon Jan 11 19:39:01 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 11 Jan 2016 13:39:01 -0500
+Subject: [R-sig-Fedora] rgl.snapshot only captures a small portion
+ what's visible in the RGL device window on CentOS 7
+In-Reply-To: <C402B4BC4499874FBA9869DA6E7A13F964B19CF7@PHSX10MB8.partners.org>
+References: <C402B4BC4499874FBA9869DA6E7A13F964B18628@PHSX10MB8.partners.org>
+	<56905E85.8040604@gmail.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B197AF@PHSX10MB8.partners.org>
+	<5693D28D.70609@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19CF7@PHSX10MB8.partners.org>
+Message-ID: <5693F6C5.5090804@redhat.com>
+
+On 01/11/2016 01:24 PM, Wittner, Ben, Ph.D. wrote:
+> Dear Tom, Thank you very much for thinking about this. Please see my replies below. -Ben
+> 
+>> Are you using the EPEL R 3.2.3 builds?
+> 
+> I'm not sure what the question means, but I'm pretty sure the answer is no. I know I built the versions of R I used from source code (i.e., ./configure followed by make).
+
+Okay. I do "official" package builds of R for RHEL/CentOS as part of the
+EPEL repository:
+
+https://fedoraproject.org/wiki/EPEL
+
+If its not painful for you to do so, testing my packages vs yours just
+to rule out misconfiguration in R would be helpful. I don't think this
+is likely, but I'm being thorough.
+
+
+>> What version of the NVIDIA driver are you using?
+> 
+> Since the output of lspci above said "Kernel driver in use: nouveau", I executed the command modinfo nouveau, getting the following output:
+
+Okay. Nouveau is _not_ the NVIDIA driver, that's the open source driver
+provided by the Linux kernel. It is possible this is a bug in nouveau.
+You may want to try to install the NVIDIA driver and see if it resolves
+your issue:
+
+http://www.nvidia.com/object/unix.html
+
+~tom
+
+==
+Red Hat
+
+
+From Wittner.Ben at mgh.harvard.edu  Mon Jan 11 21:52:19 2016
+From: Wittner.Ben at mgh.harvard.edu (Wittner, Ben, Ph.D.)
+Date: Mon, 11 Jan 2016 20:52:19 +0000
+Subject: [R-sig-Fedora] rgl.snapshot only captures a small portion
+ what's visible in the RGL device window on CentOS 7
+In-Reply-To: <5693F6C5.5090804@redhat.com>
+References: <C402B4BC4499874FBA9869DA6E7A13F964B18628@PHSX10MB8.partners.org>
+	<56905E85.8040604@gmail.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B197AF@PHSX10MB8.partners.org>
+	<5693D28D.70609@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19CF7@PHSX10MB8.partners.org>
+	<5693F6C5.5090804@redhat.com>
+Message-ID: <C402B4BC4499874FBA9869DA6E7A13F964B19E6A@PHSX10MB8.partners.org>
+
+Tom,
+
+> Okay. I do "official" package builds of R for RHEL/CentOS as part of the EPEL repository:
+
+> https://fedoraproject.org/wiki/EPEL
+
+> If its not painful for you to do so, testing my packages vs yours just to rule out misconfiguration in R would be
+> helpful. I don't think this is likely, but I'm being thorough.
+
+I've now tried the EPEL version of R and it still has the problem.
+
+> Okay. Nouveau is _not_ the NVIDIA driver, that's the open source driver provided by the Linux kernel.
+> It is possible this is a bug in nouveau.
+> You may want to try to install the NVIDIA driver and see if it resolves your issue:
+
+> http://www.nvidia.com/object/unix.html
+
+I started trying to do this, but I'm stuck.
+I started with http://us.download.nvidia.com/XFree86/Linux-x86_64/340.96/README/installdriver.html , which led me to http://us.download.nvidia.com/XFree86/Linux-x86_64/340.96/README/commonproblems.html#nouveau . I created /etc/modprobe.d/disable-nouveau.conf as instructed then rebooted, but the nvidia installer found the nouveau driver running anyway, so it wrote two more .conf files (one in /usr/lib/modproe.d and the other in /etc/modeprobe.d) and then halted. I rebooted and tried the installer again, but again it noticed the nouveau driver running.
+I suspect this is because the initial ramdisk image contains Nouveau because, even though I've done systemctl set-default multi-user.target, during boot I still see something that looks like a graphical screen display for a while before it drops back to a text mode to display the login prompt.
+So, following the instructions, I tried to rebuild the initial ramdisk image. The nvidia documentation does not say how to do that, so I Googled and found https://wiki.centos.org/TipsAndTricks/CreateNewInitrd , which unfortunately gives instructions only for CentOS 5 and CentOS 6, but not CentOS 7. I'm afraid to do the wrong thing, so I'm stuck.
+Any suggestions would be appreciated.
+
+Thanks.
+
+-Ben
+
+
+
+
+The information in this e-mail is intended only for the ...{{dropped:11}}
+
+
+From tcallawa at redhat.com  Mon Jan 11 22:10:00 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 11 Jan 2016 16:10:00 -0500
+Subject: [R-sig-Fedora] rgl.snapshot only captures a small portion
+ what's visible in the RGL device window on CentOS 7
+In-Reply-To: <C402B4BC4499874FBA9869DA6E7A13F964B19E6A@PHSX10MB8.partners.org>
+References: <C402B4BC4499874FBA9869DA6E7A13F964B18628@PHSX10MB8.partners.org>
+	<56905E85.8040604@gmail.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B197AF@PHSX10MB8.partners.org>
+	<5693D28D.70609@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19CF7@PHSX10MB8.partners.org>
+	<5693F6C5.5090804@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19E6A@PHSX10MB8.partners.org>
+Message-ID: <56941A28.8010303@redhat.com>
+
+On 01/11/2016 03:52 PM, Wittner, Ben, Ph.D. wrote:
+
+> I started trying to do this, but I'm stuck.
+> I started with http://us.download.nvidia.com/XFree86/Linux-x86_64/340.96/README/installdriver.html , which led me to http://us.download.nvidia.com/XFree86/Linux-x86_64/340.96/README/commonproblems.html#nouveau . I created /etc/modprobe.d/disable-nouveau.conf as instructed then rebooted, but the nvidia installer found the nouveau driver running anyway, so it wrote two more .conf files (one in /usr/lib/modproe.d and the other in /etc/modeprobe.d) and then halted. I rebooted and tried the installer again, but again it noticed the nouveau driver running.
+> I suspect this is because the initial ramdisk image contains Nouveau because, even though I've done systemctl set-default multi-user.target, during boot I still see something that looks like a graphical screen display for a while before it drops back to a text mode to display the login prompt.
+> So, following the instructions, I tried to rebuild the initial ramdisk image. The nvidia documentation does not say how to do that, so I Googled and found https://wiki.centos.org/TipsAndTricks/CreateNewInitrd , which unfortunately gives instructions only for CentOS 5 and CentOS 6, but not CentOS 7. I'm afraid to do the wrong thing, so I'm stuck.
+> Any suggestions would be appreciated.
+> \
+
+I have not tried it personally, but these instructions seem correct:
+
+http://www.dedoimedo.com/computers/centos-7-nvidia.html
+
+Basically, edit the grub2 cmdline to include the extra option:
+
+  rdblacklist=nouveau
+
+hth,
+
+~tom
+
+==
+Red Hat
+
+
+From Wittner.Ben at mgh.harvard.edu  Mon Jan 11 23:13:42 2016
+From: Wittner.Ben at mgh.harvard.edu (Wittner, Ben, Ph.D.)
+Date: Mon, 11 Jan 2016 22:13:42 +0000
+Subject: [R-sig-Fedora] rgl.snapshot only captures a small portion
+ what's visible in the RGL device window on CentOS 7
+In-Reply-To: <56941A28.8010303@redhat.com>
+References: <C402B4BC4499874FBA9869DA6E7A13F964B18628@PHSX10MB8.partners.org>
+	<56905E85.8040604@gmail.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B197AF@PHSX10MB8.partners.org>
+	<5693D28D.70609@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19CF7@PHSX10MB8.partners.org>
+	<5693F6C5.5090804@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19E6A@PHSX10MB8.partners.org>
+	<56941A28.8010303@redhat.com>
+Message-ID: <C402B4BC4499874FBA9869DA6E7A13F964B19FFE@PHSX10MB8.partners.org>
+
+Tom,
+
+Bingo!
+
+I followed the instructions in the link below, which allowed me to install the nvidia driver, which fixed the original problem with rgl.snapshot.
+
+Thanks very much for all your help.
+
+I guess I'll file a bug in the CentOS Bug Tracker so that the nouveau driver might get fixed. I'll also post to R-help so someone with the same problem who only searches R-help and not this SIG will see the solution.
+
+-Ben
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: Monday, January 11, 2016 4:10 PM
+To: Wittner, Ben, Ph.D.; r-sig-fedora at r-project.org
+Cc: Duncan Murdoch
+Subject: Re: [R-sig-Fedora] rgl.snapshot only captures a small portion what's visible in the RGL device window on CentOS 7
+
+I have not tried it personally, but these instructions seem correct:
+
+http://www.dedoimedo.com/computers/centos-7-nvidia.html
+
+Basically, edit the grub2 cmdline to include the extra option:
+
+  rdblacklist=nouveau
+
+hth,
+
+~tom
+
+==
+Red Hat
+
+
+The information in this e-mail is intended only for the ...{{dropped:11}}
+
+
+From tcallawa at redhat.com  Mon Jan 11 23:22:45 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 11 Jan 2016 17:22:45 -0500
+Subject: [R-sig-Fedora] rgl.snapshot only captures a small portion
+ what's visible in the RGL device window on CentOS 7
+In-Reply-To: <C402B4BC4499874FBA9869DA6E7A13F964B19FFE@PHSX10MB8.partners.org>
+References: <C402B4BC4499874FBA9869DA6E7A13F964B18628@PHSX10MB8.partners.org>
+	<56905E85.8040604@gmail.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B197AF@PHSX10MB8.partners.org>
+	<5693D28D.70609@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19CF7@PHSX10MB8.partners.org>
+	<5693F6C5.5090804@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19E6A@PHSX10MB8.partners.org>
+	<56941A28.8010303@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19FFE@PHSX10MB8.partners.org>
+Message-ID: <56942B35.4090305@redhat.com>
+
+On 01/11/2016 05:13 PM, Wittner, Ben, Ph.D. wrote:
+> I followed the instructions in the link below, which allowed me to install the nvidia driver, which fixed the original problem with rgl.snapshot.
+> 
+> Thanks very much for all your help.
+> 
+> I guess I'll file a bug in the CentOS Bug Tracker so that the nouveau driver might get fixed. I'll also post to R-help so someone with the same problem who only searches R-help and not this SIG will see the solution.
+
+Awesome. If you have the cycles, I'm sure the CentOS people would
+appreciate it if you ran through the nouveau troubleshooting first:
+
+http://nouveau.freedesktop.org/wiki/Bugs/
+
+You might consider also filing a bug with the Nouveau upstream, as the
+CentOS people may not be experts with that driver, but the upstream
+certainly will be. Keep in mind that they may want you to test the
+latest version of the driver first.
+
+Glad we got it working for you though. :)
+
+~tom
+
+==
+Red Hat
+
+
+From Wittner.Ben at mgh.harvard.edu  Tue Jan 12 19:32:26 2016
+From: Wittner.Ben at mgh.harvard.edu (Wittner, Ben, Ph.D.)
+Date: Tue, 12 Jan 2016 18:32:26 +0000
+Subject: [R-sig-Fedora] rgl.snapshot only captures a small portion
+ what's visible in the RGL device window on CentOS 7
+In-Reply-To: <56942B35.4090305@redhat.com>
+References: <C402B4BC4499874FBA9869DA6E7A13F964B18628@PHSX10MB8.partners.org>
+	<56905E85.8040604@gmail.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B197AF@PHSX10MB8.partners.org>
+	<5693D28D.70609@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19CF7@PHSX10MB8.partners.org>
+	<5693F6C5.5090804@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19E6A@PHSX10MB8.partners.org>
+	<56941A28.8010303@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19FFE@PHSX10MB8.partners.org>
+	<56942B35.4090305@redhat.com>
+Message-ID: <C402B4BC4499874FBA9869DA6E7A13F964B1A632@PHSX10MB8.partners.org>
+
+Tom,
+
+I thought about filing a bug report with Nouveau, but it seems that working directly with Nouveau is well beyond my capabilities.
+
+I have no idea how to do most of the stuff Nouveau says to do in their troubleshooting page. And for the small minority of things that I think I might be able to figure out, each one would take me hours of reading and experimentation and begging for help. I'm not an OS guy.
+
+And also, I don't think I can afford to be frequently installing and uninstalling drivers because I need my machine to be stable for my real work.
+
+Nouveau's bug reporting page says "If you are using packages from your distribution and are unable/unwilling to test the latest versions of all the pieces of nouveau, send the bug reports to your distribution and not directly to us." So I thought I should submit the bug report to CentOS.
+
+I'm hoping that it will be relatively easy for someone at CentOS to reproduce the bug and then take it from there, probably working with Nouveau.
+
+-Ben
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+
+> I guess I'll file a bug in the CentOS Bug Tracker so that the nouveau driver might get fixed. I'll also post to R-help so someone with the same problem who only searches R-help and not this SIG will see the solution.
+
+Awesome. If you have the cycles, I'm sure the CentOS people would appreciate it if you ran through the nouveau troubleshooting first:
+
+http://nouveau.freedesktop.org/wiki/Bugs/
+
+You might consider also filing a bug with the Nouveau upstream, as the CentOS people may not be experts with that driver, but the upstream certainly will be. Keep in mind that they may want you to test the latest version of the driver first.
+
+
+
+
+The information in this e-mail is intended only for the ...{{dropped:11}}
+
+
+From Wittner.Ben at mgh.harvard.edu  Wed Jan 13 22:27:05 2016
+From: Wittner.Ben at mgh.harvard.edu (Wittner, Ben, Ph.D.)
+Date: Wed, 13 Jan 2016 21:27:05 +0000
+Subject: [R-sig-Fedora] rgl.snapshot only captures a small portion
+ what's visible in the RGL device window on CentOS 7
+In-Reply-To: <C402B4BC4499874FBA9869DA6E7A13F964B19FFE@PHSX10MB8.partners.org>
+References: <C402B4BC4499874FBA9869DA6E7A13F964B18628@PHSX10MB8.partners.org>
+	<56905E85.8040604@gmail.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B197AF@PHSX10MB8.partners.org>
+	<5693D28D.70609@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19CF7@PHSX10MB8.partners.org>
+	<5693F6C5.5090804@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19E6A@PHSX10MB8.partners.org>
+	<56941A28.8010303@redhat.com>
+	<C402B4BC4499874FBA9869DA6E7A13F964B19FFE@PHSX10MB8.partners.org>
+Message-ID: <C402B4BC4499874FBA9869DA6E7A13F964B1AFB3@PHSX10MB8.partners.org>
+
+Ugh.
+
+Below I declared victory, but today I learned that the NVIDIA driver has a problem the nouveau driver did not have. Namely, when using the NVIDIA driver, if I plot a lot of stuff in the RGL window and then using the mouse expand the RGL window, R usually crashes.
+
+One work-around seems to be to
+1) close all RGL windows, if there are any
+2) call rgl.clear() to create an RGL window
+3) re-size that window using your mouse
+4) do your plotting
+
+-----Original Message-----
+From: R-SIG-Fedora [mailto:r-sig-fedora-bounces at r-project.org] On Behalf Of Wittner, Ben, Ph.D.
+Sent: Monday, January 11, 2016 5:14 PM
+To: Tom Callaway; r-sig-fedora at r-project.org
+Cc: Duncan Murdoch
+Subject: Re: [R-sig-Fedora] rgl.snapshot only captures a small portion what's visible in the RGL device window on CentOS 7
+
+Tom,
+
+Bingo!
+
+I followed the instructions in the link below, which allowed me to install the nvidia driver, which fixed the original problem with rgl.snapshot.
+
+Thanks very much for all your help.
+
+I guess I'll file a bug in the CentOS Bug Tracker so that the nouveau driver might get fixed. I'll also post to R-help so someone with the same problem who only searches R-help and not this SIG will see the solution.
+
+-Ben
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: Monday, January 11, 2016 4:10 PM
+To: Wittner, Ben, Ph.D.; r-sig-fedora at r-project.org
+Cc: Duncan Murdoch
+Subject: Re: [R-sig-Fedora] rgl.snapshot only captures a small portion what's visible in the RGL device window on CentOS 7
+
+I have not tried it personally, but these instructions seem correct:
+
+http://www.dedoimedo.com/computers/centos-7-nvidia.html
+
+Basically, edit the grub2 cmdline to include the extra option:
+
+  rdblacklist=nouveau
+
+hth,
+
+~tom
+
+==
+Red Hat
+
+
+The information in this e-mail is intended only for the ...{{dropped:19}}
+
+
+From jeroen.ooms at stat.ucla.edu  Fri Jan 15 13:50:27 2016
+From: jeroen.ooms at stat.ucla.edu (Jeroen Ooms)
+Date: Fri, 15 Jan 2016 13:50:27 +0100
+Subject: [R-sig-Fedora] redhat-hardened in CFLAGS
+Message-ID: <CABFfbXt-g2uCTWoVyEdh4s1WggCgDnt93GV-AZj28uTbb_t+zw@mail.gmail.com>
+
+Installed R-devel 3.2.3 on a vanilla F23 box. Installing any package
+with C code fails with:
+
+gcc: error: /usr/lib/rpm/redhat/redhat-hardened-cc1: No such file or directory
+
+This parameter originates from R's CFLAGS:
+
+  $ R CMD config CFLAGS
+-O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2
+-fexceptions -fstack-protector-strong --param=ssp-buffer-size=4
+-grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1
+-m64 -mtune=generic
+
+
+From my.r.help at gmail.com  Fri Jan 15 14:45:21 2016
+From: my.r.help at gmail.com (Michael Smith)
+Date: Fri, 15 Jan 2016 21:45:21 +0800
+Subject: [R-sig-Fedora] redhat-hardened in CFLAGS
+In-Reply-To: <CABFfbXt-g2uCTWoVyEdh4s1WggCgDnt93GV-AZj28uTbb_t+zw@mail.gmail.com>
+References: <CABFfbXt-g2uCTWoVyEdh4s1WggCgDnt93GV-AZj28uTbb_t+zw@mail.gmail.com>
+Message-ID: <5698F7F1.90002@gmail.com>
+
+If I recall correctly:
+
+dnf install redhat-rpm-config
+
+
+
+On 01/15/2016 08:50 PM, Jeroen Ooms wrote:
+> Installed R-devel 3.2.3 on a vanilla F23 box. Installing any package
+> with C code fails with:
+>
+> gcc: error: /usr/lib/rpm/redhat/redhat-hardened-cc1: No such file or directory
+>
+> This parameter originates from R's CFLAGS:
+>
+>    $ R CMD config CFLAGS
+> -O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2
+> -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4
+> -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1
+> -m64 -mtune=generic
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+
+From jeroen.ooms at stat.ucla.edu  Fri Jan 15 14:48:34 2016
+From: jeroen.ooms at stat.ucla.edu (Jeroen Ooms)
+Date: Fri, 15 Jan 2016 14:48:34 +0100
+Subject: [R-sig-Fedora] redhat-hardened in CFLAGS
+In-Reply-To: <5698F7F1.90002@gmail.com>
+References: <CABFfbXt-g2uCTWoVyEdh4s1WggCgDnt93GV-AZj28uTbb_t+zw@mail.gmail.com>
+	<5698F7F1.90002@gmail.com>
+Message-ID: <CABFfbXs9t37xKNZg6tqT1_YPtRm70v8La6XeDYZAMAvodXeBwg@mail.gmail.com>
+
+On Fri, Jan 15, 2016 at 2:45 PM, Michael Smith <my.r.help at gmail.com> wrote:
+>
+> dnf install redhat-rpm-config
+
+I used:
+
+ yum install /usr/lib/rpm/redhat/redhat-hardened-cc1
+
+And that did the job, however it seems to me this should be a formal
+dependency of the R-base rpm package.
+
+
+From nalimilan at club.fr  Fri Jan 15 17:14:51 2016
+From: nalimilan at club.fr (Milan Bouchet-Valat)
+Date: Fri, 15 Jan 2016 17:14:51 +0100
+Subject: [R-sig-Fedora] redhat-hardened in CFLAGS
+In-Reply-To: <CABFfbXs9t37xKNZg6tqT1_YPtRm70v8La6XeDYZAMAvodXeBwg@mail.gmail.com>
+References: <CABFfbXt-g2uCTWoVyEdh4s1WggCgDnt93GV-AZj28uTbb_t+zw@mail.gmail.com>
+	<5698F7F1.90002@gmail.com>
+	<CABFfbXs9t37xKNZg6tqT1_YPtRm70v8La6XeDYZAMAvodXeBwg@mail.gmail.com>
+Message-ID: <1452874491.4277.3.camel@club.fr>
+
+Le vendredi 15 janvier 2016 ? 14:48 +0100, Jeroen Ooms a ?crit?:
+> On Fri, Jan 15, 2016 at 2:45 PM, Michael Smith <my.r.help at gmail.com>
+> wrote:
+> > 
+> > dnf install redhat-rpm-config
+> 
+> I used:
+> 
+> ?yum install /usr/lib/rpm/redhat/redhat-hardened-cc1
+> 
+> And that did the job, however it seems to me this should be a formal
+> dependency of the R-base rpm package.
+Indeed, installing packages is quite an essential operation in R...
+
+
+Regards
+
+
+From tcallawa at redhat.com  Fri Jan 15 21:28:43 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 15 Jan 2016 15:28:43 -0500
+Subject: [R-sig-Fedora] redhat-hardened in CFLAGS
+In-Reply-To: <1452874491.4277.3.camel@club.fr>
+References: <CABFfbXt-g2uCTWoVyEdh4s1WggCgDnt93GV-AZj28uTbb_t+zw@mail.gmail.com>
+	<5698F7F1.90002@gmail.com>
+	<CABFfbXs9t37xKNZg6tqT1_YPtRm70v8La6XeDYZAMAvodXeBwg@mail.gmail.com>
+	<1452874491.4277.3.camel@club.fr>
+Message-ID: <5699567B.4080705@redhat.com>
+
+On 01/15/2016 11:14 AM, Milan Bouchet-Valat wrote:
+> Le vendredi 15 janvier 2016 ? 14:48 +0100, Jeroen Ooms a ?crit :
+>> On Fri, Jan 15, 2016 at 2:45 PM, Michael Smith <my.r.help at gmail.com>
+>> wrote:
+>>>
+>>> dnf install redhat-rpm-config
+>>
+>> I used:
+>>
+>>  yum install /usr/lib/rpm/redhat/redhat-hardened-cc1
+>>
+>> And that did the job, however it seems to me this should be a formal
+>> dependency of the R-base rpm package.
+> Indeed, installing packages is quite an essential operation in R...
+
+Agreed. I'm doing builds with Requires: redhat-rpm-config now (it isn't
+needed for EL5/EL6 builds because they aren't hardened).
+
+~tom
+
+==
+Red Hat
+
+
+From r.turner at auckland.ac.nz  Sat Jan 16 22:47:50 2016
+From: r.turner at auckland.ac.nz (Rolf Turner)
+Date: Sun, 17 Jan 2016 10:47:50 +1300
+Subject: [R-sig-Fedora] WARNING you cannot build info or html versions of
+	the R manuals
+Message-ID: <569ABA86.4050002@auckland.ac.nz>
+
+
+My apologies for an inadvertent cross-posting.  I *intended* to send 
+this message to r-sig-fedora but by mistake sent it to 
+users at lists.fedoraproject.org  .
+So I am re-sending it to the address that I actually intended.
+
+Again, I apologise for the screw-up.
+
+So.  Here we go again:
+
+It's no big deal, but when I build R from source (as I must) I always 
+get the warning given in the subject line of this post.
+
+I have searched the web a bit and have found a number of references to 
+this warning.  Universally the proffered solution is "install texinfo".
+
+So I did (just now)
+
+     sudo yum install texinfo
+
+and was told:
+
+ > Package texinfo-4.13a-16.fc17.x86_64 already installed and latest version
+ > Nothing to do
+
+I checked with "whereis texinfo" and got:
+
+ > texinfo: /usr/share/texinfo /usr/share/man/man5/texinfo.5.gz
+
+
+So it's there on my system --- but perhaps not where R can find it???
+
+Can anyone suggest to me what I need to do to get R and texinfo to 
+cooperate?
+
+Please note that I am running Fedora 17.  Yes, I know, it's 
+antediluvian.  But for reasons I do not wish to discuss, I'm stuck 
+there.  (This is one of the reasons why I must build R from source.
+It all works fine, except for that warning.)
+
+cheers,
+
+Rolf Turner
+
+-- 
+Technical Editor ANZJS
+Department of Statistics
+University of Auckland
+Phone: +64-9-373-7599 ext. 88276
+
+
+From tcallawa at redhat.com  Sat Jan 16 23:03:24 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Sat, 16 Jan 2016 17:03:24 -0500 (EST)
+Subject: [R-sig-Fedora] WARNING you cannot build info or html versions
+ of	the R manuals
+Message-ID: <3d407ac5-bf87-4312-b013-50d02b614e44@email.android.com>
+
+Are you building from a source tarball or using the Fedora SRPM? I strongly advise you to rebuild the SRPM, because the resulting binary RPM will have all the necessary deps for building and installing. You might need to change the spec up a bit, since I assume building on Fedora means a modern system, and f17.... isn't modern.
+
+On Jan 16, 2016 4:48 PM, Rolf Turner <r.turner at auckland.ac.nz> wrote:
+>
+>
+> My apologies for an inadvertent cross-posting.? I *intended* to send 
+> this message to r-sig-fedora but by mistake sent it to 
+> users at lists.fedoraproject.org? . 
+> So I am re-sending it to the address that I actually intended. 
+>
+> Again, I apologise for the screw-up. 
+>
+> So.? Here we go again: 
+>
+> It's no big deal, but when I build R from source (as I must) I always 
+> get the warning given in the subject line of this post. 
+>
+> I have searched the web a bit and have found a number of references to 
+> this warning.? Universally the proffered solution is "install texinfo". 
+>
+> So I did (just now) 
+>
+> ???? sudo yum install texinfo 
+>
+> and was told: 
+>
+> > Package texinfo-4.13a-16.fc17.x86_64 already installed and latest version 
+> > Nothing to do 
+>
+> I checked with "whereis texinfo" and got: 
+>
+> > texinfo: /usr/share/texinfo /usr/share/man/man5/texinfo.5.gz 
+>
+>
+> So it's there on my system --- but perhaps not where R can find it??? 
+>
+> Can anyone suggest to me what I need to do to get R and texinfo to 
+> cooperate? 
+>
+> Please note that I am running Fedora 17.? Yes, I know, it's 
+> antediluvian.? But for reasons I do not wish to discuss, I'm stuck 
+> there.? (This is one of the reasons why I must build R from source. 
+> It all works fine, except for that warning.) 
+>
+> cheers, 
+>
+> Rolf Turner 
+>
+> -- 
+> Technical Editor ANZJS 
+> Department of Statistics 
+> University of Auckland 
+> Phone: +64-9-373-7599 ext. 88276 
+>
+> _______________________________________________ 
+> R-SIG-Fedora mailing list 
+> R-SIG-Fedora at r-project.org 
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora 
+
+From r.turner at auckland.ac.nz  Sat Jan 16 23:24:27 2016
+From: r.turner at auckland.ac.nz (Rolf Turner)
+Date: Sun, 17 Jan 2016 11:24:27 +1300
+Subject: [R-sig-Fedora] WARNING you cannot build info or html versions
+ of the R manuals
+In-Reply-To: <3d407ac5-bf87-4312-b013-50d02b614e44@email.android.com>
+References: <3d407ac5-bf87-4312-b013-50d02b614e44@email.android.com>
+Message-ID: <569AC31B.8020909@auckland.ac.nz>
+
+On 17/01/16 11:03, Tom Callaway wrote:
+> Are you building from a source tarball or using the Fedora SRPM? I
+> strongly advise you to rebuild the SRPM, because the resulting binary
+> RPM will have all the necessary deps for building and installing. You
+> might need to change the spec up a bit, since I assume building on
+> Fedora means a modern system, and f17.... isn't modern.
+
+Indeed it is not modern!
+
+I build from the source tarball.  I don't know about/have never heard of 
+"SRPM".
+
+(a) How *does* one build from the Fedora SRPM?
+
+(b) How does one "change the spec up a bit"?  How does one find the 
+"spec" to change it?  Does one need to be a Fedora guru in order to be 
+able to change the spec without bringing the universe to an end?  (I am 
+*not*, sad to say, a Fedora guru.)
+
+(c) All that being said, the question remains as to *why* R cannot find 
+"texinfo" when it is indeed present on my system.
+
+I do not wish to run the risk of rendering my system unusable, by making 
+changes that are beyond my comprehension, because of the annoying but 
+minor (and essentially harmless) warning.  I really just want to 
+understand a bit about why the warning eventuates at all, when it 
+appears to me that my system has everything that it needs to "build info 
+and html versions" of the manuals.
+
+cheers,
+
+Rolf
+
+> On Jan 16, 2016 4:48 PM, Rolf Turner <r.turner at auckland.ac.nz> wrote:
+>>
+>>
+>> My apologies for an inadvertent cross-posting.  I *intended* to send
+>> this message to r-sig-fedora but by mistake sent it to
+>> users at lists.fedoraproject.org  .
+>> So I am re-sending it to the address that I actually intended.
+>>
+>> Again, I apologise for the screw-up.
+>>
+>> So.  Here we go again:
+>>
+>> It's no big deal, but when I build R from source (as I must) I always
+>> get the warning given in the subject line of this post.
+>>
+>> I have searched the web a bit and have found a number of references to
+>> this warning.  Universally the proffered solution is "install texinfo".
+>>
+>> So I did (just now)
+>>
+>>       sudo yum install texinfo
+>>
+>> and was told:
+>>
+>>> Package texinfo-4.13a-16.fc17.x86_64 already installed and latest version
+>>> Nothing to do
+>>
+>> I checked with "whereis texinfo" and got:
+>>
+>>> texinfo: /usr/share/texinfo /usr/share/man/man5/texinfo.5.gz
+>>
+>>
+>> So it's there on my system --- but perhaps not where R can find it???
+>>
+>> Can anyone suggest to me what I need to do to get R and texinfo to
+>> cooperate?
+>>
+>> Please note that I am running Fedora 17.  Yes, I know, it's
+>> antediluvian.  But for reasons I do not wish to discuss, I'm stuck
+>> there.  (This is one of the reasons why I must build R from source.
+>> It all works fine, except for that warning.)
+
+-- 
+Technical Editor ANZJS
+Department of Statistics
+University of Auckland
+Phone: +64-9-373-7599 ext. 88276
+
+
+From tcallawa at redhat.com  Mon Jan 18 15:52:36 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 18 Jan 2016 09:52:36 -0500
+Subject: [R-sig-Fedora] WARNING you cannot build info or html versions
+ of the R manuals
+In-Reply-To: <569AC31B.8020909@auckland.ac.nz>
+References: <3d407ac5-bf87-4312-b013-50d02b614e44@email.android.com>
+	<569AC31B.8020909@auckland.ac.nz>
+Message-ID: <569CFC34.9080301@redhat.com>
+
+On 01/16/2016 05:24 PM, Rolf Turner wrote:
+> All that being said, the question remains as to *why* R cannot find
+> "texinfo" when it is indeed present on my system.
+
+Rather than give you a lengthy discussion of how RPM building works and
+hacking the R spec, let's focus on this question instead (I'm still
+willing to show you RPM building if you'd like, because if you're
+sticking with Fedora 17 indefinitely it will be useful to you...)
+
+The warning message string "you cannot build info or HTML versions of
+the R manuals" comes from m4/R.m4:
+
+  if test "${r_cv_prog_texi2any_v5}" != yes; then
+    warn_info="you cannot build info or HTML versions of the R manuals"
+    AC_MSG_WARN([${warn_info}])
+    MAKEINFO=""
+  else
+    MAKEINFO="${MAKEINFO}"
+  fi
+
+In that same file, if you look at the beginning of the m4 function, you
+see this comment:
+
+  ## Building the R Texinfo manuals requires texinfo v5.1 or later.
+  ## Set shell variable r_cv_prog_texi2any_v5 to 'yes' if a recent
+  ## enough Makeinfo is found, and to 'no' otherwise.
+
+Fedora 17 has texinfo 4.1, which is several years older than 5.1. You'll
+need to upgrade that to silence this error in R.
+
+You might try rebuilding the latest texinfo src RPM. We're at 6.0 in
+Fedora 23+:
+
+http://koji.fedoraproject.org/koji/buildinfo?buildID=676407
+
+Download the src RPM from that page, then, on your system, try:
+
+  rpmbuild --rebuild texinfo-6.0-2.fc24.src.rpm
+
+That should (hopefully) result in a texinfo RPM built for Fedora 17.
+Then you can install the new RPMS (they'll be in ~/rpmbuild/RPMS/$target
+where $target is probably x86_64):
+
+  rpm -Uvh info-6.0-2.fc17.*.rpm texinfo-6.0-2.fc17.*.rpm
+
+hth,
+
+~tom
+
+==
+Red Hat
+
+
+From r.turner at auckland.ac.nz  Mon Jan 18 20:12:33 2016
+From: r.turner at auckland.ac.nz (Rolf Turner)
+Date: Tue, 19 Jan 2016 08:12:33 +1300
+Subject: [R-sig-Fedora] WARNING you cannot build info or html versions
+ of the R manuals
+In-Reply-To: <569CFC34.9080301@redhat.com>
+References: <3d407ac5-bf87-4312-b013-50d02b614e44@email.android.com>
+	<569AC31B.8020909@auckland.ac.nz> <569CFC34.9080301@redhat.com>
+Message-ID: <569D3921.10707@auckland.ac.nz>
+
+
+Thank you *very* much for this clear and detailed response. I will give 
+it a try and report on what happens later today.
+
+Thanks again.
+
+cheers,
+
+Rolf
+
+-- 
+Technical Editor ANZJS
+Department of Statistics
+University of Auckland
+Phone: +64-9-373-7599 ext. 88276
+
+On 19/01/16 03:52, Tom Callaway wrote:
+> On 01/16/2016 05:24 PM, Rolf Turner wrote:
+>> All that being said, the question remains as to *why* R cannot find
+>> "texinfo" when it is indeed present on my system.
+>
+> Rather than give you a lengthy discussion of how RPM building works and
+> hacking the R spec, let's focus on this question instead (I'm still
+> willing to show you RPM building if you'd like, because if you're
+> sticking with Fedora 17 indefinitely it will be useful to you...)
+>
+> The warning message string "you cannot build info or HTML versions of
+> the R manuals" comes from m4/R.m4:
+>
+>    if test "${r_cv_prog_texi2any_v5}" != yes; then
+>      warn_info="you cannot build info or HTML versions of the R manuals"
+>      AC_MSG_WARN([${warn_info}])
+>      MAKEINFO=""
+>    else
+>      MAKEINFO="${MAKEINFO}"
+>    fi
+>
+> In that same file, if you look at the beginning of the m4 function, you
+> see this comment:
+>
+>    ## Building the R Texinfo manuals requires texinfo v5.1 or later.
+>    ## Set shell variable r_cv_prog_texi2any_v5 to 'yes' if a recent
+>    ## enough Makeinfo is found, and to 'no' otherwise.
+>
+> Fedora 17 has texinfo 4.1, which is several years older than 5.1. You'll
+> need to upgrade that to silence this error in R.
+>
+> You might try rebuilding the latest texinfo src RPM. We're at 6.0 in
+> Fedora 23+:
+>
+> http://koji.fedoraproject.org/koji/buildinfo?buildID=676407
+>
+> Download the src RPM from that page, then, on your system, try:
+>
+>    rpmbuild --rebuild texinfo-6.0-2.fc24.src.rpm
+>
+> That should (hopefully) result in a texinfo RPM built for Fedora 17.
+> Then you can install the new RPMS (they'll be in ~/rpmbuild/RPMS/$target
+> where $target is probably x86_64):
+>
+>    rpm -Uvh info-6.0-2.fc17.*.rpm texinfo-6.0-2.fc17.*.rpm
+>
+> hth,
+>
+> ~tom
+>
+> ==
+> Red Hat
+
+
+From r.turner at auckland.ac.nz  Tue Jan 19 02:50:16 2016
+From: r.turner at auckland.ac.nz (Rolf Turner)
+Date: Tue, 19 Jan 2016 14:50:16 +1300
+Subject: [R-sig-Fedora] WARNING you cannot build info or html versions
+ of the R manuals
+In-Reply-To: <569CFC34.9080301@redhat.com>
+References: <3d407ac5-bf87-4312-b013-50d02b614e44@email.android.com>
+	<569AC31B.8020909@auckland.ac.nz> <569CFC34.9080301@redhat.com>
+Message-ID: <569D9658.1080809@auckland.ac.nz>
+
+On 19/01/16 03:52, Tom Callaway wrote:
+> On 01/16/2016 05:24 PM, Rolf Turner wrote:
+>> All that being said, the question remains as to *why* R cannot find
+>> "texinfo" when it is indeed present on my system.
+>
+> Rather than give you a lengthy discussion of how RPM building works and
+> hacking the R spec, let's focus on this question instead (I'm still
+> willing to show you RPM building if you'd like, because if you're
+> sticking with Fedora 17 indefinitely it will be useful to you...)
+>
+> The warning message string "you cannot build info or HTML versions of
+> the R manuals" comes from m4/R.m4:
+>
+>    if test "${r_cv_prog_texi2any_v5}" != yes; then
+>      warn_info="you cannot build info or HTML versions of the R manuals"
+>      AC_MSG_WARN([${warn_info}])
+>      MAKEINFO=""
+>    else
+>      MAKEINFO="${MAKEINFO}"
+>    fi
+>
+> In that same file, if you look at the beginning of the m4 function, you
+> see this comment:
+>
+>    ## Building the R Texinfo manuals requires texinfo v5.1 or later.
+>    ## Set shell variable r_cv_prog_texi2any_v5 to 'yes' if a recent
+>    ## enough Makeinfo is found, and to 'no' otherwise.
+>
+> Fedora 17 has texinfo 4.1, which is several years older than 5.1. You'll
+> need to upgrade that to silence this error in R.
+>
+> You might try rebuilding the latest texinfo src RPM. We're at 6.0 in
+> Fedora 23+:
+>
+> http://koji.fedoraproject.org/koji/buildinfo?buildID=676407
+>
+> Download the src RPM from that page, then, on your system, try:
+>
+>    rpmbuild --rebuild texinfo-6.0-2.fc24.src.rpm
+>
+> That should (hopefully) result in a texinfo RPM built for Fedora 17.
+> Then you can install the new RPMS (they'll be in ~/rpmbuild/RPMS/$target
+> where $target is probably x86_64):
+>
+>    rpm -Uvh info-6.0-2.fc17.*.rpm texinfo-6.0-2.fc17.*.rpm
+>
+> hth,
+>
+> ~tom
+
+Okay; tried this.  The executive summary is:  It didn't work.
+
+In more detail:  I got a sequence of warnings
+
+warning: group mockbuild does not exist - using root
+
+which I ignored.  Then got an error:
+
+> error: Failed build dependencies:
+> help2man is needed by texinfo-6.0-2.fc17.x86_64
+> perl(Locale::Messages) is needed by texinfo-6.0-2.fc17.x86_64
+> perl(Unicode::EastAsianWidth) is needed by texinfo-6.0-2.fc17.x86_64
+> perl(Text::Unidecode) is needed by texinfo-6.0-2.fc17.x86_64
+
+Did a sudo yum install help2man which seemed to work.  Then searched 
+around to try to fathom the perl messages.  Found indications that I 
+needed to install perl-libintl-1.20-13.fc21.src.rpm.
+
+Got that rpm and did
+
+rpmbuild --rebuild perl-libintl-1.20-13.fc21.src.rpm
+
+going by analogy and hope.  Something seemed to happen.  Then did
+
+cd ~/rpmbuild/RPMS/x86_64
+sudo rpm -Uvh perl-libintl-1.20-13.fc17.x86_64.rpm
+               perl-libintl-debuginfo-1.20-13.fc17.x86_64.rpm
+
+(The forgoing two lines were actually a single line; I broke it for 
+email formatting.)
+
+Then tried
+
+rpmbuild --rebuild texinfo-6.0-2.fc24.src.rpm
+
+again.  Got the warnings again, of course, then the errors:
+
+> error: Failed build dependencies:
+> perl(Unicode::EastAsianWidth) is needed by texinfo-6.0-2.fc17.x86_64
+> perl(Text::Unidecode) is needed by texinfo-6.0-2.fc17.x86_64
+
+
+Found what seemed to be an appropriate rpm and did
+
+rpmbuild --rebuild perl-Unicode-EastAsianWidth-1.33-6.fc23.src.rpm
+
+Got the errors
+
+> error: Failed build dependencies:
+> perl(Module::Package) is needed by perl-Unicode-EastAsianWidth-1.33-6.fc17.noarch
+> perl(Pod::Markdown) is needed by perl-Unicode-EastAsianWidth-1.33-6.fc17.noarch
+> perl(Module::Package::Au) is needed by perl-Unicode-EastAsianWidth-1.33-6.fc17.noarch
+
+Scrounged around with Google; found instructions for installing perl 
+modules using "cpanm".
+
+Did
+
+cpan App::cpanminus
+
+and then
+
+cpanm Module::Package
+
+This seemed to install a plethora of Modules.  I then tried
+
+rpmbuild --rebuild perl-Unicode-EastAsianWidth-1.33-6.fc23.src.rpm
+
+again, and got the same error messages as before.  So perhaps (somehow) 
+my installation of perl modules was ineffective.  But at this stage I 
+was just getting too flummoxed and bewildered and was feeling too far 
+out of my depth, so I have for the time being at least given up.
+
+It looks pretty hopeless to me.
+
+cheers,
+
+Rolf
+
+
+From tcallawa at redhat.com  Wed Jan 20 00:20:13 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 19 Jan 2016 18:20:13 -0500
+Subject: [R-sig-Fedora] WARNING you cannot build info or html versions
+ of the R manuals
+In-Reply-To: <569D9658.1080809@auckland.ac.nz>
+References: <3d407ac5-bf87-4312-b013-50d02b614e44@email.android.com>
+	<569AC31B.8020909@auckland.ac.nz> <569CFC34.9080301@redhat.com>
+	<569D9658.1080809@auckland.ac.nz>
+Message-ID: <569EC4AD.4070702@redhat.com>
+
+On 01/18/2016 08:50 PM, Rolf Turner wrote:
+> Okay; tried this.  The executive summary is:  It didn't work.
+
+I normally would charge a modest fee of a good bottle of liquor or a
+six-pack of craft beer for the following lesson, but in the spirit of
+easing your suffering, I shall do it once more at no charge. ;)
+
+Let's look at what didn't work.
+
+> In more detail:  I got a sequence of warnings
+> 
+> warning: group mockbuild does not exist - using root
+
+Yep. This is safe to ignore. What RPM is saying here is that the user
+who originally built this package ("mockbuild") isn't on your system.
+"mockbuild" is the unprivileged user/group that the Fedora buildsystem
+uses to build packages. However, part of that warning is something you
+should not ignore:
+
+" - using root".
+
+You should not be building software as root. That path leads to terrible
+pain and destruction. When you're ready to install the software you've
+built, su to root, but not before.
+
+>> error: Failed build dependencies:
+>> help2man is needed by texinfo-6.0-2.fc17.x86_64
+>> perl(Locale::Messages) is needed by texinfo-6.0-2.fc17.x86_64
+>> perl(Unicode::EastAsianWidth) is needed by texinfo-6.0-2.fc17.x86_64
+>> perl(Text::Unidecode) is needed by texinfo-6.0-2.fc17.x86_64
+
+These messages come from RPM and they say "I've checked my database of
+packages against what this src RPM says it needs to build and nothing
+provides these". RPM isn't psychic. It only knows about packages that
+have been installed by RPM. Anything you build from source by hand is
+not known to it at all. These "perl(Foo::Bar)" dependencies are provided
+by perl packages, where Foo::Bar is the CPAN module. You can see an
+example of this by querying the perl package:
+
+[spot at localhost ~]$ rpm -q perl --provides
+perl = 4:5.22.1-355.fc24
+perl(AnyDBM_File) = 1.01
+perl(AutoLoader) = 5.74
+perl(AutoSplit) = 1.06
+...
+
+This allows you to say:
+
+yum install "perl(AnyDBM_File)"
+
+And yum will go find the RPM package that Provides: perl(AnyDBM_File)
+and install it for you. You don't have to remember the name of the
+package, just the CPAN module name.
+
+> Did a sudo yum install help2man which seemed to work. 
+
+> Then searched
+> around to try to fathom the perl messages.  Found indications that I
+> needed to install perl-libintl-1.20-13.fc21.src.rpm.
+
+Points to you. perl-libintl Provides: perl(Locale::Messages). That
+package actually exists in Fedora 17, so you can do:
+
+   sudo yum install "perl(Locale::Messages)"
+
+And it will install it for you. The same is true for
+"perl(Text::Unidecode)" but sadly, not for "perl(Unicode::EastAsianWidth)".
+
+> Got that rpm and did
+> 
+> rpmbuild --rebuild perl-libintl-1.20-13.fc21.src.rpm
+> 
+> going by analogy and hope.  Something seemed to happen.  Then did
+
+That built the src rpm into binary packages for Fedora 17.
+
+> cd ~/rpmbuild/RPMS/x86_64
+> sudo rpm -Uvh perl-libintl-1.20-13.fc17.x86_64.rpm
+>               perl-libintl-debuginfo-1.20-13.fc17.x86_64.rpm
+> 
+> (The forgoing two lines were actually a single line; I broke it for
+> email formatting.)
+
+That's fine. For future knowledge, you only need to install the
+debuginfo packages if you're planning on running the binaries in the
+main RPM through gdb. Otherwise, it's just eating space on your hard drive.
+
+> Then tried
+> 
+> rpmbuild --rebuild texinfo-6.0-2.fc24.src.rpm
+> 
+> again.  Got the warnings again, of course, then the errors:
+> 
+>> error: Failed build dependencies:
+>> perl(Unicode::EastAsianWidth) is needed by texinfo-6.0-2.fc17.x86_64
+>> perl(Text::Unidecode) is needed by texinfo-6.0-2.fc17.x86_64
+> 
+> 
+> Found what seemed to be an appropriate rpm and did
+> 
+> rpmbuild --rebuild perl-Unicode-EastAsianWidth-1.33-6.fc23.src.rpm
+> 
+> Got the errors
+> 
+>> error: Failed build dependencies:
+>> perl(Module::Package) is needed by
+>> perl-Unicode-EastAsianWidth-1.33-6.fc17.noarch
+>> perl(Pod::Markdown) is needed by
+>> perl-Unicode-EastAsianWidth-1.33-6.fc17.noarch
+>> perl(Module::Package::Au) is needed by
+>> perl-Unicode-EastAsianWidth-1.33-6.fc17.noarch
+> 
+> Scrounged around with Google; found instructions for installing perl
+> modules using "cpanm".
+
+Here's where you got off the main road:
+
+Installing modules via CPAN is the same as building them by hand: RPM
+doesn't know they exist.
+
+And that's where you lost hope. What you need to do is to keep tracing
+down RPM packages for dependencies and rebuilding. Normally, most Fedora
+users don't have to do this, because we build a whole repository of
+packages for them, but since you're 6 (almost 7) releases out of date,
+you've got harder work to do.
+
+koji.fedoraproject.org is your friend here. You can search for srpms
+there, download them, and rebuild them.
+
+That said, since you've listened to all of this, I've installed a Fedora
+17 VM instance on my laptop and built you the missing packages you need
+to build R fully featured:
+
+https://spot.fedorapeople.org/fedora17-R-deps/
+
+There is a src.rpm in there too for texlive, you don't need to install
+it, I just included it because I had to make a minor fix in that package
+to reflect the dependencies available in Fedora 17 (but really only to
+install the texinfo-tex subpackage, which I don't think you need to
+build R... but still, better complete than not).
+
+Good luck!
+
+~tom
+
+==
+Red Hat
+
+
+From r.turner at auckland.ac.nz  Wed Jan 20 05:10:39 2016
+From: r.turner at auckland.ac.nz (Rolf Turner)
+Date: Wed, 20 Jan 2016 17:10:39 +1300
+Subject: [R-sig-Fedora] WARNING you cannot build info or html versions
+ of the R manuals
+In-Reply-To: <569EC4AD.4070702@redhat.com>
+References: <3d407ac5-bf87-4312-b013-50d02b614e44@email.android.com>
+	<569AC31B.8020909@auckland.ac.nz> <569CFC34.9080301@redhat.com>
+	<569D9658.1080809@auckland.ac.nz> <569EC4AD.4070702@redhat.com>
+Message-ID: <569F08BF.1050606@auckland.ac.nz>
+
+On 20/01/16 12:20, Tom Callaway wrote:
+> On 01/18/2016 08:50 PM, Rolf Turner wrote:
+>> Okay; tried this.  The executive summary is:  It didn't work.
+>
+> I normally would charge a modest fee of a good bottle of liquor or a
+> six-pack of craft beer for the following lesson, but in the spirit of
+> easing your suffering, I shall do it once more at no charge. ;)
+
+Well, if you ever make it to New Zealand, get in touch and I will shout 
+you dinner and all the wine you can drink at a restaurant of your 
+choice.  The effort you've put into this is way above and beyond the 
+call of duty.
+
+> Let's look at what didn't work.
+>
+>> In more detail:  I got a sequence of warnings
+>>
+>> warning: group mockbuild does not exist - using root
+>
+> Yep. This is safe to ignore. What RPM is saying here is that the user
+> who originally built this package ("mockbuild") isn't on your system.
+> "mockbuild" is the unprivileged user/group that the Fedora buildsystem
+> uses to build packages. However, part of that warning is something you
+> should not ignore:
+>
+> " - using root".
+>
+> You should not be building software as root. That path leads to terrible
+> pain and destruction. When you're ready to install the software you've
+> built, su to root, but not before.
+
+Ah, errmmm, I'm at a loss.  I *didn't* su to root at all.  Ever.  The
+warning said "using root" --- but I didn't, in any way, tell the 
+rpmbuild command to do it's work as root.
+
+What am I not understanding here?
+
+This is kind of irrelevant anyhow since you've built for me all the 
+stuff that I need.
+
+So let's cut to the chase:
+
+<SNIP>
+
+> That said, since you've listened to all of this, I've installed a Fedora
+> 17 VM instance on my laptop and built you the missing packages you need
+> to build R fully featured:
+>
+> https://spot.fedorapeople.org/fedora17-R-deps/
+
+Thank you for going to all this work.
+
+However (as usual) I'm still at a bit of a loss.  I *think* that just a 
+few more words of instruction will get me to where I need to be.
+
+I went to the site that you specify and there found a list of 14 
+packages (rpm-s) one of which is a ".src.rpm" with the others end just 
+in ".rpm" with no ".src" before it.
+
+OK.  Now what do I do?
+
+Do I download each of these and install them, in the order that they are 
+listed?  Or is there some other incantation that should be invoked?
+
+I tried downloading the first rpm listed, id est
+
+     info-6.0-2.fc17.1.x86_64.rpm
+
+and then did
+
+     rpm -i info-6.0-2.fc17.1.x86_64.rpm
+
+but this gave me an error:
+
+> error: can't create transaction lock on /var/lib/rpm/.rpm.lock (Permission denied)
+
+So I then tried:
+
+     sudo rpm -i info-6.0-2.fc17.1.x86_64.rpm
+
+and got *some* action, but also got a plethora of messages:
+
+> file /sbin/install-info from install of info-6.0-2.fc17.1.x86_64 conflicts with file from package info-4.13a-16.fc17.x86_64
+> file /usr/bin/info from install of info-6.0-2.fc17.1.x86_64 conflicts with file from package info-4.13a-16.fc17.x86_64
+> file /usr/share/info/info-stnd.info.gz from install of info-6.0-2.fc17.1.x86_64 conflicts with file from package info-4.13a-16.fc17.x86_64
+> file /usr/share/info/info.info.gz from install of info-6.0-2.fc17.1.x86_64 conflicts with file from package info-4.13a-16.fc17.x86_64
+> file /usr/share/man/man1/info.1.gz from install of info-6.0-2.fc17.1.x86_64 conflicts with file from package info-4.13a-16.fc17.x86_64
+> file /usr/share/man/man1/install-info.1.gz from install of info-6.0-2.fc17.1.x86_64 conflicts with file from package info-4.13a-16.fc17.x86_64
+> file /usr/share/man/man5/info.5.gz from install of info-6.0-2.fc17.1.x86_64 conflicts with file from package info-4.13a-16.fc17.x86_64
+
+They don't say "error" but I am not sure what the implications are, so I 
+stopped at that point in case I screw things up even further than I 
+already have.
+
+> There is a src.rpm in there too for texlive, you don't need to install
+> it, I just included it because I had to make a minor fix in that package
+> to reflect the dependencies available in Fedora 17 (but really only to
+> install the texinfo-tex subpackage, which I don't think you need to
+> build R... but still, better complete than not).
+
+I didn't see anything that I could identify as a src.rpm for texlive. 
+The one src.rpm that I see is
+
+     texinfo-6.0-2.fc17.1.src.rpm
+
+Is this what you mean?
+
+Thanks again.  Hoping for further enlightenment.
+
+cheers,
+
+Rolf
+
+
+-- 
+Technical Editor ANZJS
+Department of Statistics
+University of Auckland
+Phone: +64-9-373-7599 ext. 88276
+
+
+From tcallawa at redhat.com  Wed Jan 20 06:31:23 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 20 Jan 2016 00:31:23 -0500
+Subject: [R-sig-Fedora] WARNING you cannot build info or html versions
+ of the R manuals
+In-Reply-To: <569F08BF.1050606@auckland.ac.nz>
+References: <3d407ac5-bf87-4312-b013-50d02b614e44@email.android.com>
+	<569AC31B.8020909@auckland.ac.nz> <569CFC34.9080301@redhat.com>
+	<569D9658.1080809@auckland.ac.nz> <569EC4AD.4070702@redhat.com>
+	<569F08BF.1050606@auckland.ac.nz>
+Message-ID: <569F1BAB.3020703@redhat.com>
+
+On 01/19/2016 11:10 PM, Rolf Turner wrote:
+>> https://spot.fedorapeople.org/fedora17-R-deps/
+> 
+> Thank you for going to all this work.
+> 
+> However (as usual) I'm still at a bit of a loss.  I *think* that just a
+> few more words of instruction will get me to where I need to be.
+> 
+> I went to the site that you specify and there found a list of 14
+> packages (rpm-s) one of which is a ".src.rpm" with the others end just
+> in ".rpm" with no ".src" before it.
+> 
+> OK.  Now what do I do?
+
+Download all of them, except for the src.rpm (and the texinfo-debuginfo
+package).
+
+Then, run:
+
+sudo rpm -Uvh info-6.0-2.fc17.1.x86_64.rpm
+perl-File-ShareDir-Install-0.10-3.fc17.noarch.rpm
+perl-Module-Install-AuthorRequires-0.02-10.fc17.noarch.rpm
+perl-Module-Install-AuthorTests-0.002-10.fc17.noarch.rpm
+perl-Module-Install-ManifestSkip-0.24-4.fc17.noarch.rpm
+perl-Module-Install-Repository-0.06-10.fc17.noarch.rpm
+perl-Module-Manifest-Skip-0.23-4.fc17.noarch.rpm
+perl-Module-Package-0.30-9.fc17.noarch.rpm
+perl-Module-Package-Au-2-4.fc17.noarch.rpm
+perl-Unicode-EastAsianWidth-1.33-6.fc17.noarch.rpm
+texinfo-6.0-2.fc17.1.x86_64.rpm texinfo-tex-6.0-2.fc17.1.x86_64.rpm
+
+rpm has two install modes:
+
+ * -i installs new packages.
+ * -U upgrades a package over an existing install
+
+The reasons for these modes are historical trivia, practically, humans
+always use -U, because -i chokes if a package is already present, which
+is what you saw. -v tells rpm to be verbose, and -h tells it to do
+pretty progress hashing.
+
+hth,
+
+~tom
+
+PS. I totally meant "texinfo" when I referred to the src.rpm earlier.
+Too much tex on the brain today.
+
+==
+Red Hat
+
+
+From r.turner at auckland.ac.nz  Wed Jan 20 08:33:54 2016
+From: r.turner at auckland.ac.nz (Rolf Turner)
+Date: Wed, 20 Jan 2016 20:33:54 +1300
+Subject: [R-sig-Fedora] WARNING you cannot build info or html versions
+ of the R manuals
+In-Reply-To: <569F1BAB.3020703@redhat.com>
+References: <3d407ac5-bf87-4312-b013-50d02b614e44@email.android.com>
+	<569AC31B.8020909@auckland.ac.nz> <569CFC34.9080301@redhat.com>
+	<569D9658.1080809@auckland.ac.nz> <569EC4AD.4070702@redhat.com>
+	<569F08BF.1050606@auckland.ac.nz> <569F1BAB.3020703@redhat.com>
+Message-ID: <569F3862.1030001@auckland.ac.nz>
+
+On 20/01/16 18:31, Tom Callaway wrote:
+
+<SNIP>
+
+> Download all of them, except for the src.rpm (and the texinfo-debuginfo
+> package).
+>
+> Then, run:
+>
+> sudo rpm -Uvh info-6.0-2.fc17.1.x86_64.rpm
+> perl-File-ShareDir-Install-0.10-3.fc17.noarch.rpm
+> perl-Module-Install-AuthorRequires-0.02-10.fc17.noarch.rpm
+> perl-Module-Install-AuthorTests-0.002-10.fc17.noarch.rpm
+> perl-Module-Install-ManifestSkip-0.24-4.fc17.noarch.rpm
+> perl-Module-Install-Repository-0.06-10.fc17.noarch.rpm
+> perl-Module-Manifest-Skip-0.23-4.fc17.noarch.rpm
+> perl-Module-Package-0.30-9.fc17.noarch.rpm
+> perl-Module-Package-Au-2-4.fc17.noarch.rpm
+> perl-Unicode-EastAsianWidth-1.33-6.fc17.noarch.rpm
+> texinfo-6.0-2.fc17.1.x86_64.rpm texinfo-tex-6.0-2.fc17.1.x86_64.rpm
+
+Well, it's the story of my life, but things are still not working.  I 
+followed your instructions (as above) and got:
+
+> error: Failed dependencies:
+> 	perl(Module::Install::Base) is needed by perl-Module-Install-AuthorRequires-0.02-10.fc17.noarch
+> 	perl(Module::Install) is needed by perl-Module-Install-AuthorTests-0.002-10.fc17.noarch
+> 	perl(Module::Install::Base) is needed by perl-Module-Install-AuthorTests-0.002-10.fc17.noarch
+> 	perl(Module::Install::Base) is needed by perl-Module-Install-ManifestSkip-0.24-4.fc17.noarch
+> 	perl(Module::Install::Base) is needed by perl-Module-Install-Repository-0.06-10.fc17.noarch
+> 	perl(File::ShareDir) is needed by perl-Module-Manifest-Skip-0.23-4.fc17.noarch
+> 	perl(Moo) >= 0.091013 is needed by perl-Module-Manifest-Skip-0.23-4.fc17.noarch
+> 	perl(IO::All) >= 0.41 is needed by perl-Module-Package-0.30-9.fc17.noarch
+> 	perl(Module::Install) >= 1.01 is needed by perl-Module-Package-0.30-9.fc17.noarch
+> 	perl(Module::Install::Base) is needed by perl-Module-Package-0.30-9.fc17.noarch
+> 	perl(Moo) >= 0.009008 is needed by perl-Module-Package-0.30-9.fc17.noarch
+> 	perl(Module::Install::GithubMeta) >= 0.10 is needed by perl-Module-Package-Au-2-4.fc17.noarch
+> 	perl(Module::Install::ReadmeFromPod) >= 0.12 is needed by perl-Module-Package-Au-2-4.fc17.noarch
+> 	perl(Module::Install::ReadmeMarkdownFromPod) >= 0.03 is needed by perl-Module-Package-Au-2-4.fc17.noarch
+> 	perl(Pod::Markdown) >= 1.301 is needed by perl-Module-Package-Au-2-4.fc17.noarch
+> 	perl(Text::Unidecode) is needed by texinfo-6.0-2.fc17.1.x86_64
+
+
+If there's an easy fix, please tell me.  Otherwise feel free to say "Oh 
+stuff this for a lark!" and carry on with doing useful things instead of 
+worrying about my crap.  I can certainly live without being able to 
+build info and html versions of the R manuals.  I just wanted to 
+eliminate that annoying little glitch if possible, but it's looking like 
+it's too much of a snarl-up to be repaired with a reasonable amount of 
+effort.
+
+cheers,
+
+Rolf
+
+-- 
+Technical Editor ANZJS
+Department of Statistics
+University of Auckland
+Phone: +64-9-373-7599 ext. 88276
+
+
+From tcallawa at redhat.com  Wed Jan 20 12:35:53 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 20 Jan 2016 06:35:53 -0500 (EST)
+Subject: [R-sig-Fedora] WARNING you cannot build info or html versions
+ of the R manuals
+Message-ID: <cdc89db5-4ced-43ba-ba2e-ad6caf0ef8d1@email.android.com>
+
+Ah yes, those. Replace the rpm -Uvh with yum update and it should resolve the dependencies for you. If that fails, just pass all of those deps (in "") to yum install.
+
+Sorry about that!
+
+On Jan 20, 2016 2:34 AM, Rolf Turner <r.turner at auckland.ac.nz> wrote:
+>
+> On 20/01/16 18:31, Tom Callaway wrote: 
+>
+> <SNIP> 
+>
+> > Download all of them, except for the src.rpm (and the texinfo-debuginfo 
+> > package). 
+> > 
+> > Then, run: 
+> > 
+> > sudo rpm -Uvh info-6.0-2.fc17.1.x86_64.rpm 
+> > perl-File-ShareDir-Install-0.10-3.fc17.noarch.rpm 
+> > perl-Module-Install-AuthorRequires-0.02-10.fc17.noarch.rpm 
+> > perl-Module-Install-AuthorTests-0.002-10.fc17.noarch.rpm 
+> > perl-Module-Install-ManifestSkip-0.24-4.fc17.noarch.rpm 
+> > perl-Module-Install-Repository-0.06-10.fc17.noarch.rpm 
+> > perl-Module-Manifest-Skip-0.23-4.fc17.noarch.rpm 
+> > perl-Module-Package-0.30-9.fc17.noarch.rpm 
+> > perl-Module-Package-Au-2-4.fc17.noarch.rpm 
+> > perl-Unicode-EastAsianWidth-1.33-6.fc17.noarch.rpm 
+> > texinfo-6.0-2.fc17.1.x86_64.rpm texinfo-tex-6.0-2.fc17.1.x86_64.rpm 
+>
+> Well, it's the story of my life, but things are still not working.? I 
+> followed your instructions (as above) and got: 
+>
+> > error: Failed dependencies: 
+> > perl(Module::Install::Base) is needed by perl-Module-Install-AuthorRequires-0.02-10.fc17.noarch 
+> > perl(Module::Install) is needed by perl-Module-Install-AuthorTests-0.002-10.fc17.noarch 
+> > perl(Module::Install::Base) is needed by perl-Module-Install-AuthorTests-0.002-10.fc17.noarch 
+> > perl(Module::Install::Base) is needed by perl-Module-Install-ManifestSkip-0.24-4.fc17.noarch 
+> > perl(Module::Install::Base) is needed by perl-Module-Install-Repository-0.06-10.fc17.noarch 
+> > perl(File::ShareDir) is needed by perl-Module-Manifest-Skip-0.23-4.fc17.noarch 
+> > perl(Moo) >= 0.091013 is needed by perl-Module-Manifest-Skip-0.23-4.fc17.noarch 
+> > perl(IO::All) >= 0.41 is needed by perl-Module-Package-0.30-9.fc17.noarch 
+> > perl(Module::Install) >= 1.01 is needed by perl-Module-Package-0.30-9.fc17.noarch 
+> > perl(Module::Install::Base) is needed by perl-Module-Package-0.30-9.fc17.noarch 
+> > perl(Moo) >= 0.009008 is needed by perl-Module-Package-0.30-9.fc17.noarch 
+> > perl(Module::Install::GithubMeta) >= 0.10 is needed by perl-Module-Package-Au-2-4.fc17.noarch 
+> > perl(Module::Install::ReadmeFromPod) >= 0.12 is needed by perl-Module-Package-Au-2-4.fc17.noarch 
+> > perl(Module::Install::ReadmeMarkdownFromPod) >= 0.03 is needed by perl-Module-Package-Au-2-4.fc17.noarch 
+> > perl(Pod::Markdown) >= 1.301 is needed by perl-Module-Package-Au-2-4.fc17.noarch 
+> > perl(Text::Unidecode) is needed by texinfo-6.0-2.fc17.1.x86_64 
+>
+>
+> If there's an easy fix, please tell me.? Otherwise feel free to say "Oh 
+> stuff this for a lark!" and carry on with doing useful things instead of 
+> worrying about my crap.? I can certainly live without being able to 
+> build info and html versions of the R manuals.? I just wanted to 
+> eliminate that annoying little glitch if possible, but it's looking like 
+> it's too much of a snarl-up to be repaired with a reasonable amount of 
+> effort. 
+>
+> cheers, 
+>
+> Rolf 
+>
+> -- 
+> Technical Editor ANZJS 
+> Department of Statistics 
+> University of Auckland 
+> Phone: +64-9-373-7599 ext. 88276 
+
+From r.turner at auckland.ac.nz  Wed Jan 20 22:24:15 2016
+From: r.turner at auckland.ac.nz (Rolf Turner)
+Date: Thu, 21 Jan 2016 10:24:15 +1300
+Subject: [R-sig-Fedora] WARNING you cannot build info or html versions
+ of the R manuals
+In-Reply-To: <cdc89db5-4ced-43ba-ba2e-ad6caf0ef8d1@email.android.com>
+References: <cdc89db5-4ced-43ba-ba2e-ad6caf0ef8d1@email.android.com>
+Message-ID: <569FFAFF.2090505@auckland.ac.nz>
+
+On 21/01/16 00:35, Tom Callaway wrote:
+> Ah yes, those. Replace the rpm -Uvh with yum update and it should
+> resolve the dependencies for you. If that fails, just pass all of
+> those deps (in "") to yum install.
+
+Success at last!  The first idea failed, the second one worked.
+
+For completeness (for the sake of anyone who's interested --- as 
+unlikely as the existence of such people might be) what I did was:
+
+> sudo yum install "info-6.0-2.fc17.1.x86_64.rpm"
+> "perl-File-ShareDir-Install-0.10-3.fc17.noarch.rpm"
+> "perl-Module-Install-AuthorRequires-0.02-10.fc17.noarch.rpm"
+> "perl-Module-Install-AuthorTests-0.002-10.fc17.noarch.rpm"
+> "perl-Module-Install-ManifestSkip-0.24-4.fc17.noarch.rpm"
+> "perl-Module-Install-Repository-0.06-10.fc17.noarch.rpm"
+> "perl-Module-Manifest-Skip-0.23-4.fc17.noarch.rpm"
+> "perl-Module-Package-0.30-9.fc17.noarch.rpm"
+> "perl-Module-Package-Au-2-4.fc17.noarch.rpm"
+> "perl-Unicode-EastAsianWidth-1.33-6.fc17.noarch.rpm"
+> "texinfo-6.0-2.fc17.1.x86_64.rpm"
+> "texinfo-tex-6.0-2.fc17.1.x86_64.rpm"
+
+Went like a train.
+
+Thanks again.
+
+cheers,
+
+Rolf
+
+-- 
+Technical Editor ANZJS
+Department of Statistics
+University of Auckland
+Phone: +64-9-373-7599 ext. 88276
+
+
+From jcyph3r at gmail.com  Thu Jan 21 16:38:47 2016
+From: jcyph3r at gmail.com (joe cypherpunk)
+Date: Thu, 21 Jan 2016 10:38:47 -0500
+Subject: [R-sig-Fedora] html manual files nonfunctional
+Message-ID: <CAPw=umFtT-JCak=OxOqm+MfqHuF4Y8sDXTQCtixGwYOJbzsgGg@mail.gmail.com>
+
+R help.start() opens a web browser as expected, but the ?Manual? html links
+are dead (although the ?Reference? and ?Miscellaneous Materials? html links
+do work).  I get a similar problem from within RStudio.
+
+
+I?d like to get pointy-clicky html manuals working, to help migrate users
+from SAS to R.
+
+
+I do see R manuals on this system from the EPEL R rpm's in info and pdf
+form, for example at /usr/share/info/R-intro.gz and
+/usr/share/doc/R-3.2.3/manual/R-intro-pdf
+
+
+I?m running R-3.2.3, installed from EPEL rpm?s on RHEL6.7.
+
+	[[alternative HTML version deleted]]
+
+
+From tcallawa at redhat.com  Tue Jan 26 22:43:17 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 26 Jan 2016 16:43:17 -0500
+Subject: [R-sig-Fedora] html manual files nonfunctional
+In-Reply-To: <CAPw=umFtT-JCak=OxOqm+MfqHuF4Y8sDXTQCtixGwYOJbzsgGg@mail.gmail.com>
+References: <CAPw=umFtT-JCak=OxOqm+MfqHuF4Y8sDXTQCtixGwYOJbzsgGg@mail.gmail.com>
+Message-ID: <56A7E875.4030104@redhat.com>
+
+On 01/21/2016 10:38 AM, joe cypherpunk wrote:
+> R help.start() opens a web browser as expected, but the ?Manual? html links
+> are dead (although the ?Reference? and ?Miscellaneous Materials? html links
+> do work).  I get a similar problem from within RStudio.
+> 
+> 
+> I?d like to get pointy-clicky html manuals working, to help migrate users
+> from SAS to R.
+> 
+> 
+> I do see R manuals on this system from the EPEL R rpm's in info and pdf
+> form, for example at /usr/share/info/R-intro.gz and
+> /usr/share/doc/R-3.2.3/manual/R-intro-pdf
+> 
+> 
+> I?m running R-3.2.3, installed from EPEL rpm?s on RHEL6.7.
+
+I see this. This is a consequence of R requiring texinfo 5.1 or newer
+and RHEL6 having texinfo 4.1. I'll bundle in pre-built manuals for those
+cases (RHEL 5 and 6 only).
+
+~tom
+
+==
+Red Hat
+
+
+From tcallawa at redhat.com  Wed Jan 27 15:32:32 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 27 Jan 2016 09:32:32 -0500
+Subject: [R-sig-Fedora] html manual files nonfunctional
+In-Reply-To: <56A7E875.4030104@redhat.com>
+References: <CAPw=umFtT-JCak=OxOqm+MfqHuF4Y8sDXTQCtixGwYOJbzsgGg@mail.gmail.com>
+	<56A7E875.4030104@redhat.com>
+Message-ID: <56A8D500.8070605@redhat.com>
+
+On 01/26/2016 04:43 PM, Tom Callaway wrote:
+> On 01/21/2016 10:38 AM, joe cypherpunk wrote:
+>> R help.start() opens a web browser as expected, but the ?Manual? html links
+>> are dead (although the ?Reference? and ?Miscellaneous Materials? html links
+>> do work).  I get a similar problem from within RStudio.
+>>
+>>
+>> I?d like to get pointy-clicky html manuals working, to help migrate users
+>> from SAS to R.
+>>
+>>
+>> I do see R manuals on this system from the EPEL R rpm's in info and pdf
+>> form, for example at /usr/share/info/R-intro.gz and
+>> /usr/share/doc/R-3.2.3/manual/R-intro-pdf
+>>
+>>
+>> I?m running R-3.2.3, installed from EPEL rpm?s on RHEL6.7.
+> 
+> I see this. This is a consequence of R requiring texinfo 5.1 or newer
+> and RHEL6 having texinfo 4.1. I'll bundle in pre-built manuals for those
+> cases (RHEL 5 and 6 only).
+
+Please test:
+
+https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-e623c6ffdd
+
+~tom
+
+==
+Red Hat
+
+
+From jcyph3r at gmail.com  Wed Jan 27 17:34:17 2016
+From: jcyph3r at gmail.com (joe cypherpunk)
+Date: Wed, 27 Jan 2016 11:34:17 -0500
+Subject: [R-sig-Fedora] html manual files nonfunctional
+In-Reply-To: <56A8D500.8070605@redhat.com>
+References: <CAPw=umFtT-JCak=OxOqm+MfqHuF4Y8sDXTQCtixGwYOJbzsgGg@mail.gmail.com>
+	<56A7E875.4030104@redhat.com> <56A8D500.8070605@redhat.com>
+Message-ID: <CAPw=umEjzgVjwuM+LThUq3JK7aM9eUx39Ax7D8GBE2KUtUQ_Eg@mail.gmail.com>
+
+HTML manuals are working fine with your updated version.  That seems to
+have fixed it.  Thanks for the quick work!
+
+
+
+On Wed, Jan 27, 2016 at 9:32 AM, Tom Callaway <tcallawa at redhat.com> wrote:
+
+> On 01/26/2016 04:43 PM, Tom Callaway wrote:
+> > On 01/21/2016 10:38 AM, joe cypherpunk wrote:
+> >> R help.start() opens a web browser as expected, but the ?Manual? html
+> links
+> >> are dead (although the ?Reference? and ?Miscellaneous Materials? html
+> links
+> >> do work).  I get a similar problem from within RStudio.
+> >>
+> >>
+> >> I?d like to get pointy-clicky html manuals working, to help migrate
+> users
+> >> from SAS to R.
+> >>
+> >>
+> >> I do see R manuals on this system from the EPEL R rpm's in info and pdf
+> >> form, for example at /usr/share/info/R-intro.gz and
+> >> /usr/share/doc/R-3.2.3/manual/R-intro-pdf
+> >>
+> >>
+> >> I?m running R-3.2.3, installed from EPEL rpm?s on RHEL6.7.
+> >
+> > I see this. This is a consequence of R requiring texinfo 5.1 or newer
+> > and RHEL6 having texinfo 4.1. I'll bundle in pre-built manuals for those
+> > cases (RHEL 5 and 6 only).
+>
+> Please test:
+>
+> https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-e623c6ffdd
+>
+> ~tom
+>
+> ==
+> Red Hat
+>
+
+	[[alternative HTML version deleted]]
+
+
+From longplay at iastate.edu  Wed Jan 27 19:12:48 2016
+From: longplay at iastate.edu (Patrick, Larry B [CSSM])
+Date: Wed, 27 Jan 2016 18:12:48 +0000
+Subject: [R-sig-Fedora] rstan warning messages
+Message-ID: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+
+RHEL 6 installed
+R version 3.2.3 from EPEL installed
+
+Start R and use the following command, but got warnings!
+
+install.packages("rstan", dependencies = TRUE, repos = "http://cran.r-project.org/")
+...
+g++ -m64 -shared -L/usr/lib64/R/lib -L/usr/local/lib64 -o RcppEigen.so RcppEigen.o RcppExports.o fastLm.o -L/usr/lib64/R/lib -lRlapack -L/usr/lib64/R/lib -lRblas -lgfortran -lm -L/usr/lib64/R/lib -lR
+/usr/bin/ld: cannot find -lgfortran
+collect2: error: ld returned 1 exit status
+make: *** [RcppEigen.so] Error 1
+ERROR: compilation failed for package 'RcppEigen'
+* removing '/usr/lib64/R/library/RcppEigen'
+...
+** package 'RCurl' successfully unpacked and MD5 sums checked
+checking for curl-config... no
+Cannot find curl-config
+ERROR: configuration failed for package 'RCurl'
+* removing '/usr/lib64/R/library/RCurl'
+...
+ERROR: dependency 'RcppEigen' is not available for package 'rstan'
+* removing '/usr/lib64/R/library/rstan'
+...
+1: In install.packages("rstan", dependencies = TRUE, repos = "http://cran.r-project.org/") :
+  installation of package 'RcppEigen' had non-zero exit status
+2: In install.packages("rstan", dependencies = TRUE, repos = "http://cran.r-project.org/") :
+  installation of package 'RCurl' had non-zero exit status
+3: In install.packages("rstan", dependencies = TRUE, repos = "http://cran.r-project.org/") :
+  installation of package 'rstan' had non-zero exit status
+
+Like to find a fix for items 1 and 2 as that should fix 3 :)
+
+Where should I begin?
+
+Thanks,
+Larry Patrick
+
+
+	[[alternative HTML version deleted]]
+
+
+From tcallawa at redhat.com  Wed Jan 27 19:32:05 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 27 Jan 2016 13:32:05 -0500
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+Message-ID: <56A90D25.9060002@redhat.com>
+
+On 01/27/2016 01:12 PM, Patrick, Larry B [CSSM] wrote:
+> RHEL 6 installed
+> R version 3.2.3 from EPEL installed
+> 
+> Start R and use the following command, but got warnings!
+> 
+> install.packages("rstan", dependencies = TRUE, repos = "http://cran.r-project.org/")
+> ...
+> g++ -m64 -shared -L/usr/lib64/R/lib -L/usr/local/lib64 -o RcppEigen.so RcppEigen.o RcppExports.o fastLm.o -L/usr/lib64/R/lib -lRlapack -L/usr/lib64/R/lib -lRblas -lgfortran -lm -L/usr/lib64/R/lib -lR
+> /usr/bin/ld: cannot find -lgfortran
+> collect2: error: ld returned 1 exit status
+
+Install the gcc-gfortran package.
+
+> checking for curl-config... no
+> Cannot find curl-config
+
+Install the curl-devel package (it might also be called libcurl-devel).
+
+hth,
+
+~tom
+
+==
+Red Hat
+
+
+From longplay at iastate.edu  Wed Jan 27 19:55:49 2016
+From: longplay at iastate.edu (Patrick, Larry B [CSSM])
+Date: Wed, 27 Jan 2016 18:55:49 +0000
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <56A90D25.9060002@redhat.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+Message-ID: <SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+
+Confirmed that gcc-gfortran is installed
+     Package gcc-gfortran-4.4.7-16.el6.x86_64 already installed and latest version
+What could I check next?
+
+I do not have the following installed and will get that done and tested again.
+     libcurl-devel
+     libidn-devel
+
+Thanks,
+Larry
+
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: Wednesday, January 27, 2016 12:32 PM
+To: Patrick, Larry B [CSSM] <longplay at iastate.edu>; 'r-sig-fedora at r-project.org' <r-sig-fedora at r-project.org>
+Subject: Re: [R-sig-Fedora] rstan warning messages
+
+On 01/27/2016 01:12 PM, Patrick, Larry B [CSSM] wrote:
+> RHEL 6 installed
+> R version 3.2.3 from EPEL installed
+> 
+> Start R and use the following command, but got warnings!
+> 
+> install.packages("rstan", dependencies = TRUE, repos = 
+> "http://cran.r-project.org/") ...
+> g++ -m64 -shared -L/usr/lib64/R/lib -L/usr/local/lib64 -o RcppEigen.so 
+> g++ RcppEigen.o RcppExports.o fastLm.o -L/usr/lib64/R/lib -lRlapack 
+> g++ -L/usr/lib64/R/lib -lRblas -lgfortran -lm -L/usr/lib64/R/lib -lR
+> /usr/bin/ld: cannot find -lgfortran
+> collect2: error: ld returned 1 exit status
+
+Install the gcc-gfortran package.
+
+> checking for curl-config... no
+> Cannot find curl-config
+
+Install the curl-devel package (it might also be called libcurl-devel).
+
+hth,
+
+~tom
+
+==
+Red Hat
+
+
+From tcallawa at redhat.com  Wed Jan 27 20:01:46 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 27 Jan 2016 14:01:46 -0500
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+	<SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+Message-ID: <56A9141A.1090708@redhat.com>
+
+On 01/27/2016 01:55 PM, Patrick, Larry B [CSSM] wrote:
+> Confirmed that gcc-gfortran is installed
+>      Package gcc-gfortran-4.4.7-16.el6.x86_64 already installed and latest version
+> What could I check next?
+
+Hm. Do you have libgfortran installed?
+
+~tom
+
+==
+Red Hat
+
+
+From longplay at iastate.edu  Thu Jan 28 15:07:31 2016
+From: longplay at iastate.edu (Patrick, Larry B [CSSM])
+Date: Thu, 28 Jan 2016 14:07:31 +0000
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <56A9141A.1090708@redhat.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+	<SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A9141A.1090708@redhat.com>
+Message-ID: <SN1PR0401MB17744300C37C0F3E7EFC120CD1DA0@SN1PR0401MB1774.namprd04.prod.outlook.com>
+
+Looks to have libgfortran installed.
+     yum list installed | grep libgfortran
+     libgfortran.x86_64                4.4.7-16.el6             @rhel-x86_64-server-6
+What else could I check?
+
+Installed libcurl-devel and libidn-devel.
+     yum list installed | grep libcurl
+     libcurl.x86_64                    7.19.7-46.el6            @rhel-x86_64-server-6
+     libcurl-devel.x86_64              7.19.7-46.el6            @rhel-x86_64-server-6
+Still getting warning for RCurl.
+     2: In install.packages("rstan", dependencies = TRUE, repos = "http://cran.r-project.org/") :  installation of package 'RCurl' had non-zero exit status
+Now this log is way different and I have tried to pick through the warning and error messages.
+Any thoughts here?
+
+     * installing *source* package 'RCurl' ...
+     ...
+     to the PKG_CONFIG_PATH environment variable
+     No package 'libcurl' found
+     Version has CURLOPT_URL
+     ...
+     Version has CURLOPT_SSL_SESSIONID_CACHE
+     Package libcurl was not found in the pkg-config search path.
+     Perhaps you should add the directory containing `libcurl.pc'
+     to the PKG_CONFIG_PATH environment variable
+     No package 'libcurl' found
+     libcurl version: libcurl 7.19.7
+     configure: creating ./config.status
+     ...
+     gcc -m64 -std=gnu99 -I/usr/include/R -DNDEBUG  -DHAVE_LIBIDN_FIELD=1 -DHAVE_CURLOPT_URL=1 -DHAVE_CURLINFO_EFFECTIVE_URL=1 -DHAVE_CURLINFO_RESPONSE_CODE=1 -DHAVE_CURLINFO_TOTAL_TIME=1 -DHAVE_CURLINFO_NAMELOOKUP_TIME=1 -DHAVE_CURLINFO_CONNECT_TIME=1 -DHAVE_CURLINFO_PRETRANSFER_TIME=1 -DHAVE_CURLINFO_SIZE_UPLOAD=1 -DHAVE_CURLINFO_SIZE_DOWNLOAD=1 -DHAVE_CURLINFO_SPEED_DOWNLOAD=1 -DHAVE_CURLINFO_SPEED_UPLOAD=1 -DHAVE_CURLINFO_HEADER_SIZE=1 -DHAVE_CURLINFO_REQUEST_SIZE=1 -DHAVE_CURLINFO_SSL_VERIFYRESULT=1 -DHAVE_CURLINFO_FILETIME=1 -DHAVE_CURLINFO_CONTENT_LENGTH_DOWNLOAD=1 -DHAVE_CURLINFO_CONTENT_LENGTH_UPLOAD=1 -DHAVE_CURLINFO_STARTTRANSFER_TIME=1 -DHAVE_CURLINFO_CONTENT_TYPE=1 -DHAVE_CURLINFO_REDIRECT_TIME=1 -DHAVE_CURLINFO_REDIRECT_COUNT=1 -DHAVE_CURLINFO_PRIVATE=1 -DHAVE_CURLINFO_HTTP_CONNECTCODE=1 -DHAVE_CURLINFO_HTTPAUTH_AVAIL=1 -DHAVE_CURLINFO_PROXYAUTH_AVAIL=1 -DHAVE_CURLINFO_OS_ERRNO=1 -DHAVE_CURLINFO_NUM_CONNECTS=1 -DHAVE_CURLINFO_SSL_ENGINES=1 -DHAVE_CURLINFO_COOKIELIST=1 -DHAVE_CURLINFO_LASTSOCKET=1 -DHAVE_CURLINFO_FTP_ENTRY_PATH=1 -DHAVE_CURLINFO_REDIRECT_URL=1 -DHAVE_CURLINFO_PRIMARY_IP=1 -DHAVE_CURLINFO_APPCONNECT_TIME=1 -DHAVE_CURLINFO_CERTINFO=1 -DHAVE_CURLINFO_CONDITION_UNMET=1 -DHAVE_CURLOPT_WRITEDATA=1 -DHAVE_CURLOPT_KEYPASSWD=1 -DHAVE_CURLOPT_DIRLISTONLY=1 -DHAVE_CURLOPT_APPEND=1 -DHAVE_CURLOPT_KRBLEVEL=1 -DHAVE_CURLOPT_USE_SSL=1 -DHAVE_CURLOPT_TIMEOUT_MS=1 -DHAVE_CURLOPT_CONNECTTIMEOUT_MS=1 -DHAVE_CURLOPT_HTTP_TRANSFER_DECODING=1 -DHAVE_CURLOPT_HTTP_CONTENT_DECODING=1 -DHAVE_CURLOPT_NEW_FILE_PERMS=1 -DHAVE_CURLOPT_NEW_DIRECTORY_PERMS=1 -DHAVE_CURLOPT_POSTREDIR=1 -DHAVE_CURLOPT_OPENSOCKETFUNCTION=1 -DHAVE_CURLOPT_OPENSOCKETDATA=1 -DHAVE_CURLOPT_COPYPOSTFIELDS=1 -DHAVE_CURLOPT_PROXY_TRANSFER_MODE=1 -DHAVE_CURLOPT_SEEKFUNCTION=1 -DHAVE_CURLOPT_SEEKDATA=1 -DHAVE_CURLOPT_CRLFILE=1 -DHAVE_CURLOPT_ISSUERCERT=1 -DHAVE_CURLOPT_ADDRESS_SCOPE=1 -DHAVE_CURLOPT_CERTINFO=1 -DHAVE_CURLOPT_USERNAME=1 -DHAVE_CURLOPT_PASSWORD=1 -DHAVE_CURLOPT_PROXYUSERNAME=1 -DHAVE_CURLOPT_PROXYPASSWORD=1 -DHAVE_CURLOPT_SSH_HOST_PUBLIC_KEY_MD5=1 -DHAVE_CURLOPT_NOPROXY=1 -DHAVE_CURLOPT_TFTP_BLKSIZE=1 -DHAVE_CURLOPT_SOCKS5_GSSAPI_SERVICE=1 -DHAVE_CURLOPT_SOCKS5_GSSAPI_NEC=1 -DHAVE_CURLOPT_PROTOCOLS=1 -DHAVE_CURLOPT_REDIR_PROTOCOLS=1 -DHAVE_CURLOPT_SSH_AUTH_TYPES=1 -DHAVE_CURLOPT_SSH_PUBLIC_KEYFILE=1 -DHAVE_CURLOPT_SSH_PRIVATE_KEYFILE=1 -DHAVE_CURLOPT_FTP_SSL_CCC=1 -DHAVE_CURLOPT_COOKIELIST=1 -DHAVE_CURLOPT_IGNORE_CONTENT_LENGTH=1 -DHAVE_CURLOPT_FTP_SKIP_PASV_IP=1 -DHAVE_CURLOPT_FTP_FILEMETHOD=1 -DHAVE_CURLOPT_LOCALPORT=1 -DHAVE_CURLOPT_LOCALPORTRANGE=1 -DHAVE_CURLOPT_CONNECT_ONLY=1 -DHAVE_CURLOPT_CONV_FROM_NETWORK_FUNCTION=1 -DHAVE_CURLOPT_CONV_TO_NETWORK_FUNCTION=1 -DHAVE_CURLOPT_CONV_FROM_UTF8_FUNCTION=1 -DHAVE_CURLOPT_MAX_SEND_SPEED_LARGE=1 -DHAVE_CURLOPT_MAX_RECV_SPEED_LARGE=1 -DHAVE_CURLOPT_FTP_ALTERNATIVE_TO_USER=1 -DHAVE_CURLOPT_SOCKOPTFUNCTION=1 -DHAVE_CURLOPT_SOCKOPTDATA=1 -DHAVE_CURLOPT_SSL_SESSIONID_CACHE=1 -I/usr/include/libxml2 -I/usr/local/include    -fpic  -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic  -c base64.c -o base64.o
+     base64.c: In function 'R_base64_decode':
+     base64.c:23:10: warning: assignment discards 'const' qualifier from pointer target type [enabled by default]
+          text = CHAR(STRING_ELT(r_text, 0));
+               ^
+     base64.c:44:5: warning: pointer targets in passing argument 1 of 'Rf_mkString' differ in signedness [-Wpointer-sign]
+          r_ans = mkString(ans);
+          ^
+     In file included from /usr/include/R/Rdefines.h:29:0,
+                      from Rcurl.h:6,
+                      from base64.c:1:
+     /usr/include/R/Rinternals.h:1321:7: note: expected 'const char *' but argument is of type 'unsigned char *'
+      SEXP  Rf_mkString(const char *);
+            ^
+     base64.c: In function 'R_base64_encode':
+     base64.c:65:10: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+          text = RAW(r_text);
+               ^
+     gcc -m64 -std=gnu99 -I/usr/include/R -DNDEBUG  -DHAVE_LIBIDN_FIELD=1 -DHAVE_CURLOPT_URL=1 -DHAVE_CURLINFO_EFFECTIVE_URL=1 -DHAVE_CURLINFO_RESPONSE_CODE=1 -DHAVE_CURLINFO_TOTAL_TIME=1 -DHAVE_CURLINFO_NAMELOOKUP_TIME=1 -DHAVE_CURLINFO_CONNECT_TIME=1 -DHAVE_CURLINFO_PRETRANSFER_TIME=1 -DHAVE_CURLINFO_SIZE_UPLOAD=1 -DHAVE_CURLINFO_SIZE_DOWNLOAD=1 -DHAVE_CURLINFO_SPEED_DOWNLOAD=1 -DHAVE_CURLINFO_SPEED_UPLOAD=1 -DHAVE_CURLINFO_HEADER_SIZE=1 -DHAVE_CURLINFO_REQUEST_SIZE=1 -DHAVE_CURLINFO_SSL_VERIFYRESULT=1 -DHAVE_CURLINFO_FILETIME=1 -DHAVE_CURLINFO_CONTENT_LENGTH_DOWNLOAD=1 -DHAVE_CURLINFO_CONTENT_LENGTH_UPLOAD=1 -DHAVE_CURLINFO_STARTTRANSFER_TIME=1 -DHAVE_CURLINFO_CONTENT_TYPE=1 -DHAVE_CURLINFO_REDIRECT_TIME=1 -DHAVE_CURLINFO_REDIRECT_COUNT=1 -DHAVE_CURLINFO_PRIVATE=1 -DHAVE_CURLINFO_HTTP_CONNECTCODE=1 -DHAVE_CURLINFO_HTTPAUTH_AVAIL=1 -DHAVE_CURLINFO_PROXYAUTH_AVAIL=1 -DHAVE_CURLINFO_OS_ERRNO=1 -DHAVE_CURLINFO_NUM_CONNECTS=1 -DHAVE_CURLINFO_SSL_ENGINES=1 -DHAVE_CURLINFO_COOKIELIST=1 -DHAVE_CURLINFO_LASTSOCKET=1 -DHAVE_CURLINFO_FTP_ENTRY_PATH=1 -DHAVE_CURLINFO_REDIRECT_URL=1 -DHAVE_CURLINFO_PRIMARY_IP=1 -DHAVE_CURLINFO_APPCONNECT_TIME=1 -DHAVE_CURLINFO_CERTINFO=1 -DHAVE_CURLINFO_CONDITION_UNMET=1 -DHAVE_CURLOPT_WRITEDATA=1 -DHAVE_CURLOPT_KEYPASSWD=1 -DHAVE_CURLOPT_DIRLISTONLY=1 -DHAVE_CURLOPT_APPEND=1 -DHAVE_CURLOPT_KRBLEVEL=1 -DHAVE_CURLOPT_USE_SSL=1 -DHAVE_CURLOPT_TIMEOUT_MS=1 -DHAVE_CURLOPT_CONNECTTIMEOUT_MS=1 -DHAVE_CURLOPT_HTTP_TRANSFER_DECODING=1 -DHAVE_CURLOPT_HTTP_CONTENT_DECODING=1 -DHAVE_CURLOPT_NEW_FILE_PERMS=1 -DHAVE_CURLOPT_NEW_DIRECTORY_PERMS=1 -DHAVE_CURLOPT_POSTREDIR=1 -DHAVE_CURLOPT_OPENSOCKETFUNCTION=1 -DHAVE_CURLOPT_OPENSOCKETDATA=1 -DHAVE_CURLOPT_COPYPOSTFIELDS=1 -DHAVE_CURLOPT_PROXY_TRANSFER_MODE=1 -DHAVE_CURLOPT_SEEKFUNCTION=1 -DHAVE_CURLOPT_SEEKDATA=1 -DHAVE_CURLOPT_CRLFILE=1 -DHAVE_CURLOPT_ISSUERCERT=1 -DHAVE_CURLOPT_ADDRESS_SCOPE=1 -DHAVE_CURLOPT_CERTINFO=1 -DHAVE_CURLOPT_USERNAME=1 -DHAVE_CURLOPT_PASSWORD=1 -DHAVE_CURLOPT_PROXYUSERNAME=1 -DHAVE_CURLOPT_PROXYPASSWORD=1 -DHAVE_CURLOPT_SSH_HOST_PUBLIC_KEY_MD5=1 -DHAVE_CURLOPT_NOPROXY=1 -DHAVE_CURLOPT_TFTP_BLKSIZE=1 -DHAVE_CURLOPT_SOCKS5_GSSAPI_SERVICE=1 -DHAVE_CURLOPT_SOCKS5_GSSAPI_NEC=1 -DHAVE_CURLOPT_PROTOCOLS=1 -DHAVE_CURLOPT_REDIR_PROTOCOLS=1 -DHAVE_CURLOPT_SSH_AUTH_TYPES=1 -DHAVE_CURLOPT_SSH_PUBLIC_KEYFILE=1 -DHAVE_CURLOPT_SSH_PRIVATE_KEYFILE=1 -DHAVE_CURLOPT_FTP_SSL_CCC=1 -DHAVE_CURLOPT_COOKIELIST=1 -DHAVE_CURLOPT_IGNORE_CONTENT_LENGTH=1 -DHAVE_CURLOPT_FTP_SKIP_PASV_IP=1 -DHAVE_CURLOPT_FTP_FILEMETHOD=1 -DHAVE_CURLOPT_LOCALPORT=1 -DHAVE_CURLOPT_LOCALPORTRANGE=1 -DHAVE_CURLOPT_CONNECT_ONLY=1 -DHAVE_CURLOPT_CONV_FROM_NETWORK_FUNCTION=1 -DHAVE_CURLOPT_CONV_TO_NETWORK_FUNCTION=1 -DHAVE_CURLOPT_CONV_FROM_UTF8_FUNCTION=1 -DHAVE_CURLOPT_MAX_SEND_SPEED_LARGE=1 -DHAVE_CURLOPT_MAX_RECV_SPEED_LARGE=1 -DHAVE_CURLOPT_FTP_ALTERNATIVE_TO_USER=1 -DHAVE_CURLOPT_SOCKOPTFUNCTION=1 -DHAVE_CURLOPT_SOCKOPTDATA=1 -DHAVE_CURLOPT_SSL_SESSIONID_CACHE=1 -I/usr/include/libxml2 -I/usr/local/include    -fpic  -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic  -c curl.c -o curl.o
+     curl.c: In function 'R_curl_easy_setopt':
+     curl.c:222:13: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+         buf->buf = RAW(el);
+                  ^
+     ...
+     gcc -m64 -std=gnu99 -I/usr/include/R -DNDEBUG  -DHAVE_LIBIDN_FIELD=1 -DHAVE_CURLOPT_URL=1 -DHAVE_CURLINFO_EFFECTIVE_URL=1 -DHAVE_CURLINFO_RESPONSE_CODE=1 -DHAVE_CURLINFO_TOTAL_TIME=1 -DHAVE_CURLINFO_NAMELOOKUP_TIME=1 -DHAVE_CURLINFO_CONNECT_TIME=1 -DHAVE_CURLINFO_PRETRANSFER_TIME=1 -DHAVE_CURLINFO_SIZE_UPLOAD=1 -DHAVE_CURLINFO_SIZE_DOWNLOAD=1 -DHAVE_CURLINFO_SPEED_DOWNLOAD=1 -DHAVE_CURLINFO_SPEED_UPLOAD=1 -DHAVE_CURLINFO_HEADER_SIZE=1 -DHAVE_CURLINFO_REQUEST_SIZE=1 -DHAVE_CURLINFO_SSL_VERIFYRESULT=1 -DHAVE_CURLINFO_FILETIME=1 -DHAVE_CURLINFO_CONTENT_LENGTH_DOWNLOAD=1 -DHAVE_CURLINFO_CONTENT_LENGTH_UPLOAD=1 -DHAVE_CURLINFO_STARTTRANSFER_TIME=1 -DHAVE_CURLINFO_CONTENT_TYPE=1 -DHAVE_CURLINFO_REDIRECT_TIME=1 -DHAVE_CURLINFO_REDIRECT_COUNT=1 -DHAVE_CURLINFO_PRIVATE=1 -DHAVE_CURLINFO_HTTP_CONNECTCODE=1 -DHAVE_CURLINFO_HTTPAUTH_AVAIL=1 -DHAVE_CURLINFO_PROXYAUTH_AVAIL=1 -DHAVE_CURLINFO_OS_ERRNO=1 -DHAVE_CURLINFO_NUM_CONNECTS=1 -DHAVE_CURLINFO_SSL_ENGINES=1 -DHAVE_CURLINFO_COOKIELIST=1 -DHAVE_CURLINFO_LASTSOCKET=1 -DHAVE_CURLINFO_FTP_ENTRY_PATH=1 -DHAVE_CURLINFO_REDIRECT_URL=1 -DHAVE_CURLINFO_PRIMARY_IP=1 -DHAVE_CURLINFO_APPCONNECT_TIME=1 -DHAVE_CURLINFO_CERTINFO=1 -DHAVE_CURLINFO_CONDITION_UNMET=1 -DHAVE_CURLOPT_WRITEDATA=1 -DHAVE_CURLOPT_KEYPASSWD=1 -DHAVE_CURLOPT_DIRLISTONLY=1 -DHAVE_CURLOPT_APPEND=1 -DHAVE_CURLOPT_KRBLEVEL=1 -DHAVE_CURLOPT_USE_SSL=1 -DHAVE_CURLOPT_TIMEOUT_MS=1 -DHAVE_CURLOPT_CONNECTTIMEOUT_MS=1 -DHAVE_CURLOPT_HTTP_TRANSFER_DECODING=1 -DHAVE_CURLOPT_HTTP_CONTENT_DECODING=1 -DHAVE_CURLOPT_NEW_FILE_PERMS=1 -DHAVE_CURLOPT_NEW_DIRECTORY_PERMS=1 -DHAVE_CURLOPT_POSTREDIR=1 -DHAVE_CURLOPT_OPENSOCKETFUNCTION=1 -DHAVE_CURLOPT_OPENSOCKETDATA=1 -DHAVE_CURLOPT_COPYPOSTFIELDS=1 -DHAVE_CURLOPT_PROXY_TRANSFER_MODE=1 -DHAVE_CURLOPT_SEEKFUNCTION=1 -DHAVE_CURLOPT_SEEKDATA=1 -DHAVE_CURLOPT_CRLFILE=1 -DHAVE_CURLOPT_ISSUERCERT=1 -DHAVE_CURLOPT_ADDRESS_SCOPE=1 -DHAVE_CURLOPT_CERTINFO=1 -DHAVE_CURLOPT_USERNAME=1 -DHAVE_CURLOPT_PASSWORD=1 -DHAVE_CURLOPT_PROXYUSERNAME=1 -DHAVE_CURLOPT_PROXYPASSWORD=1 -DHAVE_CURLOPT_SSH_HOST_PUBLIC_KEY_MD5=1 -DHAVE_CURLOPT_NOPROXY=1 -DHAVE_CURLOPT_TFTP_BLKSIZE=1 -DHAVE_CURLOPT_SOCKS5_GSSAPI_SERVICE=1 -DHAVE_CURLOPT_SOCKS5_GSSAPI_NEC=1 -DHAVE_CURLOPT_PROTOCOLS=1 -DHAVE_CURLOPT_REDIR_PROTOCOLS=1 -DHAVE_CURLOPT_SSH_AUTH_TYPES=1 -DHAVE_CURLOPT_SSH_PUBLIC_KEYFILE=1 -DHAVE_CURLOPT_SSH_PRIVATE_KEYFILE=1 -DHAVE_CURLOPT_FTP_SSL_CCC=1 -DHAVE_CURLOPT_COOKIELIST=1 -DHAVE_CURLOPT_IGNORE_CONTENT_LENGTH=1 -DHAVE_CURLOPT_FTP_SKIP_PASV_IP=1 -DHAVE_CURLOPT_FTP_FILEMETHOD=1 -DHAVE_CURLOPT_LOCALPORT=1 -DHAVE_CURLOPT_LOCALPORTRANGE=1 -DHAVE_CURLOPT_CONNECT_ONLY=1 -DHAVE_CURLOPT_CONV_FROM_NETWORK_FUNCTION=1 -DHAVE_CURLOPT_CONV_TO_NETWORK_FUNCTION=1 -DHAVE_CURLOPT_CONV_FROM_UTF8_FUNCTION=1 -DHAVE_CURLOPT_MAX_SEND_SPEED_LARGE=1 -DHAVE_CURLOPT_MAX_RECV_SPEED_LARGE=1 -DHAVE_CURLOPT_FTP_ALTERNATIVE_TO_USER=1 -DHAVE_CURLOPT_SOCKOPTFUNCTION=1 -DHAVE_CURLOPT_SOCKOPTDATA=1 -DHAVE_CURLOPT_SSL_SESSIONID_CACHE=1 -I/usr/include/libxml2 -I/usr/local/include    -fpic  -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic  -c myUTF8.c -o myUTF8.o
+     myUTF8.c: In function 'StringValue':
+     myUTF8.c:284:5: warning: passing argument 1 of 'Rf_mkCharLenCE' from incompatible pointer type [enabled by default]
+          yylval = mkCharLenCE(wcs, wcnt, CE_UTF8); /* include terminator */
+          ^
+     In file included from /usr/include/R/Rdefines.h:29:0,
+                      from myUTF8.c:3:
+     /usr/include/R/Rinternals.h:890:6: note: expected 'const char *' but argument is of type 'ucs_t *'
+      SEXP Rf_mkCharLenCE(const char *, int, cetype_t);
+           ^
+     myUTF8.c:112:34: warning: variable 'use_wcs' set but not used [-Wunused-but-set-variable]
+          Rboolean oct_or_hex = FALSE, use_wcs = FALSE;
+                                       ^
+     myUTF8.c:112:14: warning: variable 'oct_or_hex' set but not used [-Wunused-but-set-variable]
+          Rboolean oct_or_hex = FALSE, use_wcs = FALSE;
+                   ^
+     myUTF8.c:101:14: warning: unused variable 'mbcslocale' [-Wunused-variable]
+          Rboolean mbcslocale = TRUE;
+                   ^
+     *** installing help indices
+       converting help for package 'RCurl'
+         finding HTML links ... done
+     ...
+        binaryBuffer                            html
+     Rd warning: /tmp/RtmpaLgRR9/R.INSTALL33a830da853e/RCurl/man/binaryBuffer.Rd:15: missing file link 'writeBin'
+         chunkToLineReader                       html
+...
+         getCurlErrorClassNames                  html
+     Rd warning: /tmp/RtmpaLgRR9/R.INSTALL33a830da853e/RCurl/man/getCurlErrorClassNames.Rd:25: missing file link 'tryCatch'
+         getCurlHandle                           html
+...
+         url.exists                              html
+     Rd warning: /tmp/RtmpaLgRR9/R.INSTALL33a830da853e/RCurl/man/url.exists.Rd:5: missing file link 'file.exists'
+     ** building package indices
+     ...
+     Error in dyn.load(file, DLLpath = DLLpath, ...) :
+       unable to load shared object '/usr/lib64/R/library/RCurl/libs/RCurl.so':
+       /usr/lib64/R/library/RCurl/libs/RCurl.so: undefined symbol: curl_multi_remove_handle
+     Error: loading failed
+     Execution halted
+     ERROR: loading failed
+     * removing '/usr/lib64/R/library/RCurl'
+
+Thanks,
+Larry
+
+
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: Wednesday, January 27, 2016 1:02 PM
+To: Patrick, Larry B [CSSM] <longplay at iastate.edu>; 'r-sig-fedora at r-project.org' <r-sig-fedora at r-project.org>
+Subject: Re: [R-sig-Fedora] rstan warning messages
+
+On 01/27/2016 01:55 PM, Patrick, Larry B [CSSM] wrote:
+> Confirmed that gcc-gfortran is installed
+>      Package gcc-gfortran-4.4.7-16.el6.x86_64 already installed and 
+> latest version What could I check next?
+
+Hm. Do you have libgfortran installed?
+
+~tom
+
+==
+Red Hat
+
+
+From tcallawa at redhat.com  Fri Jan 29 21:45:46 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 29 Jan 2016 15:45:46 -0500
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <SN1PR0401MB17744300C37C0F3E7EFC120CD1DA0@SN1PR0401MB1774.namprd04.prod.outlook.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+	<SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A9141A.1090708@redhat.com>
+	<SN1PR0401MB17744300C37C0F3E7EFC120CD1DA0@SN1PR0401MB1774.namprd04.prod.outlook.com>
+Message-ID: <56ABCF7A.50808@redhat.com>
+
+On 01/28/2016 09:07 AM, Patrick, Larry B [CSSM] wrote:
+> Looks to have libgfortran installed.
+>      yum list installed | grep libgfortran
+>      libgfortran.x86_64                4.4.7-16.el6             @rhel-x86_64-server-6
+> What else could I check?
+> 
+> Installed libcurl-devel and libidn-devel.
+>      yum list installed | grep libcurl
+>      libcurl.x86_64                    7.19.7-46.el6            @rhel-x86_64-server-6
+>      libcurl-devel.x86_64              7.19.7-46.el6            @rhel-x86_64-server-6
+> Still getting warning for RCurl.
+>      2: In install.packages("rstan", dependencies = TRUE, repos = "http://cran.r-project.org/") :  installation of package 'RCurl' had non-zero exit status
+> Now this log is way different and I have tried to pick through the warning and error messages.
+> Any thoughts here?
+
+RHEL-6 is getting long in the tooth, at almost six years old. It's quite
+possible that these R modules are checking for modern dependencies and
+not finding them.
+
+That said, something strange is definitely happening here. You're
+getting this error message:
+
+   No package 'libcurl' found
+
+That normally means that it could not find the pkgconfig file for
+'libcurl', but I've pulled down the libcurl-devel package that you
+installed and it definitely has:
+
+   /usr/lib64/pkgconfig/libcurl.pc
+
+I think the only way I'm going to be able to troubleshoot this is to
+bring up a RHEL 6 VM and try it myself.
+
+~tom
+
+==
+Red Hat
+
+

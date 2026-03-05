@@ -1,0 +1,552 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2016-06",
+  "messages": [
+    {
+      "id": "msg-67c81a64cdeb",
+      "message_id": "<80ffd9c2-7c38-d996-2b91-91bd3e1ab641@gmail.com>",
+      "from_name": "Evan Cooch",
+      "from_email_hash": "64626d184b0b1882b9b5a5a55e68643e7582304bda8a7591046f0c72fc6d5a56",
+      "date": "2016-06-04T12:10:16-04:00",
+      "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
+      "subject_clean": "problems compiling packages | 3.3.0 | Linux",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Updated my R install on my GNU/Linux boxes (running CentOS 6.8) from \n3.2.x -> 3.3.0, using latest from epel (i.e., not compiling from \nsource), and while said upgrade seemed to go fine, am now (post-upgrade) \nhaving all sorts of problems with getting some (but not all) packages to \ncompile (either during an initial install attempt, or upgrade to \nexisting packages).\n\nFor example, if I try to update nlme, I get the following errors, which \nare pretty well fatal:\n\ngcc: error: \n/builddir/build/BUILD/R-3.3.0/zlib-1.2.8/target/usr/lib64/libz.a: No \nsuch file or directory\ngcc: error: \n/builddir/build/BUILD/R-3.3.0/bzip2-1.0.6/target/usr/lib64/libbz2.a: No \nsuch file or directory\ngcc: error: \n/builddir/build/BUILD/R-3.3.0/xz-5.2.2/target/usr/lib64/liblzma.a: No \nsuch file or directory\ngcc: error: \n/builddir/build/BUILD/R-3.3.0/pcre-8.38/target/usr/lib64/libpcre.a: No \nsuch file or directory\ngcc: error: \n/builddir/build/BUILD/R-3.3.0/curl-7.48.0/target/usr/lib64/libcurl.a: No \nsuch file or directory\n\nEven I try this using devtools-4 (which gives me gcc/gfortran 5.2.1), \nsame problem.\n\nI think the clue is the version of the libs the installer seems to be \nlooking for. For example, zlib-1.2.8. RHEL only supports zlib-1.2.3-29. \n[Interesting, all of the static .a libs aren't on the system, by all the \n.so lib files for each of those listed above are installed].\n\nSerious pain in the butt. R 3.2.5 was working perfectly -- upgrade \npretty much gummed things up, as far as compiling some packages. What I \ndon't understand is -- wouldn't packages like nmle (which are core \npackages in R) be configured for your specific RHEL distribution to have \ndependencies that are compatible? Either that, or I'm missing something \ncompletely.\n\nThanks in advance.",
+      "body_snippet": "Updated my R install on my GNU/Linux boxes (running CentOS 6.8) from \n3.2.x -> 3.3.0, using latest from epel (i.e., not compiling from \nsource), and while said upgrade seemed to go fine, am now (post-",
+      "thread_id": "thread-67c81a64cdeb",
+      "thread_depth": 0,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-4a09950f13c9",
+      "message_id": "<0d7f26ab-58a8-e686-b06c-f700887261f0@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2016-06-06T09:55:09-04:00",
+      "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
+      "subject_clean": "problems compiling packages | 3.3.0 | Linux",
+      "in_reply_to": "<80ffd9c2-7c38-d996-2b91-91bd3e1ab641@gmail.com>",
+      "references": [
+        "<80ffd9c2-7c38-d996-2b91-91bd3e1ab641@gmail.com>"
+      ],
+      "body_plain": "On 06/04/2016 12:10 PM, Evan Cooch wrote:\n> Updated my R install on my GNU/Linux boxes (running CentOS 6.8) from\n> 3.2.x -> 3.3.0, using latest from epel (i.e., not compiling from\n> source), and while said upgrade seemed to go fine, am now (post-upgrade)\n> having all sorts of problems with getting some (but not all) packages to\n> compile (either during an initial install attempt, or upgrade to\n> existing packages).\n\nHere's what happened:\n\nIn R 3.3.0, R requires much newer versions of zlib, bzip2, lzma/xz.\ncurl, and pcre than are included in EL5/6. Since I suspected strongly\nthat people would not like the answer of \"upgrade to EL7\" (though, to be\nfair, you really should seriously consider that), I endeavoured to hack\nin bundled copies of those needed libs, compiled statically into R.\nUnfortunately, this process had some leftover noise, which resulted in\nmy giant pile of custom LDFLAGS getting inherited when you build from CRAN.\n\n3.3.0-5 _should_ resolve all of this and \"just work\". Please test this\nbuild when it finishes and let me know:\n\nhttp://koji.fedoraproject.org/koji/taskinfo?taskID=14394314\n\nThanks,\n\n~tom\n\n==\nRed Hat",
+      "body_snippet": "On 06/04/2016 12:10 PM, Evan Cooch wrote:\n> Updated my R install on my GNU/Linux boxes (running CentOS 6.8) from\n> 3.2.x -> 3.3.0, using latest from epel (i.e., not compiling from\n> source), and while",
+      "thread_id": "thread-67c81a64cdeb",
+      "thread_depth": 1,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-cb68ce387881",
+      "message_id": "<02ff4d0e-fe90-1ed5-f090-9f33fef33d5e@gmail.com>",
+      "from_name": "Evan Cooch",
+      "from_email_hash": "64626d184b0b1882b9b5a5a55e68643e7582304bda8a7591046f0c72fc6d5a56",
+      "date": "2016-06-06T10:00:20-04:00",
+      "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
+      "subject_clean": "problems compiling packages | 3.3.0 | Linux",
+      "in_reply_to": "<0d7f26ab-58a8-e686-b06c-f700887261f0@redhat.com>",
+      "references": [
+        "<80ffd9c2-7c38-d996-2b91-91bd3e1ab641@gmail.com>",
+        "<0d7f26ab-58a8-e686-b06c-f700887261f0@redhat.com>"
+      ],
+      "body_plain": "Thanks very much. I had more or less reached the same conclusions -- I \nwas just about to rebuild RPMs for source for zlib, etc, and update \nthose, and try again, but I've had mixed success in doing that in past. \nIts easy enough to roll back to 3.2.5 (which compiles perfectly against \nall the CentOS 6.x.x libs), but 3.30 plays nice with a few other things \nI work with. Hence my interest in 3.30.\n\nI'll definitely try the latest build later this week.\n\np.s. I should probably upgrade to RH 7 - but thanks for not beating me \nover the head with the obvious. ;-)\n\n\nOn 6/6/2016 9:55 AM, Tom Callaway wrote:\n> On 06/04/2016 12:10 PM, Evan Cooch wrote:\n>> Updated my R install on my GNU/Linux boxes (running CentOS 6.8) from\n>> 3.2.x -> 3.3.0, using latest from epel (i.e., not compiling from\n>> source), and while said upgrade seemed to go fine, am now (post-upgrade)\n>> having all sorts of problems with getting some (but not all) packages to\n>> compile (either during an initial install attempt, or upgrade to\n>> existing packages).\n> Here's what happened:\n>\n> In R 3.3.0, R requires much newer versions of zlib, bzip2, lzma/xz.\n> curl, and pcre than are included in EL5/6. Since I suspected strongly\n> that people would not like the answer of \"upgrade to EL7\" (though, to be\n> fair, you really should seriously consider that), I endeavoured to hack\n> in bundled copies of those needed libs, compiled statically into R.\n> Unfortunately, this process had some leftover noise, which resulted in\n> my giant pile of custom LDFLAGS getting inherited when you build from CRAN.\n>\n> 3.3.0-5 _should_ resolve all of this and \"just work\". Please test this\n> build when it finishes and let me know:\n>\n> http://koji.fedoraproject.org/koji/taskinfo?taskID=14394314\n>\n> Thanks,\n>\n> ~tom\n>\n> ==\n> Red Hat\n>",
+      "body_snippet": "Thanks very much. I had more or less reached the same conclusions -- I \nwas just about to rebuild RPMs for source for zlib, etc, and update \nthose, and try again, but I've had mixed success in doing t",
+      "thread_id": "thread-67c81a64cdeb",
+      "thread_depth": 2,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-7633df1879cf",
+      "message_id": "<cdc5a67c-0dc2-78e6-f2df-7398bd59d72e@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2016-06-06T10:04:41-04:00",
+      "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
+      "subject_clean": "problems compiling packages | 3.3.0 | Linux",
+      "in_reply_to": "<02ff4d0e-fe90-1ed5-f090-9f33fef33d5e@gmail.com>",
+      "references": [
+        "<80ffd9c2-7c38-d996-2b91-91bd3e1ab641@gmail.com>",
+        "<0d7f26ab-58a8-e686-b06c-f700887261f0@redhat.com>",
+        "<02ff4d0e-fe90-1ed5-f090-9f33fef33d5e@gmail.com>"
+      ],
+      "body_plain": "On 06/06/2016 10:00 AM, Evan Cooch wrote:\n> Thanks very much. I had more or less reached the same conclusions -- I\n> was just about to rebuild RPMs for source for zlib, etc, and update\n> those, and try again, but I've had mixed success in doing that in past.\n> Its easy enough to roll back to 3.2.5 (which compiles perfectly against\n> all the CentOS 6.x.x libs), but 3.30 plays nice with a few other things\n> I work with. Hence my interest in 3.30.\n\nYeah. I thought about pulling it all into a separate copr repo with\nupdated packages, but EL5/6 are fragile as is, without me introducing\nmajor API changes to core libraries. Last thing I need in my life is Red\nHat Support angry at me for breaking people's RHEL boxes. :)\n\nThis solution was the best option I could come up with from a list of\nbad options.\n\n~tom\n\n==\nRed Hat",
+      "body_snippet": "On 06/06/2016 10:00 AM, Evan Cooch wrote:\n> Thanks very much. I had more or less reached the same conclusions -- I\n> was just about to rebuild RPMs for source for zlib, etc, and update\n> those, and tr",
+      "thread_id": "thread-67c81a64cdeb",
+      "thread_depth": 3,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-4b5c4629a68a",
+      "message_id": "<544c6edf-8390-34ba-2fca-069363d2ab48@gmail.com>",
+      "from_name": "Evan Cooch",
+      "from_email_hash": "64626d184b0b1882b9b5a5a55e68643e7582304bda8a7591046f0c72fc6d5a56",
+      "date": "2016-06-06T13:17:03-04:00",
+      "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
+      "subject_clean": "problems compiling packages | 3.3.0 | Linux",
+      "in_reply_to": "<cdc5a67c-0dc2-78e6-f2df-7398bd59d72e@redhat.com>",
+      "references": [
+        "<80ffd9c2-7c38-d996-2b91-91bd3e1ab641@gmail.com>",
+        "<0d7f26ab-58a8-e686-b06c-f700887261f0@redhat.com>",
+        "<02ff4d0e-fe90-1ed5-f090-9f33fef33d5e@gmail.com>",
+        "<cdc5a67c-0dc2-78e6-f2df-7398bd59d72e@redhat.com>"
+      ],
+      "body_plain": "Understood. Thanks for the feedback.\n\nOn 6/6/2016 10:04 AM, Tom Callaway wrote:\n> On 06/06/2016 10:00 AM, Evan Cooch wrote:\n>> Thanks very much. I had more or less reached the same conclusions -- I\n>> was just about to rebuild RPMs for source for zlib, etc, and update\n>> those, and try again, but I've had mixed success in doing that in past.\n>> Its easy enough to roll back to 3.2.5 (which compiles perfectly against\n>> all the CentOS 6.x.x libs), but 3.30 plays nice with a few other things\n>> I work with. Hence my interest in 3.30.\n> Yeah. I thought about pulling it all into a separate copr repo with\n> updated packages, but EL5/6 are fragile as is, without me introducing\n> major API changes to core libraries. Last thing I need in my life is Red\n> Hat Support angry at me for breaking people's RHEL boxes. :)\n>\n> This solution was the best option I could come up with from a list of\n> bad options.\n>\n> ~tom\n>\n> ==\n> Red Hat\n>",
+      "body_snippet": "Understood. Thanks for the feedback.\n\nOn 6/6/2016 10:04 AM, Tom Callaway wrote:\n> On 06/06/2016 10:00 AM, Evan Cooch wrote:\n>> Thanks very much. I had more or less reached the same conclusions -- I\n>>",
+      "thread_id": "thread-67c81a64cdeb",
+      "thread_depth": 4,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-a9ed0f7133f3",
+      "message_id": "<CAAfzxsDXPtkrVG_A4KFWEoEu15u1p8WVJH7v5CgpxqzRSEvR8Q@mail.gmail.com>",
+      "from_name": "Brian Fallik",
+      "from_email_hash": "deb11119e67a220d928c38ca2f4e5379f7444569a3e69e24e7a6280d716e77cf",
+      "date": "2016-06-06T17:04:33-04:00",
+      "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
+      "subject_clean": "problems compiling packages | 3.3.0 | Linux",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Apologies if this email is a top post. I'm not sure how to reply to a\nthread if I'm not subscribed.\n\nWe recently encountered the same issue that Evan reported on 6/4 and I can\nconfirm that updated to 3.3.0-5 does address the build failure. Will\n3.3.0-5 make it into EPEL? If so, do you have any idea when? The current\npackage is breaking our build process and I'm wondering if it's worth the\neffort to implement a workaround or not.\n\nbrian\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Apologies if this email is a top post. I'm not sure how to reply to a\nthread if I'm not subscribed.\n\nWe recently encountered the same issue that Evan reported on 6/4 and I can\nconfirm that updated to ",
+      "thread_id": "thread-a9ed0f7133f3",
+      "thread_depth": 0,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-8e59f8cf0ed0",
+      "message_id": "<3861e83b-b13a-81e6-0110-ee0428c4f2bb@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2016-06-07T11:46:21-04:00",
+      "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
+      "subject_clean": "problems compiling packages | 3.3.0 | Linux",
+      "in_reply_to": "<CAAfzxsDXPtkrVG_A4KFWEoEu15u1p8WVJH7v5CgpxqzRSEvR8Q@mail.gmail.com>",
+      "references": [
+        "<CAAfzxsDXPtkrVG_A4KFWEoEu15u1p8WVJH7v5CgpxqzRSEvR8Q@mail.gmail.com>"
+      ],
+      "body_plain": "On 06/06/2016 05:04 PM, Brian Fallik wrote:\n> Apologies if this email is a top post. I'm not sure how to reply to a\n> thread if I'm not subscribed.\n> \n> We recently encountered the same issue that Evan reported on 6/4 and I can\n> confirm that updated to 3.3.0-5 does address the build failure. Will\n> 3.3.0-5 make it into EPEL? If so, do you have any idea when? The current\n> package is breaking our build process and I'm wondering if it's worth the\n> effort to implement a workaround or not.\n\nYes, this package is going through the update process right now. You can\nspeed it along by logging into the Fedora Update system and giving\npositive karma:\n\nhttps://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-93778a4eeb\n\nIf the build gets +3 karma, it will go to stable immediately.\nOtherwise, it takes two weeks to be pushed to stable according to EPEL\npolicies.\n\n~tom\n\n==\nRed Hat",
+      "body_snippet": "On 06/06/2016 05:04 PM, Brian Fallik wrote:\n> Apologies if this email is a top post. I'm not sure how to reply to a\n> thread if I'm not subscribed.\n> \n> We recently encountered the same issue that Eva",
+      "thread_id": "thread-a9ed0f7133f3",
+      "thread_depth": 1,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-033877377b30",
+      "message_id": "<CAAfzxsAiBfnZyx5-i90YhBf1mfidLeENPi=KFL11OLLX9wbO0A@mail.gmail.com>",
+      "from_name": "Brian Fallik",
+      "from_email_hash": "deb11119e67a220d928c38ca2f4e5379f7444569a3e69e24e7a6280d716e77cf",
+      "date": "2016-06-07T11:59:17-04:00",
+      "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
+      "subject_clean": "problems compiling packages | 3.3.0 | Linux",
+      "in_reply_to": "<3861e83b-b13a-81e6-0110-ee0428c4f2bb@redhat.com>",
+      "references": [
+        "<CAAfzxsDXPtkrVG_A4KFWEoEu15u1p8WVJH7v5CgpxqzRSEvR8Q@mail.gmail.com>",
+        "<3861e83b-b13a-81e6-0110-ee0428c4f2bb@redhat.com>"
+      ],
+      "body_plain": "On Tue, Jun 7, 2016 at 11:46 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n\n> On 06/06/2016 05:04 PM, Brian Fallik wrote:\n> > Apologies if this email is a top post. I'm not sure how to reply to a\n> > thread if I'm not subscribed.\n> >\n> > We recently encountered the same issue that Evan reported on 6/4 and I\n> can\n> > confirm that updated to 3.3.0-5 does address the build failure. Will\n> > 3.3.0-5 make it into EPEL? If so, do you have any idea when? The current\n> > package is breaking our build process and I'm wondering if it's worth the\n> > effort to implement a workaround or not.\n>\n> Yes, this package is going through the update process right now. You can\n> speed it along by logging into the Fedora Update system and giving\n> positive karma:\n>\n> https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-93778a4eeb\n>\n> If the build gets +3 karma, it will go to stable immediately.\n> Otherwise, it takes two weeks to be pushed to stable according to EPEL\n> policies.\n>\n\nThanks, Tom. I'll go try and help the karma process along.\n\nbrian\n\n\n>\n> ~tom\n>\n> ==\n> Red Hat\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On Tue, Jun 7, 2016 at 11:46 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n\n> On 06/06/2016 05:04 PM, Brian Fallik wrote:\n> > Apologies if this email is a top post. I'm not sure how to reply to a\n>",
+      "thread_id": "thread-a9ed0f7133f3",
+      "thread_depth": 2,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-1b416d6b88a3",
+      "message_id": "<dc96f391-2664-12ea-3c8f-fd960af48e92@gmail.com>",
+      "from_name": "Evan Cooch",
+      "from_email_hash": "64626d184b0b1882b9b5a5a55e68643e7582304bda8a7591046f0c72fc6d5a56",
+      "date": "2016-06-07T12:24:40-04:00",
+      "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
+      "subject_clean": "problems compiling packages | 3.3.0 | Linux",
+      "in_reply_to": "<3861e83b-b13a-81e6-0110-ee0428c4f2bb@redhat.com>",
+      "references": [
+        "<CAAfzxsDXPtkrVG_A4KFWEoEu15u1p8WVJH7v5CgpxqzRSEvR8Q@mail.gmail.com>",
+        "<3861e83b-b13a-81e6-0110-ee0428c4f2bb@redhat.com>"
+      ],
+      "body_plain": "On 6/7/2016 11:46 AM, Tom Callaway wrote:\n> On 06/06/2016 05:04 PM, Brian Fallik wrote:\n>> Apologies if this email is a top post. I'm not sure how to reply to a\n>> thread if I'm not subscribed.\n>>\n>> We recently encountered the same issue that Evan reported on 6/4 and I can\n>> confirm that updated to 3.3.0-5 does address the build failure. Will\n>> 3.3.0-5 make it into EPEL? If so, do you have any idea when? The current\n>> package is breaking our build process and I'm wondering if it's worth the\n>> effort to implement a workaround or not.\n> Yes, this package is going through the update process right now. You can\n> speed it along by logging into the Fedora Update system and giving\n> positive karma:\n>\n> https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-93778a4eeb\n>\n> If the build gets +3 karma, it will go to stable immediately.\n> Otherwise, it takes two weeks to be pushed to stable according to EPEL\n> policies.\n>\n> ~tom\n\nDone, as of 30 seconds ago.\n\n>\n> ==\n> Red Hat\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>",
+      "body_snippet": "On 6/7/2016 11:46 AM, Tom Callaway wrote:\n> On 06/06/2016 05:04 PM, Brian Fallik wrote:\n>> Apologies if this email is a top post. I'm not sure how to reply to a\n>> thread if I'm not subscribed.\n>>\n>> ",
+      "thread_id": "thread-a9ed0f7133f3",
+      "thread_depth": 2,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-337debcb4371",
+      "message_id": "<CY1PR0601MB15645DD4C4D8407136CC5F60B25E0@CY1PR0601MB1564.namprd06.prod.outlook.com>",
+      "from_name": "TRISTAN J PAUTSCH",
+      "from_email_hash": "75a70a5597de0f4451e30783239c4d8cc66b9560a3f3ef6ce6f75a4301b1f225",
+      "date": "2016-06-08T16:47:51Z",
+      "subject": "[R-sig-Fedora] problems compiling packages in R | 3.3.0-5 | EL6",
+      "subject_clean": "problems compiling packages in R | 3.3.0-5 | EL6",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "*All boxes are EL6 x86_64, fully up to date*\n\n\nUpdated to R 3.3.0-3 recently, however just yesterday I tried to update a couple packages for a user and noticed almost nothing would build. I was (am) getting the same build errors as another previously posted (https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000452.html). I watched over the bodhi page for the issue and noticed 3.3.0-5 was pushed to stable (https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-93778a4eeb), so I updated this morning. Problem is, I'm still getting the exact same build errors I was the last couple of days. In fact, I can perfectly replicate the initial poster's issue: when I try to update nlme, I end up with the following:\n\n\ngcc: /builddir/build/BUILD/R-3.3.0/zlib-1.2.8/target/usr/lib64/libz.a: No such file or directory\ngcc: /builddir/build/BUILD/R-3.3.0/bzip2-1.0.6/target/usr/lib64/libbz2.a: No such file or directory\ngcc: /builddir/build/BUILD/R-3.3.0/xz-5.2.2/target/usr/lib64/liblzma.a: No such file or directory\ngcc: /builddir/build/BUILD/R-3.3.0/pcre-8.38/target/usr/lib64/libpcre.a: No such file or directory\ngcc: /builddir/build/BUILD/R-3.3.0/curl-7.48.0/target/usr/lib64/libcurl.a: No such file or directory\nmake: *** [nlme.so] Error 1\nERROR: compilation failed for package 'nlme'\n\nMy hope is that I'm just doing something wrong/stupid. I updated via EPEL/YUM, so that's as much interaction as I've had with it. Happy to provide further info if it helps anyone. To make matters worse, I was going to just roll back to 3.2.5, but now I cannot find rpms anywhere for that version, and yum downgrade just wants to take me back to 3.3.0-3, so basically I'm stuck figuring this out (which, don't get me wrong, is probably the right thing to do).\n\n\nAlso....I know I should upgrade to EL7 :-) Just too many other things in the pipe right now.\n\n\nThanks all\n\nT\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "*All boxes are EL6 x86_64, fully up to date*\n\n\nUpdated to R 3.3.0-3 recently, however just yesterday I tried to update a couple packages for a user and noticed almost nothing would build. I was (am) g",
+      "thread_id": "thread-337debcb4371",
+      "thread_depth": 0,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-396c1694a591",
+      "message_id": "<CAAfzxsCu+KMnQZNRuDGJaLhVVGHDkFQbnytX1o2YQAz-cOCoLg@mail.gmail.com>",
+      "from_name": "Brian Fallik",
+      "from_email_hash": "deb11119e67a220d928c38ca2f4e5379f7444569a3e69e24e7a6280d716e77cf",
+      "date": "2016-06-08T14:21:11-04:00",
+      "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
+      "subject_clean": "problems compiling packages | 3.3.0 | Linux",
+      "in_reply_to": "<CAAfzxsAiBfnZyx5-i90YhBf1mfidLeENPi=KFL11OLLX9wbO0A@mail.gmail.com>",
+      "references": [
+        "<CAAfzxsDXPtkrVG_A4KFWEoEu15u1p8WVJH7v5CgpxqzRSEvR8Q@mail.gmail.com>",
+        "<3861e83b-b13a-81e6-0110-ee0428c4f2bb@redhat.com>",
+        "<CAAfzxsAiBfnZyx5-i90YhBf1mfidLeENPi=KFL11OLLX9wbO0A@mail.gmail.com>"
+      ],
+      "body_plain": "Hi Tom,\n\nI'm seeing another similar build failure with the recent 3.3.0-5 and I'm a\nbit stumped about what's going on.\n\nOn a fresh VM, after installing 3.3.0-5 and then running:\n  install.packages(c(\"lpSolveAPI), method=\"curl\", repos=\"\nhttps://cran.rstudio.com\")\nthe build fails with:\n  gcc: /builddir/build/BUILD/R-3.3.0/zlib-1.2.8/target/usr/lib64/libz.a: No\nsuch file or directory\n  gcc: /builddir/build/BUILD/R-3.3.0/bzip2-1.0.6/target/usr/lib64/libbz2.a:\nNo such file or directory\n  gcc: /builddir/build/BUILD/R-3.3.0/xz-5.2.2/target/usr/lib64/liblzma.a:\nNo such file or directory\n  gcc: /builddir/build/BUILD/R-3.3.0/pcre-8.38/target/usr/lib64/libpcre.a:\nNo such file or directory\n  gcc:\n/builddir/build/BUILD/R-3.3.0/curl-7.48.0/target/usr/lib64/libcurl.a: No\nsuch file or directory\n\n# rpm -qa | fgrep R\nR-devel-3.3.0-5.el6.x86_64\nR-3.3.0-5.el6.x86_64\nR-core-3.3.0-5.el6.x86_64\nR-java-devel-3.3.0-5.el6.x86_64\nR-java-3.3.0-5.el6.x86_64\nlibRmath-devel-3.3.0-5.el6.x86_64\nR-core-devel-3.3.0-5.el6.x86_64\nlibRmath-3.3.0-5.el6.x86_64\n\nI'm confused how I'm seeing different behavior now form when I tested\n3.3.0-5 yesterday, except in that case I'd originally started from 3.2.3\nbefore upgrading to 3.3.0. Is it possible some build state leaked during\nthe upgrade from 3.2.3 to 3.3.0 allowing the build to succeed?\n\nAnother difference with 3.3.0-5 is that now only a single package is\nfailing, lpSolveAPI. Previously several packages all failed trying to link\nagainst curl.\n\nAny idea what's going on or suggestions for how to debug this further?\n\nThanks,\nbrian\n\n\n\nOn Tue, Jun 7, 2016 at 11:59 AM, Brian Fallik <brian at clypd.com> wrote:\n\n>\n>\n> On Tue, Jun 7, 2016 at 11:46 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n>> On 06/06/2016 05:04 PM, Brian Fallik wrote:\n>> > Apologies if this email is a top post. I'm not sure how to reply to a\n>> > thread if I'm not subscribed.\n>> >\n>> > We recently encountered the same issue that Evan reported on 6/4 and I\n>> can\n>> > confirm that updated to 3.3.0-5 does address the build failure. Will\n>> > 3.3.0-5 make it into EPEL? If so, do you have any idea when? The current\n>> > package is breaking our build process and I'm wondering if it's worth\n>> the\n>> > effort to implement a workaround or not.\n>>\n>> Yes, this package is going through the update process right now. You can\n>> speed it along by logging into the Fedora Update system and giving\n>> positive karma:\n>>\n>> https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-93778a4eeb\n>>\n>> If the build gets +3 karma, it will go to stable immediately.\n>> Otherwise, it takes two weeks to be pushed to stable according to EPEL\n>> policies.\n>>\n>\n> Thanks, Tom. I'll go try and help the karma process along.\n>\n> brian\n>\n>\n>>\n>> ~tom\n>>\n>> ==\n>> Red Hat\n>>\n>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi Tom,\n\nI'm seeing another similar build failure with the recent 3.3.0-5 and I'm a\nbit stumped about what's going on.\n\nOn a fresh VM, after installing 3.3.0-5 and then running:\n  install.packages(c(\"",
+      "thread_id": "thread-a9ed0f7133f3",
+      "thread_depth": 3,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-4e326611e230",
+      "message_id": "<63496a12-4f23-94ad-3d9b-80afc0283576@gmail.com>",
+      "from_name": "Evan Cooch",
+      "from_email_hash": "64626d184b0b1882b9b5a5a55e68643e7582304bda8a7591046f0c72fc6d5a56",
+      "date": "2016-06-08T14:41:38-04:00",
+      "subject": "[R-sig-Fedora] problems compiling packages in R | 3.3.0-5 | EL6",
+      "subject_clean": "problems compiling packages in R | 3.3.0-5 | EL6",
+      "in_reply_to": "<CY1PR0601MB15645DD4C4D8407136CC5F60B25E0@CY1PR0601MB1564.namprd06.prod.outlook.com>",
+      "references": [
+        "<CY1PR0601MB15645DD4C4D8407136CC5F60B25E0@CY1PR0601MB1564.namprd06.prod.outlook.com>"
+      ],
+      "body_plain": "On 6/8/2016 12:47 PM, TRISTAN J PAUTSCH wrote:\n> *All boxes are EL6 x86_64, fully up to date*\n>\n>\n> Updated to R 3.3.0-3 recently, however just yesterday I tried to update a couple packages for a user and noticed almost nothing would build. I was (am) getting the same build errors as another previously posted (https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000452.html). I watched over the bodhi page for the issue and noticed 3.3.0-5 was pushed to stable (https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-93778a4eeb), so I updated this morning. Problem is, I'm still getting the exact same build errors I was the last couple of days. In fact, I can perfectly replicate the initial poster's issue: when I try to update nlme, I end up with the following:\n>\n>\n> gcc: /builddir/build/BUILD/R-3.3.0/zlib-1.2.8/target/usr/lib64/libz.a: No such file or directory\n> gcc: /builddir/build/BUILD/R-3.3.0/bzip2-1.0.6/target/usr/lib64/libbz2.a: No such file or directory\n> gcc: /builddir/build/BUILD/R-3.3.0/xz-5.2.2/target/usr/lib64/liblzma.a: No such file or directory\n> gcc: /builddir/build/BUILD/R-3.3.0/pcre-8.38/target/usr/lib64/libpcre.a: No such file or directory\n> gcc: /builddir/build/BUILD/R-3.3.0/curl-7.48.0/target/usr/lib64/libcurl.a: No such file or directory\n> make: *** [nlme.so] Error 1\n> ERROR: compilation failed for package 'nlme'\n>\n> My hope is that I'm just doing something wrong/stupid. I updated via EPEL/YUM, so that's as much interaction as I've had with it. Happy to provide further info if it helps anyone. To make matters worse, I was going to just roll back to 3.2.5, but now I cannot find rpms anywhere for that version, and yum downgrade just wants to take me back to 3.3.0-3, so basically I'm stuck figuring this out (which, don't get me wrong, is probably the right thing to do).\n>\n>\n\n\nI rolled back to 3.2.5 without any problems -- but then, I did a compile \nfrom scratch using the 3.2.5 tarball. Some packages I use give me a \nwarning that '3.2.5 is out of date', or some such, but no fatal errors.",
+      "body_snippet": "On 6/8/2016 12:47 PM, TRISTAN J PAUTSCH wrote:\n> *All boxes are EL6 x86_64, fully up to date*\n>\n>\n> Updated to R 3.3.0-3 recently, however just yesterday I tried to update a couple packages for a user",
+      "thread_id": "thread-337debcb4371",
+      "thread_depth": 1,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-eef4155bba35",
+      "message_id": "<loom.20160609T140118-223@post.gmane.org>",
+      "from_name": "Gordon Ball",
+      "from_email_hash": "db27a1655b10918cf6d0597e635580e025b0e164706acdc50dbe5b2847494cb7",
+      "date": "2016-06-09T12:06:38Z",
+      "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
+      "subject_clean": "problems compiling packages | 3.3.0 | Linux",
+      "in_reply_to": null,
+      "references": [
+        "<CAAfzxsDXPtkrVG_A4KFWEoEu15u1p8WVJH7v5CgpxqzRSEvR8Q@mail.gmail.com>",
+        "<3861e83b-b13a-81e6-0110-ee0428c4f2bb@redhat.com>",
+        "<CAAfzxsAiBfnZyx5-i90YhBf1mfidLeENPi=KFL11OLLX9wbO0A@mail.gmail.com>",
+        "<CAAfzxsCu+KMnQZNRuDGJaLhVVGHDkFQbnytX1o2YQAz-cOCoLg@mail.gmail.com>"
+      ],
+      "body_plain": "Brian Fallik <brian at ...> writes:\n\n> \n> Hi Tom,\n> \n> I'm seeing another similar build failure with the recent 3.3.0-5 and I'm a\n> bit stumped about what's going on.\n> \n> On a fresh VM, after installing 3.3.0-5 and then running:\n>   install.packages(c(\"lpSolveAPI), method=\"curl\", repos=\"\n> https://cran.rstudio.com\")\n> the build fails with:\n>   gcc: /builddir/build/BUILD/R-3.3.0/zlib-1.2.8/target/usr/lib64/libz.a: No\n> such file or directory\n>   gcc: /builddir/build/BUILD/R-3.3.0/bzip2-1.0.6/target/usr/lib64/libbz2.a:\n> No such file or directory\n>   gcc: /builddir/build/BUILD/R-3.3.0/xz-5.2.2/target/usr/lib64/liblzma.a:\n> No such file or directory\n>   gcc: /builddir/build/BUILD/R-3.3.0/pcre-8.38/target/usr/lib64/libpcre.a:\n> No such file or directory\n>   gcc:\n> /builddir/build/BUILD/R-3.3.0/curl-7.48.0/target/usr/lib64/libcurl.a: No\n> such file or directory\n\n\n\nI also noticed this today (doing a large rebuild upgrading to bioconductor 3.3).\n\nThe culprit appears to be that FLIBS in /usr/lib64/R/etc/Makeconf (line 43)\nstill references these paths, and hence presumably it is only triggered if\nyou compile a package containing fortran code.\n\nDeleting the paths from Makeconf makes the error go away (although I'm not\ncertain whether this means the correct libraries are being linked against -\nthis might be storing up problems for the future).\n\nGordon\n\n(Centos 6.8, R 3.3.0-5)",
+      "body_snippet": "Brian Fallik <brian at ...> writes:\n\n> \n> Hi Tom,\n> \n> I'm seeing another similar build failure with the recent 3.3.0-5 and I'm a\n> bit stumped about what's going on.\n> \n> On a fresh VM, after install",
+      "thread_id": "thread-a9ed0f7133f3",
+      "thread_depth": 4,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-138f05c15bd4",
+      "message_id": "<760010ad-9c9e-48d5-806f-384968dd35e2@email.android.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2016-06-09T08:20:58-04:00",
+      "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
+      "subject_clean": "problems compiling packages | 3.3.0 | Linux",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20160609/f0591918/attachment.html>",
+      "body_snippet": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20160609/f0591918/attachment.html>",
+      "thread_id": "thread-138f05c15bd4",
+      "thread_depth": 0,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-9081a8c741ee",
+      "message_id": "<26f063d9-f6fd-a8dc-348a-2765b5ecdaf5@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2016-06-09T12:05:17-04:00",
+      "subject": "[R-sig-Fedora] Fixed updates for EL5 / EL6",
+      "subject_clean": "Fixed updates for EL5 / EL6",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I know, I know, you've heard this song before... ;)\n\nEL5: https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-09c8007e64\n\nEL6: https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-0a9e4df655\n\nPlease go download -8 and test it. It looks good on my end. If it works\nfor you (with CRAN modules), please give positive karma so it will land\nin updates-stable faster than two weeks.\n\nThanks for your patience,\n\n~tom\n\n==\nRed Hat",
+      "body_snippet": "I know, I know, you've heard this song before... ;)\n\nEL5: https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-09c8007e64\n\nEL6: https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-0a9e4df655\n",
+      "thread_id": "thread-9081a8c741ee",
+      "thread_depth": 0,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-db4302a3a1b5",
+      "message_id": "<CAAfzxsAsF0gdRGddUq5fF8Y9-UzoCiRoBwGCThpstEqSky_MBQ@mail.gmail.com>",
+      "from_name": "Brian Fallik",
+      "from_email_hash": "deb11119e67a220d928c38ca2f4e5379f7444569a3e69e24e7a6280d716e77cf",
+      "date": "2016-06-09T12:17:38-04:00",
+      "subject": "[R-sig-Fedora] Fixed updates for EL5 / EL6",
+      "subject_clean": "Fixed updates for EL5 / EL6",
+      "in_reply_to": "<26f063d9-f6fd-a8dc-348a-2765b5ecdaf5@redhat.com>",
+      "references": [
+        "<26f063d9-f6fd-a8dc-348a-2765b5ecdaf5@redhat.com>"
+      ],
+      "body_plain": "I just tested 3.3.0-8 and it seems to fix our build failure. I gave\npositive karma. Thanks for the quick turnaround.\n\nbrian\n\n\nOn Thu, Jun 9, 2016 at 12:05 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n\n> I know, I know, you've heard this song before... ;)\n>\n> EL5: https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-09c8007e64\n>\n> EL6: https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-0a9e4df655\n>\n> Please go download -8 and test it. It looks good on my end. If it works\n> for you (with CRAN modules), please give positive karma so it will land\n> in updates-stable faster than two weeks.\n>\n> Thanks for your patience,\n>\n> ~tom\n>\n> ==\n> Red Hat\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I just tested 3.3.0-8 and it seems to fix our build failure. I gave\npositive karma. Thanks for the quick turnaround.\n\nbrian\n\n\nOn Thu, Jun 9, 2016 at 12:05 PM, Tom Callaway <tcallawa at redhat.com> wro",
+      "thread_id": "thread-9081a8c741ee",
+      "thread_depth": 1,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-455b8c00b38b",
+      "message_id": "<D54A386C-0A0E-4C60-B75B-5F43B8C036B8@yahoo.com>",
+      "from_name": "Rob Steele",
+      "from_email_hash": "823d9876f1c2ce56cb5252cd7b887ddf4cbf626bd4f84dedb7bc79393081081e",
+      "date": "2016-06-10T12:28:33-04:00",
+      "subject": "[R-sig-Fedora] Fixed updates for EL5 / EL6",
+      "subject_clean": "Fixed updates for EL5 / EL6",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "> Please go download -8 and test it. \n\nSorry to be ignorant but how do I do that in EL6?\n\nThanks!",
+      "body_snippet": "> Please go download -8 and test it. \n\nSorry to be ignorant but how do I do that in EL6?\n\nThanks!",
+      "thread_id": "thread-455b8c00b38b",
+      "thread_depth": 0,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-aced53172824",
+      "message_id": "<CAAfzxsC3gmsbQFyNPfoO32pK4EXzucea4yAMN9Sc3=3Do9xPEA@mail.gmail.com>",
+      "from_name": "Brian Fallik",
+      "from_email_hash": "93619e244fc3cfc7bacc54c02a6f42adcbf4c91baa6786a482a260ca340318cc",
+      "date": "2016-06-10T13:54:41-04:00",
+      "subject": "[R-sig-Fedora] Fixed updates for EL5 / EL6",
+      "subject_clean": "Fixed updates for EL5 / EL6",
+      "in_reply_to": "<D54A386C-0A0E-4C60-B75B-5F43B8C036B8@yahoo.com>",
+      "references": [
+        "<D54A386C-0A0E-4C60-B75B-5F43B8C036B8@yahoo.com>"
+      ],
+      "body_plain": "Hi,\n\nOn Fri, Jun 10, 2016 at 12:28 PM, Rob Steele <robsteele at yahoo.com> wrote:\n\n> > Please go download -8 and test it.\n>\n> Sorry to be ignorant but how do I do that in EL6?\n>\n\nYou can download the RPMs here:\n  http://koji.fedoraproject.org/koji/buildinfo?buildID=771672\n\n\n>\n> Thanks!\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi,\n\nOn Fri, Jun 10, 2016 at 12:28 PM, Rob Steele <robsteele at yahoo.com> wrote:\n\n> > Please go download -8 and test it.\n>\n> Sorry to be ignorant but how do I do that in EL6?\n>\n\nYou can download the ",
+      "thread_id": "thread-455b8c00b38b",
+      "thread_depth": 1,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-64014ef14030",
+      "message_id": "<628E1B93-C187-42AA-B7C9-1B418104DCA1@yahoo.com>",
+      "from_name": "Rob Steele",
+      "from_email_hash": "823d9876f1c2ce56cb5252cd7b887ddf4cbf626bd4f84dedb7bc79393081081e",
+      "date": "2016-06-10T18:36:35-04:00",
+      "subject": "[R-sig-Fedora] Fixed updates for EL5 / EL6",
+      "subject_clean": "Fixed updates for EL5 / EL6",
+      "in_reply_to": "<CAAfzxsC3gmsbQFyNPfoO32pK4EXzucea4yAMN9Sc3=3Do9xPEA@mail.gmail.com>",
+      "references": [
+        "<D54A386C-0A0E-4C60-B75B-5F43B8C036B8@yahoo.com>",
+        "<CAAfzxsC3gmsbQFyNPfoO32pK4EXzucea4yAMN9Sc3=3Do9xPEA@mail.gmail.com>"
+      ],
+      "body_plain": "Worked?thanks!\n\n> On Jun 10, 2016, at 1:54 PM, Brian Fallik <bfallik at clypd.com> wrote:\n> \n> Hi,\n> \n> On Fri, Jun 10, 2016 at 12:28 PM, Rob Steele <robsteele at yahoo.com <mailto:robsteele at yahoo.com>> wrote:\n> > Please go download -8 and test it.\n> \n> Sorry to be ignorant but how do I do that in EL6?\n> \n> You can download the RPMs here:\n>   http://koji.fedoraproject.org/koji/buildinfo?buildID=771672 <http://koji.fedoraproject.org/koji/buildinfo?buildID=771672>\n>  \n> \n> Thanks!\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org <mailto:R-SIG-Fedora at r-project.org>\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora <https://stat.ethz.ch/mailman/listinfo/r-sig-fedora>\n> \n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Worked?thanks!\n\n> On Jun 10, 2016, at 1:54 PM, Brian Fallik <bfallik at clypd.com> wrote:\n> \n> Hi,\n> \n> On Fri, Jun 10, 2016 at 12:28 PM, Rob Steele <robsteele at yahoo.com <mailto:robsteele at yahoo.",
+      "thread_id": "thread-455b8c00b38b",
+      "thread_depth": 2,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-9254c193f567",
+      "message_id": "<CAMYeDnHYS6JJDHv7yH1y1=8_MVF1pXKcm1FD7raUAAycP=FuQA@mail.gmail.com>",
+      "from_name": "Imane al jaouhari",
+      "from_email_hash": "8cea79d89380ee24f931a87ff7afd07cafb4cbe6101297c09767a398ee618635",
+      "date": "2016-06-23T09:41:44+02:00",
+      "subject": "[R-sig-Fedora] Unable to locate R binary by scanning standard locations",
+      "subject_clean": "Unable to locate R binary by scanning standard locations",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,\nI have installed R on redhat6.\nI downloadzdbthe tar from rcran. Andnthen untar it and did:\n\n./configure --enable-R-shlib --with-readline=no --with-x=no\n\nMake\nMake install\n\nAnd added the R_home to the path.\nBut when executing rstudio-server verify-installation I go : unable to find\nan installation of R on the system, unable to locate R binary by scanning\nstandard location ...\n\nAny idea about how to fix the issue.\n\nBest regards\nImane\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello,\nI have installed R on redhat6.\nI downloadzdbthe tar from rcran. Andnthen untar it and did:\n\n./configure --enable-R-shlib --with-readline=no --with-x=no\n\nMake\nMake install\n\nAnd added the R_home ",
+      "thread_id": "thread-9254c193f567",
+      "thread_depth": 0,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-e43153b6d762",
+      "message_id": "<CAOuULM4K-ne73mno6WBQdtq-KC9knVOJWqkKE1dPfRoqFPEEFw@mail.gmail.com>",
+      "from_name": "Jules Bashizi",
+      "from_email_hash": "bd56a1d8a3cdbbd9fcae8b7c6013d2bd8bf1d78d9e0cdc4922e287222a4965e3",
+      "date": "2016-06-30T01:24:52+01:00",
+      "subject": "[R-sig-Fedora] integration of R and php in Fedora 24",
+      "subject_clean": "integration of R and php in Fedora 24",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear All,\n\nI am writing a project that will involve me writing code in R and php. i\nwould appreciate if someone guide me on how to integrate R to php\ni wish to write an upload system in php that R will use and process and\npost back the result on php.\n\nthanks in advance\n\n\n\n================\nWorthy agent of Light\n================\n\nJules Irenge\nMSc Student\nUniversity of Liverpool\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear All,\n\nI am writing a project that will involve me writing code in R and php. i\nwould appreciate if someone guide me on how to integrate R to php\ni wish to write an upload system in php that R wil",
+      "thread_id": "thread-e43153b6d762",
+      "thread_depth": 0,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-e111175e05bf",
+      "message_id": "<CAHkRx6H7CudwP749b6WRn_oe9vUB0viE9AS_rP3SbbTBN4hfxQ@mail.gmail.com>",
+      "from_name": "M. Edward (Ed) Borasky",
+      "from_email_hash": "ef6e49c1dc23b41e55bee428092d31c3661e716db693e4cc11966cc2632cb2b6",
+      "date": "2016-06-30T00:40:21Z",
+      "subject": "[R-sig-Fedora] integration of R and php in Fedora 24",
+      "subject_clean": "integration of R and php in Fedora 24",
+      "in_reply_to": "<CAOuULM4K-ne73mno6WBQdtq-KC9knVOJWqkKE1dPfRoqFPEEFw@mail.gmail.com>",
+      "references": [
+        "<CAOuULM4K-ne73mno6WBQdtq-KC9knVOJWqkKE1dPfRoqFPEEFw@mail.gmail.com>"
+      ],
+      "body_plain": "You might be able to do something with Rapache / openCPU.\n\nOn Wed, Jun 29, 2016 at 5:26 PM Jules Bashizi <jbi.octave at gmail.com> wrote:\n\n> Dear All,\n>\n> I am writing a project that will involve me writing code in R and php. i\n> would appreciate if someone guide me on how to integrate R to php\n> i wish to write an upload system in php that R will use and process and\n> post back the result on php.\n>\n> thanks in advance\n>\n>\n>\n> ================\n> Worthy agent of Light\n> ================\n>\n> Jules Irenge\n> MSc Student\n> University of Liverpool\n>\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n-- \nHow many people can stand on the shoulders of a giant before the giant\ncollapses?\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "You might be able to do something with Rapache / openCPU.\n\nOn Wed, Jun 29, 2016 at 5:26 PM Jules Bashizi <jbi.octave at gmail.com> wrote:\n\n> Dear All,\n>\n> I am writing a project that will involve me w",
+      "thread_id": "thread-e43153b6d762",
+      "thread_depth": 1,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-d4801620dd64",
+      "message_id": "<CAOuULM6ZH2dz80xZR2ZAUFcDf2PBzjKaygBUJxDG-G2JxMf-TQ@mail.gmail.com>",
+      "from_name": "Jules Bashizi",
+      "from_email_hash": "bd56a1d8a3cdbbd9fcae8b7c6013d2bd8bf1d78d9e0cdc4922e287222a4965e3",
+      "date": "2016-06-30T02:14:21+01:00",
+      "subject": "[R-sig-Fedora] Fwd:  integration of R and php in Fedora 24",
+      "subject_clean": "integration of R and php in Fedora 24",
+      "in_reply_to": "<CAOuULM5d6tf-kjsmMwE0ZNCkDAUzkO5P2gGR4Pe9ungXo6rCuA@mail.gmail.com>",
+      "references": [
+        "<CAOuULM4K-ne73mno6WBQdtq-KC9knVOJWqkKE1dPfRoqFPEEFw@mail.gmail.com>",
+        "<CAHkRx6H7CudwP749b6WRn_oe9vUB0viE9AS_rP3SbbTBN4hfxQ@mail.gmail.com>",
+        "<CAOuULM5d6tf-kjsmMwE0ZNCkDAUzkO5P2gGR4Pe9ungXo6rCuA@mail.gmail.com>"
+      ],
+      "body_plain": "thanks Edward  for the reply . i installed rapache it runs R on apache but\nfor strange reason can not integrate R into php .\nI will be trying opencpu then. but any other solution is most welcomed like\nconfiguration is most welcomed\nthanks\n\n\n================\nWorthy agent of Light\n================\n\nJules Irenge\nMSc Student\nUniversity of Liverpool\n\n2016-06-30 1:40 GMT+01:00 M. Edward (Ed) Borasky <znmeb at znmeb.net>:\n\n> You might be able to do something with Rapache / openCPU.\n>\n> On Wed, Jun 29, 2016 at 5:26 PM Jules Bashizi <jbi.octave at gmail.com>\n> wrote:\n>\n>> Dear All,\n>>\n>> I am writing a project that will involve me writing code in R and php. i\n>> would appreciate if someone guide me on how to integrate R to php\n>> i wish to write an upload system in php that R will use and process and\n>> post back the result on php.\n>>\n>> thanks in advance\n>>\n>>\n>>\n>> ================\n>> Worthy agent of Light\n>> ================\n>>\n>> Jules Irenge\n>> MSc Student\n>> University of Liverpool\n>>\n>>         [[alternative HTML version deleted]]\n>>\n>> _______________________________________________\n>> R-SIG-Fedora mailing list\n>> R-SIG-Fedora at r-project.org\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>>\n> --\n> How many people can stand on the shoulders of a giant before the giant\n> collapses?\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "thanks Edward  for the reply . i installed rapache it runs R on apache but\nfor strange reason can not integrate R into php .\nI will be trying opencpu then. but any other solution is most welcomed like",
+      "thread_id": "thread-d4801620dd64",
+      "thread_depth": 0,
+      "month": "2016-06"
+    },
+    {
+      "id": "msg-f92346058162",
+      "message_id": "<951651286.1194613.1467251835533.JavaMail.yahoo@mail.yahoo.com>",
+      "from_name": "Michael Hannon",
+      "from_email_hash": "01860cded8fa4662e18931d40108a5d9cac89987b46747b9193585604d12bf43",
+      "date": "2016-06-30T01:57:15Z",
+      "subject": "[R-sig-Fedora] Fwd:  integration of R and php in Fedora 24",
+      "subject_clean": "integration of R and php in Fedora 24",
+      "in_reply_to": "<CAOuULM6ZH2dz80xZR2ZAUFcDf2PBzjKaygBUJxDG-G2JxMf-TQ@mail.gmail.com>",
+      "references": [
+        "<CAOuULM4K-ne73mno6WBQdtq-KC9knVOJWqkKE1dPfRoqFPEEFw@mail.gmail.com>",
+        "<CAHkRx6H7CudwP749b6WRn_oe9vUB0viE9AS_rP3SbbTBN4hfxQ@mail.gmail.com>",
+        "<CAOuULM5d6tf-kjsmMwE0ZNCkDAUzkO5P2gGR4Pe9ungXo6rCuA@mail.gmail.com>",
+        "<CAOuULM6ZH2dz80xZR2ZAUFcDf2PBzjKaygBUJxDG-G2JxMf-TQ@mail.gmail.com>"
+      ],
+      "body_plain": "This doesn't answer your question, but are you sure you don't want to use shiny?\nhttp://shiny.rstudio.com/\nThis would obviate the need for PHP, hence, the need for R-PHP integration.\n\n-- Mike\n      From: Jules Bashizi <jbi.octave at gmail.com>\n To: R-SIG-Fedora at r-project.org \n Sent: Wednesday, June 29, 2016 6:14 PM\n Subject: [R-sig-Fedora] Fwd: integration of R and php in Fedora 24\n   \nthanks Edward? for the reply . i installed rapache it runs R on apache but\nfor strange reason can not integrate R into php .\nI will be trying opencpu then. but any other solution is most welcomed like\nconfiguration is most welcomed\nthanks\n\n\n================\nWorthy agent of Light\n================\n\nJules Irenge\nMSc Student\nUniversity of Liverpool\n\n2016-06-30 1:40 GMT+01:00 M. Edward (Ed) Borasky <znmeb at znmeb.net>:\n\n> You might be able to do something with Rapache / openCPU.\n>\n> On Wed, Jun 29, 2016 at 5:26 PM Jules Bashizi <jbi.octave at gmail.com>\n> wrote:\n>\n>> Dear All,\n>>\n>> I am writing a project that will involve me writing code in R and php. i\n>> would appreciate if someone guide me on how to integrate R to php\n>> i wish to write an upload system in php that R will use and process and\n>> post back the result on php.\n>>\n>> thanks in advance\n>>\n>>\n>>\n>> ================\n>> Worthy agent of Light\n>> ================\n>>\n>> Jules Irenge\n>> MSc Student\n>> University of Liverpool\n>>\n>>? ? ? ? [[alternative HTML version deleted]]\n>>\n>> _______________________________________________\n>> R-SIG-Fedora mailing list\n>> R-SIG-Fedora at r-project.org\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>>\n> --\n> How many people can stand on the shoulders of a giant before the giant\n> collapses?\n>\n\n??? [[alternative HTML version deleted]]\n\n_______________________________________________\nR-SIG-Fedora mailing list\nR-SIG-Fedora at r-project.org\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n  \n\t[[alternative HTML version deleted]]",
+      "body_snippet": "This doesn't answer your question, but are you sure you don't want to use shiny?\nhttp://shiny.rstudio.com/\nThis would obviate the need for PHP, hence, the need for R-PHP integration.\n\n-- Mike\n      Fr",
+      "thread_id": "thread-d4801620dd64",
+      "thread_depth": 1,
+      "month": "2016-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-67c81a64cdeb",
+      "subject": "problems compiling packages | 3.3.0 | Linux",
+      "message_count": 5,
+      "participants": [
+        "Evan Cooch",
+        "Tom Callaway"
+      ],
+      "started": "2016-06-04T12:10:16-04:00",
+      "last_reply": "2016-06-06T13:17:03-04:00",
+      "root_message_id": "msg-67c81a64cdeb"
+    },
+    {
+      "id": "thread-a9ed0f7133f3",
+      "subject": "problems compiling packages | 3.3.0 | Linux",
+      "message_count": 6,
+      "participants": [
+        "Brian Fallik",
+        "Evan Cooch",
+        "Gordon Ball",
+        "Tom Callaway"
+      ],
+      "started": "2016-06-06T17:04:33-04:00",
+      "last_reply": "2016-06-09T12:06:38+00:00",
+      "root_message_id": "msg-a9ed0f7133f3"
+    },
+    {
+      "id": "thread-337debcb4371",
+      "subject": "problems compiling packages in R | 3.3.0-5 | EL6",
+      "message_count": 2,
+      "participants": [
+        "Evan Cooch",
+        "TRISTAN J PAUTSCH"
+      ],
+      "started": "2016-06-08T16:47:51+00:00",
+      "last_reply": "2016-06-08T14:41:38-04:00",
+      "root_message_id": "msg-337debcb4371"
+    },
+    {
+      "id": "thread-138f05c15bd4",
+      "subject": "problems compiling packages | 3.3.0 | Linux",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2016-06-09T08:20:58-04:00",
+      "last_reply": "2016-06-09T08:20:58-04:00",
+      "root_message_id": "msg-138f05c15bd4"
+    },
+    {
+      "id": "thread-9081a8c741ee",
+      "subject": "Fixed updates for EL5 / EL6",
+      "message_count": 2,
+      "participants": [
+        "Brian Fallik",
+        "Tom Callaway"
+      ],
+      "started": "2016-06-09T12:05:17-04:00",
+      "last_reply": "2016-06-09T12:17:38-04:00",
+      "root_message_id": "msg-9081a8c741ee"
+    },
+    {
+      "id": "thread-455b8c00b38b",
+      "subject": "Fixed updates for EL5 / EL6",
+      "message_count": 3,
+      "participants": [
+        "Brian Fallik",
+        "Rob Steele"
+      ],
+      "started": "2016-06-10T12:28:33-04:00",
+      "last_reply": "2016-06-10T18:36:35-04:00",
+      "root_message_id": "msg-455b8c00b38b"
+    },
+    {
+      "id": "thread-9254c193f567",
+      "subject": "Unable to locate R binary by scanning standard locations",
+      "message_count": 1,
+      "participants": [
+        "Imane al jaouhari"
+      ],
+      "started": "2016-06-23T09:41:44+02:00",
+      "last_reply": "2016-06-23T09:41:44+02:00",
+      "root_message_id": "msg-9254c193f567"
+    },
+    {
+      "id": "thread-e43153b6d762",
+      "subject": "integration of R and php in Fedora 24",
+      "message_count": 2,
+      "participants": [
+        "Jules Bashizi",
+        "M. Edward (Ed) Borasky"
+      ],
+      "started": "2016-06-30T01:24:52+01:00",
+      "last_reply": "2016-06-30T00:40:21+00:00",
+      "root_message_id": "msg-e43153b6d762"
+    },
+    {
+      "id": "thread-d4801620dd64",
+      "subject": "integration of R and php in Fedora 24",
+      "message_count": 2,
+      "participants": [
+        "Jules Bashizi",
+        "Michael Hannon"
+      ],
+      "started": "2016-06-30T02:14:21+01:00",
+      "last_reply": "2016-06-30T01:57:15+00:00",
+      "root_message_id": "msg-d4801620dd64"
+    }
+  ]
+}

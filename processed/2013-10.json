@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2013-10",
+  "messages": [
+    {
+      "id": "msg-e230b6b32be5",
+      "message_id": "<7E039918541B4C4183BFDB8F015C743046C4EB@WCL-EXCH02.wcl.local>",
+      "from_name": "Ed Avis",
+      "from_email_hash": "04bd7e3ab6742341b77d02b73cb49745939d48c6e3123fefb40ad3556ecba098",
+      "date": "2013-10-18T16:37:05Z",
+      "subject": "[R-sig-Fedora] R packages in Fedora 18 and 19",
+      "subject_clean": "R packages in Fedora 18 and 19",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I thought that Fedora 18 and Fedora 19 included packages for R.\nBut now I find that yum reports nothing available:\n\n# yum install R-devel R\nLoaded plugins: auto-update-debuginfo, langpacks, refresh-packagekit, versionlock\nNo package R-devel available.\nNo package R available.\n\nSo I went to check manually in the download directory, e.g.\n\nhttp://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/fedora/linux/releases/18/Fedora/x86_64/os/Packages/r/\n\nThis doesn't contain any R packages either.  What am I missing?\n\n-- \nEd Avis <eda at waniasset.com>\n\n\n______________________________________________________________________\nThis email has been scanned by the Symantec Email Security.cloud service.\nFor more information please visit http://www.symanteccloud.com",
+      "body_snippet": "I thought that Fedora 18 and Fedora 19 included packages for R.\nBut now I find that yum reports nothing available:\n\n# yum install R-devel R\nLoaded plugins: auto-update-debuginfo, langpacks, refresh-pa",
+      "thread_id": "thread-e230b6b32be5",
+      "thread_depth": 0,
+      "month": "2013-10"
+    },
+    {
+      "id": "msg-00603fdfd463",
+      "message_id": "<52618066.2070302@rutgers.edu>",
+      "from_name": "Ryan Womack",
+      "from_email_hash": "557843ce8ef11e0e6d9690c750d658d5b8e38d3cdc663f99331c9a780c8aed3b",
+      "date": "2013-10-18T14:39:34-04:00",
+      "subject": "[R-sig-Fedora] R packages in Fedora 18 and 19",
+      "subject_clean": "R packages in Fedora 18 and 19",
+      "in_reply_to": "<7E039918541B4C4183BFDB8F015C743046C4EB@WCL-EXCH02.wcl.local>",
+      "references": [
+        "<7E039918541B4C4183BFDB8F015C743046C4EB@WCL-EXCH02.wcl.local>"
+      ],
+      "body_plain": "In Fedora, the R packages are listed as R-core and R-core-devel.  Try that.\n\nOn 10/18/2013 12:37 PM, Ed Avis wrote:\n> I thought that Fedora 18 and Fedora 19 included packages for R.\n> But now I find that yum reports nothing available:\n> \n> # yum install R-devel R\n> Loaded plugins: auto-update-debuginfo, langpacks, refresh-packagekit, versionlock\n> No package R-devel available.\n> No package R available.\n> \n> So I went to check manually in the download directory, e.g.\n> \n> http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/fedora/linux/releases/18/Fedora/x86_64/os/Packages/r/\n> \n> This doesn't contain any R packages either.  What am I missing?\n> \n\n-- \n**************************************\nRyan Womack\n\nData Librarian\nRutgers University - New Brunswick\nhttp://www.rci.rutgers.edu/~rwomack/\n\ntweeting @RyanData\nblogging at\nhttp://ryandata.wordpress.com\n**************************************\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: signature.asc\nType: application/pgp-signature\nSize: 901 bytes\nDesc: OpenPGP digital signature\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20131018/253d396a/attachment.bin>",
+      "body_snippet": "In Fedora, the R packages are listed as R-core and R-core-devel.  Try that.\n\nOn 10/18/2013 12:37 PM, Ed Avis wrote:\n> I thought that Fedora 18 and Fedora 19 included packages for R.\n> But now I find t",
+      "thread_id": "thread-e230b6b32be5",
+      "thread_depth": 1,
+      "month": "2013-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-e230b6b32be5",
+      "subject": "R packages in Fedora 18 and 19",
+      "message_count": 2,
+      "participants": [
+        "Ed Avis",
+        "Ryan Womack"
+      ],
+      "started": "2013-10-18T16:37:05+00:00",
+      "last_reply": "2013-10-18T14:39:34-04:00",
+      "root_message_id": "msg-e230b6b32be5"
+    }
+  ]
+}

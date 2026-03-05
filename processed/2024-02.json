@@ -1,0 +1,73 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2024-02",
+  "messages": [
+    {
+      "id": "msg-d7d24587be09",
+      "message_id": "<1ae7c433-17f4-461d-b94f-7650805f00dc@app.fastmail.com>",
+      "from_name": "Tim Taylor",
+      "from_email_hash": "e3071ae8257bda4085d8999a9801b324cc930f4864ac0aec1c44601958781446",
+      "date": "2024-02-05T14:47:51Z",
+      "subject": "[R-sig-Fedora] R-rmarkdown eot font",
+      "subject_clean": "R-rmarkdown eot font",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Stripping eot fonts from R-rmarkdown (and not linking to alternatives) means Rmarkdown doesn't seem to work for certain document types. To illustrate:\n\n-----------------------------------------------------\n\necho -e '---\\ntitle: \"R Notebook\"\\noutput: html_document\\n---' > test.Rmd\nR -s -e \"rmarkdown::render('test.Rmd')\"\n\nprocessing file: test.Rmd\n                                                                                          \noutput file: test.knit.md\n\n/usr/bin/pandoc +RTS -K512m -RTS test.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output test.html --lua-filter /usr/share/R/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /usr/share/R/library/rmarkdown/rmarkdown/lua/latex-div.lua --embed-resources --standalone --variable bs3=TRUE --section-divs --template /usr/share/R/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /tmp/Rtmpc9fCOq/rmarkdown-str1742747432e3f.html \npandoc: /usr/share/R/library/rmarkdown/rmd/h/bootstrap/css/../fonts/glyphicons-halflings-regular.eot: withBinaryFile: does not exist (No such file or directory)\nError: pandoc document conversion failed with error 1\nExecution halted\n\n-----------------------------------------------------\n\nI'm not sure if this can/should be solved upstream (and even whether it is actually something to be solved in pandoc over rmarkdown) but the functionality does seem broken as is currently shipped in Fedora.  Interestingly this appears to have also been discussed this month at https://discussion.fedoraproject.org/t/cannot-produce-html-notebook-output-with-r-rmarkdown/101678 so I'm not sure if something has changed recently (I tend to always be using a copr version of Rmarkdown).\n\nHope this all makes sense.\n\nTim\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Stripping eot fonts from R-rmarkdown (and not linking to alternatives) means Rmarkdown doesn't seem to work for certain document types. To illustrate:\n\n------------------------------------------------",
+      "thread_id": "thread-d7d24587be09",
+      "thread_depth": 0,
+      "month": "2024-02"
+    },
+    {
+      "id": "msg-caec9c288c27",
+      "message_id": "<CALEXWq3aR2c4d=esWhVuUWZ=DyYgvFnphk5xcjeUka=eLBXAqw@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2024-02-05T16:05:48+01:00",
+      "subject": "[R-sig-Fedora] R-rmarkdown eot font",
+      "subject_clean": "R-rmarkdown eot font",
+      "in_reply_to": "<1ae7c433-17f4-461d-b94f-7650805f00dc@app.fastmail.com>",
+      "references": [
+        "<1ae7c433-17f4-461d-b94f-7650805f00dc@app.fastmail.com>"
+      ],
+      "body_plain": "Could you please open an issue at bugzilla.redhat.com?\n\nI?aki\n\n\nOn Mon, 5 Feb 2024 at 15:48, Tim Taylor\n<tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> Stripping eot fonts from R-rmarkdown (and not linking to alternatives) means Rmarkdown doesn't seem to work for certain document types. To illustrate:\n>\n> -----------------------------------------------------\n>\n> echo -e '---\\ntitle: \"R Notebook\"\\noutput: html_document\\n---' > test.Rmd\n> R -s -e \"rmarkdown::render('test.Rmd')\"\n>\n> processing file: test.Rmd\n>\n> output file: test.knit.md\n>\n> /usr/bin/pandoc +RTS -K512m -RTS test.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output test.html --lua-filter /usr/share/R/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /usr/share/R/library/rmarkdown/rmarkdown/lua/latex-div.lua --embed-resources --standalone --variable bs3=TRUE --section-divs --template /usr/share/R/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /tmp/Rtmpc9fCOq/rmarkdown-str1742747432e3f.html\n> pandoc: /usr/share/R/library/rmarkdown/rmd/h/bootstrap/css/../fonts/glyphicons-halflings-regular.eot: withBinaryFile: does not exist (No such file or directory)\n> Error: pandoc document conversion failed with error 1\n> Execution halted\n>\n> -----------------------------------------------------\n>\n> I'm not sure if this can/should be solved upstream (and even whether it is actually something to be solved in pandoc over rmarkdown) but the functionality does seem broken as is currently shipped in Fedora.  Interestingly this appears to have also been discussed this month at https://discussion.fedoraproject.org/t/cannot-produce-html-notebook-output-with-r-rmarkdown/101678 so I'm not sure if something has changed recently (I tend to always be using a copr version of Rmarkdown).\n>\n> Hope this all makes sense.\n>\n> Tim\n>\n>\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\n-- \nI?aki ?car",
+      "body_snippet": "Could you please open an issue at bugzilla.redhat.com?\n\nI?aki\n\n\nOn Mon, 5 Feb 2024 at 15:48, Tim Taylor\n<tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> Stripping eot fonts from R-rmarkdown (and not l",
+      "thread_id": "thread-d7d24587be09",
+      "thread_depth": 1,
+      "month": "2024-02"
+    },
+    {
+      "id": "msg-bedb37c1b801",
+      "message_id": "<7B46B5AE-A00D-4FDF-B121-D887A8F4F43A@hiddenelephants.co.uk>",
+      "from_name": "Tim Taylor",
+      "from_email_hash": "e3071ae8257bda4085d8999a9801b324cc930f4864ac0aec1c44601958781446",
+      "date": "2024-02-05T15:23:34Z",
+      "subject": "[R-sig-Fedora] R-rmarkdown eot font",
+      "subject_clean": "R-rmarkdown eot font",
+      "in_reply_to": "<CALEXWq3aR2c4d=esWhVuUWZ=DyYgvFnphk5xcjeUka=eLBXAqw@mail.gmail.com>",
+      "references": [
+        "<CALEXWq3aR2c4d=esWhVuUWZ=DyYgvFnphk5xcjeUka=eLBXAqw@mail.gmail.com>"
+      ],
+      "body_plain": "Yep - will do so later this evening.\n\nCheers \n\n> On 5 Feb 2024, at 15:06, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> \n> ?Could you please open an issue at bugzilla.redhat.com?\n> \n> I?aki\n> \n> \n>> On Mon, 5 Feb 2024 at 15:48, Tim Taylor\n>> <tim.taylor at hiddenelephants.co.uk> wrote:\n>> \n>> Stripping eot fonts from R-rmarkdown (and not linking to alternatives) means Rmarkdown doesn't seem to work for certain document types. To illustrate:\n>> \n>> -----------------------------------------------------\n>> \n>> echo -e '---\\ntitle: \"R Notebook\"\\noutput: html_document\\n---' > test.Rmd\n>> R -s -e \"rmarkdown::render('test.Rmd')\"\n>> \n>> processing file: test.Rmd\n>> \n>> output file: test.knit.md\n>> \n>> /usr/bin/pandoc +RTS -K512m -RTS test.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output test.html --lua-filter /usr/share/R/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /usr/share/R/library/rmarkdown/rmarkdown/lua/latex-div.lua --embed-resources --standalone --variable bs3=TRUE --section-divs --template /usr/share/R/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /tmp/Rtmpc9fCOq/rmarkdown-str1742747432e3f.html\n>> pandoc: /usr/share/R/library/rmarkdown/rmd/h/bootstrap/css/../fonts/glyphicons-halflings-regular.eot: withBinaryFile: does not exist (No such file or directory)\n>> Error: pandoc document conversion failed with error 1\n>> Execution halted\n>> \n>> -----------------------------------------------------\n>> \n>> I'm not sure if this can/should be solved upstream (and even whether it is actually something to be solved in pandoc over rmarkdown) but the functionality does seem broken as is currently shipped in Fedora.  Interestingly this appears to have also been discussed this month at https://discussion.fedoraproject.org/t/cannot-produce-html-notebook-output-with-r-rmarkdown/101678 so I'm not sure if something has changed recently (I tend to always be using a copr version of Rmarkdown).\n>> \n>> Hope this all makes sense.\n>> \n>> Tim\n>> \n>> \n>>        [[alternative HTML version deleted]]\n>> \n>> _______________________________________________\n>> R-SIG-Fedora mailing list\n>> R-SIG-Fedora at r-project.org\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> \n> \n> \n> --\n> I?aki ?car",
+      "body_snippet": "Yep - will do so later this evening.\n\nCheers \n\n> On 5 Feb 2024, at 15:06, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> \n> ?Could you please open an issue at bugzilla.redhat.com?\n> \n> I?aki\n> \n> \n>",
+      "thread_id": "thread-d7d24587be09",
+      "thread_depth": 2,
+      "month": "2024-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-d7d24587be09",
+      "subject": "R-rmarkdown eot font",
+      "message_count": 3,
+      "participants": [
+        "Iñaki Ucar",
+        "Tim Taylor"
+      ],
+      "started": "2024-02-05T14:47:51+00:00",
+      "last_reply": "2024-02-05T15:23:34+00:00",
+      "root_message_id": "msg-d7d24587be09"
+    }
+  ]
+}

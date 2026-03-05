@@ -1,0 +1,43 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2018-06",
+  "messages": [
+    {
+      "id": "msg-992fd1cb28a2",
+      "message_id": "<23330.46334.723686.839921@rob.eddelbuettel.com>",
+      "from_name": "Dirk Eddelbuettel",
+      "from_email_hash": "41afaefcb8db6ed02b73dc17f00c860596be87f14445fbbc0a5f7ccb3093af22",
+      "date": "2018-06-14T13:33:34-05:00",
+      "subject": "[R-sig-Fedora] CentOS 7 issues with pdf manual / tex conversion",
+      "subject_clean": "CentOS 7 issues with pdf manual / tex conversion",
+      "in_reply_to": "<23311.1834.610610.249346@rob.eddelbuettel.com>",
+      "references": [
+        "<23309.46414.943203.403128@rob.eddelbuettel.com>",
+        "<alpine.LRH.2.03.1805291633070.8058@bjyevire.pbz>",
+        "<23309.48598.133726.78426@rob.eddelbuettel.com>",
+        "<074e37f8-e298-3630-caeb-08042847d775@redhat.com>",
+        "<23310.52470.142514.748638@rob.eddelbuettel.com>",
+        "<23311.1834.610610.249346@rob.eddelbuettel.com>"
+      ],
+      "body_plain": "On 30 May 2018 at 15:18, Dirk Eddelbuettel wrote:\n| \n| On 30 May 2018 at 11:10, Dirk Eddelbuettel wrote:\n| | \n| | Tom,\n| | \n| | On 30 May 2018 at 11:34, Tom Callaway wrote:\n| | | On 05/29/2018 04:53 PM, Dirk Eddelbuettel wrote:\n| | | > I noticed it with a local, not-public package -- but it appears to apply with\n| | | > any source package. I replicated with pkgKitten straight off CRAN and after\n| | | > checking that it has a six page manual there.\n| | | \n| | | I'm having trouble reproducing this one. In my fresh CentOS 7 VM, I can\n| | | pull the pkgKitten source down, and run R CMD Rd2pdf pkgKitten without\n| | | issue:\n| | \n| | Thank you. That is the expected behaviour and also what I see on Ubuntu /\n| | Debian. We may be missing a font metrics or font package.  Will check\n| | locally.\n| \n| Weird. We have the exact same packages, yet mine bonk.  I wonder what else\n| could be going on.  Maybe it is write permission on the cache font metrics or\n| something like that...\n\nI let this rest but just got tired of it and looked closer.  It barks over a\nline like this\n\n\\HeaderA{testPkg-package}{What the package does (short line)}{testPkg.Rdash.package}\n\nso it does seem like an R problem as opposed to a CentOS problem, or maybe\nsomewhere in between.  Still strange that nobody else is being bitten by this.\n\nDirk\n\n-- \nhttp://dirk.eddelbuettel.com | @eddelbuettel | edd at debian.org",
+      "body_snippet": "On 30 May 2018 at 15:18, Dirk Eddelbuettel wrote:\n| \n| On 30 May 2018 at 11:10, Dirk Eddelbuettel wrote:\n| | \n| | Tom,\n| | \n| | On 30 May 2018 at 11:34, Tom Callaway wrote:\n| | | On 05/29/2018 04:53 P",
+      "thread_id": "thread-992fd1cb28a2",
+      "thread_depth": 0,
+      "month": "2018-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-992fd1cb28a2",
+      "subject": "CentOS 7 issues with pdf manual / tex conversion",
+      "message_count": 1,
+      "participants": [
+        "Dirk Eddelbuettel"
+      ],
+      "started": "2018-06-14T13:33:34-05:00",
+      "last_reply": "2018-06-14T13:33:34-05:00",
+      "root_message_id": "msg-992fd1cb28a2"
+    }
+  ]
+}

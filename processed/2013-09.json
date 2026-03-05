@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2013-09",
+  "messages": [
+    {
+      "id": "msg-a0d36f068b94",
+      "message_id": "<52354BF2.8030602@3c58.net>",
+      "from_name": "Mike Landis",
+      "from_email_hash": "0846a1435a371757f6932f9bfe0bd4302b0f4a3b0a509749d4bd8ad97f365f02",
+      "date": "2013-09-14T22:56:02-07:00",
+      "subject": "[R-sig-Fedora] building R, rJava, & Rserve on Centos without admin privileges (or support)",
+      "subject_clean": "building R, rJava, & Rserve on Centos without admin privileges (or support)",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I am trying to build R on a Centos server without admin privileges (or \nsupport), so I can call R functions from NetLogo models (via the NetLogo \nR extension or possibly Rserve), but I'm getting stuck near the end of \nmake.  Any suggestions?\n\nHere's the setup...\n$ R_SHELL=/bin/sh\n$ R_HOME=~/R-devel\n$ cd $R_HOME; ./configure; make\n       returns\n...\nbegin installing recommended package MASS\nError in untar2(tarfile, files, list, exdir, restore_times) :\n   incomplete block on file\nmake[2]: *** [MASS.ts] Error 1\nmake[2]: Leaving directory `/home1/optimal1/R-devel/src/library/Recommended'\nmake[1]: *** [recommended-packages] Error 2\nmake[1]: Leaving directory `/home1/optimal1/R-devel/src/library/Recommended'\nmake: *** [stamp-recommended] Error 2\n\n$ cd ../R-packages; R CMD INSTALL MASS\n      succeeds, though\n\n$ make\n      still fails on MASS, as above\n\n$ cd $R_HOME; ./configure --enable-R-shlib\n      returns\n...\ngcc -std=gnu99 -shared -fopenmp -L/usr/local/lib64  -o libR.so \nCommandLineArgs.o Rdynload.o Renviron.o RNG.o agrep.o apply.o \narithmetic.o array.o attrib.o bind.o builtin.o character.o coerce.o \ncolors.o complex.o connections.o context.o cum.o dcf.o datetime.o \ndebug.o deparse.o devices.o dotcode.o dounzip.o dstruct.o duplicate.o \nedit.o engine.o envir.o errors.o eval.o format.o gevents.o gram.o \ngram-ex.o graphics.o grep.o identical.o inlined.o inspect.o internet.o \niosupport.o lapack.o list.o localecharset.o logic.o main.o mapply.o \nmatch.o memory.o names.o objects.o options.o paste.o platform.o plot.o \nplot3d.o plotmath.o print.o printarray.o printvector.o printutils.o \nqsort.o random.o raw.o registration.o relop.o rlocale.o saveload.o \nscan.o seq.o serialize.o sort.o source.o split.o sprintf.o startup.o \nsubassign.o subscript.o subset.o summary.o sysutils.o unique.o util.o \nversion.o vfonts.o xxxpr.o   `ls ../unix/*.o ../appl/*.o ../nmath/*.o` \n../extra/zlib/libz.a ../extra/bzip2/libbz2.a ../extra/pcre/libpcre.a \n../extra/tre/libtre.a  ../extra/xz/liblzma.a  -L../../lib -lRblas \n-lgfortran -lm   -lreadline  -lrt -ldl -lm -licuuc -licui18n\n/usr/bin/ld: CommandLineArgs.o: relocation R_X86_64_32 against \n`.rodata.str1.1' can not be used when making a shared object; recompile \nwith -fPIC\nCommandLineArgs.o: could not read symbols: Bad value\ncollect2: ld returned 1 exit status\nmake[3]: *** [libR.so] Error 1\nmake[3]: Leaving directory `/home1/optimal1/R-devel/src/main'\nmake[2]: *** [R] Error 2\nmake[2]: Leaving directory `/home1/optimal1/R-devel/src/main'\nmake[1]: *** [R] Error 1\nmake[1]: Leaving directory `/home1/optimal1/R-devel/src'\nmake: *** [R] Error 1\n-----------------------------\n$ cd ../R-packages; R CMD INSTALL Rserve\n      returns\n...\n** libs\ngcc -std=gnu99 -shared -L/usr/local/lib64 -o Rserve.so RSserver.o \nRserv.o base64.o http.o md5.o oc.o qap_decode.o qap_encode.o rsio.o \nsession.o sha1.o standalone.o tls.o websockets.o winembed.o -lssl \n-lcrypto -ldl -lcrypt -L/home1/optimal1/R-devel/lib -lR\n/usr/bin/ld: cannot find -lR\ncollect2: ld returned 1 exit status\nmake: *** [Rserve.so] Error 1\nERROR: compilation failed for package 'Rserve'\n* removing '/home1/optimal1/R-devel/library/Rserve'\n-----------------------------\n$ $JAVA_HOME=~/jdk1.7.0_40\n# $PATH includes $JAVA_HOME/bin & $R_HOME/bin\n$ R CMD INSTALL rJava\n     returns\n...\ninterpreter : ''\narchiver    : ''\ncompiler    : ''\nheader prep.: ''\ncpp flags   : ''\njava libs   : ''\nconfigure: error: Java Development Kit (JDK) is missing or not \nregistered in R\nMake sure R is configured with full Java support (including JDK). Run\nR CMD javareconf\nas root to add Java support to R.\nIf you don't have root privileges, run\nR CMD javareconf -e\nto set all Java-related variables and then install rJava.\nERROR: configuration failed for package 'rJava'\n* removing '/home1/optimal1/R-devel/library/rJava'\n------------------------\n$ R CMD javareconf -e\n      returns\nJava interpreter : /home1/optimal1/jdk1.7.0_40/jre/bin/java \n(surprisingly, not $JAVA_HOME/bin/java)\nError: Could not create the Java Virtual Machine.\nError: A fatal exception has occurred. Program will exit.\nError occurred during initialization of VM\nCould not reserve enough space for object heap\n*** Java interpreter doesn't work properly.\n-----------------------\n$ java -version\n      complains\nError occurred during initialization of VM\nCould not reserve enough space for object heap\nError: Could not create the Java Virtual Machine.\nError: A fatal exception has occurred. Program will exit.\n      but\n$ alias java $JAVA_HOME/bin/java -Xmx668m -XX:MaxPermSize=128m\n$ java -version\n    works, though javareconf still fails as above\n\nAny ideas?\n\n-- \nMike Landis\nComputational Ingelligence <http://3c58.com>\nLas Vegas, NV\n702-763-1957",
+      "body_snippet": "I am trying to build R on a Centos server without admin privileges (or \nsupport), so I can call R functions from NetLogo models (via the NetLogo \nR extension or possibly Rserve), but I'm getting stuck",
+      "thread_id": "thread-a0d36f068b94",
+      "thread_depth": 0,
+      "month": "2013-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-a0d36f068b94",
+      "subject": "building R, rJava, & Rserve on Centos without admin privileges (or support)",
+      "message_count": 1,
+      "participants": [
+        "Mike Landis"
+      ],
+      "started": "2013-09-14T22:56:02-07:00",
+      "last_reply": "2013-09-14T22:56:02-07:00",
+      "root_message_id": "msg-a0d36f068b94"
+    }
+  ]
+}

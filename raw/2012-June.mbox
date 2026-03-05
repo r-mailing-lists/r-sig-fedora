@@ -1,0 +1,246 @@
+From Ted.Harding at wlandres.net  Sat Jun 30 20:25:20 2012
+From: Ted.Harding at wlandres.net ( (Ted Harding))
+Date: Sat, 30 Jun 2012 19:25:20 +0100 (BST)
+Subject: [R-sig-Fedora] Scientific Linux
+Message-ID: <XFMail.20120630192520.Ted.Harding@wlandres.net>
+
+Greetings!
+
+I have just signed up to r-sig-fedora because I have
+installed Scientific Linux 6.2 (my first Red Hat based
+Linux since over 10 years ago ... ). I'm trying this for
+basically 2 reasons: first, I expect CERN and FermiLab
+should do a good job of maintaining their distribution,
+and in particular to take care of its compatibility with
+scientific software; second, because it still has Gnome 2 ...
+
+I installed it off the Live DVD from the Scientific Linux
+website, and this went very smoothly. However, it does not
+of course come in the first instance with any special
+scientific software (in in particular not with R).
+
+For extra packages it has been suggested to me to use EPEL
+(Extra Packages for Enterprise Linux, not specifically for
+Scientific Linux). And there are the CRAN repositories, of
+course.
+
+I am now wondering -- and somewhat puzzled -- as to how best
+to move forward. At some stage in exploring my installation
+(and I cannot now recall how I got there) an information
+panel came up which said that it was not possible to add
+further package sources to the list of software sources!
+
+So, for instance, it would seem not to be possible to
+add a CRAN mirror.
+
+So it looks as though one may be stuck with downloading
+what one wants, package by package, and installing it by
+hand (and not getting automatic updates etc.)
+
+Any comments, please? Red Hat has changed a lot since I
+last installed it (RH 7.1 in 2001; I have more recently
+been installing Debian), and I'm not familiar with the
+current way of running things (and, in particular, with
+the intermingling of Gnome and KDE things).
+
+With thanks,
+Ted.
+
+-------------------------------------------------
+E-Mail: (Ted Harding) <Ted.Harding at wlandres.net>
+Date: 30-Jun-2012  Time: 19:25:13
+This message was sent by XFMail
+
+
+From marc_schwartz at me.com  Sat Jun 30 21:50:15 2012
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Sat, 30 Jun 2012 14:50:15 -0500
+Subject: [R-sig-Fedora] Scientific Linux
+In-Reply-To: <XFMail.20120630192520.Ted.Harding@wlandres.net>
+References: <XFMail.20120630192520.Ted.Harding@wlandres.net>
+Message-ID: <ABDED362-5CC2-4560-AC7E-286257A34FDB@me.com>
+
+
+On Jun 30, 2012, at 1:25 PM, Ted Harding wrote:
+
+> Greetings!
+> 
+> I have just signed up to r-sig-fedora because I have
+> installed Scientific Linux 6.2 (my first Red Hat based
+> Linux since over 10 years ago ... ). I'm trying this for
+> basically 2 reasons: first, I expect CERN and FermiLab
+> should do a good job of maintaining their distribution,
+> and in particular to take care of its compatibility with
+> scientific software; second, because it still has Gnome 2 ...
+> 
+> I installed it off the Live DVD from the Scientific Linux
+> website, and this went very smoothly. However, it does not
+> of course come in the first instance with any special
+> scientific software (in in particular not with R).
+> 
+> For extra packages it has been suggested to me to use EPEL
+> (Extra Packages for Enterprise Linux, not specifically for
+> Scientific Linux). And there are the CRAN repositories, of
+> course.
+> 
+> I am now wondering -- and somewhat puzzled -- as to how best
+> to move forward. At some stage in exploring my installation
+> (and I cannot now recall how I got there) an information
+> panel came up which said that it was not possible to add
+> further package sources to the list of software sources!
+> 
+> So, for instance, it would seem not to be possible to
+> add a CRAN mirror.
+> 
+> So it looks as though one may be stuck with downloading
+> what one wants, package by package, and installing it by
+> hand (and not getting automatic updates etc.)
+> 
+> Any comments, please? Red Hat has changed a lot since I
+> last installed it (RH 7.1 in 2001; I have more recently
+> been installing Debian), and I'm not familiar with the
+> current way of running things (and, in particular, with
+> the intermingling of Gnome and KDE things).
+> 
+> With thanks,
+> Ted.
+
+Hi Ted,
+
+Since SL 6 is based upon RHEL 6, you can use the EPEL to install R once you have added the EPEL repos to your "yum" configuration. 'yum' in the means for installing, upgrading and removing default Linux packages. It is the parallel in a sense for 'apt' on Debian based distros.
+
+If you have not yet done so, there are instructions here:
+
+  http://fedoraproject.org/wiki/EPEL
+
+for installing the EPEL yum repo configurations for 6 series distros. Once you have done that, you can use:
+
+  yum install R
+
+as root or via sudo from the CLI. That will install R with base and recommended packages.
+
+You do want to use yum to install SL/EPEL based RPMs, as it will resolve package dependencies as you install things, much like install.packages(..., dependencies = TRUE). So you should not have to download individual RPMs and use 'rpm' from the CLI.
+
+You will not be able to add CRAN mirrors to the yum based installation process and unlike Debian distros, largely thanks to Dirk I believe, the EPEL/Fedora based repos will not have a large selection of R CRAN packages to install from binaries. So you will need to continue to use install.packages() from within R as a root user.
+
+I have not used Fedora since F10 a little over 3 years ago, since moving to OSX. I was using GNOME at the time and not KDE, so had little need for KDE based apps. That being said, my recollection is that they could co-exist, provided that you had the requisite libraries for both DEs installed. I don't know what the current state of affairs is with GNOME 3, though have taken note of the infighting in the community relative to developments with GNOME, Unity, etc.
+
+I hope that this is helpful to get you going.
+
+Regards,
+
+Marc Schwartz
+
+
+From Ted.Harding at wlandres.net  Sat Jun 30 22:08:47 2012
+From: Ted.Harding at wlandres.net ( (Ted Harding))
+Date: Sat, 30 Jun 2012 21:08:47 +0100 (BST)
+Subject: [R-sig-Fedora] Scientific Linux
+In-Reply-To: <ABDED362-5CC2-4560-AC7E-286257A34FDB@me.com>
+Message-ID: <XFMail.20120630210847.Ted.Harding@wlandres.net>
+
+On 30-Jun-2012 19:50:15 Marc Schwartz wrote:
+> On Jun 30, 2012, at 1:25 PM, Ted Harding wrote:
+>> Greetings!
+>> 
+>> I have just signed up to r-sig-fedora because I have
+>> installed Scientific Linux 6.2 (my first Red Hat based
+>> Linux since over 10 years ago ... ). I'm trying this for
+>> basically 2 reasons: first, I expect CERN and FermiLab
+>> should do a good job of maintaining their distribution,
+>> and in particular to take care of its compatibility with
+>> scientific software; second, because it still has Gnome 2 ...
+>> 
+>> I installed it off the Live DVD from the Scientific Linux
+>> website, and this went very smoothly. However, it does not
+>> of course come in the first instance with any special
+>> scientific software (in in particular not with R).
+>> 
+>> For extra packages it has been suggested to me to use EPEL
+>> (Extra Packages for Enterprise Linux, not specifically for
+>> Scientific Linux). And there are the CRAN repositories, of
+>> course.
+>> 
+>> I am now wondering -- and somewhat puzzled -- as to how best
+>> to move forward. At some stage in exploring my installation
+>> (and I cannot now recall how I got there) an information
+>> panel came up which said that it was not possible to add
+>> further package sources to the list of software sources!
+>> 
+>> So, for instance, it would seem not to be possible to
+>> add a CRAN mirror.
+>> 
+>> So it looks as though one may be stuck with downloading
+>> what one wants, package by package, and installing it by
+>> hand (and not getting automatic updates etc.)
+>> 
+>> Any comments, please? Red Hat has changed a lot since I
+>> last installed it (RH 7.1 in 2001; I have more recently
+>> been installing Debian), and I'm not familiar with the
+>> current way of running things (and, in particular, with
+>> the intermingling of Gnome and KDE things).
+>> 
+>> With thanks,
+>> Ted.
+> 
+> Hi Ted,
+> 
+> Since SL 6 is based upon RHEL 6, you can use the EPEL to install
+> R once you have added the EPEL repos to your "yum" configuration.
+> 'yum' in the means for installing, upgrading and removing default
+> Linux packages. It is the parallel in a sense for 'apt' on Debian
+> based distros.
+> 
+> If you have not yet done so, there are instructions here:
+> 
+>   http://fedoraproject.org/wiki/EPEL
+> 
+> for installing the EPEL yum repo configurations for 6 series distros.
+> Once you have done that, you can use:
+> 
+>   yum install R
+> 
+> as root or via sudo from the CLI. That will install R with base
+> and recommended packages.
+> 
+> You do want to use yum to install SL/EPEL based RPMs, as it will
+> resolve package dependencies as you install things, much like
+> install.packages(..., dependencies = TRUE). So you should not
+> have to download individual RPMs and use 'rpm' from the CLI.
+> 
+> You will not be able to add CRAN mirrors to the yum based installation
+> process and unlike Debian distros, largely thanks to Dirk I believe,
+> the EPEL/Fedora based repos will not have a large selection of R CRAN
+> packages to install from binaries. So you will need to continue to
+> use install.packages() from within R as a root user.
+> 
+> I have not used Fedora since F10 a little over 3 years ago, since
+> moving to OSX. I was using GNOME at the time and not KDE, so had
+> little need for KDE based apps. That being said, my recollection is
+> that they could co-exist, provided that you had the requisite
+> libraries for both DEs installed. I don't know what the current
+> state of affairs is with GNOME 3, though have taken note of the
+> infighting in the community relative to developments with GNOME,
+> Unity, etc.
+> 
+> I hope that this is helpful to get you going.
+> 
+> Regards,
+> Marc Schwartz
+
+Very many thanks, Marc! That is extremely helpful, in that it seems
+to point to solutions for all thethings I was puzzled about!
+
+Now to see how I get on ... (and, by the way, one reason for
+Scientific Linux it that it has stuck with Gnome 2; and I have
+strong reasons for avoiding Gnome 3 and the like).
+
+All best wishes,
+Ted.
+
+-------------------------------------------------
+E-Mail: (Ted Harding) <Ted.Harding at wlandres.net>
+Date: 30-Jun-2012  Time: 21:08:43
+This message was sent by XFMail
+
+

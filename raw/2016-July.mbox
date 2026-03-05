@@ -1,0 +1,322 @@
+From CSANGALLI.external2 at unicredit.eu  Tue Jul  5 16:34:39 2016
+From: CSANGALLI.external2 at unicredit.eu (Sangalli Cristiano Giovanni (Ext. - UniCredit Business Integrated
+	Solutions))
+Date: Tue, 5 Jul 2016 14:34:39 +0000
+Subject: [R-sig-Fedora] R-3.3.1 RPM release
+Message-ID: <703384B6C7985C4DBDC3C92ABE98F66C015F63B552@USEXCPWD01A.mc01.unicreditgroup.eu>
+
+
+Hi All,
+
+I have installed on a RHEL 5.7 server the recent R-3.3.0 rpm but I would like to upgrade to the latest now available R-3.3.1 . I have not found so far the rpm, I would like to know if and when it will be available?
+
+Thanks in advance,
+Cris
+
+
+
+This e-mail is confidential and may also contain privileged information. If you are not the intended recipient you are not authorised to read, print, save, process or disclose this message. If you have received this message by mistake, please inform the sender immediately and delete this e-mail, its attachments and any copies.
+Any use, distribution, reproduction or disclosure by any person other than the intended recipient is strictly prohibited and the person responsible may incur penalties.
+Thank you!
+
+	[[alternative HTML version deleted]]
+
+
+From tcallawa at redhat.com  Tue Jul  5 17:34:33 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 5 Jul 2016 11:34:33 -0400
+Subject: [R-sig-Fedora] R-3.3.1 RPM release
+In-Reply-To: <703384B6C7985C4DBDC3C92ABE98F66C015F63B552@USEXCPWD01A.mc01.unicreditgroup.eu>
+References: <703384B6C7985C4DBDC3C92ABE98F66C015F63B552@USEXCPWD01A.mc01.unicreditgroup.eu>
+Message-ID: <8249e67d-9437-9219-660c-581f419e065b@redhat.com>
+
+On 07/05/2016 10:34 AM, Sangalli Cristiano Giovanni (Ext. - UniCredit
+Business Integrated Solutions) wrote:
+> 
+> Hi All,
+> 
+> I have installed on a RHEL 5.7 server the recent R-3.3.0 rpm but I would like to upgrade to the latest now available R-3.3.1 . I have not found so far the rpm, I would like to know if and when it will be available?
+
+I've just returned from several weeks of traveling and conferences. I
+hope to have 3.3.1 builds out this week.
+
+~tom
+
+==
+Red Hat
+
+
+From fs2307 at cumc.columbia.edu  Tue Jul  5 18:52:49 2016
+From: fs2307 at cumc.columbia.edu (Syagin, Fedor)
+Date: Tue, 5 Jul 2016 16:52:49 +0000
+Subject: [R-sig-Fedora] Compiling R-3.3.0 and/or R-3.3.1 with custom
+ location for dependencies like zlib
+Message-ID: <E7D04B0B19283649946BC246B2F1B9130893C5F3@SGWAEXM001.mc.cumc.columbia.edu>
+
+Greetings.
+Sorry I am a bit new to this list.
+I am trying to compile R-3.3.0 and/or R-3.3.1 on computational cluster running Centos 6.6
+I have custom installation of zlib 1.2.8 , but it's not in default /lib /usr/lib /usr/include location and configure script keeps failing when looking for it.
+It doesn't seem to care if correct zlib.h is in path and always seems to find one in /usr/include
+
+In the past we build R and put in nfs share that used by about 400 nodes to do computation.
+This is first time we having issue with compilation process. zlib dependencies right now are on the same share.
+
+Is there any way to point configure script to the right location for the prerequisite?
+So far I see people mostly end up using package system, that might not so well for our environment.
+
+
+Sincerely yours Fedor
+
+
+	[[alternative HTML version deleted]]
+
+
+From tcallawa at redhat.com  Tue Jul  5 19:10:25 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 5 Jul 2016 13:10:25 -0400
+Subject: [R-sig-Fedora] Compiling R-3.3.0 and/or R-3.3.1 with custom
+ location for dependencies like zlib
+In-Reply-To: <E7D04B0B19283649946BC246B2F1B9130893C5F3@SGWAEXM001.mc.cumc.columbia.edu>
+References: <E7D04B0B19283649946BC246B2F1B9130893C5F3@SGWAEXM001.mc.cumc.columbia.edu>
+Message-ID: <36f7d7d3-0a87-ec56-4cd7-8ae554082933@redhat.com>
+
+On 07/05/2016 12:52 PM, Syagin, Fedor wrote:
+> Greetings.
+> Sorry I am a bit new to this list.
+> I am trying to compile R-3.3.0 and/or R-3.3.1 on computational cluster running Centos 6.6
+> I have custom installation of zlib 1.2.8 , but it's not in default /lib /usr/lib /usr/include location and configure script keeps failing when looking for it.
+> It doesn't seem to care if correct zlib.h is in path and always seems to find one in /usr/include
+> 
+> In the past we build R and put in nfs share that used by about 400 nodes to do computation.
+> This is first time we having issue with compilation process. zlib dependencies right now are on the same share.
+> 
+> Is there any way to point configure script to the right location for the prerequisite?
+> So far I see people mostly end up using package system, that might not so well for our environment.
+
+Not a good way. Why can't you use the EPEL package?
+
+~tom
+
+==
+Red Hat
+
+
+From fs2307 at cumc.columbia.edu  Tue Jul  5 19:12:47 2016
+From: fs2307 at cumc.columbia.edu (Syagin, Fedor)
+Date: Tue, 5 Jul 2016 17:12:47 +0000
+Subject: [R-sig-Fedora] Compiling R-3.3.0 and/or R-3.3.1 with custom
+ location for dependencies like zlib
+In-Reply-To: <36f7d7d3-0a87-ec56-4cd7-8ae554082933@redhat.com>
+References: <E7D04B0B19283649946BC246B2F1B9130893C5F3@SGWAEXM001.mc.cumc.columbia.edu>
+	<36f7d7d3-0a87-ec56-4cd7-8ae554082933@redhat.com>
+Message-ID: <E7D04B0B19283649946BC246B2F1B9130893D6E1@SGWAEXM001.mc.cumc.columbia.edu>
+
+I would still have to use custom locations.
+I need to make sure we have access to multiple R versions. (So people still have access to old versions if they need them) so 
+need to be  very careful about not affecting current environment.
+
+Sincerely yours Fedor Syagin
+
+Office: (212) 851-4796
+
+Cell:      (917) 710-6664
+
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: Tuesday, July 05, 2016 1:10 PM
+To: Syagin, Fedor <fs2307 at cumc.columbia.edu>; r-sig-fedora at r-project.org
+Subject: Re: [R-sig-Fedora] Compiling R-3.3.0 and/or R-3.3.1 with custom location for dependencies like zlib
+
+On 07/05/2016 12:52 PM, Syagin, Fedor wrote:
+> Greetings.
+> Sorry I am a bit new to this list.
+> I am trying to compile R-3.3.0 and/or R-3.3.1 on computational cluster 
+> running Centos 6.6 I have custom installation of zlib 1.2.8 , but it's not in default /lib /usr/lib /usr/include location and configure script keeps failing when looking for it.
+> It doesn't seem to care if correct zlib.h is in path and always seems 
+> to find one in /usr/include
+> 
+> In the past we build R and put in nfs share that used by about 400 nodes to do computation.
+> This is first time we having issue with compilation process. zlib dependencies right now are on the same share.
+> 
+> Is there any way to point configure script to the right location for the prerequisite?
+> So far I see people mostly end up using package system, that might not so well for our environment.
+
+Not a good way. Why can't you use the EPEL package?
+
+~tom
+
+==
+Red Hat
+
+
+From CSANGALLI.external2 at unicredit.eu  Wed Jul  6 08:19:30 2016
+From: CSANGALLI.external2 at unicredit.eu (Sangalli Cristiano Giovanni (Ext. - UniCredit Business Integrated
+	Solutions))
+Date: Wed, 6 Jul 2016 06:19:30 +0000
+Subject: [R-sig-Fedora] R-3.3.1 RPM release
+In-Reply-To: <8249e67d-9437-9219-660c-581f419e065b@redhat.com>
+References: <703384B6C7985C4DBDC3C92ABE98F66C015F63B552@USEXCPWD01A.mc01.unicreditgroup.eu>
+	<8249e67d-9437-9219-660c-581f419e065b@redhat.com>
+Message-ID: <703384B6C7985C4DBDC3C92ABE98F66C015F63D854@USEXCPWD01A.mc01.unicreditgroup.eu>
+
+Hi Tom
+
+Thanks a lot for your kind answer.
+
+Cris
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: Tuesday, July 05, 2016 5:35 PM
+To: Sangalli Cristiano Giovanni (Ext. - UniCredit Business Integrated Solutions); r-sig-fedora at r-project.org
+Subject: Re: [R-sig-Fedora] R-3.3.1 RPM release
+
+On 07/05/2016 10:34 AM, Sangalli Cristiano Giovanni (Ext. - UniCredit Business Integrated Solutions) wrote:
+> 
+> Hi All,
+> 
+> I have installed on a RHEL 5.7 server the recent R-3.3.0 rpm but I would like to upgrade to the latest now available R-3.3.1 . I have not found so far the rpm, I would like to know if and when it will be available?
+
+I've just returned from several weeks of traveling and conferences. I hope to have 3.3.1 builds out this week.
+
+~tom
+
+==
+Red Hat
+
+This e-mail is confidential and may also contain privileged information. If you are not the intended recipient you are not authorised to read, print, save, process or disclose this message. If you have received this message by mistake, please inform the sender immediately and delete this e-mail, its attachments and any copies.
+Any use, distribution, reproduction or disclosure by any person other than the intended recipient is strictly prohibited and the person responsible may incur penalties.
+Thank you!
+
+
+From tcallawa at redhat.com  Wed Jul  6 16:34:23 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 6 Jul 2016 10:34:23 -0400
+Subject: [R-sig-Fedora] R-3.3.1 RPM release
+In-Reply-To: <CAOuULM6H1YgsYmM-1gyxkYpvfvtsiWtmdMvOMzDv-wybQHYxmQ@mail.gmail.com>
+References: <703384B6C7985C4DBDC3C92ABE98F66C015F63B552@USEXCPWD01A.mc01.unicreditgroup.eu>
+	<8249e67d-9437-9219-660c-581f419e065b@redhat.com>
+	<CAOuULM6H1YgsYmM-1gyxkYpvfvtsiWtmdMvOMzDv-wybQHYxmQ@mail.gmail.com>
+Message-ID: <9ebb1040-ba59-dc6c-d0ab-26469bbdb477@redhat.com>
+
+Since I've gotten a few off-list replies, I feel like it's worth
+pointing out why people are having trouble building R from source on
+RHEL/CentOS 5 & 6.
+
+R has always depended on some third party libraries, specifically,
+zlib, bzip2, xz, pcre, and curl. Prior to R 3.3.0, R depended on much
+older versions of these libraries, but, if they were not found on the
+system, they'd use bundled copies that were built on the fly. With
+3.3.0+, R now depends on much newer versions of these libraries and no
+longer has bundled copies to fall back to.
+
+This means that R 3.3.0+ won't build against RHEL/CentOS 5 or 6 as is,
+because all of these libraries are too old on those releases of
+RHEL/CentOS. (RHEL/CentOS 7 is new enough, as is all currently supported
+releases of Fedora).
+
+Realizing that there are a lot of R users in situations where the
+distribution of Linux is out of their control (or who cannot upgrade to
+RHEL/CentOS 7 for some reason), I spent a not small amount of time
+figuring out how to build static copies of these libraries into R for
+EL5/EL6 (and then even more time cleaning the evidence of this work out
+of the internals so it didn't inherit into CRAN builds).
+
+That said, you really should consider moving from EL5/6 to EL7. It's nice.
+
+Builds of 3.3.1 are going through koji right now. EL5, EL6, and EL7 are
+finished, Fedora 22-24 will be done shortly. Please test and give feedback:
+
+EL5:
+https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-fa43c0f5fa
+
+EL6:
+https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-6add114acf
+
+EL7:
+https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-0f6db0c4e2
+
+~tom
+
+==
+Red Hat
+
+
+From CSANGALLI.external2 at unicredit.eu  Mon Jul 11 16:10:07 2016
+From: CSANGALLI.external2 at unicredit.eu (Sangalli Cristiano Giovanni (Ext. - UniCredit Business Integrated
+	Solutions))
+Date: Mon, 11 Jul 2016 14:10:07 +0000
+Subject: [R-sig-Fedora] R-3.3.1 RPM release
+In-Reply-To: <9ebb1040-ba59-dc6c-d0ab-26469bbdb477@redhat.com>
+References: <703384B6C7985C4DBDC3C92ABE98F66C015F63B552@USEXCPWD01A.mc01.unicreditgroup.eu>
+	<8249e67d-9437-9219-660c-581f419e065b@redhat.com>
+	<CAOuULM6H1YgsYmM-1gyxkYpvfvtsiWtmdMvOMzDv-wybQHYxmQ@mail.gmail.com>
+	<9ebb1040-ba59-dc6c-d0ab-26469bbdb477@redhat.com>
+Message-ID: <703384B6C7985C4DBDC3C92ABE98F66C015F641D4F@USEXCPWD01A.mc01.unicreditgroup.eu>
+
+Hi Tom
+
+Sorry for the late feedback. I could install the RPMs built by you successfully without issues. 
+
+Thanks again for your quick answer.
+
+Cris
+
+-----Original Message-----
+From: R-SIG-Fedora [mailto:r-sig-fedora-bounces at r-project.org] On Behalf Of Tom Callaway
+Sent: Wednesday, July 06, 2016 4:34 PM
+To: r-sig-fedora at r-project.org
+Subject: Re: [R-sig-Fedora] R-3.3.1 RPM release
+
+Since I've gotten a few off-list replies, I feel like it's worth pointing out why people are having trouble building R from source on RHEL/CentOS 5 & 6.
+
+R has always depended on some third party libraries, specifically, zlib, bzip2, xz, pcre, and curl. Prior to R 3.3.0, R depended on much older versions of these libraries, but, if they were not found on the system, they'd use bundled copies that were built on the fly. With 3.3.0+, R now depends on much newer versions of these libraries and no longer has bundled copies to fall back to.
+
+This means that R 3.3.0+ won't build against RHEL/CentOS 5 or 6 as is, because all of these libraries are too old on those releases of RHEL/CentOS. (RHEL/CentOS 7 is new enough, as is all currently supported releases of Fedora).
+
+Realizing that there are a lot of R users in situations where the distribution of Linux is out of their control (or who cannot upgrade to RHEL/CentOS 7 for some reason), I spent a not small amount of time figuring out how to build static copies of these libraries into R for
+EL5/EL6 (and then even more time cleaning the evidence of this work out of the internals so it didn't inherit into CRAN builds).
+
+That said, you really should consider moving from EL5/6 to EL7. It's nice.
+
+Builds of 3.3.1 are going through koji right now. EL5, EL6, and EL7 are finished, Fedora 22-24 will be done shortly. Please test and give feedback:
+
+EL5:
+https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-fa43c0f5fa
+
+EL6:
+https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-6add114acf
+
+EL7:
+https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-0f6db0c4e2
+
+~tom
+
+==
+Red Hat
+
+_______________________________________________
+R-SIG-Fedora mailing list
+R-SIG-Fedora at r-project.org
+https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+This e-mail is confidential and may also contain privileged information. If you are not the intended recipient you are not authorised to read, print, save, process or disclose this message. If you have received this message by mistake, please inform the sender immediately and delete this e-mail, its attachments and any copies.
+Any use, distribution, reproduction or disclosure by any person other than the intended recipient is strictly prohibited and the person responsible may incur penalties.
+Thank you!
+
+
+From vn198006 at yahoo.com  Tue Jul 26 01:20:03 2016
+From: vn198006 at yahoo.com (vn198006 at yahoo.com)
+Date: Mon, 25 Jul 2016 23:20:03 +0000 (UTC)
+Subject: [R-sig-Fedora] Fixed updates for EL5 / EL6
+References: <684074347.5374479.1469488803296.JavaMail.yahoo.ref@mail.yahoo.com>
+Message-ID: <684074347.5374479.1469488803296.JavaMail.yahoo@mail.yahoo.com>
+
+I tried to install?R-core-3.3.0-8.el6.x86_64.rpm on a?el6.x86_64 box. ?I do not have su rights to this box. ?I get the following message.
+~> rpm -ivh R-core-3.3.0-8.el6.x86_64.rpmerror: Failed dependencies:? ? ? ? tex(dvips) is needed by R-core-3.3.0-8.el6.x86_64? ? ? ? tex(latex) is needed by R-core-3.3.0-8.el6.x86_64
+Can I still use this?
+	[[alternative HTML version deleted]]
+
+

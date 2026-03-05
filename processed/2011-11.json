@@ -1,0 +1,556 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2011-11",
+  "messages": [
+    {
+      "id": "msg-a76812d5a58c",
+      "message_id": "<CAHz+bWYdjAsLkBxx7PkrutUOE6u+ybqCtmOnjfPuf=D96rR6fg@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2011-11-05T15:08:42Z",
+      "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
+      "subject_clean": "installing 2.14.0 on fedora",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111105/75b0b0ad/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111105/75b0b0ad/attachment.pl>",
+      "thread_id": "thread-a76812d5a58c",
+      "thread_depth": 0,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-b5b95dbd33d3",
+      "message_id": "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>",
+      "from_name": "Steve Taylor",
+      "from_email_hash": "74d3363cb6b0a45862a2be9054b7268dbbf98292304b2555e3b3d93d0373f7a9",
+      "date": "2011-11-06T10:36:07+13:00",
+      "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
+      "subject_clean": "installing 2.14.0 on fedora",
+      "in_reply_to": "<CAHz+bWYdjAsLkBxx7PkrutUOE6u+ybqCtmOnjfPuf=D96rR6fg@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWYdjAsLkBxx7PkrutUOE6u+ybqCtmOnjfPuf=D96rR6fg@mail.gmail.com>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111106/e29701f8/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111106/e29701f8/attachment.pl>",
+      "thread_id": "thread-a76812d5a58c",
+      "thread_depth": 1,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-8f1bb6ead51d",
+      "message_id": "<1320533748.3327.45.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2011-11-05T23:55:48+01:00",
+      "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
+      "subject_clean": "installing 2.14.0 on fedora",
+      "in_reply_to": "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWYdjAsLkBxx7PkrutUOE6u+ybqCtmOnjfPuf=D96rR6fg@mail.gmail.com>",
+        "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>"
+      ],
+      "body_plain": "On Sun, 2011-11-06 at 10:36 +1300, Steve Taylor wrote:\n> I'd like to know that too. \"yum info R\" shows that the repository is\n> lagging by two versions of R.  I've asked about getting that updated on\n> fedoraforums.\n\n> On 6 November 2011 04:08, Mark Leeds <markleeds2 at gmail.com> wrote:\n> \n> > Hi: Does anyone know of instructions for installing R.2.14.0 on\n> > fedora-linux ( I'm using f14 ) using only the tar.gz file. I don't think\n> > it's available at the fedora repo so I can't use yum. I've look at the\n> > R-installation instructions but I didn't get very far with that.  Even just\n> > an internet link is appreciated. Thanks.\n\nShort answer is, we are working on it and hopefully there will be an\nupdate sooner than later :-)\n\nPierre",
+      "body_snippet": "On Sun, 2011-11-06 at 10:36 +1300, Steve Taylor wrote:\n> I'd like to know that too. \"yum info R\" shows that the repository is\n> lagging by two versions of R.  I've asked about getting that updated on\n",
+      "thread_id": "thread-a76812d5a58c",
+      "thread_depth": 2,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-3f6e826f0f88",
+      "message_id": "<1320535237.3057.11.camel@chrysothemis.geog.ucl.ac.uk>",
+      "from_name": "Gavin Simpson",
+      "from_email_hash": "de29578fbbb79e6883c8203a1faebef3fddd10c08cc122f35e5ad109dc250099",
+      "date": "2011-11-05T23:20:37Z",
+      "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
+      "subject_clean": "installing 2.14.0 on fedora",
+      "in_reply_to": "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWYdjAsLkBxx7PkrutUOE6u+ybqCtmOnjfPuf=D96rR6fg@mail.gmail.com>",
+        "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>"
+      ],
+      "body_plain": "On Sun, 2011-11-06 at 10:36 +1300, Steve Taylor wrote:\n> I'd like to know that too. \"yum info R\" shows that the repository is\n> lagging by two versions of R.  I've asked about getting that updated on\n> fedoraforums.\n\nWhat are you missing from the R Installation and Administration manual?\n\nI regularly use svn to checkout the source tree and then it is a\nconfigure, make, make check, make install away.\n\nYes you will need *-devel packages to be installed from the repositories\nusing yum, but configure will tell you if you have something missing.\nThe manual I mentioned contains pointers as to which packages you need.\n\nI don't know exactly what packages are required to compile R from\nsource, but if you are having problems, post the output from configure\nand I should be able to point you in the right direction.\n\nG\n\n> \n> On 6 November 2011 04:08, Mark Leeds <markleeds2 at gmail.com> wrote:\n> \n> > Hi: Does anyone know of instructions for installing R.2.14.0 on\n> > fedora-linux ( I'm using f14 ) using only the tar.gz file. I don't think\n> > it's available at the fedora repo so I can't use yum. I've look at the\n> > R-installation instructions but I didn't get very far with that.  Even just\n> > an internet link is appreciated. Thanks.\n> >\n> >\n> > Mark\n> >\n> >        [[alternative HTML version deleted]]\n> >\n> > _______________________________________________\n> > R-SIG-Fedora mailing list\n> > R-SIG-Fedora at r-project.org\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> >\n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> \n\n-- \n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%\n Dr. Gavin Simpson             [t] +44 (0)20 7679 0522\n ECRC, UCL Geography,          [f] +44 (0)20 7679 0565\n Pearson Building,             [e] gavin.simpsonATNOSPAMucl.ac.uk\n Gower Street, London          [w] http://www.ucl.ac.uk/~ucfagls/\n UK. WC1E 6BT.                 [w] http://www.freshwaters.org.uk\n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%",
+      "body_snippet": "On Sun, 2011-11-06 at 10:36 +1300, Steve Taylor wrote:\n> I'd like to know that too. \"yum info R\" shows that the repository is\n> lagging by two versions of R.  I've asked about getting that updated on\n",
+      "thread_id": "thread-a76812d5a58c",
+      "thread_depth": 2,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-1d5a6fa83cb3",
+      "message_id": "<CAHz+bWYU=H+3g_0=TeFYMJi5Furi3Mf9NwdUprxTK-hURkFL-Q@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2011-11-05T21:07:10-04:00",
+      "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
+      "subject_clean": "installing 2.14.0 on fedora",
+      "in_reply_to": "<1320535237.3057.11.camel@chrysothemis.geog.ucl.ac.uk>",
+      "references": [
+        "<CAHz+bWYdjAsLkBxx7PkrutUOE6u+ybqCtmOnjfPuf=D96rR6fg@mail.gmail.com>",
+        "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>",
+        "<1320535237.3057.11.camel@chrysothemis.geog.ucl.ac.uk>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111105/ed02b985/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111105/ed02b985/attachment.pl>",
+      "thread_id": "thread-a76812d5a58c",
+      "thread_depth": 3,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-9f6aa95c730d",
+      "message_id": "<1320610635.2764.12.camel@chrysothemis.geog.ucl.ac.uk>",
+      "from_name": "Gavin Simpson",
+      "from_email_hash": "de29578fbbb79e6883c8203a1faebef3fddd10c08cc122f35e5ad109dc250099",
+      "date": "2011-11-06T20:17:15Z",
+      "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
+      "subject_clean": "installing 2.14.0 on fedora",
+      "in_reply_to": "<CAHz+bWYU=H+3g_0=TeFYMJi5Furi3Mf9NwdUprxTK-hURkFL-Q@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWYdjAsLkBxx7PkrutUOE6u+ybqCtmOnjfPuf=D96rR6fg@mail.gmail.com>",
+        "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>",
+        "<1320535237.3057.11.camel@chrysothemis.geog.ucl.ac.uk>",
+        "<CAHz+bWYU=H+3g_0=TeFYMJi5Furi3Mf9NwdUprxTK-hURkFL-Q@mail.gmail.com>"
+      ],
+      "body_plain": "On Sat, 2011-11-05 at 21:07 -0400, Mark Leeds wrote:\n> Hi All: I did what Gavin explained and I got the error\n> \n> \"configure: error: --with-readline=yes (default) and headers/libs are not\n> available\".\n\nsu -c \"yum install readline-devel\"\n\nwill install the package required to get passed the configure error you\npast that configure error.\n\n> so then i read the R installation manual and it s says that I need libX11,\n> libX11-devel, libXt and libXt-devel.\n> It also mentioned libtiprc so I used the software manager and installed\n> the  devels of above since they hadn't\n> been installed.\n> \n> I don't know the mechanism that occurs when i do apply with th software\n> manager but I tried configure again and I'm still getting the same error.\n> Maybe wherever the devels got installed is not on my path ?\n> That's the only thing I can think of but i'm not sure how to investigate\n> that further. thanks.\n\nThose packages are required for compiling with X11 support - i.e. on\nscreen graphics via the x11() device.\n\nThe same manual also tells you that readline headers are required and as\nyou haven't/hadn't installed those, the error remained. Had you\ninstalled readline-devel, but not the X packages you mention, configure\nwould have failed again later.\n\nWhenever R complains about not having headers or libs available or that\nit can't find a *.h file then invariably you are missing the required\ndevelopment headers. In Fedora these are usually in a *-devel package.\nSo you will have readline installed on your system for example, but not\nreadline-devel, and hence the need to install the *-devel packages you\nmention regarding X.\n\nIf you are compiling from source, you'll need to compile from source any\nR add-on packages you want. These will also require, in many cases\ndevelopment headers. You will need to master using yum to find the\nmissing (Fedora) packages required to compile those packages.\n\nyum search readline\n\nwould list a number of packages containing the string readline,\nincluding in their description, whereas\n\nyum list available | grep readline\n\nwill list only those packages with readline in their name. You can also\nsearch for particular files, e.g. readline.h - which was mentioned as\nmissing in the configure output:\n\nyum provides */readline.h\n\nthen look through the packages to see which ones provide the correct\nheaders.\n\nHTH\n\nG\n\n> On Sat, Nov 5, 2011 at 7:20 PM, Gavin Simpson <gavin.simpson at ucl.ac.uk>wrote:\n> \n> > On Sun, 2011-11-06 at 10:36 +1300, Steve Taylor wrote:\n> > > I'd like to know that too. \"yum info R\" shows that the repository is\n> > > lagging by two versions of R.  I've asked about getting that updated on\n> > > fedoraforums.\n> >\n> > What are you missing from the R Installation and Administration manual?\n> >\n> > I regularly use svn to checkout the source tree and then it is a\n> > configure, make, make check, make install away.\n> >\n> > Yes you will need *-devel packages to be installed from the repositories\n> > using yum, but configure will tell you if you have something missing.\n> > The manual I mentioned contains pointers as to which packages you need.\n> >\n> > I don't know exactly what packages are required to compile R from\n> > source, but if you are having problems, post the output from configure\n> > and I should be able to point you in the right direction.\n> >\n> > G\n> >\n> > >\n> > > On 6 November 2011 04:08, Mark Leeds <markleeds2 at gmail.com> wrote:\n> > >\n> > > > Hi: Does anyone know of instructions for installing R.2.14.0 on\n> > > > fedora-linux ( I'm using f14 ) using only the tar.gz file. I don't\n> > think\n> > > > it's available at the fedora repo so I can't use yum. I've look at the\n> > > > R-installation instructions but I didn't get very far with that.  Even\n> > just\n> > > > an internet link is appreciated. Thanks.\n> > > >\n> > > >\n> > > > Mark\n> > > >\n> > > >        [[alternative HTML version deleted]]\n> > > >\n> > > > _______________________________________________\n> > > > R-SIG-Fedora mailing list\n> > > > R-SIG-Fedora at r-project.org\n> > > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> > > >\n> > >\n> > >       [[alternative HTML version deleted]]\n> > >\n> > > _______________________________________________\n> > > R-SIG-Fedora mailing list\n> > > R-SIG-Fedora at r-project.org\n> > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> > >\n> >\n> > --\n> > %~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%\n> >  Dr. Gavin Simpson             [t] +44 (0)20 7679 0522\n> >  ECRC, UCL Geography,          [f] +44 (0)20 7679 0565\n> >  Pearson Building,             [e] gavin.simpsonATNOSPAMucl.ac.uk\n> >  Gower Street, London          [w] http://www.ucl.ac.uk/~ucfagls/\n> >  UK. WC1E 6BT.                 [w] http://www.freshwaters.org.uk\n> > %~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%\n> >\n> >\n\n-- \n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%\n Dr. Gavin Simpson             [t] +44 (0)20 7679 0522\n ECRC, UCL Geography,          [f] +44 (0)20 7679 0565\n Pearson Building,             [e] gavin.simpsonATNOSPAMucl.ac.uk\n Gower Street, London          [w] http://www.ucl.ac.uk/~ucfagls/\n UK. WC1E 6BT.                 [w] http://www.freshwaters.org.uk\n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%",
+      "body_snippet": "On Sat, 2011-11-05 at 21:07 -0400, Mark Leeds wrote:\n> Hi All: I did what Gavin explained and I got the error\n> \n> \"configure: error: --with-readline=yes (default) and headers/libs are not\n> available",
+      "thread_id": "thread-a76812d5a58c",
+      "thread_depth": 4,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-a2676b1a35da",
+      "message_id": "<CAHz+bWaKrj_AY6Y=XwLfq7tOEQahw-7DNA=qSUHO=SUV+eix3Q@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2011-11-06T18:43:30-05:00",
+      "subject": "[R-sig-Fedora] still working on building R from source",
+      "subject_clean": "still working on building R from source",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111106/5c465545/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111106/5c465545/attachment.pl>",
+      "thread_id": "thread-a2676b1a35da",
+      "thread_depth": 0,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-6fb9dfd472ee",
+      "message_id": "<CAHz+bWZdzs1+GYCMTCJwN1zVtLQi0CGK+vEHYVp15BL7wukQhA@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2011-11-06T19:02:54-05:00",
+      "subject": "[R-sig-Fedora] still working on building R from source",
+      "subject_clean": "still working on building R from source",
+      "in_reply_to": "<CAHz+bWaKrj_AY6Y=XwLfq7tOEQahw-7DNA=qSUHO=SUV+eix3Q@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWaKrj_AY6Y=XwLfq7tOEQahw-7DNA=qSUHO=SUV+eix3Q@mail.gmail.com>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111106/f1daf7cf/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111106/f1daf7cf/attachment.pl>",
+      "thread_id": "thread-a2676b1a35da",
+      "thread_depth": 1,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-86b4e6c362bf",
+      "message_id": "<1320658503.1924.24.camel@desktop.localdomain>",
+      "from_name": "Gavin Simpson",
+      "from_email_hash": "de29578fbbb79e6883c8203a1faebef3fddd10c08cc122f35e5ad109dc250099",
+      "date": "2011-11-07T09:35:00Z",
+      "subject": "[R-sig-Fedora] still working on building R from source",
+      "subject_clean": "still working on building R from source",
+      "in_reply_to": "<CAHz+bWaKrj_AY6Y=XwLfq7tOEQahw-7DNA=qSUHO=SUV+eix3Q@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWaKrj_AY6Y=XwLfq7tOEQahw-7DNA=qSUHO=SUV+eix3Q@mail.gmail.com>"
+      ],
+      "body_plain": "On Sun, 2011-11-06 at 18:43 -0500, Mark Leeds wrote:\n> Hi Everyone: Gavin's been so generous and patient that I figured I'd give\n> him a break and send this snag to the list. When I do get this working, I\n> will send  an \"How to build R from the tarball \" instructions message to\n> this list for posterity's sake ( and myself and anyone else who doesn't\n> know how to build R from the tarball ).\n\nI would question whether configure or make really did complete\ncorrectly. Something went wrong if checking the compiled app failed.\n\nYou haven't shown us the conclusion of the configure step - it prints\nout a list of capabilities and compilation options etc. Can you show\nthat. Also, can you show the configure arguments - i.e. how you called\nconfigure?\n\nFinally, can you show the last 10 or so lines of the output from make?\n\nIf you configured R as per my emails, you shouldn't need to go anywhere\nnear the root filesystem. I don't bother installing R I just run it from\nthe build DIR, which is in my ~/\n\nI also build from svn which I find easier to maintain as I only need a\n\nsvn update path/to/sources\n\nto get the latest patches.\n\nYou could also try again with a\n\nmake distclean\n\nor\n\nmake clean\n\n(I forget which is really required here) before you re-run configure,\njust to make sure it has picked up the correct/new information.\n\nHTH\n\nG\n\n> So, here's my latest snag:  Gavin got me through the configure and the\n> make. So, then I did make check and I get below. But, since that error\n> didn't seem that serious, I figured I'd see whether R would run anyway. The\n> output of the R command is below what's below. It's expecting a file in\n> /usr/lib/R I think ? But maybe the fact that the tests don't complete\n> successfully causes that. I looked to see if I have an ENVIRONMENT variable\n> for R in my\n> .bashrc but it doesn't have one. Thanks for all the help. From past\n> experiences, I knew it was going to be a long road and it has been but I'm\n> getting close.\n> \n> \n> Mark\n> \n> END OF make check OUTPUT\n> #=========================================================================================================\n> make[2]: Entering directory `/home/markleeds/R/2.14/build/tests'\n> running regression tests ...\n> make[3]: Entering directory `/home/markleeds/R/2.14/build/tests'\n> running code in '../../tests/reg-tests-1a.R' ... OK\n> running code in '../../tests/reg-tests-1b.R' ... OK\n> running code in '../../tests/reg-tests-2.R' ... OK\n>   comparing 'reg-tests-2.Rout' to '../../tests/reg-tests-2.Rout.save' ... OK\n> running code in '../../tests/reg-examples1.R' ... OK\n> running code in '../../tests/reg-examples2.R' ... OK\n> running code in '../../tests/reg-packages.R' ...make[3]: ***\n> [reg-packages.Rout] Error 1\n> make[3]: Leaving directory `/home/markleeds/R/2.14/build/tests'\n> make[2]: *** [test-Reg] Error 2\n> make[2]: Leaving directory `/home/markleeds/R/2.14/build/tests'\n> make[1]: *** [test-all-basics] Error 1\n> make[1]: Leaving directory `/home/markleeds/R/2.14/build/tests'\n> make: *** [check] Error 2\n> \n> # THEN TRY TO RUN R\n> #==================================================================================================\n> \n> :~/R/2.14/build> R\n> /usr/bin/R: line 229: /usr/lib/R/etc/ldpaths: No such file or directory\n> :~/R/2.14/build> ^C\n> :~/R/2.14/build>\n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> \n\n-- \n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%\n Dr. Gavin Simpson             [t] +44 (0)20 7679 0522\n ECRC, UCL Geography,          [f] +44 (0)20 7679 0565\n Pearson Building,             [e] gavin.simpsonATNOSPAMucl.ac.uk\n Gower Street, London          [w] http://www.ucl.ac.uk/~ucfagls/\n UK. WC1E 6BT.                 [w] http://www.freshwaters.org.uk\n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%",
+      "body_snippet": "On Sun, 2011-11-06 at 18:43 -0500, Mark Leeds wrote:\n> Hi Everyone: Gavin's been so generous and patient that I figured I'd give\n> him a break and send this snag to the list. When I do get this workin",
+      "thread_id": "thread-a2676b1a35da",
+      "thread_depth": 1,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-0226cc316d4d",
+      "message_id": "<4EB7E6CA.8000702@fc.up.pt>",
+      "from_name": "José Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2011-11-07T14:10:18Z",
+      "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
+      "subject_clean": "installing 2.14.0 on fedora",
+      "in_reply_to": "<CAHz+bWYU=H+3g_0=TeFYMJi5Furi3Mf9NwdUprxTK-hURkFL-Q@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWYdjAsLkBxx7PkrutUOE6u+ybqCtmOnjfPuf=D96rR6fg@mail.gmail.com>",
+        "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>",
+        "<1320535237.3057.11.camel@chrysothemis.geog.ucl.ac.uk>",
+        "<CAHz+bWYU=H+3g_0=TeFYMJi5Furi3Mf9NwdUprxTK-hURkFL-Q@mail.gmail.com>"
+      ],
+      "body_plain": "On 11/06/2011 01:07 AM, Mark Leeds wrote:\n> Hi All: I did what Gavin explained and I got the error\n>\n> \"configure: error: --with-readline=yes (default) and headers/libs are not\n> available\".\n>\n> so then i read the R installation manual and it s says that I need libX11,\n> libX11-devel, libXt and libXt-devel.\n> It also mentioned libtiprc so I used the software manager and installed\n> the  devels of above since they hadn't\n> been installed.\n>\n> I don't know the mechanism that occurs when i do apply with th software\n> manager but I tried configure again and I'm still getting the same error.\n> Maybe wherever the devels got installed is not on my path ?\n> That's the only thing I can think of but i'm not sure how to investigate\n> that further. thanks.\n\nTry yum-builddeps from the yum-utils package. From the manpage:\n\nyum-builddep  is  a  program which installs the RPMs needed to build the\nspecified package.\n\n-- \nJos? Matos",
+      "body_snippet": "On 11/06/2011 01:07 AM, Mark Leeds wrote:\n> Hi All: I did what Gavin explained and I got the error\n>\n> \"configure: error: --with-readline=yes (default) and headers/libs are not\n> available\".\n>\n> so th",
+      "thread_id": "thread-a76812d5a58c",
+      "thread_depth": 4,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-95bb1ad29dc6",
+      "message_id": "<CAHz+bWb=yUFpp+okkieijzeEg1_2yrPMA6SO5wN3HYOjPmJe_Q@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2011-11-07T10:00:34-05:00",
+      "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
+      "subject_clean": "installing 2.14.0 on fedora",
+      "in_reply_to": "<4EB7EC5E.30106@fc.up.pt>",
+      "references": [
+        "<CAHz+bWYdjAsLkBxx7PkrutUOE6u+ybqCtmOnjfPuf=D96rR6fg@mail.gmail.com>",
+        "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>",
+        "<1320535237.3057.11.camel@chrysothemis.geog.ucl.ac.uk>",
+        "<CAHz+bWYU=H+3g_0=TeFYMJi5Furi3Mf9NwdUprxTK-hURkFL-Q@mail.gmail.com>",
+        "<4EB7E6CA.8000702@fc.up.pt>",
+        "<CAHz+bWbGQtTOP9FJvPOZgwjW8bq31bUA1-ojPGLO7JNuxH3_qw@mail.gmail.com>",
+        "<4EB7EC5E.30106@fc.up.pt>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111107/50dc9531/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111107/50dc9531/attachment.pl>",
+      "thread_id": "thread-95bb1ad29dc6",
+      "thread_depth": 0,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-21fdf764bc14",
+      "message_id": "<91DB9669-86CC-40E3-9F22-0C85D8D324D1@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2011-11-07T09:14:07-06:00",
+      "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
+      "subject_clean": "installing 2.14.0 on fedora",
+      "in_reply_to": "<CAHz+bWb=yUFpp+okkieijzeEg1_2yrPMA6SO5wN3HYOjPmJe_Q@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWYdjAsLkBxx7PkrutUOE6u+ybqCtmOnjfPuf=D96rR6fg@mail.gmail.com>",
+        "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>",
+        "<1320535237.3057.11.camel@chrysothemis.geog.ucl.ac.uk>",
+        "<CAHz+bWYU=H+3g_0=TeFYMJi5Furi3Mf9NwdUprxTK-hURkFL-Q@mail.gmail.com>",
+        "<4EB7E6CA.8000702@fc.up.pt>",
+        "<CAHz+bWbGQtTOP9FJvPOZgwjW8bq31bUA1-ojPGLO7JNuxH3_qw@mail.gmail.com>",
+        "<4EB7EC5E.30106@fc.up.pt>",
+        "<CAHz+bWb=yUFpp+okkieijzeEg1_2yrPMA6SO5wN3HYOjPmJe_Q@mail.gmail.com>"
+      ],
+      "body_plain": "On Nov 7, 2011, at 9:00 AM, Mark Leeds wrote:\n\n> Hi Jose: I started totally from scratch and did that yum-builddep R as you\n> suggested.\n> \n> Then I checked out the latest R 2.14 branch using svn.  But now, when I\n> try to configure, I get an error that  it can't find the MASS package ?\n> \n> Do you know if MASS is supposed to be available for R .2.14 ? It is not in\n> /src/library of the source tree but the makefile.in there has below in it\n> which I think makes it look for MASS ? I wasn't getting this earlier so\n> could it have something to do with running yum-builddep R before I started\n> ?  Is there a way to \"undo\"\n> the yum-builddep R command if that's the case ?\n> \n> Any knowledge or help is appreciated. Thanks.\n> \n> # CONTENTS OF BOTTOM of makefile.in /src/library OF R source.\n> #==========================================================================\n> ## Hardcoded dependencies (see '../../../share/make/vars.mk')\n> Matrix.ts: lattice.ts\n> mgcv.ts: nlme.ts MASS.ts Matrix.ts\n> nlme.ts: lattice.ts\n> class.ts: MASS.ts\n> ## and for static html links\n> boot.ts: MASS.ts survival.ts\n> cluster.ts: MASS.ts\n> \n\nMark,\n\nIf you are building from SVN as opposed to using the tarball, there is an extra step that is required.\n\nChange into the main folder into which the svn files have been downloaded. Then run:\n\n  ./tools/rsync-recommended\n\nAfter doing that, then run ./configure, make, etc. The svn repo does not contain the source files for the \"Recommended\" packages and these need to be downloaded separately via rsync.\n\nHTH,\n\nMarc Schwartz",
+      "body_snippet": "On Nov 7, 2011, at 9:00 AM, Mark Leeds wrote:\n\n> Hi Jose: I started totally from scratch and did that yum-builddep R as you\n> suggested.\n> \n> Then I checked out the latest R 2.14 branch using svn.  Bu",
+      "thread_id": "thread-95bb1ad29dc6",
+      "thread_depth": 1,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-29c786220284",
+      "message_id": "<CAHz+bWbvpcySrX9vLMEYFLSQK01obZCaWB4BuWk9oue_2PSmew@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2011-11-07T15:17:48Z",
+      "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
+      "subject_clean": "installing 2.14.0 on fedora",
+      "in_reply_to": "<91DB9669-86CC-40E3-9F22-0C85D8D324D1@me.com>",
+      "references": [
+        "<CAHz+bWYdjAsLkBxx7PkrutUOE6u+ybqCtmOnjfPuf=D96rR6fg@mail.gmail.com>",
+        "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>",
+        "<1320535237.3057.11.camel@chrysothemis.geog.ucl.ac.uk>",
+        "<CAHz+bWYU=H+3g_0=TeFYMJi5Furi3Mf9NwdUprxTK-hURkFL-Q@mail.gmail.com>",
+        "<4EB7E6CA.8000702@fc.up.pt>",
+        "<CAHz+bWbGQtTOP9FJvPOZgwjW8bq31bUA1-ojPGLO7JNuxH3_qw@mail.gmail.com>",
+        "<4EB7EC5E.30106@fc.up.pt>",
+        "<CAHz+bWb=yUFpp+okkieijzeEg1_2yrPMA6SO5wN3HYOjPmJe_Q@mail.gmail.com>",
+        "<91DB9669-86CC-40E3-9F22-0C85D8D324D1@me.com>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111107/257a2633/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111107/257a2633/attachment.pl>",
+      "thread_id": "thread-95bb1ad29dc6",
+      "thread_depth": 2,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-98ee8b1a4792",
+      "message_id": "<1320679197.29130.28.camel@prometheus.geog.ucl.ac.uk>",
+      "from_name": "Gavin Simpson",
+      "from_email_hash": "31f7ba36a563b5eca36e625f15e85aeb59193b69ec8f0245730163b3c9a96f7e",
+      "date": "2011-11-07T15:19:57Z",
+      "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
+      "subject_clean": "installing 2.14.0 on fedora",
+      "in_reply_to": "<CAHz+bWb=yUFpp+okkieijzeEg1_2yrPMA6SO5wN3HYOjPmJe_Q@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWYdjAsLkBxx7PkrutUOE6u+ybqCtmOnjfPuf=D96rR6fg@mail.gmail.com>",
+        "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>",
+        "<1320535237.3057.11.camel@chrysothemis.geog.ucl.ac.uk>",
+        "<CAHz+bWYU=H+3g_0=TeFYMJi5Furi3Mf9NwdUprxTK-hURkFL-Q@mail.gmail.com>",
+        "<4EB7E6CA.8000702@fc.up.pt>",
+        "<CAHz+bWbGQtTOP9FJvPOZgwjW8bq31bUA1-ojPGLO7JNuxH3_qw@mail.gmail.com>",
+        "<4EB7EC5E.30106@fc.up.pt>",
+        "<CAHz+bWb=yUFpp+okkieijzeEg1_2yrPMA6SO5wN3HYOjPmJe_Q@mail.gmail.com>"
+      ],
+      "body_plain": "On Mon, 2011-11-07 at 10:00 -0500, Mark Leeds wrote:\n> Hi Jose: I started totally from scratch and did that yum-builddep R as you\n> suggested.\n> \n>  Then I checked out the latest R 2.14 branch using svn.  But now, when I\n> try to configure, I get an error that  it can't find the MASS package ?\n\ndid you forget to download the reccomended packages again?\n\n../tools/rsync-recommended\n\nshould do it, as I mentioned earlier in this thread.\n\n> Do you know if MASS is supposed to be available for R .2.14 ? It is not in\n> /src/library of the source tree but the makefile.in there has below in it\n> which I think makes it look for MASS ? I wasn't getting this earlier so\n> could it have something to do with running yum-builddep R before I started\n> ?  Is there a way to \"undo\"\n> the yum-builddep R command if that's the case ?\n\nThis is totally unconnected. All that yum-builddep command does is\ninstall the packages required to build the R package in the Fedora\nrepos. You don't actually need all of these; for example you can use the\nLAPACK and BLAS provided with R rather than the Fedora ones. I know I\nhave had issues with Fedora's BLAS and/or LAPACK in the past.\n\nlibicu-devel\n\nwill give you the iconv support I mentioned was missing earlier.\n\npango-devel is needed for cairo IIRC\npcre-devel is for PERL regular expressions\n\nThe packages to do with texinfo and texlive are required for building\nthe manuals/r-help.\n\nHTH\n\nG\n\n> Any knowledge or help is appreciated. Thanks.\n> \n> # CONTENTS OF BOTTOM of makefile.in /src/library OF R source.\n> #==========================================================================\n> ## Hardcoded dependencies (see '../../../share/make/vars.mk')\n> Matrix.ts: lattice.ts\n> mgcv.ts: nlme.ts MASS.ts Matrix.ts\n> nlme.ts: lattice.ts\n> class.ts: MASS.ts\n> ## and for static html links\n> boot.ts: MASS.ts survival.ts\n> cluster.ts: MASS.ts\n> \n> \n> 2011/11/7 Jos Matos <jamatos at fc.up.pt>\n> \n> > On 11/07/2011 02:29 PM, Mark Leeds wrote:\n> > > Thanks jose. I'll do that. it's much appreciated. I'm getting further\n> > > than my emails show because\n> > > I've been communicating with Gavin privately. But definitely I'll do\n> > > that anyway. Thanks again.\n> > >\n> > >\n> > > Mark\n> >\n> > As a devil advocate I should say that this does not work every time. The\n> > traditional case is when you are building a new version and the\n> > dependencies have changed although I am quite sure that it is not the\n> > case here.\n> >\n> > Regards,\n> >\n> > --\n> > Jos Matos\n> >\n> >\n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n-- \n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%\n Dr. Gavin Simpson             [t] +44 (0)20 7679 0522\n ECRC, UCL Geography,          [f] +44 (0)20 7679 0565\n Pearson Building,             [e] gavin.simpsonATNOSPAMucl.ac.uk\n Gower Street, London          [w] http://www.ucl.ac.uk/~ucfagls/\n UK. WC1E 6BT.                 [w] http://www.freshwaters.org.uk\n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%",
+      "body_snippet": "On Mon, 2011-11-07 at 10:00 -0500, Mark Leeds wrote:\n> Hi Jose: I started totally from scratch and did that yum-builddep R as you\n> suggested.\n> \n>  Then I checked out the latest R 2.14 branch using s",
+      "thread_id": "thread-95bb1ad29dc6",
+      "thread_depth": 1,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-170b3042c3c9",
+      "message_id": "<CAHz+bWZUQYEbhrETe8i1U5b4g1ETtNvk+e-0OuSmbkw6=+kJ+w@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2011-11-07T16:18:31Z",
+      "subject": "[R-sig-Fedora] SUCCESS",
+      "subject_clean": "SUCCESS",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111107/1f3619d7/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111107/1f3619d7/attachment.pl>",
+      "thread_id": "thread-170b3042c3c9",
+      "thread_depth": 0,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-4f4cce6fb046",
+      "message_id": "<CAHz+bWZdrdktroEHKUJmrt-k+CP5Pomk_RqV8nuQiXB5_06NNA@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2011-11-07T15:39:59-05:00",
+      "subject": "[R-sig-Fedora] close but no cigar",
+      "subject_clean": "close but no cigar",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111107/de151e41/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111107/de151e41/attachment.pl>",
+      "thread_id": "thread-4f4cce6fb046",
+      "thread_depth": 0,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-62a9a44f0d81",
+      "message_id": "<1320698894.2905.10.camel@chrysothemis.geog.ucl.ac.uk>",
+      "from_name": "Gavin Simpson",
+      "from_email_hash": "de29578fbbb79e6883c8203a1faebef3fddd10c08cc122f35e5ad109dc250099",
+      "date": "2011-11-07T20:48:14Z",
+      "subject": "[R-sig-Fedora] close but no cigar",
+      "subject_clean": "close but no cigar",
+      "in_reply_to": "<CAHz+bWZdrdktroEHKUJmrt-k+CP5Pomk_RqV8nuQiXB5_06NNA@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWZdrdktroEHKUJmrt-k+CP5Pomk_RqV8nuQiXB5_06NNA@mail.gmail.com>"
+      ],
+      "body_plain": "On Mon, 2011-11-07 at 15:39 -0500, Mark Leeds wrote:\n> Hi Everyone: It turns out that there's still a small ( I hope ) problem.\n> I'm close but that only counts in horse shoes and hand grenades.\n\nWhat does this have to do with compiling R on Fedora?\n\nYou don't provide enough info to diagnose properly, but as utils is\nactually part of R and not a Recommended package, R would not pass check\nif the utils package were not available.\n\nWhat I suspect is happening is that during loading of your package, you\nare calling a function from the utils package but the utils package is\nnot yet available for use (its namespace has not yet been \"loaded\"), so\nas far as R is concerned at this point in time a function defined in the\nutils namespace may as well not exist.\n\nHave you got some code that is run during package loading/attaching? If\nso, find it and add utils::: to the front of packageDescription( ).\n\nFor example, I have the file zzz.R in one of my packages that contains:\n\n.onAttach <- function(lib, pkg)  {\n    library.dynam(\"analogue\", pkg, lib)\n    packageStartupMessage(\"This is analogue \",\n                          utils::packageDescription(\"analogue\",\n                                                    field=\"Version\"),\n                          appendLF = TRUE)\n}\n\nHTH\n\nG\n\n> Here's my problem: When trying to load a package that I am writing, the\n> load is looking for the packageDescription function in the utils package\n> but not finding the utils package. I looked on cran and utils is not there\n> which makes me think that it should have been part of the build. But then I\n> went to my recommended packages directory and it's not there ? (See below\n> ). Is that an error by me that it's not there ? I definitely don't know how\n> to tell R that it needs to load the utils package since I don't seem to\n> have access to the package myself. Thanks for any enlightenment and my\n> apologies for the false SUCCESS earlier.\n> \n> \n> \n> Mark\n> :~/R/2.14/src/library/Recommended> dir\n> total 6748\n> -rw-rw-r--. 1 markleeds markleeds    3574 Nov  7 10:11 Makefile.in\n> -rw-rw-r--. 1 markleeds markleeds    1661 Nov  7 10:11 Makefile.win\n> -rw-rw-r--. 1 markleeds markleeds   30402 Nov  7 10:20\n> KernSmooth_2.23-6.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds  466772 Nov  7 10:20 MASS_7.3-16.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds 2513797 Nov  7 10:20 Matrix_1.0-1.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds  225195 Nov  7 10:20 boot_1.3-3.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds   20128 Nov  7 10:20 class_7.3-3.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds  246438 Nov  7 10:20 cluster_1.14.1.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds   12392 Nov  7 10:20\n> codetools_0.2-8.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds  339028 Nov  7 10:20 foreign_0.8-46.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds  358849 Nov  7 10:20 lattice_0.20-0.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds  510979 Nov  7 10:20 mgcv_1.7-10.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds  705660 Nov  7 10:20 nlme_3.1-102.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds   23418 Nov  7 10:20 nnet_7.3-1.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds  135545 Nov  7 10:20 rpart_3.1-50.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds   40627 Nov  7 10:20 spatial_7.3-3.tar.gz\n> -rw-rw-r--. 1 markleeds markleeds 1248288 Nov  7 10:20\n> survival_2.36-10.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      18 Nov  7 10:20 MASS.tgz ->\n> MASS_7.3-16.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      21 Nov  7 10:20 lattice.tgz ->\n> lattice_0.20-0.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      19 Nov  7 10:20 Matrix.tgz ->\n> Matrix_1.0-1.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      19 Nov  7 10:20 nlme.tgz ->\n> nlme_3.1-102.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      23 Nov  7 10:20 survival.tgz ->\n> survival_2.36-10.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      17 Nov  7 10:20 boot.tgz ->\n> boot_1.3-3.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      21 Nov  7 10:20 cluster.tgz ->\n> cluster_1.14.1.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      22 Nov  7 10:20 codetools.tgz ->\n> codetools_0.2-8.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      21 Nov  7 10:20 foreign.tgz ->\n> foreign_0.8-46.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      24 Nov  7 10:20 KernSmooth.tgz ->\n> KernSmooth_2.23-6.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      19 Nov  7 10:20 rpart.tgz ->\n> rpart_3.1-50.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      18 Nov  7 10:20 class.tgz ->\n> class_7.3-3.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      17 Nov  7 10:20 nnet.tgz ->\n> nnet_7.3-1.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      20 Nov  7 10:20 spatial.tgz ->\n> spatial_7.3-3.tar.gz\n> lrwxrwxrwx. 1 markleeds markleeds      18 Nov  7 10:20 mgcv.tgz ->\n> mgcv_1.7-10.tar.gz\n> :~/R/2.14/src/library/Recommended>\n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> \n\n-- \n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%\n Dr. Gavin Simpson             [t] +44 (0)20 7679 0522\n ECRC, UCL Geography,          [f] +44 (0)20 7679 0565\n Pearson Building,             [e] gavin.simpsonATNOSPAMucl.ac.uk\n Gower Street, London          [w] http://www.ucl.ac.uk/~ucfagls/\n UK. WC1E 6BT.                 [w] http://www.freshwaters.org.uk\n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%",
+      "body_snippet": "On Mon, 2011-11-07 at 15:39 -0500, Mark Leeds wrote:\n> Hi Everyone: It turns out that there's still a small ( I hope ) problem.\n> I'm close but that only counts in horse shoes and hand grenades.\n\nWhat",
+      "thread_id": "thread-4f4cce6fb046",
+      "thread_depth": 1,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-43b219c351de",
+      "message_id": "<CAHz+bWZ2zf=JwATsHEZy_cnJarJoT2E9G24_MpBxH+0-Wi+SGA@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2011-11-08T23:47:13-05:00",
+      "subject": "[R-sig-Fedora] installing R from source on fedora",
+      "subject_clean": "installing R from source on fedora",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello: I've included a txt file ( some day, when I have more time, I'll\nturn it into latex )  that has the steps for installing R from source on\nFedora. It was\nwritten only for people like myself who find these  tasks difficult.\n\nAlso, could someone from the R-Sig-Fedora list let me know if the txt file\nwas attached because I don't actually receive emails that I send to the\nR-Sig-Fedora list. ( not sure why this is ? ).   If it doesn't go through,\nI'll cut and paste and re-send it in the email itself. Thanks.\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111108/34ad02ae/attachment.html>\n-------------- next part --------------\nThe following are instructions for installing R from source in Fedora Linux. Note that I deleted the previous version of R and any directories associated with it ( except\nfor packages pevious downloadedfrom cran. These packages do not need to be deleted as long as they are in a personal and non R build related directory ) in order to  make these \ninstructions for installing R from source rather than for upgrading R. Upgrading requires a slightly different set of instructions and will not be discussed here. \n\nSome of the steps in these instructions may not be exactly required and it is possible that there are alternative ways of achieving the same build. They  only\nreflect the way I achieved my build. Many thanks to Gavin Simpson, Marc Schwartz, Pierre-Yves Chibon and Jose Matos for their help in creating these instructions. Most of the \ninstructions resulted from various communications between myself and Gavin Simpson. There are what I view as eight steps when installing R on Fedora from source and these are \ndescribed below:\n\n#==========================================================================================================================================================================\n\nStep 1)  Create a directory structure right above your home directory called R/2.14/build by going to your home directory and doing mkdir -p R/2.14/build. The 2.14 directory will \neventually  contain the R source tree and the build directory will contain the various output once the R source tree is configured and built.\n#============================================================================================================================================\n\nStep 2) Go to the build directory by doing cd ~/R/2.14/build and grab the latest source from the svn repository by issuing the command: \n\nsvn checkout https://svn.r-project.org/branches/R-2-14-branch ../\n\nThis command will install the R source tree in the ~/R/2.14 directory.\n\nNote that the step above can be modified by grabbing the the latest release from  a cran mirror instead:  Go to www.r-project.org and then one of the cran mirrors. Click on \nthe sources icon and download the R.X.tar.gz file to the ~/R/2.14 directory. You can extract the source from the tar.gz fiel by issuing the command t\n\ntar xvfz filename.tar.gz\n\nThis will extract the source tree also. But note that this source will not include any of the latest patches that have occurred since that R release. Note that, if svn is used to \ncheckout the source tree, then Step 4 below is required. If svn is not used and used and tar is used instead, then Step 4 is not necessary.\n\nNext we need to configure and build R from the source tree and this is where things can get tricky. The reason it can be tricky is because there are many header and development \nfiles that are required  to be installed on your machine in order for the build to work correctly. \n\nAs far as I know, there are two insurance policies that can be taken out in order to try to insure that all of the headers and development packages are on your machine. \nThese policies are described in steps 3A and 3B. I recommend that both policies be used because if 3b) tries to load a dependency that is already installed, it will just stop\nwith a message that the package is already installed.\n#============================================================================================================================================\n\nStep 3A) Use yum or the Fedora software manager and install the following  packages. If they already installed on your machine, you will be notified of\nthis when you try to install them.\n\nThe RPMs that should be installed are listed below.\n\nlibX11\nlibX11-devel\nlibXt\nlibXt-devel\nreadline-devel\ncairo-devel\nlibtiff-devel\nlibjpeg-turbo-devel\nlibpng-devel\ntk-devel\ntcl-devel\n\nNote that it does not matter what directory you are in when installing these packages.  So, for example, if you are using yum, then  do su -c \"yum install libX11\" to install \nlibX11.( Note that su -c simulates that you are logged in as root without you having to actually log in as root ). If instead you want to use the software manager rather\nthan yum, then click on  System, then Administration then Add/Remove Software and then follow the instructions. They are straightforward.\n#============================================================================================================================================\n\nStep 3B) Install the yum-utils package by doing yum install yum-utils. This package contains a program called yum-builddep which builds the dependencies that another software\npackage needs. Therefore, once yum-utils is installed,  one can issue the command su -c \"yum-builddep R\" and this should download and install the variious packages that R \nis dependent on. Again it does not matter what directory you are in when you issue this command.\n\nThe steps 3A) and 3B) should most likely provide all the header files and development tools that are needed to build R from source. But you won't know until you try it.\n#============================================================================================================================================\n\nStep 4) Note that, if R was checked out using svn, then the svn repository does not contain th source files for the Recommended R packages and these need to be downloaded\nseperately using rsync. Therefore, if R was checked out from the svn repo, then, while in the ~R/2.14 directory, issue the command\n\n./tools/rsync-recommended\n\nThis command will download the sources of the recommended packages like MASS, lattice etc.\n#============================================================================================================================================\n\nStep 5) Now we can finally run the configure command. Make sure that you are in the directory ~/R/2.14/build and issue the command \n\n../configure\n\nThe process should complete fairly quickly and the last 10 lines or so of the configure output will indicate whether the configure has run without errors. Hopefully there won't be \nany errors. If there are errors, then , if they are not obvious, the best thing to do is email the R-Sig-Fedora list. There are many generous and knowledgeable people there who \nare glad to help. Assuming there are no errors, then proceed to Step 6. \n#============================================================================================================================================\n\nStep 6) Now we need to build what we configured by issuing the make command. Again  make sure that you are in the directory ~/R/2.14/build and issue the command make at the \ncommand line. Although the make command will will take a long time to complete, if it goes through completely, that indicates that it worked. If there is an error at any\npoint during the make, the make process will stop and indicate that an error has occurred and provide a brief description of the error.\n#============================================================================================================================================\n\nStep 7) Now, when in the ~/R/2.14/build directory, issue the command make check to verify that everything was built correctly. You should see a lot of \"OK\" statements and\nno \"Error\" statements.\n#============================================================================================================================================\n\nStep 8) Finally, although R has been built successfully,  we still need to set things up so that, no matter what directory we are in on the machine, we can issue the command R from \nthat directroy and start an R session. Assuming that R was built correctly, then there should exist a directory called ~/R/2.14/build/bin. In this directory reside many bash \nscripts one of which is called R. R is a bash shell wrapper for the R executable. So, if we can make a link so that, whenever one types R anywhere, this script is run, then \nthis will allow us to run R from any directory by typing R.\n\nHow to do this :\n\nA) Create a directory called bin under your home directory by issuing the command mkdir ~/bin. Also make sure that this directory is on your path by including it in\nthe definition of the PATH variable in your .bashrc file.\n\nB) Make a link to the R wrapper in ~R/2.14/build/bin directory by issuing the following command in the bin directory that you made in your home directory: \n\nln -s ~/R/2.14/build/bin/R ~/bin/R\n\nThis command creates a link so that, whenever you type R anywhere, this will issue the R command in the ~/bin/R directory which is symbolic for the R wrapper in the\n/build/bin directory. In this manner, whenever R is typed at the command line of any directory, an instance of R will be started.\n#============================================================================================================================================\n\nAny mistakes in these instructions are due to me and they are subject to change. Again, thanks to eeveryone who helped me install R from source especially Gavin\nSimpson.",
+      "body_snippet": "Hello: I've included a txt file ( some day, when I have more time, I'll\nturn it into latex )  that has the steps for installing R from source on\nFedora. It was\nwritten only for people like myself who ",
+      "thread_id": "thread-43b219c351de",
+      "thread_depth": 0,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-f1a1f3ecbcc7",
+      "message_id": "<CALJKDF882S_n3Tw8J0xDiN_d0MkS2tfXacPmmVwSs7Bi+qaFrA@mail.gmail.com>",
+      "from_name": "Steve Taylor",
+      "from_email_hash": "74d3363cb6b0a45862a2be9054b7268dbbf98292304b2555e3b3d93d0373f7a9",
+      "date": "2011-11-09T20:27:13+13:00",
+      "subject": "[R-sig-Fedora] installing R from source on fedora",
+      "subject_clean": "installing R from source on fedora",
+      "in_reply_to": "<CAHz+bWZ2zf=JwATsHEZy_cnJarJoT2E9G24_MpBxH+0-Wi+SGA@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWZ2zf=JwATsHEZy_cnJarJoT2E9G24_MpBxH+0-Wi+SGA@mail.gmail.com>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111109/e8c3a236/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111109/e8c3a236/attachment.pl>",
+      "thread_id": "thread-43b219c351de",
+      "thread_depth": 1,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-c1cea9bb92e8",
+      "message_id": "<4EBA90A2.9040705@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2011-11-09T09:39:30-05:00",
+      "subject": "[R-sig-Fedora] installing R from source on fedora",
+      "subject_clean": "installing R from source on fedora",
+      "in_reply_to": "<CALJKDF882S_n3Tw8J0xDiN_d0MkS2tfXacPmmVwSs7Bi+qaFrA@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWZ2zf=JwATsHEZy_cnJarJoT2E9G24_MpBxH+0-Wi+SGA@mail.gmail.com>",
+        "<CALJKDF882S_n3Tw8J0xDiN_d0MkS2tfXacPmmVwSs7Bi+qaFrA@mail.gmail.com>"
+      ],
+      "body_plain": "On 11/09/2011 02:27 AM, Steve Taylor wrote:\n> Yes, I got the attachment - thanks!  Might give it a go in the next few\n> days, if the repository hasn't been updated with an RPM.  I've already\n> learnt from experience to be wary of attempting to compile from source!\n\nI'm working on 2.14.0 rebuilds, but they're going to take a while, since\nwe have to also rebuild all R-dependent packages at the same time.\n\nPlease note the following:\n\n* EL builds will show up first, because there are less things to update.\nInconsolata font support has been disabled there.\n* I am _not_ planning on updating 2.14.0 for F-14 because it will be\nend-of-lifed very soon. If you're running F-14, time to upgrade!\n\n~tom\n\n==\nFedora Project",
+      "body_snippet": "On 11/09/2011 02:27 AM, Steve Taylor wrote:\n> Yes, I got the attachment - thanks!  Might give it a go in the next few\n> days, if the repository hasn't been updated with an RPM.  I've already\n> learnt ",
+      "thread_id": "thread-43b219c351de",
+      "thread_depth": 2,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-50dd691100c4",
+      "message_id": "<DF21019D-5A2E-41C4-882F-8E3AACF95E80@gmail.com>",
+      "from_name": "peter dalgaard",
+      "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
+      "date": "2011-11-09T16:54:24+01:00",
+      "subject": "[R-sig-Fedora] installing R from source on fedora",
+      "subject_clean": "installing R from source on fedora",
+      "in_reply_to": "<CALJKDF882S_n3Tw8J0xDiN_d0MkS2tfXacPmmVwSs7Bi+qaFrA@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWZ2zf=JwATsHEZy_cnJarJoT2E9G24_MpBxH+0-Wi+SGA@mail.gmail.com>",
+        "<CALJKDF882S_n3Tw8J0xDiN_d0MkS2tfXacPmmVwSs7Bi+qaFrA@mail.gmail.com>"
+      ],
+      "body_plain": "On Nov 9, 2011, at 08:27 , Steve Taylor wrote:\n\n> Yes, I got the attachment - thanks!  Might give it a go in the next few\n> days, if the repository hasn't been updated with an RPM.  I've already\n> learnt from experience to be wary of attempting to compile from source!\n\n\nWe really do want people to do so, though! \n\nIt's an understandable, but unfortunate trend that build processes get monopolized by distribution maintainers. Part of the spirit of Open Source is that everyone can tinker with the code, many eyes looking at the sources, etc. As things are going now, it is ironic that it is the Linux distros that do not have new releases tested by end users until it is too late. Too few people try the Windows and Mac prerelease binaries, but at least they are there. \n\nIt's not really that dangerous to do your own builds, just keep privat builds separate from the production environment and possibly skip the installation step -- R runs quite happily out of its build directory. Once the toolkits are in place, you can even run builds from a cron job and forget about them (until something breaks). \n\nMark, one note: I'd keep the builddir completely separate from the srcdir, and not as a subdirectory. I.e. ../R/configure rather than ../configure. \n\n> \n> cheers,\n>   Steve\n> \n> On 9 November 2011 17:47, Mark Leeds <markleeds2 at gmail.com> wrote:\n> \n>> Hello: I've included a txt file ( some day, when I have more time, I'll\n>> turn it into latex )  that has the steps for installing R from source on\n>> Fedora. It was\n>> written only for people like myself who find these  tasks difficult.\n>> \n>> Also, could someone from the R-Sig-Fedora list let me know if the txt file\n>> was attached because I don't actually receive emails that I send to the\n>> R-Sig-Fedora list. ( not sure why this is ? ).   If it doesn't go through,\n>> I'll cut and paste and re-send it in the email itself. Thanks.\n>> \n>> \n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n-- \nPeter Dalgaard, Professor\nCenter for Statistics, Copenhagen Business School\nSolbjerg Plads 3, 2000 Frederiksberg, Denmark\nPhone: (+45)38153501\nEmail: pd.mes at cbs.dk  Priv: PDalgd at gmail.com",
+      "body_snippet": "On Nov 9, 2011, at 08:27 , Steve Taylor wrote:\n\n> Yes, I got the attachment - thanks!  Might give it a go in the next few\n> days, if the repository hasn't been updated with an RPM.  I've already\n> lea",
+      "thread_id": "thread-43b219c351de",
+      "thread_depth": 2,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-b292b1b37385",
+      "message_id": "<CAHz+bWZa=tf+DPzzkfFoPOCDL7TOTh37Te9jpdeWL3KoQZFphA@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2011-11-09T11:39:54-05:00",
+      "subject": "[R-sig-Fedora] installing R from source on fedora",
+      "subject_clean": "installing R from source on fedora",
+      "in_reply_to": "<DF21019D-5A2E-41C4-882F-8E3AACF95E80@gmail.com>",
+      "references": [
+        "<CAHz+bWZ2zf=JwATsHEZy_cnJarJoT2E9G24_MpBxH+0-Wi+SGA@mail.gmail.com>",
+        "<CALJKDF882S_n3Tw8J0xDiN_d0MkS2tfXacPmmVwSs7Bi+qaFrA@mail.gmail.com>",
+        "<DF21019D-5A2E-41C4-882F-8E3AACF95E80@gmail.com>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111109/c0e42de0/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111109/c0e42de0/attachment.pl>",
+      "thread_id": "thread-43b219c351de",
+      "thread_depth": 3,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-889730175ff7",
+      "message_id": "<1320944918.14417.12.camel@prometheus.geog.ucl.ac.uk>",
+      "from_name": "Gavin Simpson",
+      "from_email_hash": "de29578fbbb79e6883c8203a1faebef3fddd10c08cc122f35e5ad109dc250099",
+      "date": "2011-11-10T17:08:38Z",
+      "subject": "[R-sig-Fedora] installing R from source on fedora",
+      "subject_clean": "installing R from source on fedora",
+      "in_reply_to": "<DF21019D-5A2E-41C4-882F-8E3AACF95E80@gmail.com>",
+      "references": [
+        "<CAHz+bWZ2zf=JwATsHEZy_cnJarJoT2E9G24_MpBxH+0-Wi+SGA@mail.gmail.com>",
+        "<CALJKDF882S_n3Tw8J0xDiN_d0MkS2tfXacPmmVwSs7Bi+qaFrA@mail.gmail.com>",
+        "<DF21019D-5A2E-41C4-882F-8E3AACF95E80@gmail.com>"
+      ],
+      "body_plain": "On Wed, 2011-11-09 at 16:54 +0100, peter dalgaard wrote:\n> On Nov 9, 2011, at 08:27 , Steve Taylor wrote:\n> \n> > Yes, I got the attachment - thanks!  Might give it a go in the next\n> few\n> > days, if the repository hasn't been updated with an RPM.  I've\n> already\n> > learnt from experience to be wary of attempting to compile from\n> source!\n\n<snip />\n\n> Mark, one note: I'd keep the builddir completely separate from the\n> srcdir, and not as a subdirectory. I.e. ../R/configure rather\n> than ../configure. \n\nThat was my fault, Peter; I explained how I was doing this on Fedora and\nit worked. I know the advice is to keep a clean source tree and build\noutside it, but that was how I started doing things when I was new to\nLinux and you know what they say about old/bad habits!\n\nG\n\n> > \n> > cheers,\n> >   Steve\n> > \n> > On 9 November 2011 17:47, Mark Leeds <markleeds2 at gmail.com> wrote:\n> > \n> >> Hello: I've included a txt file ( some day, when I have more time, I'll\n> >> turn it into latex )  that has the steps for installing R from source on\n> >> Fedora. It was\n> >> written only for people like myself who find these  tasks difficult.\n> >> \n> >> Also, could someone from the R-Sig-Fedora list let me know if the txt file\n> >> was attached because I don't actually receive emails that I send to the\n> >> R-Sig-Fedora list. ( not sure why this is ? ).   If it doesn't go through,\n> >> I'll cut and paste and re-send it in the email itself. Thanks.\n> >> \n> >> \n> > \n> > \t[[alternative HTML version deleted]]\n> > \n> > _______________________________________________\n> > R-SIG-Fedora mailing list\n> > R-SIG-Fedora at r-project.org\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> \n\n-- \n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%\n Dr. Gavin Simpson             [t] +44 (0)20 7679 0522\n ECRC, UCL Geography,          [f] +44 (0)20 7679 0565\n Pearson Building,             [e] gavin.simpsonATNOSPAMucl.ac.uk\n Gower Street, London          [w] http://www.ucl.ac.uk/~ucfagls/\n UK. WC1E 6BT.                 [w] http://www.freshwaters.org.uk\n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%",
+      "body_snippet": "On Wed, 2011-11-09 at 16:54 +0100, peter dalgaard wrote:\n> On Nov 9, 2011, at 08:27 , Steve Taylor wrote:\n> \n> > Yes, I got the attachment - thanks!  Might give it a go in the next\n> few\n> > days, if ",
+      "thread_id": "thread-43b219c351de",
+      "thread_depth": 3,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-e2dfe2238679",
+      "message_id": "<3F3E0C51-89DE-4E8C-AEF0-36B0C73B9AC2@gmail.com>",
+      "from_name": "peter dalgaard",
+      "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
+      "date": "2011-11-10T21:28:41+01:00",
+      "subject": "[R-sig-Fedora] installing R from source on fedora",
+      "subject_clean": "installing R from source on fedora",
+      "in_reply_to": "<1320944918.14417.12.camel@prometheus.geog.ucl.ac.uk>",
+      "references": [
+        "<CAHz+bWZ2zf=JwATsHEZy_cnJarJoT2E9G24_MpBxH+0-Wi+SGA@mail.gmail.com>",
+        "<CALJKDF882S_n3Tw8J0xDiN_d0MkS2tfXacPmmVwSs7Bi+qaFrA@mail.gmail.com>",
+        "<DF21019D-5A2E-41C4-882F-8E3AACF95E80@gmail.com>",
+        "<1320944918.14417.12.camel@prometheus.geog.ucl.ac.uk>"
+      ],
+      "body_plain": "On Nov 10, 2011, at 18:08 , Gavin Simpson wrote:\n\n> <snip />\n> \n>> Mark, one note: I'd keep the builddir completely separate from the\n>> srcdir, and not as a subdirectory. I.e. ../R/configure rather\n>> than ../configure. \n> \n> That was my fault, Peter; I explained how I was doing this on Fedora and\n> it worked. I know the advice is to keep a clean source tree and build\n> outside it, but that was how I started doing things when I was new to\n> Linux and you know what they say about old/bad habits!\n\nNo harm done. I'm not even sure that it really matters. Those of us who run \"make dist\" just tend to get squeamish about keeping the source tree clean. \n\nThe thing that you probably _should_ avoid is building directly in the source tree - it is supposed to work, but breaks rather too easily.\n\n-- \nPeter Dalgaard, Professor,\nCenter for Statistics, Copenhagen Business School\nSolbjerg Plads 3, 2000 Frederiksberg, Denmark\nPhone: (+45)38153501\nEmail: pd.mes at cbs.dk  Priv: PDalgd at gmail.com",
+      "body_snippet": "On Nov 10, 2011, at 18:08 , Gavin Simpson wrote:\n\n> <snip />\n> \n>> Mark, one note: I'd keep the builddir completely separate from the\n>> srcdir, and not as a subdirectory. I.e. ../R/configure rather\n>",
+      "thread_id": "thread-43b219c351de",
+      "thread_depth": 4,
+      "month": "2011-11"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-a76812d5a58c",
+      "subject": "installing 2.14.0 on fedora",
+      "message_count": 7,
+      "participants": [
+        "Gavin Simpson",
+        "José Matos",
+        "Mark Leeds",
+        "Pierre-Yves Chibon",
+        "Steve Taylor"
+      ],
+      "started": "2011-11-05T15:08:42+00:00",
+      "last_reply": "2011-11-07T14:10:18+00:00",
+      "root_message_id": "msg-a76812d5a58c"
+    },
+    {
+      "id": "thread-a2676b1a35da",
+      "subject": "still working on building R from source",
+      "message_count": 3,
+      "participants": [
+        "Gavin Simpson",
+        "Mark Leeds"
+      ],
+      "started": "2011-11-06T18:43:30-05:00",
+      "last_reply": "2011-11-07T09:35:00+00:00",
+      "root_message_id": "msg-a2676b1a35da"
+    },
+    {
+      "id": "thread-95bb1ad29dc6",
+      "subject": "installing 2.14.0 on fedora",
+      "message_count": 4,
+      "participants": [
+        "Gavin Simpson",
+        "Marc Schwartz",
+        "Mark Leeds"
+      ],
+      "started": "2011-11-07T10:00:34-05:00",
+      "last_reply": "2011-11-07T15:19:57+00:00",
+      "root_message_id": "msg-95bb1ad29dc6"
+    },
+    {
+      "id": "thread-4f4cce6fb046",
+      "subject": "close but no cigar",
+      "message_count": 2,
+      "participants": [
+        "Gavin Simpson",
+        "Mark Leeds"
+      ],
+      "started": "2011-11-07T15:39:59-05:00",
+      "last_reply": "2011-11-07T20:48:14+00:00",
+      "root_message_id": "msg-4f4cce6fb046"
+    },
+    {
+      "id": "thread-170b3042c3c9",
+      "subject": "SUCCESS",
+      "message_count": 1,
+      "participants": [
+        "Mark Leeds"
+      ],
+      "started": "2011-11-07T16:18:31+00:00",
+      "last_reply": "2011-11-07T16:18:31+00:00",
+      "root_message_id": "msg-170b3042c3c9"
+    },
+    {
+      "id": "thread-43b219c351de",
+      "subject": "installing R from source on fedora",
+      "message_count": 7,
+      "participants": [
+        "Gavin Simpson",
+        "Mark Leeds",
+        "Steve Taylor",
+        "Tom Callaway",
+        "peter dalgaard"
+      ],
+      "started": "2011-11-08T23:47:13-05:00",
+      "last_reply": "2011-11-10T21:28:41+01:00",
+      "root_message_id": "msg-43b219c351de"
+    }
+  ]
+}

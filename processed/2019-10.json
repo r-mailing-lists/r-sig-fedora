@@ -1,0 +1,74 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2019-10",
+  "messages": [
+    {
+      "id": "msg-04d11a376eac",
+      "message_id": "<CABFfbXtF-oJFVwsanu3KP+iYSjM7EeuKKD_M0zG=4KWtCfirJQ@mail.gmail.com>",
+      "from_name": "Jeroen Ooms",
+      "from_email_hash": "6d6b57f7dfdacdb11068763c49af518a12f1ee23bc379f749098f057c1d6df69",
+      "date": "2019-10-07T11:12:53+02:00",
+      "subject": "[R-sig-Fedora] R from EPEL 8 missing dependency on glibc-langpack",
+      "subject_clean": "R from EPEL 8 missing dependency on glibc-langpack",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I think R from EPEL 8 is missing a dependency on glibc-langpack-en or\nsimilar. Testing with the new CentOS 8 docker image:\n\n   docker run -it centos:8 bash\n\nAnd then in docker:\n\n   yum install epel-release\n   yum config-manager --set-enabled PowerTools\n   yum install R-devel\n\nInstallation succeeds but when I start R:\n\nDuring startup - Warning messages:\n1: Setting LC_CTYPE failed, using \"C\"\n2: Setting LC_COLLATE failed, using \"C\"\n3: Setting LC_TIME failed, using \"C\"\n4: Setting LC_MESSAGES failed, using \"C\"\n5: Setting LC_MONETARY failed, using \"C\"\n6: Setting LC_PAPER failed, using \"C\"\n7: Setting LC_MEASUREMENT failed, using \"C\"\n\nInstalling glibc-langpack-en fixes the problem. Took me a while to\nfigure this out; I am guessing a lot of users will run into this.",
+      "body_snippet": "I think R from EPEL 8 is missing a dependency on glibc-langpack-en or\nsimilar. Testing with the new CentOS 8 docker image:\n\n   docker run -it centos:8 bash\n\nAnd then in docker:\n\n   yum install epel-re",
+      "thread_id": "thread-04d11a376eac",
+      "thread_depth": 0,
+      "month": "2019-10"
+    },
+    {
+      "id": "msg-65011b8087f2",
+      "message_id": "<CALEXWq1rLQuMEU+13RN4N_=+RFF9+FBxzU07BouZ+L6rQ4h7Sw@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2019-10-07T14:52:35+02:00",
+      "subject": "[R-sig-Fedora]  R from EPEL 8 missing dependency on glibc-langpack",
+      "subject_clean": "R from EPEL 8 missing dependency on glibc-langpack",
+      "in_reply_to": "<CABFfbXtF-oJFVwsanu3KP+iYSjM7EeuKKD_M0zG=4KWtCfirJQ@mail.gmail.com>",
+      "references": [
+        "<CABFfbXtF-oJFVwsanu3KP+iYSjM7EeuKKD_M0zG=4KWtCfirJQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Mon, 7 Oct 2019 at 11:13, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n>\n> I think R from EPEL 8 is missing a dependency on glibc-langpack-en or\n> similar. Testing with the new CentOS 8 docker image:\n\nThis never was a dependency. There is no reason to depend particularly\non an English locale.\n\n>    docker run -it centos:8 bash\n>\n> And then in docker:\n>\n>    yum install epel-release\n>    yum config-manager --set-enabled PowerTools\n>    yum install R-devel\n>\n> Installation succeeds but when I start R:\n>\n> During startup - Warning messages:\n> 1: Setting LC_CTYPE failed, using \"C\"\n> 2: Setting LC_COLLATE failed, using \"C\"\n> 3: Setting LC_TIME failed, using \"C\"\n> 4: Setting LC_MESSAGES failed, using \"C\"\n> 5: Setting LC_MONETARY failed, using \"C\"\n> 6: Setting LC_PAPER failed, using \"C\"\n> 7: Setting LC_MEASUREMENT failed, using \"C\"\n>\n> Installing glibc-langpack-en fixes the problem. Took me a while to\n> figure this out; I am guessing a lot of users will run into this.\n\nThis has nothing to do with R. This is the issue:\n\n$ locale\nlocale: Cannot set LC_CTYPE to default locale: No such file or directory\nlocale: Cannot set LC_MESSAGES to default locale: No such file or directory\nlocale: Cannot set LC_ALL to default locale: No such file or directory\nLANG=en_US.UTF-8\nLC_CTYPE=\"en_US.UTF-8\"\nLC_NUMERIC=\"en_US.UTF-8\"\nLC_TIME=\"en_US.UTF-8\"\nLC_COLLATE=\"en_US.UTF-8\"\nLC_MONETARY=\"en_US.UTF-8\"\nLC_MESSAGES=\"en_US.UTF-8\"\nLC_PAPER=\"en_US.UTF-8\"\nLC_NAME=\"en_US.UTF-8\"\nLC_ADDRESS=\"en_US.UTF-8\"\nLC_TELEPHONE=\"en_US.UTF-8\"\nLC_MEASUREMENT=\"en_US.UTF-8\"\nLC_IDENTIFICATION=\"en_US.UTF-8\"\nLC_ALL=\n\nIf you try Centos 7:\n\n$ locale\nLANG=\nLC_CTYPE=\"POSIX\"\nLC_NUMERIC=\"POSIX\"\nLC_TIME=\"POSIX\"\nLC_COLLATE=\"POSIX\"\nLC_MONETARY=\"POSIX\"\nLC_MESSAGES=\"POSIX\"\nLC_PAPER=\"POSIX\"\nLC_NAME=\"POSIX\"\nLC_ADDRESS=\"POSIX\"\nLC_TELEPHONE=\"POSIX\"\nLC_MEASUREMENT=\"POSIX\"\nLC_IDENTIFICATION=\"POSIX\"\nLC_ALL=\n\nAnd if you try Fedora rawhide:\n\n$ locale\nLANG=C.UTF-8\nLC_CTYPE=\"C.UTF-8\"\nLC_NUMERIC=\"C.UTF-8\"\nLC_TIME=\"C.UTF-8\"\nLC_COLLATE=\"C.UTF-8\"\nLC_MONETARY=\"C.UTF-8\"\nLC_MESSAGES=\"C.UTF-8\"\nLC_PAPER=\"C.UTF-8\"\nLC_NAME=\"C.UTF-8\"\nLC_ADDRESS=\"C.UTF-8\"\nLC_TELEPHONE=\"C.UTF-8\"\nLC_MEASUREMENT=\"C.UTF-8\"\nLC_IDENTIFICATION=\"C.UTF-8\"\nLC_ALL=\n\nI'm not sure why en_US.UTF-8 ended up in the Centos 8 image, but it\nshould be C.UTF-8 instead.\n\nI?aki",
+      "body_snippet": "On Mon, 7 Oct 2019 at 11:13, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n>\n> I think R from EPEL 8 is missing a dependency on glibc-langpack-en or\n> similar. Testing with the new CentOS 8 docker imag",
+      "thread_id": "thread-04d11a376eac",
+      "thread_depth": 1,
+      "month": "2019-10"
+    },
+    {
+      "id": "msg-97335b363a63",
+      "message_id": "<CALEXWq3Qm12DndH5sgLOTF0gcHFMseR+NPS+cHEDU8jgjTu+pA@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2019-10-07T15:45:01+02:00",
+      "subject": "[R-sig-Fedora]  R from EPEL 8 missing dependency on glibc-langpack",
+      "subject_clean": "R from EPEL 8 missing dependency on glibc-langpack",
+      "in_reply_to": "<CALEXWq1rLQuMEU+13RN4N_=+RFF9+FBxzU07BouZ+L6rQ4h7Sw@mail.gmail.com>",
+      "references": [
+        "<CABFfbXtF-oJFVwsanu3KP+iYSjM7EeuKKD_M0zG=4KWtCfirJQ@mail.gmail.com>",
+        "<CALEXWq1rLQuMEU+13RN4N_=+RFF9+FBxzU07BouZ+L6rQ4h7Sw@mail.gmail.com>"
+      ],
+      "body_plain": "Reported here: https://github.com/CentOS/sig-cloud-instance-images/issues/154\n\nI?aki\n\nOn Mon, 7 Oct 2019 at 14:52, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Mon, 7 Oct 2019 at 11:13, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n> >\n> > I think R from EPEL 8 is missing a dependency on glibc-langpack-en or\n> > similar. Testing with the new CentOS 8 docker image:\n>\n> This never was a dependency. There is no reason to depend particularly\n> on an English locale.\n>\n> >    docker run -it centos:8 bash\n> >\n> > And then in docker:\n> >\n> >    yum install epel-release\n> >    yum config-manager --set-enabled PowerTools\n> >    yum install R-devel\n> >\n> > Installation succeeds but when I start R:\n> >\n> > During startup - Warning messages:\n> > 1: Setting LC_CTYPE failed, using \"C\"\n> > 2: Setting LC_COLLATE failed, using \"C\"\n> > 3: Setting LC_TIME failed, using \"C\"\n> > 4: Setting LC_MESSAGES failed, using \"C\"\n> > 5: Setting LC_MONETARY failed, using \"C\"\n> > 6: Setting LC_PAPER failed, using \"C\"\n> > 7: Setting LC_MEASUREMENT failed, using \"C\"\n> >\n> > Installing glibc-langpack-en fixes the problem. Took me a while to\n> > figure this out; I am guessing a lot of users will run into this.\n>\n> This has nothing to do with R. This is the issue:\n>\n> $ locale\n> locale: Cannot set LC_CTYPE to default locale: No such file or directory\n> locale: Cannot set LC_MESSAGES to default locale: No such file or directory\n> locale: Cannot set LC_ALL to default locale: No such file or directory\n> LANG=en_US.UTF-8\n> LC_CTYPE=\"en_US.UTF-8\"\n> LC_NUMERIC=\"en_US.UTF-8\"\n> LC_TIME=\"en_US.UTF-8\"\n> LC_COLLATE=\"en_US.UTF-8\"\n> LC_MONETARY=\"en_US.UTF-8\"\n> LC_MESSAGES=\"en_US.UTF-8\"\n> LC_PAPER=\"en_US.UTF-8\"\n> LC_NAME=\"en_US.UTF-8\"\n> LC_ADDRESS=\"en_US.UTF-8\"\n> LC_TELEPHONE=\"en_US.UTF-8\"\n> LC_MEASUREMENT=\"en_US.UTF-8\"\n> LC_IDENTIFICATION=\"en_US.UTF-8\"\n> LC_ALL=\n>\n> If you try Centos 7:\n>\n> $ locale\n> LANG=\n> LC_CTYPE=\"POSIX\"\n> LC_NUMERIC=\"POSIX\"\n> LC_TIME=\"POSIX\"\n> LC_COLLATE=\"POSIX\"\n> LC_MONETARY=\"POSIX\"\n> LC_MESSAGES=\"POSIX\"\n> LC_PAPER=\"POSIX\"\n> LC_NAME=\"POSIX\"\n> LC_ADDRESS=\"POSIX\"\n> LC_TELEPHONE=\"POSIX\"\n> LC_MEASUREMENT=\"POSIX\"\n> LC_IDENTIFICATION=\"POSIX\"\n> LC_ALL=\n>\n> And if you try Fedora rawhide:\n>\n> $ locale\n> LANG=C.UTF-8\n> LC_CTYPE=\"C.UTF-8\"\n> LC_NUMERIC=\"C.UTF-8\"\n> LC_TIME=\"C.UTF-8\"\n> LC_COLLATE=\"C.UTF-8\"\n> LC_MONETARY=\"C.UTF-8\"\n> LC_MESSAGES=\"C.UTF-8\"\n> LC_PAPER=\"C.UTF-8\"\n> LC_NAME=\"C.UTF-8\"\n> LC_ADDRESS=\"C.UTF-8\"\n> LC_TELEPHONE=\"C.UTF-8\"\n> LC_MEASUREMENT=\"C.UTF-8\"\n> LC_IDENTIFICATION=\"C.UTF-8\"\n> LC_ALL=\n>\n> I'm not sure why en_US.UTF-8 ended up in the Centos 8 image, but it\n> should be C.UTF-8 instead.\n>\n> I?aki\n\n\n\n-- \nI?aki ?car",
+      "body_snippet": "Reported here: https://github.com/CentOS/sig-cloud-instance-images/issues/154\n\nI?aki\n\nOn Mon, 7 Oct 2019 at 14:52, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Mon, 7 Oct 2019 at 11:13, Jeroe",
+      "thread_id": "thread-04d11a376eac",
+      "thread_depth": 2,
+      "month": "2019-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-04d11a376eac",
+      "subject": "R from EPEL 8 missing dependency on glibc-langpack",
+      "message_count": 3,
+      "participants": [
+        "Iñaki Ucar",
+        "Jeroen Ooms"
+      ],
+      "started": "2019-10-07T11:12:53+02:00",
+      "last_reply": "2019-10-07T15:45:01+02:00",
+      "root_message_id": "msg-04d11a376eac"
+    }
+  ]
+}

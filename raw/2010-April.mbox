@@ -1,0 +1,285 @@
+From Dennis.Burian at faa.gov  Sat Apr 17 00:59:40 2010
+From: Dennis.Burian at faa.gov (Dennis.Burian at faa.gov)
+Date: Fri, 16 Apr 2010 17:59:40 -0500
+Subject: [R-sig-Fedora] R installation on Fedora 12
+Message-ID: <OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>
+
+
+I am migrating from 64-bit RHEL 5 to 64-bit Fedora 12 and I'm getting the
+following error when I run ./configure in the directory R-2.10.1...
+
+checking for IceConnectionNumber in -lICE... yes
+checking X11/Intrinsic.h usability... no
+checking X11/Intrinsic.h presence... no
+checking for X11/Intrinsic.h... no
+configure: error: --with-x=yes (default) and X11 headers/libs are not
+available
+
+I've used yum search to look for X11 packages and on the key word Intrinsic
+without seeing something obvious.  Which package do I need to install to
+get past this error?
+
+Thanks
+
+Dennis Burian, Ph.D.
+Functional Genomics Group
+Civil Aerospace Medical Institute, AAM-610
+6500 S. MacArthur Blvd.
+Oklahoma City OK  73169
+405-954-6087
+dennis.burian at faa.gov
+
+
+From gavin.simpson at ucl.ac.uk  Sat Apr 17 01:15:23 2010
+From: gavin.simpson at ucl.ac.uk (Gavin Simpson)
+Date: Sat, 17 Apr 2010 00:15:23 +0100
+Subject: [R-sig-Fedora] R installation on Fedora 12
+In-Reply-To: <OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>
+References: <OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>
+Message-ID: <1271459723.2115.8.camel@localhost>
+
+On Fri, 2010-04-16 at 17:59 -0500, Dennis.Burian at faa.gov wrote:
+> I am migrating from 64-bit RHEL 5 to 64-bit Fedora 12 and I'm getting the
+> following error when I run ./configure in the directory R-2.10.1...
+> 
+> checking for IceConnectionNumber in -lICE... yes
+> checking X11/Intrinsic.h usability... no
+> checking X11/Intrinsic.h presence... no
+> checking for X11/Intrinsic.h... no
+> configure: error: --with-x=yes (default) and X11 headers/libs are not
+> available
+> 
+> I've used yum search to look for X11 packages and on the key word Intrinsic
+> without seeing something obvious.  Which package do I need to install to
+> get past this error?
+
+su -c "yum install libXt-devel"
+
+in a shell/terminal should install the relevant header that was missing
+above.
+
+It highly likely that you are missing more of the X11 headers you'll
+need and I forget now exactly which they are.
+
+HTH
+
+G
+
+> 
+> Thanks
+> 
+> Dennis Burian, Ph.D.
+> Functional Genomics Group
+> Civil Aerospace Medical Institute, AAM-610
+> 6500 S. MacArthur Blvd.
+> Oklahoma City OK  73169
+> 405-954-6087
+> dennis.burian at faa.gov
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+-- 
+%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%
+ Dr. Gavin Simpson             [t] +44 (0)20 7679 0522
+ ECRC, UCL Geography,          [f] +44 (0)20 7679 0565
+ Pearson Building,             [e] gavin.simpsonATNOSPAMucl.ac.uk
+ Gower Street, London          [w] http://www.ucl.ac.uk/~ucfagls/
+ UK. WC1E 6BT.                 [w] http://www.freshwaters.org.uk
+%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%
+
+
+From marc_schwartz at me.com  Sat Apr 17 01:37:13 2010
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Fri, 16 Apr 2010 18:37:13 -0500
+Subject: [R-sig-Fedora] R installation on Fedora 12
+In-Reply-To: <1271459723.2115.8.camel@localhost>
+References: <OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>
+	<1271459723.2115.8.camel@localhost>
+Message-ID: <8FE1AB09-3CF1-4798-954F-F743685B4C29@me.com>
+
+
+On Apr 16, 2010, at 6:15 PM, Gavin Simpson wrote:
+
+> On Fri, 2010-04-16 at 17:59 -0500, Dennis.Burian at faa.gov wrote:
+>> I am migrating from 64-bit RHEL 5 to 64-bit Fedora 12 and I'm getting the
+>> following error when I run ./configure in the directory R-2.10.1...
+>> 
+>> checking for IceConnectionNumber in -lICE... yes
+>> checking X11/Intrinsic.h usability... no
+>> checking X11/Intrinsic.h presence... no
+>> checking for X11/Intrinsic.h... no
+>> configure: error: --with-x=yes (default) and X11 headers/libs are not
+>> available
+>> 
+>> I've used yum search to look for X11 packages and on the key word Intrinsic
+>> without seeing something obvious.  Which package do I need to install to
+>> get past this error?
+> 
+> su -c "yum install libXt-devel"
+> 
+> in a shell/terminal should install the relevant header that was missing
+> above.
+> 
+> It highly likely that you are missing more of the X11 headers you'll
+> need and I forget now exactly which they are.
+> 
+> HTH
+> 
+> G
+
+This is covered in the R Installation and Administration Manual in Appendix A:
+
+  http://cran.r-project.org/doc/manuals/R-admin.html#Essential-and-useful-other-programs-under-Unix
+
+"Unless you do not want to view graphs on-screen you need ?X11? installed, including its headers and client libraries. For recent Fedora distributions it means (at least) ?libX11?, ?libX11-devel?, ?libXt? and ?libXt-devel?."
+
+HTH,
+
+Marc Schwartz
+
+
+From pingou at pingoured.fr  Sat Apr 17 04:40:43 2010
+From: pingou at pingoured.fr (pingou at pingoured.fr)
+Date: Sat, 17 Apr 2010 04:40:43 +0200
+Subject: [R-sig-Fedora] R installation on Fedora 12
+In-Reply-To: <OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>
+References: <OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>
+Message-ID: <20100417024042.GA20207@planetpingou.org>
+
+On Fri, Apr 16, 2010 at 05:59:40PM -0500, Dennis.Burian at faa.gov wrote:
+> 
+> I've used yum search to look for X11 packages and on the key word Intrinsic
+> without seeing something obvious.  Which package do I need to install to
+> get past this error?
+> 
+
+Just out of curiosity, any special reason not to use directly yum to install R ?
+
+Pierre
+
+
+From Dennis.Burian at faa.gov  Mon Apr 19 15:59:02 2010
+From: Dennis.Burian at faa.gov (Dennis.Burian at faa.gov)
+Date: Mon, 19 Apr 2010 08:59:02 -0500
+Subject: [R-sig-Fedora] R-SIG-Fedora Digest, Vol 20, Issue 1
+In-Reply-To: <mailman.17.1271498407.30929.r-sig-fedora@r-project.org>
+References: <mailman.17.1271498407.30929.r-sig-fedora@r-project.org>
+Message-ID: <OF582C1216.27A4F436-ON8625770A.004C750A-8625770A.004CD0E5@faa.gov>
+
+Thanks Gavin and Marc, never thought to look in the Appendix.
+
+Pierre, that would be simpler, wouldn't it;  thanks for the suggestion,  DB
+
+Dennis Burian, Ph.D.
+Functional Genomics Group
+Civil Aerospace Medical Institute, AAM-610
+6500 S. MacArthur Blvd.
+Oklahoma City OK  73169
+405-954-6087
+dennis.burian at faa.gov
+
+
+From tcallawa at redhat.com  Fri Apr 23 19:21:29 2010
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Fri, 23 Apr 2010 13:21:29 -0400
+Subject: [R-sig-Fedora] R 2.11.0 in Fedora Updates Testing
+Message-ID: <4BD1D719.8000907@redhat.com>
+
+R 2.11.0 is built now for Fedora and EPEL. It is in "updates-testing".
+
+In accordance with the new policies on Fedora Updates, these new
+packages will not be pushed as official updates until they either
+receive positive testing from users, or sit in updates-testing for two
+weeks.
+
+You can help us test these packages, and move them forward. Here's how:
+
+1. Go to the Fedora Updates web application (its real name is "Bodhi"):
+https://admin.fedoraproject.org/updates/
+
+Once you're there, click the login blue box at the top left, and login
+with your Fedora Account. If you don't have a Fedora Account, you can
+skip this step.
+
+2. Click on the link for the Fedora R test update that matches your release:
+
+Fedora 11:
+https://admin.fedoraproject.org/updates/rpy-2.0.8-2.fc11,R-2.11.0-1.fc11
+
+Fedora 12:
+https://admin.fedoraproject.org/updates/rpy-2.0.8-2.fc12,R-2.11.0-1.fc12
+
+EPEL-4 (RHEL-4):
+https://admin.fedoraproject.org/updates/R-2.11.0-1.el4
+
+EPEL-5 (RHEL-5):
+https://admin.fedoraproject.org/updates/R-2.11.0-1.el5
+
+3. Now, on your Fedora (or RHEL) system, run this command (as root, or
+with root privs) to install the test update:
+
+yum --enablerepo=updates-testing update R
+
+That should update R to the test update (if you don't want the full R
+suite, you can replace "R" in that string with "R-core").
+
+4. Test it! Make sure it does all the things you would expect it to.
+
+5. Go back to the web page for the R update (step 2), and at
+the bottom, click "Add a comment >>"
+
+(If you didn't login, it will ask you for an email address and make you
+complete a captcha to make sure you are a unique individual.)
+
+In that text box which opens up, write a little bit about the testing
+you did and if it works okay for you or not. Then (this is the important
+part), click the "Works for me" or "Does not work" radio button below
+it, and click the Add Comment button.
+
+6. That's it! If it worked, you've given that update a +1 karma vote.
+(If it didn't work, you've given it a -1 karma vote). Now, if three
+people give a +1, and the package update gets to +3, the Fedora Update
+system will automatically move the update from testing to a real update,
+and everyone will get it.
+
+Thanks in advance,
+
+~spot, Fedora/EPEL R maintainer
+
+
+From pingou at pingoured.fr  Sat Apr 24 00:15:56 2010
+From: pingou at pingoured.fr (Pierre-Yves)
+Date: Sat, 24 Apr 2010 00:15:56 +0200
+Subject: [R-sig-Fedora] R-repo
+Message-ID: <1272060956.20881.38.camel@localhost.localdomain>
+
+Dear all,
+
+There is a some group of people which is gathering at this moment to
+build a RPMs R-repository. 
+
+This repository will be built using R2rpm which mean:
+- No -devel subpackage
+- Automated spec generation
+- Dependencies resolved based on the DESCRIPTION file
+
+We will make sure that the package that don't build have logs available.
+
+At the moment we are trying to put together all the infrastructure. We
+have started to build the first packages and are hoping to have the
+first generation of the repository in few days.
+
+For those of you who would be interested we have just set up a mailing
+list at:
+http://www.bioinformatics.org/mailman/listinfo/r-repo-dev
+Feel free to join the discussions to make of this project something
+useful for all.
+
+Regards,
+
+Pierre
+
+

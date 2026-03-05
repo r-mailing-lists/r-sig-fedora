@@ -1,0 +1,1032 @@
+From or|@ndomontre@| @end|ng |rom y@hoo@com  Fri Feb  7 00:30:01 2020
+From: or|@ndomontre@| @end|ng |rom y@hoo@com (Orlando Ramirez)
+Date: Thu, 6 Feb 2020 23:30:01 +0000 (UTC)
+Subject: [R-sig-Fedora] R (language) +  install.packages("DMwR") :
+References: <1577883358.628874.1581031801005.ref@mail.yahoo.com>
+Message-ID: <1577883358.628874.1581031801005@mail.yahoo.com>
+
+Hi:please i am working on fedora 31, then i installed R (language), and i want to install a R package ("DMwR"), but i get these warning messages ...:
+
+The downloaded source packages are in 
+?? ??/tmp/RtmpCBUyte/downloaded_packages? 
+Updating HTML index of packages in '.Library' 
+Making 'packages.html' ... done 
+Warning messages: 
+1: In install.packages("DMwR") : 
+? installation of package ?curl? had non-zero exit status 
+2: In install.packages("DMwR") : 
+? installation of package ?TTR? had non-zero exit status 
+3: In install.packages("DMwR") : 
+? installation of package ?quantmod? had non-zero exit status 
+4: In install.packages("DMwR") : 
+? installation of package ?DMwR? had non-zero exit status 
+
+i tried to install the packages? ?curl? ,  ?TTR?,? and ?quantmod? but i got error all time...could you help me...thanks
+
+
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Fri Feb  7 10:14:50 2020
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Fri, 7 Feb 2020 10:14:50 +0100
+Subject: [R-sig-Fedora] R (language) + install.packages("DMwR") :
+In-Reply-To: <1577883358.628874.1581031801005@mail.yahoo.com>
+References: <1577883358.628874.1581031801005.ref@mail.yahoo.com>
+ <1577883358.628874.1581031801005@mail.yahoo.com>
+Message-ID: <CALEXWq1QmOHywSdqjmOmZ0_DOok4b7fPw2moDd-mVejtTzqPFw@mail.gmail.com>
+
+On Fri, 7 Feb 2020 at 00:30, Orlando Ramirez <orlandomontreal at yahoo.com> wrote:
+>
+> Hi:please i am working on fedora 31, then i installed R (language), and i want to install a R package ("DMwR"), but i get these warning messages ...:
+>
+> The downloaded source packages are in
+>     ?/tmp/RtmpCBUyte/downloaded_packages?
+> Updating HTML index of packages in '.Library'
+> Making 'packages.html' ... done
+> Warning messages:
+> 1: In install.packages("DMwR") :
+>   installation of package ?curl? had non-zero exit status
+> 2: In install.packages("DMwR") :
+>   installation of package ?TTR? had non-zero exit status
+> 3: In install.packages("DMwR") :
+>   installation of package ?quantmod? had non-zero exit status
+> 4: In install.packages("DMwR") :
+>   installation of package ?DMwR? had non-zero exit status
+>
+> i tried to install the packages  ?curl? ,  ?TTR?,  and ?quantmod? but i got error all time...could you help me...thanks
+
+Did you take a look at the error message when you try to install curl?
+This is because all these packages depend on curl, which in turn
+requires curl-devel. You may install curl-devel in your system and
+then try again.
+
+Yet another posibility now for you is:
+
+sudo dnf copr enable iucar/cran
+sudo dnf install R-CRAN-DMwR
+
+That's a Fedora repo I maintain with nearly 15k CRAN packages. Not the
+entire CRAN, but close enough.
+
+I?aki
+
+
+From |uc@r @end|ng |rom |edor@project@org  Sun Feb  9 01:19:27 2020
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Sun, 9 Feb 2020 01:19:27 +0100
+Subject: [R-sig-Fedora] CRAN RPM repositories available
+Message-ID: <CALEXWq2MzizyzkAr_rFwxGuOV_uG=KHzfiE7K1nOcM4=n8JKGQ@mail.gmail.com>
+
+Hi all,
+
+I apologize if you are receiving multiple copies of this email, but
+I'm cross-posting because I believe this may be of interest to a wider
+audience than just R-SIG-Fedora.
+
+This is to announce that I'm maintaining a Copr project [1] that
+provides RPM repos for Fedora 30, 31 and rawhide for most of CRAN
+(currently, almost 15k packages), and they are automatically
+synchronized with CRAN (removing archived packages and building new
+updates) on a daily basis.
+
+Please, feel free to use them. For further details, see the overview
+page [1]. Bug reports and feedback are more than welcome [2].
+
+[1] https://copr.fedorainfracloud.org/coprs/iucar/cran
+[2] https://github.com/Enchufa2/cran2copr/issues
+
+Regards,
+-- 
+I?aki ?car
+
+
+From We@@B@rr|@ @end|ng |rom cobb-v@ntre@@@com  Fri Feb 14 20:50:27 2020
+From: We@@B@rr|@ @end|ng |rom cobb-v@ntre@@@com (Barris, Wes)
+Date: Fri, 14 Feb 2020 19:50:27 +0000
+Subject: [R-sig-Fedora] R-3.6.2 make check fails
+Message-ID: <SN6PR17MB2125659DEAF7F35D23517761D8150@SN6PR17MB2125.namprd17.prod.outlook.com>
+
+I am trying to build the latest version of R (3.6.2) on a CentOS system running 7.7.1908.
+
+I have been able to build previous versions of R up to and including 3.5.3 successfully.  Starting with 3.6.0
+the "make check" step fails with errors relating to "pdflatex" being missing.  So, I installed texlive-latex
+(and the 100 other rpm dependencies) then tried rebuilding R.  "make check" continues to fail.
+
+I have a feeling that this is a "soft" error because the resulting R executable appears to be working properly.
+Would someone please take a look at this reg-packages.Rout.fail file and let me know whether I can just ignore
+the tests or if there is an easy fix for this?
+
+Thanks.  Here is the reg-packages.Rout.fail file:
+
+
+R version 3.6.2 (2019-12-12) -- "Dark and Stormy Night"
+Copyright (C) 2019 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> .R_LIBS <- function(libp = .libPaths()) { # (>> in utils?)
++     libp <- libp[! libp %in% .Library]
++     if(length(libp))
++         paste(libp, collapse = .Platform$path.sep)
++     else "" # character(0) is invalid for Sys.setenv()
++ }
+> Sys.setenv(R_LIBS = .R_LIBS() # for build.pkg() & install.packages()
++          , R_BUILD_ENVIRON = "nothing" # avoid ~/.R/build.environ which might set R_LIBS
++          , R_ENVIRON = "none"
++          , R_PROFILE = "none"
++            )
+> 
+> ## PR 1271  detach("package:base") crashes R.
+> tools::assertError(detach("package:base"))
+> 
+> 
+> ## invalid 'lib.loc'
+> stopifnot(length(installed.packages("mgcv")) == 0)
+> ## gave a low-level error message
+> 
+> 
+> ## package.skeleton() with metadata-only code
+> ## work in current (= ./tests/ directory):
+> tmp <- tempfile()
+> writeLines(c('setClass("foo", contains="numeric")',
++              'setMethod("show", "foo",',
++              '          function(object) cat("I am a \\"foo\\"\\n"))'),
++            tmp)
+> if(file.exists("myTst")) unlink("myTst", recursive=TRUE)
+> package.skeleton("myTst", code_files = tmp)# with a file name warning
+Creating directories ...
+Creating DESCRIPTION ...
+Creating NAMESPACE ...
+Creating Read-and-delete-me ...
+Copying code files ...
+Making help files ...
+Done.
+Further steps are described in './myTst/Read-and-delete-me'.
+Warning message:
+In package.skeleton("myTst", code_files = tmp) :
+  Invalid file name(s) for R code in ./myTst/R:
+  'file494f4e9385cd'
+ are now renamed to 'z<name>.R'
+> file.copy(tmp, (tm2 <- paste(tmp,".R", sep="")))
+[1] TRUE
+> unlink("myTst", recursive=TRUE)
+> op <- options(warn=2) # *NO* "invalid file name" warning {failed in 2.7.[01]}:
+> package.skeleton("myTst", code_files = tm2)
+Creating directories ...
+Creating DESCRIPTION ...
+Creating NAMESPACE ...
+Creating Read-and-delete-me ...
+Copying code files ...
+Making help files ...
+Done.
+Further steps are described in './myTst/Read-and-delete-me'.
+> options(op)
+> ##_2_ only a class, no generics/methods:
+> writeLines(c('setClass("DocLink",',
++              'representation(name="character",',
++              '               desc="character"))'), tmp)
+> if(file.exists("myTst2")) unlink("myTst2", recursive=TRUE)
+> package.skeleton("myTst2", code_files = tmp)
+Creating directories ...
+Creating DESCRIPTION ...
+Creating NAMESPACE ...
+Creating Read-and-delete-me ...
+Copying code files ...
+Making help files ...
+Done.
+Further steps are described in './myTst2/Read-and-delete-me'.
+Warning message:
+In package.skeleton("myTst2", code_files = tmp) :
+  Invalid file name(s) for R code in ./myTst2/R:
+  'file494f4e9385cd'
+ are now renamed to 'z<name>.R'
+> ##- end_2_ # failed in R 2.11.0
+> stopifnot(1 == grep("setClass",
++ 	  readLines(list.files("myTst/R", full.names=TRUE))),
++ 	  c("foo-class.Rd","show-methods.Rd") %in% list.files("myTst/man"))
+> ## failed for several reasons in R < 2.7.0
+> ##
+> ## Part 2: -- build, install, load and "inspect" the package:
+> build.pkg <- function(dir) {
++     stopifnot(dir.exists(dir), file.exists(DESC <- file.path(dir, "DESCRIPTION")))
++     pkgName <- sub("^[A-Za-z]+: ", "", grep("^Package: ", readLines(DESC), value=TRUE))
++     patt <- paste(pkgName, ".*tar\\.gz$", sep="_")
++     unlink(dir('.', pattern = patt))
++     Rcmd <- paste(shQuote(file.path(R.home("bin"), "R")), "CMD")
++     r <- system(paste(Rcmd, "build --keep-empty-dirs", shQuote(dir)),
++                 intern = TRUE)
++     ## return name of tar file built
++     structure(dir('.', pattern = patt), log3 = r)
++ }
+> build.pkg("myTst")
+
+[1] "myTst_1.0.tar.gz"
+attr(,"log3")
+[1] "* checking for file 'myTst/DESCRIPTION' ... OK"                           
+[2] "* preparing 'myTst':"                                                     
+[3] "* checking DESCRIPTION meta-information ... OK"                           
+[4] "* installing the package to process help pages"                           
+[5] "* saving partial Rd database"                                             
+[6] "* checking for LF line-endings in source and make files and shell scripts"
+[7] "* checking for empty or unneeded directories"                             
+[8] "* building 'myTst_1.0.tar.gz'"                                            
+> ## clean up any previous attempt (which might have left a 00LOCK)
+> unlink("myLib", recursive = TRUE)
+> dir.create("myLib")
+> install.packages("myTst", lib = "myLib", repos=NULL, type = "source") # with warnings
+* installing *source* package 'myTst' ...
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+Warning: /usr/local/src/stats/R-3.6.2/CentOS/tests/myTst/man/myTst-package.Rd:27: All text must be in a section
+Warning: /usr/local/src/stats/R-3.6.2/CentOS/tests/myTst/man/myTst-package.Rd:28: All text must be in a section
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (myTst)
+> print(installed.packages(lib.loc= "myLib", priority= "NA"))## (PR#13332)
+      Package LibPath Version Priority Depends   Imports LinkingTo Suggests
+myTst "myTst" "myLib" "1.0"   NA       "methods" NA      NA        NA      
+      Enhances License                     License_is_FOSS
+myTst NA       "What license is it under?" NA             
+      License_restricts_use OS_type MD5sum NeedsCompilation Built  
+myTst NA                    NA      NA     NA               "3.6.2"
+> stopifnot(require("myTst",lib = "myLib"))
+Loading required package: myTst
+> sm <- findMethods(show, where= as.environment("package:myTst"))
+> stopifnot(names(sm at names) == "foo")
+> unlink("myTst_*")
+> 
+> ## getPackageName()  for "package:foo":
+> require('methods')
+> library(tools)
+> oo <- options(warn=2)
+> detach("package:tools", unload=TRUE)
+> options(oo)
+> ## gave warning (-> Error) about creating package name
+> 
+> 
+> ## More building & installing packages
+> ## NB: tests were added here for 2.11.0.
+> ## NB^2: do not do this in the R sources (but in a build != src directory!)
+> ## and this testdir is not installed.
+> if(interactive() && Sys.getenv("USER") == "maechler")
++     Sys.setenv(SRCDIR = normalizePath("~/R/D/r-devel/R/tests"))
+> (pkgSrcPath <- file.path(Sys.getenv("SRCDIR"), "Pkgs"))# e.g., -> "../../R/tests/Pkgs"
+[1] "../../tests/Pkgs"
+> if(!file_test("-d", pkgSrcPath) && !interactive()) {
++     unlink("myTst", recursive=TRUE)
++     print(proc.time())
++     q("no")
++ }
+> ## else w/o clause:
+> 
+> do.cleanup <- !nzchar(Sys.getenv("R_TESTS_NO_CLEAN"))
+> isWIN <- .Platform$OS.type == "windows"
+> has.symlink <- !isWIN
+> ## Installing "on to" a package existing as symlink in the lib.loc
+> ## -- used to fail with misleading error message (#PR 16725):
+> 
+> if(has.symlink && !unlink("myLib_2", recursive=TRUE) && dir.create("myLib_2") &&
++    file.rename("myLib/myTst", "myLib_2/myTst") &&
++    file.symlink("../myLib_2/myTst", "myLib/myTst"))
++     install.packages("myTst", lib = "myLib", repos=NULL, type = "source")
+* installing *source* package 'myTst' ...
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+Warning: /usr/local/src/stats/R-3.6.2/CentOS/tests/myTst/man/myTst-package.Rd:27: All text must be in a section
+Warning: /usr/local/src/stats/R-3.6.2/CentOS/tests/myTst/man/myTst-package.Rd:28: All text must be in a section
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (myTst)
+> ## In R <= 3.3.2 gave error with *misleading* error message:
+> ## ERROR: 'myTst' is not a legal package name
+> 
+> if(isWIN) { # (has no symlinks anyway)
++     file.copy(pkgSrcPath, tempdir(), recursive = TRUE)
++ } else { # above file.copy() not useful as it replaces symlink by copy
++     system(paste('cp -R', shQuote(pkgSrcPath), shQuote(tempdir())))
++ }
+> pkgPath <- file.path(tempdir(), "Pkgs")
+> if(!dir.exists(pkgPath))  {
++     message("No valid 'pkgPath' (from 'pkgSrcPath') - exit this test")
++     if(!interactive()) q("no")
++ }
+> 
+> ## pkgB tests an empty R directory
+> dir.create(file.path(pkgPath, "pkgB", "R"), recursive = TRUE,
++ 	   showWarnings = FALSE)
+> p.lis <- c(if("Matrix" %in% row.names(installed.packages(.Library)))
++                c("pkgA", "pkgB", "pkgC"),
++            "exNSS4", "exSexpr")
+> InstOpts <- list("exSexpr" = "--html")
+> pkgApath <- file.path(pkgPath, "pkgA")
+> if("pkgA" %in% p.lis && !dir.exists(d <- pkgApath)) {
++     cat("symlink 'pkgA' does not exist as directory ",d,"; copying it\n", sep='')
++     file.copy(file.path(pkgPath, "xDir", "pkg"), to = d, recursive=TRUE)
++     ## if even the copy failed (NB: pkgB, pkgC depend on pkgA)
++     if(!dir.exists(d)) p.lis <- p.lis[!(p.lis %in% c("pkgA", "pkgB", "pkgC"))]
++ }
+> dir2pkg <- function(dir) ifelse(dir == "pkgC", "PkgC", dir)
+> if(is.na(match("myLib", .lP <- .libPaths()))) {
++     .libPaths(c("myLib", .lP)) # PkgC needs pkgA from there
++     .lP <- .libPaths()
++ }
+> Sys.setenv(R_LIBS = .R_LIBS(.lP)) # for build.pkg() & install.packages()
+> for(p in p.lis) {
++     p. <- dir2pkg(p) # 'p' is sub directory name;  'p.' is package name
++     cat("building package", p., "...\n")
++     r <- build.pkg(file.path(pkgPath, p))
++     if(!length(r)) # so some sort of failure, show log
++         cat(attr(r, "log3"), sep = "\n")
++     if(!isTRUE(file.exists(r)))
++         stop("R CMD build failed (no tarball) for package ", p)
++     ## otherwise install the tar file:
++     cat("installing package", p., "using built file", r, "...\n")
++     ## "FIXME": want to catch warnings in the "console output" of this:
++     install.packages(r, lib = "myLib", repos=NULL, type = "source",
++                      INSTALL_opts = InstOpts[[p.]])
++     stopifnot(require(p., lib = "myLib", character.only=TRUE))
++     detach(pos = match(p., sub("^package:","", search())))
++ }
+building package pkgA ...
+
+installing package pkgA using built file pkgA_1.2.tar.gz ...
+* installing *source* package 'pkgA' ...
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (pkgA)
+Loading required package: pkgA
+
+Attaching package: 'pkgA'
+
+The following object is masked from 'package:base':
+
+    search
+
+building package pkgB ...
+
+installing package pkgB using built file pkgB_1.0.tar.gz ...
+* installing *source* package 'pkgB' ...
+** using staged installation
+** help
+No man pages found in package  'pkgB' 
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (pkgB)
+Loading required package: pkgB
+building package PkgC ...
+
+installing package PkgC using built file PkgC_1.0-0.tar.gz ...
+* installing *source* package 'PkgC' ...
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+>From .checkSubclasses(): subclass "classApp" of class "classA" is not local and is not updated for new inheritance information currently; 
+[where=<environment: 0x4a3f9d8>, where2=<environment: namespace:PkgC>]
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (PkgC)
+Loading required package: PkgC
+building package exNSS4 ...
+
+installing package exNSS4 using built file exNSS4_1.1.tar.gz ...
+* installing *source* package 'exNSS4' ...
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+No man pages found in package  'exNSS4' 
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (exNSS4)
+Loading required package: exNSS4
+building package exSexpr ...
+Converting Rd files to LaTeX 
+
+kpathsea: Running mktextfm cmr10
+/usr/share/texlive/texmf/web2c/mktexnam: Could not map source abbreviation  for cmr10.
+/usr/share/texlive/texmf/web2c/mktexnam: Need to update ?
+mktextfm: Running mf \mode:=ljfour; mag:=1; nonstopmode; input cmr10
+/bin/mktextfm: line 96: mf: command not found
+grep: cmr10.log: No such file or directory
+mktextfm: `mf \mode:=ljfour; mag:=1; nonstopmode; input cmr10' failed to make cmr10.tfm.
+kpathsea: Appending font creation commands to missfont.log.
+
+kpathsea: Running mktextfm ecrm1000
+/usr/share/texlive/texmf/web2c/mktexnam: Could not map source abbreviation  for ecrm1000.
+/usr/share/texlive/texmf/web2c/mktexnam: Need to update ?
+mktextfm: Running mf \mode:=ljfour; mag:=1; nonstopmode; input ecrm1000
+/bin/mktextfm: line 96: mf: command not found
+grep: ecrm1000.log: No such file or directory
+mktextfm: `mf \mode:=ljfour; mag:=1; nonstopmode; input ecrm1000' failed to make ecrm1000.tfm.
+Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
+  unable to run 'pdflatex' on 'Rd2.tex'
+
+kpathsea: Running mktextfm cmr10
+/usr/share/texlive/texmf/web2c/mktexnam: Could not map source abbreviation  for cmr10.
+/usr/share/texlive/texmf/web2c/mktexnam: Need to update ?
+mktextfm: Running mf \mode:=ljfour; mag:=1; nonstopmode; input cmr10
+/bin/mktextfm: line 96: mf: command not found
+grep: cmr10.log: No such file or directory
+mktextfm: `mf \mode:=ljfour; mag:=1; nonstopmode; input cmr10' failed to make cmr10.tfm.
+kpathsea: Appending font creation commands to missfont.log.
+
+kpathsea: Running mktextfm ecrm1000
+/usr/share/texlive/texmf/web2c/mktexnam: Could not map source abbreviation  for ecrm1000.
+/usr/share/texlive/texmf/web2c/mktexnam: Need to update ?
+mktextfm: Running mf \mode:=ljfour; mag:=1; nonstopmode; input ecrm1000
+/bin/mktextfm: line 96: mf: command not found
+grep: ecrm1000.log: No such file or directory
+mktextfm: `mf \mode:=ljfour; mag:=1; nonstopmode; input ecrm1000' failed to make ecrm1000.tfm.
+Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
+  unable to run 'pdflatex' on 'Rd2.tex'
+Error in running tools::texi2pdf()
+* checking for file '/tmp/RtmpZs7fPX/Pkgs/exSexpr/DESCRIPTION' ... OK
+* preparing 'exSexpr':
+* checking DESCRIPTION meta-information ... OK
+* installing the package to process help pages
+* saving partial Rd database
+* building the PDF package manual
+Hmm ... looks like a package
+Creating pdf output from LaTeX ...
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo
+! Font OT1/cmr/m/n/10=cmr10 at 10.0pt not loadable: Metric (TFM) file not found
+.
+<to be read again> 
+                   relax 
+l.64 \normalsize
+                
+)) (/usr/local/src/stats/R-3.6.2/CentOS/share/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def)
+! Font T1/cmr/m/n/10=ecrm1000 at 10.0pt not loadable: Metric (TFM) file not fou
+nd.
+<to be read again> 
+                   relax 
+l.100 \fontencoding\encodingdefault\selectfont
+                                              
+) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg)
+
+! LaTeX Error: File `pdftex.def' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: def)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.131 ...d{ver@\Gin at driver}{\input{\Gin at driver}}{}
+                                                  ^^M
+!  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on Rd2.log.
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo
+! Font OT1/cmr/m/n/10=cmr10 at 10.0pt not loadable: Metric (TFM) file not found
+.
+<to be read again> 
+                   relax 
+l.64 \normalsize
+                
+)) (/usr/local/src/stats/R-3.6.2/CentOS/share/texmf/tex/latex/Rd.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def)
+! Font T1/cmr/m/n/10=ecrm1000 at 10.0pt not loadable: Metric (TFM) file not fou
+nd.
+<to be read again> 
+                   relax 
+l.100 \fontencoding\encodingdefault\selectfont
+                                              
+) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg)
+
+! LaTeX Error: File `pdftex.def' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: def)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.131 ...d{ver@\Gin at driver}{\input{\Gin at driver}}{}
+                                                  ^^M
+!  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on Rd2.log.
+Error: R CMD build failed (no tarball) for package exSexpr
+In addition: Warning message:
+In system(paste(Rcmd, "build --keep-empty-dirs", shQuote(dir)),  :
+  running command ''/usr/local/src/stats/R-3.6.2/CentOS/bin/R' CMD build --keep-empty-dirs '/tmp/RtmpZs7fPX/Pkgs/exSexpr'' had status 1
+Execution halted
+
+-- 
+Wes Barris
+
+----------------------------------------------------------------------
+This email and any files transmitted with it are confide...{{dropped:11}}
+
+
+From herro|d @end|ng |rom ow|r|ver@com  Mon Feb 17 17:40:45 2020
+From: herro|d @end|ng |rom ow|r|ver@com (R P Herrold)
+Date: Mon, 17 Feb 2020 11:40:45 -0500 (EST)
+Subject: [R-sig-Fedora] R-3.6.2 make check fails
+In-Reply-To: <SN6PR17MB2125659DEAF7F35D23517761D8150@SN6PR17MB2125.namprd17.prod.outlook.com>
+References: <SN6PR17MB2125659DEAF7F35D23517761D8150@SN6PR17MB2125.namprd17.prod.outlook.com>
+Message-ID: <alpine.LRH.2.03.2002171138470.18188@bjyevire.pbz>
+
+On Fri, 14 Feb 2020, Barris, Wes wrote:
+
+> I have been able to build previous versions of R up to and including 3.5.3 successfully.  Starting with 3.6.0
+> the "make check" step fails with errors relating to "pdflatex" being missing.  So, I installed texlive-latex
+> (and the 100 other rpm dependencies) then tried rebuilding R.  "make check" continues to fail.
+
+Thinking that you may have a missing Build 
+Requirement dependency here ... 
+
+[herrold at localhost ~]$ which pdflatex
+/usr/bin/pdflatex
+
+[herrold at localhost ~]$ rpm -qf /usr/bin/pdflatex
+texlive-latex-bin-bin-svn14050.0-43.20130427_r30134.el7.noarch
+
+[herrold at localhost ~]$ cat /etc/redhat-release 
+CentOS Linux release 7.7.1908 (Core)
+
+[herrold at localhost ~]$ rpm -qi 
+texlive-latex-bin-bin-svn14050.0-43.20130427_r30134.el7.noarch
+Name        : texlive-latex-bin-bin
+Epoch       : 2
+Version     : svn14050.0
+Release     : 43.20130427_r30134.el7
+Architecture: noarch
+Install Date: Wed Mar  6 14:59:57 2019
+Group       : Applications/Publishing
+Size        : 0
+License     : Artistic 2.0 and GPLv2 and GPLv2+ and LGPLv2+ 
+and LPPL and MIT and Public Domain and UCD and Utopia
+Signature   : RSA/SHA256, Mon Nov 12 10:22:43 2018, Key ID 
+24c6a8a7f4a80eb5
+Source RPM  : texlive-2012-43.20130427_r30134.el7.src.rpm
+Build Date  : Tue Oct 30 17:08:55 2018
+Build Host  : x86-01.bsys.centos.org
+Relocations : (not relocatable)
+Packager    : CentOS BuildSystem <http://bugs.centos.org>
+Vendor      : CentOS
+URL         : http://tug.org/texlive/
+Summary     : Binaries for latex-bin
+Description : Binaries for latex-bin
+[herrold at localhost ~]$
+
+
+From tc@||@w@ @end|ng |rom redh@t@com  Mon Feb 17 19:10:17 2020
+From: tc@||@w@ @end|ng |rom redh@t@com (Tom Callaway)
+Date: Mon, 17 Feb 2020 13:10:17 -0500
+Subject: [R-sig-Fedora] R-3.6.2 make check fails
+In-Reply-To: <alpine.LRH.2.03.2002171138470.18188@bjyevire.pbz>
+References: <SN6PR17MB2125659DEAF7F35D23517761D8150@SN6PR17MB2125.namprd17.prod.outlook.com>
+ <alpine.LRH.2.03.2002171138470.18188@bjyevire.pbz>
+Message-ID: <CANA0HMZ8pLRDcSjqQEeCU9KHA_3yE8d48ANnxha1CJ4WoFwGOg@mail.gmail.com>
+
+You're definitely missing bits of texlive. Lots of "missing file: mf" in
+your debug logs.
+
+I think you need to start with installing texlive-metafont.
+
+Alternately, there are pre-built R 3.6.2 packages for EL-7 here:
+https://koji.fedoraproject.org/koji/buildinfo?buildID=1421894
+
+I cannot push them as official updates to EPEL because of the catch-22
+created by R's dependency on newer C++ support than the EL-7 gcc has. My
+packages use the devtoolset compiler to work around this need, but then R
+assumes it can build modules from CRAN with those flags (and that level of
+C++ support). The only way to ensure that is to have a Requires:
+devtoolset-8-toolchain , but that is not permitted in EPEL. Since I am not
+interested in the bugs that would be filed by EL-7 users who have confusing
+CRAN build failures (which is what I would get if I took out the Requires),
+I've opted to simply do the builds in Koji and not push them as updates for
+EL-7. EL-8 does not have this issue.
+
+Good luck,
+Tom
+
+On Mon, Feb 17, 2020 at 11:41 AM R P Herrold <herrold at owlriver.com> wrote:
+
+> On Fri, 14 Feb 2020, Barris, Wes wrote:
+>
+> > I have been able to build previous versions of R up to and including
+> 3.5.3 successfully.  Starting with 3.6.0
+> > the "make check" step fails with errors relating to "pdflatex" being
+> missing.  So, I installed texlive-latex
+> > (and the 100 other rpm dependencies) then tried rebuilding R.  "make
+> check" continues to fail.
+>
+> Thinking that you may have a missing Build
+> Requirement dependency here ...
+>
+> [herrold at localhost ~]$ which pdflatex
+> /usr/bin/pdflatex
+>
+> [herrold at localhost ~]$ rpm -qf /usr/bin/pdflatex
+> texlive-latex-bin-bin-svn14050.0-43.20130427_r30134.el7.noarch
+>
+> [herrold at localhost ~]$ cat /etc/redhat-release
+> CentOS Linux release 7.7.1908 (Core)
+>
+> [herrold at localhost ~]$ rpm -qi
+> texlive-latex-bin-bin-svn14050.0-43.20130427_r30134.el7.noarch
+> Name        : texlive-latex-bin-bin
+> Epoch       : 2
+> Version     : svn14050.0
+> Release     : 43.20130427_r30134.el7
+> Architecture: noarch
+> Install Date: Wed Mar  6 14:59:57 2019
+> Group       : Applications/Publishing
+> Size        : 0
+> License     : Artistic 2.0 and GPLv2 and GPLv2+ and LGPLv2+
+> and LPPL and MIT and Public Domain and UCD and Utopia
+> Signature   : RSA/SHA256, Mon Nov 12 10:22:43 2018, Key ID
+> 24c6a8a7f4a80eb5
+> Source RPM  : texlive-2012-43.20130427_r30134.el7.src.rpm
+> Build Date  : Tue Oct 30 17:08:55 2018
+> Build Host  : x86-01.bsys.centos.org
+> Relocations : (not relocatable)
+> Packager    : CentOS BuildSystem <http://bugs.centos.org>
+> Vendor      : CentOS
+> URL         : http://tug.org/texlive/
+> Summary     : Binaries for latex-bin
+> Description : Binaries for latex-bin
+> [herrold at localhost ~]$
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+
+	[[alternative HTML version deleted]]
+
+
+From We@@B@rr|@ @end|ng |rom cobb-v@ntre@@@com  Mon Feb 17 21:37:50 2020
+From: We@@B@rr|@ @end|ng |rom cobb-v@ntre@@@com (Barris, Wes)
+Date: Mon, 17 Feb 2020 20:37:50 +0000
+Subject: [R-sig-Fedora] R-3.6.2 make check fails
+In-Reply-To: <alpine.LRH.2.03.2002171138470.18188@bjyevire.pbz>
+References: <SN6PR17MB2125659DEAF7F35D23517761D8150@SN6PR17MB2125.namprd17.prod.outlook.com>
+ <alpine.LRH.2.03.2002171138470.18188@bjyevire.pbz>
+Message-ID: <SN6PR17MB212562F3ECD56590FD62C5C8D8160@SN6PR17MB2125.namprd17.prod.outlook.com>
+
+Thanks.  Here are my results for the commands you list:
+
+> which pdflatex
+/bin/pdflatex
+
+> rpm -qf /usr/bin/pdflatex
+texlive-latex-bin-bin-svn14050.0-43.20130427_r30134.el7.noarch
+
+> cat /etc/redhat-release
+CentOS Linux release 7.7.1908 (Core)
+
+> rpm -qi texlive-latex-bin-bin-svn14050.0-43.20130427_r30134.el7.noarch
+Name        : texlive-latex-bin-bin
+Epoch       : 2
+Version     : svn14050.0
+Release     : 43.20130427_r30134.el7
+Architecture: noarch
+Install Date: Wed 12 Feb 2020 11:24:28 AM CST
+Group       : Applications/Publishing
+Size        : 0
+License     : Artistic 2.0 and GPLv2 and GPLv2+ and LGPLv2+ and LPPL and MIT and Public Domain and UCD and Utopia
+Signature   : RSA/SHA256, Mon 12 Nov 2018 09:22:43 AM CST, Key ID 24c6a8a7f4a80eb5
+Source RPM  : texlive-2012-43.20130427_r30134.el7.src.rpm
+Build Date  : Tue 30 Oct 2018 04:08:55 PM CDT
+Build Host  : x86-01.bsys.centos.org
+Relocations : (not relocatable)
+Packager    : CentOS BuildSystem <http://bugs.centos.org>
+Vendor      : CentOS
+URL         : http://tug.org/texlive/
+Summary     : Binaries for latex-bin
+Description :
+Binaries for latex-bin
+
+I'm not sure I see any significant different between my output and yours.
+--
+Wes
+
+-----Original Message-----
+From: R P Herrold <herrold at owlriver.com> 
+Sent: Monday, February 17, 2020 10:41 AM
+To: Barris, Wes <Wes.Barris at cobb-vantress.com>
+Cc: r-sig-fedora at r-project.org
+Subject: [EXTERNAL] - R-3.6.2 make check fails
+
+On Fri, 14 Feb 2020, Barris, Wes wrote:
+
+> I have been able to build previous versions of R up to and including 
+> 3.5.3 successfully.  Starting with 3.6.0 the "make check" step fails 
+> with errors relating to "pdflatex" being missing.  So, I installed texlive-latex (and the 100 other rpm dependencies) then tried rebuilding R.  "make check" continues to fail.
+
+Thinking that you may have a missing Build Requirement dependency here ... 
+
+[herrold at localhost ~]$ which pdflatex
+/usr/bin/pdflatex
+
+[herrold at localhost ~]$ rpm -qf /usr/bin/pdflatex texlive-latex-bin-bin-svn14050.0-43.20130427_r30134.el7.noarch
+
+[herrold at localhost ~]$ cat /etc/redhat-release CentOS Linux release 7.7.1908 (Core)
+
+[herrold at localhost ~]$ rpm -qi
+texlive-latex-bin-bin-svn14050.0-43.20130427_r30134.el7.noarch
+Name        : texlive-latex-bin-bin
+Epoch       : 2
+Version     : svn14050.0
+Release     : 43.20130427_r30134.el7
+Architecture: noarch
+Install Date: Wed Mar  6 14:59:57 2019
+Group       : Applications/Publishing
+Size        : 0
+License     : Artistic 2.0 and GPLv2 and GPLv2+ and LGPLv2+ 
+and LPPL and MIT and Public Domain and UCD and Utopia
+Signature   : RSA/SHA256, Mon Nov 12 10:22:43 2018, Key ID 
+24c6a8a7f4a80eb5
+Source RPM  : texlive-2012-43.20130427_r30134.el7.src.rpm
+Build Date  : Tue Oct 30 17:08:55 2018
+Build Host  : x86-01.bsys.centos.org
+Relocations : (not relocatable)
+Packager    : CentOS BuildSystem <https://urldefense.proofpoint.com/v2/url?u=http-3A__bugs.centos.org&d=DwIBAg&c=l0Se2EoYzVDuQxIIfySraQ&r=ikT9mQBX0oceFUNOZ9sWg7xwG2CuIC6bHyRUELsg5N4&m=JAB5Fu4kIDYWQa4apYgUV22E0Al3NiZXEWI5j0raw48&s=fUdnDJUL8UXxc6ouXZilch8a09bOHMoBhMYRTRdYnJs&e= >
+Vendor      : CentOS
+URL         : https://urldefense.proofpoint.com/v2/url?u=http-3A__tug.org_texlive_&d=DwIBAg&c=l0Se2EoYzVDuQxIIfySraQ&r=ikT9mQBX0oceFUNOZ9sWg7xwG2CuIC6bHyRUELsg5N4&m=JAB5Fu4kIDYWQa4apYgUV22E0Al3NiZXEWI5j0raw48&s=d_8QeHRQqwkk36UgHUFiV3R4WQ9YEhZikEdrmM3OaWA&e= 
+Summary     : Binaries for latex-bin
+Description : Binaries for latex-bin
+[herrold at localhost ~]$
+
+----------------------------------------------------------------------
+This email and any files transmitted with it are confide...{{dropped:11}}
+
+
+From herro|d @end|ng |rom ow|r|ver@com  Mon Feb 17 21:39:50 2020
+From: herro|d @end|ng |rom ow|r|ver@com (R P Herrold)
+Date: Mon, 17 Feb 2020 15:39:50 -0500 (EST)
+Subject: [R-sig-Fedora] R-3.6.2 make check fails
+In-Reply-To: <SN6PR17MB212562F3ECD56590FD62C5C8D8160@SN6PR17MB2125.namprd17.prod.outlook.com>
+References: <SN6PR17MB2125659DEAF7F35D23517761D8150@SN6PR17MB2125.namprd17.prod.outlook.com>
+ <alpine.LRH.2.03.2002171138470.18188@bjyevire.pbz>
+ <SN6PR17MB212562F3ECD56590FD62C5C8D8160@SN6PR17MB2125.namprd17.prod.outlook.com>
+Message-ID: <alpine.LRH.2.03.2002171538330.10247@bjyevire.pbz>
+
+On Mon, 17 Feb 2020, Barris, Wes wrote:
+
+> Thanks.  Here are my results for the commands you list:
+ <snip>
+> I'm not sure I see any significant different between my output and yours.
+
+Check Spot's later email ... seems the compiler capabilities 
+in C 7 are insufficient to recent R needs.  Per Spot, a C8 box 
+should turn the trick
+
+-- Russ herrold
+
+
+From We@@B@rr|@ @end|ng |rom cobb-v@ntre@@@com  Mon Feb 17 22:27:45 2020
+From: We@@B@rr|@ @end|ng |rom cobb-v@ntre@@@com (Barris, Wes)
+Date: Mon, 17 Feb 2020 21:27:45 +0000
+Subject: [R-sig-Fedora] R-3.6.2 make check fails
+In-Reply-To: <CANA0HMZ8pLRDcSjqQEeCU9KHA_3yE8d48ANnxha1CJ4WoFwGOg@mail.gmail.com>
+References: <SN6PR17MB2125659DEAF7F35D23517761D8150@SN6PR17MB2125.namprd17.prod.outlook.com>
+ <alpine.LRH.2.03.2002171138470.18188@bjyevire.pbz>
+ <CANA0HMZ8pLRDcSjqQEeCU9KHA_3yE8d48ANnxha1CJ4WoFwGOg@mail.gmail.com>
+Message-ID: <SN6PR17MB2125A057AC85AECC4601A8CCD8160@SN6PR17MB2125.namprd17.prod.outlook.com>
+
+Thanks Tom.
+
+I tried installing texlive-metafont but the reg-packages test still fails.  I understand that I will have this issue as long as we?re trying to build R-3.6.x under EL-7.  Since our own testing of R-3.6.2 has succeeded, we?ll go with it unless we find something that does not work for us.
+
+Thanks again.
+--
+Wes
+
+From: Tom Callaway <tcallawa at redhat.com>
+Sent: Monday, February 17, 2020 12:10 PM
+To: R P Herrold <herrold at owlriver.com>
+Cc: Barris, Wes <Wes.Barris at cobb-vantress.com>; r-sig-fedora at r-project.org
+Subject: [EXTERNAL] - Re: [R-sig-Fedora] R-3.6.2 make check fails
+
+You're definitely missing bits of texlive. Lots of "missing file: mf" in your debug logs.
+
+I think you need to start with installing texlive-metafont.
+
+Alternately, there are pre-built R 3.6.2 packages for EL-7 here:
+https://koji.fedoraproject.org/koji/buildinfo?buildID=1421894<https://urldefense.proofpoint.com/v2/url?u=https-3A__koji.fedoraproject.org_koji_buildinfo-3FbuildID-3D1421894&d=DwMFaQ&c=l0Se2EoYzVDuQxIIfySraQ&r=ikT9mQBX0oceFUNOZ9sWg7xwG2CuIC6bHyRUELsg5N4&m=uml0Cpnd8DuohnwcMtyGNIioV8ZIKyqJfop23wpA7G0&s=nNN18iUVUckS6P6DZ4jV7NjeGeF7saUiyoum9zMVXQk&e=>
+
+I cannot push them as official updates to EPEL because of the catch-22 created by R's dependency on newer C++ support than the EL-7 gcc has. My packages use the devtoolset compiler to work around this need, but then R assumes it can build modules from CRAN with those flags (and that level of C++ support). The only way to ensure that is to have a Requires: devtoolset-8-toolchain , but that is not permitted in EPEL. Since I am not interested in the bugs that would be filed by EL-7 users who have confusing CRAN build failures (which is what I would get if I took out the Requires), I've opted to simply do the builds in Koji and not push them as updates for EL-7. EL-8 does not have this issue.
+
+Good luck,
+Tom
+
+On Mon, Feb 17, 2020 at 11:41 AM R P Herrold <herrold at owlriver.com<mailto:herrold at owlriver.com>> wrote:
+On Fri, 14 Feb 2020, Barris, Wes wrote:
+
+> I have been able to build previous versions of R up to and including 3.5.3 successfully.  Starting with 3.6.0
+> the "make check" step fails with errors relating to "pdflatex" being missing.  So, I installed texlive-latex
+> (and the 100 other rpm dependencies) then tried rebuilding R.  "make check" continues to fail.
+
+Thinking that you may have a missing Build
+Requirement dependency here ...
+
+[herrold at localhost ~]$ which pdflatex
+/usr/bin/pdflatex
+
+[herrold at localhost ~]$ rpm -qf /usr/bin/pdflatex
+texlive-latex-bin-bin-svn14050.0-43.20130427_r30134.el7.noarch
+
+[herrold at localhost ~]$ cat /etc/redhat-release
+CentOS Linux release 7.7.1908 (Core)
+
+[herrold at localhost ~]$ rpm -qi
+texlive-latex-bin-bin-svn14050.0-43.20130427_r30134.el7.noarch
+Name        : texlive-latex-bin-bin
+Epoch       : 2
+Version     : svn14050.0
+Release     : 43.20130427_r30134.el7
+Architecture: noarch
+Install Date: Wed Mar  6 14:59:57 2019
+Group       : Applications/Publishing
+Size        : 0
+License     : Artistic 2.0 and GPLv2 and GPLv2+ and LGPLv2+
+and LPPL and MIT and Public Domain and UCD and Utopia
+Signature   : RSA/SHA256, Mon Nov 12 10:22:43 2018, Key ID
+24c6a8a7f4a80eb5
+Source RPM  : texlive-2012-43.20130427_r30134.el7.src.rpm
+Build Date  : Tue Oct 30 17:08:55 2018
+Build Host  : x86-01.bsys.centos.org<https://urldefense.proofpoint.com/v2/url?u=http-3A__x86-2D01.bsys.centos.org&d=DwMFaQ&c=l0Se2EoYzVDuQxIIfySraQ&r=ikT9mQBX0oceFUNOZ9sWg7xwG2CuIC6bHyRUELsg5N4&m=uml0Cpnd8DuohnwcMtyGNIioV8ZIKyqJfop23wpA7G0&s=04-qZjKYvfS0fIDIp_xfhV9IaJanWTgZQjKfDmtUjbw&e=>
+Relocations : (not relocatable)
+Packager    : CentOS BuildSystem <http://bugs.centos.org<https://urldefense.proofpoint.com/v2/url?u=http-3A__bugs.centos.org&d=DwMFaQ&c=l0Se2EoYzVDuQxIIfySraQ&r=ikT9mQBX0oceFUNOZ9sWg7xwG2CuIC6bHyRUELsg5N4&m=uml0Cpnd8DuohnwcMtyGNIioV8ZIKyqJfop23wpA7G0&s=yad7nViDanvG4r0EkZdYDiacJdmaL9lNr2_K0SC_NkU&e=>>
+Vendor      : CentOS
+URL         : http://tug.org/texlive/<https://urldefense.proofpoint.com/v2/url?u=http-3A__tug.org_texlive_&d=DwMFaQ&c=l0Se2EoYzVDuQxIIfySraQ&r=ikT9mQBX0oceFUNOZ9sWg7xwG2CuIC6bHyRUELsg5N4&m=uml0Cpnd8DuohnwcMtyGNIioV8ZIKyqJfop23wpA7G0&s=3-ZsxkI3ZUWh9rcQ0X8bwXL4Q1fJ4wTdYBUR6coS7NE&e=>
+Summary     : Binaries for latex-bin
+Description : Binaries for latex-bin
+[herrold at localhost ~]$
+
+_______________________________________________
+R-SIG-Fedora mailing list
+R-SIG-Fedora at r-project.org<mailto:R-SIG-Fedora at r-project.org>
+https://stat.ethz.ch/mailman/listinfo/r-sig-fedora<https://urldefense.proofpoint.com/v2/url?u=https-3A__stat.ethz.ch_mailman_listinfo_r-2Dsig-2Dfedora&d=DwMFaQ&c=l0Se2EoYzVDuQxIIfySraQ&r=ikT9mQBX0oceFUNOZ9sWg7xwG2CuIC6bHyRUELsg5N4&m=uml0Cpnd8DuohnwcMtyGNIioV8ZIKyqJfop23wpA7G0&s=3K3WR2rB1I1TQq4voG2ZDovNOQRhk9-xf3_YQHEVQUU&e=>
+
+----------------------------------------------------------------------
+This email and any files transmitted with it are confidential and intended solely for the use of the addressee. If you are not the intended addressee, then you have received this email in error and any use, dissemination, forwarding, printing, or copying of this email is strictly prohibited. Please notify us immediately of your unintended receipt by reply and then delete this email and your reply. Cobb-Vantress, Inc. and its subsidiaries and affiliates will not be held liable to any person resulting from the unintended or unauthorized use of any information contained in this email or as a result of any additions or deletions of information originally contained in this email.
+
+	[[alternative HTML version deleted]]
+
+
+From or|@ndomontre@| @end|ng |rom y@hoo@com  Wed Feb 26 09:10:53 2020
+From: or|@ndomontre@| @end|ng |rom y@hoo@com (Orlando Ramirez)
+Date: Wed, 26 Feb 2020 08:10:53 +0000 (UTC)
+Subject: [R-sig-Fedora] library ( vctrs )  +  library ( ggplot2 )
+References: <566922654.462620.1582704653738.ref@mail.yahoo.com>
+Message-ID: <566922654.462620.1582704653738@mail.yahoo.com>
+
+Hi i need use these 2 librarys? ( vctrs ) and ( ggplot2 ) , and the 2 librarys are installed in my Rstudio? 
+
+RStudio
+Version 1.2.5033
+? 2009-2019 RStudio, Inc.
+"Orange Blossom" (330255dd, 2019-12-04)
+but i got all times thesse messages....please help-me...thanks lot of
+> library ( vctrs ) Error: package or namespace load failed for ?vctrs? in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]): 
+?namespace ?rlang? 0.4.0 is being loaded, but >= 0.4.2 is required 
+> library ( ggplot2 ) 
+Error: package or namespace load failed for ?ggplot2?: 
+?.onLoad failed in loadNamespace() for 'pillar', details: 
+? call: utils::packageVersion("vctrs") 
+? error: there is no package called ?vctrs? 
+> ?
+
+
+
+? ???????????????????????????????????  ? ???? orlandomontreal at yahoo.com???????  ? ?
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Wed Feb 26 09:17:48 2020
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Wed, 26 Feb 2020 09:17:48 +0100
+Subject: [R-sig-Fedora] library ( vctrs ) + library ( ggplot2 )
+In-Reply-To: <566922654.462620.1582704653738@mail.yahoo.com>
+References: <566922654.462620.1582704653738.ref@mail.yahoo.com>
+ <566922654.462620.1582704653738@mail.yahoo.com>
+Message-ID: <CALEXWq3OKoCtQ6_=Vam_2WnmtEyek_ykDCSTWfiRF=3=aAWFeQ@mail.gmail.com>
+
+On Wed, 26 Feb 2020 at 09:11, Orlando Ramirez <orlandomontreal at yahoo.com> wrote:
+>
+> Hi i need use these 2 librarys  ( vctrs ) and ( ggplot2 ) , and the 2 librarys are installed in my Rstudio
+>
+> RStudio
+> Version 1.2.5033
+> ? 2009-2019 RStudio, Inc.
+> "Orange Blossom" (330255dd, 2019-12-04)
+> but i got all times thesse messages....please help-me...thanks lot of
+> > library ( vctrs ) Error: package or namespace load failed for ?vctrs? in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
+>  namespace ?rlang? 0.4.0 is being loaded, but >= 0.4.2 is required
+
+The message is pretty clear: you need to update rlang.
+
+> > library ( ggplot2 )
+> Error: package or namespace load failed for ?ggplot2?:
+>  .onLoad failed in loadNamespace() for 'pillar', details:
+>   call: utils::packageVersion("vctrs")
+>   error: there is no package called ?vctrs?
+> >
+>
+>
+>
+>                                               orlandomontreal at yahoo.com
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+

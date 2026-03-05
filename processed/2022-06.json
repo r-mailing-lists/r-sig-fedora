@@ -1,0 +1,121 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2022-06",
+  "messages": [
+    {
+      "id": "msg-e1c83e0dcf38",
+      "message_id": "<CALS=5mrV7Y_QHuWhjk0ueV99JetreouW19EUNy7sxBsT7mYz4Q@mail.gmail.com>",
+      "from_name": "Paul Smith",
+      "from_email_hash": "aba4091620d86fabfa3ea687f6147db00bface60d76eeb219c367cf3848b252a",
+      "date": "2022-06-12T14:42:25+01:00",
+      "subject": "[R-sig-Fedora] When will quarto be available?",
+      "subject_clean": "When will quarto be available?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear All,\n\nWhen will quarto be available on Fedora?\n\nhttps://quarto.org/\n\nThanks in advance,\n\nPaul",
+      "body_snippet": "Dear All,\n\nWhen will quarto be available on Fedora?\n\nhttps://quarto.org/\n\nThanks in advance,\n\nPaul",
+      "thread_id": "thread-e1c83e0dcf38",
+      "thread_depth": 0,
+      "month": "2022-06"
+    },
+    {
+      "id": "msg-0afdc1d63270",
+      "message_id": "<1781300216.20655.1655217107907@office.mailbox.org>",
+      "from_name": "tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk",
+      "from_email_hash": "46f7c5e79299983b806b65a66f502227438fa8315befcfdb1647eac40f0785d4",
+      "date": "2022-06-14T15:31:47+01:00",
+      "subject": "[R-sig-Fedora] rstudio-server toolbox instructions",
+      "subject_clean": "rstudio-server toolbox instructions",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\nI'm trying to run rstudio server in a fedora 36 toolbox. I run the following commands:\n\n[toolbox]$ sudo dnf install rstudio-server\n[toolbox]$ rserver --server-daemonize=0 --auth-none=1 --server-user=$(whoami)\n\nbut this errors with the following:\n\n2022-06-14T14:29:55.478369Z [rserver] ERROR system error 13 (Permission denied) [path: /var/run/rstudio-server, target-dir: ]; OCCURRED AT rstudio::core::Error rstudio::core::FilePath::createDirectory(const std::string&) const src/cpp/shared_core/FilePath.cpp:842; LOGGED FROM: int main(int, char* const*) src/cpp/server/ServerMain.cpp:626\n\nDo the instructions need updating or am I missing something obvious?\n\nTim",
+      "body_snippet": "Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\nI'm trying to run rstudio server in a fedora 36 toolbox. I run the following commands:\n\n[",
+      "thread_id": "thread-0afdc1d63270",
+      "thread_depth": 0,
+      "month": "2022-06"
+    },
+    {
+      "id": "msg-00db38e4144e",
+      "message_id": "<CALEXWq25zNSKSm45W3t+ePg=Rq0NG0LNb5mLQ2Kgy3b1Rfxe5A@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2022-06-14T18:44:19+02:00",
+      "subject": "[R-sig-Fedora] rstudio-server toolbox instructions",
+      "subject_clean": "rstudio-server toolbox instructions",
+      "in_reply_to": "<1781300216.20655.1655217107907@office.mailbox.org>",
+      "references": [
+        "<1781300216.20655.1655217107907@office.mailbox.org>"
+      ],
+      "body_plain": "On Tue, 14 Jun 2022 at 16:33, <tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n> I'm trying to run rstudio server in a fedora 36 toolbox. I run the following commands:\n>\n> [toolbox]$ sudo dnf install rstudio-server\n> [toolbox]$ rserver --server-daemonize=0 --auth-none=1 --server-user=$(whoami)\n>\n> but this errors with the following:\n>\n> 2022-06-14T14:29:55.478369Z [rserver] ERROR system error 13 (Permission denied) [path: /var/run/rstudio-server, target-dir: ]; OCCURRED AT rstudio::core::Error rstudio::core::FilePath::createDirectory(const std::string&) const src/cpp/shared_core/FilePath.cpp:842; LOGGED FROM: int main(int, char* const*) src/cpp/server/ServerMain.cpp:626\n>\n> Do the instructions need updating or am I missing something obvious?\n\nThis is kind-of-a hack that used to work, but apparently there are new\nconstraints now, and more options are required to circumvent the\ndefault directories. We would need to figure out the new options and\nmaybe provide a wrapper if this becomes too complicated.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 14 Jun 2022 at 16:33, <tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n> I'm tryi",
+      "thread_id": "thread-0afdc1d63270",
+      "thread_depth": 1,
+      "month": "2022-06"
+    },
+    {
+      "id": "msg-54b0b8a0448a",
+      "message_id": "<CALEXWq3SRFFY0RjxfsEj0aZ4csrAyo34gaK6AzDEtiO0d8e8ag@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2022-06-14T20:40:29+02:00",
+      "subject": "[R-sig-Fedora] rstudio-server toolbox instructions",
+      "subject_clean": "rstudio-server toolbox instructions",
+      "in_reply_to": "<CALEXWq25zNSKSm45W3t+ePg=Rq0NG0LNb5mLQ2Kgy3b1Rfxe5A@mail.gmail.com>",
+      "references": [
+        "<1781300216.20655.1655217107907@office.mailbox.org>",
+        "<CALEXWq25zNSKSm45W3t+ePg=Rq0NG0LNb5mLQ2Kgy3b1Rfxe5A@mail.gmail.com>"
+      ],
+      "body_plain": "It seems that running the following once:\n\n[toolbox]$ sudo rserver --server-user=$(whoami) --verify-installation=1\n\ncreates the necessary files, and then you can just run:\n\n[toolbox]$ rserver --server-user=$(whoami)\n\nHope it helps.\nI?aki\n\nOn Tue, 14 Jun 2022 at 18:44, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Tue, 14 Jun 2022 at 16:33, <tim.taylor at hiddenelephants.co.uk> wrote:\n> >\n> > Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n> > I'm trying to run rstudio server in a fedora 36 toolbox. I run the following commands:\n> >\n> > [toolbox]$ sudo dnf install rstudio-server\n> > [toolbox]$ rserver --server-daemonize=0 --auth-none=1 --server-user=$(whoami)\n> >\n> > but this errors with the following:\n> >\n> > 2022-06-14T14:29:55.478369Z [rserver] ERROR system error 13 (Permission denied) [path: /var/run/rstudio-server, target-dir: ]; OCCURRED AT rstudio::core::Error rstudio::core::FilePath::createDirectory(const std::string&) const src/cpp/shared_core/FilePath.cpp:842; LOGGED FROM: int main(int, char* const*) src/cpp/server/ServerMain.cpp:626\n> >\n> > Do the instructions need updating or am I missing something obvious?\n>\n> This is kind-of-a hack that used to work, but apparently there are new\n> constraints now, and more options are required to circumvent the\n> default directories. We would need to figure out the new options and\n> maybe provide a wrapper if this becomes too complicated.\n>\n> --\n> I?aki ?car\n\n\n\n-- \nI?aki ?car",
+      "body_snippet": "It seems that running the following once:\n\n[toolbox]$ sudo rserver --server-user=$(whoami) --verify-installation=1\n\ncreates the necessary files, and then you can just run:\n\n[toolbox]$ rserver --server",
+      "thread_id": "thread-0afdc1d63270",
+      "thread_depth": 2,
+      "month": "2022-06"
+    },
+    {
+      "id": "msg-08f67d7fbdd5",
+      "message_id": "<1575005483.45351.1655236434605@office.mailbox.org>",
+      "from_name": "tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk",
+      "from_email_hash": "46f7c5e79299983b806b65a66f502227438fa8315befcfdb1647eac40f0785d4",
+      "date": "2022-06-14T20:53:54+01:00",
+      "subject": "[R-sig-Fedora] rstudio-server toolbox instructions",
+      "subject_clean": "rstudio-server toolbox instructions",
+      "in_reply_to": "<CALEXWq3SRFFY0RjxfsEj0aZ4csrAyo34gaK6AzDEtiO0d8e8ag@mail.gmail.com>",
+      "references": [
+        "<1781300216.20655.1655217107907@office.mailbox.org>",
+        "<CALEXWq25zNSKSm45W3t+ePg=Rq0NG0LNb5mLQ2Kgy3b1Rfxe5A@mail.gmail.com>",
+        "<CALEXWq3SRFFY0RjxfsEj0aZ4csrAyo34gaK6AzDEtiO0d8e8ag@mail.gmail.com>"
+      ],
+      "body_plain": "Excellent - That worked. Many thanks as always!\n\nTim\n> On 14/06/2022 19:40 BST I?aki Ucar <iucar at fedoraproject.org> wrote:\n> \n>  \n> It seems that running the following once:\n> \n> [toolbox]$ sudo rserver --server-user=$(whoami) --verify-installation=1\n> \n> creates the necessary files, and then you can just run:\n> \n> [toolbox]$ rserver --server-user=$(whoami)\n> \n> Hope it helps.\n> I?aki\n> \n> On Tue, 14 Jun 2022 at 18:44, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > On Tue, 14 Jun 2022 at 16:33, <tim.taylor at hiddenelephants.co.uk> wrote:\n> > >\n> > > Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n> > > I'm trying to run rstudio server in a fedora 36 toolbox. I run the following commands:\n> > >\n> > > [toolbox]$ sudo dnf install rstudio-server\n> > > [toolbox]$ rserver --server-daemonize=0 --auth-none=1 --server-user=$(whoami)\n> > >\n> > > but this errors with the following:\n> > >\n> > > 2022-06-14T14:29:55.478369Z [rserver] ERROR system error 13 (Permission denied) [path: /var/run/rstudio-server, target-dir: ]; OCCURRED AT rstudio::core::Error rstudio::core::FilePath::createDirectory(const std::string&) const src/cpp/shared_core/FilePath.cpp:842; LOGGED FROM: int main(int, char* const*) src/cpp/server/ServerMain.cpp:626\n> > >\n> > > Do the instructions need updating or am I missing something obvious?\n> >\n> > This is kind-of-a hack that used to work, but apparently there are new\n> > constraints now, and more options are required to circumvent the\n> > default directories. We would need to figure out the new options and\n> > maybe provide a wrapper if this becomes too complicated.\n> >\n> > --\n> > I?aki ?car\n> \n> \n> \n> -- \n> I?aki ?car",
+      "body_snippet": "Excellent - That worked. Many thanks as always!\n\nTim\n> On 14/06/2022 19:40 BST I?aki Ucar <iucar at fedoraproject.org> wrote:\n> \n>  \n> It seems that running the following once:\n> \n> [toolbox]$ sudo rs",
+      "thread_id": "thread-0afdc1d63270",
+      "thread_depth": 3,
+      "month": "2022-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-e1c83e0dcf38",
+      "subject": "When will quarto be available?",
+      "message_count": 1,
+      "participants": [
+        "Paul Smith"
+      ],
+      "started": "2022-06-12T14:42:25+01:00",
+      "last_reply": "2022-06-12T14:42:25+01:00",
+      "root_message_id": "msg-e1c83e0dcf38"
+    },
+    {
+      "id": "thread-0afdc1d63270",
+      "subject": "rstudio-server toolbox instructions",
+      "message_count": 4,
+      "participants": [
+        "Iñaki Ucar",
+        "tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk"
+      ],
+      "started": "2022-06-14T15:31:47+01:00",
+      "last_reply": "2022-06-14T20:53:54+01:00",
+      "root_message_id": "msg-0afdc1d63270"
+    }
+  ]
+}

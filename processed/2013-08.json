@@ -1,0 +1,206 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2013-08",
+  "messages": [
+    {
+      "id": "msg-4dde7f641353",
+      "message_id": "<51FB8373.1060906@xtra.co.nz>",
+      "from_name": "Rolf Turner",
+      "from_email_hash": "d072e940bc78bafa3715f1e248fd84a53d2f004a6db70ef168bf2ff6b3a080a0",
+      "date": "2013-08-02T22:01:23+12:00",
+      "subject": "[R-sig-Fedora] R binaries for Fedora 17.",
+      "subject_clean": "R binaries for Fedora 17.",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I am currently (still) running Fedora 17 --- having not managed to screw \nmy courage to the sticking place and upgrade.\nEven though we are now up to Fedora 20, I think. The traffic on the \nFedora mailing list on the upgrading issue is a bit terrifying.\n\nI would just like to confirm that:\n\n     It is ***NOT*** possible to download a binary of R for  Fedora 17.\n\nIs this correct?\n\nMy efforts to obtain a binary using yum install resulted in a binary for \nversion 2.15.2.  (Whereas of course the source version available from \nCRAN is 3.0.1.\n\nI just wanted to check that I am not doing something stupid (like maybe \nusing an incorrect repository).\n\nI presume that the latest version of R is available as a binary only for \nthe last version (or last few versions) of Fedora.\n\nCan anyone confirm my presumption?\n\nNo biggie.  I can build from source, and indeed have done so.   But \ndownloading a binary is quicker and I'd just like to get straight what \nthe true state of play is.\n\n     cheers,\n\n         Rolf Turner",
+      "body_snippet": "I am currently (still) running Fedora 17 --- having not managed to screw \nmy courage to the sticking place and upgrade.\nEven though we are now up to Fedora 20, I think. The traffic on the \nFedora mail",
+      "thread_id": "thread-4dde7f641353",
+      "thread_depth": 0,
+      "month": "2013-08"
+    },
+    {
+      "id": "msg-bd9c8395e7a9",
+      "message_id": "<CAEp0rCaGSyd+9LHzhiHUx28hKe4z4emK+znPRmH=k3TYKZkgMQ@mail.gmail.com>",
+      "from_name": "Johannes Lips",
+      "from_email_hash": "a43f4befce3c14fbc65c92ef4e81dbb3441faa1a906c3cb076eeae920bffd275",
+      "date": "2013-08-02T13:06:27+02:00",
+      "subject": "[R-sig-Fedora] R binaries for Fedora 17.",
+      "subject_clean": "R binaries for Fedora 17.",
+      "in_reply_to": "<51FB8373.1060906@xtra.co.nz>",
+      "references": [
+        "<51FB8373.1060906@xtra.co.nz>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130802/15fea883/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130802/15fea883/attachment.pl>",
+      "thread_id": "thread-4dde7f641353",
+      "thread_depth": 1,
+      "month": "2013-08"
+    },
+    {
+      "id": "msg-c2daff80fd44",
+      "message_id": "<D96BE770-63B6-4D2D-9385-166968B20217@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2013-08-02T06:35:29-05:00",
+      "subject": "[R-sig-Fedora] R binaries for Fedora 17.",
+      "subject_clean": "R binaries for Fedora 17.",
+      "in_reply_to": "<51FB8373.1060906@xtra.co.nz>",
+      "references": [
+        "<51FB8373.1060906@xtra.co.nz>"
+      ],
+      "body_plain": "On Aug 2, 2013, at 5:01 AM, Rolf Turner <rolf.turner at xtra.co.nz> wrote:\n\n> \n> \n> I am currently (still) running Fedora 17 --- having not managed to screw my courage to the sticking place and upgrade.\n> Even though we are now up to Fedora 20, I think. The traffic on the Fedora mailing list on the upgrading issue is a bit terrifying.\n> \n> I would just like to confirm that:\n> \n>    It is ***NOT*** possible to download a binary of R for  Fedora 17.\n> \n> Is this correct?\n> \n> My efforts to obtain a binary using yum install resulted in a binary for version 2.15.2.  (Whereas of course the source version available from CRAN is 3.0.1.\n> \n> I just wanted to check that I am not doing something stupid (like maybe using an incorrect repository).\n> \n> I presume that the latest version of R is available as a binary only for the last version (or last few versions) of Fedora.\n> \n> Can anyone confirm my presumption?\n> \n> No biggie.  I can build from source, and indeed have done so.   But downloading a binary is quicker and I'd just like to get straight what the true state of play is.\n> \n>    cheers,\n> \n>        Rolf Turner\n\n\nHi Rolf,\n\nFedora 19, just released last month, is the current stable version. 20 is not scheduled for release until mid-November at the earliest.\n\nThe problem is that Fedora 17 will be EOL'd \"shortly\", since the Fedora life cycle is to maintain a given version until one month after the +2 version release, which for 17 is 19. Each version has a lifecycle of roughly 13 months, since new releases comes out roughly every 6 months. As a result, no further updates for R, much less anything else (eg. bug fixes, kernel updates, security updates, etc.), for 17 should be expected at this point. 18 will similarly go EOL in December if 20 is released in November.\n\nR 3.0.1 is available via the Fedora repos for 18 and 19. So you should really give strong consideration for updating your Fedora version, whether that be 'in place' or via a clean install. I used to do the latter, making sure that my /home was a separate partition, so that I could cleanly install a new version of the OS without losing my user folder tree. I have not used Fedora in several years now, so have not followed the current state of the upgrade process, other than having a general awareness of 'fedup', which is the new upgrade tool and I believe started with 17. \n\nRegards,\n\nMarc Schwartz",
+      "body_snippet": "On Aug 2, 2013, at 5:01 AM, Rolf Turner <rolf.turner at xtra.co.nz> wrote:\n\n> \n> \n> I am currently (still) running Fedora 17 --- having not managed to screw my courage to the sticking place and upgrad",
+      "thread_id": "thread-4dde7f641353",
+      "thread_depth": 1,
+      "month": "2013-08"
+    },
+    {
+      "id": "msg-e94e27f2409e",
+      "message_id": "<51FBBF52.6090901@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2013-08-02T10:16:50-04:00",
+      "subject": "[R-sig-Fedora] R binaries for Fedora 17.",
+      "subject_clean": "R binaries for Fedora 17.",
+      "in_reply_to": "<51FB8373.1060906@xtra.co.nz>",
+      "references": [
+        "<51FB8373.1060906@xtra.co.nz>"
+      ],
+      "body_plain": "On 08/02/2013 06:01 AM, Rolf Turner wrote:\n> \n> \n> I am currently (still) running Fedora 17 --- having not managed to screw\n> my courage to the sticking place and upgrade.\n> Even though we are now up to Fedora 20, I think. The traffic on the\n> Fedora mailing list on the upgrading issue is a bit terrifying.\n> \n> I would just like to confirm that:\n> \n>     It is ***NOT*** possible to download a binary of R for  Fedora 17.\n> \n> Is this correct?\n> \n> My efforts to obtain a binary using yum install resulted in a binary for\n> version 2.15.2.  (Whereas of course the source version available from\n> CRAN is 3.0.1.\n> \n> I just wanted to check that I am not doing something stupid (like maybe\n> using an incorrect repository).\n\nNope, this is right. F17 just end-of-lifed, so I never did a 3.0.1 build\nfor it (because it would also mean I had to rebuild every other R\npackage in the Fedora 17 tree).\n\nApologies for the inconvenience,\n\n~tom\n\n==\nFedora Project",
+      "body_snippet": "On 08/02/2013 06:01 AM, Rolf Turner wrote:\n> \n> \n> I am currently (still) running Fedora 17 --- having not managed to screw\n> my courage to the sticking place and upgrade.\n> Even though we are now up ",
+      "thread_id": "thread-4dde7f641353",
+      "thread_depth": 1,
+      "month": "2013-08"
+    },
+    {
+      "id": "msg-cac3773e66a3",
+      "message_id": "<51FC3045.9070502@xtra.co.nz>",
+      "from_name": "Rolf Turner",
+      "from_email_hash": "d072e940bc78bafa3715f1e248fd84a53d2f004a6db70ef168bf2ff6b3a080a0",
+      "date": "2013-08-03T10:18:45+12:00",
+      "subject": "[R-sig-Fedora] R binaries for Fedora 17 --- thanks.",
+      "subject_clean": "R binaries for Fedora 17 --- thanks.",
+      "in_reply_to": "<CAEp0rCaGSyd+9LHzhiHUx28hKe4z4emK+znPRmH=k3TYKZkgMQ@mail.gmail.com>",
+      "references": [
+        "<51FB8373.1060906@xtra.co.nz>",
+        "<CAEp0rCaGSyd+9LHzhiHUx28hKe4z4emK+znPRmH=k3TYKZkgMQ@mail.gmail.com>"
+      ],
+      "body_plain": "Thanks to everyone who responded and confirmed my hope that I am not such\na complete idiot as I probably am! :-)\n\nLooks like I'm going to have to bite the bullet and upgrade soon, but.  \nPsigh!!!\n\n     cheers,\n\n         Rolf Turner\n\nOn Fri, Aug 2, 2013 at 12:01 PM, Rolf Turner <rolf.turner at xtra.co.nz> wrote:\n\n> I am currently (still) running Fedora 17 --- having not managed to screw\n> my courage to the sticking place and upgrade.\n> Even though we are now up to Fedora 20, I think. The traffic on the Fedora\n> mailing list on the upgrading issue is a bit terrifying.\n>\n> I would just like to confirm that:\n>\n>      It is ***NOT*** possible to download a binary of R for  Fedora 17.\n>      Is this correcct?\n>\n> My efforts to obtain a binary using yum install resulted in a binary for\n> version 2.15.2.  (Whereas of course the source version available from CRAN\n> is 3.0.1.\n>\n> I just wanted to check that I am not doing something stupid (like maybe\n> using an incorrect repository).\n>\n> I presume that the latest version of R is available as a binary only for\n> the last version (or last few versions) of Fedora.\n>\n> Can anyone confirm my presumption?\n>\n> No biggie.  I can build from source, and indeed have done so.   But\n> downloading a binary is quicker and I'd just like to get straight what the\n> true state of play is.",
+      "body_snippet": "Thanks to everyone who responded and confirmed my hope that I am not such\na complete idiot as I probably am! :-)\n\nLooks like I'm going to have to bite the bullet and upgrade soon, but.  \nPsigh!!!\n\n   ",
+      "thread_id": "thread-4dde7f641353",
+      "thread_depth": 2,
+      "month": "2013-08"
+    },
+    {
+      "id": "msg-bbda29d2e775",
+      "message_id": "<CAErODj_AuQo0MsfO+rD_zEhKgk=Yvb=9mFn1PE7wiJD9gGzMcA@mail.gmail.com>",
+      "from_name": "Paul Johnson",
+      "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
+      "date": "2013-08-06T18:13:09-05:00",
+      "subject": "[R-sig-Fedora] R binaries for Fedora 17 --- thanks.",
+      "subject_clean": "R binaries for Fedora 17 --- thanks.",
+      "in_reply_to": "<51FC3045.9070502@xtra.co.nz>",
+      "references": [
+        "<51FB8373.1060906@xtra.co.nz>",
+        "<CAEp0rCaGSyd+9LHzhiHUx28hKe4z4emK+znPRmH=k3TYKZkgMQ@mail.gmail.com>",
+        "<51FC3045.9070502@xtra.co.nz>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130806/ece16585/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130806/ece16585/attachment.pl>",
+      "thread_id": "thread-4dde7f641353",
+      "thread_depth": 3,
+      "month": "2013-08"
+    },
+    {
+      "id": "msg-9627ca4124d2",
+      "message_id": "<CAErODj_H+3QSq7BD5ONSpnMADxccc74dL6vUVhX3zmmkV-VhzA@mail.gmail.com>",
+      "from_name": "Paul Johnson",
+      "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
+      "date": "2013-08-11T11:27:36-05:00",
+      "subject": "[R-sig-Fedora] R binaries for Fedora 17.",
+      "subject_clean": "R binaries for Fedora 17.",
+      "in_reply_to": "<51FBBF52.6090901@redhat.com>",
+      "references": [
+        "<51FB8373.1060906@xtra.co.nz>",
+        "<51FBBF52.6090901@redhat.com>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130811/7f5c821b/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130811/7f5c821b/attachment.pl>",
+      "thread_id": "thread-4dde7f641353",
+      "thread_depth": 2,
+      "month": "2013-08"
+    },
+    {
+      "id": "msg-dca94c798ac8",
+      "message_id": "<CAHz+bWb68MNEiznJOtcmSO6uoxXXA=rt+_74=ci3N0v5zrL2-Q@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2013-08-15T17:09:32-04:00",
+      "subject": "[R-sig-Fedora] building R from source on fedora using shared library option",
+      "subject_clean": "building R from source on fedora using shared library option",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130815/5f0bda82/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130815/5f0bda82/attachment.pl>",
+      "thread_id": "thread-dca94c798ac8",
+      "thread_depth": 0,
+      "month": "2013-08"
+    },
+    {
+      "id": "msg-1e8c8ad69426",
+      "message_id": "<CAHz+bWY8-WYot+VhTUChXKyMiWd0_0oQgy1x7Q2t1YaAnkjHQQ@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2013-08-16T20:00:18-04:00",
+      "subject": "[R-sig-Fedora] make clean fixed it",
+      "subject_clean": "make clean fixed it",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130816/b7bb6885/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130816/b7bb6885/attachment.pl>",
+      "thread_id": "thread-1e8c8ad69426",
+      "thread_depth": 0,
+      "month": "2013-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-4dde7f641353",
+      "subject": "R binaries for Fedora 17.",
+      "message_count": 7,
+      "participants": [
+        "Johannes Lips",
+        "Marc Schwartz",
+        "Paul Johnson",
+        "Rolf Turner",
+        "Tom Callaway"
+      ],
+      "started": "2013-08-02T22:01:23+12:00",
+      "last_reply": "2013-08-11T11:27:36-05:00",
+      "root_message_id": "msg-4dde7f641353"
+    },
+    {
+      "id": "thread-dca94c798ac8",
+      "subject": "building R from source on fedora using shared library option",
+      "message_count": 1,
+      "participants": [
+        "Mark Leeds"
+      ],
+      "started": "2013-08-15T17:09:32-04:00",
+      "last_reply": "2013-08-15T17:09:32-04:00",
+      "root_message_id": "msg-dca94c798ac8"
+    },
+    {
+      "id": "thread-1e8c8ad69426",
+      "subject": "make clean fixed it",
+      "message_count": 1,
+      "participants": [
+        "Mark Leeds"
+      ],
+      "started": "2013-08-16T20:00:18-04:00",
+      "last_reply": "2013-08-16T20:00:18-04:00",
+      "root_message_id": "msg-1e8c8ad69426"
+    }
+  ]
+}

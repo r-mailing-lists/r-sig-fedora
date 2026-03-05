@@ -1,0 +1,161 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2013-01",
+  "messages": [
+    {
+      "id": "msg-d5bcac48d3c8",
+      "message_id": "<50F1E24A.2060807@xtra.co.nz>",
+      "from_name": "Rolf Turner",
+      "from_email_hash": "d072e940bc78bafa3715f1e248fd84a53d2f004a6db70ef168bf2ff6b3a080a0",
+      "date": "2013-01-13T11:23:06+13:00",
+      "subject": "[R-sig-Fedora] Problem with X11 fonts under Fedora 17.",
+      "subject_clean": "Problem with X11 fonts under Fedora 17.",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I previously posted about this problem on the r-help list, but was told \nthat I\nshould switch over to the r-sig-fedora list.  So here goes:\n\nWhen trying to do a plot in a certain context I got an error:\n\nError in text.default(2, 6, main, cex = cex) :\n   X11 font -adobe-helvetica-%s-%s-*-*-%d-*-*-*-*-*-*-*, face 1 at size \n16 could not be loaded\n\nThis is reproducible (in my current environment) via:\n\npar(mfrow=c(2,2))\nplot(1:10)\ntext(2,6,\"Oh, hell!\",cex=2)\n\nCan anyone tell me (in simple comprehensible terms, please) how I might\nmake the required font available so that it can be loaded?  I reiterate,\nplease keep it simple.  I find fonts toadally incomprehensible!\n\nFor what it's worth, here is my session info:\n > sessionInfo()\n > R version 2.15.2 Patched (2012-11-15 r61122)\n > Platform: x86_64-unknown-linux-gnu (64-bit)\n >\n > locale:\n >  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C\n >  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8\n >  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8\n >  [7] LC_PAPER=C                 LC_NAME=C\n >  [9] LC_ADDRESS=C               LC_TELEPHONE=C\n > [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C\n >\n > attached base packages:\n > [1] stats     graphics  grDevices utils     datasets  methods base\n >\n > other attached packages:\n > [1] spatstat_1.30-0 deldir_0.0-21   mgcv_1.7-22     misc_0.0-15\n >\n > loaded via a namespace (and not attached):\n > [1] grid_2.15.2     lattice_0.20-10 Matrix_1.0-10 nlme_3.1-105\n > [5] tools_2.15.2\n\nNOTE:  In response to this query on r-help I received the suggestion that\nI might need to install:\n\n     xorg-x11-font-utils\n     xorg-x11-fonts-75dpi\n     xorg-x11-fonts-100dpi\n\nI had xorg-x11-fonts-utils installed already, as it turned out, but \nmanaged to\ninstall the other two packages via\n\n     sudo yum install xorg-x11-fonts-75dpi.noarch\n     sudo yum install xorg-x11-fonts-100dpi.noarch\n\nAfter doing that things changed a *little* bit.  Instead of an error I \ngot a warning:\n> In text.default(2, 6, \"Oh, hell!\", cex = 2) :\n>   X11 used font size 25 when 28 was requested \nand no actual characters appeared in the plot but rather 4 (???)\nlittle rectangles outlined in dotted line type.\n\nAny ideas as to how to alleviate *this* problem?\n\nBTW my X11.options()$type is \"Xlib\".  I tried setting it equal to \n\"cairo\" but that\njust made matters worse.  Doing plot(1:10) in a fresh X11() device gave \nthe plot,\nbut with the axis labelling replaced by a few of those little \ndotted-line rectangles.\n\nThanks for any insight and advice.\n\n     cheers,\n\n         Rolf Turner",
+      "body_snippet": "I previously posted about this problem on the r-help list, but was told \nthat I\nshould switch over to the r-sig-fedora list.  So here goes:\n\nWhen trying to do a plot in a certain context I got an erro",
+      "thread_id": "thread-d5bcac48d3c8",
+      "thread_depth": 0,
+      "month": "2013-01"
+    },
+    {
+      "id": "msg-27df01283449",
+      "message_id": "<B71DD098-DED1-4E44-974F-C07196C3D9E7@gmail.com>",
+      "from_name": "peter dalgaard",
+      "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
+      "date": "2013-01-13T00:48:58+01:00",
+      "subject": "[R-sig-Fedora] Problem with X11 fonts under Fedora 17.",
+      "subject_clean": "Problem with X11 fonts under Fedora 17.",
+      "in_reply_to": "<50F1E24A.2060807@xtra.co.nz>",
+      "references": [
+        "<50F1E24A.2060807@xtra.co.nz>"
+      ],
+      "body_plain": "Rolf,\n\nLike Marc, I'm getting rusty on the Fedora details, but it's possible that the X server or the font server needs to be reset before changes take hold. Possible \"xset fp rehash\" in a terminal window? Or maybe \"service xfs restart\".\n\n-pd\n\n\nOn Jan 12, 2013, at 23:23 , Rolf Turner wrote:\n\n> \n> I previously posted about this problem on the r-help list, but was told that I\n> should switch over to the r-sig-fedora list.  So here goes:\n> \n> When trying to do a plot in a certain context I got an error:\n> \n> Error in text.default(2, 6, main, cex = cex) :\n>  X11 font -adobe-helvetica-%s-%s-*-*-%d-*-*-*-*-*-*-*, face 1 at size 16 could not be loaded\n> \n> This is reproducible (in my current environment) via:\n> \n> par(mfrow=c(2,2))\n> plot(1:10)\n> text(2,6,\"Oh, hell!\",cex=2)\n> \n> Can anyone tell me (in simple comprehensible terms, please) how I might\n> make the required font available so that it can be loaded?  I reiterate,\n> please keep it simple.  I find fonts toadally incomprehensible!\n> \n> For what it's worth, here is my session info:\n> > sessionInfo()\n> > R version 2.15.2 Patched (2012-11-15 r61122)\n> > Platform: x86_64-unknown-linux-gnu (64-bit)\n> >\n> > locale:\n> >  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C\n> >  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8\n> >  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8\n> >  [7] LC_PAPER=C                 LC_NAME=C\n> >  [9] LC_ADDRESS=C               LC_TELEPHONE=C\n> > [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C\n> >\n> > attached base packages:\n> > [1] stats     graphics  grDevices utils     datasets  methods base\n> >\n> > other attached packages:\n> > [1] spatstat_1.30-0 deldir_0.0-21   mgcv_1.7-22     misc_0.0-15\n> >\n> > loaded via a namespace (and not attached):\n> > [1] grid_2.15.2     lattice_0.20-10 Matrix_1.0-10 nlme_3.1-105\n> > [5] tools_2.15.2\n> \n> NOTE:  In response to this query on r-help I received the suggestion that\n> I might need to install:\n> \n>    xorg-x11-font-utils\n>    xorg-x11-fonts-75dpi\n>    xorg-x11-fonts-100dpi\n> \n> I had xorg-x11-fonts-utils installed already, as it turned out, but managed to\n> install the other two packages via\n> \n>    sudo yum install xorg-x11-fonts-75dpi.noarch\n>    sudo yum install xorg-x11-fonts-100dpi.noarch\n> \n> After doing that things changed a *little* bit.  Instead of an error I got a warning:\n>> In text.default(2, 6, \"Oh, hell!\", cex = 2) :\n>>  X11 used font size 25 when 28 was requested \n> and no actual characters appeared in the plot but rather 4 (???)\n> little rectangles outlined in dotted line type.\n> \n> Any ideas as to how to alleviate *this* problem?\n> \n> BTW my X11.options()$type is \"Xlib\".  I tried setting it equal to \"cairo\" but that\n> just made matters worse.  Doing plot(1:10) in a fresh X11() device gave the plot,\n> but with the axis labelling replaced by a few of those little dotted-line rectangles.\n> \n> Thanks for any insight and advice.\n> \n>    cheers,\n> \n>        Rolf Turner\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n-- \nPeter Dalgaard, Professor,\nCenter for Statistics, Copenhagen Business School\nSolbjerg Plads 3, 2000 Frederiksberg, Denmark\nPhone: (+45)38153501\nEmail: pd.mes at cbs.dk  Priv: PDalgd at gmail.com",
+      "body_snippet": "Rolf,\n\nLike Marc, I'm getting rusty on the Fedora details, but it's possible that the X server or the font server needs to be reset before changes take hold. Possible \"xset fp rehash\" in a terminal wi",
+      "thread_id": "thread-d5bcac48d3c8",
+      "thread_depth": 1,
+      "month": "2013-01"
+    },
+    {
+      "id": "msg-deef707c947c",
+      "message_id": "<50F1FAF9.3000002@xtra.co.nz>",
+      "from_name": "Rolf Turner",
+      "from_email_hash": "d072e940bc78bafa3715f1e248fd84a53d2f004a6db70ef168bf2ff6b3a080a0",
+      "date": "2013-01-13T13:08:25+13:00",
+      "subject": "[R-sig-Fedora] Problem with X11 fonts under Fedora 17.",
+      "subject_clean": "Problem with X11 fonts under Fedora 17.",
+      "in_reply_to": "<B71DD098-DED1-4E44-974F-C07196C3D9E7@gmail.com>",
+      "references": [
+        "<50F1E24A.2060807@xtra.co.nz>",
+        "<B71DD098-DED1-4E44-974F-C07196C3D9E7@gmail.com>"
+      ],
+      "body_plain": "On 01/13/2013 12:48 PM, peter dalgaard wrote:\n> Rolf,\n>\n> Like Marc, I'm getting rusty on the Fedora details, but it's possible that the X server or the font server needs to be reset before changes take hold. Possible \"xset fp rehash\" in a terminal window? Or maybe \"service xfs restart\".\n\nI tried\n\n     xset fp rehash\n\nand that produced no response --- no error message, but no \"acknowledgement\"\neither.  Then I tried\n\n     sudo service xfs restart\n\nand got\n> Redirecting to /bin/systemctl restart xfs.service\n> Failed to issue method call: Unit xfs.service failed to load: No such \n> file or directory. See system logs and 'systemctl status xfs.service' \n> for details.\n\nSo I then tried\n\n     systemctl status xfs.service\n\nand got\n> xfs.service\n>       Loaded: error (Reason: No such file or directory)\n>       Active: inactive (dead)\n\nLooks ominous, to say the least.  No idea what to do about it, but.\n\nDoing\n\n     yum search xfs.service\n\ngives\n> Warning: No matches found for: xfs.service\n> No Matches found\n\nI hope *somebody* out there can point me in the right direction.\n\n     cheers,\n\n         Rolf",
+      "body_snippet": "On 01/13/2013 12:48 PM, peter dalgaard wrote:\n> Rolf,\n>\n> Like Marc, I'm getting rusty on the Fedora details, but it's possible that the X server or the font server needs to be reset before changes ta",
+      "thread_id": "thread-d5bcac48d3c8",
+      "thread_depth": 2,
+      "month": "2013-01"
+    },
+    {
+      "id": "msg-3132f36ec5e8",
+      "message_id": "<85BCD09A-423D-47C3-8FAE-83744BEC6765@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2013-01-13T09:32:48-06:00",
+      "subject": "[R-sig-Fedora] Problem with X11 fonts under Fedora 17.",
+      "subject_clean": "Problem with X11 fonts under Fedora 17.",
+      "in_reply_to": "<50F1FAF9.3000002@xtra.co.nz>",
+      "references": [
+        "<50F1E24A.2060807@xtra.co.nz>",
+        "<B71DD098-DED1-4E44-974F-C07196C3D9E7@gmail.com>",
+        "<50F1FAF9.3000002@xtra.co.nz>"
+      ],
+      "body_plain": "On Jan 12, 2013, at 6:08 PM, Rolf Turner <rolf.turner at xtra.co.nz> wrote:\n\n> On 01/13/2013 12:48 PM, peter dalgaard wrote:\n>> Rolf,\n>> \n>> Like Marc, I'm getting rusty on the Fedora details, but it's possible that the X server or the font server needs to be reset before changes take hold. Possible \"xset fp rehash\" in a terminal window? Or maybe \"service xfs restart\".\n> \n> I tried\n> \n>    xset fp rehash\n> \n> and that produced no response --- no error message, but no \"acknowledgement\"\n> either.  Then I tried\n> \n>    sudo service xfs restart\n> \n> and got\n>> Redirecting to /bin/systemctl restart xfs.service\n>> Failed to issue method call: Unit xfs.service failed to load: No such file or directory. See system logs and 'systemctl status xfs.service' for details.\n> \n> So I then tried\n> \n>    systemctl status xfs.service\n> \n> and got\n>> xfs.service\n>>      Loaded: error (Reason: No such file or directory)\n>>      Active: inactive (dead)\n> \n> Looks ominous, to say the least.  No idea what to do about it, but.\n> \n> Doing\n> \n>    yum search xfs.service\n> \n> gives\n>> Warning: No matches found for: xfs.service\n>> No Matches found\n> \n> I hope *somebody* out there can point me in the right direction.\n> \n>    cheers,\n> \n>        Rolf\n\n\nRolf,\n\nDid some searching in the list archives and going back a number of years (early 2000's), there are some threads involving both Peter and I in replies to users with similar issues.\n\nI don't know if Fedora still has this, but look for a file '/etc/X11/fs/config'.\n\nIf that is present, look at the contents and see if there are lines in it such as:\n\n/usr/X11R6/lib/X11/fonts/75dpi:unscaled\n/usr/X11R6/lib/X11/fonts/100dpi:unscaled\n\nIdeally, you should [also] have:\n\n/usr/X11R6/lib/X11/fonts/75dpi\n/usr/X11R6/lib/X11/fonts/100dpi\n\nwhich are the unscaled versions of the font configuration spec. If you don't have the latter incantation, you might try to add them or edit the former lines to remove the ':unscaled' part.\n\nIt is also possible that on more recent versions of Fedora, the paths have changed from the above.\n\nYou will likely need to restart the X11 server after any changes and this will all need to be done as root of course.\n\nBTW, you might also check the config log that was generated when you first ran ./configure to see if there were any warnings about 'stuff' missing.\n\nRegards,\n\nMarc",
+      "body_snippet": "On Jan 12, 2013, at 6:08 PM, Rolf Turner <rolf.turner at xtra.co.nz> wrote:\n\n> On 01/13/2013 12:48 PM, peter dalgaard wrote:\n>> Rolf,\n>> \n>> Like Marc, I'm getting rusty on the Fedora details, but it'",
+      "thread_id": "thread-d5bcac48d3c8",
+      "thread_depth": 3,
+      "month": "2013-01"
+    },
+    {
+      "id": "msg-acde8305faa6",
+      "message_id": "<50F31EA3.8000601@xtra.co.nz>",
+      "from_name": "Rolf Turner",
+      "from_email_hash": "d072e940bc78bafa3715f1e248fd84a53d2f004a6db70ef168bf2ff6b3a080a0",
+      "date": "2013-01-14T09:52:51+13:00",
+      "subject": "[R-sig-Fedora] Problem with X11 fonts under Fedora 17.",
+      "subject_clean": "Problem with X11 fonts under Fedora 17.",
+      "in_reply_to": "<85BCD09A-423D-47C3-8FAE-83744BEC6765@me.com>",
+      "references": [
+        "<50F1E24A.2060807@xtra.co.nz>",
+        "<B71DD098-DED1-4E44-974F-C07196C3D9E7@gmail.com>",
+        "<50F1FAF9.3000002@xtra.co.nz>",
+        "<85BCD09A-423D-47C3-8FAE-83744BEC6765@me.com>"
+      ],
+      "body_plain": "Please see end of message.\n\nOn 01/14/2013 04:32 AM, Marc Schwartz wrote:\n> On Jan 12, 2013, at 6:08 PM, Rolf Turner<rolf.turner at xtra.co.nz>  wrote:\n>\n>> On 01/13/2013 12:48 PM, peter dalgaard wrote:\n>>> Rolf,\n>>>\n>>> Like Marc, I'm getting rusty on the Fedora details, but it's possible that the X server or the font server needs to be reset before changes take hold. Possible \"xset fp rehash\" in a terminal window? Or maybe \"service xfs restart\".\n>> I tried\n>>\n>>     xset fp rehash\n>>\n>> and that produced no response --- no error message, but no \"acknowledgement\"\n>> either.  Then I tried\n>>\n>>     sudo service xfs restart\n>>\n>> and got\n>>> Redirecting to /bin/systemctl restart xfs.service\n>>> Failed to issue method call: Unit xfs.service failed to load: No such file or directory. See system logs and 'systemctl status xfs.service' for details.\n>> So I then tried\n>>\n>>     systemctl status xfs.service\n>>\n>> and got\n>>> xfs.service\n>>>       Loaded: error (Reason: No such file or directory)\n>>>       Active: inactive (dead)\n>> Looks ominous, to say the least.  No idea what to do about it, but.\n>>\n>> Doing\n>>\n>>     yum search xfs.service\n>>\n>> gives\n>>> Warning: No matches found for: xfs.service\n>>> No Matches found\n>> I hope *somebody* out there can point me in the right direction.\n>>\n>>     cheers,\n>>\n>>         Rolf\n> Rolf,\n>\n> Did some searching in the list archives and going back a number of years (early 2000's), there are some threads involving both Peter and I in replies to users with similar issues.\n>\n> I don't know if Fedora still has this, but look for a file '/etc/X11/fs/config'.\n>\n> If that is present, look at the contents and see if there are lines in it such as:\n>\n> /usr/X11R6/lib/X11/fonts/75dpi:unscaled\n> /usr/X11R6/lib/X11/fonts/100dpi:unscaled\n>\n> Ideally, you should [also] have:\n>\n> /usr/X11R6/lib/X11/fonts/75dpi\n> /usr/X11R6/lib/X11/fonts/100dpi\n>\n> which are the unscaled versions of the font configuration spec. If you don't have the latter incantation, you might try to add them or edit the former lines to remove the ':unscaled' part.\n>\n> It is also possible that on more recent versions of Fedora, the paths have changed from the above.\n>\n> You will likely need to restart the X11 server after any changes and this will all need to be done as root of course.\n>\n> BTW, you might also check the config log that was generated when you first ran ./configure to see if there were any warnings about 'stuff' missing.\n\nFirstly let me note that things have actually got a bit worse in some \nrespects\nsince I've been fooling around ... I no longer get the error message, \nbut not\ntext appears at all.  I just get those little dotted-line rectangles \nwhere text should\nbe.  This happens irrespective of the value of \"cex\".  If I set cex=2, I \nget a warning\n> In text.default(2, 6, \"Oh, hell!\", cex = 2) :\n>   X11 used font size 25 when 28 was requested\n\nAlso, no axis labels appear; again just those little rectangles.  I said \nin a previous\nmessage that this happens when I use X11.options(type=\"cairo\") but this \nis a red\nherring.  I just didn't check carefully enough.  It happens with \nX11.options(type=\"Xlib\")\nas well.\n\nNow to get to the /etc/X11/fs/config business:  There is no such file.  \nA listing of\n/etc/X11 gives:\n> applnk/  fontpath.d/  prefdm*  xinit/ Xmodmap    xorg.conf.d/  Xresources\n\nThe only relevant item seems to be the directory fontpath.d.  A listing \nof this is:\n> cjkuni-uming-fonts@   fonts-default@ \n> xorg-x11-fonts-100dpi:unscaled:pri=30@\n> default-ghostscript@  liberation-fonts@ \n> xorg-x11-fonts-75dpi:unscaled:pri=20@\n\nThese are all symbolic links to corresponding directories in \n/usr/share.  I tried making\nnew symbolic links, e.g. from /usr/share/X11/fonts/100dpi to \nxorg-x11-fonts-100dpi\n(in the fontpath.d directory) and rebooted the laptop.  No difference.  \nFinally I tried\nremoving the \"*unscaled*\" links, leaving only the new ones.  (And \nrebooted.) No\ndifference.\n\nI am getting frantic.  Is there no-one out there who can give me a clue \nas to how\nto resolve this problem?  Basically my system is now warped into a state \nin which\nI cannot plot on-screen --- at least I cannot get *any* textual \nannotation in on-screen\nplots.  Which makes the whole schmear pretty useless.  I am at my wits end.\n\n     \"cheers\",\n\n         Rolf",
+      "body_snippet": "Please see end of message.\n\nOn 01/14/2013 04:32 AM, Marc Schwartz wrote:\n> On Jan 12, 2013, at 6:08 PM, Rolf Turner<rolf.turner at xtra.co.nz>  wrote:\n>\n>> On 01/13/2013 12:48 PM, peter dalgaard wrote",
+      "thread_id": "thread-d5bcac48d3c8",
+      "thread_depth": 4,
+      "month": "2013-01"
+    },
+    {
+      "id": "msg-b29c513d3904",
+      "message_id": "<E4DD1CE3-75E3-421C-834E-9F8469F3FD72@gmail.com>",
+      "from_name": "peter dalgaard",
+      "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
+      "date": "2013-01-13T22:32:24+01:00",
+      "subject": "[R-sig-Fedora] Problem with X11 fonts under Fedora 17.",
+      "subject_clean": "Problem with X11 fonts under Fedora 17.",
+      "in_reply_to": "<50F31EA3.8000601@xtra.co.nz>",
+      "references": [
+        "<50F1E24A.2060807@xtra.co.nz>",
+        "<B71DD098-DED1-4E44-974F-C07196C3D9E7@gmail.com>",
+        "<50F1FAF9.3000002@xtra.co.nz>",
+        "<85BCD09A-423D-47C3-8FAE-83744BEC6765@me.com>",
+        "<50F31EA3.8000601@xtra.co.nz>"
+      ],
+      "body_plain": "On Jan 13, 2013, at 21:52 , Rolf Turner wrote:\n\n> \n> \n> I am getting frantic.  Is there no-one out there who can give me a clue as to how\n> to resolve this problem?  Basically my system is now warped into a state in which\n> I cannot plot on-screen --- at least I cannot get *any* textual annotation in on-screen\n> plots.  Which makes the whole schmear pretty useless.  I am at my wits end.\n> \n>    \"cheers\",\n> \n>        Rolf\n\n\nI'd try \"yum install R\" to see whether that pulls in something essential, possibly followed by a reboot... And of course try whether the Fedora's R runs better than the self-compiled one.\n\nIf push comes to shove: Plot to pdf and use a viewer (I assume that such things do work on  your system?)\n\nBy the way, does xfontsel work? Check whether -adobe-helvetica-....etc.... is selectable.\n\n-- \nPeter Dalgaard, Professor,\nCenter for Statistics, Copenhagen Business School\nSolbjerg Plads 3, 2000 Frederiksberg, Denmark\nPhone: (+45)38153501\nEmail: pd.mes at cbs.dk  Priv: PDalgd at gmail.com",
+      "body_snippet": "On Jan 13, 2013, at 21:52 , Rolf Turner wrote:\n\n> \n> \n> I am getting frantic.  Is there no-one out there who can give me a clue as to how\n> to resolve this problem?  Basically my system is now warped ",
+      "thread_id": "thread-d5bcac48d3c8",
+      "thread_depth": 5,
+      "month": "2013-01"
+    },
+    {
+      "id": "msg-aba3241981d1",
+      "message_id": "<50F33B1C.1050407@xtra.co.nz>",
+      "from_name": "Rolf Turner",
+      "from_email_hash": "d072e940bc78bafa3715f1e248fd84a53d2f004a6db70ef168bf2ff6b3a080a0",
+      "date": "2013-01-14T11:54:20+13:00",
+      "subject": "[R-sig-Fedora] Problem with X11 fonts under Fedora 17. (SOLVED!)",
+      "subject_clean": "Problem with X11 fonts under Fedora 17. (SOLVED!)",
+      "in_reply_to": "<E4DD1CE3-75E3-421C-834E-9F8469F3FD72@gmail.com>",
+      "references": [
+        "<50F1E24A.2060807@xtra.co.nz>",
+        "<B71DD098-DED1-4E44-974F-C07196C3D9E7@gmail.com>",
+        "<50F1FAF9.3000002@xtra.co.nz>",
+        "<85BCD09A-423D-47C3-8FAE-83744BEC6765@me.com>",
+        "<50F31EA3.8000601@xtra.co.nz>",
+        "<E4DD1CE3-75E3-421C-834E-9F8469F3FD72@gmail.com>"
+      ],
+      "body_plain": "It turns out that I was kidding myself about \"cairo\".\n\nI did X11.options(type=\"cairo\") and then did plot(1:10) and got the\nunsatisfactory non-textually annotated plot.  What I didn't realize was\nthat my call to X11.options() had had no effect.  There was no message\nto indicate that.  (Shouldn't there be one?)\n\nLater I tried doing (I think) X11(type=\"cairo\") and got a message to the\neffect \"cairo not available, using Xlib\".  Then I checked with \ncapabilities()\nand found that the cairo capability was indeed FALSE.  I hadn't built \nRpatched\nwith cairo capability.\n\nSo, briefly what I needed to do was:\n\nsudo yum install cairo.x86_64               # Wasn't actually necessary, \nthis package was already there.\nsudo yum install cairo-devel.x86_64\nsudo yum install pango.x86_64\nsudo yum install pango-devel.x86_64\n\nThen\n\n     ./configure --with-cairo\n     make\n     sudo make install\n\nproduced an R in which the X11 type was \"cairo\" by default.\n\nWith this latest install plotting all works without error or warning.\n\nMy apologies for cluttering up the R lists with what was (in retrospect)\nmostly a load of rubbish.\n\nI still find the behaviour of X11 when type is \"Xlib\" bewildering and \nfundamentally\nunacceptable, but I'm not going to waste any more time worrying about it.\n\n     cheers,\n\n         Rolf",
+      "body_snippet": "It turns out that I was kidding myself about \"cairo\".\n\nI did X11.options(type=\"cairo\") and then did plot(1:10) and got the\nunsatisfactory non-textually annotated plot.  What I didn't realize was\nthat ",
+      "thread_id": "thread-d5bcac48d3c8",
+      "thread_depth": 6,
+      "month": "2013-01"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-d5bcac48d3c8",
+      "subject": "Problem with X11 fonts under Fedora 17.",
+      "message_count": 7,
+      "participants": [
+        "Marc Schwartz",
+        "Rolf Turner",
+        "peter dalgaard"
+      ],
+      "started": "2013-01-13T11:23:06+13:00",
+      "last_reply": "2013-01-14T11:54:20+13:00",
+      "root_message_id": "msg-d5bcac48d3c8"
+    }
+  ]
+}

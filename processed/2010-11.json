@@ -1,0 +1,327 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2010-11",
+  "messages": [
+    {
+      "id": "msg-24f2bac60128",
+      "message_id": "<4CD0796F.8010908@redhat.com>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2010-11-02T16:49:51-04:00",
+      "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
+      "subject_clean": "R 2.12.0 in Fedora Updates Testing",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "R 2.12.0 is built now for Fedora and EPEL. It is in \"updates-testing\"\n(or it will be within the next 24 hours).\n\nI did not do this build for Fedora 12, as that release will be\nEnd-Of-Life in a month.\n\nIn accordance with the new policies on Fedora Updates, these new\npackages will not be pushed as official updates until they either\nreceive positive testing from users, or sit in updates-testing for two\nweeks.\n\nYou can help us test these packages, and move them forward. Here's how:\n\n1. Go to the Fedora Updates web application (its real name is \"Bodhi\"):\nhttps://admin.fedoraproject.org/updates/\n\nOnce you're there, click the login blue box at the top left, and login\nwith your Fedora Account. If you don't have a Fedora Account, you can\nskip this step.\n\n2. Click on the link for the Fedora R test update that matches your release:\n\nFedora 13:\nhttps://admin.fedoraproject.org/updates/rpy-2.0.8-5.fc13,R-2.12.0-1.fc13\n\nFedora 14:\nhttps://admin.fedoraproject.org/updates/rpy-2.1.7-1.fc14,R-2.12.0-1.fc14\n\nEPEL-4 (RHEL-4):\nhttps://admin.fedoraproject.org/updates/R-2.12.0-1.el4.1\n\nEPEL-5 (RHEL-5):\nhttps://admin.fedoraproject.org/updates/R-2.12.0-1.el5\n\n3. Now, on your Fedora (or RHEL) system, run this command (as root, or\nwith root privs) to install the test update:\n\nyum --enablerepo=updates-testing update R\n\nThat should update R to the test update (if you don't want the full R\nsuite, you can replace \"R\" in that string with \"R-core\").\n\n4. Test it! Make sure it does all the things you would expect it to.\n\n5. Go back to the web page for the R update (step 2), and at\nthe bottom, click \"Add a comment >>\"\n\n(If you didn't login, it will ask you for an email address and make you\ncomplete a captcha to make sure you are a unique individual.)\n\nIn that text box which opens up, write a little bit about the testing\nyou did and if it works okay for you or not. Then (this is the important\npart), click the \"Works for me\" or \"Does not work\" radio button below\nit, and click the Add Comment button.\n\n6. That's it! If it worked, you've given that update a +1 karma vote.\n(If it didn't work, you've given it a -1 karma vote). Now, if three\npeople give a +1, and the package update gets to +3, the Fedora Update\nsystem will automatically move the update from testing to a real update,\nand everyone will get it.\n\nThanks in advance,\n\n~spot, Fedora/EPEL R maintainer",
+      "body_snippet": "R 2.12.0 is built now for Fedora and EPEL. It is in \"updates-testing\"\n(or it will be within the next 24 hours).\n\nI did not do this build for Fedora 12, as that release will be\nEnd-Of-Life in a month.\n",
+      "thread_id": "thread-24f2bac60128",
+      "thread_depth": 0,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-dc0b1dadd8d7",
+      "message_id": "<4CD509D8.8080100@gmail.com>",
+      "from_name": "Peter Dalgaard",
+      "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
+      "date": "2010-11-06T08:55:04+01:00",
+      "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
+      "subject_clean": "R 2.12.0 in Fedora Updates Testing",
+      "in_reply_to": "<4CD0796F.8010908@redhat.com>",
+      "references": [
+        "<4CD0796F.8010908@redhat.com>"
+      ],
+      "body_plain": "On 11/02/2010 09:49 PM, Tom \"spot\" Callaway wrote:\n> R 2.12.0 is built now for Fedora and EPEL. It is in \"updates-testing\"\n> (or it will be within the next 24 hours).\n\nFor rather large values of 24, it seems. Anyways, it is there now,\nhowever....\n\n\n> 4. Test it! Make sure it does all the things you would expect it to.\n> \n> 5. Go back to the web page for the R update (step 2), and at\n> the bottom, click \"Add a comment >>\"\n> \n> (If you didn't login, it will ask you for an email address and make you\n> complete a captcha to make sure you are a unique individual.)\n> \n> In that text box which opens up, write a little bit about the testing\n> you did and if it works okay for you or not. Then (this is the important\n> part), click the \"Works for me\" or \"Does not work\" radio button below\n> it, and click the Add Comment button.\n> \n> 6. That's it! If it worked, you've given that update a +1 karma vote.\n> (If it didn't work, you've given it a -1 karma vote). Now, if three\n> people give a +1, and the package update gets to +3, the Fedora Update\n> system will automatically move the update from testing to a real update,\n> and everyone will get it.\n\n...I tried this twice and it has zero effect on the karma!\n\n\n-- \nPeter Dalgaard\nCenter for Statistics, Copenhagen Business School\nPhone: (+45)38153501\nEmail: pd.mes at cbs.dk  Priv: PDalgd at gmail.com",
+      "body_snippet": "On 11/02/2010 09:49 PM, Tom \"spot\" Callaway wrote:\n> R 2.12.0 is built now for Fedora and EPEL. It is in \"updates-testing\"\n> (or it will be within the next 24 hours).\n\nFor rather large values of 24, i",
+      "thread_id": "thread-24f2bac60128",
+      "thread_depth": 1,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-5900002c8381",
+      "message_id": "<20101106134750.3419bc36@earth>",
+      "from_name": "Stefan Grosse",
+      "from_email_hash": "f1a361b570385e056309a1ef4f8e1307cd8cc223904fbbee1cfe52001c687662",
+      "date": "2010-11-06T13:47:50+01:00",
+      "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
+      "subject_clean": "R 2.12.0 in Fedora Updates Testing",
+      "in_reply_to": "<4CD509D8.8080100@gmail.com>",
+      "references": [
+        "<4CD0796F.8010908@redhat.com>",
+        "<4CD509D8.8080100@gmail.com>"
+      ],
+      "body_plain": "On Sat, 06 Nov 2010 08:55:04 +0100 Peter Dalgaard wrote:\n\nPD> ...I tried this twice and it has zero effect on the karma!\n\nI suppose you did this anonymously and not with a fedora account. I\ncould add karma to the F14 version when I logged in. This is probably\na security measure.\n\n(more critical updates even require \"proventesters\")\n\nRegards\nStefan",
+      "body_snippet": "On Sat, 06 Nov 2010 08:55:04 +0100 Peter Dalgaard wrote:\n\nPD> ...I tried this twice and it has zero effect on the karma!\n\nI suppose you did this anonymously and not with a fedora account. I\ncould add ",
+      "thread_id": "thread-24f2bac60128",
+      "thread_depth": 2,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-b4e569f47d67",
+      "message_id": "<4CD569D1.10900@redhat.com>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2010-11-06T10:44:33-04:00",
+      "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
+      "subject_clean": "R 2.12.0 in Fedora Updates Testing",
+      "in_reply_to": "<20101106134750.3419bc36@earth>",
+      "references": [
+        "<4CD0796F.8010908@redhat.com>",
+        "<4CD509D8.8080100@gmail.com>",
+        "<20101106134750.3419bc36@earth>"
+      ],
+      "body_plain": "On 11/06/2010 08:47 AM, Stefan Grosse wrote:\n> On Sat, 06 Nov 2010 08:55:04 +0100 Peter Dalgaard wrote:\n> \n> PD> ...I tried this twice and it has zero effect on the karma!\n> \n> I suppose you did this anonymously and not with a fedora account. I\n> could add karma to the F14 version when I logged in. This is probably\n> a security measure.\n\nThis is correct. Anonymous karm is useful, but you need to be logged in\nfor it to count towards the update now.\n\n~spot",
+      "body_snippet": "On 11/06/2010 08:47 AM, Stefan Grosse wrote:\n> On Sat, 06 Nov 2010 08:55:04 +0100 Peter Dalgaard wrote:\n> \n> PD> ...I tried this twice and it has zero effect on the karma!\n> \n> I suppose you did this ",
+      "thread_id": "thread-24f2bac60128",
+      "thread_depth": 3,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-c95194e2ed11",
+      "message_id": "<AANLkTima_WBFO40YztYAZyy2ctBi6WGUeUyA6LM7XoM_@mail.gmail.com>",
+      "from_name": "Paul Johnson",
+      "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
+      "date": "2010-11-07T22:33:02-06:00",
+      "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
+      "subject_clean": "R 2.12.0 in Fedora Updates Testing",
+      "in_reply_to": "<4CD569D1.10900@redhat.com>",
+      "references": [
+        "<4CD0796F.8010908@redhat.com>",
+        "<4CD509D8.8080100@gmail.com>",
+        "<20101106134750.3419bc36@earth>",
+        "<4CD569D1.10900@redhat.com>"
+      ],
+      "body_plain": "On Sat, Nov 6, 2010 at 9:44 AM, Tom \"spot\" Callaway <tcallawa at redhat.com> wrote:\n\n> ~spot\n>\n> _______________________________________________\n\nHi, Spot\n\nThis reminds me.  You remember a few months ago I asked you about the\nchanges you make in Renviron. I tried to track down the R experts.\nNobody in R-devel spoke up with much enthusiasm, so I got discouraged\nand forgot about it.\n\nBefore I forget again...\n\nEven though nobody but me seems to care, I think it is better to do\nwhat Ubuntu does, where Renviron has at the end\n\nR_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/2.12'}\n# edd Apr 2003  Allow local install in /usr/local, also add a directory for\n#               Debian packaged CRAN packages, and finally the default dir\n# edd Jul 2007  Now use R_LIBS_SITE, not R_LIBS\nR_LIBS_SITE=${R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library'\n\nThe R team itself selected that value for R_LIBS_USER.  Its that way\nin the R source.  If I were picking, I'd probably leave off the\nversion number from the end.\n\nI believe it is recommended to use R_LIBS_SITE. That way, they don't\nblock non root users from getting packages \"automatically\" installed\nin their home dirs.\n\nOh, one more thing. What about \"shared\" R libraries?\n\nIn the Radmin manual, it claims that R built with shared libraries\nenabled can be 20% slower.  On several Redhat systems here, I've taken\nyour RPM and cut the shared option out of configure and I don't notice\nthat anything suffers as a result. I don't have any  evidence it is\nfaster,either.\n\nThat's not a big deal to me, I have just wondered from time to time.\n\n\nPJ\n\n-- \nPaul E. Johnson\nProfessor, Political Science\n1541 Lilac Lane, Room 504\nUniversity of Kansas",
+      "body_snippet": "On Sat, Nov 6, 2010 at 9:44 AM, Tom \"spot\" Callaway <tcallawa at redhat.com> wrote:\n\n> ~spot\n>\n> _______________________________________________\n\nHi, Spot\n\nThis reminds me.  You remember a few months ",
+      "thread_id": "thread-24f2bac60128",
+      "thread_depth": 4,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-004b29a307e8",
+      "message_id": "<alpine.LRH.2.00.1011080843090.8766@reclus.nhh.no>",
+      "from_name": "Roger Bivand",
+      "from_email_hash": "a0c87926e9477aa221755cc93bdef47227c3563fd707e66ae49044467663d168",
+      "date": "2010-11-08T08:54:00+01:00",
+      "subject": "[R-sig-Fedora] Heads up - symlinked GotoBLAS in F14",
+      "subject_clean": "Heads up - symlinked GotoBLAS in F14",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nI installed F14 on release, but was diquieted to note that my symlinked \nGotoBLAS (http://cran.r-project.org/doc/manuals/R-admin.html#Shared-BLAS, \nfoot of paragraph) prevented R (compiled from source, no special configure \noptions) from loading - everything had been fine on F < 14. It seems that:\n\ncat /selinux/booleans/allow_execstack\n\nis 1 1 on my RHEL systems, but became (?) 0 0 in F14. Could anyone with \nF < 14 check its value there?\n\nThe \"fix\" on F14 is:\n\nSystem -> Administration -> SELinux Management -> (root password, wait), \nthen Boolean -> global | allow_execstack | Allow unconfirmed executables \nto make their stack executable [tick]\n\nThe comments suggest that this is not a good policy! Following the \nadjustment, the booleans are 1 1, and R loads with symlinked GotoBLAS on \nF14.\n\nRoger\n\n-- \nRoger Bivand\nEconomic Geography Section, Department of Economics, Norwegian School of\nEconomics and Business Administration, Helleveien 30, N-5045 Bergen,\nNorway. voice: +47 55 95 93 55; fax +47 55 95 95 43\ne-mail: Roger.Bivand at nhh.no",
+      "body_snippet": "Hi,\n\nI installed F14 on release, but was diquieted to note that my symlinked \nGotoBLAS (http://cran.r-project.org/doc/manuals/R-admin.html#Shared-BLAS, \nfoot of paragraph) prevented R (compiled from s",
+      "thread_id": "thread-004b29a307e8",
+      "thread_depth": 0,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-4ddfc3e3c97f",
+      "message_id": "<1289203659.2729.6.camel@desktop.localdomain>",
+      "from_name": "Gavin Simpson",
+      "from_email_hash": "de29578fbbb79e6883c8203a1faebef3fddd10c08cc122f35e5ad109dc250099",
+      "date": "2010-11-08T08:07:39Z",
+      "subject": "[R-sig-Fedora] Heads up - symlinked GotoBLAS in F14",
+      "subject_clean": "Heads up - symlinked GotoBLAS in F14",
+      "in_reply_to": "<alpine.LRH.2.00.1011080843090.8766@reclus.nhh.no>",
+      "references": [
+        "<alpine.LRH.2.00.1011080843090.8766@reclus.nhh.no>"
+      ],
+      "body_plain": "On Mon, 2010-11-08 at 08:54 +0100, Roger Bivand wrote:\n> Hi,\n> \n> I installed F14 on release, but was diquieted to note that my symlinked \n> GotoBLAS (http://cran.r-project.org/doc/manuals/R-admin.html#Shared-BLAS, \n> foot of paragraph) prevented R (compiled from source, no special configure \n> options) from loading - everything had been fine on F < 14. It seems that:\n> \n> cat /selinux/booleans/allow_execstack\n> \n> is 1 1 on my RHEL systems, but became (?) 0 0 in F14. Could anyone with \n> F < 14 check its value there?\n\nIt is 1 1 on both my F13 and F12 boxes (Time to upgrade at least one of\nthose I guess...) but I haven't used any BLAS other than the one\nsupplied in the R sources.\n\nHTH\n\nG\n\n> The \"fix\" on F14 is:\n> \n> System -> Administration -> SELinux Management -> (root password, wait), \n> then Boolean -> global | allow_execstack | Allow unconfirmed executables \n> to make their stack executable [tick]\n> \n> The comments suggest that this is not a good policy! Following the \n> adjustment, the booleans are 1 1, and R loads with symlinked GotoBLAS on \n> F14.\n> \n> Roger\n> \n\n-- \n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%\n Dr. Gavin Simpson             [t] +44 (0)20 7679 0522\n ECRC, UCL Geography,          [f] +44 (0)20 7679 0565\n Pearson Building,             [e] gavin.simpsonATNOSPAMucl.ac.uk\n Gower Street, London          [w] http://www.ucl.ac.uk/~ucfagls/\n UK. WC1E 6BT.                 [w] http://www.freshwaters.org.uk\n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%",
+      "body_snippet": "On Mon, 2010-11-08 at 08:54 +0100, Roger Bivand wrote:\n> Hi,\n> \n> I installed F14 on release, but was diquieted to note that my symlinked \n> GotoBLAS (http://cran.r-project.org/doc/manuals/R-admin.htm",
+      "thread_id": "thread-004b29a307e8",
+      "thread_depth": 1,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-4699ff762268",
+      "message_id": "<alpine.LRH.2.00.1011080910450.8766@reclus.nhh.no>",
+      "from_name": "Roger Bivand",
+      "from_email_hash": "a0c87926e9477aa221755cc93bdef47227c3563fd707e66ae49044467663d168",
+      "date": "2010-11-08T09:14:29+01:00",
+      "subject": "[R-sig-Fedora] Heads up - symlinked GotoBLAS in F14",
+      "subject_clean": "Heads up - symlinked GotoBLAS in F14",
+      "in_reply_to": "<1289203659.2729.6.camel@desktop.localdomain>",
+      "references": [
+        "<alpine.LRH.2.00.1011080843090.8766@reclus.nhh.no>",
+        "<1289203659.2729.6.camel@desktop.localdomain>"
+      ],
+      "body_plain": "On Mon, 8 Nov 2010, Gavin Simpson wrote:\n\n> On Mon, 2010-11-08 at 08:54 +0100, Roger Bivand wrote:\n>> Hi,\n>>\n>> I installed F14 on release, but was diquieted to note that my symlinked\n>> GotoBLAS (http://cran.r-project.org/doc/manuals/R-admin.html#Shared-BLAS,\n>> foot of paragraph) prevented R (compiled from source, no special configure\n>> options) from loading - everything had been fine on F < 14. It seems that:\n>>\n>> cat /selinux/booleans/allow_execstack\n>>\n>> is 1 1 on my RHEL systems, but became (?) 0 0 in F14. Could anyone with\n>> F < 14 check its value there?\n>\n> It is 1 1 on both my F13 and F12 boxes (Time to upgrade at least one of\n> those I guess...) but I haven't used any BLAS other than the one\n> supplied in the R sources.\n\nThanks. So the SELinux policy on this changed for F14, and likely will \nchange for RHEL 6. Using GotoBLAS isn't necessary and doesn't help in many \nsettings, where the standard R BLAS is absolutely OK. But for larger \nmatrices on multicore machines, it can make things go faster when the \nconditions are right, because it can share the operation across cores.\n\nRoger\n\n>\n> HTH\n>\n> G\n>\n>> The \"fix\" on F14 is:\n>>\n>> System -> Administration -> SELinux Management -> (root password, wait),\n>> then Boolean -> global | allow_execstack | Allow unconfirmed executables\n>> to make their stack executable [tick]\n>>\n>> The comments suggest that this is not a good policy! Following the\n>> adjustment, the booleans are 1 1, and R loads with symlinked GotoBLAS on\n>> F14.\n>>\n>> Roger\n>>\n>\n>\n\n-- \nRoger Bivand\nEconomic Geography Section, Department of Economics, Norwegian School of\nEconomics and Business Administration, Helleveien 30, N-5045 Bergen,\nNorway. voice: +47 55 95 93 55; fax +47 55 95 95 43\ne-mail: Roger.Bivand at nhh.no",
+      "body_snippet": "On Mon, 8 Nov 2010, Gavin Simpson wrote:\n\n> On Mon, 2010-11-08 at 08:54 +0100, Roger Bivand wrote:\n>> Hi,\n>>\n>> I installed F14 on release, but was diquieted to note that my symlinked\n>> GotoBLAS (htt",
+      "thread_id": "thread-004b29a307e8",
+      "thread_depth": 2,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-15e33ec3f3c2",
+      "message_id": "<201485.69627.qm@web55004.mail.re4.yahoo.com>",
+      "from_name": "Michael Hannon",
+      "from_email_hash": "01860cded8fa4662e18931d40108a5d9cac89987b46747b9193585604d12bf43",
+      "date": "2010-11-08T01:23:39-08:00",
+      "subject": "[R-sig-Fedora] R 2.12?",
+      "subject_clean": "R 2.12?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Greetings.  I understand that R 2.12 has been available for about three weeks, \nbut I haven't seen a Fedora version yet.  Can anybody tell me the status?  I'm \ngetting some pressure to install the new version from source, but I much prefer \nto use yum if I can.\n\nThanks,\n\n-- Mike",
+      "body_snippet": "Greetings.  I understand that R 2.12 has been available for about three weeks, \nbut I haven't seen a Fedora version yet.  Can anybody tell me the status?  I'm \ngetting some pressure to install the new",
+      "thread_id": "thread-15e33ec3f3c2",
+      "thread_depth": 0,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-52b1aaf93ce4",
+      "message_id": "<0899D2DE-DC32-4735-971D-0298DDCF3588@gmail.com>",
+      "from_name": "peter dalgaard",
+      "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
+      "date": "2010-11-08T11:02:19+01:00",
+      "subject": "[R-sig-Fedora] R 2.12?",
+      "subject_clean": "R 2.12?",
+      "in_reply_to": "<201485.69627.qm@web55004.mail.re4.yahoo.com>",
+      "references": [
+        "<201485.69627.qm@web55004.mail.re4.yahoo.com>"
+      ],
+      "body_plain": "On Nov 8, 2010, at 10:23 , Michael Hannon wrote:\n\n> Greetings.  I understand that R 2.12 has been available for about three weeks, \n> but I haven't seen a Fedora version yet.  Can anybody tell me the status?  I'm \n> getting some pressure to install the new version from source, but I much prefer \n> to use yum if I can.\n\nIt is currently in updates-testing (since Nov.3), reaching ordinary updates after 14 days unless someone updates the \"Karma\" quicker than that. The Karma is now at 2 needs just one more vote.\n\nSee the note from November 2 on this list from Tom \"spot\" Callaway for details.\n\n(Yes, this is taking its time, due to \"red tape\" in Fedora plus the workload on the maintainer I suppose.)\n\n\n> \n> Thanks,\n> \n> -- Mike\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n-- \nPeter Dalgaard\nCenter for Statistics, Copenhagen Business School\nSolbjerg Plads 3, 2000 Frederiksberg, Denmark\nPhone: (+45)38153501\nEmail: pd.mes at cbs.dk  Priv: PDalgd at gmail.com",
+      "body_snippet": "On Nov 8, 2010, at 10:23 , Michael Hannon wrote:\n\n> Greetings.  I understand that R 2.12 has been available for about three weeks, \n> but I haven't seen a Fedora version yet.  Can anybody tell me the ",
+      "thread_id": "thread-15e33ec3f3c2",
+      "thread_depth": 1,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-8f4cc4587274",
+      "message_id": "<4CE171A8.30606@redhat.com>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2010-11-15T12:45:12-05:00",
+      "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
+      "subject_clean": "R 2.12.0 in Fedora Updates Testing",
+      "in_reply_to": "<AANLkTima_WBFO40YztYAZyy2ctBi6WGUeUyA6LM7XoM_@mail.gmail.com>",
+      "references": [
+        "<4CD0796F.8010908@redhat.com>",
+        "<4CD509D8.8080100@gmail.com>",
+        "<20101106134750.3419bc36@earth>",
+        "<4CD569D1.10900@redhat.com>",
+        "<AANLkTima_WBFO40YztYAZyy2ctBi6WGUeUyA6LM7XoM_@mail.gmail.com>"
+      ],
+      "body_plain": "On 11/07/2010 11:33 PM, Paul Johnson wrote:\n> Even though nobody but me seems to care, I think it is better to do\n> what Ubuntu does, where Renviron has at the end\n> \n> R_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/2.12'}\n> # edd Apr 2003  Allow local install in /usr/local, also add a directory for\n> #               Debian packaged CRAN packages, and finally the default dir\n> # edd Jul 2007  Now use R_LIBS_SITE, not R_LIBS\n> R_LIBS_SITE=${R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library'\n> \n> The R team itself selected that value for R_LIBS_USER.  Its that way\n> in the R source.  If I were picking, I'd probably leave off the\n> version number from the end.\n> \n> I believe it is recommended to use R_LIBS_SITE. That way, they don't\n> block non root users from getting packages \"automatically\" installed\n> in their home dirs.\n\nI decided shortly after our last conversation to just go ahead and make\nthis change, so as of the last R update, we're now leaving R_LIBS_USER\nalone and using R_LIBS_SITE.\n\nFor example, my /usr/lib64/R/etc/Renviron (Fedora 14, x86_64) has:\n\nR_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-redhat-linux-gnu-library/2.11'}\n#R_LIBS_USER=${R_LIBS_USER-'~/Library/R/2.11/library'}\n\n### Local Variables: ***\n### mode: sh ***\n### sh-indentation: 2 ***\n### End: ***\nR_LIBS_SITE=${R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/local/lib/R/library:/usr/lib64/R/library:/usr/share/R/library'}\n\n> Oh, one more thing. What about \"shared\" R libraries?\n> \n> In the Radmin manual, it claims that R built with shared libraries\n> enabled can be 20% slower.  On several Redhat systems here, I've taken\n> your RPM and cut the shared option out of configure and I don't notice\n> that anything suffers as a result. I don't have any  evidence it is\n> faster,either.\n\nI doubt that is valid on Linux, where shared library performance is\nalmost always on par with static, not to mention the potential benefit\nof providing a consistent libRmath library for all packages to use.\n\nI would be willing to reconsider this approach if there were tangible\n(and not apocryphal) evidence to show a significant performance gap.\n\nThanks for the reminder,\n\n~tom",
+      "body_snippet": "On 11/07/2010 11:33 PM, Paul Johnson wrote:\n> Even though nobody but me seems to care, I think it is better to do\n> what Ubuntu does, where Renviron has at the end\n> \n> R_LIBS_USER=${R_LIBS_USER-'~/R/",
+      "thread_id": "thread-24f2bac60128",
+      "thread_depth": 5,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-6c71bd5e6083",
+      "message_id": "<AANLkTik=gT6fRhZsUUV+mq7hSLBaSmJNum3=5rAkx_EZ@mail.gmail.com>",
+      "from_name": "Paul Johnson",
+      "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
+      "date": "2010-11-15T11:59:30-06:00",
+      "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
+      "subject_clean": "R 2.12.0 in Fedora Updates Testing",
+      "in_reply_to": "<4CE171A8.30606@redhat.com>",
+      "references": [
+        "<4CD0796F.8010908@redhat.com>",
+        "<4CD509D8.8080100@gmail.com>",
+        "<20101106134750.3419bc36@earth>",
+        "<4CD569D1.10900@redhat.com>",
+        "<AANLkTima_WBFO40YztYAZyy2ctBi6WGUeUyA6LM7XoM_@mail.gmail.com>",
+        "<4CE171A8.30606@redhat.com>"
+      ],
+      "body_plain": "On Mon, Nov 15, 2010 at 11:45 AM, Tom \"spot\" Callaway\n<tcallawa at redhat.com> wrote:\n> On 11/07/2010 11:33 PM, Paul Johnson wrote:\n\n>> I believe it is recommended to use R_LIBS_SITE. That way, they don't\n>> block non root users from getting packages \"automatically\" installed\n>> in their home dirs.\n>\n> I decided shortly after our last conversation to just go ahead and make\n> this change, so as of the last R update, we're now leaving R_LIBS_USER\n> alone and using R_LIBS_SITE.\n>\n\nThanks! :)\n\n>\n>> Oh, one more thing. What about \"shared\" R libraries?\n>>\n>> In the Radmin manual, it claims that R built with shared libraries\n>> enabled can be 20% slower. ?On several Redhat systems here, I've taken\n>> your RPM and cut the shared option out of configure and I don't notice\n>> that anything suffers as a result. I don't have any ?evidence it is\n>> faster,either.\n>\n> I doubt that is valid on Linux, where shared library performance is\n> almost always on par with static, not to mention the potential benefit\n> of providing a consistent libRmath library for all packages to use.\n>\n> I would be willing to reconsider this approach if there were tangible\n> (and not apocryphal) evidence to show a significant performance gap.\n>\n> Thanks for the reminder,\n>\n> ~tom\n>\n\nI have no evidence except the comment in the Rinstall and admin guide, page 38.\n\n==============================================\n\"Flag ?--enable-R-shlib? causes the make process to build R as a\ndynamic (shared) library,\ntypically called ?libR.so?, and link the main R executable ?R.bin?\nagainst that library. This can\nonly be done if all the code (including system libraries) can be\ncompiled into a dynamic library,\nand there may be a performance[1] penalty.\"\n\n[1] We have measured 15?20% on ?i686? Linux and around 10% on ?x86_64? Linux.\n==============================================\n\nThis may be apocryphal, I don't have the spare time to track this\ndown.  In our cluster, I turned off the shared flag.  That created bad\nripple effects because users who had packages installed in their home\naccounts started to get errors. Aside from that, I can't say what\nbenefit/trouble I caused.\n\nThe only R package that I know of that requires R shared is Rinside,\nbut there may be more.   There is a warning about building R without\nshared libraries in the BLAS section.  Apparently if BLAS is shared\nbut R is not, then some bumbling about in the dark occurs :)\n\n\n\n\n\n-- \nPaul E. Johnson\nProfessor, Political Science\n1541 Lilac Lane, Room 504\nUniversity of Kansas",
+      "body_snippet": "On Mon, Nov 15, 2010 at 11:45 AM, Tom \"spot\" Callaway\n<tcallawa at redhat.com> wrote:\n> On 11/07/2010 11:33 PM, Paul Johnson wrote:\n\n>> I believe it is recommended to use R_LIBS_SITE. That way, they d",
+      "thread_id": "thread-24f2bac60128",
+      "thread_depth": 6,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-ad12ac409032",
+      "message_id": "<25122532.1290927634178.JavaMail.root@elwamui-royal.atl.sa.earthlink.net>",
+      "from_name": "Andreas",
+      "from_email_hash": "c1725ee735cfb1b8f933c0410e19a590ffcf4fb886e91d1b58d4c0e4bd8360b1",
+      "date": "2010-11-27T23:00:34-08:00",
+      "subject": "[R-sig-Fedora] problems with rpubchem package on fedora",
+      "subject_clean": "problems with rpubchem package on fedora",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,",
+      "body_snippet": "Hi,",
+      "thread_id": "thread-ad12ac409032",
+      "thread_depth": 0,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-cce9064353ea",
+      "message_id": "<22020434.1290928861673.JavaMail.root@elwamui-royal.atl.sa.earthlink.net>",
+      "from_name": "Andreas",
+      "from_email_hash": "c1725ee735cfb1b8f933c0410e19a590ffcf4fb886e91d1b58d4c0e4bd8360b1",
+      "date": "2010-11-27T23:21:01-08:00",
+      "subject": "[R-sig-Fedora] problems with rpubchem package on fedora",
+      "subject_clean": "problems with rpubchem package on fedora",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\nI tried to run rpubchem in R 2-12.0 on Fedora 13, after installing XML and RCurl'.\n\nThe sequence of commands were , just following the paper by Rajarshi Guha.\n\naids <- find.assay.id(\"lung+cancer+carcinoma\")\n\nsapply(aids, function(x) get.assay.desc(x)$assay.desc)\n\nAfter quite a while the following message was returned:\n\nWarning message:\nIn download.file(url, destfile = tmpdest, method = \"internal\", mode = \"wb\",  :\n  RxmlNanoFTPGetConnection: failed to create socket\n\nWhat is the meaning and how to fix it?\n\nThank you\n\nAndreas",
+      "body_snippet": "Hi,\nI tried to run rpubchem in R 2-12.0 on Fedora 13, after installing XML and RCurl'.\n\nThe sequence of commands were , just following the paper by Rajarshi Guha.\n\naids <- find.assay.id(\"lung+cancer+c",
+      "thread_id": "thread-cce9064353ea",
+      "thread_depth": 0,
+      "month": "2010-11"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-24f2bac60128",
+      "subject": "R 2.12.0 in Fedora Updates Testing",
+      "message_count": 7,
+      "participants": [
+        "Paul Johnson",
+        "Peter Dalgaard",
+        "Stefan Grosse",
+        "Tom \"spot\" Callaway"
+      ],
+      "started": "2010-11-02T16:49:51-04:00",
+      "last_reply": "2010-11-15T11:59:30-06:00",
+      "root_message_id": "msg-24f2bac60128"
+    },
+    {
+      "id": "thread-15e33ec3f3c2",
+      "subject": "R 2.12?",
+      "message_count": 2,
+      "participants": [
+        "Michael Hannon",
+        "peter dalgaard"
+      ],
+      "started": "2010-11-08T01:23:39-08:00",
+      "last_reply": "2010-11-08T11:02:19+01:00",
+      "root_message_id": "msg-15e33ec3f3c2"
+    },
+    {
+      "id": "thread-004b29a307e8",
+      "subject": "Heads up - symlinked GotoBLAS in F14",
+      "message_count": 3,
+      "participants": [
+        "Gavin Simpson",
+        "Roger Bivand"
+      ],
+      "started": "2010-11-08T08:54:00+01:00",
+      "last_reply": "2010-11-08T09:14:29+01:00",
+      "root_message_id": "msg-004b29a307e8"
+    },
+    {
+      "id": "thread-ad12ac409032",
+      "subject": "problems with rpubchem package on fedora",
+      "message_count": 1,
+      "participants": [
+        "Andreas"
+      ],
+      "started": "2010-11-27T23:00:34-08:00",
+      "last_reply": "2010-11-27T23:00:34-08:00",
+      "root_message_id": "msg-ad12ac409032"
+    },
+    {
+      "id": "thread-cce9064353ea",
+      "subject": "problems with rpubchem package on fedora",
+      "message_count": 1,
+      "participants": [
+        "Andreas"
+      ],
+      "started": "2010-11-27T23:21:01-08:00",
+      "last_reply": "2010-11-27T23:21:01-08:00",
+      "root_message_id": "msg-cce9064353ea"
+    }
+  ]
+}

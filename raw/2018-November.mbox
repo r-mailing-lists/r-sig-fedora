@@ -1,0 +1,753 @@
+From Roger@Biv@nd @ending from nhh@no  Sat Nov 10 15:17:13 2018
+From: Roger@Biv@nd @ending from nhh@no (Roger Bivand)
+Date: Sat, 10 Nov 2018 15:17:13 +0100
+Subject: [R-sig-Fedora] Fedora 29 upgrade: texlive-scheme-medium may depend
+ on R
+Message-ID: <alpine.LFD.2.21.1811101455510.19549@reclus.nhh.no>
+
+On upgrading my F28 to F29, I've found that R-core and a number of R 
+packages:
+
+R-evaluate R-glue R-highr R-knitr R-magrittr R-markdown R-mime R-stringi 
+R-stringr R-yaml
+
+are installed, although I only ever install R from source and always keep 
+my Rs locally. So I don't use Fedora R rpms, but these were installed 
+without my command.
+
+Something in texlive is doing this. A remedy is to yse rpm -r --nodeps <> 
+to get rid of them, because dnf remove R-core takes out texlive too. I do 
+use the RStudio rpm, but by command-line install, so it isn't the culprit. 
+However, the choice of packages points to an injudicious editing of an rpm 
+dependency list in some texlive package related to rmarkdown or similar.
+
+I'm reporting this here in case other Fedora users are puzzled to see 
+another R (or an rpm R) appearing on their systems if they also use 
+texlive.
+
+If anyone has any ideas about resolving this properly, I'd be grateful (it 
+isn't the best way to spread the use of R among Fedora texlive users IMO). 
+Unfortunately, DNF/RPM and likely other packaging systems have issues 
+detecting user-installed programs like R, so trying "R RHOME" isn't going 
+to work when say ~/bin is where R lives. Almost certainly, the texlive 
+component should not be included in any scheme groups.
+
+I would CC RStudio, but support does not expose an email, so I'm CC-ing 
+the rmarkown maintainer.
+
+Roger
+
+-- 
+Roger Bivand
+Department of Economics, Norwegian School of Economics,
+Helleveien 30, N-5045 Bergen, Norway.
+voice: +47 55 95 93 55; e-mail: Roger.Bivand at nhh.no
+http://orcid.org/0000-0003-2392-6140
+https://scholar.google.no/citations?user=AWeghB0AAAAJ&hl=en
+
+
+From iuc@r @ending from fedor@project@org  Sat Nov 10 17:26:20 2018
+From: iuc@r @ending from fedor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Sat, 10 Nov 2018 17:26:20 +0100
+Subject: [R-sig-Fedora] 
+ Fedora 29 upgrade: texlive-scheme-medium may depend on R
+In-Reply-To: <alpine.LFD.2.21.1811101455510.19549@reclus.nhh.no>
+References: <alpine.LFD.2.21.1811101455510.19549@reclus.nhh.no>
+Message-ID: <CALEXWq0q9xb0gbOkvLv8g2aootPGDx0L6ABcuK63tHhqCF1ZMw@mail.gmail.com>
+
+On Sat, 10 Nov 2018 at 15:17, Roger Bivand <Roger.Bivand at nhh.no> wrote:
+>
+> On upgrading my F28 to F29, I've found that R-core and a number of R
+> packages:
+>
+> R-evaluate R-glue R-highr R-knitr R-magrittr R-markdown R-mime R-stringi
+> R-stringr R-yaml
+>
+> are installed, although I only ever install R from source and always keep
+> my Rs locally. So I don't use Fedora R rpms, but these were installed
+> without my command.
+>
+> Something in texlive is doing this. A remedy is to yse rpm -r --nodeps <>
+> to get rid of them, because dnf remove R-core takes out texlive too. I do
+> use the RStudio rpm, but by command-line install, so it isn't the culprit.
+> However, the choice of packages points to an injudicious editing of an rpm
+> dependency list in some texlive package related to rmarkdown or similar.
+
+$ dnf repoquery --tree --whatrequires R-knitr
+
+texlive-scheme-medium installs texlive-collection-mathscience, which
+installs texlive-includernw, which necessarily depends on R-knitr.
+
+The solution is not to depend on texlive collections. Install
+texlive-scheme-basic instead, plus additional packages as you need
+them.
+
+I?aki
+
+> I'm reporting this here in case other Fedora users are puzzled to see
+> another R (or an rpm R) appearing on their systems if they also use
+> texlive.
+>
+> If anyone has any ideas about resolving this properly, I'd be grateful (it
+> isn't the best way to spread the use of R among Fedora texlive users IMO).
+> Unfortunately, DNF/RPM and likely other packaging systems have issues
+> detecting user-installed programs like R, so trying "R RHOME" isn't going
+> to work when say ~/bin is where R lives. Almost certainly, the texlive
+> component should not be included in any scheme groups.
+>
+> I would CC RStudio, but support does not expose an email, so I'm CC-ing
+> the rmarkown maintainer.
+>
+> Roger
+>
+> --
+> Roger Bivand
+> Department of Economics, Norwegian School of Economics,
+> Helleveien 30, N-5045 Bergen, Norway.
+> voice: +47 55 95 93 55; e-mail: Roger.Bivand at nhh.no
+> http://orcid.org/0000-0003-2392-6140
+> https://scholar.google.no/citations?user=AWeghB0AAAAJ&hl=en
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+
+From Roger@Biv@nd @ending from nhh@no  Sat Nov 10 18:35:05 2018
+From: Roger@Biv@nd @ending from nhh@no (Roger Bivand)
+Date: Sat, 10 Nov 2018 18:35:05 +0100
+Subject: [R-sig-Fedora] 
+ Fedora 29 upgrade: texlive-scheme-medium may depend
+ on R (texlive-includernw)
+In-Reply-To: <CALEXWq0q9xb0gbOkvLv8g2aootPGDx0L6ABcuK63tHhqCF1ZMw@mail.gmail.com>
+References: <alpine.LFD.2.21.1811101455510.19549@reclus.nhh.no>
+ <CALEXWq0q9xb0gbOkvLv8g2aootPGDx0L6ABcuK63tHhqCF1ZMw@mail.gmail.com>
+Message-ID: <alpine.LFD.2.21.1811101824570.21352@reclus.nhh.no>
+
+On Sat, 10 Nov 2018, I?aki Ucar wrote:
+
+> On Sat, 10 Nov 2018 at 15:17, Roger Bivand <Roger.Bivand at nhh.no> wrote:
+>>
+>> On upgrading my F28 to F29, I've found that R-core and a number of R
+>> packages:
+>>
+>> R-evaluate R-glue R-highr R-knitr R-magrittr R-markdown R-mime R-stringi
+>> R-stringr R-yaml
+>>
+>> are installed, although I only ever install R from source and always keep
+>> my Rs locally. So I don't use Fedora R rpms, but these were installed
+>> without my command.
+>>
+>> Something in texlive is doing this. A remedy is to yse rpm -r --nodeps <>
+>> to get rid of them, because dnf remove R-core takes out texlive too. I do
+>> use the RStudio rpm, but by command-line install, so it isn't the culprit.
+>> However, the choice of packages points to an injudicious editing of an rpm
+>> dependency list in some texlive package related to rmarkdown or similar.
+>
+> $ dnf repoquery --tree --whatrequires R-knitr
+>
+> texlive-scheme-medium installs texlive-collection-mathscience, which
+> installs texlive-includernw, which necessarily depends on R-knitr.
+
+Thanks for the analysis. I do not see that any other latex package in 
+texlive-sceme-medium involves creating such havoc drawing in non-texlive 
+packages.
+
+I appeal to Andreas Storvik Strauman to ensure that texlive-includernw is 
+forthwith withdrawn from texlive-collection-mathscience, because of its 
+side-effects.
+
+It may be useful, but actually Rnw files would only need R anyway, and 
+bringinging such a payload is really very bad for everybody not exposed to 
+this behaviour previously. I wasted a lot of time trying to see why Rcpp 
+could not find R.h in a previously totally dependable workflow.
+
+>
+> The solution is not to depend on texlive collections. Install
+> texlive-scheme-basic instead, plus additional packages as you need
+> them.
+
+Not an option. Installing texlive-scheme-* should not have non-texlive 
+side effects.
+
+Roger
+
+>
+> I?aki
+>
+>> I'm reporting this here in case other Fedora users are puzzled to see
+>> another R (or an rpm R) appearing on their systems if they also use
+>> texlive.
+>>
+>> If anyone has any ideas about resolving this properly, I'd be grateful (it
+>> isn't the best way to spread the use of R among Fedora texlive users IMO).
+>> Unfortunately, DNF/RPM and likely other packaging systems have issues
+>> detecting user-installed programs like R, so trying "R RHOME" isn't going
+>> to work when say ~/bin is where R lives. Almost certainly, the texlive
+>> component should not be included in any scheme groups.
+>>
+>> I would CC RStudio, but support does not expose an email, so I'm CC-ing
+>> the rmarkown maintainer.
+>>
+>> Roger
+>>
+>> --
+>> Roger Bivand
+>> Department of Economics, Norwegian School of Economics,
+>> Helleveien 30, N-5045 Bergen, Norway.
+>> voice: +47 55 95 93 55; e-mail: Roger.Bivand at nhh.no
+>> http://orcid.org/0000-0003-2392-6140
+>> https://scholar.google.no/citations?user=AWeghB0AAAAJ&hl=en
+>>
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+>
+>
+
+-- 
+Roger Bivand
+Department of Economics, Norwegian School of Economics,
+Helleveien 30, N-5045 Bergen, Norway.
+voice: +47 55 95 93 55; e-mail: Roger.Bivand at nhh.no
+http://orcid.org/0000-0003-2392-6140
+https://scholar.google.no/citations?user=AWeghB0AAAAJ&hl=en
+
+From Roger@Biv@nd @ending from nhh@no  Sat Nov 10 19:12:15 2018
+From: Roger@Biv@nd @ending from nhh@no (Roger Bivand)
+Date: Sat, 10 Nov 2018 19:12:15 +0100
+Subject: [R-sig-Fedora] 
+ Fedora 29 upgrade: texlive-scheme-medium may depend
+ on R (texlive-includernw)
+In-Reply-To: <AM0PR07MB45142722AA1BAC787E26EB94A3C70@AM0PR07MB4514.eurprd07.prod.outlook.com>
+References: <alpine.LFD.2.21.1811101455510.19549@reclus.nhh.no>
+ <CALEXWq0q9xb0gbOkvLv8g2aootPGDx0L6ABcuK63tHhqCF1ZMw@mail.gmail.com>,
+ <alpine.LFD.2.21.1811101824570.21352@reclus.nhh.no>
+ <AM0PR07MB45142722AA1BAC787E26EB94A3C70@AM0PR07MB4514.eurprd07.prod.outlook.com>
+Message-ID: <alpine.LFD.2.21.1811101900270.21352@reclus.nhh.no>
+
+On Sat, 10 Nov 2018, Andreas Storvik Strauman wrote:
+
+> Hello! I'm confused as to what the actual problem with includeRnw is? Is 
+> the problem that it relies on R-knitr? Before it would be withdrawn, may 
+> I be given an opportunity to fix said problem?
+
+Yes, the problem is that it expesses an external dependence on anything 
+outside texlive. On packaging systems (for me Fedora), this explicitly 
+pulls in all of R and all R-knitr's other package dependencies. If an 
+existing R installation is not found by the package manager, the user gets 
+an unnecessary install of R which will mask the existing and intended R 
+installation, with different package libraries, etc.
+
+>
+> includeRnw only invokes the already existing R installation, and should 
+> not affect any other global settings or affect the installation in any 
+> way. If this is the case, it's a bug and I'd like more details so I 
+> could fix said bug.
+
+My point exactly. It should only run R RHOME to check for the existence of 
+R (if this is what it does) at run time, not at install time. If it then, 
+at run time, does not find R, or having found R does not find knitr 
+(though Sweave is part of utils, so knitr is only needed by those using 
+knitr to weave Rnw documents, or to convert from Rmd), it should issue 
+helpful error messages to tell the user to install R, or to install knitr 
+within R. By requiring to see R when being run by root/admin at install 
+time, it is making invasive assumptions about the user environment.
+
+It could be that the texlive-includernw package itself does not require 
+install time dependency fulfillment, and that this is something only the 
+Fedora texlive packager has mis-understood.
+
+>
+> I agree that for larger projects using includeRnw easily would be 
+> redundant as R is invoked on a per-file basis and not by it's own 
+> including syntax. However, one might like files properly separated and 
+> executed individually. I myself find it a fairly nice workflow for many 
+> of my projects.
+
+R is a pretty large install just for one texlive package.
+
+Roger
+
+>
+> ________________________________
+> From: Roger Bivand <Roger.Bivand at nhh.no>
+> Sent: Saturday, November 10, 2018 6:35:05 PM
+> To: I?aki Ucar
+> Cc: r-sig-fedora at r-project.org; Andreas Storvik Strauman
+> Subject: Re: [R-sig-Fedora] Fedora 29 upgrade: texlive-scheme-medium may depend on R (texlive-includernw)
+>
+> On Sat, 10 Nov 2018, I?aki Ucar wrote:
+>
+>> On Sat, 10 Nov 2018 at 15:17, Roger Bivand <Roger.Bivand at nhh.no> wrote:
+>>>
+>>> On upgrading my F28 to F29, I've found that R-core and a number of R
+>>> packages:
+>>>
+>>> R-evaluate R-glue R-highr R-knitr R-magrittr R-markdown R-mime R-stringi
+>>> R-stringr R-yaml
+>>>
+>>> are installed, although I only ever install R from source and always keep
+>>> my Rs locally. So I don't use Fedora R rpms, but these were installed
+>>> without my command.
+>>>
+>>> Something in texlive is doing this. A remedy is to yse rpm -r --nodeps <>
+>>> to get rid of them, because dnf remove R-core takes out texlive too. I do
+>>> use the RStudio rpm, but by command-line install, so it isn't the culprit.
+>>> However, the choice of packages points to an injudicious editing of an rpm
+>>> dependency list in some texlive package related to rmarkdown or similar.
+>>
+>> $ dnf repoquery --tree --whatrequires R-knitr
+>>
+>> texlive-scheme-medium installs texlive-collection-mathscience, which
+>> installs texlive-includernw, which necessarily depends on R-knitr.
+>
+> Thanks for the analysis. I do not see that any other latex package in
+> texlive-sceme-medium involves creating such havoc drawing in non-texlive
+> packages.
+>
+> I appeal to Andreas Storvik Strauman to ensure that texlive-includernw is
+> forthwith withdrawn from texlive-collection-mathscience, because of its
+> side-effects.
+>
+> It may be useful, but actually Rnw files would only need R anyway, and
+> bringinging such a payload is really very bad for everybody not exposed to
+> this behaviour previously. I wasted a lot of time trying to see why Rcpp
+> could not find R.h in a previously totally dependable workflow.
+>
+>>
+>> The solution is not to depend on texlive collections. Install
+>> texlive-scheme-basic instead, plus additional packages as you need
+>> them.
+>
+> Not an option. Installing texlive-scheme-* should not have non-texlive
+> side effects.
+>
+> Roger
+>
+>>
+>> I?aki
+>>
+>>> I'm reporting this here in case other Fedora users are puzzled to see
+>>> another R (or an rpm R) appearing on their systems if they also use
+>>> texlive.
+>>>
+>>> If anyone has any ideas about resolving this properly, I'd be grateful (it
+>>> isn't the best way to spread the use of R among Fedora texlive users IMO).
+>>> Unfortunately, DNF/RPM and likely other packaging systems have issues
+>>> detecting user-installed programs like R, so trying "R RHOME" isn't going
+>>> to work when say ~/bin is where R lives. Almost certainly, the texlive
+>>> component should not be included in any scheme groups.
+>>>
+>>> I would CC RStudio, but support does not expose an email, so I'm CC-ing
+>>> the rmarkown maintainer.
+>>>
+>>> Roger
+>>>
+>>> --
+>>> Roger Bivand
+>>> Department of Economics, Norwegian School of Economics,
+>>> Helleveien 30, N-5045 Bergen, Norway.
+>>> voice: +47 55 95 93 55; e-mail: Roger.Bivand at nhh.no
+>>> http://orcid.org/0000-0003-2392-6140
+>>> https://scholar.google.no/citations?user=AWeghB0AAAAJ&hl=en
+>>>
+>>> _______________________________________________
+>>> R-SIG-Fedora mailing list
+>>> R-SIG-Fedora at r-project.org
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>
+>>
+>>
+>>
+>
+> --
+> Roger Bivand
+> Department of Economics, Norwegian School of Economics,
+> Helleveien 30, N-5045 Bergen, Norway.
+> voice: +47 55 95 93 55; e-mail: Roger.Bivand at nhh.no
+> http://orcid.org/0000-0003-2392-6140
+> https://scholar.google.no/citations?user=AWeghB0AAAAJ&hl=en
+>
+
+-- 
+Roger Bivand
+Department of Economics, Norwegian School of Economics,
+Helleveien 30, N-5045 Bergen, Norway.
+voice: +47 55 95 93 55; e-mail: Roger.Bivand at nhh.no
+http://orcid.org/0000-0003-2392-6140
+https://scholar.google.no/citations?user=AWeghB0AAAAJ&hl=en
+
+From iuc@r @ending from fedor@project@org  Sat Nov 10 19:42:23 2018
+From: iuc@r @ending from fedor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Sat, 10 Nov 2018 19:42:23 +0100
+Subject: [R-sig-Fedora] 
+ Fedora 29 upgrade: texlive-scheme-medium may depend
+ on R (texlive-includernw)
+In-Reply-To: <alpine.LFD.2.21.1811101900270.21352@reclus.nhh.no>
+References: <alpine.LFD.2.21.1811101455510.19549@reclus.nhh.no>
+ <CALEXWq0q9xb0gbOkvLv8g2aootPGDx0L6ABcuK63tHhqCF1ZMw@mail.gmail.com>
+ <alpine.LFD.2.21.1811101824570.21352@reclus.nhh.no>
+ <AM0PR07MB45142722AA1BAC787E26EB94A3C70@AM0PR07MB4514.eurprd07.prod.outlook.com>
+ <alpine.LFD.2.21.1811101900270.21352@reclus.nhh.no>
+Message-ID: <CALEXWq07jjOd68DC+68f9yw_x4dhz6_qZ=979CrEYyZ3psW8tA@mail.gmail.com>
+
+On Sat, 10 Nov 2018 at 19:12, Roger Bivand <Roger.Bivand at nhh.no> wrote:
+>
+> My point exactly. It should only run R RHOME to check for the existence of
+> R (if this is what it does) at run time, not at install time. If it then,
+> at run time, does not find R, or having found R does not find knitr
+> (though Sweave is part of utils, so knitr is only needed by those using
+> knitr to weave Rnw documents, or to convert from Rmd), it should issue
+> helpful error messages to tell the user to install R, or to install knitr
+> within R. By requiring to see R when being run by root/admin at install
+> time, it is making invasive assumptions about the user environment.
+>
+> It could be that the texlive-includernw package itself does not require
+> install time dependency fulfillment, and that this is something only the
+> Fedora texlive packager has mis-understood.
+
+Texlive packages don't require anything at build time, so Andreas has
+nothing to do with this issue. The description of his package claims
+that R and knitr are required at run time, so the Fedora packager (Tom
+'spot' Callaway, in CC now) had to take a decision: either to avoid
+non-texlive dependencies, which results in a broken installation
+(texlive-includernw won't work without R), or to be more user-friendly
+and install all the required run time dependencies.
+
+Tom took the second path, as he did too with texlive-graphicxpsd, for
+instance, which requires ImageMagick. Of course, this doesn't work for
+you, but admittedly, having an R installation under your home
+directory is not a typical case. I don't know whether there's any
+official packaging guideline about this (i.e., non-texlive
+dependencies vs. installing non-working texlive packages). If not, you
+could ask Tom to reconsider his decision.
+
+I?aki
+
+
+From Roger@Biv@nd @ending from nhh@no  Sun Nov 11 14:59:18 2018
+From: Roger@Biv@nd @ending from nhh@no (Roger Bivand)
+Date: Sun, 11 Nov 2018 14:59:18 +0100
+Subject: [R-sig-Fedora] 
+ Fedora 29 upgrade: texlive-scheme-medium may depend
+ on R (texlive-includernw)
+In-Reply-To: <CALEXWq07jjOd68DC+68f9yw_x4dhz6_qZ=979CrEYyZ3psW8tA@mail.gmail.com>
+References: <alpine.LFD.2.21.1811101455510.19549@reclus.nhh.no>
+ <CALEXWq0q9xb0gbOkvLv8g2aootPGDx0L6ABcuK63tHhqCF1ZMw@mail.gmail.com>
+ <alpine.LFD.2.21.1811101824570.21352@reclus.nhh.no>
+ <AM0PR07MB45142722AA1BAC787E26EB94A3C70@AM0PR07MB4514.eurprd07.prod.outlook.com>
+ <alpine.LFD.2.21.1811101900270.21352@reclus.nhh.no>
+ <CALEXWq07jjOd68DC+68f9yw_x4dhz6_qZ=979CrEYyZ3psW8tA@mail.gmail.com>
+Message-ID: <alpine.LFD.2.21.1811111450280.30337@reclus.nhh.no>
+
+On Sat, 10 Nov 2018, I?aki Ucar wrote:
+
+> On Sat, 10 Nov 2018 at 19:12, Roger Bivand <Roger.Bivand at nhh.no> wrote:
+>>
+>> My point exactly. It should only run R RHOME to check for the existence of
+>> R (if this is what it does) at run time, not at install time. If it then,
+>> at run time, does not find R, or having found R does not find knitr
+>> (though Sweave is part of utils, so knitr is only needed by those using
+>> knitr to weave Rnw documents, or to convert from Rmd), it should issue
+>> helpful error messages to tell the user to install R, or to install knitr
+>> within R. By requiring to see R when being run by root/admin at install
+>> time, it is making invasive assumptions about the user environment.
+>>
+>> It could be that the texlive-includernw package itself does not require
+>> install time dependency fulfillment, and that this is something only the
+>> Fedora texlive packager has mis-understood.
+>
+> Texlive packages don't require anything at build time, so Andreas has
+> nothing to do with this issue. The description of his package claims
+> that R and knitr are required at run time, so the Fedora packager (Tom
+> 'spot' Callaway, in CC now) had to take a decision: either to avoid
+> non-texlive dependencies, which results in a broken installation
+> (texlive-includernw won't work without R), or to be more user-friendly
+> and install all the required run time dependencies.
+
+It is not "broken", it would be in the same situation as an R package 
+user who had installed a package, but not its Suggested: dependencies. On 
+running examples or tests from that R package, the code using the absent 
+package would either be skipped, probably with a message or warning, or 
+would lead to an error message suggesting which packages to install. None 
+of this needs to be done at install time (install.packages(..., 
+dependencies=TRUE) is not the default).
+
+I've now located the source of includernw.sty, and can see possible 
+improvements (if I can find out how to test the string length of `R RHOME` 
+and equivalently trying to request("knitr") in a found R instance back to 
+latex to throw an informative error.
+
+>
+> Tom took the second path, as he did too with texlive-graphicxpsd, for
+> instance, which requires ImageMagick. Of course, this doesn't work for
+> you, but admittedly, having an R installation under your home
+> directory is not a typical case. I don't know whether there's any
+> official packaging guideline about this (i.e., non-texlive
+> dependencies vs. installing non-working texlive packages). If not, you
+> could ask Tom to reconsider his decision.
+
+I will do this, and also try to get includernw de-listed from the schemes 
+and collections affected (restoring the status quo, and also permitting 
+includernw to hard-depend on whatever packagers found required.
+
+Roger
+
+
+>
+> I?aki
+>
+
+-- 
+Roger Bivand
+Department of Economics, Norwegian School of Economics,
+Helleveien 30, N-5045 Bergen, Norway.
+voice: +47 55 95 93 55; e-mail: Roger.Bivand at nhh.no
+http://orcid.org/0000-0003-2392-6140
+https://scholar.google.no/citations?user=AWeghB0AAAAJ&hl=en
+
+From @ndre@@@@@@tr@um@n @ending from uit@no  Sat Nov 10 18:56:56 2018
+From: @ndre@@@@@@tr@um@n @ending from uit@no (Andreas Storvik Strauman)
+Date: Sat, 10 Nov 2018 17:56:56 -0000
+Subject: [R-sig-Fedora] 
+ Fedora 29 upgrade: texlive-scheme-medium may depend
+ on R (texlive-includernw)
+In-Reply-To: <alpine.LFD.2.21.1811101824570.21352@reclus.nhh.no>
+References: <alpine.LFD.2.21.1811101455510.19549@reclus.nhh.no>
+ <CALEXWq0q9xb0gbOkvLv8g2aootPGDx0L6ABcuK63tHhqCF1ZMw@mail.gmail.com>,
+ <alpine.LFD.2.21.1811101824570.21352@reclus.nhh.no>
+Message-ID: <AM0PR07MB45142722AA1BAC787E26EB94A3C70@AM0PR07MB4514.eurprd07.prod.outlook.com>
+
+Hello! I'm confused as to what the actual problem with includeRnw is? Is the problem
+
+that it relies on R-knitr? Before it would be withdrawn, may I be given an opportunity
+
+to fix said problem?
+
+
+includeRnw only invokes the already existing R installation, and should not affect
+
+any other global settings or affect the installation in any way. If this is the case,
+
+it's a bug and I'd like more details so I could fix said bug.
+
+
+I agree that for larger projects using includeRnw easily would be redundant as
+
+R is invoked on a per-file basis and not by it's own including syntax. However,
+
+one might like files properly separated and executed individually. I myself
+
+find it a fairly nice workflow for many of my projects.
+
+________________________________
+From: Roger Bivand <Roger.Bivand at nhh.no>
+Sent: Saturday, November 10, 2018 6:35:05 PM
+To: I?aki Ucar
+Cc: r-sig-fedora at r-project.org; Andreas Storvik Strauman
+Subject: Re: [R-sig-Fedora] Fedora 29 upgrade: texlive-scheme-medium may depend on R (texlive-includernw)
+
+On Sat, 10 Nov 2018, I?aki Ucar wrote:
+
+> On Sat, 10 Nov 2018 at 15:17, Roger Bivand <Roger.Bivand at nhh.no> wrote:
+>>
+>> On upgrading my F28 to F29, I've found that R-core and a number of R
+>> packages:
+>>
+>> R-evaluate R-glue R-highr R-knitr R-magrittr R-markdown R-mime R-stringi
+>> R-stringr R-yaml
+>>
+>> are installed, although I only ever install R from source and always keep
+>> my Rs locally. So I don't use Fedora R rpms, but these were installed
+>> without my command.
+>>
+>> Something in texlive is doing this. A remedy is to yse rpm -r --nodeps <>
+>> to get rid of them, because dnf remove R-core takes out texlive too. I do
+>> use the RStudio rpm, but by command-line install, so it isn't the culprit.
+>> However, the choice of packages points to an injudicious editing of an rpm
+>> dependency list in some texlive package related to rmarkdown or similar.
+>
+> $ dnf repoquery --tree --whatrequires R-knitr
+>
+> texlive-scheme-medium installs texlive-collection-mathscience, which
+> installs texlive-includernw, which necessarily depends on R-knitr.
+
+Thanks for the analysis. I do not see that any other latex package in
+texlive-sceme-medium involves creating such havoc drawing in non-texlive
+packages.
+
+I appeal to Andreas Storvik Strauman to ensure that texlive-includernw is
+forthwith withdrawn from texlive-collection-mathscience, because of its
+side-effects.
+
+It may be useful, but actually Rnw files would only need R anyway, and
+bringinging such a payload is really very bad for everybody not exposed to
+this behaviour previously. I wasted a lot of time trying to see why Rcpp
+could not find R.h in a previously totally dependable workflow.
+
+>
+> The solution is not to depend on texlive collections. Install
+> texlive-scheme-basic instead, plus additional packages as you need
+> them.
+
+Not an option. Installing texlive-scheme-* should not have non-texlive
+side effects.
+
+Roger
+
+>
+> I?aki
+>
+>> I'm reporting this here in case other Fedora users are puzzled to see
+>> another R (or an rpm R) appearing on their systems if they also use
+>> texlive.
+>>
+>> If anyone has any ideas about resolving this properly, I'd be grateful (it
+>> isn't the best way to spread the use of R among Fedora texlive users IMO).
+>> Unfortunately, DNF/RPM and likely other packaging systems have issues
+>> detecting user-installed programs like R, so trying "R RHOME" isn't going
+>> to work when say ~/bin is where R lives. Almost certainly, the texlive
+>> component should not be included in any scheme groups.
+>>
+>> I would CC RStudio, but support does not expose an email, so I'm CC-ing
+>> the rmarkown maintainer.
+>>
+>> Roger
+>>
+>> --
+>> Roger Bivand
+>> Department of Economics, Norwegian School of Economics,
+>> Helleveien 30, N-5045 Bergen, Norway.
+>> voice: +47 55 95 93 55; e-mail: Roger.Bivand at nhh.no
+>> http://orcid.org/0000-0003-2392-6140
+>> https://scholar.google.no/citations?user=AWeghB0AAAAJ&hl=en
+>>
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+>
+>
+
+--
+Roger Bivand
+Department of Economics, Norwegian School of Economics,
+Helleveien 30, N-5045 Bergen, Norway.
+voice: +47 55 95 93 55; e-mail: Roger.Bivand at nhh.no
+http://orcid.org/0000-0003-2392-6140
+https://scholar.google.no/citations?user=AWeghB0AAAAJ&hl=en
+
+	[[alternative HTML version deleted]]
+
+
+From @ndre@@@@@@tr@um@n @ending from uit@no  Sat Nov 10 21:04:31 2018
+From: @ndre@@@@@@tr@um@n @ending from uit@no (Andreas Storvik Strauman)
+Date: Sat, 10 Nov 2018 20:04:31 -0000
+Subject: [R-sig-Fedora] 
+ Fedora 29 upgrade: texlive-scheme-medium may depend
+ on R (texlive-includernw)
+In-Reply-To: <CALEXWq07jjOd68DC+68f9yw_x4dhz6_qZ=979CrEYyZ3psW8tA@mail.gmail.com>
+References: <alpine.LFD.2.21.1811101455510.19549@reclus.nhh.no>
+ <CALEXWq0q9xb0gbOkvLv8g2aootPGDx0L6ABcuK63tHhqCF1ZMw@mail.gmail.com>
+ <alpine.LFD.2.21.1811101824570.21352@reclus.nhh.no>
+ <AM0PR07MB45142722AA1BAC787E26EB94A3C70@AM0PR07MB4514.eurprd07.prod.outlook.com>
+ <alpine.LFD.2.21.1811101900270.21352@reclus.nhh.no>,
+ <CALEXWq07jjOd68DC+68f9yw_x4dhz6_qZ=979CrEYyZ3psW8tA@mail.gmail.com>
+Message-ID: <AM0PR07MB451487D2A7F8509700960192A3C70@AM0PR07MB4514.eurprd07.prod.outlook.com>
+
+> Texlive packages don't require anything at build time, so Andreas has
+> nothing to do with this issue.
+
+
+I will then conclude my immediate involvement after this point. If Tom
+
+or anyone affiliated with Fedora development have any questions in
+
+regards to includeRnw I will be happy to attempt answering them.
+
+
+>  The description of his package claims that R and knitr are required at run time
+
+This is correct.
+
+
+> having an R installation under your home directory is not a typical case
+
+
+As far as includernw is concerned, it assumes that there is an R installation that is available
+
+by using the R command in shell scope. I will consider making the R installation path a package
+
+option for the end user to set.
+
+
+> had to take a decision: either to avoid
+> non-texlive dependencies, which results in a broken installation
+> (texlive-includernw won't work without R), or to be more user-friendly
+> and install all the required run time dependencies.
+
+
+For what it's worth, as much as I understand Rogers position, R is a very widely used
+
+statistics tool, and for the Texlive scheme in question, I ultimately agree with Tom's
+
+choice in this matter.
+
+
+- Andreas Strauman
+
+________________________________
+From: I?aki Ucar <iucar at fedoraproject.org>
+Sent: Saturday, November 10, 2018 7:42:23 PM
+To: Roger.Bivand at nhh.no
+Cc: Andreas Storvik Strauman; r-sig-fedora at r-project.org; Tom Callaway
+Subject: Re: [R-sig-Fedora] Fedora 29 upgrade: texlive-scheme-medium may depend on R (texlive-includernw)
+
+On Sat, 10 Nov 2018 at 19:12, Roger Bivand <Roger.Bivand at nhh.no> wrote:
+>
+> My point exactly. It should only run R RHOME to check for the existence of
+> R (if this is what it does) at run time, not at install time. If it then,
+> at run time, does not find R, or having found R does not find knitr
+> (though Sweave is part of utils, so knitr is only needed by those using
+> knitr to weave Rnw documents, or to convert from Rmd), it should issue
+> helpful error messages to tell the user to install R, or to install knitr
+> within R. By requiring to see R when being run by root/admin at install
+> time, it is making invasive assumptions about the user environment.
+>
+> It could be that the texlive-includernw package itself does not require
+> install time dependency fulfillment, and that this is something only the
+> Fedora texlive packager has mis-understood.
+
+Texlive packages don't require anything at build time, so Andreas has
+nothing to do with this issue. The description of his package claims
+that R and knitr are required at run time, so the Fedora packager (Tom
+'spot' Callaway, in CC now) had to take a decision: either to avoid
+non-texlive dependencies, which results in a broken installation
+(texlive-includernw won't work without R), or to be more user-friendly
+and install all the required run time dependencies.
+
+Tom took the second path, as he did too with texlive-graphicxpsd, for
+instance, which requires ImageMagick. Of course, this doesn't work for
+you, but admittedly, having an R installation under your home
+directory is not a typical case. I don't know whether there's any
+official packaging guideline about this (i.e., non-texlive
+dependencies vs. installing non-working texlive packages). If not, you
+could ask Tom to reconsider his decision.
+
+I?aki
+
+	[[alternative HTML version deleted]]
+
+

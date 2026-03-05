@@ -1,0 +1,185 @@
+From pauljohn32 at gmail.com  Thu Feb  4 03:12:11 2010
+From: pauljohn32 at gmail.com (Paul Johnson)
+Date: Wed, 3 Feb 2010 20:12:11 -0600
+Subject: [R-sig-Fedora] Improving RPM packaging for R;
+	ideas gathered from the Debian folks
+Message-ID: <13e802631002031812r46e489f6ve8d14ae29f25a8fb@mail.gmail.com>
+
+Hi, everybody.
+
+I've got some Centos Linux systems and some Ubuntu Linux systems.  R's
+basically the same in either place, but the packaging of R for Debian
+systems seems better to me than it is on Fedora/Redhat/Centos.
+
+I joined R-sig-debian and we talk about package management issues
+there sometimes. One of the really handy R packaging ideas they have
+is to customize R environment so that there are several directories in
+the package path.
+
+It adjusts the etc/Renviron file so that it has:
+
+R_LIBS_USER=${R_LIBS_USER-'~/R/i486-pc-linux-gnu-library/2.10'}
+R_LIBS_SITE=${R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library'}
+
+That would be pretty easy to add into the R packaging for RPM systems.
+The benefit is as follows.
+
+If an unprivileged user tries to install an R package, there's no
+error, but rather it installs the rpm under $HOME/R/i386.
+If a privileged user installs a package in R, that goes into /usr/local/lib/R.
+If the privileged user installs an RPM that with packages that come
+from R itself, the package is supposed to be built so it goes into
+/usr/lib/R/, and if a package is built for circulation, it would
+deposit into /usr/lib/R/site-libarary. In this way, one can have
+several non-conflicting versions of a package, and users can
+experiment with packages in their personal space and not destroy the
+system package.
+
+That's pretty handy, I think. Its a significant convenience for
+Debian-based users of R.
+
+"Over there" in r-sig-deb, I learned that Dirk Eddelbuettel and
+Charles Blundell developed a thing called "cran2deb".
+
+http://www.mail-archive.com/debian-science at lists.debian.org/msg03306.html
+
+That has debian packages of almost every R package you can get on CRAN.
+
+I wonder if we couldn't do something like that for RPM users. There
+are SOME R packages you can get in rpm, but not a comprehensive
+collection.  I'm not entirely sure we should do it, as it may just
+generate more user dependency.  But sometimes I think it would be
+handy.
+
+Dirk also has a neat RSS service announcing new R packages.
+http://dirk.eddelbuettel.com/cranberries/
+
+I've been building RPMs for about 10 years and Debian packages for
+about 2 years.  It seems to me the RPM system is simpler and more
+straightforward, but it is hard to argue with the success of the
+Debian folks in creating packages that have handy features.
+
+What do you think?
+
+-- 
+Paul E. Johnson
+Professor, Political Science
+1541 Lilac Lane, Room 504
+University of Kansas
+
+
+From tcallawa at redhat.com  Mon Feb  8 21:29:45 2010
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Mon, 08 Feb 2010 15:29:45 -0500
+Subject: [R-sig-Fedora] Improving RPM packaging for R;
+ ideas gathered from the Debian folks
+In-Reply-To: <13e802631002031812r46e489f6ve8d14ae29f25a8fb@mail.gmail.com>
+References: <13e802631002031812r46e489f6ve8d14ae29f25a8fb@mail.gmail.com>
+Message-ID: <4B707439.9000809@redhat.com>
+
+On 02/03/2010 09:12 PM, Paul Johnson wrote:
+> One of the really handy R packaging ideas they have
+> is to customize R environment so that there are several directories in
+> the package path.
+> 
+> It adjusts the etc/Renviron file so that it has:
+> 
+> R_LIBS_USER=${R_LIBS_USER-'~/R/i486-pc-linux-gnu-library/2.10'}
+> R_LIBS_SITE=${R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library'}
+> 
+> That would be pretty easy to add into the R packaging for RPM systems.
+>
+> The benefit is as follows.
+> 
+> If an unprivileged user tries to install an R package, there's no
+> error, but rather it installs the rpm under $HOME/R/i386.
+
+Well, I don't think a standard setup will permit an unprivileged user to
+install rpm packages, but this should work when building things from
+CRAN, I suppose.
+
+My only concerns are:
+
+1) Users shouldn't be assuming that /usr/local/lib/R exists. Fedora
+packages can't create that directory, and we don't really want the first
+user to hit that directory to create it with their own ownership privs.
+2) Right now, we have two locations for R packages from Fedora:
+%{_libdir}/R/library/* and %{_datadir}/R/library/* (arch vs noarch). I'm
+not sure it is worth making another set of separate directories.
+
+Or to sum it up, I think the R_LIBS_USER setting makes some sense, but
+I'm not sure the additional complexity of R_LIBS_SITE adds any value.
+
+Also, I'm not sure why there is so much hierarchy in the proposed
+setting for R_LIBS_USER. The R version, perhaps is understandable, but
+the target architecture?
+
+> "Over there" in r-sig-deb, I learned that Dirk Eddelbuettel and
+> Charles Blundell developed a thing called "cran2deb".
+> 
+> http://www.mail-archive.com/debian-science at lists.debian.org/msg03306.html
+> 
+> That has debian packages of almost every R package you can get on CRAN.
+
+I'm not personally a fan of autogenerated packages. If people are
+interested in a CRAN package, we can get it added to Fedora and properly
+maintained. The number of times that RScaLAPACK has broken has convinced
+me of the value of having someone responsible for keeping these bits
+alive. :)
+
+With that said, various folks have made some good tools for making quick
+and easy R module RPM packages, and those are an excellent first step
+for getting those packages into Fedora.
+
+~spot
+
+
+From p.dalgaard at biostat.ku.dk  Mon Feb  8 22:07:22 2010
+From: p.dalgaard at biostat.ku.dk (Peter Dalgaard)
+Date: Mon, 08 Feb 2010 22:07:22 +0100
+Subject: [R-sig-Fedora] Improving RPM packaging for R;
+ ideas gathered from the Debian folks
+In-Reply-To: <4B707439.9000809@redhat.com>
+References: <13e802631002031812r46e489f6ve8d14ae29f25a8fb@mail.gmail.com>
+	<4B707439.9000809@redhat.com>
+Message-ID: <4B707D0A.7020202@biostat.ku.dk>
+
+Tom "spot" Callaway wrote:
+
+> 
+> Also, I'm not sure why there is so much hierarchy in the proposed
+> setting for R_LIBS_USER. The R version, perhaps is understandable, but
+> the target architecture?
+
+Think networked drives. Is the users home dir mounted on Linux, Solaris, 
+Mac, or maybe a P: drive on Windows? (Been there...)
+
+
+-- 
+    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B
+   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K
+  (*) \(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918
+~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907
+
+
+From tcallawa at redhat.com  Mon Feb  8 22:21:36 2010
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Mon, 08 Feb 2010 16:21:36 -0500
+Subject: [R-sig-Fedora] Improving RPM packaging for R;
+ ideas gathered from the Debian folks
+In-Reply-To: <4B707D0A.7020202@biostat.ku.dk>
+References: <13e802631002031812r46e489f6ve8d14ae29f25a8fb@mail.gmail.com>
+	<4B707439.9000809@redhat.com> <4B707D0A.7020202@biostat.ku.dk>
+Message-ID: <4B708060.7000305@redhat.com>
+
+On 02/08/2010 04:07 PM, Peter Dalgaard wrote:
+> Think networked drives. Is the users home dir mounted on Linux, Solaris,
+> Mac, or maybe a P: drive on Windows?
+
+Well, having also been there, I think that sort of environment involves
+customization beyond that provided by the distribution. Or, to put it
+succinctly, we should not target madness by default. :)
+
+~spot
+
+

@@ -1,0 +1,981 @@
+From jeff at trefftzs.org  Wed Aug  2 21:09:38 2017
+From: jeff at trefftzs.org (Jeff Trefftzs)
+Date: Wed, 02 Aug 2017 12:09:38 -0700
+Subject: [R-sig-Fedora] Getting R to work with Fedora 26
+Message-ID: <1501700978.7602.4.camel@trefftzs.org>
+
+I just installed Fedora 26 on my laptop, and R now fails to load.  The
+error message is missing libgfortran.so.3.  Does anyone have a fix for
+this?  FC 26 comes with R-3.4.1 as an RPM, but it throws the error, as
+does trying to compile R-3.4.1 from source.  
+
+-- 
+Jeff Trefftzs
+http://www.trefftzs.org
+
+
+From tcallawa at redhat.com  Wed Aug  2 21:30:47 2017
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 2 Aug 2017 15:30:47 -0400
+Subject: [R-sig-Fedora] Getting R to work with Fedora 26
+In-Reply-To: <1501700978.7602.4.camel@trefftzs.org>
+References: <1501700978.7602.4.camel@trefftzs.org>
+Message-ID: <CANA0HMZYZZN6oK3BuKaTpmvOF4J4rceDLr=AZoJcd7Ezzhc1fA@mail.gmail.com>
+
+On 08/02/2017 03:09 PM, Jeff Trefftzs wrote:
+> I just installed Fedora 26 on my laptop, and R now fails to load.  The
+> error message is missing libgfortran.so.3.  Does anyone have a fix for
+> this?  FC 26 comes with R-3.4.1 as an RPM, but it throws the error, as
+> does trying to compile R-3.4.1 from source.
+
+Looking at my Fedora 26 system:
+
+[spot at localhost ~]$ rpm -q R-core
+R-core-3.4.1-1.fc26.x86_64
+
+[spot at localhost ~]$ rpm -q R-core --requires |grep libgfortran
+libgfortran.so.4()(64bit)
+libgfortran.so.4(GFORTRAN_7)(64bit)
+
+I'm not sure how you ended up with an R package that depends on
+libgfortran.so.3, unless you have one for an older Fedora. In Fedora 26,
+libgfortran.so.4 is provided by libgfortran.
+
+~tom
+
+
+From jeff at trefftzs.org  Wed Aug  2 23:08:06 2017
+From: jeff at trefftzs.org (Jeff Trefftzs)
+Date: Wed, 02 Aug 2017 14:08:06 -0700
+Subject: [R-sig-Fedora] Getting R to work with Fedora 26
+In-Reply-To: <CANA0HMZYZZN6oK3BuKaTpmvOF4J4rceDLr=AZoJcd7Ezzhc1fA@mail.gmail.com>
+References: <1501700978.7602.4.camel@trefftzs.org>
+ <CANA0HMZYZZN6oK3BuKaTpmvOF4J4rceDLr=AZoJcd7Ezzhc1fA@mail.gmail.com>
+Message-ID: <1501708086.7602.6.camel@trefftzs.org>
+
+On Wed, 2017-08-02 at 15:30 -0400, Tom Callaway wrote:
+> On 08/02/2017 03:09 PM, Jeff Trefftzs wrote:
+> > I just installed Fedora 26 on my laptop, and R now fails to load. 
+> >  The
+> > error message is missing libgfortran.so.3.  Does anyone have a fix
+> > for
+> > this?  FC 26 comes with R-3.4.1 as an RPM, but it throws the error,
+> > as
+> > does trying to compile R-3.4.1 from source.
+> 
+> Looking at my Fedora 26 system:
+> 
+> [spot at localhost ~]$ rpm -q R-core
+> R-core-3.4.1-1.fc26.x86_64
+> 
+> [spot at localhost ~]$ rpm -q R-core --requires |grep libgfortran
+> libgfortran.so.4()(64bit)
+> libgfortran.so.4(GFORTRAN_7)(64bit)
+> 
+> I'm not sure how you ended up with an R package that depends on
+> libgfortran.so.3, unless you have one for an older Fedora. In Fedora
+> 26,
+> libgfortran.so.4 is provided by libgfortran.
+> 
+Thanks for the tip.  I think I just had the pre-update installation of
+R-3.4.1 left over from FC 25.  Uninstalling it and reinstalling the FC
+26 version seems to have fixed things.
+
+
+
+> ~tom
+-- 
+Jeff Trefftzs
+http://www.trefftzs.org
+
+
+From jalvarezbenayas1 at sheffield.ac.uk  Fri Aug 18 19:12:04 2017
+From: jalvarezbenayas1 at sheffield.ac.uk (Jaime Alvarez Benayas)
+Date: Fri, 18 Aug 2017 18:12:04 +0100
+Subject: [R-sig-Fedora] No rule to make target all.R,
+ needed by compiler.rdb building R 3.4.1 from source,
+ Scientific Linux release 6.9 (Carbon)
+Message-ID: <CAP+QG4yPMgDrwik9F4sef2E6_mqwZ3vYMdNNJbNSmP683eawEQ@mail.gmail.com>
+
+Hello,
+
+I am trying to build R from source on Scientific Linux release 6.9
+(Carbon), Linux version 2.6.32-696.3.2.el6.x86_64 (Red Hat 4.4.7-18).
+
+I load the needed modules and run:
+
+*./configure --prefix $install_dir --with-blas --with-lapack
+--enable-R-shlib 2>&1 | tee config-R-$version.log*
+
+
+
+
+The "configure" command seems to run ok:
+
+*R is now configured for x86_64-pc-linux-gnu*
+
+*  Source directory:          .*
+*  Installation directory:    /fastdata/mbp15ja/R-3.4.1*
+
+*  C compiler:                gcc
+ -I/usr/local/packages6/compilers/gcc/5.4.0/include*
+*  Fortran 77 compiler:       gfortran  -g -O2*
+
+*  Default C++ compiler:      g++   -g -O2*
+*  C++98 compiler:            g++  -g -O2*
+*  C++11 compiler:            g++ -std=gnu++11 -g -O2*
+*  C++14 compiler:            g++ -std=gnu++14 -g -O2*
+*  C++17 compiler:*
+*  Fortran 90/95 compiler:    gfortran -g -O2*
+*  Obj-C compiler:*
+
+*  Interfaces supported:      X11, tcltk*
+*  External libraries:        readline, curl*
+*  Additional capabilities:   PNG, JPEG, NLS, cairo*
+*  Options enabled:           shared R library, shared BLAS, R profiling*
+
+*  Capabilities skipped:      TIFF, ICU*
+*  Options not enabled:       memory profiling*
+
+*  Recommended packages:      yes*
+
+
+
+I encountered an error running "make -n" with the libtre library not
+generating libtre.a:
+
+*rm -rf libnmath.a*
+*ar -cr libnmath.a mlutils.o d1mach.o i1mach.o fmax2.o fmin2.o fprec.o
+fround.o ftrunc.o sign.o fsign.o imax2.o imin2.o chebyshev.o log1p.o
+expm1.o lgammacor.o gammalims.o stirlerr.o bd0.o gamma.o lgamma.o
+gamma_cody.o beta.o lbeta.o polygamma.o cospi.o bessel_i.o bessel_j.o
+bessel_k.o bessel_y.o choose.o snorm.o sexp.o dgamma.o pgamma.o qgamma.o
+rgamma.o dbeta.o pbeta.o qbeta.o rbeta.o dunif.o punif.o qunif.o runif.o
+dnorm.o pnorm.o qnorm.o rnorm.o dlnorm.o plnorm.o qlnorm.o rlnorm.o df.o
+pf.o qf.o rf.o dnf.o dt.o pt.o qt.o rt.o dnt.o dchisq.o pchisq.o qchisq.o
+rchisq.o rnchisq.o dbinom.o pbinom.o qbinom.o rbinom.o rmultinom.o
+dcauchy.o pcauchy.o qcauchy.o rcauchy.o dexp.o pexp.o qexp.o rexp.o dgeom.o
+pgeom.o qgeom.o rgeom.o dhyper.o phyper.o qhyper.o rhyper.o dnbinom.o
+pnbinom.o qnbinom.o rnbinom.o dpois.o ppois.o qpois.o rpois.o dweibull.o
+pweibull.o qweibull.o rweibull.o dlogis.o plogis.o qlogis.o rlogis.o
+dnchisq.o pnchisq.o qnchisq.o dnbeta.o pnbeta.o qnbeta.o pnf.o pnt.o qnf.o
+qnt.o ptukey.o qtukey.o toms708.o wilcox.o signrank.o*
+*ranlib libnmath.a*
+*make[4]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/nmath'*
+*make[3]: *** No rule to make target `../extra/tre/libtre.a', needed by
+`libR.so'.  Stop.*
+*make[3]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'*
+*make[2]: *** [R] Error 2*
+*make[2]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'*
+*make[1]: *** [R] Error 1*
+*make[1]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src'*
+*make: *** [R] Error 1*
+
+I read in here https://www-01.ibm.com/support/docview.wss?uid=swg1IV36656 that
+the library isn't supposed to make libtre.a and that they assume the file
+they are looking for is libtre.so
+I therefore built the libtre and linked libtre.so from the library
+to src/extra/tre/libtre.a and now the make
+
+
+
+
+"make -n" now fails with:
+
+*if test -f ./NAMESPACE;  then \*
+*          /usr/bin/install -c -m 644 ./NAMESPACE
+../../../library/compiler; \*
+*        fi*
+*rm -f ../../../library/compiler/Meta/nsInfo.rds*
+*if test -f DESCRIPTION; then \*
+*          if test "" != ""; then \*
+*            echo "tools:::.install_package_description('.',
+'../../../library/compiler', '')" | \*
+*            R_DEFAULT_PACKAGES=NULL R_ENABLE_JIT=0 ../../../bin/R
+--vanilla --slave > /dev/null ; \*
+*          else \*
+*          echo "tools:::.install_package_description('.',
+'../../../library/compiler')" | \*
+*          R_DEFAULT_PACKAGES=NULL R_ENABLE_JIT=0 ../../../bin/R --vanilla
+--slave > /dev/null ; \*
+*          fi; \*
+*        fi*
+*make[4]: Leaving directory
+`/data/mbp15ja/R-3.4.1/R-3.4.1/src/library/compiler'*
+*make mklazycomp*
+*make[4]: Entering directory
+`/data/mbp15ja/R-3.4.1/R-3.4.1/src/library/compiler'*
+*make[4]: *** No rule to make target `all.R', needed by
+`../../../library/compiler/R/compiler.rdb'.  Stop.*
+*make[4]: Leaving directory
+`/data/mbp15ja/R-3.4.1/R-3.4.1/src/library/compiler'*
+*make[3]: *** [all] Error 2*
+*make[3]: Leaving directory
+`/data/mbp15ja/R-3.4.1/R-3.4.1/src/library/compiler'*
+*make[2]: *** [R] Error 1*
+*make[2]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/library'*
+*make[1]: *** [R] Error 1*
+*make[1]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src'*
+*make: *** [R] Error 1*
+
+
+I haven't seen anything regarding *all.R and *
+*../../../library/compiler/R/compiler.rdb*
+
+
+Thanks in advance!
+
+-- 
+
+---------------------------------------------------------------------
+
+Jaime ?lvarez Benayas
+
+PhD. Student
+
+Department of Molecular Biology and Biotechnology
+
+University of Sheffield
+
+	[[alternative HTML version deleted]]
+
+
+From abetz58 at gmail.com  Sat Aug 19 22:16:17 2017
+From: abetz58 at gmail.com (andreas betz)
+Date: Sat, 19 Aug 2017 13:16:17 -0700
+Subject: [R-sig-Fedora] Hmisc on Fedora
+Message-ID: <CAMBc2W5ANnfQ3sKYPb+BC=ni68UDS+Y+sXR14LyGXpFobiijXg@mail.gmail.com>
+
+Hello,
+
+when I want to install H misc and rms using Fedora 26. I receive the
+following error message:
+
+Error: package or namespace load failed for ?Hmisc? in dyn.load(file,
+DLLpath = DLLpath, ...):
+ unable to load shared object '/usr/lib64/R/library/Hmisc/libs/Hmisc.so':
+ libgfortran.so.3: cannot open shared object file: No such file or directory
+
+
+Scanning the R-help several other users received similar messages and
+described some solutions.
+Could somebody please provide a step for step approach to repair this
+problem.
+
+Thank you
+
+Andreas
+
+	[[alternative HTML version deleted]]
+
+
+From plummerm at iarc.fr  Mon Aug 21 09:47:39 2017
+From: plummerm at iarc.fr (Martyn Plummer)
+Date: Mon, 21 Aug 2017 07:47:39 +0000
+Subject: [R-sig-Fedora] Hmisc on Fedora
+In-Reply-To: <CAMBc2W5ANnfQ3sKYPb+BC=ni68UDS+Y+sXR14LyGXpFobiijXg@mail.gmail.com>
+References: <CAMBc2W5ANnfQ3sKYPb+BC=ni68UDS+Y+sXR14LyGXpFobiijXg@mail.gmail.com>
+Message-ID: <1503301658.2593.59.camel@iarc.fr>
+
+There is a binary incompatibility between FC25 and FC26 so this can
+happen when you upgrade without reinstalling R
+
+1) If you installed R from source before upgrading then rebuild and
+reinstall it.
+
+2) If you installed R from the rpmfusion repository then make sure you
+have the FC26 version installed:
+
+[plummerm at D-160182 ~]$ rpm -q R
+R-3.4.1-1.fc26.x86_64
+          ^^^^
+
+Update/reinstall if necessary.
+
+3) If you have a personal library then you may need to reinstall the
+packages that were built under FC25 and use Fortran.
+
+
+Martyn
+
+On Sat, 2017-08-19 at 13:16 -0700, andreas betz wrote:
+> Hello,
+> 
+> when I want to install H misc and rms using Fedora 26. I receive the
+> following error message:
+> 
+> Error: package or namespace load failed for ?Hmisc? in dyn.load(file,
+> DLLpath = DLLpath, ...):
+>  unable to load shared object
+> '/usr/lib64/R/library/Hmisc/libs/Hmisc.so':
+>  libgfortran.so.3: cannot open shared object file: No such file or
+> directory
+> 
+> 
+> Scanning the R-help several other users received similar messages and
+> described some solutions.
+> Could somebody please provide a step for step approach to repair this
+> problem.
+> 
+> Thank you
+> 
+> Andreas
+> 
+> 	[[alternative HTML version deleted]]
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+From Stefan.Braun at rewe-group.com  Wed Aug 23 12:02:45 2017
+From: Stefan.Braun at rewe-group.com (Braun, Stefan)
+Date: Wed, 23 Aug 2017 10:02:45 +0000
+Subject: [R-sig-Fedora] Error "translateCharUTF8' must be called on a
+ CHARSXP Execution halted"
+Message-ID: <9030c24085864d46af62d0cb898531ec@rewe-group.com>
+
+Dear list,
+
+I installed R 3.3.2 on a Red Hat Linux Enterprise 7.3 machine by adding the EPEL-repository and then installing it via yum.
+R starts up and seems to be doing fine at first sight. However, when I try to list the files in a directory with the command
+
+files <- list.files(path="/home/username/directory_name/", pattern="*.Rda",, full.names=T, recursive=FALSE)
+
+I get the error
+
+translateCharUTF8' must be called on a CHARSXP
+Execution halted
+
+On my local windows machine the command works fine.
+Googling this nothing really comes up except that the installation might be broken. (See http://r.789695.n4.nabble.com/list-files-error-message-translateCharUTF8-must-be-called-on-a-CHARSXP-td3250302.html)
+
+The strange thing is, that if I copy and paste the command into R and execute it, it does not work, but if I copy and paste it into R and change that command in a way that should not change its result but only add spaces or something like that it might run. E.g. changing it to
+
+files <- list.files(path = "/home/username/directory_name/", pattern = "*.Rda",, full.names = T, recursive = FALSE)
+
+might work, might not work and return the same error, or might execute but when I then type "files" that might return
+
+[1]Error: 'getCharCE' must be called on a CHARSXP
+
+The sessionInfo commmand gives me:
+sessionInfo()
+R version 3.3.2 (2016-10-31)
+Platform: x86_64-redhat-linux-gnu (64-bit)
+Running under: Red Hat Enterprise Linux Server 7.3 (Maipo)
+
+locale:
+[1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+[3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+[5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+[7] LC_PAPER=en_US.UTF-8       LC_NAME=C
+[9] LC_ADDRESS=C               LC_TELEPHONE=C
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base
+
+uname -mrs gives me:
+Linux 3.10.0-514.el7.x86_64 x86_64
+
+Any help would be greatly appreciated.
+
+Best regards,
+Stefan Braun
+
+	[[alternative HTML version deleted]]
+
+
+From johannes.lips at gmail.com  Wed Aug 23 13:12:44 2017
+From: johannes.lips at gmail.com (Johannes Lips)
+Date: Wed, 23 Aug 2017 13:12:44 +0200
+Subject: [R-sig-Fedora] Error "translateCharUTF8' must be called on a
+ CHARSXP Execution halted"
+In-Reply-To: <9030c24085864d46af62d0cb898531ec@rewe-group.com>
+References: <9030c24085864d46af62d0cb898531ec@rewe-group.com>
+Message-ID: <7a6a1bf7-cf19-b766-92fa-5c09e1eded39@gmail.com>
+
+On 23.08.2017 12:02, Braun, Stefan wrote:
+> Dear list,
+>
+> I installed R 3.3.2 on a Red Hat Linux Enterprise 7.3 machine by adding the EPEL-repository and then installing it via yum.
+> R starts up and seems to be doing fine at first sight. However, when I try to list the files in a directory with the command
+>
+> files <- list.files(path="/home/username/directory_name/", pattern="*.Rda",, full.names=T, recursive=FALSE)
+>
+> I get the error
+>
+> translateCharUTF8' must be called on a CHARSXP
+> Execution halted
+>
+> On my local windows machine the command works fine.
+> Googling this nothing really comes up except that the installation might be broken. (See http://r.789695.n4.nabble.com/list-files-error-message-translateCharUTF8-must-be-called-on-a-CHARSXP-td3250302.html)
+>
+> The strange thing is, that if I copy and paste the command into R and execute it, it does not work, but if I copy and paste it into R and change that command in a way that should not change its result but only add spaces or something like that it might run. E.g. changing it to
+>
+> files <- list.files(path = "/home/username/directory_name/", pattern = "*.Rda",, full.names = T, recursive = FALSE)
+>
+> might work, might not work and return the same error, or might execute but when I then type "files" that might return
+>
+> [1]Error: 'getCharCE' must be called on a CHARSXP
+>
+> The sessionInfo commmand gives me:
+> sessionInfo()
+> R version 3.3.2 (2016-10-31)
+> Platform: x86_64-redhat-linux-gnu (64-bit)
+> Running under: Red Hat Enterprise Linux Server 7.3 (Maipo)
+>
+> locale:
+> [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+> [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+> [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+> [7] LC_PAPER=en_US.UTF-8       LC_NAME=C
+> [9] LC_ADDRESS=C               LC_TELEPHONE=C
+> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+>
+> attached base packages:
+> [1] stats     graphics  grDevices utils     datasets  methods   base
+>
+> uname -mrs gives me:
+> Linux 3.10.0-514.el7.x86_64 x86_64
+>
+> Any help would be greatly appreciated.
+>
+> Best regards,
+> Stefan Braun
+Just for the record, there's the stackoverflow question
+https://stackoverflow.com/questions/45835818/translatecharutf8-must-be-called-on-a-charsxp-execution-halted
+Cheers
+Johannes
+>
+> 	[[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+From plummerm at iarc.fr  Wed Aug 23 14:27:32 2017
+From: plummerm at iarc.fr (Martyn Plummer)
+Date: Wed, 23 Aug 2017 12:27:32 +0000
+Subject: [R-sig-Fedora] Error "translateCharUTF8' must be called on a
+ CHARSXP Execution halted"
+In-Reply-To: <7a6a1bf7-cf19-b766-92fa-5c09e1eded39@gmail.com>
+References: <9030c24085864d46af62d0cb898531ec@rewe-group.com>
+ <7a6a1bf7-cf19-b766-92fa-5c09e1eded39@gmail.com>
+Message-ID: <1503491252.2593.77.camel@iarc.fr>
+
+It is difficult to debug this without a reproducible example. 
+
+Do you have, in the file system that you are trying to list, files with
+names that are not utf8-encoded?
+
+Martyn
+
+On Wed, 2017-08-23 at 13:12 +0200, Johannes Lips wrote:
+> On 23.08.2017 12:02, Braun, Stefan wrote:
+> > Dear list,
+> > 
+> > I installed R 3.3.2 on a Red Hat Linux Enterprise 7.3 machine by
+> > adding the EPEL-repository and then installing it via yum.
+> > R starts up and seems to be doing fine at first sight. However,
+> > when I try to list the files in a directory with the command
+> > 
+> > files <- list.files(path="/home/username/directory_name/",
+> > pattern="*.Rda",, full.names=T, recursive=FALSE)
+> > 
+> > I get the error
+> > 
+> > translateCharUTF8' must be called on a CHARSXP
+> > Execution halted
+> > 
+> > On my local windows machine the command works fine.
+> > Googling this nothing really comes up except that the installation
+> > might be broken. (See http://r.789695.n4.nabble.com/list-files-erro
+> > r-message-translateCharUTF8-must-be-called-on-a-CHARSXP-
+> > td3250302.html)
+> > 
+> > The strange thing is, that if I copy and paste the command into R
+> > and execute it, it does not work, but if I copy and paste it into R
+> > and change that command in a way that should not change its result
+> > but only add spaces or something like that it might run. E.g.
+> > changing it to
+> > 
+> > files <- list.files(path = "/home/username/directory_name/",
+> > pattern = "*.Rda",, full.names = T, recursive = FALSE)
+> > 
+> > might work, might not work and return the same error, or might
+> > execute but when I then type "files" that might return
+> > 
+> > [1]Error: 'getCharCE' must be called on a CHARSXP
+> > 
+> > The sessionInfo commmand gives me:
+> > sessionInfo()
+> > R version 3.3.2 (2016-10-31)
+> > Platform: x86_64-redhat-linux-gnu (64-bit)
+> > Running under: Red Hat Enterprise Linux Server 7.3 (Maipo)
+> > 
+> > locale:
+> > [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+> > [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+> > [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+> > [7] LC_PAPER=en_US.UTF-8       LC_NAME=C
+> > [9] LC_ADDRESS=C               LC_TELEPHONE=C
+> > [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+> > 
+> > attached base packages:
+> > [1] stats     graphics  grDevices
+> > utils     datasets  methods   base
+> > 
+> > uname -mrs gives me:
+> > Linux 3.10.0-514.el7.x86_64 x86_64
+> > 
+> > Any help would be greatly appreciated.
+> > 
+> > Best regards,
+> > Stefan Braun
+> 
+> Just for the record, there's the stackoverflow question
+> https://stackoverflow.com/questions/45835818/translatecharutf8-must-b
+> e-called-on-a-charsxp-execution-halted
+> Cheers
+> Johannes
+> > 
+> > 	[[alternative HTML version deleted]]
+> > 
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+From tcallawa at redhat.com  Wed Aug 23 20:41:36 2017
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 23 Aug 2017 14:41:36 -0400
+Subject: [R-sig-Fedora] No rule to make target all.R,
+ needed by compiler.rdb building R 3.4.1 from source,
+ Scientific Linux release 6.9 (Carbon)
+In-Reply-To: <CAP+QG4yPMgDrwik9F4sef2E6_mqwZ3vYMdNNJbNSmP683eawEQ@mail.gmail.com>
+References: <CAP+QG4yPMgDrwik9F4sef2E6_mqwZ3vYMdNNJbNSmP683eawEQ@mail.gmail.com>
+Message-ID: <cd69ac0c-28ab-5c58-e2e8-06a4535f6c75@redhat.com>
+
+
+
+On 08/18/2017 01:12 PM, Jaime Alvarez Benayas wrote:
+> Hello,
+> 
+> I am trying to build R from source on Scientific Linux release 6.9
+> (Carbon), Linux version 2.6.32-696.3.2.el6.x86_64 (Red Hat 4.4.7-18).
+
+Before debugging this too far, is there a reason you're building from
+source as opposed to using the R prebuilt packages in EPEL?
+
+~tom
+
+
+From jalvarezbenayas1 at sheffield.ac.uk  Wed Aug 23 20:46:03 2017
+From: jalvarezbenayas1 at sheffield.ac.uk (Jaime Alvarez Benayas)
+Date: Wed, 23 Aug 2017 19:46:03 +0100
+Subject: [R-sig-Fedora] No rule to make target all.R,
+	needed by compiler.rdb building R 3.4.1 from source,
+	Scientific Linux release 6.9 (Carbon)
+In-Reply-To: <cd69ac0c-28ab-5c58-e2e8-06a4535f6c75@redhat.com>
+References: <CAP+QG4yPMgDrwik9F4sef2E6_mqwZ3vYMdNNJbNSmP683eawEQ@mail.gmail.com>
+ <cd69ac0c-28ab-5c58-e2e8-06a4535f6c75@redhat.com>
+Message-ID: <00c201d31c40$12a08230$37e18690$@sheffield.ac.uk>
+
+Hello,
+
+I am installing R in an environment where I am not admin...
+
+Thanks
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: mi?rcoles, 23 de agosto de 2017 19:42
+To: Jaime Alvarez Benayas <jalvarezbenayas1 at sheffield.ac.uk>; r-sig-fedora at r-project.org
+Subject: Re: [R-sig-Fedora] No rule to make target all.R, needed by compiler.rdb building R 3.4.1 from source, Scientific Linux release 6.9 (Carbon)
+
+
+
+On 08/18/2017 01:12 PM, Jaime Alvarez Benayas wrote:
+> Hello,
+> 
+> I am trying to build R from source on Scientific Linux release 6.9 
+> (Carbon), Linux version 2.6.32-696.3.2.el6.x86_64 (Red Hat 4.4.7-18).
+
+Before debugging this too far, is there a reason you're building from source as opposed to using the R prebuilt packages in EPEL?
+
+~tom
+
+
+From tcallawa at redhat.com  Wed Aug 23 21:01:16 2017
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 23 Aug 2017 15:01:16 -0400
+Subject: [R-sig-Fedora] No rule to make target all.R,
+ needed by compiler.rdb building R 3.4.1 from source,
+ Scientific Linux release 6.9 (Carbon)
+In-Reply-To: <CAP+QG4yPMgDrwik9F4sef2E6_mqwZ3vYMdNNJbNSmP683eawEQ@mail.gmail.com>
+References: <CAP+QG4yPMgDrwik9F4sef2E6_mqwZ3vYMdNNJbNSmP683eawEQ@mail.gmail.com>
+Message-ID: <884a4c60-d6dd-288b-3f5d-c66dad43d68e@redhat.com>
+
+
+
+On 08/18/2017 01:12 PM, Jaime Alvarez Benayas wrote:
+> Hello,
+> 
+> I am trying to build R from source on Scientific Linux release 6.9
+> (Carbon), Linux version 2.6.32-696.3.2.el6.x86_64 (Red Hat 4.4.7-18).
+
+Okay, so the versions of zlib, bzip2, xz, curl, and pcre are too old on
+Scientific Linux 6.9 (unless they've updated all of them when I wasn't
+looking). That said, I don't think your problem is there.
+
+Why are you calling make -n instead of just make?
+
+~tom
+
+
+From jalvarezbenayas1 at sheffield.ac.uk  Wed Aug 23 21:58:47 2017
+From: jalvarezbenayas1 at sheffield.ac.uk (Jaime Alvarez Benayas)
+Date: Wed, 23 Aug 2017 20:58:47 +0100
+Subject: [R-sig-Fedora] No rule to make target all.R,
+	needed by compiler.rdb building R 3.4.1 from source,
+	Scientific Linux release 6.9 (Carbon)
+In-Reply-To: <884a4c60-d6dd-288b-3f5d-c66dad43d68e@redhat.com>
+References: <CAP+QG4yPMgDrwik9F4sef2E6_mqwZ3vYMdNNJbNSmP683eawEQ@mail.gmail.com>
+ <884a4c60-d6dd-288b-3f5d-c66dad43d68e@redhat.com>
+Message-ID: <00de01d31c4a$3c1c4680$b454d380$@sheffield.ac.uk>
+
+Thanks again, sorry I didn't specify this. I am loading new libraries to get to this point. The script I run for "configure" is:
+
+#Load the new curl module
+module load libs/gcc/4.4.7/curl/7.47.1
+#Load the new xzutils module
+module load apps/gcc/4.4.7/xzutils/5.2.2
+#Load the new zlib module
+module load libs/gcc/4.4.7/zlib/1.2.8
+#Load the new bzip2 module
+module load libs/gcc/4.4.7/bzip2/1.0.6
+export LDFLAGS="-L/usr/local/packages6/libs/gcc/4.4.7/bzip2/1.0.6/lib/"
+#load pcre module
+module load libs/gcc/4.4.7/pcre/8.37
+
+
+#Set up environment variables and create directories
+version=3.4.1
+install_dir=/fastdata/mbp15ja/R-$version
+build_dir=/data/mbp15ja/R-$version
+mkdir -p $build_dir
+mkdir -p $install_dir
+
+cd $build_dir
+
+#Set up modules
+module load libs/gcc/lapack
+module load libs/gcc/blas
+
+#Download, untar and enter build directory
+wget https://cran.rstudio.com/src/base/R-3/R-$version.tar.gz
+tar -xzf ./R-$version.tar.gz
+cd R-$version
+
+#Configure and build
+# Original command
+./configure --prefix $install_dir --with-blas --with-lapack --enable-R-shlib 2>&1 | tee config-R-$version.log
+
+
+
+
+
+
+If I run the make command: 
+
+make 2>&1 | tee make-R-$version.log
+
+
+I get the following error:
+
+make[4]: Entering directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'
+mkdir -p -- /data/mbp15ja/R-3.4.1/R-3.4.1/bin/exec
+make[4]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'
+make[3]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'
+make[3]: Entering directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'
+gcc -I../../src/extra  -I. -I../../src/include -I../../src/include -I/usr/local/packages6/libs/gcc/4.4.7/curl/7.47.1/include -I/usr/local/packages6/compilers/gcc/5.4.0/include -I../../src/nmath -DHAVE_CONFIG_H   -fopenmp -fpic  -I/usr/local/packages6/compilers/gcc/5.4.0/include  -c Rmain.c -o Rmain.o
+gcc -Wl,--export-dynamic -fopenmp  -L../../lib -L/usr/local/lib/gcc/blas/1 -L/usr/local/lib/gcc/lapack/3.3.0 -L/usr/local/packages6/libs/gcc/4.4.7/bzip2/1.0.6/lib/ -o R.bin Rmain.o  -lR -lRblas
+../../lib/libR.so: undefined reference to `pcre_assign_jit_stack'
+../../lib/libR.so: undefined reference to `pcre_jit_stack_alloc'
+../../lib/libR.so: undefined reference to `pcre_free_study'
+collect2: error: ld returned 1 exit status
+make[3]: *** [R.bin] Error 1
+make[3]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'
+make[2]: *** [R] Error 2
+make[2]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'
+make[1]: *** [R] Error 1
+make[1]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src'
+make: *** [R] Error 1
+
+
+I was advised to do a dry-run trying to debug. That is why I was doing make -n
+
+I have previously loaded the PCRE library:
+echo $PATH
+/usr/local/packages6/libs/gcc/4.4.7/pcre/8.37/bin:/usr/local/packages6/libs/gcc/4.4.7/bzip2/1.0.6/bin:/usr/local/packages6/apps/gcc/4.4.7/xzutils/5.2.2/bin:/usr/local/packages6/libs/gcc/4.4.7/curl/7.47.1//bin:/usr/local/packages6/R/3.2.1/bin
+
+
+
+Thanks again for the help
+
+
+
+
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: mi?rcoles, 23 de agosto de 2017 20:01
+To: Jaime Alvarez Benayas <jalvarezbenayas1 at sheffield.ac.uk>; r-sig-fedora at r-project.org
+Subject: Re: [R-sig-Fedora] No rule to make target all.R, needed by compiler.rdb building R 3.4.1 from source, Scientific Linux release 6.9 (Carbon)
+
+
+
+On 08/18/2017 01:12 PM, Jaime Alvarez Benayas wrote:
+> Hello,
+> 
+> I am trying to build R from source on Scientific Linux release 6.9 
+> (Carbon), Linux version 2.6.32-696.3.2.el6.x86_64 (Red Hat 4.4.7-18).
+
+Okay, so the versions of zlib, bzip2, xz, curl, and pcre are too old on Scientific Linux 6.9 (unless they've updated all of them when I wasn't looking). That said, I don't think your problem is there.
+
+Why are you calling make -n instead of just make?
+
+~tom
+
+
+From tcallawa at redhat.com  Wed Aug 23 22:47:34 2017
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 23 Aug 2017 16:47:34 -0400
+Subject: [R-sig-Fedora] No rule to make target all.R,
+ needed by compiler.rdb building R 3.4.1 from source,
+ Scientific Linux release 6.9 (Carbon)
+In-Reply-To: <00de01d31c4a$3c1c4680$b454d380$@sheffield.ac.uk>
+References: <CAP+QG4yPMgDrwik9F4sef2E6_mqwZ3vYMdNNJbNSmP683eawEQ@mail.gmail.com>
+ <884a4c60-d6dd-288b-3f5d-c66dad43d68e@redhat.com>
+ <00de01d31c4a$3c1c4680$b454d380$@sheffield.ac.uk>
+Message-ID: <88ba6670-d662-8d29-63a6-d0fe71105442@redhat.com>
+
+
+
+On 08/23/2017 03:58 PM, Jaime Alvarez Benayas wrote:
+> ../../lib/libR.so: undefined reference to `pcre_assign_jit_stack'
+> ../../lib/libR.so: undefined reference to `pcre_jit_stack_alloc'
+> ../../lib/libR.so: undefined reference to `pcre_free_study'
+
+This is the error. Your PCRE is being built with SUPPORT_JIT undefined.
+
+You should see some warning during the configure phase for PCRE that
+says "JIT support requires pthreads" or something like that. You should
+get that from glibc-devel.
+
+~tom
+
+
+From jalvarezbenayas1 at sheffield.ac.uk  Thu Aug 24 01:53:00 2017
+From: jalvarezbenayas1 at sheffield.ac.uk (Jaime Alvarez Benayas)
+Date: Thu, 24 Aug 2017 00:53:00 +0100
+Subject: [R-sig-Fedora] No rule to make target all.R,
+	needed by compiler.rdb building R 3.4.1 from source,
+	Scientific Linux release 6.9 (Carbon)
+In-Reply-To: <88ba6670-d662-8d29-63a6-d0fe71105442@redhat.com>
+References: <CAP+QG4yPMgDrwik9F4sef2E6_mqwZ3vYMdNNJbNSmP683eawEQ@mail.gmail.com>
+ <884a4c60-d6dd-288b-3f5d-c66dad43d68e@redhat.com>
+ <00de01d31c4a$3c1c4680$b454d380$@sheffield.ac.uk>
+ <88ba6670-d662-8d29-63a6-d0fe71105442@redhat.com>
+Message-ID: <00ff01d31c6a$f401dbf0$dc0593d0$@sheffield.ac.uk>
+
+Hello,
+
+Thanks again. I have checked the configure step, the only messages I get containing pcre are:
+
+checking for pcre_fullinfo in -lpcre... yes
+checking pcre.h usability... yes
+checking pcre.h presence... yes
+checking for pcre.h... yes
+checking pcre/pcre.h usability... no
+checking pcre/pcre.h presence... no
+checking for pcre/pcre.h... no
+checking if PCRE version >= 8.20, < 10.0 and has UTF-8 support... yes
+checking if PCRE version >= 8.32... yes
+checking whether PCRE support suffices... yes
+
+
+The final status from the command:
+
+R is now configured for x86_64-pc-linux-gnu
+
+  Source directory:          .
+  Installation directory:    /fastdata/mbp15ja/R-3.4.1
+
+  C compiler:                gcc  -I/usr/local/packages6/compilers/gcc/5.4.0/include
+  Fortran 77 compiler:       gfortran  -g -O2
+
+  Default C++ compiler:      g++   -g -O2
+  C++98 compiler:            g++  -g -O2
+  C++11 compiler:            g++ -std=gnu++11 -g -O2
+  C++14 compiler:            g++ -std=gnu++14 -g -O2
+  C++17 compiler:
+  Fortran 90/95 compiler:    gfortran -g -O2
+  Obj-C compiler:
+
+  Interfaces supported:      X11, tcltk
+  External libraries:        readline, curl
+  Additional capabilities:   PNG, JPEG, NLS, cairo
+  Options enabled:           shared R library, shared BLAS, R profiling
+
+  Capabilities skipped:      TIFF, ICU
+  Options not enabled:       memory profiling
+
+  Recommended packages:      yes
+
+
+
+I haven't seen the JIT message but will give a try at the glibc-devel:
+
+
+Here is the whole log from the configure command
+https://www.dropbox.com/s/m4g2w1hrr2uqldr/configure%20result%20R.txt?dl=0
+
+
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: mi?rcoles, 23 de agosto de 2017 21:48
+To: Jaime Alvarez Benayas <jalvarezbenayas1 at sheffield.ac.uk>; r-sig-fedora at r-project.org
+Subject: Re: [R-sig-Fedora] No rule to make target all.R, needed by compiler.rdb building R 3.4.1 from source, Scientific Linux release 6.9 (Carbon)
+
+
+
+On 08/23/2017 03:58 PM, Jaime Alvarez Benayas wrote:
+> ../../lib/libR.so: undefined reference to `pcre_assign_jit_stack'
+> ../../lib/libR.so: undefined reference to `pcre_jit_stack_alloc'
+> ../../lib/libR.so: undefined reference to `pcre_free_study'
+
+This is the error. Your PCRE is being built with SUPPORT_JIT undefined.
+
+You should see some warning during the configure phase for PCRE that says "JIT support requires pthreads" or something like that. You should get that from glibc-devel.
+
+~tom
+
+
+From tcallawa at redhat.com  Thu Aug 24 02:01:55 2017
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 23 Aug 2017 20:01:55 -0400
+Subject: [R-sig-Fedora] No rule to make target all.R,
+ needed by compiler.rdb building R 3.4.1 from source,
+ Scientific Linux release 6.9 (Carbon)
+In-Reply-To: <00ff01d31c6a$f401dbf0$dc0593d0$@sheffield.ac.uk>
+References: <CAP+QG4yPMgDrwik9F4sef2E6_mqwZ3vYMdNNJbNSmP683eawEQ@mail.gmail.com>
+ <884a4c60-d6dd-288b-3f5d-c66dad43d68e@redhat.com>
+ <00de01d31c4a$3c1c4680$b454d380$@sheffield.ac.uk>
+ <88ba6670-d662-8d29-63a6-d0fe71105442@redhat.com>
+ <00ff01d31c6a$f401dbf0$dc0593d0$@sheffield.ac.uk>
+Message-ID: <CANA0HMZrE6mp3dRujhA15bb3+6J=Yuaf_nOyxX+y6PjNuDnCkA@mail.gmail.com>
+
+No, not R's configure, PCRE's configure. The PCRE library that you've built
+is missing some functionality.
+
+~tom
+
+On Aug 23, 2017 7:53 PM, "Jaime Alvarez Benayas" <
+jalvarezbenayas1 at sheffield.ac.uk> wrote:
+
+> Hello,
+>
+> Thanks again. I have checked the configure step, the only messages I get
+> containing pcre are:
+>
+> checking for pcre_fullinfo in -lpcre... yes
+> checking pcre.h usability... yes
+> checking pcre.h presence... yes
+> checking for pcre.h... yes
+> checking pcre/pcre.h usability... no
+> checking pcre/pcre.h presence... no
+> checking for pcre/pcre.h... no
+> checking if PCRE version >= 8.20, < 10.0 and has UTF-8 support... yes
+> checking if PCRE version >= 8.32... yes
+> checking whether PCRE support suffices... yes
+>
+>
+> The final status from the command:
+>
+> R is now configured for x86_64-pc-linux-gnu
+>
+>   Source directory:          .
+>   Installation directory:    /fastdata/mbp15ja/R-3.4.1
+>
+>   C compiler:                gcc  -I/usr/local/packages6/
+> compilers/gcc/5.4.0/include
+>   Fortran 77 compiler:       gfortran  -g -O2
+>
+>   Default C++ compiler:      g++   -g -O2
+>   C++98 compiler:            g++  -g -O2
+>   C++11 compiler:            g++ -std=gnu++11 -g -O2
+>   C++14 compiler:            g++ -std=gnu++14 -g -O2
+>   C++17 compiler:
+>   Fortran 90/95 compiler:    gfortran -g -O2
+>   Obj-C compiler:
+>
+>   Interfaces supported:      X11, tcltk
+>   External libraries:        readline, curl
+>   Additional capabilities:   PNG, JPEG, NLS, cairo
+>   Options enabled:           shared R library, shared BLAS, R profiling
+>
+>   Capabilities skipped:      TIFF, ICU
+>   Options not enabled:       memory profiling
+>
+>   Recommended packages:      yes
+>
+>
+>
+> I haven't seen the JIT message but will give a try at the glibc-devel:
+>
+>
+> Here is the whole log from the configure command
+> https://www.dropbox.com/s/m4g2w1hrr2uqldr/configure%20result%20R.txt?dl=0
+>
+>
+>
+> -----Original Message-----
+> From: Tom Callaway [mailto:tcallawa at redhat.com]
+> Sent: mi?rcoles, 23 de agosto de 2017 21:48
+> To: Jaime Alvarez Benayas <jalvarezbenayas1 at sheffield.ac.uk>;
+> r-sig-fedora at r-project.org
+> Subject: Re: [R-sig-Fedora] No rule to make target all.R, needed by
+> compiler.rdb building R 3.4.1 from source, Scientific Linux release 6.9
+> (Carbon)
+>
+>
+>
+> On 08/23/2017 03:58 PM, Jaime Alvarez Benayas wrote:
+> > ../../lib/libR.so: undefined reference to `pcre_assign_jit_stack'
+> > ../../lib/libR.so: undefined reference to `pcre_jit_stack_alloc'
+> > ../../lib/libR.so: undefined reference to `pcre_free_study'
+>
+> This is the error. Your PCRE is being built with SUPPORT_JIT undefined.
+>
+> You should see some warning during the configure phase for PCRE that says
+> "JIT support requires pthreads" or something like that. You should get that
+> from glibc-devel.
+>
+> ~tom
+>
+>
+>
+
+	[[alternative HTML version deleted]]
+
+

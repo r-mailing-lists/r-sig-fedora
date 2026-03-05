@@ -1,0 +1,810 @@
+From tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk  Wed Jul 13 13:25:59 2022
+From: tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk (tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk)
+Date: Wed, 13 Jul 2022 12:25:59 +0100 (BST)
+Subject: [R-sig-Fedora] Rstudio wiping files
+Message-ID: <1794784582.501222.1657711559066@office.mailbox.org>
+
+Flagging here for awareness.  I've just had rstudio (desktop) wipe some of my files after using the find and replace functionality. The upstream bug report is at https://github.com/rstudio/rstudio/issues/11612. This was using the current build for F36 (I see F37 has a later version).
+ 
+RStudio Edition : Desktop
+RStudio Version : 2022.02.3 Build 492
+OS Version : Fedora 36
+R Version : 4.1.3
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Wed Jul 13 13:40:12 2022
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Wed, 13 Jul 2022 13:40:12 +0200
+Subject: [R-sig-Fedora] Rstudio wiping files
+In-Reply-To: <1794784582.501222.1657711559066@office.mailbox.org>
+References: <1794784582.501222.1657711559066@office.mailbox.org>
+Message-ID: <CALEXWq0aQDmPgQp_Vw24kN1G38_D29ZXJKuZ3+T1MfY0pFOiTw@mail.gmail.com>
+
+On Wed, 13 Jul 2022 at 13:26, <tim.taylor at hiddenelephants.co.uk> wrote:
+>
+> Flagging here for awareness.  I've just had rstudio (desktop) wipe some of my files after using the find and replace functionality. The upstream bug report is at https://github.com/rstudio/rstudio/issues/11612.
+
+Thanks for the heads-up, subscribed.
+
+> This was using the current build for F36 (I see F37 has a later version).
+
+Yes, the new series (2022.07) requires Boost 1.78, which is in
+rawhide, but not in F36.
+
+> RStudio Edition : Desktop
+> RStudio Version : 2022.02.3 Build 492
+> OS Version : Fedora 36
+> R Version : 4.1.3
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+
+From |uc@r @end|ng |rom |edor@project@org  Wed Jul 13 18:18:03 2022
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Wed, 13 Jul 2022 18:18:03 +0200
+Subject: [R-sig-Fedora] Rstudio wiping files
+In-Reply-To: <CALEXWq0aQDmPgQp_Vw24kN1G38_D29ZXJKuZ3+T1MfY0pFOiTw@mail.gmail.com>
+References: <1794784582.501222.1657711559066@office.mailbox.org>
+ <CALEXWq0aQDmPgQp_Vw24kN1G38_D29ZXJKuZ3+T1MfY0pFOiTw@mail.gmail.com>
+Message-ID: <CALEXWq1p7quYHy8Z-QeuHpPe0YK6S7r0v-y5Th8GCAPuHc0PxA@mail.gmail.com>
+
+IMPORTANT! Heads-up for F36 users:
+
+The issue is in Boost < 1.78 (probably < 1.77) with kernel >= 5.18.10.
+Therefore, if you are running this kernel, **do NOT use "Replace All"
+in RStudio's "Edit > Find in Files" functionality**, or you may lose
+files.
+
+Let's see if the RStudio people could provide a patch for this. For
+now, possible workarounds are 1) boot with an earlier kernel, which is
+not great, or 2) execute the newest RStudio from a F37-based toolbox,
+which is compiled against Boost 1.78 (see [1] for instructions).
+
+[1] https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development
+
+I?aki
+
+
+
+
+On Wed, 13 Jul 2022 at 13:40, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> On Wed, 13 Jul 2022 at 13:26, <tim.taylor at hiddenelephants.co.uk> wrote:
+> >
+> > Flagging here for awareness.  I've just had rstudio (desktop) wipe some of my files after using the find and replace functionality. The upstream bug report is at https://github.com/rstudio/rstudio/issues/11612.
+>
+> Thanks for the heads-up, subscribed.
+>
+> > This was using the current build for F36 (I see F37 has a later version).
+>
+> Yes, the new series (2022.07) requires Boost 1.78, which is in
+> rawhide, but not in F36.
+>
+> > RStudio Edition : Desktop
+> > RStudio Version : 2022.02.3 Build 492
+> > OS Version : Fedora 36
+> > R Version : 4.1.3
+> >         [[alternative HTML version deleted]]
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+>
+> --
+> I?aki ?car
+
+
+
+--
+I?aki ?car
+
+
+From |uc@r @end|ng |rom |edor@project@org  Fri Jul 15 10:58:21 2022
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Fri, 15 Jul 2022 10:58:21 +0200
+Subject: [R-sig-Fedora] Rstudio wiping files
+In-Reply-To: <CALEXWq1p7quYHy8Z-QeuHpPe0YK6S7r0v-y5Th8GCAPuHc0PxA@mail.gmail.com>
+References: <1794784582.501222.1657711559066@office.mailbox.org>
+ <CALEXWq0aQDmPgQp_Vw24kN1G38_D29ZXJKuZ3+T1MfY0pFOiTw@mail.gmail.com>
+ <CALEXWq1p7quYHy8Z-QeuHpPe0YK6S7r0v-y5Th8GCAPuHc0PxA@mail.gmail.com>
+Message-ID: <CALEXWq2BAPpHsfZ-SjkXXf1Gf6UDiViuP_A097vo1HE6CMjFDw@mail.gmail.com>
+
+The issue is solved after installing this update:
+
+- F35: https://bodhi.fedoraproject.org/updates/FEDORA-2022-4b3c2b910c
+- F36: https://bodhi.fedoraproject.org/updates/FEDORA-2022-9096867dad
+
+I?aki
+
+
+On Wed, 13 Jul 2022 at 18:18, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> IMPORTANT! Heads-up for F36 users:
+>
+> The issue is in Boost < 1.78 (probably < 1.77) with kernel >= 5.18.10.
+> Therefore, if you are running this kernel, **do NOT use "Replace All"
+> in RStudio's "Edit > Find in Files" functionality**, or you may lose
+> files.
+>
+> Let's see if the RStudio people could provide a patch for this. For
+> now, possible workarounds are 1) boot with an earlier kernel, which is
+> not great, or 2) execute the newest RStudio from a F37-based toolbox,
+> which is compiled against Boost 1.78 (see [1] for instructions).
+>
+> [1] https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development
+>
+> I?aki
+>
+>
+>
+>
+> On Wed, 13 Jul 2022 at 13:40, I?aki Ucar <iucar at fedoraproject.org> wrote:
+> >
+> > On Wed, 13 Jul 2022 at 13:26, <tim.taylor at hiddenelephants.co.uk> wrote:
+> > >
+> > > Flagging here for awareness.  I've just had rstudio (desktop) wipe some of my files after using the find and replace functionality. The upstream bug report is at https://github.com/rstudio/rstudio/issues/11612.
+> >
+> > Thanks for the heads-up, subscribed.
+> >
+> > > This was using the current build for F36 (I see F37 has a later version).
+> >
+> > Yes, the new series (2022.07) requires Boost 1.78, which is in
+> > rawhide, but not in F36.
+> >
+> > > RStudio Edition : Desktop
+> > > RStudio Version : 2022.02.3 Build 492
+> > > OS Version : Fedora 36
+> > > R Version : 4.1.3
+> > >         [[alternative HTML version deleted]]
+> > >
+> > > _______________________________________________
+> > > R-SIG-Fedora mailing list
+> > > R-SIG-Fedora at r-project.org
+> > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+> >
+> >
+> > --
+> > I?aki ?car
+>
+>
+>
+> --
+> I?aki ?car
+
+
+
+-- 
+I?aki ?car
+
+
+From tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk  Fri Jul 15 11:56:13 2022
+From: tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk (tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk)
+Date: Fri, 15 Jul 2022 10:56:13 +0100 (BST)
+Subject: [R-sig-Fedora] Rstudio wiping files
+In-Reply-To: <CALEXWq2BAPpHsfZ-SjkXXf1Gf6UDiViuP_A097vo1HE6CMjFDw@mail.gmail.com>
+References: <1794784582.501222.1657711559066@office.mailbox.org>
+ <CALEXWq0aQDmPgQp_Vw24kN1G38_D29ZXJKuZ3+T1MfY0pFOiTw@mail.gmail.com>
+ <CALEXWq1p7quYHy8Z-QeuHpPe0YK6S7r0v-y5Th8GCAPuHc0PxA@mail.gmail.com>
+ <CALEXWq2BAPpHsfZ-SjkXXf1Gf6UDiViuP_A097vo1HE6CMjFDw@mail.gmail.com>
+Message-ID: <1196113679.650785.1657878973955@office.mailbox.org>
+
+Amazing.
+
+Many thanks to I?aki for getting to the bottom of this problem so quickly and Jonathan Wakely for the patch.
+
+Thank you again!
+
+Tim
+
+> On 15/07/2022 09:58 BST I?aki Ucar <iucar at fedoraproject.org> wrote:
+> 
+>  
+> The issue is solved after installing this update:
+> 
+> - F35: https://bodhi.fedoraproject.org/updates/FEDORA-2022-4b3c2b910c
+> - F36: https://bodhi.fedoraproject.org/updates/FEDORA-2022-9096867dad
+> 
+> I?aki
+> 
+> 
+> On Wed, 13 Jul 2022 at 18:18, I?aki Ucar <iucar at fedoraproject.org> wrote:
+> >
+> > IMPORTANT! Heads-up for F36 users:
+> >
+> > The issue is in Boost < 1.78 (probably < 1.77) with kernel >= 5.18.10.
+> > Therefore, if you are running this kernel, **do NOT use "Replace All"
+> > in RStudio's "Edit > Find in Files" functionality**, or you may lose
+> > files.
+> >
+> > Let's see if the RStudio people could provide a patch for this. For
+> > now, possible workarounds are 1) boot with an earlier kernel, which is
+> > not great, or 2) execute the newest RStudio from a F37-based toolbox,
+> > which is compiled against Boost 1.78 (see [1] for instructions).
+> >
+> > [1] https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development
+> >
+> > I?aki
+> >
+> >
+> >
+> >
+> > On Wed, 13 Jul 2022 at 13:40, I?aki Ucar <iucar at fedoraproject.org> wrote:
+> > >
+> > > On Wed, 13 Jul 2022 at 13:26, <tim.taylor at hiddenelephants.co.uk> wrote:
+> > > >
+> > > > Flagging here for awareness.  I've just had rstudio (desktop) wipe some of my files after using the find and replace functionality. The upstream bug report is at https://github.com/rstudio/rstudio/issues/11612.
+> > >
+> > > Thanks for the heads-up, subscribed.
+> > >
+> > > > This was using the current build for F36 (I see F37 has a later version).
+> > >
+> > > Yes, the new series (2022.07) requires Boost 1.78, which is in
+> > > rawhide, but not in F36.
+> > >
+> > > > RStudio Edition : Desktop
+> > > > RStudio Version : 2022.02.3 Build 492
+> > > > OS Version : Fedora 36
+> > > > R Version : 4.1.3
+> > > >         [[alternative HTML version deleted]]
+> > > >
+> > > > _______________________________________________
+> > > > R-SIG-Fedora mailing list
+> > > > R-SIG-Fedora at r-project.org
+> > > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> > >
+> > >
+> > >
+> > > --
+> > > I?aki ?car
+> >
+> >
+> >
+> > --
+> > I?aki ?car
+> 
+> 
+> 
+> -- 
+> I?aki ?car
+
+
+From @||@erd|nc@korog|u @end|ng |rom |nte|@com  Thu Jul 21 15:17:28 2022
+From: @||@erd|nc@korog|u @end|ng |rom |nte|@com (Ali Erdinc Koroglu)
+Date: Thu, 21 Jul 2022 16:17:28 +0300
+Subject: [R-sig-Fedora] Self Introduction
+Message-ID: <b96764bd-19e1-a5fd-19a5-b7211373ed4a@intel.com>
+
+Hello, Everyone.
+My name is Ali Erdinc Koroglu, I work at Intel in the Linux Systems Engineering team where we build and package optimization work across
+various Linux distros. I'm also CentOS Hyperscale SIG member + Fedora packager (fas: aekoroglu) and NeuroSIG member.
+
+I was planning to work on R + OpenBLAS and upgrade R packages for Fedora and migrate the missing once into EPEL8/9.
+So I think the R SIG is an?excellent fit for my efforts and I would like to become a member.
+
+I look forward to working with you all.
+
+Best regards,
+Ali Erdinc Koroglu
+
+---------------------------------------------------------------------
+Intel Finland Oy
+Registered Address: PL 281, 00181 Helsinki 
+Business Identity Code: 0357606 - 4 
+Domiciled in Helsinki 
+
+This e-mail and any attachments may contain confidential material for
+the sole use of the intended recipient(s). Any review or distribution
+by others is strictly prohibited. If you are not the intended
+recipient, please contact the sender and delete all copies.
+
+From |uc@r @end|ng |rom |edor@project@org  Thu Jul 21 15:35:28 2022
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Thu, 21 Jul 2022 15:35:28 +0200
+Subject: [R-sig-Fedora] Self Introduction
+In-Reply-To: <b96764bd-19e1-a5fd-19a5-b7211373ed4a@intel.com>
+References: <b96764bd-19e1-a5fd-19a5-b7211373ed4a@intel.com>
+Message-ID: <CALEXWq0NeERqRkznrcPwcOB-BC3oUL3f6FgMEuYcSDftqPb=YQ@mail.gmail.com>
+
+Hi,
+
+Great, some packages are lagging behind, so more hands are welcome,
+thanks. We are in the process of creating a FAS group for this, but
+it's not ready yet. For now, you can familiarise yourself with the R
+packaging guidelines [1], express this interest in [2] and add
+yourself to the list in [3].
+
+[1] https://docs.fedoraproject.org/en-US/packaging-guidelines/R/
+[2] https://pagure.io/fesco/issue/2815
+[3] https://fedoraproject.org/wiki/SIGs/R
+
+Best,
+I?aki
+
+
+On Thu, 21 Jul 2022 at 15:18, Ali Erdinc Koroglu
+<ali.erdinc.koroglu at intel.com> wrote:
+>
+> Hello, Everyone.
+> My name is Ali Erdinc Koroglu, I work at Intel in the Linux Systems Engineering team where we build and package optimization work across
+> various Linux distros. I'm also CentOS Hyperscale SIG member + Fedora packager (fas: aekoroglu) and NeuroSIG member.
+>
+> I was planning to work on R + OpenBLAS and upgrade R packages for Fedora and migrate the missing once into EPEL8/9.
+> So I think the R SIG is an excellent fit for my efforts and I would like to become a member.
+>
+> I look forward to working with you all.
+>
+> Best regards,
+> Ali Erdinc Koroglu
+>
+> ---------------------------------------------------------------------
+> Intel Finland Oy
+> Registered Address: PL 281, 00181 Helsinki
+> Business Identity Code: 0357606 - 4
+> Domiciled in Helsinki
+>
+> This e-mail and any attachments may contain confidenti...{{dropped:14}}
+
+
+From @potrh @end|ng |rom gm@||@com  Thu Jul 21 15:39:25 2022
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Thu, 21 Jul 2022 09:39:25 -0400
+Subject: [R-sig-Fedora] Self Introduction
+In-Reply-To: <b96764bd-19e1-a5fd-19a5-b7211373ed4a@intel.com>
+References: <b96764bd-19e1-a5fd-19a5-b7211373ed4a@intel.com>
+Message-ID: <CACp8Zr+5jzyXGG2csJfFJKAX5sujbxpc0iLGfkGoS6c3U7VXyQ@mail.gmail.com>
+
+Hi Ali, welcome to the SIG!
+
+I'm not sure that adding new R module packages makes sense in EPEL. The
+exponential rate of new dependencies just to be able to keep the existing
+packages current in Fedora makes it incredibly painful for us to do the R
+major version upgrades there (whereas, for EPEL, it's much much simpler).
+
+Part of why I haven't had time to do the next major R update for Fedora is
+this, it takes so much time to rebuild the entire R package tree there (and
+as Fedora work is no longer the primary part of my day job, large multi day
+efforts like this have not been easy to accomplish).
+
+Combine that with the average R user being content to simply install via
+CRAN, and I'm not sure that the pros outweigh the cons in adding modules as
+packages to EPEL.
+
+I think this is something we should discuss as a SIG though. :)
+
+~spot
+
+On Thu, Jul 21, 2022, 9:18 AM Ali Erdinc Koroglu <
+ali.erdinc.koroglu at intel.com> wrote:
+
+> Hello, Everyone.
+> My name is Ali Erdinc Koroglu, I work at Intel in the Linux Systems
+> Engineering team where we build and package optimization work across
+> various Linux distros. I'm also CentOS Hyperscale SIG member + Fedora
+> packager (fas: aekoroglu) and NeuroSIG member.
+>
+> I was planning to work on R + OpenBLAS and upgrade R packages for Fedora
+> and migrate the missing once into EPEL8/9.
+> So I think the R SIG is an excellent fit for my efforts and I would like
+> to become a member.
+>
+> I look forward to working with you all.
+>
+> Best regards,
+> Ali Erdinc Koroglu
+>
+> ---------------------------------------------------------------------
+> Intel Finland Oy
+> Registered Address: PL 281, 00181 Helsinki
+> Business Identity Code: 0357606 - 4
+> Domiciled in Helsinki
+>
+> This e-mail and any attachments may contain confidenti...{{dropped:13}}
+
+
+From @||@erd|nc@korog|u @end|ng |rom |nte|@com  Thu Jul 21 16:19:08 2022
+From: @||@erd|nc@korog|u @end|ng |rom |nte|@com (Ali Erdinc Koroglu)
+Date: Thu, 21 Jul 2022 17:19:08 +0300
+Subject: [R-sig-Fedora] Self Introduction
+In-Reply-To: <CALEXWq0NeERqRkznrcPwcOB-BC3oUL3f6FgMEuYcSDftqPb=YQ@mail.gmail.com>
+References: <b96764bd-19e1-a5fd-19a5-b7211373ed4a@intel.com>
+ <CALEXWq0NeERqRkznrcPwcOB-BC3oUL3f6FgMEuYcSDftqPb=YQ@mail.gmail.com>
+Message-ID: <3a37c9b1-2c41-0834-01c6-532801bc0095@intel.com>
+
+Hello again, I already packed? R-kernlab? :)
+
+https://bugzilla.redhat.com/show_bug.cgi?id=2079394
+https://download.copr.fedorainfracloud.org/results/aekoroglu/fedora/fedora-rawhide-x86_64/04336853-R-kernlab/R-kernlab.spec
+
+On 21/07/2022 16:35, I?aki Ucar wrote:
+> Hi,
+>
+> Great, some packages are lagging behind, so more hands are welcome,
+> thanks. We are in the process of creating a FAS group for this, but
+> it's not ready yet. For now, you can familiarise yourself with the R
+> packaging guidelines [1], express this interest in [2] and add
+> yourself to the list in [3].
+>
+> [1] https://docs.fedoraproject.org/en-US/packaging-guidelines/R/
+> [2] https://pagure.io/fesco/issue/2815
+> [3] https://fedoraproject.org/wiki/SIGs/R
+>
+> Best,
+> I?aki
+BR,
+Ali
+---------------------------------------------------------------------
+Intel Finland Oy
+Registered Address: PL 281, 00181 Helsinki 
+Business Identity Code: 0357606 - 4 
+Domiciled in Helsinki 
+
+This e-mail and any attachments may contain confidential material for
+the sole use of the intended recipient(s). Any review or distribution
+by others is strictly prohibited. If you are not the intended
+recipient, please contact the sender and delete all copies.
+
+From @||@erd|nc@korog|u @end|ng |rom |nte|@com  Thu Jul 21 16:23:21 2022
+From: @||@erd|nc@korog|u @end|ng |rom |nte|@com (Ali Erdinc Koroglu)
+Date: Thu, 21 Jul 2022 17:23:21 +0300
+Subject: [R-sig-Fedora] Self Introduction
+In-Reply-To: <CACp8Zr+5jzyXGG2csJfFJKAX5sujbxpc0iLGfkGoS6c3U7VXyQ@mail.gmail.com>
+References: <b96764bd-19e1-a5fd-19a5-b7211373ed4a@intel.com>
+ <CACp8Zr+5jzyXGG2csJfFJKAX5sujbxpc0iLGfkGoS6c3U7VXyQ@mail.gmail.com>
+Message-ID: <94b7936e-02da-43d0-8527-6fc796f54da3@intel.com>
+
+Hello Tom, thank you for the comments and sure let's discuss this @ SIG :)
+
+On 21/07/2022 16:39, Tom Callaway wrote:
+> Hi Ali, welcome to the SIG!
+>
+> I'm not sure that adding new R module packages makes sense in EPEL. 
+> The exponential rate of new dependencies just to be able to keep the 
+> existing packages current in Fedora makes it incredibly painful for us 
+> to do the R major version upgrades there (whereas, for EPEL, it's much 
+> much simpler).
+>
+> Part of why I haven't had time to do the next major R update for 
+> Fedora is this, it takes so much time to rebuild the entire R package 
+> tree there (and as Fedora work is no longer the primary part of my day 
+> job, large multi day efforts like this have not been easy to accomplish).
+>
+> Combine that with the average R user being content to simply install 
+> via CRAN, and I'm not sure that the pros outweigh the cons in adding 
+> modules as packages to EPEL.
+>
+> I think this is something we should discuss as a SIG though. :)
+
+---------------------------------------------------------------------
+Intel Finland Oy
+Registered Address: PL 281, 00181 Helsinki 
+Business Identity Code: 0357606 - 4 
+Domiciled in Helsinki 
+
+This e-mail and any attachments may contain confidential material for
+the sole use of the intended recipient(s). Any review or distribution
+by others is strictly prohibited. If you are not the intended
+recipient, please contact the sender and delete all copies.
+
+From |uc@r @end|ng |rom |edor@project@org  Thu Jul 21 16:23:11 2022
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Thu, 21 Jul 2022 16:23:11 +0200
+Subject: [R-sig-Fedora] Self Introduction
+In-Reply-To: <CACp8Zr+5jzyXGG2csJfFJKAX5sujbxpc0iLGfkGoS6c3U7VXyQ@mail.gmail.com>
+References: <b96764bd-19e1-a5fd-19a5-b7211373ed4a@intel.com>
+ <CACp8Zr+5jzyXGG2csJfFJKAX5sujbxpc0iLGfkGoS6c3U7VXyQ@mail.gmail.com>
+Message-ID: <CALEXWq0pp-0pC6ij2hHUXbkbS1+cgfd7VeSLHqTs48c6qhRBpw@mail.gmail.com>
+
+On Thu, 21 Jul 2022 at 15:46, Tom Callaway <spotrh at gmail.com> wrote:
+>
+> Hi Ali, welcome to the SIG!
+>
+> I'm not sure that adding new R module packages makes sense in EPEL. The
+> exponential rate of new dependencies just to be able to keep the existing
+> packages current in Fedora makes it incredibly painful for us to do the R
+> major version upgrades there (whereas, for EPEL, it's much much simpler).
+>
+> Part of why I haven't had time to do the next major R update for Fedora is
+> this, it takes so much time to rebuild the entire R package tree there (and
+> as Fedora work is no longer the primary part of my day job, large multi day
+> efforts like this have not been easy to accomplish).
+>
+> Combine that with the average R user being content to simply install via
+> CRAN, and I'm not sure that the pros outweigh the cons in adding modules as
+> packages to EPEL.
+>
+> I think this is something we should discuss as a SIG though. :)
+
+I agree, and that's why I created [1], which has two advantages:
+automatic daily sync, and straightforward mass rebuilds. I intend to
+make these rebuilds straightforward for the official Fedora repo too
+when the fas group is created, but I still agree that we should keep
+the packages at a minimum in EPEL.
+
+Our efforts would be better employed in recreating [1] for CentOS,
+which wouldn't be hard, but the main stopper was disk space at the
+time. I'll ask the Copr team again about this.
+
+It would be even easier (and much lightweight) to recreate what Dirk
+Eddelbuetel did for Ubuntu here [2], which is to reuse binaries
+created by RStudio (available in [3]) and make proper RPMs, with
+library dependencies, with them. But I'm not sure we could use Copr
+for this (anyway, the disk space problem would be still there). We
+could try OBS.
+
+[1] https://copr.fedorainfracloud.org/coprs/iucar/cran/
+[2] https://github.com/eddelbuettel/r2u
+[3] https://packagemanager.rstudio.com/
+
+I?aki
+
+>
+> ~spot
+>
+> On Thu, Jul 21, 2022, 9:18 AM Ali Erdinc Koroglu <
+> ali.erdinc.koroglu at intel.com> wrote:
+>
+> > Hello, Everyone.
+> > My name is Ali Erdinc Koroglu, I work at Intel in the Linux Systems
+> > Engineering team where we build and package optimization work across
+> > various Linux distros. I'm also CentOS Hyperscale SIG member + Fedora
+> > packager (fas: aekoroglu) and NeuroSIG member.
+> >
+> > I was planning to work on R + OpenBLAS and upgrade R packages for Fedora
+> > and migrate the missing once into EPEL8/9.
+> > So I think the R SIG is an excellent fit for my efforts and I would like
+> > to become a member.
+> >
+> > I look forward to working with you all.
+> >
+> > Best regards,
+> > Ali Erdinc Koroglu
+> >
+> > ---------------------------------------------------------------------
+> > Intel Finland Oy
+> > Registered Address: PL 281, 00181 Helsinki
+> > Business Identity Code: 0357606 - 4
+> > Domiciled in Helsinki
+> >
+> > This e-mail and any attachments may contain confidenti...{{dropped:13}}
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+
+From @k@h@y_e4 @end|ng |rom hotm@||@com  Mon Jul 25 23:05:08 2022
+From: @k@h@y_e4 @end|ng |rom hotm@||@com (akshay kulkarni)
+Date: Mon, 25 Jul 2022 21:05:08 +0000
+Subject: [R-sig-Fedora] problems with r in RHEL
+Message-ID: <PU4P216MB15688A2E9FE47215AA0E8EC3C8959@PU4P216MB1568.KORP216.PROD.OUTLOOK.COM>
+
+Dear members,
+                          I am using R in the latest version of RHEL, in an AWS z1d instance. I have the following questions:
+
+
+  1.  Previously, when I started R by typing R in the bash prompt, a new screen would open with the R banner and the R console. But now the banner and the R console is opening in the same screen as the bash prompt. How do you revert to the previous behaviour?
+  2.   When I run fix(Myfun), it is opening a vi editor with the code of Myfun in it. But when I close the editor some of the code is left behind in the R console. How do you close the vi editor opened by fix command without leaving any code behind in the console?
+
+Many thanks in advance....
+
+Yours sincerely
+AKSHAY M KULKARNI
+
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Tue Jul 26 15:37:25 2022
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Tue, 26 Jul 2022 15:37:25 +0200
+Subject: [R-sig-Fedora] {rspm}: easy access to RSPM binary packages for
+ CentOS
+Message-ID: <CALEXWq3mcXWxhqzpE_6U_Sw6pdJF3jgcYMqm6GWbbXiGaWXKXw@mail.gmail.com>
+
+Hi all,
+
+For those of you who are tied, for one reason or another, to
+CentOS/RHEL or variants*, possibly with custom R installations, the
+new {rspm} package [1, 2] may come in handy. I plan to submit it to
+CRAN, but submissions are closed until Aug. 5. Meanwhile, please give
+it a spin if you feel like it and let me know in the issue tracker if
+you find any trouble.
+
+*And if you are not, let me remind you that in Fedora you already have
+access to thousands of binary CRAN packages via {bspm} [3]. ;-)
+
+[1] https://www.enchufa2.es/archives/rspm-easy-access-to-rspm-binary-packages-with-automatic-management-of-system-requirements.html
+[2] https://enchufa2.github.io/rspm
+[3] https://enchufa2.github.io/bspm
+
+Cheers,
+-- 
+I?aki ?car
+
+
+From @potrh @end|ng |rom gm@||@com  Thu Jul 28 20:10:08 2022
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Thu, 28 Jul 2022 14:10:08 -0400
+Subject: [R-sig-Fedora] Rawhide side tag for R 4.2.1 builds
+Message-ID: <CACp8Zr+YfsGA5z6pfnfuvKC9TrgfaTUODWKyNmOVv-nAqr=xSQ@mail.gmail.com>
+
+Hi folks, I've created a side tag in rawhide for R 4.2.1 builds. Please
+keep in mind that because this takes rawhide from R 4.1 to R 4.2, all R
+packages (and R dependent packages) will need to be rebuilt into this side
+tag. Once that is done, we can merge the builds from the side tag back into
+rawhide.
+
+Use 'fedpkg build --target=f37-build-side-55653' to use it.
+Use 'koji wait-repo f37-build-side-55653' to wait for the build repo to be
+generated.
+
+I've built R-4.2.1-1.fc37, rpy-3.5.3-1.fc37, and rkward-0.7.4-1.fc37 into
+that tag, so please feel free to start rebuilding any R dependent packages
+that you maintain in that tag.
+
+If you need the raw R-4.2.1 packages for local testing, they're here:
+https://koji.fedoraproject.org/koji/taskinfo?taskID=90194354
+
+I plan on starting to work my way through everything in Fedora as time
+permits, but I'm not sure when exactly that will happen. :(
+
+Any help others can provide in rebuilding dependencies is appreciated. :)
+
+~spot
+
+	[[alternative HTML version deleted]]
+
+
+From @||@erd|nc@korog|u @end|ng |rom |nte|@com  Thu Jul 28 20:31:16 2022
+From: @||@erd|nc@korog|u @end|ng |rom |nte|@com (Ali Erdinc Koroglu)
+Date: Thu, 28 Jul 2022 21:31:16 +0300
+Subject: [R-sig-Fedora] Rawhide side tag for R 4.2.1 builds
+In-Reply-To: <CACp8Zr+YfsGA5z6pfnfuvKC9TrgfaTUODWKyNmOVv-nAqr=xSQ@mail.gmail.com>
+References: <CACp8Zr+YfsGA5z6pfnfuvKC9TrgfaTUODWKyNmOVv-nAqr=xSQ@mail.gmail.com>
+Message-ID: <6cc1b84c-160d-ef00-b1a0-c7db64662960@intel.com>
+
+Hi Tom,? thanks for 4.2.
+
+I had a problem with 4.1.3 this week :)
+DEBUG util.py:443:?? Problem: package R-devel-4.1.3-2.fc37.i686 requires 
+R-java-devel = 4.1.3-2.fc37, but none of the providers can be installed
+DEBUG util.py:443:??? - conflicting requests
+DEBUG util.py:443:??? - nothing provides java-devel needed by 
+R-java-devel-4.1.3-2.fc37.i686
+
+OTH do we have any update plan for R dependent packages cause I can 
+start right away and work on that all month long.
+
+BR,
+Ali
+
+On 28/07/2022 21:10, Tom Callaway wrote:
+> Hi folks, I've created a side tag in rawhide for R 4.2.1 builds. Please
+> keep in mind that because this takes rawhide from R 4.1 to R 4.2, all R
+> packages (and R dependent packages) will need to be rebuilt into this side
+> tag. Once that is done, we can merge the builds from the side tag back into
+> rawhide.
+>
+> Use 'fedpkg build --target=f37-build-side-55653' to use it.
+> Use 'koji wait-repo f37-build-side-55653' to wait for the build repo to be
+> generated.
+>
+> I've built R-4.2.1-1.fc37, rpy-3.5.3-1.fc37, and rkward-0.7.4-1.fc37 into
+> that tag, so please feel free to start rebuilding any R dependent packages
+> that you maintain in that tag.
+>
+> If you need the raw R-4.2.1 packages for local testing, they're here:
+> https://koji.fedoraproject.org/koji/taskinfo?taskID=90194354
+>
+> I plan on starting to work my way through everything in Fedora as time
+> permits, but I'm not sure when exactly that will happen. :(
+>
+> Any help others can provide in rebuilding dependencies is appreciated. :)
+>
+> ~spot
+---------------------------------------------------------------------
+Intel Finland Oy
+Registered Address: PL 281, 00181 Helsinki 
+Business Identity Code: 0357606 - 4 
+Domiciled in Helsinki 
+
+This e-mail and any attachments may contain confidential material for
+the sole use of the intended recipient(s). Any review or distribution
+by others is strictly prohibited. If you are not the intended
+recipient, please contact the sender and delete all copies.
+
+From |uc@r @end|ng |rom |edor@project@org  Thu Jul 28 21:15:13 2022
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Thu, 28 Jul 2022 21:15:13 +0200
+Subject: [R-sig-Fedora] Rawhide side tag for R 4.2.1 builds
+In-Reply-To: <6cc1b84c-160d-ef00-b1a0-c7db64662960@intel.com>
+References: <CACp8Zr+YfsGA5z6pfnfuvKC9TrgfaTUODWKyNmOVv-nAqr=xSQ@mail.gmail.com>
+ <6cc1b84c-160d-ef00-b1a0-c7db64662960@intel.com>
+Message-ID: <CALEXWq33BxR1m5mcPNU8F4+zXHewSjRs5MwBrHHEWBMOX6+Teg@mail.gmail.com>
+
+Great, thanks, Tom!
+
+On Thu, 28 Jul 2022 at 20:31, Ali Erdinc Koroglu
+<ali.erdinc.koroglu at intel.com> wrote:
+>
+> Hi Tom,  thanks for 4.2.
+>
+> I had a problem with 4.1.3 this week :)
+> DEBUG util.py:443:   Problem: package R-devel-4.1.3-2.fc37.i686 requires
+> R-java-devel = 4.1.3-2.fc37, but none of the providers can be installed
+> DEBUG util.py:443:    - conflicting requests
+> DEBUG util.py:443:    - nothing provides java-devel needed by
+> R-java-devel-4.1.3-2.fc37.i686
+
+This is solved now in rawhide. Java has been dropped there from i686.
+
+> OTH do we have any update plan for R dependent packages cause I can
+> start right away and work on that all month long.
+
+Here's a script that generates a build list with all the packages in
+Fedora: https://pagure.io/R/packaging
+
+Unfortunately, until the SIG FAS group is set up, we would need
+provenpackager powers to go through that list and build them. I think
+we can't even build our own packages in a side tag that was created by
+another user. :(
+
+I?aki
+
+>
+> BR,
+> Ali
+>
+> On 28/07/2022 21:10, Tom Callaway wrote:
+> > Hi folks, I've created a side tag in rawhide for R 4.2.1 builds. Please
+> > keep in mind that because this takes rawhide from R 4.1 to R 4.2, all R
+> > packages (and R dependent packages) will need to be rebuilt into this side
+> > tag. Once that is done, we can merge the builds from the side tag back into
+> > rawhide.
+> >
+> > Use 'fedpkg build --target=f37-build-side-55653' to use it.
+> > Use 'koji wait-repo f37-build-side-55653' to wait for the build repo to be
+> > generated.
+> >
+> > I've built R-4.2.1-1.fc37, rpy-3.5.3-1.fc37, and rkward-0.7.4-1.fc37 into
+> > that tag, so please feel free to start rebuilding any R dependent packages
+> > that you maintain in that tag.
+> >
+> > If you need the raw R-4.2.1 packages for local testing, they're here:
+> > https://koji.fedoraproject.org/koji/taskinfo?taskID=90194354
+> >
+> > I plan on starting to work my way through everything in Fedora as time
+> > permits, but I'm not sure when exactly that will happen. :(
+> >
+> > Any help others can provide in rebuilding dependencies is appreciated. :)
+> >
+> > ~spot
+> ---------------------------------------------------------------------
+> Intel Finland Oy
+> Registered Address: PL 281, 00181 Helsinki
+> Business Identity Code: 0357606 - 4
+> Domiciled in Helsinki
+>
+> This e-mail and any attachments may contain confidenti...{{dropped:14}}
+
+

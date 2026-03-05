@@ -1,0 +1,327 @@
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon Nov  7 17:03:34 2022
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 7 Nov 2022 17:03:34 +0100
+Subject: [R-sig-Fedora] Installing R from source in Fedora -- "minimal
+ package list"
+Message-ID: <25449.11350.810594.615594@stat.math.ethz.ch>
+
+As R Develeoper, I've tried to install R in a fedora podman
+container, starting from plain fedora
+
+dnf install R-core-devel
+dnf install emacs-ess
+dnf install subversion
+
+cd /usr/local
+mkdir -p .../R
+cd       .../R
+svn checkout https://svn.r-project.org/R/trunk R-devel
+mkdir -p inst/R-devel
+cd inst/R-devel/
+../../R-devel/configure
+
+and then it's telling me I will not have readline, so I stop
+
+and do
+
+dnf install libreadline-devel
+
+but then X11 libraries/headers are missing etc.
+
+-------------------------------------------------
+
+I had hoped that   the R-core-devel   would already provide me
+with what I needed.
+
+Is there a list of such things to easily add to my list to add
+after starting to run podman in a "base fedora" ?
+
+{I'd be glad to be CC'ed as I'm not subscribed to R-SIG-Fedora}
+
+Thank you in advance,
+Martin
+
+--
+Martin Maechler
+ETH Zurich   and   R core team
+
+
+From @potrh @end|ng |rom gm@||@com  Mon Nov  7 17:35:20 2022
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Mon, 7 Nov 2022 08:35:20 -0800
+Subject: [R-sig-Fedora] Installing R from source in Fedora -- "minimal
+ package list"
+In-Reply-To: <25449.11350.810594.615594@stat.math.ethz.ch>
+References: <25449.11350.810594.615594@stat.math.ethz.ch>
+Message-ID: <CACp8ZrJ83Qdb2gNeRGUpQw+3xLaEf58p130ytLtBPGgW++G2ng@mail.gmail.com>
+
+The Requires on R-core-devel are not in any way intended to prep an
+environment to build R (they are intended to provide the minimum
+requirements for the R header files to work).
+
+To do what you want, your best bet is to pull down the R.spec file:
+https://src.fedoraproject.org/rpms/R/raw/rawhide/f/R.spec
+
+Then, use the "builddep" plug-in from dnf to install the BuildRequires:
+dnf builddep R.spec
+
+~spot
+
+On Mon, Nov 7, 2022, 8:26 AM Martin Maechler <maechler at stat.math.ethz.ch>
+wrote:
+
+> As R Develeoper, I've tried to install R in a fedora podman
+> container, starting from plain fedora
+>
+> dnf install R-core-devel
+> dnf install emacs-ess
+> dnf install subversion
+>
+> cd /usr/local
+> mkdir -p .../R
+> cd       .../R
+> svn checkout https://svn.r-project.org/R/trunk R-devel
+> mkdir -p inst/R-devel
+> cd inst/R-devel/
+> ../../R-devel/configure
+>
+> and then it's telling me I will not have readline, so I stop
+>
+> and do
+>
+> dnf install libreadline-devel
+>
+> but then X11 libraries/headers are missing etc.
+>
+> -------------------------------------------------
+>
+> I had hoped that   the R-core-devel   would already provide me
+> with what I needed.
+>
+> Is there a list of such things to easily add to my list to add
+> after starting to run podman in a "base fedora" ?
+>
+> {I'd be glad to be CC'ed as I'm not subscribed to R-SIG-Fedora}
+>
+> Thank you in advance,
+> Martin
+>
+> --
+> Martin Maechler
+> ETH Zurich   and   R core team
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Mon Nov  7 19:37:14 2022
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Mon, 7 Nov 2022 19:37:14 +0100
+Subject: [R-sig-Fedora] Installing R from source in Fedora -- "minimal
+ package list"
+In-Reply-To: <CACp8ZrJ83Qdb2gNeRGUpQw+3xLaEf58p130ytLtBPGgW++G2ng@mail.gmail.com>
+References: <25449.11350.810594.615594@stat.math.ethz.ch>
+ <CACp8ZrJ83Qdb2gNeRGUpQw+3xLaEf58p130ytLtBPGgW++G2ng@mail.gmail.com>
+Message-ID: <CALEXWq0vttJd7Nz6pNzk8=d20bH687BgE+KwB=PsyGTHA+9N3Q@mail.gmail.com>
+
+On Mon, 7 Nov 2022 at 17:36, Tom Callaway <spotrh at gmail.com> wrote:
+>
+> The Requires on R-core-devel are not in any way intended to prep an
+> environment to build R (they are intended to provide the minimum
+> requirements for the R header files to work).
+>
+> To do what you want, your best bet is to pull down the R.spec file:
+> https://src.fedoraproject.org/rpms/R/raw/rawhide/f/R.spec
+>
+> Then, use the "builddep" plug-in from dnf to install the BuildRequires:
+> dnf builddep R.spec
+
+This works too, but it doesn't get the latest changes in rawhide:
+
+$ dnf builddep R
+
+BTW, Llu?s is putting together a guide where all these deps are
+listed: https://github.com/r-devel/rdevguide/pull/105
+
+I?aki
+
+>
+> ~spot
+>
+> On Mon, Nov 7, 2022, 8:26 AM Martin Maechler <maechler at stat.math.ethz.ch>
+> wrote:
+>
+> > As R Develeoper, I've tried to install R in a fedora podman
+> > container, starting from plain fedora
+> >
+> > dnf install R-core-devel
+> > dnf install emacs-ess
+> > dnf install subversion
+> >
+> > cd /usr/local
+> > mkdir -p .../R
+> > cd       .../R
+> > svn checkout https://svn.r-project.org/R/trunk R-devel
+> > mkdir -p inst/R-devel
+> > cd inst/R-devel/
+> > ../../R-devel/configure
+> >
+> > and then it's telling me I will not have readline, so I stop
+> >
+> > and do
+> >
+> > dnf install libreadline-devel
+> >
+> > but then X11 libraries/headers are missing etc.
+> >
+> > -------------------------------------------------
+> >
+> > I had hoped that   the R-core-devel   would already provide me
+> > with what I needed.
+> >
+> > Is there a list of such things to easily add to my list to add
+> > after starting to run podman in a "base fedora" ?
+> >
+> > {I'd be glad to be CC'ed as I'm not subscribed to R-SIG-Fedora}
+> >
+> > Thank you in advance,
+> > Martin
+> >
+> > --
+> > Martin Maechler
+> > ETH Zurich   and   R core team
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Tue Nov  8 17:26:22 2022
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Tue, 8 Nov 2022 17:26:22 +0100
+Subject: [R-sig-Fedora] Installing R from source in Fedora -- "minimal
+ package list"
+In-Reply-To: <CALEXWq0vttJd7Nz6pNzk8=d20bH687BgE+KwB=PsyGTHA+9N3Q@mail.gmail.com>
+References: <25449.11350.810594.615594@stat.math.ethz.ch>
+ <CACp8ZrJ83Qdb2gNeRGUpQw+3xLaEf58p130ytLtBPGgW++G2ng@mail.gmail.com>
+ <CALEXWq0vttJd7Nz6pNzk8=d20bH687BgE+KwB=PsyGTHA+9N3Q@mail.gmail.com>
+Message-ID: <25450.33582.758900.349278@stat.math.ethz.ch>
+
+>>>>> I?aki Ucar 
+>>>>>     on Mon, 7 Nov 2022 19:37:14 +0100 writes:
+
+    > On Mon, 7 Nov 2022 at 17:36, Tom Callaway <spotrh at gmail.com> wrote:
+    >> 
+    >> The Requires on R-core-devel are not in any way intended to prep an
+    >> environment to build R (they are intended to provide the minimum
+    >> requirements for the R header files to work).
+    >> 
+    >> To do what you want, your best bet is to pull down the R.spec file:
+    >> https://src.fedoraproject.org/rpms/R/raw/rawhide/f/R.spec
+    >> 
+    >> Then, use the "builddep" plug-in from dnf to install the BuildRequires:
+    >> dnf builddep R.spec
+
+    > This works too, but it doesn't get the latest changes in rawhide:
+
+    > $ dnf builddep R
+
+    > BTW, Llu?s is putting together a guide where all these deps are
+    > listed: https://github.com/r-devel/rdevguide/pull/105
+
+    > I?aki
+
+    >> 
+    >> ~spot
+    >> 
+
+
+Thanks a lot, Tom and I?aki ... and Llu?s --
+
+So this will almost surely be the first time for me where I (as
+R core member) will be profiting directly from the rdevguide --
+cool!
+
+Martin
+
+    >> On Mon, Nov 7, 2022, 8:26 AM Martin Maechler <maechler at stat.math.ethz.ch>
+    >> wrote:
+    >> 
+    >> > As R Develeoper, I've tried to install R in a fedora podman
+    >> > container, starting from plain fedora
+    >> >
+    >> > dnf install R-core-devel
+    >> > dnf install emacs-ess
+    >> > dnf install subversion
+    >> >
+    >> > cd /usr/local
+    >> > mkdir -p .../R
+    >> > cd       .../R
+    >> > svn checkout https://svn.r-project.org/R/trunk R-devel
+    >> > mkdir -p inst/R-devel
+    >> > cd inst/R-devel/
+    >> > ../../R-devel/configure
+    >> >
+    >> > and then it's telling me I will not have readline, so I stop
+    >> >
+    >> > and do
+    >> >
+    >> > dnf install libreadline-devel
+    >> >
+    >> > but then X11 libraries/headers are missing etc.
+    >> >
+    >> > -------------------------------------------------
+    >> >
+    >> > I had hoped that   the R-core-devel   would already provide me
+    >> > with what I needed.
+    >> >
+    >> > Is there a list of such things to easily add to my list to add
+    >> > after starting to run podman in a "base fedora" ?
+    >> >
+    >> > {I'd be glad to be CC'ed as I'm not subscribed to R-SIG-Fedora}
+    >> >
+    >> > Thank you in advance,
+    >> > Martin
+    >> >
+    >> > --
+    >> > Martin Maechler
+    >> > ETH Zurich   and   R core team
+    >> >
+    >> > _______________________________________________
+    >> > R-SIG-Fedora mailing list
+    >> > R-SIG-Fedora at r-project.org
+    >> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+    >> >
+    >> 
+    >> [[alternative HTML version deleted]]
+    >> 
+    >> _______________________________________________
+    >> R-SIG-Fedora mailing list
+    >> R-SIG-Fedora at r-project.org
+    >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+    > -- 
+    > I?aki ?car
+
+

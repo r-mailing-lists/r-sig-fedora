@@ -1,0 +1,124 @@
+From xbr17 at posteo.de  Thu Mar 22 22:11:28 2018
+From: xbr17 at posteo.de (xbr17 at posteo.de)
+Date: Thu, 22 Mar 2018 22:11:28 +0100
+Subject: [R-sig-Fedora] Cannot install broom package
+Message-ID: <fa7281447a29d5f86390c3181d595991@posteo.de>
+
+Hello,
+
+I've problems installing several packages in my R on Fedora 27 64 bit. I 
+found out that it has to do something with a missing  compiler 
+(libgfortran.so.3, see below).
+It works if I downgrade the current version of libgfortran to the 
+specified version by downloading libgfortran-6.2.1-2.fc25.x86_64.rpm and 
+manually installing it.
+However, I don't want to mess up my system, because the current version 
+of libgfortran is replaced by it.
+
+Is there any other solution to my problem? Can I use e.g. "broom" (see 
+below) without having to downgrade libgfortran?
+
+Thanks! Cheers
+Hans
+
+
+
+> install.packages("broom")
+Installing package into 
+?/home/hans/R/x86_64-redhat-linux-gnu-library/3.4?
+(as ?lib? is unspecified)
+versuche URL 'https://cran.rstudio.com/src/contrib/broom_0.4.3.tar.gz'
+Content type 'application/x-gzip' length 1397648 bytes (1.3 MB)
+==================================================
+downloaded 1.3 MB
+
+* installing *source* package ?broom? ...
+** Paket ?broom? erfolgreich entpackt und MD5 Summen ?berpr?ft
+** R
+** inst
+** preparing package for lazy loading
+Error : .onLoad failed in loadNamespace() for 'mnormt', details:
+   call: dyn.load(file, DLLpath = DLLpath, ...)
+   error: kann shared object 
+'/home/hans/R/x86_64-redhat-linux-gnu-library/3.4/mnormt/libs/mnormt.so' 
+nicht laden:
+   libgfortran.so.3: cannot open shared object file: No such file or 
+directory
+ERROR: lazy loading failed for package ?broom?
+* removing ?/home/hans/R/x86_64-redhat-linux-gnu-library/3.4/broom?
+Warning in install.packages :
+   installation of package ?broom? had non-zero exit status
+
+The downloaded source packages are in
+	?/tmp/RtmprofgpM/downloaded_packages?
+
+
+From tcallawa at redhat.com  Wed Mar 28 17:48:49 2018
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 28 Mar 2018 11:48:49 -0400
+Subject: [R-sig-Fedora] Cannot install broom package
+In-Reply-To: <fa7281447a29d5f86390c3181d595991@posteo.de>
+References: <fa7281447a29d5f86390c3181d595991@posteo.de>
+Message-ID: <1f21ad42-2dcd-41b0-948b-3e5a630432a3@redhat.com>
+
+
+
+On 03/22/2018 05:11 PM, xbr17 at posteo.de wrote:
+> Hello,
+> 
+> I've problems installing several packages in my R on Fedora 27 64 bit. I
+> found out that it has to do something with a missing? compiler
+> (libgfortran.so.3, see below).
+> It works if I downgrade the current version of libgfortran to the
+> specified version by downloading libgfortran-6.2.1-2.fc25.x86_64.rpm and
+> manually installing it.
+> However, I don't want to mess up my system, because the current version
+> of libgfortran is replaced by it.
+> 
+> Is there any other solution to my problem? Can I use e.g. "broom" (see
+> below) without having to downgrade libgfortran?
+> 
+> Thanks! Cheers
+> Hans
+> 
+> 
+> 
+>> install.packages("broom")
+> Installing package into ?/home/hans/R/x86_64-redhat-linux-gnu-library/3.4?
+> (as ?lib? is unspecified)
+> versuche URL 'https://cran.rstudio.com/src/contrib/broom_0.4.3.tar.gz'
+> Content type 'application/x-gzip' length 1397648 bytes (1.3 MB)
+> ==================================================
+> downloaded 1.3 MB
+> 
+> * installing *source* package ?broom? ...
+> ** Paket ?broom? erfolgreich entpackt und MD5 Summen ?berpr?ft
+> ** R
+> ** inst
+> ** preparing package for lazy loading
+> Error : .onLoad failed in loadNamespace() for 'mnormt', details:
+> ? call: dyn.load(file, DLLpath = DLLpath, ...)
+> ? error: kann shared object
+> '/home/hans/R/x86_64-redhat-linux-gnu-library/3.4/mnormt/libs/mnormt.so'
+> nicht laden:
+> ? libgfortran.so.3: cannot open shared object file: No such file or
+> directory
+
+The error above usually occurs when you build a module from CRAN (in
+this case, mnormt) at one point in time, then upgrade Fedora. Because
+modules built from source and installed via CRAN tools aren't tracked by
+Fedora, Fedora doesn't realize that upgrading libgfortran will break them.
+
+I believe the fix should be as simple as running (in R):
+
+install.packages('mnormt')
+
+This should built it again from source, and link the module against the
+current libgfortran library, replacing the copy that you'd built before.
+It may result in a newer build of mnormt getting installed, so be aware.
+
+hth,
+
+~tom
+
+

@@ -1,0 +1,2019 @@
+From pmilin at ff.uns.ac.rs  Wed Apr 18 17:54:51 2012
+From: pmilin at ff.uns.ac.rs (Petar Milin)
+Date: Wed, 18 Apr 2012 17:54:51 +0200
+Subject: [R-sig-Fedora] Installing texlive dependencies
+Message-ID: <1334764491.2370.8.camel@pm>
+
+Hello ALL!
+I am running Fedora 16 x86_64. Due to some dubious problems, that i
+couldn't resolve, with the TeXLive (2007, which is a default), I removed
+it. That removed R as well, and some other dependent packages. Then, I
+installed TeXLive 2011 from CTAN. However, when I wanted to install R,
+from Fedora's repositories, it asks for some TeX dependencies (for
+example, tex-preview, texinfo-tex, texlive, texlive-dvips etc.).
+I know that new TeX is installed in other place
+(/usr/local/texlive/2011/), than the old, default of the Tex 2007
+(/usr/share/texmf/). But, I defined PATH properly:
+PATH=/usr/local/texlive/2011/bin/x86-64-linux:$PATH
+Also, I have tried with the symbolic link:
+ln -s /usr/local/texlive/2011 /usr/share/texmf
+
+So, I wonder why R asks for those TeX-packages? Can I tell it where to
+look? In any case, how to fix this mess?
+
+Thanks in advance,
+Petar
+
+
+From pmilin at ff.uns.ac.rs  Wed Apr 18 18:11:36 2012
+From: pmilin at ff.uns.ac.rs (Petar Milin)
+Date: Wed, 18 Apr 2012 18:11:36 +0200
+Subject: [R-sig-Fedora] Installing texlive dependencies
+In-Reply-To: <CAEp0rCYtaxMV_G8g=Aq=n4_wjRktv=2QCnchTC=vOrd5Pq0aGQ@mail.gmail.com>
+References: <1334764491.2370.8.camel@pm>
+	<CAEp0rCYtaxMV_G8g=Aq=n4_wjRktv=2QCnchTC=vOrd5Pq0aGQ@mail.gmail.com>
+Message-ID: <1334765496.2370.11.camel@pm>
+
+
+Yes, I tried that alternative repo with F15, but it is quite messy. If
+you read carefully various posts, then you will realize that the right
+way is to use CTAN installation, not what is offered under Fedora's
+umbrella, so to say. TeXLive in Fedora seems to be in a sorrowful state.
+
+Best,
+PM
+
+On Wed, 2012-04-18 at 17:07 +0100, Johannes Lips wrote:
+> Check out this page, it also offers a repo for texlive 2011 on f16.
+> http://fedoraproject.org/wiki/Features/TeXLive
+> 
+> On Wed, Apr 18, 2012 at 4:54 PM, Petar Milin <pmilin at ff.uns.ac.rs>
+> wrote:
+>         Hello ALL!
+>         I am running Fedora 16 x86_64. Due to some dubious problems,
+>         that i
+>         couldn't resolve, with the TeXLive (2007, which is a default),
+>         I removed
+>         it. That removed R as well, and some other dependent packages.
+>         Then, I
+>         installed TeXLive 2011 from CTAN. However, when I wanted to
+>         install R,
+>         from Fedora's repositories, it asks for some TeX dependencies
+>         (for
+>         example, tex-preview, texinfo-tex, texlive, texlive-dvips
+>         etc.).
+>         I know that new TeX is installed in other place
+>         (/usr/local/texlive/2011/), than the old, default of the Tex
+>         2007
+>         (/usr/share/texmf/). But, I defined PATH properly:
+>         PATH=/usr/local/texlive/2011/bin/x86-64-linux:$PATH
+>         Also, I have tried with the symbolic link:
+>         ln -s /usr/local/texlive/2011 /usr/share/texmf
+>         
+>         So, I wonder why R asks for those TeX-packages? Can I tell it
+>         where to
+>         look? In any case, how to fix this mess?
+>         
+>         Thanks in advance,
+>         Petar
+>         
+>         _______________________________________________
+>         R-SIG-Fedora mailing list
+>         R-SIG-Fedora at r-project.org
+>         https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+
+From pmilin at ff.uns.ac.rs  Wed Apr 18 19:15:39 2012
+From: pmilin at ff.uns.ac.rs (Petar Milin)
+Date: Wed, 18 Apr 2012 19:15:39 +0200
+Subject: [R-sig-Fedora] Installing texlive dependencies
+In-Reply-To: <CAEp0rCb=_TwGU6G-tVkuvsV5RyZnOZ2JfdS1v=1mDQk+ZbOMrg@mail.gmail.com>
+References: <1334764491.2370.8.camel@pm>
+	<CAEp0rCYtaxMV_G8g=Aq=n4_wjRktv=2QCnchTC=vOrd5Pq0aGQ@mail.gmail.com>
+	<1334765496.2370.11.camel@pm>
+	<CAEp0rCb=_TwGU6G-tVkuvsV5RyZnOZ2JfdS1v=1mDQk+ZbOMrg@mail.gmail.com>
+Message-ID: <1334769339.2370.16.camel@pm>
+
+
+I did not want to offend anyone, or someone's effort. I wrote that I
+tried it with F15, which is a time ago. Sorry if I sounded rude!
+Anyway, it could be that TeXLive 2011 is working better now, but the
+question remains: R will ask for the dependencies, since TeXLive 2011,
+even from repositories, will install in different directory, not the
+'/usr/share/texmf'. What to do with this issue?
+
+Thanks!
+PM
+
+On Wed, 2012-04-18 at 17:18 +0100, Johannes Lips wrote:
+> This repo works totally fine for me for a couple of months now, so I
+> don't think it's that bad.
+> And the people working on it trying hard to make the Texlive
+> experience on fedora better...
+> 
+> On Wed, Apr 18, 2012 at 5:11 PM, Petar Milin <pmilin at ff.uns.ac.rs>
+> wrote:
+>         
+>         Yes, I tried that alternative repo with F15, but it is quite
+>         messy. If
+>         you read carefully various posts, then you will realize that
+>         the right
+>         way is to use CTAN installation, not what is offered under
+>         Fedora's
+>         umbrella, so to say. TeXLive in Fedora seems to be in a
+>         sorrowful state.
+>         
+>         Best,
+>         PM
+>         
+>         On Wed, 2012-04-18 at 17:07 +0100, Johannes Lips wrote:
+>         > Check out this page, it also offers a repo for texlive 2011
+>         on f16.
+>         > http://fedoraproject.org/wiki/Features/TeXLive
+>         >
+>         > On Wed, Apr 18, 2012 at 4:54 PM, Petar Milin
+>         <pmilin at ff.uns.ac.rs>
+>         > wrote:
+>         >         Hello ALL!
+>         >         I am running Fedora 16 x86_64. Due to some dubious
+>         problems,
+>         >         that i
+>         >         couldn't resolve, with the TeXLive (2007, which is a
+>         default),
+>         >         I removed
+>         >         it. That removed R as well, and some other dependent
+>         packages.
+>         >         Then, I
+>         >         installed TeXLive 2011 from CTAN. However, when I
+>         wanted to
+>         >         install R,
+>         >         from Fedora's repositories, it asks for some TeX
+>         dependencies
+>         >         (for
+>         >         example, tex-preview, texinfo-tex, texlive,
+>         texlive-dvips
+>         >         etc.).
+>         >         I know that new TeX is installed in other place
+>         >         (/usr/local/texlive/2011/), than the old, default of
+>         the Tex
+>         >         2007
+>         >         (/usr/share/texmf/). But, I defined PATH properly:
+>         >         PATH=/usr/local/texlive/2011/bin/x86-64-linux:$PATH
+>         >         Also, I have tried with the symbolic link:
+>         >         ln -s /usr/local/texlive/2011 /usr/share/texmf
+>         >
+>         >         So, I wonder why R asks for those TeX-packages? Can
+>         I tell it
+>         >         where to
+>         >         look? In any case, how to fix this mess?
+>         >
+>         >         Thanks in advance,
+>         >         Petar
+>         >
+>         >         _______________________________________________
+>         >         R-SIG-Fedora mailing list
+>         >         R-SIG-Fedora at r-project.org
+>         >         https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>         >
+>         
+>         
+>         
+>
+
+
+From herrold at owlriver.com  Wed Apr 18 20:02:52 2012
+From: herrold at owlriver.com (R P Herrold)
+Date: Wed, 18 Apr 2012 14:02:52 -0400 (EDT)
+Subject: [R-sig-Fedora] Installing texlive dependencies
+In-Reply-To: <1334764491.2370.8.camel@pm>
+References: <1334764491.2370.8.camel@pm>
+Message-ID: <alpine.LRH.1.00.1204181336580.26534@oebafba.bjyevire.pbz>
+
+On Wed, 18 Apr 2012, Petar Milin wrote:
+
+> Hello ALL!
+> I am running Fedora 16 x86_64. Due to some dubious problems, that i
+> couldn't resolve, with the TeXLive (2007, which is a default), I removed
+> it.
+
+ughhh ---- filing a bug with Fedora would be useful as well, 
+so they could address any systemic issues that may exist 
+(we'll look into this later in this email)
+
+> That removed R as well, and some other dependent packages.
+
+Sadly, implying that 'yum' was used for the removal ... that 
+tool is wayyy' too enthusiastic at removing packages;
+ 	rpm -e ...
+is more of a scalpel
+
+> Then, I
+> installed TeXLive 2011 from CTAN. However, when I wanted to install R,
+> from Fedora's repositories, it asks for some TeX dependencies (for
+> example, tex-preview, texinfo-tex, texlive, texlive-dvips etc.).
+
+Ley me try: on a fresh install of Fedora 16 (64 bit), I ran:
+
+[root at vm049244226 ~]# yum install R
+
+  ... which wanted much TeX goodness ...
+  texlive                 x86_64    2007-66.fc16                updates    1.6 M
+  texlive-dvips           x86_64    2007-66.fc16                updates    192 k
+  texlive-latex           x86_64    2007-66.fc16                updates     84 k
+  texlive-texmf           noarch    2007-40.fc16                updates    2.8 M
+  texlive-texmf-dvips     noarch    2007-40.fc16                updates    238 k
+  texlive-texmf-fonts     noarch    2007-40.fc16                updates     48 M
+  texlive-texmf-latex     noarch    2007-40.fc16                updates    5.2 M
+  texlive-utils           x86_64    2007-66.fc16                updates    251 k
+  ...
+
+and R seems to work here:
+
+[root at vm049244226 ~]# cat /etc/redhat-release
+Fedora release 16 (Verne)
+[root at vm049244226 ~]# R
+
+R version 2.15.0 (2012-03-30)
+Copyright (C) 2012 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+   Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> example(t.test)
+
+t.test> require(graphics)
+
+t.test> t.test(1:10,y=c(7:20))      # P = .00001855
+
+         Welch Two Sample t-test
+
+data:  1:10 and c(7:20)
+t = -5.4349, df = 21.982, p-value = 1.855e-05
+alternative hypothesis: true difference in means is not equal 
+to 0
+95 percent confidence interval:
+  -11.052802  -4.947198
+sample estimates:
+mean of x mean of y
+       5.5      13.5
+
+
+t.test> t.test(1:10,y=c(7:20, 200)) # P = .1245    -- NOT 
+significant anymore
+
+         Welch Two Sample t-test
+
+data:  1:10 and c(7:20, 200)
+t = -1.6329, df = 14.165, p-value = 0.1245
+alternative hypothesis: true difference in means is not equal 
+to 0
+95 percent confidence interval:
+  -47.242900   6.376233
+sample estimates:
+mean of x mean of y
+   5.50000  25.93333
+
+
+t.test> ## Classical example: Student's sleep data
+t.test> plot(extra ~ group, data = sleep)
+
+t.test> ## Traditional interface
+t.test> with(sleep, t.test(extra[group == 1], extra[group == 
+2]))
+
+         Welch Two Sample t-test
+
+data:  extra[group == 1] and extra[group == 2]
+t = -1.8608, df = 17.776, p-value = 0.07939
+alternative hypothesis: true difference in means is not equal 
+to 0
+95 percent confidence interval:
+  -3.3654832  0.2054832
+sample estimates:
+mean of x mean of y
+      0.75      2.33
+
+
+t.test> ## Formula interface
+t.test> t.test(extra ~ group, data = sleep)
+
+         Welch Two Sample t-test
+
+data:  extra by group
+t = -1.8608, df = 17.776, p-value = 0.07939
+alternative hypothesis: true difference in means is not equal 
+to 0
+95 percent confidence interval:
+  -3.3654832  0.2054832
+sample estimates:
+mean in group 1 mean in group 2
+            0.75            2.33
+
+> q()
+Save workspace image? [y/n/c]: n
+[root at vm049244226 ~]#
+
+... so it _can_ work under Fedora 16 ...
+
+
+> I know that new TeX is installed in other place
+> (/usr/local/texlive/2011/), than the old, default of the Tex 2007
+> (/usr/share/texmf/). But, I defined PATH properly:
+> PATH=/usr/local/texlive/2011/bin/x86-64-linux:$PATH
+> Also, I have tried with the symbolic link:
+> ln -s /usr/local/texlive/2011 /usr/share/texmf
+>
+> So, I wonder why R asks for those TeX-packages? Can I tell it where to
+> look? In any case, how to fix this mess?
+
+The packaging decisions behind R included support for the 
+ability to generate postscript, and documentation;  that 
+dragged in all the TeX, in part
+
+A clean install of Fedora comes to mind, because mixing 
+packaging systems is inherently 'pot luck' and random in 
+nature, just as mixing tarball hand-compiled matter into a 
+package managed system rarely works well
+
+sorry to bear that news ;(
+
+-- Russ herrold
+
+
+From noreply+1629943917 at badoo.com  Sat Apr 21 03:47:19 2012
+From: noreply+1629943917 at badoo.com (Badoo)
+Date: Sat, 21 Apr 2012 01:47:19 +0000
+Subject: [R-sig-Fedora] =?utf-8?q?Paulo_Sousa_deixou_uma_mensagem_para_voc?=
+	=?utf-8?b?w6ouLi4=?=
+Message-ID: <201204210147.q3L1lOIF014648@hypatia.math.ethz.ch>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120421/478769b0/attachment.pl>
+
+From baker.peter2009 at gmail.com  Wed Apr 25 15:03:22 2012
+From: baker.peter2009 at gmail.com (Peter Baker)
+Date: Wed, 25 Apr 2012 23:03:22 +1000
+Subject: [R-sig-Fedora] Installing texlive dependencies
+In-Reply-To: <alpine.LRH.1.00.1204181336580.26534@oebafba.bjyevire.pbz>
+References: <1334764491.2370.8.camel@pm>
+	<alpine.LRH.1.00.1204181336580.26534@oebafba.bjyevire.pbz>
+Message-ID: <CADsJW9GMV-U_gw9hhhK4B96QBbscSqaCSwp6JE5aj2c_t83xvg@mail.gmail.com>
+
+Hi
+
+I've been using the F16 TexLive 2011 stable repo for F16 for quite some time
+ baseurl=http://jnovy.fedorapeople.org/texlive/2011/packages.fc16/
+ (not the F15 repo as that would be asking for trouble) and for
+F17beta I've been using the F17 TexLive 2012 repo
+  baseurl=http://jnovy.fedorapeople.org/texlive/2012/packages.fc17/
+in /etc/yum.repos.d/texlive-release.repo
+
+>From memory I didn't install the standard texlive2007 first for F16 -
+definitely didn't for F17beta  this week. I installed the recent
+texlive first (as above) then R installed without  a hitch. My only
+problem with F17beta is that for R 2.15 RBGL from Bioconductor won't
+compile with GCC4.7 - I can't recall any problems with F16
+
+There is plenty of discussion about getting the current texlive into
+standard fedora in standard distro but it revolves around licences
+rather than any technical problems. It certainly seems to work well
+although I had quite a few problems a year ago (bad dependencies) but
+it seems to work pretty well these days. It is nicely set up with
+collections (see http://fedoraproject.org/wiki/Features/TeXLive and
+http://jnovy.fedorapeople.org/texlive/collections ) and you can
+install a particular style file with yum directly eg   yum install
+'tex(epsfig.sty)'
+
+Good luck
+
+regards
+Peter
+
+On Thu, Apr 19, 2012 at 4:02 AM, R P Herrold <herrold at owlriver.com> wrote:
+> On Wed, 18 Apr 2012, Petar Milin wrote:
+>
+>> Hello ALL!
+>> I am running Fedora 16 x86_64. Due to some dubious problems, that i
+>> couldn't resolve, with the TeXLive (2007, which is a default), I removed
+>> it.
+>
+>
+> ughhh ---- filing a bug with Fedora would be useful as well, so they could
+> address any systemic issues that may exist (we'll look into this later in
+> this email)
+>
+>
+>> That removed R as well, and some other dependent packages.
+>
+>
+> Sadly, implying that 'yum' was used for the removal ... that tool is wayyy'
+> too enthusiastic at removing packages;
+> ? ? ? ?rpm -e ...
+> is more of a scalpel
+>
+>
+>> Then, I
+>> installed TeXLive 2011 from CTAN. However, when I wanted to install R,
+>> from Fedora's repositories, it asks for some TeX dependencies (for
+>> example, tex-preview, texinfo-tex, texlive, texlive-dvips etc.).
+>
+>
+> Ley me try: on a fresh install of Fedora 16 (64 bit), I ran:
+>
+> [root at vm049244226 ~]# yum install R
+>
+> ?... which wanted much TeX goodness ...
+> ?texlive ? ? ? ? ? ? ? ? x86_64 ? ?2007-66.fc16 ? ? ? ? ? ? ? ?updates
+> ?1.6 M
+> ?texlive-dvips ? ? ? ? ? x86_64 ? ?2007-66.fc16 ? ? ? ? ? ? ? ?updates
+> ?192 k
+> ?texlive-latex ? ? ? ? ? x86_64 ? ?2007-66.fc16 ? ? ? ? ? ? ? ?updates
+> 84 k
+> ?texlive-texmf ? ? ? ? ? noarch ? ?2007-40.fc16 ? ? ? ? ? ? ? ?updates
+> ?2.8 M
+> ?texlive-texmf-dvips ? ? noarch ? ?2007-40.fc16 ? ? ? ? ? ? ? ?updates
+> ?238 k
+> ?texlive-texmf-fonts ? ? noarch ? ?2007-40.fc16 ? ? ? ? ? ? ? ?updates
+> 48 M
+> ?texlive-texmf-latex ? ? noarch ? ?2007-40.fc16 ? ? ? ? ? ? ? ?updates
+> ?5.2 M
+> ?texlive-utils ? ? ? ? ? x86_64 ? ?2007-66.fc16 ? ? ? ? ? ? ? ?updates
+> ?251 k
+> ?...
+>
+> and R seems to work here:
+>
+> [root at vm049244226 ~]# cat /etc/redhat-release
+> Fedora release 16 (Verne)
+> [root at vm049244226 ~]# R
+>
+> R version 2.15.0 (2012-03-30)
+> Copyright (C) 2012 The R Foundation for Statistical Computing
+> ISBN 3-900051-07-0
+> Platform: x86_64-redhat-linux-gnu (64-bit)
+>
+> R is free software and comes with ABSOLUTELY NO WARRANTY.
+> You are welcome to redistribute it under certain conditions.
+> Type 'license()' or 'licence()' for distribution details.
+>
+> ?Natural language support but running in an English locale
+>
+> R is a collaborative project with many contributors.
+> Type 'contributors()' for more information and
+> 'citation()' on how to cite R or R packages in publications.
+>
+> Type 'demo()' for some demos, 'help()' for on-line help, or
+> 'help.start()' for an HTML browser interface to help.
+> Type 'q()' to quit R.
+>
+>> example(t.test)
+>
+>
+> t.test> require(graphics)
+>
+> t.test> t.test(1:10,y=c(7:20)) ? ? ?# P = .00001855
+>
+> ? ? ? ?Welch Two Sample t-test
+>
+> data: ?1:10 and c(7:20)
+> t = -5.4349, df = 21.982, p-value = 1.855e-05
+> alternative hypothesis: true difference in means is not equal to 0
+> 95 percent confidence interval:
+> ?-11.052802 ?-4.947198
+> sample estimates:
+> mean of x mean of y
+> ? ? ?5.5 ? ? ?13.5
+>
+>
+> t.test> t.test(1:10,y=c(7:20, 200)) # P = .1245 ? ?-- NOT significant
+> anymore
+>
+> ? ? ? ?Welch Two Sample t-test
+>
+> data: ?1:10 and c(7:20, 200)
+> t = -1.6329, df = 14.165, p-value = 0.1245
+> alternative hypothesis: true difference in means is not equal to 0
+> 95 percent confidence interval:
+> ?-47.242900 ? 6.376233
+> sample estimates:
+> mean of x mean of y
+> ?5.50000 ?25.93333
+>
+>
+> t.test> ## Classical example: Student's sleep data
+> t.test> plot(extra ~ group, data = sleep)
+>
+> t.test> ## Traditional interface
+> t.test> with(sleep, t.test(extra[group == 1], extra[group == 2]))
+>
+> ? ? ? ?Welch Two Sample t-test
+>
+> data: ?extra[group == 1] and extra[group == 2]
+> t = -1.8608, df = 17.776, p-value = 0.07939
+> alternative hypothesis: true difference in means is not equal to 0
+> 95 percent confidence interval:
+> ?-3.3654832 ?0.2054832
+> sample estimates:
+> mean of x mean of y
+> ? ? 0.75 ? ? ?2.33
+>
+>
+> t.test> ## Formula interface
+> t.test> t.test(extra ~ group, data = sleep)
+>
+> ? ? ? ?Welch Two Sample t-test
+>
+> data: ?extra by group
+> t = -1.8608, df = 17.776, p-value = 0.07939
+> alternative hypothesis: true difference in means is not equal to 0
+> 95 percent confidence interval:
+> ?-3.3654832 ?0.2054832
+> sample estimates:
+> mean in group 1 mean in group 2
+> ? ? ? ? ? 0.75 ? ? ? ? ? ?2.33
+>
+>> q()
+>
+> Save workspace image? [y/n/c]: n
+> [root at vm049244226 ~]#
+>
+> ... so it _can_ work under Fedora 16 ...
+>
+>
+>
+>> I know that new TeX is installed in other place
+>> (/usr/local/texlive/2011/), than the old, default of the Tex 2007
+>> (/usr/share/texmf/). But, I defined PATH properly:
+>> PATH=/usr/local/texlive/2011/bin/x86-64-linux:$PATH
+>> Also, I have tried with the symbolic link:
+>> ln -s /usr/local/texlive/2011 /usr/share/texmf
+>>
+>> So, I wonder why R asks for those TeX-packages? Can I tell it where to
+>> look? In any case, how to fix this mess?
+>
+>
+> The packaging decisions behind R included support for the ability to
+> generate postscript, and documentation; ?that dragged in all the TeX, in
+> part
+>
+> A clean install of Fedora comes to mind, because mixing packaging systems is
+> inherently 'pot luck' and random in nature, just as mixing tarball
+> hand-compiled matter into a package managed system rarely works well
+>
+> sorry to bear that news ;(
+>
+> -- Russ herrold
+>
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+Dr Peter Baker | Senior Lecturer/Statistician | Epidemiology & Biostatistics
+
+Room 416 | School of Population Health |The University of Queensland | Public
+Health Building | Herston Rd | Herston Qld 4006 | Australia
+
+Ph: +61 7 3346 4747 | Fax: +61 7 3365 5442 | http://www.sph.uq.edu.au/? |
+Email: p.baker1 at uq.edu.au or baker.peter2009 at gmail.com
+
+
+From pmilin at ff.uns.ac.rs  Wed Apr 25 16:39:46 2012
+From: pmilin at ff.uns.ac.rs (Petar Milin)
+Date: Wed, 25 Apr 2012 16:39:46 +0200
+Subject: [R-sig-Fedora] Installing texlive dependencies
+In-Reply-To: <CADsJW9GMV-U_gw9hhhK4B96QBbscSqaCSwp6JE5aj2c_t83xvg@mail.gmail.com>
+References: <1334764491.2370.8.camel@pm>
+	<alpine.LRH.1.00.1204181336580.26534@oebafba.bjyevire.pbz>
+	<CADsJW9GMV-U_gw9hhhK4B96QBbscSqaCSwp6JE5aj2c_t83xvg@mail.gmail.com>
+Message-ID: <1335364786.2550.5.camel@pm>
+
+Hello!
+Finally [ and contrary to Peter :-) ], I have installed TeXLive 2007
+from the main repo. My experience was such that R complained about
+missing LaTeX in /usr/share/texmf/, while TeXLive 2011 is in
+the /usr/share/texlive/. I even tried to build symbolic links, to cheat
+R, but it was firm and complained throughout. Thus, I installed TeXLive
+2007 from scratch, and R was/is happy. All additional packages for
+LaTeX, of course, must be included manually. It is a bit of hassle but
+not too much. Anyway, once you master how-to, it is smooth.
+
+Best,
+Petar
+
+On Wed, 2012-04-25 at 23:03 +1000, Peter Baker wrote:
+> Hi
+> 
+> I've been using the F16 TexLive 2011 stable repo for F16 for quite some time
+>  baseurl=http://jnovy.fedorapeople.org/texlive/2011/packages.fc16/
+>  (not the F15 repo as that would be asking for trouble) and for
+> F17beta I've been using the F17 TexLive 2012 repo
+>   baseurl=http://jnovy.fedorapeople.org/texlive/2012/packages.fc17/
+> in /etc/yum.repos.d/texlive-release.repo
+> 
+> From memory I didn't install the standard texlive2007 first for F16 -
+> definitely didn't for F17beta  this week. I installed the recent
+> texlive first (as above) then R installed without  a hitch. My only
+> problem with F17beta is that for R 2.15 RBGL from Bioconductor won't
+> compile with GCC4.7 - I can't recall any problems with F16
+> 
+> There is plenty of discussion about getting the current texlive into
+> standard fedora in standard distro but it revolves around licences
+> rather than any technical problems. It certainly seems to work well
+> although I had quite a few problems a year ago (bad dependencies) but
+> it seems to work pretty well these days. It is nicely set up with
+> collections (see http://fedoraproject.org/wiki/Features/TeXLive and
+> http://jnovy.fedorapeople.org/texlive/collections ) and you can
+> install a particular style file with yum directly eg   yum install
+> 'tex(epsfig.sty)'
+> 
+> Good luck
+> 
+> regards
+> Peter
+> 
+> On Thu, Apr 19, 2012 at 4:02 AM, R P Herrold <herrold at owlriver.com> wrote:
+> > On Wed, 18 Apr 2012, Petar Milin wrote:
+> >
+> >> Hello ALL!
+> >> I am running Fedora 16 x86_64. Due to some dubious problems, that i
+> >> couldn't resolve, with the TeXLive (2007, which is a default), I removed
+> >> it.
+> >
+> >
+> > ughhh ---- filing a bug with Fedora would be useful as well, so they could
+> > address any systemic issues that may exist (we'll look into this later in
+> > this email)
+> >
+> >
+> >> That removed R as well, and some other dependent packages.
+> >
+> >
+> > Sadly, implying that 'yum' was used for the removal ... that tool is wayyy'
+> > too enthusiastic at removing packages;
+> >        rpm -e ...
+> > is more of a scalpel
+> >
+> >
+> >> Then, I
+> >> installed TeXLive 2011 from CTAN. However, when I wanted to install R,
+> >> from Fedora's repositories, it asks for some TeX dependencies (for
+> >> example, tex-preview, texinfo-tex, texlive, texlive-dvips etc.).
+> >
+> >
+> > Ley me try: on a fresh install of Fedora 16 (64 bit), I ran:
+> >
+> > [root at vm049244226 ~]# yum install R
+> >
+> >  ... which wanted much TeX goodness ...
+> >  texlive                 x86_64    2007-66.fc16                updates
+> >  1.6 M
+> >  texlive-dvips           x86_64    2007-66.fc16                updates
+> >  192 k
+> >  texlive-latex           x86_64    2007-66.fc16                updates
+> > 84 k
+> >  texlive-texmf           noarch    2007-40.fc16                updates
+> >  2.8 M
+> >  texlive-texmf-dvips     noarch    2007-40.fc16                updates
+> >  238 k
+> >  texlive-texmf-fonts     noarch    2007-40.fc16                updates
+> > 48 M
+> >  texlive-texmf-latex     noarch    2007-40.fc16                updates
+> >  5.2 M
+> >  texlive-utils           x86_64    2007-66.fc16                updates
+> >  251 k
+> >  ...
+> >
+> > and R seems to work here:
+> >
+> > [root at vm049244226 ~]# cat /etc/redhat-release
+> > Fedora release 16 (Verne)
+> > [root at vm049244226 ~]# R
+> >
+> > R version 2.15.0 (2012-03-30)
+> > Copyright (C) 2012 The R Foundation for Statistical Computing
+> > ISBN 3-900051-07-0
+> > Platform: x86_64-redhat-linux-gnu (64-bit)
+> >
+> > R is free software and comes with ABSOLUTELY NO WARRANTY.
+> > You are welcome to redistribute it under certain conditions.
+> > Type 'license()' or 'licence()' for distribution details.
+> >
+> >  Natural language support but running in an English locale
+> >
+> > R is a collaborative project with many contributors.
+> > Type 'contributors()' for more information and
+> > 'citation()' on how to cite R or R packages in publications.
+> >
+> > Type 'demo()' for some demos, 'help()' for on-line help, or
+> > 'help.start()' for an HTML browser interface to help.
+> > Type 'q()' to quit R.
+> >
+> >> example(t.test)
+> >
+> >
+> > t.test> require(graphics)
+> >
+> > t.test> t.test(1:10,y=c(7:20))      # P = .00001855
+> >
+> >        Welch Two Sample t-test
+> >
+> > data:  1:10 and c(7:20)
+> > t = -5.4349, df = 21.982, p-value = 1.855e-05
+> > alternative hypothesis: true difference in means is not equal to 0
+> > 95 percent confidence interval:
+> >  -11.052802  -4.947198
+> > sample estimates:
+> > mean of x mean of y
+> >      5.5      13.5
+> >
+> >
+> > t.test> t.test(1:10,y=c(7:20, 200)) # P = .1245    -- NOT significant
+> > anymore
+> >
+> >        Welch Two Sample t-test
+> >
+> > data:  1:10 and c(7:20, 200)
+> > t = -1.6329, df = 14.165, p-value = 0.1245
+> > alternative hypothesis: true difference in means is not equal to 0
+> > 95 percent confidence interval:
+> >  -47.242900   6.376233
+> > sample estimates:
+> > mean of x mean of y
+> >  5.50000  25.93333
+> >
+> >
+> > t.test> ## Classical example: Student's sleep data
+> > t.test> plot(extra ~ group, data = sleep)
+> >
+> > t.test> ## Traditional interface
+> > t.test> with(sleep, t.test(extra[group == 1], extra[group == 2]))
+> >
+> >        Welch Two Sample t-test
+> >
+> > data:  extra[group == 1] and extra[group == 2]
+> > t = -1.8608, df = 17.776, p-value = 0.07939
+> > alternative hypothesis: true difference in means is not equal to 0
+> > 95 percent confidence interval:
+> >  -3.3654832  0.2054832
+> > sample estimates:
+> > mean of x mean of y
+> >     0.75      2.33
+> >
+> >
+> > t.test> ## Formula interface
+> > t.test> t.test(extra ~ group, data = sleep)
+> >
+> >        Welch Two Sample t-test
+> >
+> > data:  extra by group
+> > t = -1.8608, df = 17.776, p-value = 0.07939
+> > alternative hypothesis: true difference in means is not equal to 0
+> > 95 percent confidence interval:
+> >  -3.3654832  0.2054832
+> > sample estimates:
+> > mean in group 1 mean in group 2
+> >           0.75            2.33
+> >
+> >> q()
+> >
+> > Save workspace image? [y/n/c]: n
+> > [root at vm049244226 ~]#
+> >
+> > ... so it _can_ work under Fedora 16 ...
+> >
+> >
+> >
+> >> I know that new TeX is installed in other place
+> >> (/usr/local/texlive/2011/), than the old, default of the Tex 2007
+> >> (/usr/share/texmf/). But, I defined PATH properly:
+> >> PATH=/usr/local/texlive/2011/bin/x86-64-linux:$PATH
+> >> Also, I have tried with the symbolic link:
+> >> ln -s /usr/local/texlive/2011 /usr/share/texmf
+> >>
+> >> So, I wonder why R asks for those TeX-packages? Can I tell it where to
+> >> look? In any case, how to fix this mess?
+> >
+> >
+> > The packaging decisions behind R included support for the ability to
+> > generate postscript, and documentation;  that dragged in all the TeX, in
+> > part
+> >
+> > A clean install of Fedora comes to mind, because mixing packaging systems is
+> > inherently 'pot luck' and random in nature, just as mixing tarball
+> > hand-compiled matter into a package managed system rarely works well
+> >
+> > sorry to bear that news ;(
+> >
+> > -- Russ herrold
+> >
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> 
+> 
+>
+
+
+From baker.peter2009 at gmail.com  Thu Apr 26 08:15:14 2012
+From: baker.peter2009 at gmail.com (Peter Baker)
+Date: Thu, 26 Apr 2012 16:15:14 +1000
+Subject: [R-sig-Fedora] Installing texlive dependencies
+In-Reply-To: <1335364786.2550.5.camel@pm>
+References: <1334764491.2370.8.camel@pm>
+	<alpine.LRH.1.00.1204181336580.26534@oebafba.bjyevire.pbz>
+	<CADsJW9GMV-U_gw9hhhK4B96QBbscSqaCSwp6JE5aj2c_t83xvg@mail.gmail.com>
+	<1335364786.2550.5.camel@pm>
+Message-ID: <CADsJW9Hhm4Pgbz+ARFxQ5REDuoHmPR4eUQL1zJEQQDApk2dTQA@mail.gmail.com>
+
+Hi Petar
+
+My guess is that you had something else floating around from previous
+fedora update/install which caused some mismatches as some binaries
+have been put into texlive that previously weren't in texlive 2007 -
+five years (2007 to 2012) is quite a time in computing so sadly you'd
+expect things to change. I have not used texlive 2007 for quite some
+time (perhaps f13) and not really had much of a problem with R once I
+got rid of remnants of texlive 2007. I find texlive 2011/12 to be much
+easier to update once you get it working. Linux mint is still at
+texlive 2009 and that seems to work perfectly fine too
+
+Of course it doesn't really matter as tex seems to change at a glacial
+pace compared to R - I am glad it is now working for you.
+
+Cheers
+Peter
+
+On Thu, Apr 26, 2012 at 12:39 AM, Petar Milin <pmilin at ff.uns.ac.rs> wrote:
+> Hello!
+> Finally [ and contrary to Peter :-) ], I have installed TeXLive 2007
+> from the main repo. My experience was such that R complained about
+> missing LaTeX in /usr/share/texmf/, while TeXLive 2011 is in
+> the /usr/share/texlive/. I even tried to build symbolic links, to cheat
+> R, but it was firm and complained throughout. Thus, I installed TeXLive
+> 2007 from scratch, and R was/is happy. All additional packages for
+> LaTeX, of course, must be included manually. It is a bit of hassle but
+> not too much. Anyway, once you master how-to, it is smooth.
+>
+> Best,
+> Petar
+>
+> On Wed, 2012-04-25 at 23:03 +1000, Peter Baker wrote:
+>> Hi
+>>
+>> I've been using the F16 TexLive 2011 stable repo for F16 for quite some time
+>> ?baseurl=http://jnovy.fedorapeople.org/texlive/2011/packages.fc16/
+>> ?(not the F15 repo as that would be asking for trouble) and for
+>> F17beta I've been using the F17 TexLive 2012 repo
+>> ? baseurl=http://jnovy.fedorapeople.org/texlive/2012/packages.fc17/
+>> in /etc/yum.repos.d/texlive-release.repo
+>>
+>> From memory I didn't install the standard texlive2007 first for F16 -
+>> definitely didn't for F17beta ?this week. I installed the recent
+>> texlive first (as above) then R installed without ?a hitch. My only
+>> problem with F17beta is that for R 2.15 RBGL from Bioconductor won't
+>> compile with GCC4.7 - I can't recall any problems with F16
+>>
+>> There is plenty of discussion about getting the current texlive into
+>> standard fedora in standard distro but it revolves around licences
+>> rather than any technical problems. It certainly seems to work well
+>> although I had quite a few problems a year ago (bad dependencies) but
+>> it seems to work pretty well these days. It is nicely set up with
+>> collections (see http://fedoraproject.org/wiki/Features/TeXLive and
+>> http://jnovy.fedorapeople.org/texlive/collections ) and you can
+>> install a particular style file with yum directly eg ? yum install
+>> 'tex(epsfig.sty)'
+>>
+>> Good luck
+>>
+>> regards
+>> Peter
+>>
+>> On Thu, Apr 19, 2012 at 4:02 AM, R P Herrold <herrold at owlriver.com> wrote:
+>> > On Wed, 18 Apr 2012, Petar Milin wrote:
+>> >
+>> >> Hello ALL!
+>> >> I am running Fedora 16 x86_64. Due to some dubious problems, that i
+>> >> couldn't resolve, with the TeXLive (2007, which is a default), I removed
+>> >> it.
+>> >
+>> >
+>> > ughhh ---- filing a bug with Fedora would be useful as well, so they could
+>> > address any systemic issues that may exist (we'll look into this later in
+>> > this email)
+>> >
+>> >
+>> >> That removed R as well, and some other dependent packages.
+>> >
+>> >
+>> > Sadly, implying that 'yum' was used for the removal ... that tool is wayyy'
+>> > too enthusiastic at removing packages;
+>> > ? ? ? ?rpm -e ...
+>> > is more of a scalpel
+>> >
+>> >
+>> >> Then, I
+>> >> installed TeXLive 2011 from CTAN. However, when I wanted to install R,
+>> >> from Fedora's repositories, it asks for some TeX dependencies (for
+>> >> example, tex-preview, texinfo-tex, texlive, texlive-dvips etc.).
+>> >
+>> >
+>> > Ley me try: on a fresh install of Fedora 16 (64 bit), I ran:
+>> >
+>> > [root at vm049244226 ~]# yum install R
+>> >
+>> > ?... which wanted much TeX goodness ...
+>> > ?texlive ? ? ? ? ? ? ? ? x86_64 ? ?2007-66.fc16 ? ? ? ? ? ? ? ?updates
+>> > ?1.6 M
+>> > ?texlive-dvips ? ? ? ? ? x86_64 ? ?2007-66.fc16 ? ? ? ? ? ? ? ?updates
+>> > ?192 k
+>> > ?texlive-latex ? ? ? ? ? x86_64 ? ?2007-66.fc16 ? ? ? ? ? ? ? ?updates
+>> > 84 k
+>> > ?texlive-texmf ? ? ? ? ? noarch ? ?2007-40.fc16 ? ? ? ? ? ? ? ?updates
+>> > ?2.8 M
+>> > ?texlive-texmf-dvips ? ? noarch ? ?2007-40.fc16 ? ? ? ? ? ? ? ?updates
+>> > ?238 k
+>> > ?texlive-texmf-fonts ? ? noarch ? ?2007-40.fc16 ? ? ? ? ? ? ? ?updates
+>> > 48 M
+>> > ?texlive-texmf-latex ? ? noarch ? ?2007-40.fc16 ? ? ? ? ? ? ? ?updates
+>> > ?5.2 M
+>> > ?texlive-utils ? ? ? ? ? x86_64 ? ?2007-66.fc16 ? ? ? ? ? ? ? ?updates
+>> > ?251 k
+>> > ?...
+>> >
+>> > and R seems to work here:
+>> >
+>> > [root at vm049244226 ~]# cat /etc/redhat-release
+>> > Fedora release 16 (Verne)
+>> > [root at vm049244226 ~]# R
+>> >
+>> > R version 2.15.0 (2012-03-30)
+>> > Copyright (C) 2012 The R Foundation for Statistical Computing
+>> > ISBN 3-900051-07-0
+>> > Platform: x86_64-redhat-linux-gnu (64-bit)
+>> >
+>> > R is free software and comes with ABSOLUTELY NO WARRANTY.
+>> > You are welcome to redistribute it under certain conditions.
+>> > Type 'license()' or 'licence()' for distribution details.
+>> >
+>> > ?Natural language support but running in an English locale
+>> >
+>> > R is a collaborative project with many contributors.
+>> > Type 'contributors()' for more information and
+>> > 'citation()' on how to cite R or R packages in publications.
+>> >
+>> > Type 'demo()' for some demos, 'help()' for on-line help, or
+>> > 'help.start()' for an HTML browser interface to help.
+>> > Type 'q()' to quit R.
+>> >
+>> >> example(t.test)
+>> >
+>> >
+>> > t.test> require(graphics)
+>> >
+>> > t.test> t.test(1:10,y=c(7:20)) ? ? ?# P = .00001855
+>> >
+>> > ? ? ? ?Welch Two Sample t-test
+>> >
+>> > data: ?1:10 and c(7:20)
+>> > t = -5.4349, df = 21.982, p-value = 1.855e-05
+>> > alternative hypothesis: true difference in means is not equal to 0
+>> > 95 percent confidence interval:
+>> > ?-11.052802 ?-4.947198
+>> > sample estimates:
+>> > mean of x mean of y
+>> > ? ? ?5.5 ? ? ?13.5
+>> >
+>> >
+>> > t.test> t.test(1:10,y=c(7:20, 200)) # P = .1245 ? ?-- NOT significant
+>> > anymore
+>> >
+>> > ? ? ? ?Welch Two Sample t-test
+>> >
+>> > data: ?1:10 and c(7:20, 200)
+>> > t = -1.6329, df = 14.165, p-value = 0.1245
+>> > alternative hypothesis: true difference in means is not equal to 0
+>> > 95 percent confidence interval:
+>> > ?-47.242900 ? 6.376233
+>> > sample estimates:
+>> > mean of x mean of y
+>> > ?5.50000 ?25.93333
+>> >
+>> >
+>> > t.test> ## Classical example: Student's sleep data
+>> > t.test> plot(extra ~ group, data = sleep)
+>> >
+>> > t.test> ## Traditional interface
+>> > t.test> with(sleep, t.test(extra[group == 1], extra[group == 2]))
+>> >
+>> > ? ? ? ?Welch Two Sample t-test
+>> >
+>> > data: ?extra[group == 1] and extra[group == 2]
+>> > t = -1.8608, df = 17.776, p-value = 0.07939
+>> > alternative hypothesis: true difference in means is not equal to 0
+>> > 95 percent confidence interval:
+>> > ?-3.3654832 ?0.2054832
+>> > sample estimates:
+>> > mean of x mean of y
+>> > ? ? 0.75 ? ? ?2.33
+>> >
+>> >
+>> > t.test> ## Formula interface
+>> > t.test> t.test(extra ~ group, data = sleep)
+>> >
+>> > ? ? ? ?Welch Two Sample t-test
+>> >
+>> > data: ?extra by group
+>> > t = -1.8608, df = 17.776, p-value = 0.07939
+>> > alternative hypothesis: true difference in means is not equal to 0
+>> > 95 percent confidence interval:
+>> > ?-3.3654832 ?0.2054832
+>> > sample estimates:
+>> > mean in group 1 mean in group 2
+>> > ? ? ? ? ? 0.75 ? ? ? ? ? ?2.33
+>> >
+>> >> q()
+>> >
+>> > Save workspace image? [y/n/c]: n
+>> > [root at vm049244226 ~]#
+>> >
+>> > ... so it _can_ work under Fedora 16 ...
+>> >
+>> >
+>> >
+>> >> I know that new TeX is installed in other place
+>> >> (/usr/local/texlive/2011/), than the old, default of the Tex 2007
+>> >> (/usr/share/texmf/). But, I defined PATH properly:
+>> >> PATH=/usr/local/texlive/2011/bin/x86-64-linux:$PATH
+>> >> Also, I have tried with the symbolic link:
+>> >> ln -s /usr/local/texlive/2011 /usr/share/texmf
+>> >>
+>> >> So, I wonder why R asks for those TeX-packages? Can I tell it where to
+>> >> look? In any case, how to fix this mess?
+>> >
+>> >
+>> > The packaging decisions behind R included support for the ability to
+>> > generate postscript, and documentation; ?that dragged in all the TeX, in
+>> > part
+>> >
+>> > A clean install of Fedora comes to mind, because mixing packaging systems is
+>> > inherently 'pot luck' and random in nature, just as mixing tarball
+>> > hand-compiled matter into a package managed system rarely works well
+>> >
+>> > sorry to bear that news ;(
+>> >
+>> > -- Russ herrold
+>> >
+>> >
+>> > _______________________________________________
+>> > R-SIG-Fedora mailing list
+>> > R-SIG-Fedora at r-project.org
+>> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>
+>>
+>>
+>
+>
+
+
+
+-- 
+Dr Peter Baker | Senior Lecturer/Statistician | Epidemiology & Biostatistics
+
+Room 416 | School of Population Health |The University of Queensland | Public
+Health Building | Herston Rd | Herston Qld 4006 | Australia
+
+Ph: +61 7 3346 4747 | Fax: +61 7 3365 5442 | http://www.sph.uq.edu.au/? |
+Email: p.baker1 at uq.edu.au or baker.peter2009 at gmail.com
+
+
+From pmilin at ff.uns.ac.rs  Thu Apr 26 10:01:25 2012
+From: pmilin at ff.uns.ac.rs (Petar Milin)
+Date: Thu, 26 Apr 2012 10:01:25 +0200
+Subject: [R-sig-Fedora] Installing texlive dependencies
+In-Reply-To: <CADsJW9Hhm4Pgbz+ARFxQ5REDuoHmPR4eUQL1zJEQQDApk2dTQA@mail.gmail.com>
+References: <1334764491.2370.8.camel@pm>
+	<alpine.LRH.1.00.1204181336580.26534@oebafba.bjyevire.pbz>
+	<CADsJW9GMV-U_gw9hhhK4B96QBbscSqaCSwp6JE5aj2c_t83xvg@mail.gmail.com>
+	<1335364786.2550.5.camel@pm>
+	<CADsJW9Hhm4Pgbz+ARFxQ5REDuoHmPR4eUQL1zJEQQDApk2dTQA@mail.gmail.com>
+Message-ID: <1335427285.2204.2.camel@pm>
+
+
+Dear Peter,
+Please, can you explain how did you make R accept the TeXLive 2011? I
+would like to give it a try. But, when I install TeXLive 2011, and then
+R, the later is asking for dependencies (a list of tex-related
+packages), and it puts them in /usr/share/texmf.
+
+Best,
+Petar
+
+On Thu, 2012-04-26 at 16:15 +1000, Peter Baker wrote:
+> Hi Petar
+> 
+> My guess is that you had something else floating around from previous
+> fedora update/install which caused some mismatches as some binaries
+> have been put into texlive that previously weren't in texlive 2007 -
+> five years (2007 to 2012) is quite a time in computing so sadly you'd
+> expect things to change. I have not used texlive 2007 for quite some
+> time (perhaps f13) and not really had much of a problem with R once I
+> got rid of remnants of texlive 2007. I find texlive 2011/12 to be much
+> easier to update once you get it working. Linux mint is still at
+> texlive 2009 and that seems to work perfectly fine too
+> 
+> Of course it doesn't really matter as tex seems to change at a glacial
+> pace compared to R - I am glad it is now working for you.
+> 
+> Cheers
+> Peter
+> 
+> On Thu, Apr 26, 2012 at 12:39 AM, Petar Milin <pmilin at ff.uns.ac.rs> wrote:
+> > Hello!
+> > Finally [ and contrary to Peter :-) ], I have installed TeXLive 2007
+> > from the main repo. My experience was such that R complained about
+> > missing LaTeX in /usr/share/texmf/, while TeXLive 2011 is in
+> > the /usr/share/texlive/. I even tried to build symbolic links, to cheat
+> > R, but it was firm and complained throughout. Thus, I installed TeXLive
+> > 2007 from scratch, and R was/is happy. All additional packages for
+> > LaTeX, of course, must be included manually. It is a bit of hassle but
+> > not too much. Anyway, once you master how-to, it is smooth.
+> >
+> > Best,
+> > Petar
+> >
+> > On Wed, 2012-04-25 at 23:03 +1000, Peter Baker wrote:
+> >> Hi
+> >>
+> >> I've been using the F16 TexLive 2011 stable repo for F16 for quite some time
+> >>  baseurl=http://jnovy.fedorapeople.org/texlive/2011/packages.fc16/
+> >>  (not the F15 repo as that would be asking for trouble) and for
+> >> F17beta I've been using the F17 TexLive 2012 repo
+> >>   baseurl=http://jnovy.fedorapeople.org/texlive/2012/packages.fc17/
+> >> in /etc/yum.repos.d/texlive-release.repo
+> >>
+> >> From memory I didn't install the standard texlive2007 first for F16 -
+> >> definitely didn't for F17beta  this week. I installed the recent
+> >> texlive first (as above) then R installed without  a hitch. My only
+> >> problem with F17beta is that for R 2.15 RBGL from Bioconductor won't
+> >> compile with GCC4.7 - I can't recall any problems with F16
+> >>
+> >> There is plenty of discussion about getting the current texlive into
+> >> standard fedora in standard distro but it revolves around licences
+> >> rather than any technical problems. It certainly seems to work well
+> >> although I had quite a few problems a year ago (bad dependencies) but
+> >> it seems to work pretty well these days. It is nicely set up with
+> >> collections (see http://fedoraproject.org/wiki/Features/TeXLive and
+> >> http://jnovy.fedorapeople.org/texlive/collections ) and you can
+> >> install a particular style file with yum directly eg   yum install
+> >> 'tex(epsfig.sty)'
+> >>
+> >> Good luck
+> >>
+> >> regards
+> >> Peter
+> >>
+> >> On Thu, Apr 19, 2012 at 4:02 AM, R P Herrold <herrold at owlriver.com> wrote:
+> >> > On Wed, 18 Apr 2012, Petar Milin wrote:
+> >> >
+> >> >> Hello ALL!
+> >> >> I am running Fedora 16 x86_64. Due to some dubious problems, that i
+> >> >> couldn't resolve, with the TeXLive (2007, which is a default), I removed
+> >> >> it.
+> >> >
+> >> >
+> >> > ughhh ---- filing a bug with Fedora would be useful as well, so they could
+> >> > address any systemic issues that may exist (we'll look into this later in
+> >> > this email)
+> >> >
+> >> >
+> >> >> That removed R as well, and some other dependent packages.
+> >> >
+> >> >
+> >> > Sadly, implying that 'yum' was used for the removal ... that tool is wayyy'
+> >> > too enthusiastic at removing packages;
+> >> >        rpm -e ...
+> >> > is more of a scalpel
+> >> >
+> >> >
+> >> >> Then, I
+> >> >> installed TeXLive 2011 from CTAN. However, when I wanted to install R,
+> >> >> from Fedora's repositories, it asks for some TeX dependencies (for
+> >> >> example, tex-preview, texinfo-tex, texlive, texlive-dvips etc.).
+> >> >
+> >> >
+> >> > Ley me try: on a fresh install of Fedora 16 (64 bit), I ran:
+> >> >
+> >> > [root at vm049244226 ~]# yum install R
+> >> >
+> >> >  ... which wanted much TeX goodness ...
+> >> >  texlive                 x86_64    2007-66.fc16                updates
+> >> >  1.6 M
+> >> >  texlive-dvips           x86_64    2007-66.fc16                updates
+> >> >  192 k
+> >> >  texlive-latex           x86_64    2007-66.fc16                updates
+> >> > 84 k
+> >> >  texlive-texmf           noarch    2007-40.fc16                updates
+> >> >  2.8 M
+> >> >  texlive-texmf-dvips     noarch    2007-40.fc16                updates
+> >> >  238 k
+> >> >  texlive-texmf-fonts     noarch    2007-40.fc16                updates
+> >> > 48 M
+> >> >  texlive-texmf-latex     noarch    2007-40.fc16                updates
+> >> >  5.2 M
+> >> >  texlive-utils           x86_64    2007-66.fc16                updates
+> >> >  251 k
+> >> >  ...
+> >> >
+> >> > and R seems to work here:
+> >> >
+> >> > [root at vm049244226 ~]# cat /etc/redhat-release
+> >> > Fedora release 16 (Verne)
+> >> > [root at vm049244226 ~]# R
+> >> >
+> >> > R version 2.15.0 (2012-03-30)
+> >> > Copyright (C) 2012 The R Foundation for Statistical Computing
+> >> > ISBN 3-900051-07-0
+> >> > Platform: x86_64-redhat-linux-gnu (64-bit)
+> >> >
+> >> > R is free software and comes with ABSOLUTELY NO WARRANTY.
+> >> > You are welcome to redistribute it under certain conditions.
+> >> > Type 'license()' or 'licence()' for distribution details.
+> >> >
+> >> >  Natural language support but running in an English locale
+> >> >
+> >> > R is a collaborative project with many contributors.
+> >> > Type 'contributors()' for more information and
+> >> > 'citation()' on how to cite R or R packages in publications.
+> >> >
+> >> > Type 'demo()' for some demos, 'help()' for on-line help, or
+> >> > 'help.start()' for an HTML browser interface to help.
+> >> > Type 'q()' to quit R.
+> >> >
+> >> >> example(t.test)
+> >> >
+> >> >
+> >> > t.test> require(graphics)
+> >> >
+> >> > t.test> t.test(1:10,y=c(7:20))      # P = .00001855
+> >> >
+> >> >        Welch Two Sample t-test
+> >> >
+> >> > data:  1:10 and c(7:20)
+> >> > t = -5.4349, df = 21.982, p-value = 1.855e-05
+> >> > alternative hypothesis: true difference in means is not equal to 0
+> >> > 95 percent confidence interval:
+> >> >  -11.052802  -4.947198
+> >> > sample estimates:
+> >> > mean of x mean of y
+> >> >      5.5      13.5
+> >> >
+> >> >
+> >> > t.test> t.test(1:10,y=c(7:20, 200)) # P = .1245    -- NOT significant
+> >> > anymore
+> >> >
+> >> >        Welch Two Sample t-test
+> >> >
+> >> > data:  1:10 and c(7:20, 200)
+> >> > t = -1.6329, df = 14.165, p-value = 0.1245
+> >> > alternative hypothesis: true difference in means is not equal to 0
+> >> > 95 percent confidence interval:
+> >> >  -47.242900   6.376233
+> >> > sample estimates:
+> >> > mean of x mean of y
+> >> >  5.50000  25.93333
+> >> >
+> >> >
+> >> > t.test> ## Classical example: Student's sleep data
+> >> > t.test> plot(extra ~ group, data = sleep)
+> >> >
+> >> > t.test> ## Traditional interface
+> >> > t.test> with(sleep, t.test(extra[group == 1], extra[group == 2]))
+> >> >
+> >> >        Welch Two Sample t-test
+> >> >
+> >> > data:  extra[group == 1] and extra[group == 2]
+> >> > t = -1.8608, df = 17.776, p-value = 0.07939
+> >> > alternative hypothesis: true difference in means is not equal to 0
+> >> > 95 percent confidence interval:
+> >> >  -3.3654832  0.2054832
+> >> > sample estimates:
+> >> > mean of x mean of y
+> >> >     0.75      2.33
+> >> >
+> >> >
+> >> > t.test> ## Formula interface
+> >> > t.test> t.test(extra ~ group, data = sleep)
+> >> >
+> >> >        Welch Two Sample t-test
+> >> >
+> >> > data:  extra by group
+> >> > t = -1.8608, df = 17.776, p-value = 0.07939
+> >> > alternative hypothesis: true difference in means is not equal to 0
+> >> > 95 percent confidence interval:
+> >> >  -3.3654832  0.2054832
+> >> > sample estimates:
+> >> > mean in group 1 mean in group 2
+> >> >           0.75            2.33
+> >> >
+> >> >> q()
+> >> >
+> >> > Save workspace image? [y/n/c]: n
+> >> > [root at vm049244226 ~]#
+> >> >
+> >> > ... so it _can_ work under Fedora 16 ...
+> >> >
+> >> >
+> >> >
+> >> >> I know that new TeX is installed in other place
+> >> >> (/usr/local/texlive/2011/), than the old, default of the Tex 2007
+> >> >> (/usr/share/texmf/). But, I defined PATH properly:
+> >> >> PATH=/usr/local/texlive/2011/bin/x86-64-linux:$PATH
+> >> >> Also, I have tried with the symbolic link:
+> >> >> ln -s /usr/local/texlive/2011 /usr/share/texmf
+> >> >>
+> >> >> So, I wonder why R asks for those TeX-packages? Can I tell it where to
+> >> >> look? In any case, how to fix this mess?
+> >> >
+> >> >
+> >> > The packaging decisions behind R included support for the ability to
+> >> > generate postscript, and documentation;  that dragged in all the TeX, in
+> >> > part
+> >> >
+> >> > A clean install of Fedora comes to mind, because mixing packaging systems is
+> >> > inherently 'pot luck' and random in nature, just as mixing tarball
+> >> > hand-compiled matter into a package managed system rarely works well
+> >> >
+> >> > sorry to bear that news ;(
+> >> >
+> >> > -- Russ herrold
+> >> >
+> >> >
+> >> > _______________________________________________
+> >> > R-SIG-Fedora mailing list
+> >> > R-SIG-Fedora at r-project.org
+> >> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >>
+> >>
+> >>
+> >
+> >
+> 
+> 
+>
+
+
+From baker.peter2009 at gmail.com  Thu Apr 26 16:04:34 2012
+From: baker.peter2009 at gmail.com (Peter Baker)
+Date: Fri, 27 Apr 2012 00:04:34 +1000
+Subject: [R-sig-Fedora] Installing texlive dependencies
+In-Reply-To: <1335427285.2204.2.camel@pm>
+References: <1334764491.2370.8.camel@pm>
+	<alpine.LRH.1.00.1204181336580.26534@oebafba.bjyevire.pbz>
+	<CADsJW9GMV-U_gw9hhhK4B96QBbscSqaCSwp6JE5aj2c_t83xvg@mail.gmail.com>
+	<1335364786.2550.5.camel@pm>
+	<CADsJW9Hhm4Pgbz+ARFxQ5REDuoHmPR4eUQL1zJEQQDApk2dTQA@mail.gmail.com>
+	<1335427285.2204.2.camel@pm>
+Message-ID: <CADsJW9Ga7jY0qjBAf53PiATcj_o7L2EPag2Kjyw+LboARjdoSA@mail.gmail.com>
+
+Hi Petar
+
+I can only guess that the dependencies for R rpm's aren't quite
+specified right for texlive 2011
+but if the appropriate texlive 2011 packages are already installed
+then there should be no problems
+
+It is difficult to guess exactly what you need on your system but
+here's what I have on mine. Collections pull in the actual packages.
+Unfortunately I can't remember the exact details but here's what I
+think I did
+
+The repo file is
+
+/etc/yum.repos.d/texlive-release.repo
+===========================
+[texlive]
+name=TeX Live
+baseurl=http://jnovy.fedorapeople.org/texlive/2011/packages.fc16/
+enabled=1
+metadata_expire=1d
+gpgcheck=0
+=======================
+
+which for Fedora 16 you can install with
+
+rpm -i http://jnovy.fedorapeople.org/texlive/2011/packages.fc16/texlive-release.noarch.rpm
+
+see http://fedoraproject.org/wiki/Features/TeXLive for details of how
+to upgrade/install etc - the essential line is
+
+yum clean all
+
+otherwise things don't update properly
+
+and so this is probably
+$ yum clean all
+$ yum update   (assuming no texlive 2007 on your system although this
+is supposed to work to upgrade to texlive 2011 I'm not quite so sure)
+$ yum install texlive-collection-latex texlive-collection-latexextra
+etc etc - the texlive collections below (or just keep adding until R
+installs)
+$ yum install R R-devel etc
+
+
+[root at clearwell ~]# yum list all texlive*collection*
+Loaded plugins: fastestmirror, langpacks, presto, refresh-packagekit
+Loading mirror speeds from cached hostfile
+ * fedora: mirror.aarnet.edu.au
+ * rpmfusion-free: ucmirror.canterbury.ac.nz
+ * rpmfusion-free-updates: ucmirror.canterbury.ac.nz
+ * rpmfusion-nonfree: ucmirror.canterbury.ac.nz
+ * rpmfusion-nonfree-updates: ucmirror.canterbury.ac.nz
+ * updates: mirror.aarnet.edu.au
+Installed Packages
+texlive-collection-basic.noarch         2011-5.20120115_r25109.svn20730 @texlive
+texlive-collection-bibtexextra.noarch   2011-5.20120115_r25109.svn24610 @texlive
+texlive-collection-binextra.noarch      2011-5.20120115_r25109.svn25012 @texlive
+texlive-collection-documentation-base.noarch
+                                        2011-5.20120115_r25109.svn17091 @texlive
+texlive-collection-fontsextra.noarch    2011-5.20120115_r25109.svn25226 @texlive
+texlive-collection-fontsrecommended.noarch
+                                        2011-5.20120115_r25109.svn22193 @texlive
+texlive-collection-fontutils.noarch     2011-5.20120115_r25109.svn24759 @texlive
+texlive-collection-formatsextra.noarch  2011-5.20120115_r25109.svn21879 @texlive
+texlive-collection-genericrecommended.noarch
+                                        2011-5.20120115_r25109.svn19849 @texlive
+texlive-collection-htmlxml.noarch       2011-5.20120115_r25109.svn13822 @texlive
+texlive-collection-latex.noarch         2011-5.20120115_r25109.svn25030 @texlive
+texlive-collection-latexextra.noarch    2011-5.20120115_r25109.svn25184 @texlive
+texlive-collection-latexrecommended.noarch
+                                        2011-5.20120115_r25109.svn25030 @texlive
+texlive-collection-metapost.noarch      2011-5.20120115_r25109.svn23252 @texlive
+texlive-collection-music.noarch         2011-5.20120115_r25109.svn25121 @texlive
+texlive-collection-pictures.noarch      2011-5.20120115_r25109.svn25031 @texlive
+texlive-collection-pstricks.noarch      2011-5.20120115_r25109.svn25142 @texlive
+texlive-collection-publishers.noarch    2011-5.20120115_r25109.svn24685 @texlive
+texlive-collection-texinfo.noarch       2011-5.20120115_r25109.svn15216 @texlive
+texlive-collection-xetex.noarch         2011-5.20120115_r25109.svn24140 @texlive
+Available Packages
+DELETED
+
+Once these were installed then install R
+
+[root at clearwell ~]# yum list all R-*
+Loaded plugins: fastestmirror, langpacks, presto, refresh-packagekit
+Loading mirror speeds from cached hostfile
+ * fedora: mirror.optus.net
+ * rpmfusion-free: ucmirror.canterbury.ac.nz
+ * rpmfusion-free-updates: ucmirror.canterbury.ac.nz
+ * rpmfusion-nonfree: ucmirror.canterbury.ac.nz
+ * rpmfusion-nonfree-updates: ucmirror.canterbury.ac.nz
+ * updates: mirror.optus.net
+Installed Packages
+R.x86_64                                     2.15.0-1.fc16             installed
+R-DynDoc.noarch                              1.32.0-2.fc16             @updates
+R-RCurl.x86_64                               1.7.0-2.fc16              @updates
+R-RODBC.x86_64                               1.3.3-1.fc16              @updates
+R-RUnit.noarch                               0.4.26-3.fc16             @updates
+R-XML.x86_64                                 3.4.3-2.fc16              @updates
+R-bitops.x86_64                              1.0.4.1-6.fc16            @updates
+R-car.noarch                                 2.0-9.fc15                installed
+R-core.x86_64                                2.15.0-1.fc16             @updates
+R-devel.x86_64                               2.15.0-1.fc16             installed
+R-java.x86_64                                2.15.0-1.fc16             @updates
+R-java-devel.x86_64                          2.15.0-1.fc16             @updates
+R-tkWidgets.noarch                           1.32.0-2.fc16             @updates
+R-widgetTools.noarch                         1.32.0-2.fc16             @updates
+R-xtable.noarch                              1.6.0-1.fc16              @updates
+R-zoo.x86_64                                 1.7.6-2.fc16              @updates
+Available Packages
+DELETED
+
+I've found that things like pdflatex / sweave etc run fine if I use
+something like
+
+R CMD Sweave ....
+R CMD pdflatex ....  etc but I mainly use 'R CMD rubber' which does
+all the rerunning of pdflatex and bibtex as required
+
+so I don't worry about putting Sweave.sty in the right place and I
+tend to use Makefiles anyway as I'm too lazy to work out what I need
+each time
+
+Hope this helps - but it does take quite a long time and lots of downloading
+
+Good luck!
+
+Cheers
+peter
+
+On Thu, Apr 26, 2012 at 6:01 PM, Petar Milin <pmilin at ff.uns.ac.rs> wrote:
+>
+> Dear Peter,
+> Please, can you explain how did you make R accept the TeXLive 2011? I
+> would like to give it a try. But, when I install TeXLive 2011, and then
+> R, the later is asking for dependencies (a list of tex-related
+> packages), and it puts them in /usr/share/texmf.
+>
+> Best,
+> Petar
+>
+> On Thu, 2012-04-26 at 16:15 +1000, Peter Baker wrote:
+>> Hi Petar
+>>
+>> My guess is that you had something else floating around from previous
+>> fedora update/install which caused some mismatches as some binaries
+>> have been put into texlive that previously weren't in texlive 2007 -
+>> five years (2007 to 2012) is quite a time in computing so sadly you'd
+>> expect things to change. I have not used texlive 2007 for quite some
+>> time (perhaps f13) and not really had much of a problem with R once I
+>> got rid of remnants of texlive 2007. I find texlive 2011/12 to be much
+>> easier to update once you get it working. Linux mint is still at
+>> texlive 2009 and that seems to work perfectly fine too
+>>
+>> Of course it doesn't really matter as tex seems to change at a glacial
+>> pace compared to R - I am glad it is now working for you.
+>>
+>> Cheers
+>> Peter
+>>
+>> On Thu, Apr 26, 2012 at 12:39 AM, Petar Milin <pmilin at ff.uns.ac.rs> wrote:
+>> > Hello!
+>> > Finally [ and contrary to Peter :-) ], I have installed TeXLive 2007
+>> > from the main repo. My experience was such that R complained about
+>> > missing LaTeX in /usr/share/texmf/, while TeXLive 2011 is in
+>> > the /usr/share/texlive/. I even tried to build symbolic links, to cheat
+>> > R, but it was firm and complained throughout. Thus, I installed TeXLive
+>> > 2007 from scratch, and R was/is happy. All additional packages for
+>> > LaTeX, of course, must be included manually. It is a bit of hassle but
+>> > not too much. Anyway, once you master how-to, it is smooth.
+>> >
+>> > Best,
+>> > Petar
+>> >
+>> > On Wed, 2012-04-25 at 23:03 +1000, Peter Baker wrote:
+>> >> Hi
+>> >>
+>> >> I've been using the F16 TexLive 2011 stable repo for F16 for quite some time
+>> >> ?baseurl=http://jnovy.fedorapeople.org/texlive/2011/packages.fc16/
+>> >> ?(not the F15 repo as that would be asking for trouble) and for
+>> >> F17beta I've been using the F17 TexLive 2012 repo
+>> >> ? baseurl=http://jnovy.fedorapeople.org/texlive/2012/packages.fc17/
+>> >> in /etc/yum.repos.d/texlive-release.repo
+>> >>
+>> >> From memory I didn't install the standard texlive2007 first for F16 -
+>> >> definitely didn't for F17beta ?this week. I installed the recent
+>> >> texlive first (as above) then R installed without ?a hitch. My only
+>> >> problem with F17beta is that for R 2.15 RBGL from Bioconductor won't
+>> >> compile with GCC4.7 - I can't recall any problems with F16
+>> >>
+>> >> There is plenty of discussion about getting the current texlive into
+>> >> standard fedora in standard distro but it revolves around licences
+>> >> rather than any technical problems. It certainly seems to work well
+>> >> although I had quite a few problems a year ago (bad dependencies) but
+>> >> it seems to work pretty well these days. It is nicely set up with
+>> >> collections (see http://fedoraproject.org/wiki/Features/TeXLive and
+>> >> http://jnovy.fedorapeople.org/texlive/collections ) and you can
+>> >> install a particular style file with yum directly eg ? yum install
+>> >> 'tex(epsfig.sty)'
+>> >>
+>> >> Good luck
+>> >>
+>> >> regards
+>> >> Peter
+>> >>
+>> >> On Thu, Apr 19, 2012 at 4:02 AM, R P Herrold <herrold at owlriver.com> wrote:
+>> >> > On Wed, 18 Apr 2012, Petar Milin wrote:
+>> >> >
+>> >> >> Hello ALL!
+>> >> >> I am running Fedora 16 x86_64. Due to some dubious problems, that i
+>> >> >> couldn't resolve, with the TeXLive (2007, which is a default), I removed
+>> >> >> it.
+>> >> >
+>> >> >
+>> >> > ughhh ---- filing a bug with Fedora would be useful as well, so they could
+>> >> > address any systemic issues that may exist (we'll look into this later in
+>> >> > this email)
+>> >> >
+>> >> >
+>> >> >> That removed R as well, and some other dependent packages.
+>> >> >
+>> >> >
+>> >> > Sadly, implying that 'yum' was used for the removal ... that tool is wayyy'
+>> >> > too enthusiastic at removing packages;
+>> >> > ? ? ? ?rpm -e ...
+>> >> > is more of a scalpel
+>> >> >
+>> >> >
+>> >> >> Then, I
+>> >> >> installed TeXLive 2011 from CTAN. However, when I wanted to install R,
+>> >> >> from Fedora's repositories, it asks for some TeX dependencies (for
+>> >> >> example, tex-preview, texinfo-tex, texlive, texlive-dvips etc.).
+>> >> >
+>> >> >
+>> >> > Ley me try: on a fresh install of Fedora 16 (64 bit), I ran:
+>> >> >
+>> >> > [root at vm049244226 ~]# yum install R
+>> >> >
+>> >> > ?... which wanted much TeX goodness ...
+>> >> > ?texlive ? ? ? ? ? ? ? ? x86_64 ? ?2007-66.fc16 ? ? ? ? ? ? ? ?updates
+>> >> > ?1.6 M
+>> >> > ?texlive-dvips ? ? ? ? ? x86_64 ? ?2007-66.fc16 ? ? ? ? ? ? ? ?updates
+>> >> > ?192 k
+>> >> > ?texlive-latex ? ? ? ? ? x86_64 ? ?2007-66.fc16 ? ? ? ? ? ? ? ?updates
+>> >> > 84 k
+>> >> > ?texlive-texmf ? ? ? ? ? noarch ? ?2007-40.fc16 ? ? ? ? ? ? ? ?updates
+>> >> > ?2.8 M
+>> >> > ?texlive-texmf-dvips ? ? noarch ? ?2007-40.fc16 ? ? ? ? ? ? ? ?updates
+>> >> > ?238 k
+>> >> > ?texlive-texmf-fonts ? ? noarch ? ?2007-40.fc16 ? ? ? ? ? ? ? ?updates
+>> >> > 48 M
+>> >> > ?texlive-texmf-latex ? ? noarch ? ?2007-40.fc16 ? ? ? ? ? ? ? ?updates
+>> >> > ?5.2 M
+>> >> > ?texlive-utils ? ? ? ? ? x86_64 ? ?2007-66.fc16 ? ? ? ? ? ? ? ?updates
+>> >> > ?251 k
+>> >> > ?...
+>> >> >
+>> >> > and R seems to work here:
+>> >> >
+>> >> > [root at vm049244226 ~]# cat /etc/redhat-release
+>> >> > Fedora release 16 (Verne)
+>> >> > [root at vm049244226 ~]# R
+>> >> >
+>> >> > R version 2.15.0 (2012-03-30)
+>> >> > Copyright (C) 2012 The R Foundation for Statistical Computing
+>> >> > ISBN 3-900051-07-0
+>> >> > Platform: x86_64-redhat-linux-gnu (64-bit)
+>> >> >
+>> >> > R is free software and comes with ABSOLUTELY NO WARRANTY.
+>> >> > You are welcome to redistribute it under certain conditions.
+>> >> > Type 'license()' or 'licence()' for distribution details.
+>> >> >
+>> >> > ?Natural language support but running in an English locale
+>> >> >
+>> >> > R is a collaborative project with many contributors.
+>> >> > Type 'contributors()' for more information and
+>> >> > 'citation()' on how to cite R or R packages in publications.
+>> >> >
+>> >> > Type 'demo()' for some demos, 'help()' for on-line help, or
+>> >> > 'help.start()' for an HTML browser interface to help.
+>> >> > Type 'q()' to quit R.
+>> >> >
+>> >> >> example(t.test)
+>> >> >
+>> >> >
+>> >> > t.test> require(graphics)
+>> >> >
+>> >> > t.test> t.test(1:10,y=c(7:20)) ? ? ?# P = .00001855
+>> >> >
+>> >> > ? ? ? ?Welch Two Sample t-test
+>> >> >
+>> >> > data: ?1:10 and c(7:20)
+>> >> > t = -5.4349, df = 21.982, p-value = 1.855e-05
+>> >> > alternative hypothesis: true difference in means is not equal to 0
+>> >> > 95 percent confidence interval:
+>> >> > ?-11.052802 ?-4.947198
+>> >> > sample estimates:
+>> >> > mean of x mean of y
+>> >> > ? ? ?5.5 ? ? ?13.5
+>> >> >
+>> >> >
+>> >> > t.test> t.test(1:10,y=c(7:20, 200)) # P = .1245 ? ?-- NOT significant
+>> >> > anymore
+>> >> >
+>> >> > ? ? ? ?Welch Two Sample t-test
+>> >> >
+>> >> > data: ?1:10 and c(7:20, 200)
+>> >> > t = -1.6329, df = 14.165, p-value = 0.1245
+>> >> > alternative hypothesis: true difference in means is not equal to 0
+>> >> > 95 percent confidence interval:
+>> >> > ?-47.242900 ? 6.376233
+>> >> > sample estimates:
+>> >> > mean of x mean of y
+>> >> > ?5.50000 ?25.93333
+>> >> >
+>> >> >
+>> >> > t.test> ## Classical example: Student's sleep data
+>> >> > t.test> plot(extra ~ group, data = sleep)
+>> >> >
+>> >> > t.test> ## Traditional interface
+>> >> > t.test> with(sleep, t.test(extra[group == 1], extra[group == 2]))
+>> >> >
+>> >> > ? ? ? ?Welch Two Sample t-test
+>> >> >
+>> >> > data: ?extra[group == 1] and extra[group == 2]
+>> >> > t = -1.8608, df = 17.776, p-value = 0.07939
+>> >> > alternative hypothesis: true difference in means is not equal to 0
+>> >> > 95 percent confidence interval:
+>> >> > ?-3.3654832 ?0.2054832
+>> >> > sample estimates:
+>> >> > mean of x mean of y
+>> >> > ? ? 0.75 ? ? ?2.33
+>> >> >
+>> >> >
+>> >> > t.test> ## Formula interface
+>> >> > t.test> t.test(extra ~ group, data = sleep)
+>> >> >
+>> >> > ? ? ? ?Welch Two Sample t-test
+>> >> >
+>> >> > data: ?extra by group
+>> >> > t = -1.8608, df = 17.776, p-value = 0.07939
+>> >> > alternative hypothesis: true difference in means is not equal to 0
+>> >> > 95 percent confidence interval:
+>> >> > ?-3.3654832 ?0.2054832
+>> >> > sample estimates:
+>> >> > mean in group 1 mean in group 2
+>> >> > ? ? ? ? ? 0.75 ? ? ? ? ? ?2.33
+>> >> >
+>> >> >> q()
+>> >> >
+>> >> > Save workspace image? [y/n/c]: n
+>> >> > [root at vm049244226 ~]#
+>> >> >
+>> >> > ... so it _can_ work under Fedora 16 ...
+>> >> >
+>> >> >
+>> >> >
+>> >> >> I know that new TeX is installed in other place
+>> >> >> (/usr/local/texlive/2011/), than the old, default of the Tex 2007
+>> >> >> (/usr/share/texmf/). But, I defined PATH properly:
+>> >> >> PATH=/usr/local/texlive/2011/bin/x86-64-linux:$PATH
+>> >> >> Also, I have tried with the symbolic link:
+>> >> >> ln -s /usr/local/texlive/2011 /usr/share/texmf
+>> >> >>
+>> >> >> So, I wonder why R asks for those TeX-packages? Can I tell it where to
+>> >> >> look? In any case, how to fix this mess?
+>> >> >
+>> >> >
+>> >> > The packaging decisions behind R included support for the ability to
+>> >> > generate postscript, and documentation; ?that dragged in all the TeX, in
+>> >> > part
+>> >> >
+>> >> > A clean install of Fedora comes to mind, because mixing packaging systems is
+>> >> > inherently 'pot luck' and random in nature, just as mixing tarball
+>> >> > hand-compiled matter into a package managed system rarely works well
+>> >> >
+>> >> > sorry to bear that news ;(
+>> >> >
+>> >> > -- Russ herrold
+>> >> >
+>> >> >
+>> >> > _______________________________________________
+>> >> > R-SIG-Fedora mailing list
+>> >> > R-SIG-Fedora at r-project.org
+>> >> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>> >>
+>> >>
+>> >>
+>> >
+>> >
+>>
+>>
+>>
+>
+>
+
+
+
+-- 
+Dr Peter Baker | Senior Lecturer/Statistician | Epidemiology & Biostatistics
+
+Room 416 | School of Population Health |The University of Queensland | Public
+Health Building | Herston Rd | Herston Qld 4006 | Australia
+
+Ph: +61 7 3346 4747 | Fax: +61 7 3365 5442 | http://www.sph.uq.edu.au/? |
+Email: p.baker1 at uq.edu.au or baker.peter2009 at gmail.com
+
+
+From pmilin at ff.uns.ac.rs  Fri Apr 27 13:39:04 2012
+From: pmilin at ff.uns.ac.rs (Petar Milin)
+Date: Fri, 27 Apr 2012 13:39:04 +0200
+Subject: [R-sig-Fedora] Installing texlive dependencies
+In-Reply-To: <CADsJW9Ga7jY0qjBAf53PiATcj_o7L2EPag2Kjyw+LboARjdoSA@mail.gmail.com>
+References: <1334764491.2370.8.camel@pm>
+	<alpine.LRH.1.00.1204181336580.26534@oebafba.bjyevire.pbz>
+	<CADsJW9GMV-U_gw9hhhK4B96QBbscSqaCSwp6JE5aj2c_t83xvg@mail.gmail.com>
+	<1335364786.2550.5.camel@pm>
+	<CADsJW9Hhm4Pgbz+ARFxQ5REDuoHmPR4eUQL1zJEQQDApk2dTQA@mail.gmail.com>
+	<1335427285.2204.2.camel@pm>
+	<CADsJW9Ga7jY0qjBAf53PiATcj_o7L2EPag2Kjyw+LboARjdoSA@mail.gmail.com>
+Message-ID: <1335526744.2243.19.camel@pm>
+
+Dear Peter,
+Thank you so much! The texlive-collections did the trick! :-)
+
+So, I am making this digested how-to below, from your last message.
+
+PS: I noticed you are using yum to install R-packages. Isn't it better
+to use install.packages() and update.packages() from R?
+
+Best,
+Petar
+
+On Fri, 2012-04-27 at 00:04 +1000, Peter Baker wrote:
+> Hi Petar
+> 
+> I can only guess that the dependencies for R rpm's aren't quite
+> specified right for texlive 2011
+> but if the appropriate texlive 2011 packages are already installed
+> then there should be no problems
+> 
+> It is difficult to guess exactly what you need on your system but
+> here's what I have on mine. Collections pull in the actual packages.
+
+> For Fedora 16 you can install with
+> rpm -i http://jnovy.fedorapeople.org/texlive/2011/packages.fc16/texlive-release.noarch.rpm
+> (see http://fedoraproject.org/wiki/Features/TeXLive for details)
+
+> yum clean all
+> yum update
+> yum install texlive-collection-latex texlive-collection-latexextra
+
+> yuTo list all TeXLive Collections:
+> yum list all texlive*collection*
+
+
+From baker.peter2009 at gmail.com  Sat Apr 28 03:24:20 2012
+From: baker.peter2009 at gmail.com (Peter Baker)
+Date: Sat, 28 Apr 2012 11:24:20 +1000
+Subject: [R-sig-Fedora] Installing texlive dependencies
+In-Reply-To: <1335526744.2243.19.camel@pm>
+References: <1334764491.2370.8.camel@pm>
+	<alpine.LRH.1.00.1204181336580.26534@oebafba.bjyevire.pbz>
+	<CADsJW9GMV-U_gw9hhhK4B96QBbscSqaCSwp6JE5aj2c_t83xvg@mail.gmail.com>
+	<1335364786.2550.5.camel@pm>
+	<CADsJW9Hhm4Pgbz+ARFxQ5REDuoHmPR4eUQL1zJEQQDApk2dTQA@mail.gmail.com>
+	<1335427285.2204.2.camel@pm>
+	<CADsJW9Ga7jY0qjBAf53PiATcj_o7L2EPag2Kjyw+LboARjdoSA@mail.gmail.com>
+	<1335526744.2243.19.camel@pm>
+Message-ID: <CADsJW9G04DAdA-2U8oUubC7uvg9tSOiCEwsUCN_2nyqgNjTXpA@mail.gmail.com>
+
+Hi Petar
+
+Glad this worked!
+
+I only install R and R-devel along with the odd R package using yum -
+usually I do this so that I know I have the right dependencies are
+installed eg graphviz-R. Once installed I often just use
+update.packages() which might conflict with 'yum update' if the
+versions on CRAN are newer but yum just installs packages over the
+top. Strictly speaking I probably should use something like
+
+yum-builddep graphviz-R
+
+to install required dependencies and then in R
+
+> install.packages("Rgraphviz", dep=T)
+
+should work just fine but only for packages already distributed as
+RPMs. But I'm lazy. I know there is some talk of an automatic RPM
+repository to mirror CRAN which would be great in that packages
+wouldn't need to be compiled but just unpacked - which would be much
+quicker. Of course thats an awful lot of work and I don't know how far
+its got
+
+I doubt it makes much practical difference except that using
+'install.packages' may take quite a bit longer when installing many
+packages and some dependencies/libraries might be missing so its a bit
+more mucking around
+
+Thanks for making a how-to - its a good idea
+
+Cheers
+peter
+
+On Fri, Apr 27, 2012 at 9:39 PM, Petar Milin <pmilin at ff.uns.ac.rs> wrote:
+> Dear Peter,
+> Thank you so much! The texlive-collections did the trick! :-)
+>
+> So, I am making this digested how-to below, from your last message.
+>
+> PS: I noticed you are using yum to install R-packages. Isn't it better
+> to use install.packages() and update.packages() from R?
+>
+> Best,
+> Petar
+>
+> On Fri, 2012-04-27 at 00:04 +1000, Peter Baker wrote:
+>> Hi Petar
+>>
+>> I can only guess that the dependencies for R rpm's aren't quite
+>> specified right for texlive 2011
+>> but if the appropriate texlive 2011 packages are already installed
+>> then there should be no problems
+>>
+>> It is difficult to guess exactly what you need on your system but
+>> here's what I have on mine. Collections pull in the actual packages.
+>
+>> For Fedora 16 you can install with
+>> rpm -i http://jnovy.fedorapeople.org/texlive/2011/packages.fc16/texlive-release.noarch.rpm
+>> (see http://fedoraproject.org/wiki/Features/TeXLive for details)
+>
+>> yum clean all
+>> yum update
+>> yum install texlive-collection-latex texlive-collection-latexextra
+>
+>> yuTo list all TeXLive Collections:
+>> yum list all texlive*collection*
+>
+>
+>
+
+
+
+-- 
+Dr Peter Baker | Senior Lecturer/Statistician | Epidemiology & Biostatistics
+
+Room 416 | School of Population Health |The University of Queensland | Public
+Health Building | Herston Rd | Herston Qld 4006 | Australia
+
+Ph: +61 7 3346 4747 | Fax: +61 7 3365 5442 | http://www.sph.uq.edu.au/? |
+Email: p.baker1 at uq.edu.au or baker.peter2009 at gmail.com
+
+
+From pmilin at ff.uns.ac.rs  Sat Apr 28 10:52:15 2012
+From: pmilin at ff.uns.ac.rs (Petar Milin)
+Date: Sat, 28 Apr 2012 10:52:15 +0200
+Subject: [R-sig-Fedora] Installing texlive dependencies
+In-Reply-To: <CADsJW9G04DAdA-2U8oUubC7uvg9tSOiCEwsUCN_2nyqgNjTXpA@mail.gmail.com>
+References: <1334764491.2370.8.camel@pm>
+	<alpine.LRH.1.00.1204181336580.26534@oebafba.bjyevire.pbz>
+	<CADsJW9GMV-U_gw9hhhK4B96QBbscSqaCSwp6JE5aj2c_t83xvg@mail.gmail.com>
+	<1335364786.2550.5.camel@pm>
+	<CADsJW9Hhm4Pgbz+ARFxQ5REDuoHmPR4eUQL1zJEQQDApk2dTQA@mail.gmail.com>
+	<1335427285.2204.2.camel@pm>
+	<CADsJW9Ga7jY0qjBAf53PiATcj_o7L2EPag2Kjyw+LboARjdoSA@mail.gmail.com>
+	<1335526744.2243.19.camel@pm>
+	<CADsJW9G04DAdA-2U8oUubC7uvg9tSOiCEwsUCN_2nyqgNjTXpA@mail.gmail.com>
+Message-ID: <1335603135.2002.5.camel@pm>
+
+Hello!
+One correction to the how-to below: you probably must add a symbolic
+link. Something like this:
+ln -s /usr/share/R/texmf/tex/latex /usr/share/texlive/texmf/tex/latex/R
+
+Best,
+Petar
+
+On Sat, 2012-04-28 at 11:24 +1000, Peter Baker wrote:
+
+> Thanks for making a how-to - its a good idea
+> 
+> Cheers
+> peter
+> 
+> On Fri, Apr 27, 2012 at 9:39 PM, Petar Milin <pmilin at ff.uns.ac.rs> wrote:
+> > Dear Peter,
+> > Thank you so much! The texlive-collections did the trick! :-)
+> >
+> > So, I am making this digested how-to below, from your last message.
+> >
+> > Best,
+> > Petar
+> >
+> > On Fri, 2012-04-27 at 00:04 +1000, Peter Baker wrote:
+> >> Hi Petar
+> >>
+> >> I can only guess that the dependencies for R rpm's aren't quite
+> >> specified right for texlive 2011
+> >> but if the appropriate texlive 2011 packages are already installed
+> >> then there should be no problems
+> >>
+> >> It is difficult to guess exactly what you need on your system but
+> >> here's what I have on mine. Collections pull in the actual packages.
+> >
+> >> For Fedora 16 you can install with
+> >> rpm -i http://jnovy.fedorapeople.org/texlive/2011/packages.fc16/texlive-release.noarch.rpm
+> >> (see http://fedoraproject.org/wiki/Features/TeXLive for details)
+> >
+> >> yum clean all
+> >> yum update
+> >> yum install texlive-collection-latex texlive-collection-latexextra
+> >
+> >> yuTo list all TeXLive Collections:
+> >> yum list all texlive*collection*
+> >
+> >
+
+

@@ -1,0 +1,976 @@
+From longplay at iastate.edu  Mon Feb  1 21:45:23 2016
+From: longplay at iastate.edu (Patrick, Larry B [CSSM])
+Date: Mon, 1 Feb 2016 20:45:23 +0000
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <56ABCF7A.50808@redhat.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+	<SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A9141A.1090708@redhat.com>
+	<SN1PR0401MB17744300C37C0F3E7EFC120CD1DA0@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56ABCF7A.50808@redhat.com>
+Message-ID: <BY2PR0401MB17671F14BDA18E561B347225D1DE0@BY2PR0401MB1767.namprd04.prod.outlook.com>
+
+Got past my libgfortran issue
+     ln -s  /usr/lib64/libgfortran.so.3 /usr/lib/libgfortran.so
+
+Now if I could get RCurl and rstan installed.
+
+Thanks,
+Larry
+
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: Friday, January 29, 2016 2:46 PM
+To: Patrick, Larry B [CSSM] <longplay at iastate.edu>; 'r-sig-fedora at r-project.org' <r-sig-fedora at r-project.org>
+Subject: Re: [R-sig-Fedora] rstan warning messages
+
+On 01/28/2016 09:07 AM, Patrick, Larry B [CSSM] wrote:
+> Looks to have libgfortran installed.
+>      yum list installed | grep libgfortran
+>      libgfortran.x86_64                4.4.7-16.el6             @rhel-x86_64-server-6
+> What else could I check?
+> 
+> Installed libcurl-devel and libidn-devel.
+>      yum list installed | grep libcurl
+>      libcurl.x86_64                    7.19.7-46.el6            @rhel-x86_64-server-6
+>      libcurl-devel.x86_64              7.19.7-46.el6            @rhel-x86_64-server-6
+> Still getting warning for RCurl.
+>      2: In install.packages("rstan", dependencies = TRUE, repos = 
+> "http://cran.r-project.org/") :  installation of package 'RCurl' had non-zero exit status Now this log is way different and I have tried to pick through the warning and error messages.
+> Any thoughts here?
+
+RHEL-6 is getting long in the tooth, at almost six years old. It's quite possible that these R modules are checking for modern dependencies and not finding them.
+
+That said, something strange is definitely happening here. You're getting this error message:
+
+   No package 'libcurl' found
+
+That normally means that it could not find the pkgconfig file for 'libcurl', but I've pulled down the libcurl-devel package that you installed and it definitely has:
+
+   /usr/lib64/pkgconfig/libcurl.pc
+
+I think the only way I'm going to be able to troubleshoot this is to bring up a RHEL 6 VM and try it myself.
+
+~tom
+
+==
+Red Hat
+
+
+From tcallawa at redhat.com  Tue Feb  2 17:35:10 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 2 Feb 2016 11:35:10 -0500
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <BY2PR0401MB17671F14BDA18E561B347225D1DE0@BY2PR0401MB1767.namprd04.prod.outlook.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+	<SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A9141A.1090708@redhat.com>
+	<SN1PR0401MB17744300C37C0F3E7EFC120CD1DA0@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56ABCF7A.50808@redhat.com>
+	<BY2PR0401MB17671F14BDA18E561B347225D1DE0@BY2PR0401MB1767.namprd04.prod.outlook.com>
+Message-ID: <56B0DABE.1090603@redhat.com>
+
+On 02/01/2016 03:45 PM, Patrick, Larry B [CSSM] wrote:
+> Got past my libgfortran issue
+>      ln -s  /usr/lib64/libgfortran.so.3 /usr/lib/libgfortran.so
+
+Maybe to /usr/lib64/libgfortran.so ? You _should not_ need to do that
+though. I didn't need to.
+
+> Now if I could get RCurl and rstan installed.
+
+This one is perplexing. I can't reproduce your failures from my RHEL-6 VM.
+
+Can you provide me the output from:
+
+   rpm -qf /usr/lib64/pkgconfig/libcurl.pc
+   rpm -q pkgconfig
+
+Also, if you can run the install.packages again and send me the full
+log, that might be helpful.
+
+~tom
+
+==
+Red Hat
+
+
+From longplay at iastate.edu  Wed Feb  3 15:33:38 2016
+From: longplay at iastate.edu (Patrick, Larry B [CSSM])
+Date: Wed, 3 Feb 2016 14:33:38 +0000
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <56B0DABE.1090603@redhat.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+	<SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A9141A.1090708@redhat.com>
+	<SN1PR0401MB17744300C37C0F3E7EFC120CD1DA0@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56ABCF7A.50808@redhat.com>
+	<BY2PR0401MB17671F14BDA18E561B347225D1DE0@BY2PR0401MB1767.namprd04.prod.outlook.com>
+	<56B0DABE.1090603@redhat.com>
+Message-ID: <SN1PR0401MB1774E3222782AF29445EE552D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+
+Tom,
+
+First of thanks for setting up your RHEL-6 VM to help me!
+
+Until I did that link it would not install. I didn't have any libgfortran files in /usr/lib so I did that soft link. Maybe something didn't fully install or configure. I have inherited this machine from another admin and it is not a fresh installation.
+     [root at ping /]# ls -l /usr/lib64/libgfortran*
+     lrwxrwxrwx 1 root root     20 Jul 23  2015 /usr/lib64/libgfortran.so.3 -> libgfortran.so.3.0.0
+     -rwxr-xr-x 1 root root 990504 Jun  1  2015 /usr/lib64/libgfortran.so.3.0.0
+      [root at ping /]# ls -l /usr/lib/libgfortran*
+     lrwxrwxrwx 1 root root 27 Feb  1 14:36 /usr/lib/libgfortran.so -> /usr/lib64/libgfortran.so.3
+
+Requested information for RCurl
+     [root at ping /]# rpm -qf /usr/lib64/pkgconfig/libcurl.pc
+     libcurl-devel-7.19.7-46.el6.x86_64
+      [root at ping /]# rpm -q pkgconfig
+     pkgconfig-0.23-9.1.el6.x86_64
+
+Attached is RCurl_logs.txt. Let me know if you would rather have it right in the email as it is extremely long log.
+
+Thanks,
+Larry
+
+
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: Tuesday, February 02, 2016 10:35 AM
+To: Patrick, Larry B [CSSM] <longplay at iastate.edu>; 'r-sig-fedora at r-project.org' <r-sig-fedora at r-project.org>
+Subject: Re: [R-sig-Fedora] rstan warning messages
+
+On 02/01/2016 03:45 PM, Patrick, Larry B [CSSM] wrote:
+> Got past my libgfortran issue
+>      ln -s  /usr/lib64/libgfortran.so.3 /usr/lib/libgfortran.so
+
+Maybe to /usr/lib64/libgfortran.so ? You _should not_ need to do that though. I didn't need to.
+
+> Now if I could get RCurl and rstan installed.
+
+This one is perplexing. I can't reproduce your failures from my RHEL-6 VM.
+
+Can you provide me the output from:
+
+   rpm -qf /usr/lib64/pkgconfig/libcurl.pc
+   rpm -q pkgconfig
+
+Also, if you can run the install.packages again and send me the full log, that might be helpful.
+
+~tom
+
+==
+Red Hat
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: RCurl_logs.txt
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20160203/27c3991f/attachment-0001.txt>
+
+From tcallawa at redhat.com  Wed Feb  3 15:52:40 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 3 Feb 2016 09:52:40 -0500
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <SN1PR0401MB1774E3222782AF29445EE552D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+	<SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A9141A.1090708@redhat.com>
+	<SN1PR0401MB17744300C37C0F3E7EFC120CD1DA0@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56ABCF7A.50808@redhat.com>
+	<BY2PR0401MB17671F14BDA18E561B347225D1DE0@BY2PR0401MB1767.namprd04.prod.outlook.com>
+	<56B0DABE.1090603@redhat.com>
+	<SN1PR0401MB1774E3222782AF29445EE552D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+Message-ID: <56B21438.9030408@redhat.com>
+
+On 02/03/2016 09:33 AM, Patrick, Larry B [CSSM] wrote:
+> I didn't have any libgfortran files in /usr/lib so I did that soft link. Maybe something didn't fully install or configure. I have inherited this machine from another admin and it is not a fresh installation.
+
+So, here's oddity number one:
+
+You're clearly on an x86_64 system, which should store (and look for)
+all libraries in /usr/lib64. /usr/lib should only be used for 32bit
+libraries.
+
+Are you trying to build R and components for i686 rather than x86_64?
+
+Was R built from source on that system?
+
+~tom
+
+==
+Red Hat
+
+
+From tcallawa at redhat.com  Wed Feb  3 16:02:26 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 3 Feb 2016 10:02:26 -0500
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <56B21438.9030408@redhat.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+	<SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A9141A.1090708@redhat.com>
+	<SN1PR0401MB17744300C37C0F3E7EFC120CD1DA0@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56ABCF7A.50808@redhat.com>
+	<BY2PR0401MB17671F14BDA18E561B347225D1DE0@BY2PR0401MB1767.namprd04.prod.outlook.com>
+	<56B0DABE.1090603@redhat.com>
+	<SN1PR0401MB1774E3222782AF29445EE552D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56B21438.9030408@redhat.com>
+Message-ID: <56B21682.6010707@redhat.com>
+
+On 02/03/2016 09:52 AM, Tom Callaway wrote:
+
+> Are you trying to build R and components for i686 rather than x86_64?
+
+Never mind. Your logs make it clear that you're building for x86_64.
+
+Can you share the output of:
+
+pkg-config --list-all |grep libcurl
+curl-config --libs
+rpm -V libcurl-devel libcurl
+
+I'm honestly baffled as to why the configure script is failing to find
+libcurl.pc on your system:
+
+  Package libcurl was not found in the pkg-config search path.
+
+  Perhaps you should add the directory containing `libcurl.pc'
+
+  to the PKG_CONFIG_PATH environment variable
+
+  No package 'libcurl' found
+
+Do you have any files installed into /usr/local/ ?
+
+~tom
+
+==
+Red Hat
+
+
+From longplay at iastate.edu  Wed Feb  3 16:06:19 2016
+From: longplay at iastate.edu (Patrick, Larry B [CSSM])
+Date: Wed, 3 Feb 2016 15:06:19 +0000
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <56B21682.6010707@redhat.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+	<SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A9141A.1090708@redhat.com>
+	<SN1PR0401MB17744300C37C0F3E7EFC120CD1DA0@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56ABCF7A.50808@redhat.com>
+	<BY2PR0401MB17671F14BDA18E561B347225D1DE0@BY2PR0401MB1767.namprd04.prod.outlook.com>
+	<56B0DABE.1090603@redhat.com>
+	<SN1PR0401MB1774E3222782AF29445EE552D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56B21438.9030408@redhat.com> <56B21682.6010707@redhat.com>
+Message-ID: <SN1PR0401MB177469CFA70C406CF12DE118D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+
+I used epel to install again. I removed the original installation that seemed from epel also.
+
+     [root at ping /]# pkg-config --list-all |grep libcurl
+      [root at ping /]#
+That doesn't look good.
+      [root at ping /]# curl-config --libs
+     Package libcurl was not found in the pkg-config search path.
+     Perhaps you should add the directory containing `libcurl.pc'
+     to the PKG_CONFIG_PATH environment variable
+     No package 'libcurl' found
+Again not good.
+      [root at ping /]# rpm -V libcurl-devel libcurl
+     prelink: /usr/lib64/libcurl.so.4.1.1: at least one of file's dependencies has changed since prelinking
+     S.?......    /usr/lib64/libcurl.so.4.1.1
+
+Something definitely not looking good here.
+
+Thanks,
+Larry
+
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: Wednesday, February 03, 2016 9:02 AM
+To: Patrick, Larry B [CSSM] <longplay at iastate.edu>; 'r-sig-fedora at r-project.org' <r-sig-fedora at r-project.org>
+Subject: Re: [R-sig-Fedora] rstan warning messages
+
+On 02/03/2016 09:52 AM, Tom Callaway wrote:
+
+> Are you trying to build R and components for i686 rather than x86_64?
+
+Never mind. Your logs make it clear that you're building for x86_64.
+
+Can you share the output of:
+
+pkg-config --list-all |grep libcurl
+curl-config --libs
+rpm -V libcurl-devel libcurl
+
+I'm honestly baffled as to why the configure script is failing to find libcurl.pc on your system:
+
+  Package libcurl was not found in the pkg-config search path.
+
+  Perhaps you should add the directory containing `libcurl.pc'
+
+  to the PKG_CONFIG_PATH environment variable
+
+  No package 'libcurl' found
+
+Do you have any files installed into /usr/local/ ?
+
+~tom
+
+==
+Red Hat
+
+
+From pdalgd at gmail.com  Wed Feb  3 16:29:17 2016
+From: pdalgd at gmail.com (peter dalgaard)
+Date: Wed, 3 Feb 2016 16:29:17 +0100
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <SN1PR0401MB177469CFA70C406CF12DE118D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+	<SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A9141A.1090708@redhat.com>
+	<SN1PR0401MB17744300C37C0F3E7EFC120CD1DA0@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56ABCF7A.50808@redhat.com>
+	<BY2PR0401MB17671F14BDA18E561B347225D1DE0@BY2PR0401MB1767.namprd04.prod.outlook.com>
+	<56B0DABE.1090603@redhat.com>
+	<SN1PR0401MB1774E3222782AF29445EE552D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56B21438.9030408@redhat.com> <56B21682.6010707@redhat.com>
+	<SN1PR0401MB177469CFA70C406CF12DE118D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+Message-ID: <AE398078-73ED-4252-BE26-7F89000214F1@gmail.com>
+
+Umm,
+
+which curl-config
+
+?
+
+I.e., there might be two of them and you picking up the wrong one.
+Just a hunch, I am more than rusty on Fedora these days.
+
+-pd
+
+
+On 03 Feb 2016, at 16:06 , Patrick, Larry B [CSSM] <longplay at iastate.edu> wrote:
+
+> I used epel to install again. I removed the original installation that seemed from epel also.
+> 
+>     [root at ping /]# pkg-config --list-all |grep libcurl
+>      [root at ping /]#
+> That doesn't look good.
+>      [root at ping /]# curl-config --libs
+>     Package libcurl was not found in the pkg-config search path.
+>     Perhaps you should add the directory containing `libcurl.pc'
+>     to the PKG_CONFIG_PATH environment variable
+>     No package 'libcurl' found
+> Again not good.
+>      [root at ping /]# rpm -V libcurl-devel libcurl
+>     prelink: /usr/lib64/libcurl.so.4.1.1: at least one of file's dependencies has changed since prelinking
+>     S.?......    /usr/lib64/libcurl.so.4.1.1
+> 
+> Something definitely not looking good here.
+> 
+> Thanks,
+> Larry
+> 
+> 
+> -----Original Message-----
+> From: Tom Callaway [mailto:tcallawa at redhat.com] 
+> Sent: Wednesday, February 03, 2016 9:02 AM
+> To: Patrick, Larry B [CSSM] <longplay at iastate.edu>; 'r-sig-fedora at r-project.org' <r-sig-fedora at r-project.org>
+> Subject: Re: [R-sig-Fedora] rstan warning messages
+> 
+> On 02/03/2016 09:52 AM, Tom Callaway wrote:
+> 
+>> Are you trying to build R and components for i686 rather than x86_64?
+> 
+> Never mind. Your logs make it clear that you're building for x86_64.
+> 
+> Can you share the output of:
+> 
+> pkg-config --list-all |grep libcurl
+> curl-config --libs
+> rpm -V libcurl-devel libcurl
+> 
+> I'm honestly baffled as to why the configure script is failing to find libcurl.pc on your system:
+> 
+>  Package libcurl was not found in the pkg-config search path.
+> 
+>  Perhaps you should add the directory containing `libcurl.pc'
+> 
+>  to the PKG_CONFIG_PATH environment variable
+> 
+>  No package 'libcurl' found
+> 
+> Do you have any files installed into /usr/local/ ?
+> 
+> ~tom
+> 
+> ==
+> Red Hat
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+-- 
+Peter Dalgaard, Professor,
+Center for Statistics, Copenhagen Business School
+Solbjerg Plads 3, 2000 Frederiksberg, Denmark
+Phone: (+45)38153501
+Office: A 4.23
+Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+
+
+From longplay at iastate.edu  Fri Feb  5 15:58:31 2016
+From: longplay at iastate.edu (Patrick, Larry B [CSSM])
+Date: Fri, 5 Feb 2016 14:58:31 +0000
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <SN1PR0401MB177469CFA70C406CF12DE118D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+	<SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A9141A.1090708@redhat.com>
+	<SN1PR0401MB17744300C37C0F3E7EFC120CD1DA0@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56ABCF7A.50808@redhat.com>
+	<BY2PR0401MB17671F14BDA18E561B347225D1DE0@BY2PR0401MB1767.namprd04.prod.outlook.com>
+	<56B0DABE.1090603@redhat.com>
+	<SN1PR0401MB1774E3222782AF29445EE552D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56B21438.9030408@redhat.com> <56B21682.6010707@redhat.com>
+	<SN1PR0401MB177469CFA70C406CF12DE118D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+Message-ID: <SN1PR0401MB177489839D9C30286703A6CBD1D20@SN1PR0401MB1774.namprd04.prod.outlook.com>
+
+Both RCurl and rstan seem to have installed now.
+
+Did the following on my RHEL6 server:
+     [root at ping ~]# export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib64/pkgconfig/
+     [root at ping ~]# /usr/bin/curl-config --libs
+     -L/usr/lib64 -lcurl
+
+Now the output from your previous commands look like:
+      [root at ping ~]# pkg-config --list-all |grep libcurl
+     libcurl                    libcurl - Library to transfer files with ftp, http, etc.
+      [root at ping ~]# curl-config --libs
+     -L/usr/lib64 -lcurl
+      [root at ping ~]# rpm -V libcurl-devel libcurl
+     prelink: /usr/lib64/libcurl.so.4.1.1: at least one of file's dependencies has changed since prelinking
+     S.?......    /usr/lib64/libcurl.so.4.1.1
+
+Attached are the long logs from RCurl and rstan.
+
+Let me know if you spot something of concern. Hopefully I am good to go now.
+
+Thanks for the assist,
+Larry
+
+
+
+-----Original Message-----
+From: R-SIG-Fedora [mailto:r-sig-fedora-bounces at r-project.org] On Behalf Of Patrick, Larry B [CSSM]
+Sent: Wednesday, February 03, 2016 9:06 AM
+To: 'Tom Callaway' <tcallawa at redhat.com>; 'r-sig-fedora at r-project.org' <r-sig-fedora at r-project.org>
+Subject: Re: [R-sig-Fedora] rstan warning messages
+
+I used epel to install again. I removed the original installation that seemed from epel also.
+
+     [root at ping /]# pkg-config --list-all |grep libcurl
+      [root at ping /]#
+That doesn't look good.
+      [root at ping /]# curl-config --libs
+     Package libcurl was not found in the pkg-config search path.
+     Perhaps you should add the directory containing `libcurl.pc'
+     to the PKG_CONFIG_PATH environment variable
+     No package 'libcurl' found
+Again not good.
+      [root at ping /]# rpm -V libcurl-devel libcurl
+     prelink: /usr/lib64/libcurl.so.4.1.1: at least one of file's dependencies has changed since prelinking
+     S.?......    /usr/lib64/libcurl.so.4.1.1
+
+Something definitely not looking good here.
+
+Thanks,
+Larry
+
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: Wednesday, February 03, 2016 9:02 AM
+To: Patrick, Larry B [CSSM] <longplay at iastate.edu>; 'r-sig-fedora at r-project.org' <r-sig-fedora at r-project.org>
+Subject: Re: [R-sig-Fedora] rstan warning messages
+
+On 02/03/2016 09:52 AM, Tom Callaway wrote:
+
+> Are you trying to build R and components for i686 rather than x86_64?
+
+Never mind. Your logs make it clear that you're building for x86_64.
+
+Can you share the output of:
+
+pkg-config --list-all |grep libcurl
+curl-config --libs
+rpm -V libcurl-devel libcurl
+
+I'm honestly baffled as to why the configure script is failing to find libcurl.pc on your system:
+
+  Package libcurl was not found in the pkg-config search path.
+
+  Perhaps you should add the directory containing `libcurl.pc'
+
+  to the PKG_CONFIG_PATH environment variable
+
+  No package 'libcurl' found
+
+Do you have any files installed into /usr/local/ ?
+
+~tom
+
+==
+Red Hat
+
+_______________________________________________
+R-SIG-Fedora mailing list
+R-SIG-Fedora at r-project.org
+https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: RCurl_log.txt
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20160205/5eebb570/attachment-0002.txt>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: rstan_log.txt
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20160205/5eebb570/attachment-0003.txt>
+
+From tcallawa at redhat.com  Fri Feb  5 16:14:24 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 5 Feb 2016 10:14:24 -0500
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <SN1PR0401MB177489839D9C30286703A6CBD1D20@SN1PR0401MB1774.namprd04.prod.outlook.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+	<SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A9141A.1090708@redhat.com>
+	<SN1PR0401MB17744300C37C0F3E7EFC120CD1DA0@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56ABCF7A.50808@redhat.com>
+	<BY2PR0401MB17671F14BDA18E561B347225D1DE0@BY2PR0401MB1767.namprd04.prod.outlook.com>
+	<56B0DABE.1090603@redhat.com>
+	<SN1PR0401MB1774E3222782AF29445EE552D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56B21438.9030408@redhat.com> <56B21682.6010707@redhat.com>
+	<SN1PR0401MB177469CFA70C406CF12DE118D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<SN1PR0401MB177489839D9C30286703A6CBD1D20@SN1PR0401MB1774.namprd04.prod.outlook.com>
+Message-ID: <56B4BC50.80509@redhat.com>
+
+On 02/05/2016 09:58 AM, Patrick, Larry B [CSSM] wrote:
+> Did the following on my RHEL6 server:
+>      [root at ping ~]# export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib64/pkgconfig/
+>      [root at ping ~]# /usr/bin/curl-config --libs
+>      -L/usr/lib64 -lcurl
+
+I'm glad this worked, but you should not have had to specify that. I'd
+bet something else is misconfigured on your RHEL 6 system that will
+likely cause problems in the future...
+
+~tom
+
+==
+Red Hat
+
+
+From longplay at iastate.edu  Fri Feb  5 21:31:12 2016
+From: longplay at iastate.edu (Patrick, Larry B [CSSM])
+Date: Fri, 5 Feb 2016 20:31:12 +0000
+Subject: [R-sig-Fedora] rstan warning messages
+In-Reply-To: <56B4BC50.80509@redhat.com>
+References: <SN1PR0401MB1774CD4DCCA82E89828538EAD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A90D25.9060002@redhat.com>
+	<SN1PR0401MB177411DE2CCF75738FC6B97AD1D90@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56A9141A.1090708@redhat.com>
+	<SN1PR0401MB17744300C37C0F3E7EFC120CD1DA0@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56ABCF7A.50808@redhat.com>
+	<BY2PR0401MB17671F14BDA18E561B347225D1DE0@BY2PR0401MB1767.namprd04.prod.outlook.com>
+	<56B0DABE.1090603@redhat.com>
+	<SN1PR0401MB1774E3222782AF29445EE552D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56B21438.9030408@redhat.com> <56B21682.6010707@redhat.com>
+	<SN1PR0401MB177469CFA70C406CF12DE118D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<SN1PR0401MB177489839D9C30286703A6CBD1D20@SN1PR0401MB1774.namprd04.prod.outlook.com>
+	<56B4BC50.80509@redhat.com>
+Message-ID: <SN1PR0401MB1774A9073E233BC690D795F2D1D20@SN1PR0401MB1774.namprd04.prod.outlook.com>
+
+Tom,
+
+I don't doubt it. 
+
+Hopefully I can schedule some time to work on rebuilding this system with RHEL 7 to help bring it up to date :) They just needed it right now and couldn't wait for any downtime :( I almost tossed in the towel at one point.
+
+Thanks,
+Larry
+
+
+-----Original Message-----
+From: Tom Callaway [mailto:tcallawa at redhat.com] 
+Sent: Friday, February 05, 2016 9:14 AM
+To: Patrick, Larry B [CSSM] <longplay at iastate.edu>; 'r-sig-fedora at r-project.org' <r-sig-fedora at r-project.org>
+Subject: Re: [R-sig-Fedora] rstan warning messages
+
+On 02/05/2016 09:58 AM, Patrick, Larry B [CSSM] wrote:
+> Did the following on my RHEL6 server:
+>      [root at ping ~]# export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib64/pkgconfig/
+>      [root at ping ~]# /usr/bin/curl-config --libs
+>      -L/usr/lib64 -lcurl
+
+I'm glad this worked, but you should not have had to specify that. I'd bet something else is misconfigured on your RHEL 6 system that will likely cause problems in the future...
+
+~tom
+
+==
+Red Hat
+
+
+From jbi.octave at gmail.com  Sat Feb 13 04:23:35 2016
+From: jbi.octave at gmail.com (Jules Bashizi)
+Date: Sat, 13 Feb 2016 03:23:35 +0000
+Subject: [R-sig-Fedora] Hi Guyz !
+Message-ID: <CAOuULM6xZKR4n20KWtXAZ9Fq=Xkz7kp-xfwZywd7rFJCF+zdVw@mail.gmail.com>
+
+I run R on a Fedora 23 64bit ,
+
+I encounter this problem
+
+
+*WARNING: no proj_defs.dat in PROJ.4 shared files Linking to sp version:
+1.2-2 *
+
+when trying  to load library("rgdal",
+lib.loc="~/R/x86_64-redhat-linux-gnu-library/3.2") and also ogr .
+
+can any one help me in fixing this issue please
+
+Thanks in advance
+
+
+
+Irenge B. Jules
+MSC student @ Liverpool University
+email : jbi.octave at gmail.com
+Tel No 07405834974
+U.K.
+
+	[[alternative HTML version deleted]]
+
+
+From znmeb at znmeb.net  Sat Feb 13 06:29:07 2016
+From: znmeb at znmeb.net (M. Edward (Ed) Borasky)
+Date: Sat, 13 Feb 2016 05:29:07 +0000
+Subject: [R-sig-Fedora] Hi Guyz !
+In-Reply-To: <CAOuULM6xZKR4n20KWtXAZ9Fq=Xkz7kp-xfwZywd7rFJCF+zdVw@mail.gmail.com>
+References: <CAOuULM6xZKR4n20KWtXAZ9Fq=Xkz7kp-xfwZywd7rFJCF+zdVw@mail.gmail.com>
+Message-ID: <CAHkRx6Eu-Ky5uRezcRC2pVzZxv6ZHg4kcFcb7XfnnzEqsTQKPw@mail.gmail.com>
+
+You probably need to install header files and rebuild 'rgdal'. To get the R
+GIS stack to work, you need the '-devel' packages for 'geos', 'gdal' and
+'proj'.
+
+On Fri, Feb 12, 2016 at 7:24 PM Jules Bashizi <jbi.octave at gmail.com> wrote:
+
+> I run R on a Fedora 23 64bit ,
+>
+> I encounter this problem
+>
+>
+> *WARNING: no proj_defs.dat in PROJ.4 shared files Linking to sp version:
+> 1.2-2 *
+>
+> when trying  to load library("rgdal",
+> lib.loc="~/R/x86_64-redhat-linux-gnu-library/3.2") and also ogr .
+>
+> can any one help me in fixing this issue please
+>
+> Thanks in advance
+>
+>
+>
+> Irenge B. Jules
+> MSC student @ Liverpool University
+> email : jbi.octave at gmail.com
+> Tel No 07405834974
+> U.K.
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+-- 
+How many people can stand on the shoulders of a giant before the giant
+collapses?
+
+	[[alternative HTML version deleted]]
+
+
+From roger.bivand at nhh.no  Sat Feb 13 12:42:53 2016
+From: roger.bivand at nhh.no (Roger Bivand)
+Date: Sat, 13 Feb 2016 11:42:53 +0000 (UTC)
+Subject: [R-sig-Fedora] Hi Guyz !
+References: <CAOuULM6xZKR4n20KWtXAZ9Fq=Xkz7kp-xfwZywd7rFJCF+zdVw@mail.gmail.com>
+Message-ID: <loom.20160213T123417-306@post.gmane.org>
+
+Jules Bashizi <jbi.octave at ...> writes:
+
+> 
+> I run R on a Fedora 23 64bit ,
+> 
+> I encounter this problem
+> 
+> *WARNING: no proj_defs.dat in PROJ.4 shared files Linking to sp version:
+> 1.2-2 *
+
+When this person posted simulatneously on the PROJ4 issues on github, I
+replied that his problem is a defective PROJ4 rpm (4.9.0 and 4.9.1 were
+released without an important metadata file in the source, so packagers also
+missed it).
+
+That reply is at:
+
+https://github.com/OSGeo/proj.4/issues/351#issuecomment-183581132
+
+
+> 
+> when trying  to load library("rgdal",
+> lib.loc="~/R/x86_64-redhat-linux-gnu-library/3.2") and also ogr .
+> 
+> can any one help me in fixing this issue please
+
+Simple googling for proj_defs.dat, or installing PROJ 4.9.2, would have
+solved the problem, but the OP has chosen to splatter multiple poorly chosen
+places with poorly formed questions.
+
+For Windows and OSX CRAN binaries, we can do (and did) handholding for this
+upstream blunder, but users installing from source do need to watch their
+external dependencies.
+
+Resolution as given on github: install the missing file by hand, or upgrade
+PROJ to 4.9.2
+
+Roger
+
+PS. The subject line is about as non-informative as possible, and the post
+was HTML - read the posting guide?
+
+> 
+> Thanks in advance
+> 
+> Irenge B. Jules
+
+
+From ashu4487 at gmail.com  Wed Feb 17 03:24:51 2016
+From: ashu4487 at gmail.com (ashutosh srivastava)
+Date: Wed, 17 Feb 2016 11:24:51 +0900
+Subject: [R-sig-Fedora] R hangs when plot() is used
+Message-ID: <CAN6ydJxH7ZnwBJHTTDbffF2BNThn4Xfa=AQisr3xJ-sMZfn4RQ@mail.gmail.com>
+
+Dear R users
+
+I have compiled R from source in local user account (at non default
+location). R seems to be working fine but issuing plot() command opens a
+window (supposedly graph, but nothing is visible) and then R terminal also
+freezes. Any suggestions?
+Following is the session info output.
+
+> sessionInfo()
+R version 3.2.3 (2015-12-10)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: CentOS release 6.7 (Final)
+
+locale:
+ [1] LC_CTYPE=en_US       LC_NUMERIC=C         LC_TIME=en_US
+ [4] LC_COLLATE=en_US     LC_MONETARY=en_US    LC_MESSAGES=en_US
+ [7] LC_PAPER=en_US       LC_NAME=C            LC_ADDRESS=C
+[10] LC_TELEPHONE=C       LC_MEASUREMENT=en_US LC_IDENTIFICATION=C
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base
+
+
+Thank you
+
+Best
+
+	[[alternative HTML version deleted]]
+
+
+From plummerm at iarc.fr  Wed Feb 17 10:16:55 2016
+From: plummerm at iarc.fr (Martyn Plummer)
+Date: Wed, 17 Feb 2016 09:16:55 +0000
+Subject: [R-sig-Fedora] R hangs when plot() is used
+In-Reply-To: <CAN6ydJxH7ZnwBJHTTDbffF2BNThn4Xfa=AQisr3xJ-sMZfn4RQ@mail.gmail.com>
+References: <CAN6ydJxH7ZnwBJHTTDbffF2BNThn4Xfa=AQisr3xJ-sMZfn4RQ@mail.gmail.com>
+Message-ID: <1455700615.406.50.camel@iarc.fr>
+
+We have had reports of the X11 device freezing. See the R bug
+repository:
+
+https://bugs.r-project.org/bugzilla3/show_bug.cgi?id=16497
+
+The fix will be included in the next major release of R. Tom's EPEL RPM
+already contains a fix so you should perhaps try that.
+
+Martyn
+
+On Wed, 2016-02-17 at 11:24 +0900, ashutosh srivastava wrote:
+> Dear R users
+> 
+> I have compiled R from source in local user account (at non default
+> location). R seems to be working fine but issuing plot() command opens a
+> window (supposedly graph, but nothing is visible) and then R terminal also
+> freezes. Any suggestions?
+> Following is the session info output.
+> 
+> > sessionInfo()
+> R version 3.2.3 (2015-12-10)
+> Platform: x86_64-pc-linux-gnu (64-bit)
+> Running under: CentOS release 6.7 (Final)
+> 
+> locale:
+>  [1] LC_CTYPE=en_US       LC_NUMERIC=C         LC_TIME=en_US
+>  [4] LC_COLLATE=en_US     LC_MONETARY=en_US    LC_MESSAGES=en_US
+>  [7] LC_PAPER=en_US       LC_NAME=C            LC_ADDRESS=C
+> [10] LC_TELEPHONE=C       LC_MEASUREMENT=en_US LC_IDENTIFICATION=C
+> 
+> attached base packages:
+> [1] stats     graphics  grDevices utils     datasets  methods   base
+> 
+> 
+> Thank you
+> 
+> Best
+> 
+> 	[[alternative HTML version deleted]]
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+
+From backus at genepi.med.utah.edu  Wed Feb 17 16:45:55 2016
+From: backus at genepi.med.utah.edu (Steven Backus)
+Date: Wed, 17 Feb 2016 08:45:55 -0700 (MST)
+Subject: [R-sig-Fedora] R hangs when plot() is used
+In-Reply-To: <1455700615.406.50.camel@iarc.fr>
+References: <CAN6ydJxH7ZnwBJHTTDbffF2BNThn4Xfa=AQisr3xJ-sMZfn4RQ@mail.gmail.com>
+	<1455700615.406.50.camel@iarc.fr>
+Message-ID: <201602171545.u1HFjtx8016944@genepi.med.utah.edu>
+
+On Wed, 2016-02-17 at 11:24 +0900, ashutosh srivastava wrote:
+
+> > I have compiled R from source in local user account (at non default
+> > location). R seems to be working fine but issuing plot() command opens a
+> > window (supposedly graph, but nothing is visible) and then R terminal also
+> > freezes. Any suggestions?
+
+We found an older version of x11 and this worked for us:
+
+yum downgrade xorg-x11-server-Xorg-1.15.0-36.el6.x86_64 xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm
+
+Steve
+-- 
+Steven J. Backus                        Computer Systems Manager
+University of Utah                      E-Mail:  steven.backus at utah.edu
+Genetic Epidemiology                    Alternate:  backus at math.utah.edu
+391 Chipeta Way -- Suite D              Office:  801.587.9308
+Salt Lake City, UT 84108-1266           http://www.math.utah.edu/~backus
+
+
+From plummerm at iarc.fr  Wed Feb 17 17:56:00 2016
+From: plummerm at iarc.fr (Martyn Plummer)
+Date: Wed, 17 Feb 2016 16:56:00 +0000
+Subject: [R-sig-Fedora] R hangs when plot() is used
+In-Reply-To: <201602171545.u1HFjtx8016944@genepi.med.utah.edu>
+References: <CAN6ydJxH7ZnwBJHTTDbffF2BNThn4Xfa=AQisr3xJ-sMZfn4RQ@mail.gmail.com>
+	<1455700615.406.50.camel@iarc.fr>
+	<201602171545.u1HFjtx8016944@genepi.med.utah.edu>
+Message-ID: <1455728162.406.66.camel@iarc.fr>
+
+On Wed, 2016-02-17 at 08:45 -0700, Steven Backus wrote:
+> On Wed, 2016-02-17 at 11:24 +0900, ashutosh srivastava wrote:
+> 
+> > > I have compiled R from source in local user account (at non default
+> > > location). R seems to be working fine but issuing plot() command opens a
+> > > window (supposedly graph, but nothing is visible) and then R terminal also
+> > > freezes. Any suggestions?
+> 
+> We found an older version of x11 and this worked for us:
+> 
+> yum downgrade xorg-x11-server-Xorg-1.15.0-36.el6.x86_64 xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm
+
+After some prompting from Peter, I have ported the patch over to the R
+release branch so the fix will be in R 3.2.4, due for release on 10
+March, and in R 3.3.0 a little over a month later. You can then upgrade
+again.
+
+Martyn
+
+> Steve
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+
+From ashu4487 at gmail.com  Thu Feb 18 01:28:32 2016
+From: ashu4487 at gmail.com (ashutosh srivastava)
+Date: Thu, 18 Feb 2016 09:28:32 +0900
+Subject: [R-sig-Fedora] R hangs when plot() is used
+In-Reply-To: <1455728162.406.66.camel@iarc.fr>
+References: <CAN6ydJxH7ZnwBJHTTDbffF2BNThn4Xfa=AQisr3xJ-sMZfn4RQ@mail.gmail.com>
+	<1455700615.406.50.camel@iarc.fr>
+	<201602171545.u1HFjtx8016944@genepi.med.utah.edu>
+	<1455728162.406.66.camel@iarc.fr>
+Message-ID: <CAN6ydJwmLyMcvjvrks2HJHaQ7_ZM+YPzh-B3LBGO7GKN2aQjgw@mail.gmail.com>
+
+Dear Steve and Martyn
+
+Thank you for the suggestions. I will try it and get back to you.
+
+Best
+Ashutosh
+
+On Thu, Feb 18, 2016 at 1:56 AM, Martyn Plummer <plummerm at iarc.fr> wrote:
+
+> On Wed, 2016-02-17 at 08:45 -0700, Steven Backus wrote:
+> > On Wed, 2016-02-17 at 11:24 +0900, ashutosh srivastava wrote:
+> >
+> > > > I have compiled R from source in local user account (at non default
+> > > > location). R seems to be working fine but issuing plot() command
+> opens a
+> > > > window (supposedly graph, but nothing is visible) and then R
+> terminal also
+> > > > freezes. Any suggestions?
+> >
+> > We found an older version of x11 and this worked for us:
+> >
+> > yum downgrade xorg-x11-server-Xorg-1.15.0-36.el6.x86_64
+> xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm
+>
+> After some prompting from Peter, I have ported the patch over to the R
+> release branch so the fix will be in R 3.2.4, due for release on 10
+> March, and in R 3.3.0 a little over a month later. You can then upgrade
+> again.
+>
+> Martyn
+>
+> > Steve
+>
+> -----------------------------------------------------------------------
+> This message and its attachments are strictly confiden...{{dropped:12}}
+
+

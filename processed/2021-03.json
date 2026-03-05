@@ -1,0 +1,206 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2021-03",
+  "messages": [
+    {
+      "id": "msg-01a4f584cf39",
+      "message_id": "<CABFfbXuKf5hNay4vAYx1LD6gmkzRYOsr+3a0JNjsiw2xoZimxQ@mail.gmail.com>",
+      "from_name": "Jeroen Ooms",
+      "from_email_hash": "6d6b57f7dfdacdb11068763c49af518a12f1ee23bc379f749098f057c1d6df69",
+      "date": "2021-03-09T13:25:41+01:00",
+      "subject": "[R-sig-Fedora] R.css missing in Fedora R-core rpm",
+      "subject_clean": "R.css missing in Fedora R-core rpm",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "When installing an R package from source on Fedora using the standard\nR-core rpm, we always get a warning at the end because of a missing\ncss file /usr/share/doc/R/html/R.css:\n\n** byte-compile and prepare package for lazy loading\n** help\n*** installing help indices\nError in file.copy(file.path(R.home(\"doc\"), \"html\", \"R.css\"), outman) :\n  (converted from warning) problem copying /usr/share/doc/R/html/R.css\nto /usr/lib64/R/library/00LOCK-systemfonts/00new/systemfonts/html/R.css:\nNo such file or directory\n\nBut when I try to install the missing file, yum says it is already installed:\n\n  yum install /usr/share/doc/R/html/R.css\n  ## Package R-core-4.0.3-1.fc32.x86_64 is already installed.\n\nHowever it does not actually exist. Perhaps the rpm could make a copy\nor symlink from /usr/lib64/R/library/base/html/R.css",
+      "body_snippet": "When installing an R package from source on Fedora using the standard\nR-core rpm, we always get a warning at the end because of a missing\ncss file /usr/share/doc/R/html/R.css:\n\n** byte-compile and pre",
+      "thread_id": "thread-01a4f584cf39",
+      "thread_depth": 0,
+      "month": "2021-03"
+    },
+    {
+      "id": "msg-3437f32f2d0d",
+      "message_id": "<CALEXWq1mMOPeotq+FqHQoVYd4_mdopkjmuGL3ff9by1NBzwEZg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-03-09T14:27:44+01:00",
+      "subject": "[R-sig-Fedora] R.css missing in Fedora R-core rpm",
+      "subject_clean": "R.css missing in Fedora R-core rpm",
+      "in_reply_to": "<CABFfbXuKf5hNay4vAYx1LD6gmkzRYOsr+3a0JNjsiw2xoZimxQ@mail.gmail.com>",
+      "references": [
+        "<CABFfbXuKf5hNay4vAYx1LD6gmkzRYOsr+3a0JNjsiw2xoZimxQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Tue, 9 Mar 2021 at 13:26, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n>\n> When installing an R package from source on Fedora using the standard\n> R-core rpm, we always get a warning at the end because of a missing\n> css file /usr/share/doc/R/html/R.css:\n>\n> ** byte-compile and prepare package for lazy loading\n> ** help\n> *** installing help indices\n> Error in file.copy(file.path(R.home(\"doc\"), \"html\", \"R.css\"), outman) :\n>   (converted from warning) problem copying /usr/share/doc/R/html/R.css\n> to /usr/lib64/R/library/00LOCK-systemfonts/00new/systemfonts/html/R.css:\n> No such file or directory\n>\n> But when I try to install the missing file, yum says it is already installed:\n>\n>   yum install /usr/share/doc/R/html/R.css\n>   ## Package R-core-4.0.3-1.fc32.x86_64 is already installed.\n>\n> However it does not actually exist. Perhaps the rpm could make a copy\n> or symlink from /usr/lib64/R/library/base/html/R.css\n\nI assume you are doing this in a docker image. That file is not\ninstalled because our base images have \"tsflags=nodocs\" set in\n/etc/dnf/dnf.conf. Unset this before installing R-core, or, even\nbetter, install packages with --no-docs.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 9 Mar 2021 at 13:26, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n>\n> When installing an R package from source on Fedora using the standard\n> R-core rpm, we always get a warning at the end bec",
+      "thread_id": "thread-01a4f584cf39",
+      "thread_depth": 1,
+      "month": "2021-03"
+    },
+    {
+      "id": "msg-f509c44df6af",
+      "message_id": "<CABFfbXsGENcy5BrkYrLVf9BZJevoJB6TD219K_-SQKib2jH3mw@mail.gmail.com>",
+      "from_name": "Jeroen Ooms",
+      "from_email_hash": "6d6b57f7dfdacdb11068763c49af518a12f1ee23bc379f749098f057c1d6df69",
+      "date": "2021-03-09T23:55:26+01:00",
+      "subject": "[R-sig-Fedora] R.css missing in Fedora R-core rpm",
+      "subject_clean": "R.css missing in Fedora R-core rpm",
+      "in_reply_to": "<CALEXWq1mMOPeotq+FqHQoVYd4_mdopkjmuGL3ff9by1NBzwEZg@mail.gmail.com>",
+      "references": [
+        "<CABFfbXuKf5hNay4vAYx1LD6gmkzRYOsr+3a0JNjsiw2xoZimxQ@mail.gmail.com>",
+        "<CALEXWq1mMOPeotq+FqHQoVYd4_mdopkjmuGL3ff9by1NBzwEZg@mail.gmail.com>"
+      ],
+      "body_plain": "On Tue, Mar 9, 2021 at 2:27 PM I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Tue, 9 Mar 2021 at 13:26, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n> >\n> > When installing an R package from source on Fedora using the standard\n> > R-core rpm, we always get a warning at the end because of a missing\n> > css file /usr/share/doc/R/html/R.css:\n> >\n> > ** byte-compile and prepare package for lazy loading\n> > ** help\n> > *** installing help indices\n> > Error in file.copy(file.path(R.home(\"doc\"), \"html\", \"R.css\"), outman) :\n> >   (converted from warning) problem copying /usr/share/doc/R/html/R.css\n> > to /usr/lib64/R/library/00LOCK-systemfonts/00new/systemfonts/html/R.css:\n> > No such file or directory\n> >\n> > But when I try to install the missing file, yum says it is already installed:\n> >\n> >   yum install /usr/share/doc/R/html/R.css\n> >   ## Package R-core-4.0.3-1.fc32.x86_64 is already installed.\n> >\n> > However it does not actually exist. Perhaps the rpm could make a copy\n> > or symlink from /usr/lib64/R/library/base/html/R.css\n>\n> I assume you are doing this in a docker image. That file is not\n> installed because our base images have \"tsflags=nodocs\" set in\n> /etc/dnf/dnf.conf. Unset this before installing R-core, or, even\n> better, install packages with --no-docs.\n\nPerhaps --no-docs should then be the default if tsflags=nodocs? The\ndefault behavior is unfortunate, because it makes install.packages()\nfail even if the user is not even interested in documentation, and\npeople come up with all sorts of workarounds eg:\nhttps://github.com/r-lib/devtools/issues/2084\n\nAlternatively, perhaps it makes sense to consider the file\n/usr/share/doc/R/html/R.css to be not part of the documentation,\nbecause R assumes this file to be available during install.packages().\nExactly the same R.css file is also included in every installed\npackage under html/R.css, even when tsflags=nodocs, so I don't see the\npoint of omitting it in the once place where R expects to find it.",
+      "body_snippet": "On Tue, Mar 9, 2021 at 2:27 PM I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Tue, 9 Mar 2021 at 13:26, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n> >\n> > When installing an R package from so",
+      "thread_id": "thread-01a4f584cf39",
+      "thread_depth": 2,
+      "month": "2021-03"
+    },
+    {
+      "id": "msg-4884b36f25a6",
+      "message_id": "<CALEXWq34_fMn8wRH7xjokqib4-nHAa2-_Cv25dAFy=-y4Gr_ew@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-03-10T00:18:34+01:00",
+      "subject": "[R-sig-Fedora] R.css missing in Fedora R-core rpm",
+      "subject_clean": "R.css missing in Fedora R-core rpm",
+      "in_reply_to": "<CABFfbXsGENcy5BrkYrLVf9BZJevoJB6TD219K_-SQKib2jH3mw@mail.gmail.com>",
+      "references": [
+        "<CABFfbXuKf5hNay4vAYx1LD6gmkzRYOsr+3a0JNjsiw2xoZimxQ@mail.gmail.com>",
+        "<CALEXWq1mMOPeotq+FqHQoVYd4_mdopkjmuGL3ff9by1NBzwEZg@mail.gmail.com>",
+        "<CABFfbXsGENcy5BrkYrLVf9BZJevoJB6TD219K_-SQKib2jH3mw@mail.gmail.com>"
+      ],
+      "body_plain": "On Tue, 9 Mar 2021 at 23:55, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n>\n> On Tue, Mar 9, 2021 at 2:27 PM I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > On Tue, 9 Mar 2021 at 13:26, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n> > >\n> > > When installing an R package from source on Fedora using the standard\n> > > R-core rpm, we always get a warning at the end because of a missing\n> > > css file /usr/share/doc/R/html/R.css:\n> > >\n> > > ** byte-compile and prepare package for lazy loading\n> > > ** help\n> > > *** installing help indices\n> > > Error in file.copy(file.path(R.home(\"doc\"), \"html\", \"R.css\"), outman) :\n> > >   (converted from warning) problem copying /usr/share/doc/R/html/R.css\n> > > to /usr/lib64/R/library/00LOCK-systemfonts/00new/systemfonts/html/R.css:\n> > > No such file or directory\n> > >\n> > > But when I try to install the missing file, yum says it is already installed:\n> > >\n> > >   yum install /usr/share/doc/R/html/R.css\n> > >   ## Package R-core-4.0.3-1.fc32.x86_64 is already installed.\n> > >\n> > > However it does not actually exist. Perhaps the rpm could make a copy\n> > > or symlink from /usr/lib64/R/library/base/html/R.css\n> >\n> > I assume you are doing this in a docker image. That file is not\n> > installed because our base images have \"tsflags=nodocs\" set in\n> > /etc/dnf/dnf.conf. Unset this before installing R-core, or, even\n> > better, install packages with --no-docs.\n>\n> Perhaps --no-docs should then be the default if tsflags=nodocs? The\n> default behavior is unfortunate, because it makes install.packages()\n> fail even if the user is not even interested in documentation, and\n> people come up with all sorts of workarounds eg:\n> https://github.com/r-lib/devtools/issues/2084\n\ninstall.packages doesn't fail. devtools does. I see:\n\nWarning in file.create(f.tg) :\n cannot create file '/usr/share/doc/R/html/packages.html', reason 'No\nsuch file or directory'\nWarning in utils::make.packages.html(.Library, docdir = R.home(\"doc\")) :\n cannot update HTML package index\n\nThe package is correctly installed and usable.\n\n> Alternatively, perhaps it makes sense to consider the file\n> /usr/share/doc/R/html/R.css to be not part of the documentation,\n> because R assumes this file to be available during install.packages().\n> Exactly the same R.css file is also included in every installed\n> package under html/R.css, even when tsflags=nodocs, so I don't see the\n> point of omitting it in the once place where R expects to find it.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 9 Mar 2021 at 23:55, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n>\n> On Tue, Mar 9, 2021 at 2:27 PM I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > On Tue, 9 Mar 2021 at 13:26, Jeroen ",
+      "thread_id": "thread-01a4f584cf39",
+      "thread_depth": 3,
+      "month": "2021-03"
+    },
+    {
+      "id": "msg-741fe915c913",
+      "message_id": "<CABFfbXv3chriyHg3wc7+z8UnEXhgAUVpd3Q-6Jy4Jy7O3W1ZbA@mail.gmail.com>",
+      "from_name": "Jeroen Ooms",
+      "from_email_hash": "6d6b57f7dfdacdb11068763c49af518a12f1ee23bc379f749098f057c1d6df69",
+      "date": "2021-03-10T12:02:20+01:00",
+      "subject": "[R-sig-Fedora] R.css missing in Fedora R-core rpm",
+      "subject_clean": "R.css missing in Fedora R-core rpm",
+      "in_reply_to": "<CALEXWq34_fMn8wRH7xjokqib4-nHAa2-_Cv25dAFy=-y4Gr_ew@mail.gmail.com>",
+      "references": [
+        "<CABFfbXuKf5hNay4vAYx1LD6gmkzRYOsr+3a0JNjsiw2xoZimxQ@mail.gmail.com>",
+        "<CALEXWq1mMOPeotq+FqHQoVYd4_mdopkjmuGL3ff9by1NBzwEZg@mail.gmail.com>",
+        "<CABFfbXsGENcy5BrkYrLVf9BZJevoJB6TD219K_-SQKib2jH3mw@mail.gmail.com>",
+        "<CALEXWq34_fMn8wRH7xjokqib4-nHAa2-_Cv25dAFy=-y4Gr_ew@mail.gmail.com>"
+      ],
+      "body_plain": "On Wed, Mar 10, 2021 at 12:18 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Tue, 9 Mar 2021 at 23:55, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n> >\n> > On Tue, Mar 9, 2021 at 2:27 PM I?aki Ucar <iucar at fedoraproject.org> wrote:\n> > >\n> > > On Tue, 9 Mar 2021 at 13:26, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n> > > >\n> > > > When installing an R package from source on Fedora using the standard\n> > > > R-core rpm, we always get a warning at the end because of a missing\n> > > > css file /usr/share/doc/R/html/R.css:\n> > > >\n> > > > ** byte-compile and prepare package for lazy loading\n> > > > ** help\n> > > > *** installing help indices\n> > > > Error in file.copy(file.path(R.home(\"doc\"), \"html\", \"R.css\"), outman) :\n> > > >   (converted from warning) problem copying /usr/share/doc/R/html/R.css\n> > > > to /usr/lib64/R/library/00LOCK-systemfonts/00new/systemfonts/html/R.css:\n> > > > No such file or directory\n> > > >\n> > > > But when I try to install the missing file, yum says it is already installed:\n> > > >\n> > > >   yum install /usr/share/doc/R/html/R.css\n> > > >   ## Package R-core-4.0.3-1.fc32.x86_64 is already installed.\n> > > >\n> > > > However it does not actually exist. Perhaps the rpm could make a copy\n> > > > or symlink from /usr/lib64/R/library/base/html/R.css\n> > >\n> > > I assume you are doing this in a docker image. That file is not\n> > > installed because our base images have \"tsflags=nodocs\" set in\n> > > /etc/dnf/dnf.conf. Unset this before installing R-core, or, even\n> > > better, install packages with --no-docs.\n> >\n> > Perhaps --no-docs should then be the default if tsflags=nodocs? The\n> > default behavior is unfortunate, because it makes install.packages()\n> > fail even if the user is not even interested in documentation, and\n> > people come up with all sorts of workarounds eg:\n> > https://github.com/r-lib/devtools/issues/2084\n>\n> install.packages doesn't fail. devtools does. I see:\n>\n> Warning in file.create(f.tg) :\n>  cannot create file '/usr/share/doc/R/html/packages.html', reason 'No\n> such file or directory'\n> Warning in utils::make.packages.html(.Library, docdir = R.home(\"doc\")) :\n>  cannot update HTML package index\n>\n> The package is correctly installed and usable.\n\nMany systems (including devtools, and many others) are set more strict\nsuch that installation warnings are turned into errors, to ensure\nusers or applications never ends up installing broken packages.\nRaising this warning by default for every install.packages() is really\nunfortunate default behaviour, especially because it is evidently\nunclear to users why this happens.",
+      "body_snippet": "On Wed, Mar 10, 2021 at 12:18 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Tue, 9 Mar 2021 at 23:55, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n> >\n> > On Tue, Mar 9, 2021 at 2:27 PM I?a",
+      "thread_id": "thread-01a4f584cf39",
+      "thread_depth": 4,
+      "month": "2021-03"
+    },
+    {
+      "id": "msg-ecceb4673c87",
+      "message_id": "<CABFfbXsiaYNBEiMMt6DAKE11EvdWPAwGv7YcU7fW0nMYxRe51Q@mail.gmail.com>",
+      "from_name": "Jeroen Ooms",
+      "from_email_hash": "6d6b57f7dfdacdb11068763c49af518a12f1ee23bc379f749098f057c1d6df69",
+      "date": "2021-03-10T12:21:46+01:00",
+      "subject": "[R-sig-Fedora] R not working in F34 docker image",
+      "subject_clean": "R not working in F34 docker image",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Not sure if this is a bug in the F34 docker image or R rpm. I would\nlike to test some things in F34 so I tried:\n\n  docker run -it fedora:34\n\nAnd then in docker:\n\n   yum update\n   yum install R-core\n\nBut when I try to start R I get an error:\n\n  ERROR: R_HOME ('/usr/lib64/R') not found",
+      "body_snippet": "Not sure if this is a bug in the F34 docker image or R rpm. I would\nlike to test some things in F34 so I tried:\n\n  docker run -it fedora:34\n\nAnd then in docker:\n\n   yum update\n   yum install R-core\n\nB",
+      "thread_id": "thread-ecceb4673c87",
+      "thread_depth": 0,
+      "month": "2021-03"
+    },
+    {
+      "id": "msg-2707ff7ca8bb",
+      "message_id": "<CALEXWq1RrDLkR-6mvTpZZQDu1_or5VsiAf4fPTfLSrsekNaEQg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-03-10T13:14:51+01:00",
+      "subject": "[R-sig-Fedora] R.css missing in Fedora R-core rpm",
+      "subject_clean": "R.css missing in Fedora R-core rpm",
+      "in_reply_to": "<CABFfbXv3chriyHg3wc7+z8UnEXhgAUVpd3Q-6Jy4Jy7O3W1ZbA@mail.gmail.com>",
+      "references": [
+        "<CABFfbXuKf5hNay4vAYx1LD6gmkzRYOsr+3a0JNjsiw2xoZimxQ@mail.gmail.com>",
+        "<CALEXWq1mMOPeotq+FqHQoVYd4_mdopkjmuGL3ff9by1NBzwEZg@mail.gmail.com>",
+        "<CABFfbXsGENcy5BrkYrLVf9BZJevoJB6TD219K_-SQKib2jH3mw@mail.gmail.com>",
+        "<CALEXWq34_fMn8wRH7xjokqib4-nHAa2-_Cv25dAFy=-y4Gr_ew@mail.gmail.com>",
+        "<CABFfbXv3chriyHg3wc7+z8UnEXhgAUVpd3Q-6Jy4Jy7O3W1ZbA@mail.gmail.com>"
+      ],
+      "body_plain": "On Wed, 10 Mar 2021 at 12:02, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n>\n> On Wed, Mar 10, 2021 at 12:18 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > On Tue, 9 Mar 2021 at 23:55, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n> > >\n> > > On Tue, Mar 9, 2021 at 2:27 PM I?aki Ucar <iucar at fedoraproject.org> wrote:\n> > > >\n> > > > On Tue, 9 Mar 2021 at 13:26, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n> > > > >\n> > > > > When installing an R package from source on Fedora using the standard\n> > > > > R-core rpm, we always get a warning at the end because of a missing\n> > > > > css file /usr/share/doc/R/html/R.css:\n> > > > >\n> > > > > ** byte-compile and prepare package for lazy loading\n> > > > > ** help\n> > > > > *** installing help indices\n> > > > > Error in file.copy(file.path(R.home(\"doc\"), \"html\", \"R.css\"), outman) :\n> > > > >   (converted from warning) problem copying /usr/share/doc/R/html/R.css\n> > > > > to /usr/lib64/R/library/00LOCK-systemfonts/00new/systemfonts/html/R.css:\n> > > > > No such file or directory\n> > > > >\n> > > > > But when I try to install the missing file, yum says it is already installed:\n> > > > >\n> > > > >   yum install /usr/share/doc/R/html/R.css\n> > > > >   ## Package R-core-4.0.3-1.fc32.x86_64 is already installed.\n> > > > >\n> > > > > However it does not actually exist. Perhaps the rpm could make a copy\n> > > > > or symlink from /usr/lib64/R/library/base/html/R.css\n> > > >\n> > > > I assume you are doing this in a docker image. That file is not\n> > > > installed because our base images have \"tsflags=nodocs\" set in\n> > > > /etc/dnf/dnf.conf. Unset this before installing R-core, or, even\n> > > > better, install packages with --no-docs.\n> > >\n> > > Perhaps --no-docs should then be the default if tsflags=nodocs? The\n> > > default behavior is unfortunate, because it makes install.packages()\n> > > fail even if the user is not even interested in documentation, and\n> > > people come up with all sorts of workarounds eg:\n> > > https://github.com/r-lib/devtools/issues/2084\n> >\n> > install.packages doesn't fail. devtools does. I see:\n> >\n> > Warning in file.create(f.tg) :\n> >  cannot create file '/usr/share/doc/R/html/packages.html', reason 'No\n> > such file or directory'\n> > Warning in utils::make.packages.html(.Library, docdir = R.home(\"doc\")) :\n> >  cannot update HTML package index\n> >\n> > The package is correctly installed and usable.\n>\n> Many systems (including devtools, and many others) are set more strict\n> such that installation warnings are turned into errors, to ensure\n> users or applications never ends up installing broken packages.\n\nA warning is not an error. I would expect that R raises an error only\nwhen the package is really broken. Otherwise, there's no point in\nhaving warnings and errors. Users have been bitten quite a lot by this\n[1], and as a result, the remotes package (which devtools uses)\nrecently stepped out from this odd default behaviour [2] (not yet\nreleased though).\n\n> Raising this warning by default for every install.packages() is really\n> unfortunate default behaviour, especially because it is evidently\n> unclear to users why this happens.\n\nAbout what is unclear to users, I refer again to [1]. But note that\nthis is *not* default behaviour. It only happens in docker images,\nwhich have this special setting for a special use case, defined in\norder to minimize image sizes and enforced by the package manager. It\nhas nothing to do with the R-core package: it just follows the\nofficial guidelines and marks documentation files as documentation.\n\nI could add some notes about docker in [3]. Note too that there's an\neasier way to install CRAN packages in Fedora [4].\n\n[1] https://github.com/r-lib/remotes/issues/403\n[2] https://github.com/r-lib/remotes/commit/5a546add30b4538d60d781bc2fa26cd33ccde092\n[3] https://cran.r-project.org/bin/linux/fedora/\n[4] https://cran.r-project.org/bin/linux/fedora/#additional-packages\n\n\n--\nI?aki ?car",
+      "body_snippet": "On Wed, 10 Mar 2021 at 12:02, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n>\n> On Wed, Mar 10, 2021 at 12:18 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > On Tue, 9 Mar 2021 at 23:55, Jero",
+      "thread_id": "thread-01a4f584cf39",
+      "thread_depth": 5,
+      "month": "2021-03"
+    },
+    {
+      "id": "msg-eddb8d5f6cb4",
+      "message_id": "<CALEXWq0SR=0SZi74_YS=bV=qqDWPpyv7VwsuFPKd8gmZgJUBCg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-03-10T13:58:15+01:00",
+      "subject": "[R-sig-Fedora] R not working in F34 docker image",
+      "subject_clean": "R not working in F34 docker image",
+      "in_reply_to": "<CABFfbXsiaYNBEiMMt6DAKE11EvdWPAwGv7YcU7fW0nMYxRe51Q@mail.gmail.com>",
+      "references": [
+        "<CABFfbXsiaYNBEiMMt6DAKE11EvdWPAwGv7YcU7fW0nMYxRe51Q@mail.gmail.com>"
+      ],
+      "body_plain": "On Wed, 10 Mar 2021 at 12:22, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n>\n> Not sure if this is a bug in the F34 docker image or R rpm. I would\n> like to test some things in F34 so I tried:\n>\n>   docker run -it fedora:34\n>\n> And then in docker:\n>\n>    yum update\n>    yum install R-core\n>\n> But when I try to start R I get an error:\n>\n>   ERROR: R_HOME ('/usr/lib64/R') not found\n\nSee [1]. TL;DR, this is due to a change in glibc, and needs to be\naddressed in runc and/or libseccomp.\n\nHowever, I cannot reproduce this in Fedora 33 using Docker version\n20.10.1, build 831ebea or podman version 3.0.1. So hopefully an update\nwould solve the issue for you. Otherwise, see the thread in [1] for\nworkarounds.\n\n[1] https://bugzilla.redhat.com/show_bug.cgi?id=1900021#c3\n\n-- \nI?aki ?car",
+      "body_snippet": "On Wed, 10 Mar 2021 at 12:22, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n>\n> Not sure if this is a bug in the F34 docker image or R rpm. I would\n> like to test some things in F34 so I tried:\n>\n>   d",
+      "thread_id": "thread-ecceb4673c87",
+      "thread_depth": 1,
+      "month": "2021-03"
+    },
+    {
+      "id": "msg-b315fde70528",
+      "message_id": "<CALEXWq3XtNSB7+mJoHqmqFeszm5PL0+zBkLjRYtvGhdWPZrQjw@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-03-11T17:03:43+01:00",
+      "subject": "[R-sig-Fedora] R.css missing in Fedora R-core rpm",
+      "subject_clean": "R.css missing in Fedora R-core rpm",
+      "in_reply_to": "<CALEXWq1RrDLkR-6mvTpZZQDu1_or5VsiAf4fPTfLSrsekNaEQg@mail.gmail.com>",
+      "references": [
+        "<CABFfbXuKf5hNay4vAYx1LD6gmkzRYOsr+3a0JNjsiw2xoZimxQ@mail.gmail.com>",
+        "<CALEXWq1mMOPeotq+FqHQoVYd4_mdopkjmuGL3ff9by1NBzwEZg@mail.gmail.com>",
+        "<CABFfbXsGENcy5BrkYrLVf9BZJevoJB6TD219K_-SQKib2jH3mw@mail.gmail.com>",
+        "<CALEXWq34_fMn8wRH7xjokqib4-nHAa2-_Cv25dAFy=-y4Gr_ew@mail.gmail.com>",
+        "<CABFfbXv3chriyHg3wc7+z8UnEXhgAUVpd3Q-6Jy4Jy7O3W1ZbA@mail.gmail.com>",
+        "<CALEXWq1RrDLkR-6mvTpZZQDu1_or5VsiAf4fPTfLSrsekNaEQg@mail.gmail.com>"
+      ],
+      "body_plain": "FYI, tracked here: https://pagure.io/R/fedora-r-packages/issue/2\n\nOn Wed, 10 Mar 2021 at 13:14, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Wed, 10 Mar 2021 at 12:02, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n> >\n> > On Wed, Mar 10, 2021 at 12:18 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n> > >\n> > > On Tue, 9 Mar 2021 at 23:55, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n> > > >\n> > > > On Tue, Mar 9, 2021 at 2:27 PM I?aki Ucar <iucar at fedoraproject.org> wrote:\n> > > > >\n> > > > > On Tue, 9 Mar 2021 at 13:26, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n> > > > > >\n> > > > > > When installing an R package from source on Fedora using the standard\n> > > > > > R-core rpm, we always get a warning at the end because of a missing\n> > > > > > css file /usr/share/doc/R/html/R.css:\n> > > > > >\n> > > > > > ** byte-compile and prepare package for lazy loading\n> > > > > > ** help\n> > > > > > *** installing help indices\n> > > > > > Error in file.copy(file.path(R.home(\"doc\"), \"html\", \"R.css\"), outman) :\n> > > > > >   (converted from warning) problem copying /usr/share/doc/R/html/R.css\n> > > > > > to /usr/lib64/R/library/00LOCK-systemfonts/00new/systemfonts/html/R.css:\n> > > > > > No such file or directory\n> > > > > >\n> > > > > > But when I try to install the missing file, yum says it is already installed:\n> > > > > >\n> > > > > >   yum install /usr/share/doc/R/html/R.css\n> > > > > >   ## Package R-core-4.0.3-1.fc32.x86_64 is already installed.\n> > > > > >\n> > > > > > However it does not actually exist. Perhaps the rpm could make a copy\n> > > > > > or symlink from /usr/lib64/R/library/base/html/R.css\n> > > > >\n> > > > > I assume you are doing this in a docker image. That file is not\n> > > > > installed because our base images have \"tsflags=nodocs\" set in\n> > > > > /etc/dnf/dnf.conf. Unset this before installing R-core, or, even\n> > > > > better, install packages with --no-docs.\n> > > >\n> > > > Perhaps --no-docs should then be the default if tsflags=nodocs? The\n> > > > default behavior is unfortunate, because it makes install.packages()\n> > > > fail even if the user is not even interested in documentation, and\n> > > > people come up with all sorts of workarounds eg:\n> > > > https://github.com/r-lib/devtools/issues/2084\n> > >\n> > > install.packages doesn't fail. devtools does. I see:\n> > >\n> > > Warning in file.create(f.tg) :\n> > >  cannot create file '/usr/share/doc/R/html/packages.html', reason 'No\n> > > such file or directory'\n> > > Warning in utils::make.packages.html(.Library, docdir = R.home(\"doc\")) :\n> > >  cannot update HTML package index\n> > >\n> > > The package is correctly installed and usable.\n> >\n> > Many systems (including devtools, and many others) are set more strict\n> > such that installation warnings are turned into errors, to ensure\n> > users or applications never ends up installing broken packages.\n>\n> A warning is not an error. I would expect that R raises an error only\n> when the package is really broken. Otherwise, there's no point in\n> having warnings and errors. Users have been bitten quite a lot by this\n> [1], and as a result, the remotes package (which devtools uses)\n> recently stepped out from this odd default behaviour [2] (not yet\n> released though).\n>\n> > Raising this warning by default for every install.packages() is really\n> > unfortunate default behaviour, especially because it is evidently\n> > unclear to users why this happens.\n>\n> About what is unclear to users, I refer again to [1]. But note that\n> this is *not* default behaviour. It only happens in docker images,\n> which have this special setting for a special use case, defined in\n> order to minimize image sizes and enforced by the package manager. It\n> has nothing to do with the R-core package: it just follows the\n> official guidelines and marks documentation files as documentation.\n>\n> I could add some notes about docker in [3]. Note too that there's an\n> easier way to install CRAN packages in Fedora [4].\n>\n> [1] https://github.com/r-lib/remotes/issues/403\n> [2] https://github.com/r-lib/remotes/commit/5a546add30b4538d60d781bc2fa26cd33ccde092\n> [3] https://cran.r-project.org/bin/linux/fedora/\n> [4] https://cran.r-project.org/bin/linux/fedora/#additional-packages\n>\n>\n> --\n> I?aki ?car\n\n\n\n-- \nI?aki ?car",
+      "body_snippet": "FYI, tracked here: https://pagure.io/R/fedora-r-packages/issue/2\n\nOn Wed, 10 Mar 2021 at 13:14, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Wed, 10 Mar 2021 at 12:02, Jeroen Ooms <jeroenooms",
+      "thread_id": "thread-01a4f584cf39",
+      "thread_depth": 6,
+      "month": "2021-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-01a4f584cf39",
+      "subject": "R.css missing in Fedora R-core rpm",
+      "message_count": 7,
+      "participants": [
+        "Iñaki Ucar",
+        "Jeroen Ooms"
+      ],
+      "started": "2021-03-09T13:25:41+01:00",
+      "last_reply": "2021-03-11T17:03:43+01:00",
+      "root_message_id": "msg-01a4f584cf39"
+    },
+    {
+      "id": "thread-ecceb4673c87",
+      "subject": "R not working in F34 docker image",
+      "message_count": 2,
+      "participants": [
+        "Iñaki Ucar",
+        "Jeroen Ooms"
+      ],
+      "started": "2021-03-10T12:21:46+01:00",
+      "last_reply": "2021-03-10T13:58:15+01:00",
+      "root_message_id": "msg-ecceb4673c87"
+    }
+  ]
+}

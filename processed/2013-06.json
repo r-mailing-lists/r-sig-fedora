@@ -1,0 +1,63 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2013-06",
+  "messages": [
+    {
+      "id": "msg-e882cfef0b7d",
+      "message_id": "<FF9DB805FC41CC4E95825A50F680630217A007A6@challenger.uhd.campus>",
+      "from_name": "Hodgess, Erin",
+      "from_email_hash": "9a43d72d3c5a93c98a7b509fb8aef328797f49fac98830a099e885b965325eac",
+      "date": "2013-06-18T22:18:48Z",
+      "subject": "[R-sig-Fedora] Bad interpreter problem",
+      "subject_clean": "Bad interpreter problem",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130618/be60b1c9/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130618/be60b1c9/attachment.pl>",
+      "thread_id": "thread-e882cfef0b7d",
+      "thread_depth": 0,
+      "month": "2013-06"
+    },
+    {
+      "id": "msg-be3d3832b6bd",
+      "message_id": "<51C0E102.60507@icebearinc.com>",
+      "from_name": "Corwin Joy",
+      "from_email_hash": "ae12f373620b663d5246c20aa37b58a0eeff52fba9bc68a7c59561b3e7b41666",
+      "date": "2013-06-18T15:36:50-07:00",
+      "subject": "[R-sig-Fedora]  tcktk problem with custom R 2.15.0 build on RHEL5",
+      "subject_clean": "tcktk problem with custom R 2.15.0 build on RHEL5",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Bruce Pennypacker wrote that he was having a problem using the R library \nsqldf under Red Hat 5.6:\n\n\n  > library(\"sqldf\")\n..\n  > result<-sqldf(\"select data.*, meth450part.chromStart as\nMethChromStart, meth450part.chromEnd as MethChromEnd, meth450part.strand\nas MethStrand, meth450part.name as MethName, meth450part.score as\nMethScore from data join meth450part where data.V1=meth450part.chrom and\ndata.V2<=meth450part.chromStart and data.V3>=meth450part.chromEnd\")\nLoading required package: tcltk\nError in structure(.External(\"dotTcl\", ..., PACKAGE = \"tcltk\"), class =\n\"tclObj\") :\n    [tcl] unknown math function \"min\".\n\n\n-----\nI had the same problem as discussed in this thread. The problem is that sqldf requires version 8.5 of tcl/tk and there is not an rpm of tcl 8.4.\nWhat I did was:\n1. Get version 8.5 of tcl for Linux directly from ActiveState:http://www.activestate.com/activetcl/downloads\n2. Tell R where the tcl 8.5 libraries are when you build R:\n./configure --with-tcltk\n--with-tcl-config=/opt/ActiveTcl-8.5/lib/tclConfig.sh\n--with-tk-config=/opt/ActiveTcl-8.5/lib/tkConfig.sh",
+      "body_snippet": "Bruce Pennypacker wrote that he was having a problem using the R library \nsqldf under Red Hat 5.6:\n\n\n  > library(\"sqldf\")\n..\n  > result<-sqldf(\"select data.*, meth450part.chromStart as\nMethChromStart,",
+      "thread_id": "thread-be3d3832b6bd",
+      "thread_depth": 0,
+      "month": "2013-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-be3d3832b6bd",
+      "subject": "tcktk problem with custom R 2.15.0 build on RHEL5",
+      "message_count": 1,
+      "participants": [
+        "Corwin Joy"
+      ],
+      "started": "2013-06-18T15:36:50-07:00",
+      "last_reply": "2013-06-18T15:36:50-07:00",
+      "root_message_id": "msg-be3d3832b6bd"
+    },
+    {
+      "id": "thread-e882cfef0b7d",
+      "subject": "Bad interpreter problem",
+      "message_count": 1,
+      "participants": [
+        "Hodgess, Erin"
+      ],
+      "started": "2013-06-18T22:18:48+00:00",
+      "last_reply": "2013-06-18T22:18:48+00:00",
+      "root_message_id": "msg-e882cfef0b7d"
+    }
+  ]
+}

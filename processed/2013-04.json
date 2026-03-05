@@ -1,0 +1,40 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2013-04",
+  "messages": [
+    {
+      "id": "msg-16ced766cf1f",
+      "message_id": "<10265424.rKMUckcdx1@ulysses>",
+      "from_name": "José Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2013-04-04T22:20:25+01:00",
+      "subject": "[R-sig-Fedora] R 3.0;  want to try again?",
+      "subject_clean": "R 3.0;  want to try again?",
+      "in_reply_to": "<kj481d$35i$1@ger.gmane.org>",
+      "references": [
+        "<kivmdi$9sr$1@ger.gmane.org>",
+        "<1657439.TCBOWCmEhY@ulysses>",
+        "<kj481d$35i$1@ger.gmane.org>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130404/153ca7ff/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130404/153ca7ff/attachment.pl>",
+      "thread_id": "thread-16ced766cf1f",
+      "thread_depth": 0,
+      "month": "2013-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-16ced766cf1f",
+      "subject": "R 3.0;  want to try again?",
+      "message_count": 1,
+      "participants": [
+        "José Matos"
+      ],
+      "started": "2013-04-04T22:20:25+01:00",
+      "last_reply": "2013-04-04T22:20:25+01:00",
+      "root_message_id": "msg-16ced766cf1f"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2022-12",
+  "messages": [
+    {
+      "id": "msg-62d1ac1292bc",
+      "message_id": "<25500.38770.334013.12950@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2022-12-16T17:06:10+01:00",
+      "subject": "[R-sig-Fedora] Using ATLAS in Fedora 36, R-4.2.2 -- fails configure",
+      "subject_clean": "Using ATLAS in Fedora 36, R-4.2.2 -- fails configure",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "The CRAN team has found some misbehavior of some of our code\nrunning under ATLAS (for BLAS + Lapack).\n\nI had successfully built a version of R-4.2.1 linked to ATLAS\nunder Fedora 34 (last June) and that still runs in Fedora 36.\n\nHowever I can not install packages with C source code needing BLAS/Lapack..\nI figured that's ok, as indeed that version of R was built with\nearlier compilers and libraries under F34.\n\nSo I wanted to \"redo\" the same thing (which worked), now with\nF36 and R 4.2.2:\n\n  inside a build directory (side by side with the unpacked\n  \t                     R-4.2.2/ R sources)\n\n  ../R-4.2.2/configure -C '--with-blas=-L/usr/lib64/atlas -ltatlas'\n\nand this \"worked along\" about 400 lines of output starting with\n\nchecking build system type... x86_64-pc-linux-gnu\nchecking host system type... x86_64-pc-linux-gnu\nloading site script '../R-4.2.2/config.site'\nchecking for pwd... /usr/bin/pwd\nchecking whether builddir is srcdir... no\nchecking whether ln -s works... yes\nchecking for ar... ar\nchecking for a BSD-compatible install... /usr/bin/install -c\nchecking for sed... /usr/bin/sed\n\n.......................................\n.......................................\n.......................................\n.......................................\n.......................................\n.......................................    and ending with\n\nchecking whether catan exists and is declared... yes\nchecking whether ccosh exists and is declared... yes\nchecking whether csinh exists and is declared... yes\nchecking whether ctanh exists and is declared... yes\nchecking for working ctanh... yes\nchecking whether 'struct tm' includes tm_zone... yes\nchecking whether 'struct tm' includes tm_gmtoff... yes\nchecking for dgemm_ in -L/usr/lib64/atlas -ltatlas... no\nconfigure: error: BLAS was specified but not available\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nbut clearly  /usr/lib64/atlas/ is there and contains the (dnf\ninstalled) files libtatlas.so.*\n\n$ ls -l /usr/lib64/atlas\ntotal 24672\nlrwxrwxrwx. 1 root root       17 Jan 19  2022 libsatlas.so.3 -> libsatlas.so.3.10\n-rwxr-xr-x. 1 root root 12581672 Jan 19  2022 libsatlas.so.3.10\nlrwxrwxrwx. 1 root root       17 Jan 19  2022 libtatlas.so.3 -> libtatlas.so.3.10\n-rwxr-xr-x. 1 root root 12679024 Jan 19  2022 libtatlas.so.3.10\n$\n\nand no, I can't use  nm to find symbols in libtatlas.so.3.10\nbecause it is \"stripped\".\n\nI'm glad for hints -- and I could send the 10000 lines long config.log\nfile (just 340k) to someone interested.\n\nThank you in advance,\nMartin\n\nMartin M?chler\nETH Zurich   and   R Core team",
+      "body_snippet": "The CRAN team has found some misbehavior of some of our code\nrunning under ATLAS (for BLAS + Lapack).\n\nI had successfully built a version of R-4.2.1 linked to ATLAS\nunder Fedora 34 (last June) and tha",
+      "thread_id": "thread-62d1ac1292bc",
+      "thread_depth": 0,
+      "month": "2022-12"
+    },
+    {
+      "id": "msg-c6e34e3eb353",
+      "message_id": "<25501.36847.701698.842943@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2022-12-17T10:46:23+01:00",
+      "subject": "[R-sig-Fedora]  Using ATLAS in Fedora 36, R-4.2.2 -- fails configure",
+      "subject_clean": "Using ATLAS in Fedora 36, R-4.2.2 -- fails configure",
+      "in_reply_to": "<CALEXWq3RcCeMZ2aCepUaSKKfWVfQti=aZ-HM3GrA03_2s5cVKg@mail.gmail.com>",
+      "references": [
+        "<25500.38770.334013.12950@stat.math.ethz.ch>",
+        "<CALEXWq3RcCeMZ2aCepUaSKKfWVfQti=aZ-HM3GrA03_2s5cVKg@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> I?aki Ucar \n>>>>>     on Fri, 16 Dec 2022 17:30:25 +0100 writes:\n\n    > On Fri, 16 Dec 2022 at 17:06, Martin Maechler\n    > <maechler at stat.math.ethz.ch> wrote:\n    >> \n    >> The CRAN team has found some misbehavior of some of our\n    >> code running under ATLAS (for BLAS + Lapack).\n    >> \n    >> I had successfully built a version of R-4.2.1 linked to\n    >> ATLAS under Fedora 34 (last June) and that still runs in\n    >> Fedora 36.\n    >> \n    >> However I can not install packages with C source code\n    >> needing BLAS/Lapack..  I figured that's ok, as indeed\n    >> that version of R was built with earlier compilers and\n    >> libraries under F34.\n    >> \n    >> So I wanted to \"redo\" the same thing (which worked), now\n    >> with F36 and R 4.2.2:\n    >> \n    >> inside a build directory (side by side with the unpacked\n    >> R-4.2.2/ R sources)\n    >> \n    >> ../R-4.2.2/configure -C '--with-blas=-L/usr/lib64/atlas\n    >> -ltatlas'\n    >> \n    >> and this \"worked along\" about 400 lines of output\n    >> starting with\n    >> \n    >> checking build system type... x86_64-pc-linux-gnu\n    >> checking host system type... x86_64-pc-linux-gnu loading\n    >> site script '../R-4.2.2/config.site' checking for\n    >> pwd... /usr/bin/pwd checking whether builddir is\n    >> srcdir... no checking whether ln -s works... yes checking\n    >> for ar... ar checking for a BSD-compatible\n    >> install... /usr/bin/install -c checking for\n    >> sed... /usr/bin/sed\n    >> \n    >> .......................................\n    >> .......................................\n    >> .......................................\n    >> .......................................\n    >> .......................................\n    >> .......................................  and ending with\n    >> \n    >> checking whether catan exists and is declared... yes\n    >> checking whether ccosh exists and is declared... yes\n    >> checking whether csinh exists and is declared... yes\n    >> checking whether ctanh exists and is declared... yes\n    >> checking for working ctanh... yes checking whether\n    >> 'struct tm' includes tm_zone... yes checking whether\n    >> 'struct tm' includes tm_gmtoff... yes checking for dgemm_\n    >> in -L/usr/lib64/atlas -ltatlas... no configure: error:\n    >> BLAS was specified but not available\n    >> ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    >> \n    >> but clearly /usr/lib64/atlas/ is there and contains the\n    >> (dnf installed) files libtatlas.so.*\n    >> \n    >> $ ls -l /usr/lib64/atlas total 24672 lrwxrwxrwx. 1 root\n    >> root 17 Jan 19 2022 libsatlas.so.3 -> libsatlas.so.3.10\n    >> -rwxr-xr-x. 1 root root 12581672 Jan 19 2022\n    >> libsatlas.so.3.10 lrwxrwxrwx. 1 root root 17 Jan 19 2022\n    >> libtatlas.so.3 -> libtatlas.so.3.10 -rwxr-xr-x. 1 root\n    >> root 12679024 Jan 19 2022 libtatlas.so.3.10 $\n\n    > The unversioned file libtatlas.so is missing here, which\n    > means that you need to install atlas-devel. Then it should\n    > work, but let me know if you find more issues.\n\nEmbarrassingly, this *was* the simple solution.\n\nThank you, I?aki!\nMartin\n\n    > I?aki\n\n    >> and no, I can't use nm to find symbols in\n    >> libtatlas.so.3.10 because it is \"stripped\".\n    >> \n    >> I'm glad for hints -- and I could send the 10000 lines\n    >> long config.log file (just 340k) to someone interested.\n    >> \n    >> Thank you in advance, Martin\n    >> \n    >> Martin M?chler ETH Zurich and R Core team",
+      "body_snippet": ">>>>> I?aki Ucar \n>>>>>     on Fri, 16 Dec 2022 17:30:25 +0100 writes:\n\n    > On Fri, 16 Dec 2022 at 17:06, Martin Maechler\n    > <maechler at stat.math.ethz.ch> wrote:\n    >> \n    >> The CRAN team ha",
+      "thread_id": "thread-c6e34e3eb353",
+      "thread_depth": 0,
+      "month": "2022-12"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-62d1ac1292bc",
+      "subject": "Using ATLAS in Fedora 36, R-4.2.2 -- fails configure",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2022-12-16T17:06:10+01:00",
+      "last_reply": "2022-12-16T17:06:10+01:00",
+      "root_message_id": "msg-62d1ac1292bc"
+    },
+    {
+      "id": "thread-c6e34e3eb353",
+      "subject": "Using ATLAS in Fedora 36, R-4.2.2 -- fails configure",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2022-12-17T10:46:23+01:00",
+      "last_reply": "2022-12-17T10:46:23+01:00",
+      "root_message_id": "msg-c6e34e3eb353"
+    }
+  ]
+}

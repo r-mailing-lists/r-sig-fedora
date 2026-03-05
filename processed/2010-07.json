@@ -1,0 +1,438 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2010-07",
+  "messages": [
+    {
+      "id": "msg-829b602e72a1",
+      "message_id": "<AANLkTimDAhjD9GiEPeGPg92REnJhmRuE8XabhiXhuXiH@mail.gmail.com>",
+      "from_name": "Carlo Tambuatco",
+      "from_email_hash": "7d21db91ee291af45c56f1077068ed9a30c1b20ad13af79b491ca518c7eb7a21",
+      "date": "2010-07-01T14:01:15-04:00",
+      "subject": "[R-sig-Fedora] Help installing R Commander on Fedora 13...",
+      "subject_clean": "Help installing R Commander on Fedora 13...",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I did a standard install of R on Fedora 13 using yum as root, which I\nassumed installed both the base packages and the devel packages needed\nto install R Commander (there weren't any optional packages listed on\nthe yum info page). My version of R is updated to the latest 2.11\nversion.\n\nBut, running\n\ninstall.packages(\"Rcmdr\", dependencies=TRUE) as root, within R\nproduces the following errors:\n\n(Last few of a looooong list):\n\n** building package indices ...\n** testing if installed package can be loaded\nError : .onLoad failed in loadNamespace() for 'tcltk', details:\n call: dyn.load(file, DLLpath = DLLpath, ...)\n error: unable to load shared library '/usr/lib/R/library/tcltk/libs/\ntcltk.so':\n /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\nError : package 'tcltk' could not be loaded\nERROR: loading failed\n* removing ?/usr/lib/R/library/Rcmdr?\n\nThe downloaded packages are in\n       ?/tmp/RtmpDSqgk5/downloaded_packages?\nUpdating HTML index of packages in '.Library'\nWarning messages:\n1: In doTryCatch(return(expr), name, parentenv, handler) :\n unable to load shared library '/usr/lib/R/modules//R_X11.so':\n /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\n2: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n installation of package 'aplpack' had non-zero exit status\n3: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n installation of package 'relimp' had non-zero exit status\n4: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n installation of package 'rgl' had non-zero exit status\n5: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n installation of package 'RODBC' had non-zero exit status\n6: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n installation of package 'Rcmdr' had non-zero exit status\n\nIt seems I am missing some packages needed to compile and run R\nCommander, but I can't figure out which. I did a standard install of R\nfrom yum on Fedora 13, so I'm not sure which other packages I need.",
+      "body_snippet": "I did a standard install of R on Fedora 13 using yum as root, which I\nassumed installed both the base packages and the devel packages needed\nto install R Commander (there weren't any optional packages",
+      "thread_id": "thread-829b602e72a1",
+      "thread_depth": 0,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-91b162cc1560",
+      "message_id": "<95448543-214E-4DA4-A618-8668095F0F37@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2010-07-02T07:59:02-05:00",
+      "subject": "[R-sig-Fedora] Help installing R Commander on Fedora 13...",
+      "subject_clean": "Help installing R Commander on Fedora 13...",
+      "in_reply_to": "<AANLkTimDAhjD9GiEPeGPg92REnJhmRuE8XabhiXhuXiH@mail.gmail.com>",
+      "references": [
+        "<AANLkTimDAhjD9GiEPeGPg92REnJhmRuE8XabhiXhuXiH@mail.gmail.com>"
+      ],
+      "body_plain": "On Jul 1, 2010, at 1:01 PM, Carlo Tambuatco wrote:\n\n> I did a standard install of R on Fedora 13 using yum as root, which I\n> assumed installed both the base packages and the devel packages needed\n> to install R Commander (there weren't any optional packages listed on\n> the yum info page). My version of R is updated to the latest 2.11\n> version.\n> \n> But, running\n> \n> install.packages(\"Rcmdr\", dependencies=TRUE) as root, within R\n> produces the following errors:\n> \n> (Last few of a looooong list):\n> \n> ** building package indices ...\n> ** testing if installed package can be loaded\n> Error : .onLoad failed in loadNamespace() for 'tcltk', details:\n> call: dyn.load(file, DLLpath = DLLpath, ...)\n> error: unable to load shared library '/usr/lib/R/library/tcltk/libs/\n> tcltk.so':\n> /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\n> Error : package 'tcltk' could not be loaded\n> ERROR: loading failed\n> * removing ?/usr/lib/R/library/Rcmdr?\n> \n> The downloaded packages are in\n>       ?/tmp/RtmpDSqgk5/downloaded_packages?\n> Updating HTML index of packages in '.Library'\n> Warning messages:\n> 1: In doTryCatch(return(expr), name, parentenv, handler) :\n> unable to load shared library '/usr/lib/R/modules//R_X11.so':\n> /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\n> 2: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n> installation of package 'aplpack' had non-zero exit status\n> 3: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n> installation of package 'relimp' had non-zero exit status\n> 4: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n> installation of package 'rgl' had non-zero exit status\n> 5: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n> installation of package 'RODBC' had non-zero exit status\n> 6: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n> installation of package 'Rcmdr' had non-zero exit status\n> \n> It seems I am missing some packages needed to compile and run R\n> Commander, but I can't figure out which. I did a standard install of R\n> from yum on Fedora 13, so I'm not sure which other packages I need.\n\n\nNot all R CRAN packages are available via the Fedora yum repos. Thus, it is not possible for the R yum base/devel RPM packages to include all possible RPM dependencies.\n\nYou are of course running into problems when installing Rcmdr from source, since it is requiring other non-R dependencies, either directly or as a result of the external dependencies from the other CRAN packages that it lists as suggestions. So if you want to install those, you will need to review the installation requirements for each of the other packages as well.\n\nThese would seem to include the libX11-devel and xorg-x11-server-devel RPMs to solve the x11 issue. \n\nFor the fontconfig error, you will need the fontconfig-devel RPM.\n\nIf you have not already, install the tcl-devel and tk-devel RPMs for tcl/tk support.\n\nFor RODBC, you will need the unixODBC and unixODBC-devel RPMs. \n\nFor rgl, I suspect that you will need the mesa-libGLU-devel and mesa-libGL-devel RPMs.\n\nInstall those and see how far you get after that.\n\nHTH,\n\nMarc Schwartz",
+      "body_snippet": "On Jul 1, 2010, at 1:01 PM, Carlo Tambuatco wrote:\n\n> I did a standard install of R on Fedora 13 using yum as root, which I\n> assumed installed both the base packages and the devel packages needed\n> t",
+      "thread_id": "thread-829b602e72a1",
+      "thread_depth": 1,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-625e999f35d1",
+      "message_id": "<18A24711-BC26-4244-967C-02C8141F00C1@gmail.com>",
+      "from_name": "Carlo Tambuatco",
+      "from_email_hash": "7d21db91ee291af45c56f1077068ed9a30c1b20ad13af79b491ca518c7eb7a21",
+      "date": "2010-07-02T12:00:41-04:00",
+      "subject": "[R-sig-Fedora] Help installing R Commander on Fedora 13...",
+      "subject_clean": "Help installing R Commander on Fedora 13...",
+      "in_reply_to": "<95448543-214E-4DA4-A618-8668095F0F37@me.com>",
+      "references": [
+        "<AANLkTimDAhjD9GiEPeGPg92REnJhmRuE8XabhiXhuXiH@mail.gmail.com>",
+        "<95448543-214E-4DA4-A618-8668095F0F37@me.com>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20100702/bae0b4d8/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20100702/bae0b4d8/attachment.pl>",
+      "thread_id": "thread-829b602e72a1",
+      "thread_depth": 2,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-f8736b996d66",
+      "message_id": "<7482998D-F250-417E-8BC4-19DD121C2643@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2010-07-02T11:14:30-05:00",
+      "subject": "[R-sig-Fedora] Help installing R Commander on Fedora 13...",
+      "subject_clean": "Help installing R Commander on Fedora 13...",
+      "in_reply_to": "<18A24711-BC26-4244-967C-02C8141F00C1@gmail.com>",
+      "references": [
+        "<AANLkTimDAhjD9GiEPeGPg92REnJhmRuE8XabhiXhuXiH@mail.gmail.com>",
+        "<95448543-214E-4DA4-A618-8668095F0F37@me.com>",
+        "<18A24711-BC26-4244-967C-02C8141F00C1@gmail.com>"
+      ],
+      "body_plain": "On Jul 2, 2010, at 11:00 AM, Carlo Tambuatco wrote:\n\n> \n> On Jul 2, 2010, at 8:59 AM, Marc Schwartz wrote:\n> \n>> \n>> On Jul 1, 2010, at 1:01 PM, Carlo Tambuatco wrote:\n>> \n>>> I did a standard install of R on Fedora 13 using yum as root, which I\n>>> assumed installed both the base packages and the devel packages needed\n>>> to install R Commander (there weren't any optional packages listed on\n>>> the yum info page). My version of R is updated to the latest 2.11\n>>> version.\n>>> \n>>> But, running\n>>> \n>>> install.packages(\"Rcmdr\", dependencies=TRUE) as root, within R\n>>> produces the following errors:\n>>> \n>>> (Last few of a looooong list):\n>>> \n>>> ** building package indices ...\n>>> ** testing if installed package can be loaded\n>>> Error : .onLoad failed in loadNamespace() for 'tcltk', details:\n>>> call: dyn.load(file, DLLpath = DLLpath, ...)\n>>> error: unable to load shared library '/usr/lib/R/library/tcltk/libs/\n>>> tcltk.so':\n>>> /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\n>>> Error : package 'tcltk' could not be loaded\n>>> ERROR: loading failed\n>>> * removing ?/usr/lib/R/library/Rcmdr?\n>>> \n>>> The downloaded packages are in\n>>>     ?/tmp/RtmpDSqgk5/downloaded_packages?\n>>> Updating HTML index of packages in '.Library'\n>>> Warning messages:\n>>> 1: In doTryCatch(return(expr), name, parentenv, handler) :\n>>> unable to load shared library '/usr/lib/R/modules//R_X11.so':\n>>> /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\n>>> 2: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n>>> installation of package 'aplpack' had non-zero exit status\n>>> 3: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n>>> installation of package 'relimp' had non-zero exit status\n>>> 4: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n>>> installation of package 'rgl' had non-zero exit status\n>>> 5: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n>>> installation of package 'RODBC' had non-zero exit status\n>>> 6: In install.packages(\"Rcmdr\", dependencies = TRUE) :\n>>> installation of package 'Rcmdr' had non-zero exit status\n>>> \n>>> It seems I am missing some packages needed to compile and run R\n>>> Commander, but I can't figure out which. I did a standard install of R\n>>> from yum on Fedora 13, so I'm not sure which other packages I need.\n>> \n>> \n>> Not all R CRAN packages are available via the Fedora yum repos. Thus, it is not possible for the R yum base/devel RPM packages to include all possible RPM dependencies.\n> \n> Which external repositories do I need to add to yum in order to add these base/devel packages?\n\nYou already have the R base/devel packages installed, so nothing to do there.\n\nThe 'devel' and other RPM packages that I reference below are all available via the main Fedora yum repos, so no new yum repos to add for those.\n\nWith typical Fedora installations, the 'devel' RPMs, which contain the header (.h) files, are not installed to save space. So when you need to build CRAN packages from source, you need to figure out which ones to install and then do so via yum.  When I was running Fedora (until early last year) I used to install \"Everything\" to have all this stuff available. But I don't believe that the install everything option is available during installation any longer. \n\nThere may be \"Development\" related groups of RPMs that cover this stuff now, but if you start with the specific list of RPMs to add that I list below, that should get you moving forward.\n\nMarc\n\n\n>> \n>> You are of course running into problems when installing Rcmdr from source, since it is requiring other non-R dependencies, either directly or as a result of the external dependencies from the other CRAN packages that it lists as suggestions. So if you want to install those, you will need to review the installation requirements for each of the other packages as well.\n>> \n>> These would seem to include the libX11-devel and xorg-x11-server-devel RPMs to solve the x11 issue. \n>> \n>> For the fontconfig error, you will need the fontconfig-devel RPM.\n>> \n>> If you have not already, install the tcl-devel and tk-devel RPMs for tcl/tk support.\n>> \n>> For RODBC, you will need the unixODBC and unixODBC-devel RPMs. \n>> \n>> For rgl, I suspect that you will need the mesa-libGLU-devel and mesa-libGL-devel RPMs.\n>> \n>> Install those and see how far you get after that.\n>> \n>> HTH,\n>> \n>> Marc Schwartz\n>> \n> \n> For most men life is a search for the proper manila envelope in which to get themselves filed.\n>  - Clifton Fadiman\n> \n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora",
+      "body_snippet": "On Jul 2, 2010, at 11:00 AM, Carlo Tambuatco wrote:\n\n> \n> On Jul 2, 2010, at 8:59 AM, Marc Schwartz wrote:\n> \n>> \n>> On Jul 1, 2010, at 1:01 PM, Carlo Tambuatco wrote:\n>> \n>>> I did a standard install",
+      "thread_id": "thread-829b602e72a1",
+      "thread_depth": 3,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-bc7facbb8aa7",
+      "message_id": "<4C2E1180.5080303@redhat.com>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2010-07-02T12:19:12-04:00",
+      "subject": "[R-sig-Fedora] Help installing R Commander on Fedora 13...",
+      "subject_clean": "Help installing R Commander on Fedora 13...",
+      "in_reply_to": "<18A24711-BC26-4244-967C-02C8141F00C1@gmail.com>",
+      "references": [
+        "<AANLkTimDAhjD9GiEPeGPg92REnJhmRuE8XabhiXhuXiH@mail.gmail.com>",
+        "<95448543-214E-4DA4-A618-8668095F0F37@me.com>",
+        "<18A24711-BC26-4244-967C-02C8141F00C1@gmail.com>"
+      ],
+      "body_plain": "On 07/02/2010 12:00 PM, Carlo Tambuatco wrote:\n>> Not all R CRAN packages are available via the Fedora yum repos. Thus, it is not possible for the R yum base/devel RPM packages to include all possible RPM dependencies.\n> Which external repositories do I need to add to yum in order to add these base/devel packages?\n\nAt this time, there is no external repository that I am aware of which\nhas the missing dependencies from CRAN for R Commander.\n\nWith that said, it would probably be a good set of packages for us to\ntarget next, or for someone who wanted to get more involved with Fedora\nto tackle.\n\n~spot",
+      "body_snippet": "On 07/02/2010 12:00 PM, Carlo Tambuatco wrote:\n>> Not all R CRAN packages are available via the Fedora yum repos. Thus, it is not possible for the R yum base/devel RPM packages to include all possible",
+      "thread_id": "thread-829b602e72a1",
+      "thread_depth": 3,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-289286e4eb8b",
+      "message_id": "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>",
+      "from_name": "Carlo Tambuatco",
+      "from_email_hash": "7d21db91ee291af45c56f1077068ed9a30c1b20ad13af79b491ca518c7eb7a21",
+      "date": "2010-07-03T08:54:28-04:00",
+      "subject": "[R-sig-Fedora] [R] Failure to load X11 module in Fedora 13.",
+      "subject_clean": "Failure to load X11 module in Fedora 13.",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I've googled around the archives for R-help and R-sig Fedora and found\nthat a lot of people have had the same errors I've gotten when\nstarting up the X11() module:\n\nError in X11() : X11 module cannot be loaded\nIn addition: Warning message:\nIn X11() : unable to load shared library '/usr/lib/R/modules//R_X11.so':\n  /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\n\nBut I have come across zero answers to this fundamental problem. (At\nleast none that make sense to a newbie user like me.)\n\nThis is after a fresh install of R on Fedora 13 via Yum.\n\nI checked and /usr/lib/R/modules/R_X11.so indeed exists. But R somehow\ndoesn't care and fails to load it.\n\nSo, what did anyone do to resolve this issue?\n\nHere's my sessionInfo():\n\nR version 2.11.1 (2010-05-31)\ni386-redhat-linux-gnu\n\nlocale:\n [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C\n [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8\n [5] LC_MONETARY=C              LC_MESSAGES=en_US.UTF-8\n [7] LC_PAPER=en_US.UTF-8       LC_NAME=C\n [9] LC_ADDRESS=C               LC_TELEPHONE=C\n[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base",
+      "body_snippet": "I've googled around the archives for R-help and R-sig Fedora and found\nthat a lot of people have had the same errors I've gotten when\nstarting up the X11() module:\n\nError in X11() : X11 module cannot ",
+      "thread_id": "thread-289286e4eb8b",
+      "thread_depth": 0,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-bcb26a107ce0",
+      "message_id": "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2010-07-03T10:46:01-05:00",
+      "subject": "[R-sig-Fedora] [R] Failure to load X11 module in Fedora 13.",
+      "subject_clean": "Failure to load X11 module in Fedora 13.",
+      "in_reply_to": "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>",
+      "references": [
+        "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>"
+      ],
+      "body_plain": "On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n\n> I've googled around the archives for R-help and R-sig Fedora and found\n> that a lot of people have had the same errors I've gotten when\n> starting up the X11() module:\n> \n> Error in X11() : X11 module cannot be loaded\n> In addition: Warning message:\n> In X11() : unable to load shared library '/usr/lib/R/modules//R_X11.so':\n>  /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\n> \n> But I have come across zero answers to this fundamental problem. (At\n> least none that make sense to a newbie user like me.)\n> \n> This is after a fresh install of R on Fedora 13 via Yum.\n> \n> I checked and /usr/lib/R/modules/R_X11.so indeed exists. But R somehow\n> doesn't care and fails to load it.\n> \n> So, what did anyone do to resolve this issue?\n> \n> Here's my sessionInfo():\n> \n> R version 2.11.1 (2010-05-31)\n> i386-redhat-linux-gnu\n> \n> locale:\n> [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C\n> [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8\n> [5] LC_MONETARY=C              LC_MESSAGES=en_US.UTF-8\n> [7] LC_PAPER=en_US.UTF-8       LC_NAME=C\n> [9] LC_ADDRESS=C               LC_TELEPHONE=C\n> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C\n> \n> attached base packages:\n> [1] stats     graphics  grDevices utils     datasets  methods   base\n\n\n\nCarlo,\n\nWhat is the output of:\n\n  ldd /usr/lib/libfontconfig.so.1\n\nand \n\n  ldd /usr/lib/R/modules/R_X11.so\n\nI noted the double forward slash in your output above for the second module, which is a bit confusing, but I don't think that should affect anything.\n\nThis is something that should work \"out of the box\". That you are having a fundamental problem here with X11 begins to point in the direction of a packaging issue or a version conflict with the R RPMs on F13.\n\nJust in case, I am cc'ing Tom on this thread to solicit any comments that he might have.\n\nAlso, just for the heck of it, that you are having problems both on Fedora and on OSX with display related things, please verify that these are two separate computers. You are not running some virtual machine (eg. VMWare, VirtualBox, Parallels) with Fedora and OSX running at the same time on the same computer? \n\nMarc",
+      "body_snippet": "On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n\n> I've googled around the archives for R-help and R-sig Fedora and found\n> that a lot of people have had the same errors I've gotten when\n> starting",
+      "thread_id": "thread-289286e4eb8b",
+      "thread_depth": 1,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-d42be1fbcd89",
+      "message_id": "<4C2FAA7A.7080706@gmail.com>",
+      "from_name": "Carlo Tambuatco",
+      "from_email_hash": "7d21db91ee291af45c56f1077068ed9a30c1b20ad13af79b491ca518c7eb7a21",
+      "date": "2010-07-03T17:24:10-04:00",
+      "subject": "[R-sig-Fedora] [R] Failure to load X11 module in Fedora 13.",
+      "subject_clean": "Failure to load X11 module in Fedora 13.",
+      "in_reply_to": "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>",
+      "references": [
+        "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>",
+        "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>"
+      ],
+      "body_plain": "On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n> On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n>\n>    \n>> I've googled around the archives for R-help and R-sig Fedora and found\n>> that a lot of people have had the same errors I've gotten when\n>> starting up the X11() module:\n>>\n>> Error in X11() : X11 module cannot be loaded\n>> In addition: Warning message:\n>> In X11() : unable to load shared library '/usr/lib/R/modules//R_X11.so':\n>>   /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\n>>\n>> But I have come across zero answers to this fundamental problem. (At\n>> least none that make sense to a newbie user like me.)\n>>\n>> This is after a fresh install of R on Fedora 13 via Yum.\n>>\n>> I checked and /usr/lib/R/modules/R_X11.so indeed exists. But R somehow\n>> doesn't care and fails to load it.\n>>\n>> So, what did anyone do to resolve this issue?\n>>\n>> Here's my sessionInfo():\n>>\n>> R version 2.11.1 (2010-05-31)\n>> i386-redhat-linux-gnu\n>>\n>> locale:\n>> [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C\n>> [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8\n>> [5] LC_MONETARY=C              LC_MESSAGES=en_US.UTF-8\n>> [7] LC_PAPER=en_US.UTF-8       LC_NAME=C\n>> [9] LC_ADDRESS=C               LC_TELEPHONE=C\n>> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C\n>>\n>> attached base packages:\n>> [1] stats     graphics  grDevices utils     datasets  methods   base\n>>      \n>\n>\n> Carlo,\n>\n> What is the output of:\n>\n>    ldd /usr/lib/libfontconfig.so.1\n>    \n\n     linux-gate.so.1 =>  (0x004d9000)\n     libfreetype.so.6 => /usr/lib/libfreetype.so.6 (0x009a8000)\n     libexpat.so.1 => /lib/libexpat.so.1 (0x00941000)\n     libc.so.6 => /lib/libc.so.6 (0x00110000)\n     /lib/ld-linux.so.2 (0x00375000)\n\n\n> and\n>\n>    ldd /usr/lib/R/modules/R_X11.so\n>    \n\n     linux-gate.so.1 =>  (0x00687000)\n     libSM.so.6 => /usr/lib/libSM.so.6 (0x00527000)\n     libICE.so.6 => /usr/lib/libICE.so.6 (0x00d68000)\n     libpangocairo-1.0.so.0 => /usr/lib/libpangocairo-1.0.so.0 (0x00bfe000)\n     libpango-1.0.so.0 => /usr/lib/libpango-1.0.so.0 (0x00110000)\n     libgobject-2.0.so.0 => /lib/libgobject-2.0.so.0 (0x00dd7000)\n     libgmodule-2.0.so.0 => /lib/libgmodule-2.0.so.0 (0x009cb000)\n     libgthread-2.0.so.0 => /lib/libgthread-2.0.so.0 (0x00159000)\n     librt.so.1 => /lib/librt.so.1 (0x002e2000)\n     libglib-2.0.so.0 => /lib/libglib-2.0.so.0 (0x00395000)\n     libX11.so.6 => /usr/lib/libX11.so.6 (0x0052f000)\n     libpng12.so.0 => /usr/lib/libpng12.so.0 (0x0015e000)\n     libz.so.1 => /lib/libz.so.1 (0x00766000)\n     libcairo.so.2 => /usr/lib/libcairo.so.2 (0x0025e000)\n     libXt.so.6 => /usr/lib/libXt.so.6 (0x0078f000)\n     libXmu.so.6 => /usr/lib/libXmu.so.6 (0x00bcf000)\n     libtiff.so.3 => /usr/lib/libtiff.so.3 (0x008a0000)\n     libjpeg.so.62 => /usr/lib/libjpeg.so.62 (0x00cce000)\n     libR.so => /usr/lib/R/lib/libR.so (0xb74af000)\n     libm.so.6 => /lib/libm.so.6 (0x00ae3000)\n     libpthread.so.0 => /lib/libpthread.so.0 (0x00186000)\n     libc.so.6 => /lib/libc.so.6 (0xb7323000)\n     libuuid.so.1 => /lib/libuuid.so.1 (0x00927000)\n     libpangoft2-1.0.so.0 => /usr/lib/libpangoft2-1.0.so.0 (0x001a1000)\n     libfreetype.so.6 => /usr/lib/libfreetype.so.6 (0x00688000)\n     libfontconfig.so.1 => /usr/lib/libfontconfig.so.1 (0x00d2f000)\n     libdl.so.2 => /lib/libdl.so.2 (0x00318000)\n     /lib/ld-linux.so.2 (0x00375000)\n     libxcb.so.1 => /usr/lib/libxcb.so.1 (0x00201000)\n     libpixman-1.so.0 => /usr/lib/libpixman-1.so.0 (0x00495000)\n     libXrender.so.1 => /usr/lib/libXrender.so.1 (0x0021f000)\n     libXext.so.6 => /usr/lib/libXext.so.6 (0x00228000)\n     libRblas.so => /usr/lib/R/lib/libRblas.so (0x00d03000)\n     libgfortran.so.3 => /usr/lib/libgfortran.so.3 (0x00f20000)\n     libreadline.so.6 => /lib/libreadline.so.6 (0x00808000)\n     libpcre.so.0 => /lib/libpcre.so.0 (0x0031d000)\n     libbz2.so.1 => /lib/libbz2.so.1 (0x00239000)\n     libicuuc.so.42 => /usr/lib/libicuuc.so.42 (0xb71c7000)\n     libicui18n.so.42 => /usr/lib/libicui18n.so.42 (0xb7002000)\n     libexpat.so.1 => /lib/libexpat.so.1 (0x00b7b000)\n     libXau.so.6 => /usr/lib/libXau.so.6 (0x001cb000)\n     libtinfo.so.5 => /lib/libtinfo.so.5 (0x002eb000)\n     libicudata.so.42 => /usr/lib/libicudata.so.42 (0xb60bb000)\n     libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0xb5fce000)\n     libgcc_s.so.1 => /lib/libgcc_s.so.1 (0x0034d000)\n\n\n> I noted the double forward slash in your output above for the second module, which is a bit confusing, but I don't think that should affect anything.\n>\n> This is something that should work \"out of the box\". That you are having a fundamental problem here with X11 begins to point in the direction of a packaging issue or a version conflict with the R RPMs on F13.\n>\n> Just in case, I am cc'ing Tom on this thread to solicit any comments that he might have.\n>\n> Also, just for the heck of it, that you are having problems both on Fedora and on OSX with display related things, please verify that these are two separate computers. You are not running some virtual machine (eg. VMWare, VirtualBox, Parallels) with Fedora and OSX running at the same time on the same computer?\n>    \n\nFedora and OS X are not running at the same time, but they are on the \nsame computer (my MacBook Pro). It's not a virtual machine.\n\n> Marc\n>\n>",
+      "body_snippet": "On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n> On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n>\n>    \n>> I've googled around the archives for R-help and R-sig Fedora and found\n>> that a lot of peo",
+      "thread_id": "thread-289286e4eb8b",
+      "thread_depth": 2,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-aa12199254d8",
+      "message_id": "<4C2FAB80.7090601@gmail.com>",
+      "from_name": "Carlo Tambuatco",
+      "from_email_hash": "7d21db91ee291af45c56f1077068ed9a30c1b20ad13af79b491ca518c7eb7a21",
+      "date": "2010-07-03T17:28:32-04:00",
+      "subject": "[R-sig-Fedora] [R] Failure to load X11 module in Fedora 13.",
+      "subject_clean": "Failure to load X11 module in Fedora 13.",
+      "in_reply_to": "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>",
+      "references": [
+        "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>",
+        "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>"
+      ],
+      "body_plain": "On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n> On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n>\n>    \n>> I've googled around the archives for R-help and R-sig Fedora and found\n>> that a lot of people have had the same errors I've gotten when\n>> starting up the X11() module:\n>>\n>> Error in X11() : X11 module cannot be loaded\n>> In addition: Warning message:\n>> In X11() : unable to load shared library '/usr/lib/R/modules//R_X11.so':\n>>   /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\n>>\n>> But I have come across zero answers to this fundamental problem. (At\n>> least none that make sense to a newbie user like me.)\n>>\n>> This is after a fresh install of R on Fedora 13 via Yum.\n>>\n>> I checked and /usr/lib/R/modules/R_X11.so indeed exists. But R somehow\n>> doesn't care and fails to load it.\n>>\n>> So, what did anyone do to resolve this issue?\n>>\n>> Here's my sessionInfo():\n>>\n>> R version 2.11.1 (2010-05-31)\n>> i386-redhat-linux-gnu\n>>\n>> locale:\n>> [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C\n>> [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8\n>> [5] LC_MONETARY=C              LC_MESSAGES=en_US.UTF-8\n>> [7] LC_PAPER=en_US.UTF-8       LC_NAME=C\n>> [9] LC_ADDRESS=C               LC_TELEPHONE=C\n>> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C\n>>\n>> attached base packages:\n>> [1] stats     graphics  grDevices utils     datasets  methods   base\n>>      \n>\n>\n> Carlo,\n>\n> What is the output of:\n>\n>    ldd /usr/lib/libfontconfig.so.1\n>\n> and\n>\n>    ldd /usr/lib/R/modules/R_X11.so\n>\n> I noted the double forward slash in your output above for the second module, which is a bit confusing, but I don't think that should affect anything.\n>    \n\nThat is strange. But that is what I copied verbatim as the output from \nwithin R.\n\n> This is something that should work \"out of the box\". That you are having a fundamental problem here with X11 begins to point in the direction of a packaging issue or a version conflict with the R RPMs on F13.\n>\n> Just in case, I am cc'ing Tom on this thread to solicit any comments that he might have.\n>\n> Also, just for the heck of it, that you are having problems both on Fedora and on OSX with display related things, please verify that these are two separate computers. You are not running some virtual machine (eg. VMWare, VirtualBox, Parallels) with Fedora and OSX running at the same time on the same computer?\n>\n> Marc\n>\n>",
+      "body_snippet": "On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n> On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n>\n>    \n>> I've googled around the archives for R-help and R-sig Fedora and found\n>> that a lot of peo",
+      "thread_id": "thread-289286e4eb8b",
+      "thread_depth": 2,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-b43204bc14c0",
+      "message_id": "<AANLkTinENms_0PG7zZmTS5SO0qAtEeH00ARZjctbkoqB@mail.gmail.com>",
+      "from_name": "Paul Johnson",
+      "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
+      "date": "2010-07-03T20:01:50-05:00",
+      "subject": "[R-sig-Fedora] Help installing R Commander on Fedora 13...",
+      "subject_clean": "Help installing R Commander on Fedora 13...",
+      "in_reply_to": "<4C2E1180.5080303@redhat.com>",
+      "references": [
+        "<AANLkTimDAhjD9GiEPeGPg92REnJhmRuE8XabhiXhuXiH@mail.gmail.com>",
+        "<95448543-214E-4DA4-A618-8668095F0F37@me.com>",
+        "<18A24711-BC26-4244-967C-02C8141F00C1@gmail.com>",
+        "<4C2E1180.5080303@redhat.com>"
+      ],
+      "body_plain": "On Fri, Jul 2, 2010 at 11:19 AM, Tom \"spot\" Callaway\n<tcallawa at redhat.com> wrote:\n> On 07/02/2010 12:00 PM, Carlo Tambuatco wrote:\n\n> At this time, there is no external repository that I am aware of which\n> has the missing dependencies from CRAN for R Commander.\n>\n> With that said, it would probably be a good set of packages for us to\n> target next, or for someone who wanted to get more involved with Fedora\n> to tackle.\n>\n> ~spot\n\nCarlo:\n\nDon't worry, this will work out.  It happens to everybody!\n\nThis will be a useful experience for you.  You who will learn about\nthe development process a bit.  Run install.packages in R, spotting\nerrors, then using yum to install additional devel packages, is a\nuseful experience.  For me, it is the  'usual' state of life for a\nlinux.\n\n>From your errors above, it appears the first errors you hit are\nrelated to tcl-devel and tk-devel, which any \"smart\" user needs\nanyway.  Install them, then run the install.packages again.  Then\nyou'll get errors \"can't find gcc\" or \"gfortran\" and you find those.\nThen you will hit some other error, probably related to 3D software\ndevelopment (because Rcmdr wants \"rgl\").  I think the Fedora package\nfor that will depend on the video driver you use.  If this is a clean\ncomputer with only a minimal desktop install, you may go through this\ncycle 10 times.\n\nIf you don't know about it yet, there's a gui program called yumex\nthat may make it easier to find rpm packages in the repositories.\n\nBecoming comfortable with this is an essential part of being one of us\n(Linux guys) instead of one of them (members of evil empire :)))\n\nThat being said, however, I can offer one tip to reduce the work. In\nrecent R, the depends option has more values than true or false.  It\nallows c(\"Depends\", \"Imports\",   \"LinkingTo\", \"Suggests\", \"Enhances\")\nRcmdr suggests many packages that it does not require. changing the\ninstall command to\n\ninstall.packages(\"Rcmdr\", dependencies=c(\"Depends\"))\n\nwill cause R to try to build a smaller set of packages. The suggests\nand enhances are spinning out of control.\n\nYou can download the Rcmdr source code from r-project.org and see for\nyourself.  Note the difference:\n\nDepends: R (>= 2.6.0), tcltk, grDevices, utils, car (>= 1.2-1),\nSuggests: abind, aplpack, colorspace, effects (>= 1.0-7), foreign,\n        grid, Hmisc, lattice, leaps, lmtest, MASS, mgcv, multcomp (>=\n        0.991-2), nlme, nnet, relimp, rgl, RODBC\n\n\nOh, one more thing about Rcmdr.  Here's the good news if you keep\npushing through dep=T.  Once you install that,  you will have just\nabout everything you need to build almost any R package.  I think\nthat, if you get the requirements and suggestions from Rcmdr, and all\nthe packages it suggests or requires, and so forth, you have more than\n100 of the most notable packages..\n\n\n-- \nPaul E. Johnson\nProfessor, Political Science\n1541 Lilac Lane, Room 504\nUniversity of Kansas",
+      "body_snippet": "On Fri, Jul 2, 2010 at 11:19 AM, Tom \"spot\" Callaway\n<tcallawa at redhat.com> wrote:\n> On 07/02/2010 12:00 PM, Carlo Tambuatco wrote:\n\n> At this time, there is no external repository that I am aware o",
+      "thread_id": "thread-829b602e72a1",
+      "thread_depth": 4,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-61f706016af3",
+      "message_id": "<87AFE500-D458-43C9-9545-F8B35E5C4DEF@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2010-07-04T11:27:11-05:00",
+      "subject": "[R-sig-Fedora] [R] Failure to load X11 module in Fedora 13.",
+      "subject_clean": "Failure to load X11 module in Fedora 13.",
+      "in_reply_to": "<4C2FAA7A.7080706@gmail.com>",
+      "references": [
+        "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>",
+        "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>",
+        "<4C2FAA7A.7080706@gmail.com>"
+      ],
+      "body_plain": "On Jul 3, 2010, at 4:24 PM, Carlo Tambuatco wrote:\n\n> On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n>> On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n>> \n>>   \n>>> I've googled around the archives for R-help and R-sig Fedora and found\n>>> that a lot of people have had the same errors I've gotten when\n>>> starting up the X11() module:\n>>> \n>>> Error in X11() : X11 module cannot be loaded\n>>> In addition: Warning message:\n>>> In X11() : unable to load shared library '/usr/lib/R/modules//R_X11.so':\n>>>  /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\n>>> \n>>> But I have come across zero answers to this fundamental problem. (At\n>>> least none that make sense to a newbie user like me.)\n>>> \n>>> This is after a fresh install of R on Fedora 13 via Yum.\n>>> \n>>> I checked and /usr/lib/R/modules/R_X11.so indeed exists. But R somehow\n>>> doesn't care and fails to load it.\n>>> \n>>> So, what did anyone do to resolve this issue?\n>>> \n>>> Here's my sessionInfo():\n>>> \n>>> R version 2.11.1 (2010-05-31)\n>>> i386-redhat-linux-gnu\n>>> \n>>> locale:\n>>> [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C\n>>> [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8\n>>> [5] LC_MONETARY=C              LC_MESSAGES=en_US.UTF-8\n>>> [7] LC_PAPER=en_US.UTF-8       LC_NAME=C\n>>> [9] LC_ADDRESS=C               LC_TELEPHONE=C\n>>> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C\n>>> \n>>> attached base packages:\n>>> [1] stats     graphics  grDevices utils     datasets  methods   base\n>>>     \n>> \n>> \n>> Carlo,\n>> \n>> What is the output of:\n>> \n>>   ldd /usr/lib/libfontconfig.so.1\n>>   \n> \n>    linux-gate.so.1 =>  (0x004d9000)\n>    libfreetype.so.6 => /usr/lib/libfreetype.so.6 (0x009a8000)\n>    libexpat.so.1 => /lib/libexpat.so.1 (0x00941000)\n>    libc.so.6 => /lib/libc.so.6 (0x00110000)\n>    /lib/ld-linux.so.2 (0x00375000)\n> \n> \n>> and\n>> \n>>   ldd /usr/lib/R/modules/R_X11.so\n>>   \n> \n>    linux-gate.so.1 =>  (0x00687000)\n>    libSM.so.6 => /usr/lib/libSM.so.6 (0x00527000)\n>    libICE.so.6 => /usr/lib/libICE.so.6 (0x00d68000)\n>    libpangocairo-1.0.so.0 => /usr/lib/libpangocairo-1.0.so.0 (0x00bfe000)\n>    libpango-1.0.so.0 => /usr/lib/libpango-1.0.so.0 (0x00110000)\n>    libgobject-2.0.so.0 => /lib/libgobject-2.0.so.0 (0x00dd7000)\n>    libgmodule-2.0.so.0 => /lib/libgmodule-2.0.so.0 (0x009cb000)\n>    libgthread-2.0.so.0 => /lib/libgthread-2.0.so.0 (0x00159000)\n>    librt.so.1 => /lib/librt.so.1 (0x002e2000)\n>    libglib-2.0.so.0 => /lib/libglib-2.0.so.0 (0x00395000)\n>    libX11.so.6 => /usr/lib/libX11.so.6 (0x0052f000)\n>    libpng12.so.0 => /usr/lib/libpng12.so.0 (0x0015e000)\n>    libz.so.1 => /lib/libz.so.1 (0x00766000)\n>    libcairo.so.2 => /usr/lib/libcairo.so.2 (0x0025e000)\n>    libXt.so.6 => /usr/lib/libXt.so.6 (0x0078f000)\n>    libXmu.so.6 => /usr/lib/libXmu.so.6 (0x00bcf000)\n>    libtiff.so.3 => /usr/lib/libtiff.so.3 (0x008a0000)\n>    libjpeg.so.62 => /usr/lib/libjpeg.so.62 (0x00cce000)\n>    libR.so => /usr/lib/R/lib/libR.so (0xb74af000)\n>    libm.so.6 => /lib/libm.so.6 (0x00ae3000)\n>    libpthread.so.0 => /lib/libpthread.so.0 (0x00186000)\n>    libc.so.6 => /lib/libc.so.6 (0xb7323000)\n>    libuuid.so.1 => /lib/libuuid.so.1 (0x00927000)\n>    libpangoft2-1.0.so.0 => /usr/lib/libpangoft2-1.0.so.0 (0x001a1000)\n>    libfreetype.so.6 => /usr/lib/libfreetype.so.6 (0x00688000)\n>    libfontconfig.so.1 => /usr/lib/libfontconfig.so.1 (0x00d2f000)\n>    libdl.so.2 => /lib/libdl.so.2 (0x00318000)\n>    /lib/ld-linux.so.2 (0x00375000)\n>    libxcb.so.1 => /usr/lib/libxcb.so.1 (0x00201000)\n>    libpixman-1.so.0 => /usr/lib/libpixman-1.so.0 (0x00495000)\n>    libXrender.so.1 => /usr/lib/libXrender.so.1 (0x0021f000)\n>    libXext.so.6 => /usr/lib/libXext.so.6 (0x00228000)\n>    libRblas.so => /usr/lib/R/lib/libRblas.so (0x00d03000)\n>    libgfortran.so.3 => /usr/lib/libgfortran.so.3 (0x00f20000)\n>    libreadline.so.6 => /lib/libreadline.so.6 (0x00808000)\n>    libpcre.so.0 => /lib/libpcre.so.0 (0x0031d000)\n>    libbz2.so.1 => /lib/libbz2.so.1 (0x00239000)\n>    libicuuc.so.42 => /usr/lib/libicuuc.so.42 (0xb71c7000)\n>    libicui18n.so.42 => /usr/lib/libicui18n.so.42 (0xb7002000)\n>    libexpat.so.1 => /lib/libexpat.so.1 (0x00b7b000)\n>    libXau.so.6 => /usr/lib/libXau.so.6 (0x001cb000)\n>    libtinfo.so.5 => /lib/libtinfo.so.5 (0x002eb000)\n>    libicudata.so.42 => /usr/lib/libicudata.so.42 (0xb60bb000)\n>    libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0xb5fce000)\n>    libgcc_s.so.1 => /lib/libgcc_s.so.1 (0x0034d000)\n> \n> \n>> I noted the double forward slash in your output above for the second module, which is a bit confusing, but I don't think that should affect anything.\n>> \n>> This is something that should work \"out of the box\". That you are having a fundamental problem here with X11 begins to point in the direction of a packaging issue or a version conflict with the R RPMs on F13.\n>> \n>> Just in case, I am cc'ing Tom on this thread to solicit any comments that he might have.\n>> \n>> Also, just for the heck of it, that you are having problems both on Fedora and on OSX with display related things, please verify that these are two separate computers. You are not running some virtual machine (eg. VMWare, VirtualBox, Parallels) with Fedora and OSX running at the same time on the same computer?\n>>   \n> \n> Fedora and OS X are not running at the same time, but they are on the same computer (my MacBook Pro). It's not a virtual machine.\n\nSo a dual-boot system then.\n\nThanks for the clarification. That should hopefully obviate any VM associated issues.\n\nWhen you get a minute, please run 'yum update' as root to be sure that your system is fully updated. Depending upon whether you have run that since installing F13, it could take a while to download and install any RPM updates. Once you have done that, re-check R for any errors.\n\nAlso, please run the following command at the CLI:\n\n  rpm -qi freetype\n\nThat should display version information for the freetype RPM that is installed. If you post back, be sure to note whether you run that before or after running the 'yum update' command so as to avoid confusion. The most recent version is freetype-2.3.11-3.fc13.\n\nThe original error messages suggest a version link conflict between libfontconfig and freetype, so presuming that you have not manually installed or removed something that might result in the conflict, this would tend to further support a packaging issue AFAICS. So we might have to wait for Tom to comment.\n\nRegards,\n\nMarc",
+      "body_snippet": "On Jul 3, 2010, at 4:24 PM, Carlo Tambuatco wrote:\n\n> On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n>> On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n>> \n>>   \n>>> I've googled around the archives ",
+      "thread_id": "thread-289286e4eb8b",
+      "thread_depth": 3,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-b5450bbc0322",
+      "message_id": "<4C30D32E.1070502@gmail.com>",
+      "from_name": "Carlo Tambuatco",
+      "from_email_hash": "7d21db91ee291af45c56f1077068ed9a30c1b20ad13af79b491ca518c7eb7a21",
+      "date": "2010-07-04T14:30:06-04:00",
+      "subject": "[R-sig-Fedora] [R] Failure to load X11 module in Fedora 13.",
+      "subject_clean": "Failure to load X11 module in Fedora 13.",
+      "in_reply_to": "<87AFE500-D458-43C9-9545-F8B35E5C4DEF@me.com>",
+      "references": [
+        "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>",
+        "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>",
+        "<4C2FAA7A.7080706@gmail.com>",
+        "<87AFE500-D458-43C9-9545-F8B35E5C4DEF@me.com>"
+      ],
+      "body_plain": "On 07/04/2010 12:27 PM, Marc Schwartz wrote:\n> On Jul 3, 2010, at 4:24 PM, Carlo Tambuatco wrote:\n>\n>    \n>> On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n>>      \n>>> On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n>>>\n>>>\n>>>        \n>>>> I've googled around the archives for R-help and R-sig Fedora and found\n>>>> that a lot of people have had the same errors I've gotten when\n>>>> starting up the X11() module:\n>>>>\n>>>> Error in X11() : X11 module cannot be loaded\n>>>> In addition: Warning message:\n>>>> In X11() : unable to load shared library '/usr/lib/R/modules//R_X11.so':\n>>>>   /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\n>>>>\n>>>> But I have come across zero answers to this fundamental problem. (At\n>>>> least none that make sense to a newbie user like me.)\n>>>>\n>>>> This is after a fresh install of R on Fedora 13 via Yum.\n>>>>\n>>>> I checked and /usr/lib/R/modules/R_X11.so indeed exists. But R somehow\n>>>> doesn't care and fails to load it.\n>>>>\n>>>> So, what did anyone do to resolve this issue?\n>>>>\n>>>> Here's my sessionInfo():\n>>>>\n>>>> R version 2.11.1 (2010-05-31)\n>>>> i386-redhat-linux-gnu\n>>>>\n>>>> locale:\n>>>> [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C\n>>>> [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8\n>>>> [5] LC_MONETARY=C              LC_MESSAGES=en_US.UTF-8\n>>>> [7] LC_PAPER=en_US.UTF-8       LC_NAME=C\n>>>> [9] LC_ADDRESS=C               LC_TELEPHONE=C\n>>>> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C\n>>>>\n>>>> attached base packages:\n>>>> [1] stats     graphics  grDevices utils     datasets  methods   base\n>>>>\n>>>>          \n>>>\n>>> Carlo,\n>>>\n>>> What is the output of:\n>>>\n>>>    ldd /usr/lib/libfontconfig.so.1\n>>>\n>>>        \n>>     linux-gate.so.1 =>   (0x004d9000)\n>>     libfreetype.so.6 =>  /usr/lib/libfreetype.so.6 (0x009a8000)\n>>     libexpat.so.1 =>  /lib/libexpat.so.1 (0x00941000)\n>>     libc.so.6 =>  /lib/libc.so.6 (0x00110000)\n>>     /lib/ld-linux.so.2 (0x00375000)\n>>\n>>\n>>      \n>>> and\n>>>\n>>>    ldd /usr/lib/R/modules/R_X11.so\n>>>\n>>>        \n>>     linux-gate.so.1 =>   (0x00687000)\n>>     libSM.so.6 =>  /usr/lib/libSM.so.6 (0x00527000)\n>>     libICE.so.6 =>  /usr/lib/libICE.so.6 (0x00d68000)\n>>     libpangocairo-1.0.so.0 =>  /usr/lib/libpangocairo-1.0.so.0 (0x00bfe000)\n>>     libpango-1.0.so.0 =>  /usr/lib/libpango-1.0.so.0 (0x00110000)\n>>     libgobject-2.0.so.0 =>  /lib/libgobject-2.0.so.0 (0x00dd7000)\n>>     libgmodule-2.0.so.0 =>  /lib/libgmodule-2.0.so.0 (0x009cb000)\n>>     libgthread-2.0.so.0 =>  /lib/libgthread-2.0.so.0 (0x00159000)\n>>     librt.so.1 =>  /lib/librt.so.1 (0x002e2000)\n>>     libglib-2.0.so.0 =>  /lib/libglib-2.0.so.0 (0x00395000)\n>>     libX11.so.6 =>  /usr/lib/libX11.so.6 (0x0052f000)\n>>     libpng12.so.0 =>  /usr/lib/libpng12.so.0 (0x0015e000)\n>>     libz.so.1 =>  /lib/libz.so.1 (0x00766000)\n>>     libcairo.so.2 =>  /usr/lib/libcairo.so.2 (0x0025e000)\n>>     libXt.so.6 =>  /usr/lib/libXt.so.6 (0x0078f000)\n>>     libXmu.so.6 =>  /usr/lib/libXmu.so.6 (0x00bcf000)\n>>     libtiff.so.3 =>  /usr/lib/libtiff.so.3 (0x008a0000)\n>>     libjpeg.so.62 =>  /usr/lib/libjpeg.so.62 (0x00cce000)\n>>     libR.so =>  /usr/lib/R/lib/libR.so (0xb74af000)\n>>     libm.so.6 =>  /lib/libm.so.6 (0x00ae3000)\n>>     libpthread.so.0 =>  /lib/libpthread.so.0 (0x00186000)\n>>     libc.so.6 =>  /lib/libc.so.6 (0xb7323000)\n>>     libuuid.so.1 =>  /lib/libuuid.so.1 (0x00927000)\n>>     libpangoft2-1.0.so.0 =>  /usr/lib/libpangoft2-1.0.so.0 (0x001a1000)\n>>     libfreetype.so.6 =>  /usr/lib/libfreetype.so.6 (0x00688000)\n>>     libfontconfig.so.1 =>  /usr/lib/libfontconfig.so.1 (0x00d2f000)\n>>     libdl.so.2 =>  /lib/libdl.so.2 (0x00318000)\n>>     /lib/ld-linux.so.2 (0x00375000)\n>>     libxcb.so.1 =>  /usr/lib/libxcb.so.1 (0x00201000)\n>>     libpixman-1.so.0 =>  /usr/lib/libpixman-1.so.0 (0x00495000)\n>>     libXrender.so.1 =>  /usr/lib/libXrender.so.1 (0x0021f000)\n>>     libXext.so.6 =>  /usr/lib/libXext.so.6 (0x00228000)\n>>     libRblas.so =>  /usr/lib/R/lib/libRblas.so (0x00d03000)\n>>     libgfortran.so.3 =>  /usr/lib/libgfortran.so.3 (0x00f20000)\n>>     libreadline.so.6 =>  /lib/libreadline.so.6 (0x00808000)\n>>     libpcre.so.0 =>  /lib/libpcre.so.0 (0x0031d000)\n>>     libbz2.so.1 =>  /lib/libbz2.so.1 (0x00239000)\n>>     libicuuc.so.42 =>  /usr/lib/libicuuc.so.42 (0xb71c7000)\n>>     libicui18n.so.42 =>  /usr/lib/libicui18n.so.42 (0xb7002000)\n>>     libexpat.so.1 =>  /lib/libexpat.so.1 (0x00b7b000)\n>>     libXau.so.6 =>  /usr/lib/libXau.so.6 (0x001cb000)\n>>     libtinfo.so.5 =>  /lib/libtinfo.so.5 (0x002eb000)\n>>     libicudata.so.42 =>  /usr/lib/libicudata.so.42 (0xb60bb000)\n>>     libstdc++.so.6 =>  /usr/lib/libstdc++.so.6 (0xb5fce000)\n>>     libgcc_s.so.1 =>  /lib/libgcc_s.so.1 (0x0034d000)\n>>\n>>\n>>      \n>>> I noted the double forward slash in your output above for the second module, which is a bit confusing, but I don't think that should affect anything.\n>>>\n>>> This is something that should work \"out of the box\". That you are having a fundamental problem here with X11 begins to point in the direction of a packaging issue or a version conflict with the R RPMs on F13.\n>>>\n>>> Just in case, I am cc'ing Tom on this thread to solicit any comments that he might have.\n>>>\n>>> Also, just for the heck of it, that you are having problems both on Fedora and on OSX with display related things, please verify that these are two separate computers. You are not running some virtual machine (eg. VMWare, VirtualBox, Parallels) with Fedora and OSX running at the same time on the same computer?\n>>>\n>>>        \n>> Fedora and OS X are not running at the same time, but they are on the same computer (my MacBook Pro). It's not a virtual machine.\n>>      \n> So a dual-boot system then.\n>\n> Thanks for the clarification. That should hopefully obviate any VM associated issues.\n>\n> When you get a minute, please run 'yum update' as root to be sure that your system is fully updated. Depending upon whether you have run that since installing F13, it could take a while to download and install any RPM updates. Once you have done that, re-check R for any errors.\n>\n> Also, please run the following command at the CLI:\n>\n>    rpm -qi freetype\n>\n> That should display version information for the freetype RPM that is installed. If you post back, be sure to note whether you run that before or after running the 'yum update' command so as to avoid confusion. The most recent version is freetype-2.3.11-3.fc13.\n>\n> The original error messages suggest a version link conflict between libfontconfig and freetype, so presuming that you have not manually installed or removed something that might result in the conflict, this would tend to further support a packaging issue AFAICS. So we might have to wait for Tom to comment.\n>\n> Regards,\n>\n> Marc\n>\n>    \n\nFrom: rpm -qi freetype\n\nRun after 'sudo yum update'\n\nX11() module still fails to load in R.\n\n\nName        : freetype                     Relocations: (not relocatable)\nVersion     : 2.3.11                            Vendor: Fedora Project\nRelease     : 3.fc13                        Build Date: Wed 03 Mar 2010 \n05:32:03 PM EST\nInstall Date: Wed 09 Jun 2010 02:04:00 PM EDT      Build Host: \nxb-01.phx2.fedoraproject.org\nGroup       : System Environment/Libraries   Source RPM: \nfreetype-2.3.11-3.fc13.src.rpm\nSize        : 814191                           License: FTL or GPLv2+\nSignature   : RSA/8, Wed 03 Mar 2010 05:46:21 PM EST, Key ID \n7edc6ad6e8e40fde\nPackager    : Fedora Project\nURL         : http://www.freetype.org\nSummary     : A free and portable font rendering engine\nDescription :\nThe FreeType engine is a free and portable font rendering\nengine, developed to provide advanced font support for a variety of\nplatforms and environments. FreeType is a library which can open and\nmanages font files as well as efficiently load, hint and render\nindividual glyphs. FreeType is not a font server or a complete\ntext-rendering library.",
+      "body_snippet": "On 07/04/2010 12:27 PM, Marc Schwartz wrote:\n> On Jul 3, 2010, at 4:24 PM, Carlo Tambuatco wrote:\n>\n>    \n>> On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n>>      \n>>> On Jul 3, 2010, at 7:54 AM, Carlo",
+      "thread_id": "thread-289286e4eb8b",
+      "thread_depth": 4,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-68c7bb40a565",
+      "message_id": "<4C3326D2.5010302@redhat.com>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2010-07-06T08:51:30-04:00",
+      "subject": "[R-sig-Fedora] [R] Failure to load X11 module in Fedora 13.",
+      "subject_clean": "Failure to load X11 module in Fedora 13.",
+      "in_reply_to": "<4C30D32E.1070502@gmail.com>",
+      "references": [
+        "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>",
+        "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>",
+        "<4C2FAA7A.7080706@gmail.com>",
+        "<87AFE500-D458-43C9-9545-F8B35E5C4DEF@me.com>",
+        "<4C30D32E.1070502@gmail.com>"
+      ],
+      "body_plain": "On 07/04/2010 02:30 PM, Carlo Tambuatco wrote:\n> On 07/04/2010 12:27 PM, Marc Schwartz wrote:\n>> On Jul 3, 2010, at 4:24 PM, Carlo Tambuatco wrote:\n>>\n>>   \n>>> On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n>>>     \n>>>> On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n>>>>\n>>>>\n>>>>       \n>>>>> I've googled around the archives for R-help and R-sig Fedora and found\n>>>>> that a lot of people have had the same errors I've gotten when\n>>>>> starting up the X11() module:\n>>>>>\n>>>>> Error in X11() : X11 module cannot be loaded\n>>>>> In addition: Warning message:\n>>>>> In X11() : unable to load shared library\n>>>>> '/usr/lib/R/modules//R_X11.so':\n>>>>>   /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\n\nSo, I can't reproduce this at all on Fedora 13:\n== i386 (KVM instance) ==\n[spot at f13 ~]$ rpm -q R-core\nR-core-2.11.1-1.fc13.i686\n\n[spot at f13 ~]$ R\n\nR version 2.11.1 (2010-05-31)\nCopyright (C) 2010 The R Foundation for Statistical Computing\nISBN 3-900051-07-0\n\nR is free software and comes with ABSOLUTELY NO WARRANTY.\nYou are welcome to redistribute it under certain conditions.\nType 'license()' or 'licence()' for distribution details.\n\n  Natural language support but running in an English locale\n\nR is a collaborative project with many contributors.\nType 'contributors()' for more information and\n'citation()' on how to cite R or R packages in publications.\n\nType 'demo()' for some demos, 'help()' for on-line help, or\n'help.start()' for an HTML browser interface to help.\nType 'q()' to quit R.\n\n> X11()\n>\n\n== x86_64 (my laptop) ==\n[spot at pterodactyl ~]$ rpm -q R-core\nR-core-2.11.1-1.fc13.x86_64\n[spot at pterodactyl ~]$ R\n\nR version 2.11.1 (2010-05-31)\nCopyright (C) 2010 The R Foundation for Statistical Computing\nISBN 3-900051-07-0\n\nR is free software and comes with ABSOLUTELY NO WARRANTY.\nYou are welcome to redistribute it under certain conditions.\nType 'license()' or 'licence()' for distribution details.\n\n  Natural language support but running in an English locale\n\nR is a collaborative project with many contributors.\nType 'contributors()' for more information and\n'citation()' on how to cite R or R packages in publications.\n\nType 'demo()' for some demos, 'help()' for on-line help, or\n'help.start()' for an HTML browser interface to help.\nType 'q()' to quit R.\n\n> X11()\n>\n\nI confirmed that FT_Select_size is a valid symbol in freetype (on both\narches):\n\n[spot at f13 ~]$ eu-readelf -s /usr/lib/libfreetype.so.6 |grep FT_Select_Size\n  223: 009b6930    128 FUNC    GLOBAL DEFAULT       11 FT_Select_Size\n\n[spot at pterodactyl ~]$ eu-readelf -s /usr/lib64/libfreetype.so.6 |grep\nFT_Select_Size\n  224: 000000000000dc70    108 FUNC    GLOBAL DEFAULT       11\nFT_Select_Size\n\nDo you have any libraries in /usr/local/lib? Did you add any paths to\n/etc/ld.so.conf ? I suspect you have an old copy of freetype floating\naround somewhere. It looks like it is not uncommon for third party\napplications (VMWare, VirtualBox) to shove an old freetype library onto\nthe system.\n\n~spot",
+      "body_snippet": "On 07/04/2010 02:30 PM, Carlo Tambuatco wrote:\n> On 07/04/2010 12:27 PM, Marc Schwartz wrote:\n>> On Jul 3, 2010, at 4:24 PM, Carlo Tambuatco wrote:\n>>\n>>   \n>>> On 07/03/2010 11:46 AM, Marc Schwartz w",
+      "thread_id": "thread-289286e4eb8b",
+      "thread_depth": 5,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-dca896176d34",
+      "message_id": "<4C337DA7.2040905@gmail.com>",
+      "from_name": "Carlo Tambuatco",
+      "from_email_hash": "7d21db91ee291af45c56f1077068ed9a30c1b20ad13af79b491ca518c7eb7a21",
+      "date": "2010-07-06T15:01:59-04:00",
+      "subject": "[R-sig-Fedora] [R] Failure to load X11 module in Fedora 13.",
+      "subject_clean": "Failure to load X11 module in Fedora 13.",
+      "in_reply_to": "<4C3326D2.5010302@redhat.com>",
+      "references": [
+        "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>",
+        "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>",
+        "<4C2FAA7A.7080706@gmail.com>",
+        "<87AFE500-D458-43C9-9545-F8B35E5C4DEF@me.com>",
+        "<4C30D32E.1070502@gmail.com>",
+        "<4C3326D2.5010302@redhat.com>"
+      ],
+      "body_plain": "On 07/06/2010 08:51 AM, Tom \"spot\" Callaway wrote:\n> On 07/04/2010 02:30 PM, Carlo Tambuatco wrote:\n>    \n>> On 07/04/2010 12:27 PM, Marc Schwartz wrote:\n>>      \n>>> On Jul 3, 2010, at 4:24 PM, Carlo Tambuatco wrote:\n>>>\n>>>\n>>>        \n>>>> On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n>>>>\n>>>>          \n>>>>> On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n>>>>>\n>>>>>\n>>>>>\n>>>>>            \n>>>>>> I've googled around the archives for R-help and R-sig Fedora and found\n>>>>>> that a lot of people have had the same errors I've gotten when\n>>>>>> starting up the X11() module:\n>>>>>>\n>>>>>> Error in X11() : X11 module cannot be loaded\n>>>>>> In addition: Warning message:\n>>>>>> In X11() : unable to load shared library\n>>>>>> '/usr/lib/R/modules//R_X11.so':\n>>>>>>    /usr/lib/libfontconfig.so.1: undefined symbol: FT_Select_Size\n>>>>>>              \n> So, I can't reproduce this at all on Fedora 13:\n> == i386 (KVM instance) ==\n> [spot at f13 ~]$ rpm -q R-core\n> R-core-2.11.1-1.fc13.i686\n>\n> [spot at f13 ~]$ R\n>\n> R version 2.11.1 (2010-05-31)\n> Copyright (C) 2010 The R Foundation for Statistical Computing\n> ISBN 3-900051-07-0\n>\n> R is free software and comes with ABSOLUTELY NO WARRANTY.\n> You are welcome to redistribute it under certain conditions.\n> Type 'license()' or 'licence()' for distribution details.\n>\n>    Natural language support but running in an English locale\n>\n> R is a collaborative project with many contributors.\n> Type 'contributors()' for more information and\n> 'citation()' on how to cite R or R packages in publications.\n>\n> Type 'demo()' for some demos, 'help()' for on-line help, or\n> 'help.start()' for an HTML browser interface to help.\n> Type 'q()' to quit R.\n>\n>    \n>> X11()\n>>\n>>      \n> == x86_64 (my laptop) ==\n> [spot at pterodactyl ~]$ rpm -q R-core\n> R-core-2.11.1-1.fc13.x86_64\n> [spot at pterodactyl ~]$ R\n>\n> R version 2.11.1 (2010-05-31)\n> Copyright (C) 2010 The R Foundation for Statistical Computing\n> ISBN 3-900051-07-0\n>\n> R is free software and comes with ABSOLUTELY NO WARRANTY.\n> You are welcome to redistribute it under certain conditions.\n> Type 'license()' or 'licence()' for distribution details.\n>\n>    Natural language support but running in an English locale\n>\n> R is a collaborative project with many contributors.\n> Type 'contributors()' for more information and\n> 'citation()' on how to cite R or R packages in publications.\n>\n> Type 'demo()' for some demos, 'help()' for on-line help, or\n> 'help.start()' for an HTML browser interface to help.\n> Type 'q()' to quit R.\n>\n>    \n>> X11()\n>>\n>>      \n> I confirmed that FT_Select_size is a valid symbol in freetype (on both\n> arches):\n>\n> [spot at f13 ~]$ eu-readelf -s /usr/lib/libfreetype.so.6 |grep FT_Select_Size\n>    223: 009b6930    128 FUNC    GLOBAL DEFAULT       11 FT_Select_Size\n>\n> [spot at pterodactyl ~]$ eu-readelf -s /usr/lib64/libfreetype.so.6 |grep\n> FT_Select_Size\n>    224: 000000000000dc70    108 FUNC    GLOBAL DEFAULT       11\n> FT_Select_Size\n>\n> Do you have any libraries in /usr/local/lib? Did you add any paths to\n> /etc/ld.so.conf ? I suspect you have an old copy of freetype floating\n> around somewhere. It looks like it is not uncommon for third party\n> applications (VMWare, VirtualBox) to shove an old freetype library onto\n> the system.\n>\n>    \n> ~spot\n>    \n\nThis is what ls revealed about my /usr/local/lib directory:\n\ntotal 4344\ndrwxr-xr-x. 3 root root    4096 Jun 19 17:04 blender\ndrwxr-xr-x. 2 root root    4096 Jun 15 17:15 codecs\n-rw-r--r--. 1 root root   94132 Jun 15 17:04 libdvdcss.a\n-rwxr-xr-x. 1 root root     822 Jun 15 17:04 libdvdcss.la\nlrwxrwxrwx. 1 root root      18 Jun 15 17:04 libdvdcss.so -> \nlibdvdcss.so.2.1.0\nlrwxrwxrwx. 1 root root      18 Jun 15 17:04 libdvdcss.so.2 -> \nlibdvdcss.so.2.1.0\n-rwxr-xr-x. 1 root root   74687 Jun 15 17:04 libdvdcss.so.2.1.0\n-rw-r--r--. 1 root root 2486916 Jun 19 06:29 libfreetype.a\n-rwxr-xr-x. 1 root root     824 Jun 19 06:29 libfreetype.la\nlrwxrwxrwx. 1 root root      20 Jun 19 06:29 libfreetype.so -> \nlibfreetype.so.6.3.8\nlrwxrwxrwx. 1 root root      20 Jun 19 06:29 libfreetype.so.6 -> \nlibfreetype.so.6.3.8\n-rwxr-xr-x. 1 root root 1765321 Jun 19 06:29 libfreetype.so.6.3.8\ndrwxr-xr-x. 2 root root    4096 Jun 19 06:29 pkgconfig",
+      "body_snippet": "On 07/06/2010 08:51 AM, Tom \"spot\" Callaway wrote:\n> On 07/04/2010 02:30 PM, Carlo Tambuatco wrote:\n>    \n>> On 07/04/2010 12:27 PM, Marc Schwartz wrote:\n>>      \n>>> On Jul 3, 2010, at 4:24 PM, Carlo",
+      "thread_id": "thread-289286e4eb8b",
+      "thread_depth": 6,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-d0a86f6e024c",
+      "message_id": "<4C3380E8.80400@redhat.com>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2010-07-06T15:15:52-04:00",
+      "subject": "[R-sig-Fedora] [R] Failure to load X11 module in Fedora 13.",
+      "subject_clean": "Failure to load X11 module in Fedora 13.",
+      "in_reply_to": "<4C337DA7.2040905@gmail.com>",
+      "references": [
+        "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>",
+        "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>",
+        "<4C2FAA7A.7080706@gmail.com>",
+        "<87AFE500-D458-43C9-9545-F8B35E5C4DEF@me.com>",
+        "<4C30D32E.1070502@gmail.com>",
+        "<4C3326D2.5010302@redhat.com>",
+        "<4C337DA7.2040905@gmail.com>"
+      ],
+      "body_plain": "On 07/06/2010 03:01 PM, Carlo Tambuatco wrote:\n\n> This is what ls revealed about my /usr/local/lib directory:\n> \n> total 4344\n> drwxr-xr-x. 3 root root    4096 Jun 19 17:04 blender\n> drwxr-xr-x. 2 root root    4096 Jun 15 17:15 codecs\n> -rw-r--r--. 1 root root   94132 Jun 15 17:04 libdvdcss.a\n> -rwxr-xr-x. 1 root root     822 Jun 15 17:04 libdvdcss.la\n> lrwxrwxrwx. 1 root root      18 Jun 15 17:04 libdvdcss.so ->\n> libdvdcss.so.2.1.0\n> lrwxrwxrwx. 1 root root      18 Jun 15 17:04 libdvdcss.so.2 ->\n> libdvdcss.so.2.1.0\n> -rwxr-xr-x. 1 root root   74687 Jun 15 17:04 libdvdcss.so.2.1.0\n> -rw-r--r--. 1 root root 2486916 Jun 19 06:29 libfreetype.a\n> -rwxr-xr-x. 1 root root     824 Jun 19 06:29 libfreetype.la\n> lrwxrwxrwx. 1 root root      20 Jun 19 06:29 libfreetype.so ->\n> libfreetype.so.6.3.8\n> lrwxrwxrwx. 1 root root      20 Jun 19 06:29 libfreetype.so.6 ->\n> libfreetype.so.6.3.8\n> -rwxr-xr-x. 1 root root 1765321 Jun 19 06:29 libfreetype.so.6.3.8\n> drwxr-xr-x. 2 root root    4096 Jun 19 06:29 pkgconfig\n\nThis is your problem. R (well, the X11 part of it anyways) is looking\nfor libfreetype, finding the copy in /usr/local (I'm guessing blender\nput it there) which doesn't match the system libfontconfig.so and things\nexplode from there.\n\nThe simplest solution would be for you to delete libfreetype* from\n/usr/local/lib, although, there is a chance that whatever third party\napp put those library files in /usr/local/lib might stop working.\n\n~spot",
+      "body_snippet": "On 07/06/2010 03:01 PM, Carlo Tambuatco wrote:\n\n> This is what ls revealed about my /usr/local/lib directory:\n> \n> total 4344\n> drwxr-xr-x. 3 root root    4096 Jun 19 17:04 blender\n> drwxr-xr-x. 2 roo",
+      "thread_id": "thread-289286e4eb8b",
+      "thread_depth": 7,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-a6048b776a27",
+      "message_id": "<4C338734.1090205@gmail.com>",
+      "from_name": "Carlo Tambuatco",
+      "from_email_hash": "7d21db91ee291af45c56f1077068ed9a30c1b20ad13af79b491ca518c7eb7a21",
+      "date": "2010-07-06T15:42:44-04:00",
+      "subject": "[R-sig-Fedora] [R] Failure to load X11 module in Fedora 13.",
+      "subject_clean": "Failure to load X11 module in Fedora 13.",
+      "in_reply_to": "<4C3380E8.80400@redhat.com>",
+      "references": [
+        "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>",
+        "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>",
+        "<4C2FAA7A.7080706@gmail.com>",
+        "<87AFE500-D458-43C9-9545-F8B35E5C4DEF@me.com>",
+        "<4C30D32E.1070502@gmail.com>",
+        "<4C3326D2.5010302@redhat.com>",
+        "<4C337DA7.2040905@gmail.com>",
+        "<4C3380E8.80400@redhat.com>"
+      ],
+      "body_plain": "On 07/06/2010 03:15 PM, Tom \"spot\" Callaway wrote:\n> On 07/06/2010 03:01 PM, Carlo Tambuatco wrote:\n>\n>    \n>> This is what ls revealed about my /usr/local/lib directory:\n>>\n>> total 4344\n>> drwxr-xr-x. 3 root root    4096 Jun 19 17:04 blender\n>> drwxr-xr-x. 2 root root    4096 Jun 15 17:15 codecs\n>> -rw-r--r--. 1 root root   94132 Jun 15 17:04 libdvdcss.a\n>> -rwxr-xr-x. 1 root root     822 Jun 15 17:04 libdvdcss.la\n>> lrwxrwxrwx. 1 root root      18 Jun 15 17:04 libdvdcss.so ->\n>> libdvdcss.so.2.1.0\n>> lrwxrwxrwx. 1 root root      18 Jun 15 17:04 libdvdcss.so.2 ->\n>> libdvdcss.so.2.1.0\n>> -rwxr-xr-x. 1 root root   74687 Jun 15 17:04 libdvdcss.so.2.1.0\n>> -rw-r--r--. 1 root root 2486916 Jun 19 06:29 libfreetype.a\n>> -rwxr-xr-x. 1 root root     824 Jun 19 06:29 libfreetype.la\n>> lrwxrwxrwx. 1 root root      20 Jun 19 06:29 libfreetype.so ->\n>> libfreetype.so.6.3.8\n>> lrwxrwxrwx. 1 root root      20 Jun 19 06:29 libfreetype.so.6 ->\n>> libfreetype.so.6.3.8\n>> -rwxr-xr-x. 1 root root 1765321 Jun 19 06:29 libfreetype.so.6.3.8\n>> drwxr-xr-x. 2 root root    4096 Jun 19 06:29 pkgconfig\n>>      \n> This is your problem. R (well, the X11 part of it anyways) is looking\n> for libfreetype, finding the copy in /usr/local (I'm guessing blender\n> put it there) which doesn't match the system libfontconfig.so and things\n> explode from there.\n>\n> The simplest solution would be for you to delete libfreetype* from\n> /usr/local/lib, although, there is a chance that whatever third party\n> app put those library files in /usr/local/lib might stop working.\n>\n> ~spot\n>\n>\n>    \nYou're saying I have to choose between running Blender and running X11() \nin R?\nIs there a way to maybe create symlinks from where X11() expects to find \nthe libfreetype to where libfreetype actually is to get both Blender and \nR X11() to play well together?",
+      "body_snippet": "On 07/06/2010 03:15 PM, Tom \"spot\" Callaway wrote:\n> On 07/06/2010 03:01 PM, Carlo Tambuatco wrote:\n>\n>    \n>> This is what ls revealed about my /usr/local/lib directory:\n>>\n>> total 4344\n>> drwxr-xr-",
+      "thread_id": "thread-289286e4eb8b",
+      "thread_depth": 8,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-1613ea03a040",
+      "message_id": "<4C338836.7000002@redhat.com>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2010-07-06T15:47:02-04:00",
+      "subject": "[R-sig-Fedora] [R] Failure to load X11 module in Fedora 13.",
+      "subject_clean": "Failure to load X11 module in Fedora 13.",
+      "in_reply_to": "<4C338734.1090205@gmail.com>",
+      "references": [
+        "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>",
+        "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>",
+        "<4C2FAA7A.7080706@gmail.com>",
+        "<87AFE500-D458-43C9-9545-F8B35E5C4DEF@me.com>",
+        "<4C30D32E.1070502@gmail.com>",
+        "<4C3326D2.5010302@redhat.com>",
+        "<4C337DA7.2040905@gmail.com>",
+        "<4C3380E8.80400@redhat.com>",
+        "<4C338734.1090205@gmail.com>"
+      ],
+      "body_plain": "On 07/06/2010 03:42 PM, Carlo Tambuatco wrote:\n> On 07/06/2010 03:15 PM, Tom \"spot\" Callaway wrote:\n\n> You're saying I have to choose between running Blender and running X11()\n> in R?\n> Is there a way to maybe create symlinks from where X11() expects to find\n> the libfreetype to where libfreetype actually is to get both Blender and\n> R X11() to play well together?\n\nWell, I'm saying that your copy of blender in /usr/local (assuming that\nblender is what put the libfreetype* files in /usr/local) is causing all\nof your system applications that depend on libfreetype to break,\nincluding R.\n\nFedora provides blender as part of its package repositories. I would\nrecommend trying to use it instead of your copy, as it will properly use\nthe modern system libfreetype libs.\n\nSimply moving the libfreetype* files out of /usr/local/lib should be\nenough to get R working. You might even trying launching blender to see\nif it also still works, but it may really need those files. You could\nalso explicitly tell blender about the new home (that isn't in the ld.so\npath) like this:\n\nLD_LIBRARY_PATH=/usr/local/freetypelibs/ blender\n\n~spot",
+      "body_snippet": "On 07/06/2010 03:42 PM, Carlo Tambuatco wrote:\n> On 07/06/2010 03:15 PM, Tom \"spot\" Callaway wrote:\n\n> You're saying I have to choose between running Blender and running X11()\n> in R?\n> Is there a way",
+      "thread_id": "thread-289286e4eb8b",
+      "thread_depth": 9,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-f2dac27dd925",
+      "message_id": "<4C338A8B.2000106@gmail.com>",
+      "from_name": "Carlo Tambuatco",
+      "from_email_hash": "7d21db91ee291af45c56f1077068ed9a30c1b20ad13af79b491ca518c7eb7a21",
+      "date": "2010-07-06T15:56:59-04:00",
+      "subject": "[R-sig-Fedora] [R] Failure to load X11 module in Fedora 13.",
+      "subject_clean": "Failure to load X11 module in Fedora 13.",
+      "in_reply_to": "<4C338836.7000002@redhat.com>",
+      "references": [
+        "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>",
+        "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>",
+        "<4C2FAA7A.7080706@gmail.com>",
+        "<87AFE500-D458-43C9-9545-F8B35E5C4DEF@me.com>",
+        "<4C30D32E.1070502@gmail.com>",
+        "<4C3326D2.5010302@redhat.com>",
+        "<4C337DA7.2040905@gmail.com>",
+        "<4C3380E8.80400@redhat.com>",
+        "<4C338734.1090205@gmail.com>",
+        "<4C338836.7000002@redhat.com>"
+      ],
+      "body_plain": "On 07/06/2010 03:47 PM, Tom \"spot\" Callaway wrote:\n> On 07/06/2010 03:42 PM, Carlo Tambuatco wrote:\n>    \n>> On 07/06/2010 03:15 PM, Tom \"spot\" Callaway wrote:\n>>      \n>    \n>> You're saying I have to choose between running Blender and running X11()\n>> in R?\n>> Is there a way to maybe create symlinks from where X11() expects to find\n>> the libfreetype to where libfreetype actually is to get both Blender and\n>> R X11() to play well together?\n>>      \n> Well, I'm saying that your copy of blender in /usr/local (assuming that\n> blender is what put the libfreetype* files in /usr/local) is causing all\n> of your system applications that depend on libfreetype to break,\n> including R.\n>\n> Fedora provides blender as part of its package repositories. I would\n> recommend trying to use it instead of your copy, as it will properly use\n> the modern system libfreetype libs.\n>\n> Simply moving the libfreetype* files out of /usr/local/lib should be\n> enough to get R working. You might even trying launching blender to see\n> if it also still works, but it may really need those files. You could\n> also explicitly tell blender about the new home (that isn't in the ld.so\n> path) like this:\n>\n> LD_LIBRARY_PATH=/usr/local/freetypelibs/ blender\n>\n> ~spot\n>    \nI did download blender from the Fedora repositories, so it should \nalready use the proper modern system libfreetype libs. Where do you \nsuggest I should move the libfreetype files to?",
+      "body_snippet": "On 07/06/2010 03:47 PM, Tom \"spot\" Callaway wrote:\n> On 07/06/2010 03:42 PM, Carlo Tambuatco wrote:\n>    \n>> On 07/06/2010 03:15 PM, Tom \"spot\" Callaway wrote:\n>>      \n>    \n>> You're saying I have t",
+      "thread_id": "thread-289286e4eb8b",
+      "thread_depth": 10,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-7f1f3f262b91",
+      "message_id": "<4C338E16.4050805@redhat.com>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2010-07-06T16:12:06-04:00",
+      "subject": "[R-sig-Fedora] [R] Failure to load X11 module in Fedora 13.",
+      "subject_clean": "Failure to load X11 module in Fedora 13.",
+      "in_reply_to": "<4C338A8B.2000106@gmail.com>",
+      "references": [
+        "<AANLkTilMzmQtbMjpJ-lNfxh38pd41qNGiSlWvLANwyN6@mail.gmail.com>",
+        "<96832AFC-0A69-4936-AB88-50BE4CB12FE8@me.com>",
+        "<4C2FAA7A.7080706@gmail.com>",
+        "<87AFE500-D458-43C9-9545-F8B35E5C4DEF@me.com>",
+        "<4C30D32E.1070502@gmail.com>",
+        "<4C3326D2.5010302@redhat.com>",
+        "<4C337DA7.2040905@gmail.com>",
+        "<4C3380E8.80400@redhat.com>",
+        "<4C338734.1090205@gmail.com>",
+        "<4C338836.7000002@redhat.com>",
+        "<4C338A8B.2000106@gmail.com>"
+      ],
+      "body_plain": "On 07/06/2010 03:56 PM, Carlo Tambuatco wrote:\n\n> I did download blender from the Fedora repositories, so it should\n> already use the proper modern system libfreetype libs. Where do you\n> suggest I should move the libfreetype files to?\n\nHmm, thats odd. Well, that means blender isn't responsible for those\nlibfreetype files in /usr/local.\n\nTry this (as root):\n\nmkdir -p /usr/local/freetypelibs/\nmv /usr/local/libs/libfreetype* /usr/local/freetypelibs/\n/sbin/ldconfig\n\nThen, try running R (a new session) with X11(). It should start working.\n\nThe next step is to figure out what in /usr/local/lib (or even\n/usr/local) really depends on that old copy of libfreetype. Something\nwanted those old libfreetype files to just show up in the library path,\nand it will need the LD_LIBRARY_PATH override (or you need to rebuild it\nagainst the system freetype).\n\n~spot",
+      "body_snippet": "On 07/06/2010 03:56 PM, Carlo Tambuatco wrote:\n\n> I did download blender from the Fedora repositories, so it should\n> already use the proper modern system libfreetype libs. Where do you\n> suggest I sh",
+      "thread_id": "thread-289286e4eb8b",
+      "thread_depth": 11,
+      "month": "2010-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-829b602e72a1",
+      "subject": "Help installing R Commander on Fedora 13...",
+      "message_count": 6,
+      "participants": [
+        "Carlo Tambuatco",
+        "Marc Schwartz",
+        "Paul Johnson",
+        "Tom \"spot\" Callaway"
+      ],
+      "started": "2010-07-01T14:01:15-04:00",
+      "last_reply": "2010-07-03T20:01:50-05:00",
+      "root_message_id": "msg-829b602e72a1"
+    },
+    {
+      "id": "thread-289286e4eb8b",
+      "subject": "Failure to load X11 module in Fedora 13.",
+      "message_count": 13,
+      "participants": [
+        "Carlo Tambuatco",
+        "Marc Schwartz",
+        "Tom \"spot\" Callaway"
+      ],
+      "started": "2010-07-03T08:54:28-04:00",
+      "last_reply": "2010-07-06T16:12:06-04:00",
+      "root_message_id": "msg-289286e4eb8b"
+    }
+  ]
+}

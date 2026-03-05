@@ -1,0 +1,284 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2021-05",
+  "messages": [
+    {
+      "id": "msg-5e1574c1eafd",
+      "message_id": "<bf5a5fb8-9af3-944c-d104-0c07065a58aa@hiddenelephants.co.uk>",
+      "from_name": "Tim Taylor",
+      "from_email_hash": "e3071ae8257bda4085d8999a9801b324cc930f4864ac0aec1c44601958781446",
+      "date": "2021-05-04T10:06:26Z",
+      "subject": "[R-sig-Fedora] Future R 4.1 and Rstudio versions",
+      "subject_clean": "Future R 4.1 and Rstudio versions",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I've been testing R 4.1 and ran in to an RStudio bug where it crashed \nwhen used with ggplot2. It seems this has been fixed in an upcoming \nRStudio release (see https://github.com/rstudio/rstudio/issues/9251) but \nI wanted to flag in case the Fedora package maintainers need to \ncoordinate the release (e.g. new RStudio prior to new R).\n\nRegards\n\nTim",
+      "body_snippet": "I've been testing R 4.1 and ran in to an RStudio bug where it crashed \nwhen used with ggplot2. It seems this has been fixed in an upcoming \nRStudio release (see https://github.com/rstudio/rstudio/issu",
+      "thread_id": "thread-5e1574c1eafd",
+      "thread_depth": 0,
+      "month": "2021-05"
+    },
+    {
+      "id": "msg-fbb45a9bcbc0",
+      "message_id": "<CALEXWq1fZedxUri07+geHTFUOydTm5mbqxUMHeSG-wyvrP7D-A@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-05-04T15:45:41+02:00",
+      "subject": "[R-sig-Fedora] Future R 4.1 and Rstudio versions",
+      "subject_clean": "Future R 4.1 and Rstudio versions",
+      "in_reply_to": "<bf5a5fb8-9af3-944c-d104-0c07065a58aa@hiddenelephants.co.uk>",
+      "references": [
+        "<bf5a5fb8-9af3-944c-d104-0c07065a58aa@hiddenelephants.co.uk>"
+      ],
+      "body_plain": "On Tue, 4 May 2021 at 12:06, Tim Taylor\n<tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> I've been testing R 4.1 and ran in to an RStudio bug where it crashed\n> when used with ggplot2. It seems this has been fixed in an upcoming\n> RStudio release (see https://github.com/rstudio/rstudio/issues/9251) but\n> I wanted to flag in case the Fedora package maintainers need to\n> coordinate the release (e.g. new RStudio prior to new R).\n\nThanks, Tim, we'll have that in mind. Do you happen to know what's the\nschedule for the upcoming RStudio release?\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 4 May 2021 at 12:06, Tim Taylor\n<tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> I've been testing R 4.1 and ran in to an RStudio bug where it crashed\n> when used with ggplot2. It seems this h",
+      "thread_id": "thread-5e1574c1eafd",
+      "thread_depth": 1,
+      "month": "2021-05"
+    },
+    {
+      "id": "msg-5ecf269a1a8c",
+      "message_id": "<97e2bb5c-638e-73f6-93a8-e84d09379a29@hiddenelephants.co.uk>",
+      "from_name": "Tim Taylor",
+      "from_email_hash": "e3071ae8257bda4085d8999a9801b324cc930f4864ac0aec1c44601958781446",
+      "date": "2021-05-04T14:33:08Z",
+      "subject": "[R-sig-Fedora] Future R 4.1 and Rstudio versions",
+      "subject_clean": "Future R 4.1 and Rstudio versions",
+      "in_reply_to": "<CALEXWq1fZedxUri07+geHTFUOydTm5mbqxUMHeSG-wyvrP7D-A@mail.gmail.com>",
+      "references": [
+        "<bf5a5fb8-9af3-944c-d104-0c07065a58aa@hiddenelephants.co.uk>",
+        "<CALEXWq1fZedxUri07+geHTFUOydTm5mbqxUMHeSG-wyvrP7D-A@mail.gmail.com>"
+      ],
+      "body_plain": "On 04/05/2021 14:45, I?aki Ucar wrote:\n> On Tue, 4 May 2021 at 12:06, Tim Taylor\n> <tim.taylor at hiddenelephants.co.uk> wrote:\n>> I've been testing R 4.1 and ran in to an RStudio bug where it crashed\n>> when used with ggplot2. It seems this has been fixed in an upcoming\n>> RStudio release (see https://github.com/rstudio/rstudio/issues/9251) but\n>> I wanted to flag in case the Fedora package maintainers need to\n>> coordinate the release (e.g. new RStudio prior to new R).\n> Thanks, Tim, we'll have that in mind. Do you happen to know what's the\n> schedule for the upcoming RStudio release?\n>\nAfraid not - I guess imminently as they will be wanting to get it out \nbefore 4.1 due to ggplot2.? FI - here is the related milestone \nhttps://github.com/rstudio/rstudio/milestone/13 for the release.",
+      "body_snippet": "On 04/05/2021 14:45, I?aki Ucar wrote:\n> On Tue, 4 May 2021 at 12:06, Tim Taylor\n> <tim.taylor at hiddenelephants.co.uk> wrote:\n>> I've been testing R 4.1 and ran in to an RStudio bug where it crashed",
+      "thread_id": "thread-5e1574c1eafd",
+      "thread_depth": 2,
+      "month": "2021-05"
+    },
+    {
+      "id": "msg-46fbeb30bd84",
+      "message_id": "<2464696.Lt9SDvczpP@griffin>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2021-05-22T21:18:27+01:00",
+      "subject": "[R-sig-Fedora] Plans for R 4.1 in Fedora?",
+      "subject_clean": "Plans for R 4.1 in Fedora?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi all,\n  what should be our plan for R 4.1 update in Fedora?\n  What are the pitfalls and the changes that we should be aware?\n\n  The second semester (with the corresponding induced pandemic chaos) is \ndimming down around here so I have at least time to breath again. :-)\n\n  FWIW I am in no hurry to have 4.1 in Fedora 34, my main interest is to have \nit in rawhide and later if we find it suitable to backport it to F34.\n\n  FWIW since our last talk Octave (for version 7 at least) is starting by \ndefault to have the major version in the path for packages. :-)\n\nBest regards,\n-- \nJos? Ab?lio\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi all,\n  what should be our plan for R 4.1 update in Fedora?\n  What are the pitfalls and the changes that we should be aware?\n\n  The second semester (with the corresponding induced pandemic chaos) is",
+      "thread_id": "thread-46fbeb30bd84",
+      "thread_depth": 0,
+      "month": "2021-05"
+    },
+    {
+      "id": "msg-663d0e593771",
+      "message_id": "<CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-05-23T12:28:07+02:00",
+      "subject": "[R-sig-Fedora] Plans for R 4.1 in Fedora?",
+      "subject_clean": "Plans for R 4.1 in Fedora?",
+      "in_reply_to": "<2464696.Lt9SDvczpP@griffin>",
+      "references": [
+        "<2464696.Lt9SDvczpP@griffin>"
+      ],
+      "body_plain": "On Sat, 22 May 2021 at 22:18, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> Hi all,\n>   what should be our plan for R 4.1 update in Fedora?\n\nSee [1]. The plan is to wait for the next RStudio release and\ncoordinate updates.\n\n[1] https://stat.ethz.ch/pipermail/r-sig-fedora/2021-May/000736.html\n\n>   What are the pitfalls and the changes that we should be aware?\n\nThe NEWS says: \"The graphics engine version, R_GE_version, has been\nbumped to 14 and so packages that provide graphics devices should be\nreinstalled.\" But anyway, we should do the customary mass rebuild of\npackages to avoid other possible incompatibilities and \"Package was\nbuilt under version 4.0\" messages.\n\nI?aki\n\n>   The second semester (with the corresponding induced pandemic chaos) is\n> dimming down around here so I have at least time to breath again. :-)\n>\n>   FWIW I am in no hurry to have 4.1 in Fedora 34, my main interest is to have\n> it in rawhide and later if we find it suitable to backport it to F34.\n>\n>   FWIW since our last talk Octave (for version 7 at least) is starting by\n> default to have the major version in the path for packages. :-)\n>\n> Best regards,\n> --\n> Jos? Ab?lio\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\n--\nI?aki ?car",
+      "body_snippet": "On Sat, 22 May 2021 at 22:18, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> Hi all,\n>   what should be our plan for R 4.1 update in Fedora?\n\nSee [1]. The plan is to wait for the next RStudio rele",
+      "thread_id": "thread-46fbeb30bd84",
+      "thread_depth": 1,
+      "month": "2021-05"
+    },
+    {
+      "id": "msg-b351a0020a5d",
+      "message_id": "<CAPV07m9kp4K58+QWViHYMYGukMXo1mpTLeOmqqbbcs_sLzEHTQ@mail.gmail.com>",
+      "from_name": "Roger Bos",
+      "from_email_hash": "3b570f9936a0eeeb7a52a7d90ad8559f01d1582dcca76bc44ff3a06fa897faa2",
+      "date": "2021-05-24T21:05:48-04:00",
+      "subject": "[R-sig-Fedora] Installing R on CentOS 8",
+      "subject_clean": "Installing R on CentOS 8",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I am trying to install R on my CentOS 8 server at work and getting an\nerror message about openblas.  It seems I need openblas-0.3.3-5.el.x86_64.\nI have openblas-0.3.3-2.el8.x86_64.  I have added the EPEL repo and enabled\nPowerTools.  I would like to upgrade my openblas from 0..3.3-2 to 0.3.3-5,\nbut I don't know how.  Or I could install a lower version of R that works\nwith 0.3.3-2, but I don't know   Could someone please help me get past this\nerror?\n\nThanks in advance, Roger.\n\n[RCOAdmin at usd1sapp101 ~]$ sudo yum install R\n[sudo] password for RCOAdmin:\nLast metadata expiration check: 0:07:14 ago on Tue 25 May 2021 02:51:46 AM\nCEST.\nError:\n Problem: package R-devel-4.0.5-1.el8.x86_64 requires R-core-devel =\n4.0.5-1.el8, but none of the providers can be installed\n  - package R-4.0.5-1.el8.x86_64 requires R-devel = 4.0.5-1.el8, but none\nof the providers can be installed\n  - package R-core-devel-4.0.5-1.el8.x86_64 requires openblas-devel, but\nnone of the providers can be installed\n  - conflicting requests\n  - nothing provides openblas(x86-32) = 0.3.3-5.el8 needed by\nopenblas-devel-0.3.3-5.el8.i686\n  - nothing provides openblas-threads(x86-32) = 0.3.3-5.el8 needed by\nopenblas-devel-0.3.3-5.el8.i686\n  - nothing provides openblas(x86-64) = 0.3.3-5.el8 needed by\nopenblas-devel-0.3.3-5.el8.x86_64\n  - nothing provides openblas-threads(x86-64) = 0.3.3-5.el8 needed by\nopenblas-devel-0.3.3-5.el8.x86_64\n(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to\nuse not only best candidate packages)\n\nP.S. I tried --skip-broken and --nobest.  It just skips the packages, so I\nstill don't get R installed, so skipping is not an option.\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I am trying to install R on my CentOS 8 server at work and getting an\nerror message about openblas.  It seems I need openblas-0.3.3-5.el.x86_64.\nI have openblas-0.3.3-2.el8.x86_64.  I have added the E",
+      "thread_id": "thread-b351a0020a5d",
+      "thread_depth": 0,
+      "month": "2021-05"
+    },
+    {
+      "id": "msg-766b356e311d",
+      "message_id": "<CALEXWq1qQCAxZfZZ-kjWe7Gn6z+6tVB1NZDBfbunWuAL+kH2yA@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-05-25T11:34:02+02:00",
+      "subject": "[R-sig-Fedora] Installing R on CentOS 8",
+      "subject_clean": "Installing R on CentOS 8",
+      "in_reply_to": "<CAPV07m9kp4K58+QWViHYMYGukMXo1mpTLeOmqqbbcs_sLzEHTQ@mail.gmail.com>",
+      "references": [
+        "<CAPV07m9kp4K58+QWViHYMYGukMXo1mpTLeOmqqbbcs_sLzEHTQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Tue, 25 May 2021 at 03:06, Roger Bos <roger.bos at gmail.com> wrote:\n>\n> I am trying to install R on my CentOS 8 server at work and getting an\n> error message about openblas.  It seems I need openblas-0.3.3-5.el.x86_64.\n> I have openblas-0.3.3-2.el8.x86_64.  I have added the EPEL repo and enabled\n> PowerTools.  I would like to upgrade my openblas from 0..3.3-2 to 0.3.3-5,\n> but I don't know how.  Or I could install a lower version of R that works\n> with 0.3.3-2, but I don't know   Could someone please help me get past this\n> error?\n>\n> Thanks in advance, Roger.\n>\n> [RCOAdmin at usd1sapp101 ~]$ sudo yum install R\n> [sudo] password for RCOAdmin:\n> Last metadata expiration check: 0:07:14 ago on Tue 25 May 2021 02:51:46 AM\n> CEST.\n> Error:\n>  Problem: package R-devel-4.0.5-1.el8.x86_64 requires R-core-devel =\n> 4.0.5-1.el8, but none of the providers can be installed\n>   - package R-4.0.5-1.el8.x86_64 requires R-devel = 4.0.5-1.el8, but none\n> of the providers can be installed\n>   - package R-core-devel-4.0.5-1.el8.x86_64 requires openblas-devel, but\n> none of the providers can be installed\n>   - conflicting requests\n>   - nothing provides openblas(x86-32) = 0.3.3-5.el8 needed by\n> openblas-devel-0.3.3-5.el8.i686\n>   - nothing provides openblas-threads(x86-32) = 0.3.3-5.el8 needed by\n> openblas-devel-0.3.3-5.el8.i686\n>   - nothing provides openblas(x86-64) = 0.3.3-5.el8 needed by\n> openblas-devel-0.3.3-5.el8.x86_64\n>   - nothing provides openblas-threads(x86-64) = 0.3.3-5.el8 needed by\n> openblas-devel-0.3.3-5.el8.x86_64\n> (try to add '--skip-broken' to skip uninstallable packages or '--nobest' to\n> use not only best candidate packages)\n\nopenblas-devel, which is in the powertools repo, is not found above,\nso it seems you don't actually have powertools enabled. Run:\n\n$ dnf config-manager --set-enabled powertools\n\nand try again, please.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 25 May 2021 at 03:06, Roger Bos <roger.bos at gmail.com> wrote:\n>\n> I am trying to install R on my CentOS 8 server at work and getting an\n> error message about openblas.  It seems I need openb",
+      "thread_id": "thread-b351a0020a5d",
+      "thread_depth": 1,
+      "month": "2021-05"
+    },
+    {
+      "id": "msg-4a6d3d906c77",
+      "message_id": "<CAPV07m-Em-bfQVyyeNaOi=CDJjc3jgS-dZuWO3FkefwYf6OpsA@mail.gmail.com>",
+      "from_name": "Roger Bos",
+      "from_email_hash": "3b570f9936a0eeeb7a52a7d90ad8559f01d1582dcca76bc44ff3a06fa897faa2",
+      "date": "2021-05-25T07:34:41-04:00",
+      "subject": "[R-sig-Fedora] Installing R on CentOS 8",
+      "subject_clean": "Installing R on CentOS 8",
+      "in_reply_to": "<CALEXWq1qQCAxZfZZ-kjWe7Gn6z+6tVB1NZDBfbunWuAL+kH2yA@mail.gmail.com>",
+      "references": [
+        "<CAPV07m9kp4K58+QWViHYMYGukMXo1mpTLeOmqqbbcs_sLzEHTQ@mail.gmail.com>",
+        "<CALEXWq1qQCAxZfZZ-kjWe7Gn6z+6tVB1NZDBfbunWuAL+kH2yA@mail.gmail.com>"
+      ],
+      "body_plain": "Thanks for your reply.  As the paste below shows, when I try to enable\n\"powertools\", I get an error message of \"no matching repo\".  Mine seems to\nbe proper case \"PowerTools\".  That command doesn't return anything, so I\nassume it worked, but \"dnf update\" still returns the same error.  Any\nfurther suggestion greatly appreciated!\n\n[bosr at rth.ad.rothschild.com@usd1sapp101 ~]$ dnf config-manager\n--set-enabled powertools\nError: This command has to be run under the root user.\n[bosr at rth.ad.rothschild.com@usd1sapp101 ~]$ sudo dnf config-manager\n--set-enabled powertools\nError: No matching repo to modify: powertools.\n[bosr at rth.ad.rothschild.com@usd1sapp101 ~]$ sudo dnf config-manager\n--set-enabled PowerTools\n[bosr at rth.ad.rothschild.com@usd1sapp101 ~]$ sudo dnf update\nCentOS-8 - AppStream\n             271 MB/s | 5.4 MB     00:00\nCentOS-8 - Base\n            248 MB/s | 2.2 MB     00:00\nCentOS-8 - PowerTools\n            5.1 MB/s | 2.0 MB     00:00\nExtra Packages for Enterprise Linux Modular 8 - x86_64\n             594 kB/s | 610 kB     00:01\nExtra Packages for Enterprise Linux 8 - x86_64\n             6.4 MB/s | 9.4 MB     00:01\nError:\n Problem: package R-devel-4.0.5-1.el8.x86_64 requires R-core-devel =\n4.0.5-1.el8, but none of the providers can be installed\n  - package R-core-devel-4.0.5-1.el8.x86_64 requires openblas-devel, but\nnone of the providers can be installed\n  - cannot install the best update candidate for package R-devel-1-1.x86_64\n  - nothing provides openblas(x86-32) = 0.3.3-5.el8 needed by\nopenblas-devel-0.3.3-5.el8.i686\n  - nothing provides openblas-threads(x86-32) = 0.3.3-5.el8 needed by\nopenblas-devel-0.3.3-5.el8.i686\n  - nothing provides openblas(x86-64) = 0.3.3-5.el8 needed by\nopenblas-devel-0.3.3-5.el8.x86_64\n  - nothing provides openblas-threads(x86-64) = 0.3.3-5.el8 needed by\nopenblas-devel-0.3.3-5.el8.x86_64\n(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to\nuse not only best candidate packages)\n[bosr at rth.ad.rothschild.com@usd1sapp101 ~]$\n\n\nOn Tue, May 25, 2021 at 5:34 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n\n> On Tue, 25 May 2021 at 03:06, Roger Bos <roger.bos at gmail.com> wrote:\n> >\n> > I am trying to install R on my CentOS 8 server at work and getting an\n> > error message about openblas.  It seems I need\n> openblas-0.3.3-5.el.x86_64.\n> > I have openblas-0.3.3-2.el8.x86_64.  I have added the EPEL repo and\n> enabled\n> > PowerTools.  I would like to upgrade my openblas from 0..3.3-2 to\n> 0.3.3-5,\n> > but I don't know how.  Or I could install a lower version of R that works\n> > with 0.3.3-2, but I don't know   Could someone please help me get past\n> this\n> > error?\n> >\n> > Thanks in advance, Roger.\n> >\n> > [RCOAdmin at usd1sapp101 ~]$ sudo yum install R\n> > [sudo] password for RCOAdmin:\n> > Last metadata expiration check: 0:07:14 ago on Tue 25 May 2021 02:51:46\n> AM\n> > CEST.\n> > Error:\n> >  Problem: package R-devel-4.0.5-1.el8.x86_64 requires R-core-devel =\n> > 4.0.5-1.el8, but none of the providers can be installed\n> >   - package R-4.0.5-1.el8.x86_64 requires R-devel = 4.0.5-1.el8, but none\n> > of the providers can be installed\n> >   - package R-core-devel-4.0.5-1.el8.x86_64 requires openblas-devel, but\n> > none of the providers can be installed\n> >   - conflicting requests\n> >   - nothing provides openblas(x86-32) = 0.3.3-5.el8 needed by\n> > openblas-devel-0.3.3-5.el8.i686\n> >   - nothing provides openblas-threads(x86-32) = 0.3.3-5.el8 needed by\n> > openblas-devel-0.3.3-5.el8.i686\n> >   - nothing provides openblas(x86-64) = 0.3.3-5.el8 needed by\n> > openblas-devel-0.3.3-5.el8.x86_64\n> >   - nothing provides openblas-threads(x86-64) = 0.3.3-5.el8 needed by\n> > openblas-devel-0.3.3-5.el8.x86_64\n> > (try to add '--skip-broken' to skip uninstallable packages or '--nobest'\n> to\n> > use not only best candidate packages)\n>\n> openblas-devel, which is in the powertools repo, is not found above,\n> so it seems you don't actually have powertools enabled. Run:\n>\n> $ dnf config-manager --set-enabled powertools\n>\n> and try again, please.\n>\n> --\n> I?aki ?car\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Thanks for your reply.  As the paste below shows, when I try to enable\n\"powertools\", I get an error message of \"no matching repo\".  Mine seems to\nbe proper case \"PowerTools\".  That command doesn't ret",
+      "thread_id": "thread-b351a0020a5d",
+      "thread_depth": 2,
+      "month": "2021-05"
+    },
+    {
+      "id": "msg-d49bb4d2fa23",
+      "message_id": "<CALEXWq2EPF-oqzp+y2XS2fW5uPkbUKgcbAwOrwMcO_D7LB0p0A@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-05-25T15:36:14+02:00",
+      "subject": "[R-sig-Fedora] Installing R on CentOS 8",
+      "subject_clean": "Installing R on CentOS 8",
+      "in_reply_to": "<CAPV07m-Em-bfQVyyeNaOi=CDJjc3jgS-dZuWO3FkefwYf6OpsA@mail.gmail.com>",
+      "references": [
+        "<CAPV07m9kp4K58+QWViHYMYGukMXo1mpTLeOmqqbbcs_sLzEHTQ@mail.gmail.com>",
+        "<CALEXWq1qQCAxZfZZ-kjWe7Gn6z+6tVB1NZDBfbunWuAL+kH2yA@mail.gmail.com>",
+        "<CAPV07m-Em-bfQVyyeNaOi=CDJjc3jgS-dZuWO3FkefwYf6OpsA@mail.gmail.com>"
+      ],
+      "body_plain": "On Tue, 25 May 2021 at 13:34, Roger Bos <roger.bos at gmail.com> wrote:\n>\n> Thanks for your reply.  As the paste below shows, when I try to enable \"powertools\", I get an error message of \"no matching repo\".  Mine seems to be proper case \"PowerTools\".  That command doesn't return anything, so I assume it worked, but \"dnf update\" still returns the same error.  Any further suggestion greatly appreciated!\n>\n> [bosr at rth.ad.rothschild.com@usd1sapp101 ~]$ dnf config-manager --set-enabled powertools\n> Error: This command has to be run under the root user.\n> [bosr at rth.ad.rothschild.com@usd1sapp101 ~]$ sudo dnf config-manager --set-enabled powertools\n> Error: No matching repo to modify: powertools.\n> [bosr at rth.ad.rothschild.com@usd1sapp101 ~]$ sudo dnf config-manager --set-enabled PowerTools\n> [bosr at rth.ad.rothschild.com@usd1sapp101 ~]$ sudo dnf update\n> CentOS-8 - AppStream                                                                    271 MB/s | 5.4 MB     00:00\n> CentOS-8 - Base                                                                         248 MB/s | 2.2 MB     00:00\n> CentOS-8 - PowerTools                                                                   5.1 MB/s | 2.0 MB     00:00\n> Extra Packages for Enterprise Linux Modular 8 - x86_64                                  594 kB/s | 610 kB     00:01\n> Extra Packages for Enterprise Linux 8 - x86_64                                          6.4 MB/s | 9.4 MB     00:01\n> Error:\n>  Problem: package R-devel-4.0.5-1.el8.x86_64 requires R-core-devel = 4.0.5-1.el8, but none of the providers can be installed\n>   - package R-core-devel-4.0.5-1.el8.x86_64 requires openblas-devel, but none of the providers can be installed\n>   - cannot install the best update candidate for package R-devel-1-1.x86_64\n>   - nothing provides openblas(x86-32) = 0.3.3-5.el8 needed by openblas-devel-0.3.3-5.el8.i686\n>   - nothing provides openblas-threads(x86-32) = 0.3.3-5.el8 needed by openblas-devel-0.3.3-5.el8.i686\n>   - nothing provides openblas(x86-64) = 0.3.3-5.el8 needed by openblas-devel-0.3.3-5.el8.x86_64\n>   - nothing provides openblas-threads(x86-64) = 0.3.3-5.el8 needed by openblas-devel-0.3.3-5.el8.x86_64\n> (try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)\n> [bosr at rth.ad.rothschild.com@usd1sapp101 ~]$\n\nOn second read, it's actually openblas and openblas-threads what's not\nfound, which is weirder, because they're in AppStream. I don't know\nwhat's happening here, but it seems it's a configuration problem,\nbecause I cannot reproduce this in a docker container.\n\nI?aki\n\n> On Tue, May 25, 2021 at 5:34 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n>>\n>> On Tue, 25 May 2021 at 03:06, Roger Bos <roger.bos at gmail.com> wrote:\n>> >\n>> > I am trying to install R on my CentOS 8 server at work and getting an\n>> > error message about openblas.  It seems I need openblas-0.3.3-5.el.x86_64.\n>> > I have openblas-0.3.3-2.el8.x86_64.  I have added the EPEL repo and enabled\n>> > PowerTools.  I would like to upgrade my openblas from 0..3.3-2 to 0.3.3-5,\n>> > but I don't know how.  Or I could install a lower version of R that works\n>> > with 0.3.3-2, but I don't know   Could someone please help me get past this\n>> > error?\n>> >\n>> > Thanks in advance, Roger.\n>> >\n>> > [RCOAdmin at usd1sapp101 ~]$ sudo yum install R\n>> > [sudo] password for RCOAdmin:\n>> > Last metadata expiration check: 0:07:14 ago on Tue 25 May 2021 02:51:46 AM\n>> > CEST.\n>> > Error:\n>> >  Problem: package R-devel-4.0.5-1.el8.x86_64 requires R-core-devel =\n>> > 4.0.5-1.el8, but none of the providers can be installed\n>> >   - package R-4.0.5-1.el8.x86_64 requires R-devel = 4.0.5-1.el8, but none\n>> > of the providers can be installed\n>> >   - package R-core-devel-4.0.5-1.el8.x86_64 requires openblas-devel, but\n>> > none of the providers can be installed\n>> >   - conflicting requests\n>> >   - nothing provides openblas(x86-32) = 0.3.3-5.el8 needed by\n>> > openblas-devel-0.3.3-5.el8.i686\n>> >   - nothing provides openblas-threads(x86-32) = 0.3.3-5.el8 needed by\n>> > openblas-devel-0.3.3-5.el8.i686\n>> >   - nothing provides openblas(x86-64) = 0.3.3-5.el8 needed by\n>> > openblas-devel-0.3.3-5.el8.x86_64\n>> >   - nothing provides openblas-threads(x86-64) = 0.3.3-5.el8 needed by\n>> > openblas-devel-0.3.3-5.el8.x86_64\n>> > (try to add '--skip-broken' to skip uninstallable packages or '--nobest' to\n>> > use not only best candidate packages)\n>>\n>> openblas-devel, which is in the powertools repo, is not found above,\n>> so it seems you don't actually have powertools enabled. Run:\n>>\n>> $ dnf config-manager --set-enabled powertools\n>>\n>> and try again, please.\n>>\n>> --\n>> I?aki ?car\n\n\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 25 May 2021 at 13:34, Roger Bos <roger.bos at gmail.com> wrote:\n>\n> Thanks for your reply.  As the paste below shows, when I try to enable \"powertools\", I get an error message of \"no matching ",
+      "thread_id": "thread-b351a0020a5d",
+      "thread_depth": 3,
+      "month": "2021-05"
+    },
+    {
+      "id": "msg-08d58cc1fc19",
+      "message_id": "<CAPV07m_VN3rwHgzS_Gy2BQdxwdgSMc8RWdGz3dUK8q8HrQ_cig@mail.gmail.com>",
+      "from_name": "Roger Bos",
+      "from_email_hash": "3b570f9936a0eeeb7a52a7d90ad8559f01d1582dcca76bc44ff3a06fa897faa2",
+      "date": "2021-05-25T13:34:51-04:00",
+      "subject": "[R-sig-Fedora] Installing R on CentOS 8",
+      "subject_clean": "Installing R on CentOS 8",
+      "in_reply_to": "<CALEXWq2EPF-oqzp+y2XS2fW5uPkbUKgcbAwOrwMcO_D7LB0p0A@mail.gmail.com>",
+      "references": [
+        "<CAPV07m9kp4K58+QWViHYMYGukMXo1mpTLeOmqqbbcs_sLzEHTQ@mail.gmail.com>",
+        "<CALEXWq1qQCAxZfZZ-kjWe7Gn6z+6tVB1NZDBfbunWuAL+kH2yA@mail.gmail.com>",
+        "<CAPV07m-Em-bfQVyyeNaOi=CDJjc3jgS-dZuWO3FkefwYf6OpsA@mail.gmail.com>",
+        "<CALEXWq2EPF-oqzp+y2XS2fW5uPkbUKgcbAwOrwMcO_D7LB0p0A@mail.gmail.com>"
+      ],
+      "body_plain": "All,\n\nIf I remove openblas and openblas-threads and then try to install it,\ndnf wants to install version 0.3.3-2.el8, but for R I need version\n0.3.3-5.el8.  I don't know how to force it to install the newer version.\nCan anyone help on this front?\n\nThanks,\n\nRoger\n\n\n[bosr at rth.ad.rothschild.com@usd1sapp101 ~]$ sudo dnf install openblas\nLast metadata expiration check: 0:39:47 ago on Tue 25 May 2021 06:50:01 PM\nCEST.\nDependencies resolved.\n=================================================================================================\n Package           Architecture    Version                 Repository\n                Size\n=================================================================================================\nInstalling:\n openblas          x86_64          0.3.3-2.el8\nInstallMedia-AppStream          4.3 M\n\nTransaction Summary\n=================================================================================================\nInstall  1 Package\n\nTotal size: 4.3 M\nInstalled size: 31 M\nIs this ok [y/N]: N\n\n\nOn Tue, May 25, 2021 at 9:36 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n\n> On Tue, 25 May 2021 at 13:34, Roger Bos <roger.bos at gmail.com> wrote:\n> >\n> > Thanks for your reply.  As the paste below shows, when I try to enable\n> \"powertools\", I get an error message of \"no matching repo\".  Mine seems to\n> be proper case \"PowerTools\".  That command doesn't return anything, so I\n> assume it worked, but \"dnf update\" still returns the same error.  Any\n> further suggestion greatly appreciated!\n> >\n> > [bosr at rth.ad.rothschild.com@usd1sapp101 ~]$ dnf config-manager\n> --set-enabled powertools\n> > Error: This command has to be run under the root user.\n> > [bosr at rth.ad.rothschild.com@usd1sapp101 ~]$ sudo dnf config-manager\n> --set-enabled powertools\n> > Error: No matching repo to modify: powertools.\n> > [bosr at rth.ad.rothschild.com@usd1sapp101 ~]$ sudo dnf config-manager\n> --set-enabled PowerTools\n> > [bosr at rth.ad.rothschild.com@usd1sapp101 ~]$ sudo dnf update\n> > CentOS-8 - AppStream\n>                 271 MB/s | 5.4 MB     00:00\n> > CentOS-8 - Base\n>                248 MB/s | 2.2 MB     00:00\n> > CentOS-8 - PowerTools\n>                5.1 MB/s | 2.0 MB     00:00\n> > Extra Packages for Enterprise Linux Modular 8 - x86_64\n>                 594 kB/s | 610 kB     00:01\n> > Extra Packages for Enterprise Linux 8 - x86_64\n>                 6.4 MB/s | 9.4 MB     00:01\n> > Error:\n> >  Problem: package R-devel-4.0.5-1.el8.x86_64 requires R-core-devel =\n> 4.0.5-1.el8, but none of the providers can be installed\n> >   - package R-core-devel-4.0.5-1.el8.x86_64 requires openblas-devel, but\n> none of the providers can be installed\n> >   - cannot install the best update candidate for package\n> R-devel-1-1.x86_64\n> >   - nothing provides openblas(x86-32) = 0.3.3-5.el8 needed by\n> openblas-devel-0.3.3-5.el8.i686\n> >   - nothing provides openblas-threads(x86-32) = 0.3.3-5.el8 needed by\n> openblas-devel-0.3.3-5.el8.i686\n> >   - nothing provides openblas(x86-64) = 0.3.3-5.el8 needed by\n> openblas-devel-0.3.3-5.el8.x86_64\n> >   - nothing provides openblas-threads(x86-64) = 0.3.3-5.el8 needed by\n> openblas-devel-0.3.3-5.el8.x86_64\n> > (try to add '--skip-broken' to skip uninstallable packages or '--nobest'\n> to use not only best candidate packages)\n> > [bosr at rth.ad.rothschild.com@usd1sapp101 ~]$\n>\n> On second read, it's actually openblas and openblas-threads what's not\n> found, which is weirder, because they're in AppStream. I don't know\n> what's happening here, but it seems it's a configuration problem,\n> because I cannot reproduce this in a docker container.\n>\n> I?aki\n>\n> > On Tue, May 25, 2021 at 5:34 AM I?aki Ucar <iucar at fedoraproject.org>\n> wrote:\n> >>\n> >> On Tue, 25 May 2021 at 03:06, Roger Bos <roger.bos at gmail.com> wrote:\n> >> >\n> >> > I am trying to install R on my CentOS 8 server at work and getting an\n> >> > error message about openblas.  It seems I need\n> openblas-0.3.3-5.el.x86_64.\n> >> > I have openblas-0.3.3-2.el8.x86_64.  I have added the EPEL repo and\n> enabled\n> >> > PowerTools.  I would like to upgrade my openblas from 0..3.3-2 to\n> 0.3.3-5,\n> >> > but I don't know how.  Or I could install a lower version of R that\n> works\n> >> > with 0.3.3-2, but I don't know   Could someone please help me get\n> past this\n> >> > error?\n> >> >\n> >> > Thanks in advance, Roger.\n> >> >\n> >> > [RCOAdmin at usd1sapp101 ~]$ sudo yum install R\n> >> > [sudo] password for RCOAdmin:\n> >> > Last metadata expiration check: 0:07:14 ago on Tue 25 May 2021\n> 02:51:46 AM\n> >> > CEST.\n> >> > Error:\n> >> >  Problem: package R-devel-4.0.5-1.el8.x86_64 requires R-core-devel =\n> >> > 4.0.5-1.el8, but none of the providers can be installed\n> >> >   - package R-4.0.5-1.el8.x86_64 requires R-devel = 4.0.5-1.el8, but\n> none\n> >> > of the providers can be installed\n> >> >   - package R-core-devel-4.0.5-1.el8.x86_64 requires openblas-devel,\n> but\n> >> > none of the providers can be installed\n> >> >   - conflicting requests\n> >> >   - nothing provides openblas(x86-32) = 0.3.3-5.el8 needed by\n> >> > openblas-devel-0.3.3-5.el8.i686\n> >> >   - nothing provides openblas-threads(x86-32) = 0.3.3-5.el8 needed by\n> >> > openblas-devel-0.3.3-5.el8.i686\n> >> >   - nothing provides openblas(x86-64) = 0.3.3-5.el8 needed by\n> >> > openblas-devel-0.3.3-5.el8.x86_64\n> >> >   - nothing provides openblas-threads(x86-64) = 0.3.3-5.el8 needed by\n> >> > openblas-devel-0.3.3-5.el8.x86_64\n> >> > (try to add '--skip-broken' to skip uninstallable packages or\n> '--nobest' to\n> >> > use not only best candidate packages)\n> >>\n> >> openblas-devel, which is in the powertools repo, is not found above,\n> >> so it seems you don't actually have powertools enabled. Run:\n> >>\n> >> $ dnf config-manager --set-enabled powertools\n> >>\n> >> and try again, please.\n> >>\n> >> --\n> >> I?aki ?car\n>\n>\n>\n> --\n> I?aki ?car\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "All,\n\nIf I remove openblas and openblas-threads and then try to install it,\ndnf wants to install version 0.3.3-2.el8, but for R I need version\n0.3.3-5.el8.  I don't know how to force it to install the",
+      "thread_id": "thread-b351a0020a5d",
+      "thread_depth": 4,
+      "month": "2021-05"
+    },
+    {
+      "id": "msg-f23c8e6af531",
+      "message_id": "<CAPV07m8HORJ2ErMhxjaH9WXWko3+qgtTTM1dr0PFiCZMXQ0R_g@mail.gmail.com>",
+      "from_name": "Roger Bos",
+      "from_email_hash": "3b570f9936a0eeeb7a52a7d90ad8559f01d1582dcca76bc44ff3a06fa897faa2",
+      "date": "2021-05-25T14:42:50-04:00",
+      "subject": "[R-sig-Fedora] Installing R on CentOS 8",
+      "subject_clean": "Installing R on CentOS 8",
+      "in_reply_to": "<CAPV07m9kp4K58+QWViHYMYGukMXo1mpTLeOmqqbbcs_sLzEHTQ@mail.gmail.com>",
+      "references": [
+        "<CAPV07m9kp4K58+QWViHYMYGukMXo1mpTLeOmqqbbcs_sLzEHTQ@mail.gmail.com>"
+      ],
+      "body_plain": "FYI: I used wget to download the newer version of openblas and\nopenblas-threads.  I was then able to install them and then install R.  Not\nsure why the repo wasn't giving me the latest version, but I am good now.\n\nOn Mon, May 24, 2021 at 9:05 PM Roger Bos <roger.bos at gmail.com> wrote:\n\n> I am trying to install R on my CentOS 8 server at work and getting an\n> error message about openblas.  It seems I need openblas-0.3.3-5.el.x86_64.\n> I have openblas-0.3.3-2.el8.x86_64.  I have added the EPEL repo and enabled\n> PowerTools.  I would like to upgrade my openblas from 0..3.3-2 to 0.3.3-5,\n> but I don't know how.  Or I could install a lower version of R that works\n> with 0.3.3-2, but I don't know   Could someone please help me get past this\n> error?\n>\n> Thanks in advance, Roger.\n>\n> [RCOAdmin at usd1sapp101 ~]$ sudo yum install R\n> [sudo] password for RCOAdmin:\n> Last metadata expiration check: 0:07:14 ago on Tue 25 May 2021 02:51:46 AM\n> CEST.\n> Error:\n>  Problem: package R-devel-4.0.5-1.el8.x86_64 requires R-core-devel =\n> 4.0.5-1.el8, but none of the providers can be installed\n>   - package R-4.0.5-1.el8.x86_64 requires R-devel = 4.0.5-1.el8, but none\n> of the providers can be installed\n>   - package R-core-devel-4.0.5-1.el8.x86_64 requires openblas-devel, but\n> none of the providers can be installed\n>   - conflicting requests\n>   - nothing provides openblas(x86-32) = 0.3.3-5.el8 needed by\n> openblas-devel-0.3.3-5.el8.i686\n>   - nothing provides openblas-threads(x86-32) = 0.3.3-5.el8 needed by\n> openblas-devel-0.3.3-5.el8.i686\n>   - nothing provides openblas(x86-64) = 0.3.3-5.el8 needed by\n> openblas-devel-0.3.3-5.el8.x86_64\n>   - nothing provides openblas-threads(x86-64) = 0.3.3-5.el8 needed by\n> openblas-devel-0.3.3-5.el8.x86_64\n> (try to add '--skip-broken' to skip uninstallable packages or '--nobest'\n> to use not only best candidate packages)\n>\n> P.S. I tried --skip-broken and --nobest.  It just skips the packages, so I\n> still don't get R installed, so skipping is not an option.\n>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "FYI: I used wget to download the newer version of openblas and\nopenblas-threads.  I was then able to install them and then install R.  Not\nsure why the repo wasn't giving me the latest version, but I ",
+      "thread_id": "thread-b351a0020a5d",
+      "thread_depth": 1,
+      "month": "2021-05"
+    },
+    {
+      "id": "msg-b9920bb3f9bb",
+      "message_id": "<CACp8ZrJJ3wbvuYVgnGd15C8OApnsT2zwcYk49f4xQgC-kuCjxQ@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "4c62ad279bd6222ba841f6ee81e7796b9d37828a7872803f2e701c687ad903ea",
+      "date": "2021-05-25T14:44:51-04:00",
+      "subject": "[R-sig-Fedora] Installing R on CentOS 8",
+      "subject_clean": "Installing R on CentOS 8",
+      "in_reply_to": "<CAPV07m8HORJ2ErMhxjaH9WXWko3+qgtTTM1dr0PFiCZMXQ0R_g@mail.gmail.com>",
+      "references": [
+        "<CAPV07m9kp4K58+QWViHYMYGukMXo1mpTLeOmqqbbcs_sLzEHTQ@mail.gmail.com>",
+        "<CAPV07m8HORJ2ErMhxjaH9WXWko3+qgtTTM1dr0PFiCZMXQ0R_g@mail.gmail.com>"
+      ],
+      "body_plain": "Best guess, something to do with repo prioritization?\n\n~spot\n\nOn Tue, May 25, 2021 at 2:43 PM Roger Bos <roger.bos at gmail.com> wrote:\n\n> FYI: I used wget to download the newer version of openblas and\n> openblas-threads.  I was then able to install them and then install R.  Not\n> sure why the repo wasn't giving me the latest version, but I am good now.\n>\n> On Mon, May 24, 2021 at 9:05 PM Roger Bos <roger.bos at gmail.com> wrote:\n>\n> > I am trying to install R on my CentOS 8 server at work and getting an\n> > error message about openblas.  It seems I need\n> openblas-0.3.3-5.el.x86_64.\n> > I have openblas-0.3.3-2.el8.x86_64.  I have added the EPEL repo and\n> enabled\n> > PowerTools.  I would like to upgrade my openblas from 0..3.3-2 to\n> 0.3.3-5,\n> > but I don't know how.  Or I could install a lower version of R that works\n> > with 0.3.3-2, but I don't know   Could someone please help me get past\n> this\n> > error?\n> >\n> > Thanks in advance, Roger.\n> >\n> > [RCOAdmin at usd1sapp101 ~]$ sudo yum install R\n> > [sudo] password for RCOAdmin:\n> > Last metadata expiration check: 0:07:14 ago on Tue 25 May 2021 02:51:46\n> AM\n> > CEST.\n> > Error:\n> >  Problem: package R-devel-4.0.5-1.el8.x86_64 requires R-core-devel =\n> > 4.0.5-1.el8, but none of the providers can be installed\n> >   - package R-4.0.5-1.el8.x86_64 requires R-devel = 4.0.5-1.el8, but none\n> > of the providers can be installed\n> >   - package R-core-devel-4.0.5-1.el8.x86_64 requires openblas-devel, but\n> > none of the providers can be installed\n> >   - conflicting requests\n> >   - nothing provides openblas(x86-32) = 0.3.3-5.el8 needed by\n> > openblas-devel-0.3.3-5.el8.i686\n> >   - nothing provides openblas-threads(x86-32) = 0.3.3-5.el8 needed by\n> > openblas-devel-0.3.3-5.el8.i686\n> >   - nothing provides openblas(x86-64) = 0.3.3-5.el8 needed by\n> > openblas-devel-0.3.3-5.el8.x86_64\n> >   - nothing provides openblas-threads(x86-64) = 0.3.3-5.el8 needed by\n> > openblas-devel-0.3.3-5.el8.x86_64\n> > (try to add '--skip-broken' to skip uninstallable packages or '--nobest'\n> > to use not only best candidate packages)\n> >\n> > P.S. I tried --skip-broken and --nobest.  It just skips the packages, so\n> I\n> > still don't get R installed, so skipping is not an option.\n> >\n> >\n>\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Best guess, something to do with repo prioritization?\n\n~spot\n\nOn Tue, May 25, 2021 at 2:43 PM Roger Bos <roger.bos at gmail.com> wrote:\n\n> FYI: I used wget to download the newer version of openblas an",
+      "thread_id": "thread-b351a0020a5d",
+      "thread_depth": 2,
+      "month": "2021-05"
+    },
+    {
+      "id": "msg-f9966be93be6",
+      "message_id": "<CAPV07m_Bzrw+jmw-9SbL0rPfDtcPbLXPARsg4+-Lx6vCpDGnzA@mail.gmail.com>",
+      "from_name": "Roger Bos",
+      "from_email_hash": "3b570f9936a0eeeb7a52a7d90ad8559f01d1582dcca76bc44ff3a06fa897faa2",
+      "date": "2021-05-25T16:48:20-04:00",
+      "subject": "[R-sig-Fedora] Installing R on CentOS 8",
+      "subject_clean": "Installing R on CentOS 8",
+      "in_reply_to": "<CACp8ZrJJ3wbvuYVgnGd15C8OApnsT2zwcYk49f4xQgC-kuCjxQ@mail.gmail.com>",
+      "references": [
+        "<CAPV07m9kp4K58+QWViHYMYGukMXo1mpTLeOmqqbbcs_sLzEHTQ@mail.gmail.com>",
+        "<CAPV07m8HORJ2ErMhxjaH9WXWko3+qgtTTM1dr0PFiCZMXQ0R_g@mail.gmail.com>",
+        "<CACp8ZrJJ3wbvuYVgnGd15C8OApnsT2zwcYk49f4xQgC-kuCjxQ@mail.gmail.com>"
+      ],
+      "body_plain": "I had to use where to install libxml2-devel, so there is probably something\nnot optimal about my config, but I have no onsite linux support and limited\nexperience myself.  Currently just happy to have R running. Thanks to\neveryone who chimed in.\n\n\nOn Tue, May 25, 2021, 2:45 PM Tom Callaway <spotrh at gmail.com> wrote:\n\n> Best guess, something to do with repo prioritization?\n>\n> ~spot\n>\n> On Tue, May 25, 2021 at 2:43 PM Roger Bos <roger.bos at gmail.com> wrote:\n>\n>> FYI: I used wget to download the newer version of openblas and\n>> openblas-threads.  I was then able to install them and then install R.\n>> Not\n>> sure why the repo wasn't giving me the latest version, but I am good now.\n>>\n>> On Mon, May 24, 2021 at 9:05 PM Roger Bos <roger.bos at gmail.com> wrote:\n>>\n>> > I am trying to install R on my CentOS 8 server at work and getting an\n>> > error message about openblas.  It seems I need\n>> openblas-0.3.3-5.el.x86_64.\n>> > I have openblas-0.3.3-2.el8.x86_64.  I have added the EPEL repo and\n>> enabled\n>> > PowerTools.  I would like to upgrade my openblas from 0..3.3-2 to\n>> 0.3.3-5,\n>> > but I don't know how.  Or I could install a lower version of R that\n>> works\n>> > with 0.3.3-2, but I don't know   Could someone please help me get past\n>> this\n>> > error?\n>> >\n>> > Thanks in advance, Roger.\n>> >\n>> > [RCOAdmin at usd1sapp101 ~]$ sudo yum install R\n>> > [sudo] password for RCOAdmin:\n>> > Last metadata expiration check: 0:07:14 ago on Tue 25 May 2021 02:51:46\n>> AM\n>> > CEST.\n>> > Error:\n>> >  Problem: package R-devel-4.0.5-1.el8.x86_64 requires R-core-devel =\n>> > 4.0.5-1.el8, but none of the providers can be installed\n>> >   - package R-4.0.5-1.el8.x86_64 requires R-devel = 4.0.5-1.el8, but\n>> none\n>> > of the providers can be installed\n>> >   - package R-core-devel-4.0.5-1.el8.x86_64 requires openblas-devel, but\n>> > none of the providers can be installed\n>> >   - conflicting requests\n>> >   - nothing provides openblas(x86-32) = 0.3.3-5.el8 needed by\n>> > openblas-devel-0.3.3-5.el8.i686\n>> >   - nothing provides openblas-threads(x86-32) = 0.3.3-5.el8 needed by\n>> > openblas-devel-0.3.3-5.el8.i686\n>> >   - nothing provides openblas(x86-64) = 0.3.3-5.el8 needed by\n>> > openblas-devel-0.3.3-5.el8.x86_64\n>> >   - nothing provides openblas-threads(x86-64) = 0.3.3-5.el8 needed by\n>> > openblas-devel-0.3.3-5.el8.x86_64\n>> > (try to add '--skip-broken' to skip uninstallable packages or '--nobest'\n>> > to use not only best candidate packages)\n>> >\n>> > P.S. I tried --skip-broken and --nobest.  It just skips the packages,\n>> so I\n>> > still don't get R installed, so skipping is not an option.\n>> >\n>> >\n>>\n>>         [[alternative HTML version deleted]]\n>>\n>> _______________________________________________\n>> R-SIG-Fedora mailing list\n>> R-SIG-Fedora at r-project.org\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I had to use where to install libxml2-devel, so there is probably something\nnot optimal about my config, but I have no onsite linux support and limited\nexperience myself.  Currently just happy to have",
+      "thread_id": "thread-b351a0020a5d",
+      "thread_depth": 3,
+      "month": "2021-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-5e1574c1eafd",
+      "subject": "Future R 4.1 and Rstudio versions",
+      "message_count": 3,
+      "participants": [
+        "Iñaki Ucar",
+        "Tim Taylor"
+      ],
+      "started": "2021-05-04T10:06:26+00:00",
+      "last_reply": "2021-05-04T14:33:08+00:00",
+      "root_message_id": "msg-5e1574c1eafd"
+    },
+    {
+      "id": "thread-46fbeb30bd84",
+      "subject": "Plans for R 4.1 in Fedora?",
+      "message_count": 2,
+      "participants": [
+        "Iñaki Ucar",
+        "José Abílio Matos"
+      ],
+      "started": "2021-05-22T21:18:27+01:00",
+      "last_reply": "2021-05-23T12:28:07+02:00",
+      "root_message_id": "msg-46fbeb30bd84"
+    },
+    {
+      "id": "thread-b351a0020a5d",
+      "subject": "Installing R on CentOS 8",
+      "message_count": 8,
+      "participants": [
+        "Iñaki Ucar",
+        "Roger Bos",
+        "Tom Callaway"
+      ],
+      "started": "2021-05-24T21:05:48-04:00",
+      "last_reply": "2021-05-25T16:48:20-04:00",
+      "root_message_id": "msg-b351a0020a5d"
+    }
+  ]
+}

@@ -1,0 +1,689 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2020-05",
+  "messages": [
+    {
+      "id": "msg-c440b98d23c2",
+      "message_id": "<CALEXWq2Pv1Pp8xOzXmTDm572J7Ad1c=uFdrCj71McAkiPn_PYA@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-04T15:14:05+02:00",
+      "subject": "[R-sig-Fedora] R package RPMs for Fedora",
+      "subject_clean": "R package RPMs for Fedora",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi all,\n\nThree months ago, I wrote to Martyn Plummer (to his Warwick email) and\noffered my help to maintain and modernize this [1] rather updated\nREADME, but received no response. Does anyone know how to reach him,\nor maybe I should contact CRAN directly?\n\n[1] https://cran.r-project.org/bin/linux/redhat/README\n\nRegards,\n-- \nI?aki ?car",
+      "body_snippet": "Hi all,\n\nThree months ago, I wrote to Martyn Plummer (to his Warwick email) and\noffered my help to maintain and modernize this [1] rather updated\nREADME, but received no response. Does anyone know how",
+      "thread_id": "thread-c440b98d23c2",
+      "thread_depth": 0,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-074c2f5df3b9",
+      "message_id": "<E3E4DD5E-5F56-4148-8EFA-5311720C3015@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "040b2d09159b27cfd2853bc2dbb476bd637811586f307d9583c9ef7f806f3692",
+      "date": "2020-05-04T10:27:25-04:00",
+      "subject": "[R-sig-Fedora] R package RPMs for Fedora",
+      "subject_clean": "R package RPMs for Fedora",
+      "in_reply_to": "<CALEXWq2Pv1Pp8xOzXmTDm572J7Ad1c=uFdrCj71McAkiPn_PYA@mail.gmail.com>",
+      "references": [
+        "<CALEXWq2Pv1Pp8xOzXmTDm572J7Ad1c=uFdrCj71McAkiPn_PYA@mail.gmail.com>"
+      ],
+      "body_plain": "Hi I?aki,\n\nI don't want to presume to speak for Martyn, but do know from R Foundation interactions, that between his move back to the UK and other things, he has been very busy.\n\nI am copying him here, and hopefully as his schedule permits, he can respond.\n\nRegards,\n\nMarc Schwartz\n\n\n> On May 4, 2020, at 9:14 AM, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> \n> Hi all,\n> \n> Three months ago, I wrote to Martyn Plummer (to his Warwick email) and\n> offered my help to maintain and modernize this [1] rather updated\n> README, but received no response. Does anyone know how to reach him,\n> or maybe I should contact CRAN directly?\n> \n> [1] https://cran.r-project.org/bin/linux/redhat/README\n> \n> Regards,\n> -- \n> I?aki ?car\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi I?aki,\n\nI don't want to presume to speak for Martyn, but do know from R Foundation interactions, that between his move back to the UK and other things, he has been very busy.\n\nI am copying him here",
+      "thread_id": "thread-c440b98d23c2",
+      "thread_depth": 1,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-06a5161600be",
+      "message_id": "<CANA0HMaH-zFNp1BOFU-cUSTLru6Ppju=ChgS_2xFuFVmeoGarw@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "b0864efc945ad746d5bce55bf7c4d85fa011a673c705bb017c133f1ae5ab7506",
+      "date": "2020-05-04T11:29:09-04:00",
+      "subject": "[R-sig-Fedora] R package RPMs for Fedora",
+      "subject_clean": "R package RPMs for Fedora",
+      "in_reply_to": "<E3E4DD5E-5F56-4148-8EFA-5311720C3015@me.com>",
+      "references": [
+        "<CALEXWq2Pv1Pp8xOzXmTDm572J7Ad1c=uFdrCj71McAkiPn_PYA@mail.gmail.com>",
+        "<E3E4DD5E-5F56-4148-8EFA-5311720C3015@me.com>"
+      ],
+      "body_plain": "Thanks Marc. We appreciate it.\n\nTom\n\nOn Mon, May 4, 2020 at 10:28 AM Marc Schwartz <marc_schwartz at me.com> wrote:\n\n> Hi I?aki,\n>\n> I don't want to presume to speak for Martyn, but do know from R Foundation\n> interactions, that between his move back to the UK and other things, he has\n> been very busy.\n>\n> I am copying him here, and hopefully as his schedule permits, he can\n> respond.\n>\n> Regards,\n>\n> Marc Schwartz\n>\n>\n> > On May 4, 2020, at 9:14 AM, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > Hi all,\n> >\n> > Three months ago, I wrote to Martyn Plummer (to his Warwick email) and\n> > offered my help to maintain and modernize this [1] rather updated\n> > README, but received no response. Does anyone know how to reach him,\n> > or maybe I should contact CRAN directly?\n> >\n> > [1] https://cran.r-project.org/bin/linux/redhat/README\n> >\n> > Regards,\n> > --\n> > I?aki ?car\n> >\n> > _______________________________________________\n> > R-SIG-Fedora mailing list\n> > R-SIG-Fedora at r-project.org\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n>\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Thanks Marc. We appreciate it.\n\nTom\n\nOn Mon, May 4, 2020 at 10:28 AM Marc Schwartz <marc_schwartz at me.com> wrote:\n\n> Hi I?aki,\n>\n> I don't want to presume to speak for Martyn, but do know from R Fou",
+      "thread_id": "thread-c440b98d23c2",
+      "thread_depth": 2,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-a27f19b9350d",
+      "message_id": "<CALEXWq3LHUEypskYczwJaqJhct1GkJMA29SJ6GjuOBJmOGOUyA@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-04T17:43:00+02:00",
+      "subject": "[R-sig-Fedora] R package RPMs for Fedora",
+      "subject_clean": "R package RPMs for Fedora",
+      "in_reply_to": "<E3E4DD5E-5F56-4148-8EFA-5311720C3015@me.com>",
+      "references": [
+        "<CALEXWq2Pv1Pp8xOzXmTDm572J7Ad1c=uFdrCj71McAkiPn_PYA@mail.gmail.com>",
+        "<E3E4DD5E-5F56-4148-8EFA-5311720C3015@me.com>"
+      ],
+      "body_plain": "On Mon, 4 May 2020 at 16:27, Marc Schwartz <marc_schwartz at me.com> wrote:\n>\n> Hi I?aki,\n>\n> I don't want to presume to speak for Martyn, but do know from R Foundation interactions, that between his move back to the UK and other things, he has been very busy.\n>\n> I am copying him here, and hopefully as his schedule permits, he can respond.\n\nI imagined he was very busy, but didn't know he was moving. Thanks!\n\n> On May 4, 2020, at 9:14 AM, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> Hi all,\n>\n> Three months ago, I wrote to Martyn Plummer (to his Warwick email) and\n> offered my help to maintain and modernize this [1] rather updated\n\nI obviously meant **rather outdated**.\n\n> README, but received no response. Does anyone know how to reach him,\n> or maybe I should contact CRAN directly?\n>\n> [1] https://cran.r-project.org/bin/linux/redhat/README\n\n-- \nI?aki ?car",
+      "body_snippet": "On Mon, 4 May 2020 at 16:27, Marc Schwartz <marc_schwartz at me.com> wrote:\n>\n> Hi I?aki,\n>\n> I don't want to presume to speak for Martyn, but do know from R Foundation interactions, that between his ",
+      "thread_id": "thread-c440b98d23c2",
+      "thread_depth": 2,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-ebd0075125a2",
+      "message_id": "<7096991.EvYhyI6sBW@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-05-04T17:34:08+01:00",
+      "subject": "[R-sig-Fedora] R package RPMs for Fedora",
+      "subject_clean": "R package RPMs for Fedora",
+      "in_reply_to": "<CALEXWq2Pv1Pp8xOzXmTDm572J7Ad1c=uFdrCj71McAkiPn_PYA@mail.gmail.com>",
+      "references": [
+        "<CALEXWq2Pv1Pp8xOzXmTDm572J7Ad1c=uFdrCj71McAkiPn_PYA@mail.gmail.com>"
+      ],
+      "body_plain": "On Monday, 4 May 2020 14.14.05 WEST I?aki Ucar wrote:\n> Hi all,\n> \n> Three months ago, I wrote to Martyn Plummer (to his Warwick email) and\n> offered my help to maintain and modernize this [1] rather updated\n> README, but received no response. Does anyone know how to reach him,\n> or maybe I should contact CRAN directly?\n> \n> [1] https://cran.r-project.org/bin/linux/redhat/README\n> \n> Regards,\n\nHi I?aki,\n  just tangentially related to this subject, what is the status of the copr that you have \nrelated with automatic build of R packages?\n\nBest regards,\n-- \nJos? Ab?lio\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On Monday, 4 May 2020 14.14.05 WEST I?aki Ucar wrote:\n> Hi all,\n> \n> Three months ago, I wrote to Martyn Plummer (to his Warwick email) and\n> offered my help to maintain and modernize this [1] rather ",
+      "thread_id": "thread-c440b98d23c2",
+      "thread_depth": 1,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-7367e8db4ebb",
+      "message_id": "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "b0864efc945ad746d5bce55bf7c4d85fa011a673c705bb017c133f1ae5ab7506",
+      "date": "2020-05-04T13:14:38-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi folks,\n\nAs expected of a new major release of R, there is a break in compatibility\nfor R packages. From the NEWS entry for 4.0.0:\n\n   Packages need to be (re-)installed under this version (4.0.0) of R.\n\nThis has two impacts on Fedora/EPEL.\n\n1. Users who update to 4.0.0 will need to rebuild any/all packages\ninstalled from CRAN.\n2. Fedora/EPEL R packages will need to be rebuilt for 4.0.0.\n\nFor EPEL, #2 is less impactful (there are not that many R packages in EPEL)\nbut for Fedora, this is a pretty big lift.\n\nI'm thinking that we'll only push this update to EPEL-8, F32, and rawhide,\nbut please, if you have input here, chime in.\n\nThanks,\nTom\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi folks,\n\nAs expected of a new major release of R, there is a break in compatibility\nfor R packages. From the NEWS entry for 4.0.0:\n\n   Packages need to be (re-)installed under this version (4.0.0) o",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 0,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-16973fc9aa2a",
+      "message_id": "<CALEXWq1dMud5=HTuJ0gguZ0vCAKPE5jo3qMx_OQJyGKgMDYt2Q@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-04T21:18:24+02:00",
+      "subject": "[R-sig-Fedora] R package RPMs for Fedora",
+      "subject_clean": "R package RPMs for Fedora",
+      "in_reply_to": "<7096991.EvYhyI6sBW@myth>",
+      "references": [
+        "<CALEXWq2Pv1Pp8xOzXmTDm572J7Ad1c=uFdrCj71McAkiPn_PYA@mail.gmail.com>",
+        "<7096991.EvYhyI6sBW@myth>"
+      ],
+      "body_plain": "On Mon, 4 May 2020 at 18:34, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> Hi I?aki,\n>   just tangentially related to this subject, what is the status of the copr that you have\n> related with automatic build of R packages?\n\nHi, Jos?, the Copr repo is working great! I wrote a brief note about\nit [1], and the README contains further details [2]. I use it in all\nmy machines and the servers I maintain, and I'm very happy with it.\nEvery day, a GitHub action checks which packages where\nupdated/added/archived on CRAN and triggers the corresponding builds.\n\n[1] https://www.enchufa2.es/archives/cran2copr-rpm-repos-with-15k-binary-r-packages.html\n[2] https://copr.fedorainfracloud.org/coprs/iucar/cran/\n\n-- \nI?aki ?car",
+      "body_snippet": "On Mon, 4 May 2020 at 18:34, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> Hi I?aki,\n>   just tangentially related to this subject, what is the status of the copr that you have\n> related with aut",
+      "thread_id": "thread-c440b98d23c2",
+      "thread_depth": 2,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-d79fb3244d8c",
+      "message_id": "<CALEXWq0oKW-osVTK-RMMCBuy=BjKsf1qZ0Skk0ngm6kSguvy-g@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-04T21:31:42+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Mon, 4 May 2020 at 19:15, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> Hi folks,\n>\n> As expected of a new major release of R, there is a break in compatibility\n> for R packages. From the NEWS entry for 4.0.0:\n>\n>    Packages need to be (re-)installed under this version (4.0.0) of R.\n>\n> This has two impacts on Fedora/EPEL.\n>\n> 1. Users who update to 4.0.0 will need to rebuild any/all packages\n> installed from CRAN.\n> 2. Fedora/EPEL R packages will need to be rebuilt for 4.0.0.\n>\n> For EPEL, #2 is less impactful (there are not that many R packages in EPEL)\n> but for Fedora, this is a pretty big lift.\n>\n> I'm thinking that we'll only push this update to EPEL-8, F32, and rawhide,\n> but please, if you have input here, chime in.\n\nI agree. And we patched the symbol issues in v3.6.3 in F31 (please,\ndon't forget to trigger a build and an update) thanks to Paul Murrell,\nso we're fine on that front.\n\nI'll have to rebuild 15k packages on the CRAN Copr repo. That's gonna\nbe huuuge. :) I'll try to do that while the update is sitting in\nupdates-testing and before it's pushed to stable.\n\nI?aki",
+      "body_snippet": "On Mon, 4 May 2020 at 19:15, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> Hi folks,\n>\n> As expected of a new major release of R, there is a break in compatibility\n> for R packages. From the NEWS e",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 1,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-56ce95db4ff4",
+      "message_id": "<CANA0HMaYYyf=6da78sR3auCfTKG7=uxAA-it3ciLC+wA6AGW_w@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "b0864efc945ad746d5bce55bf7c4d85fa011a673c705bb017c133f1ae5ab7506",
+      "date": "2020-05-08T23:45:39-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<CALEXWq0oKW-osVTK-RMMCBuy=BjKsf1qZ0Skk0ngm6kSguvy-g@mail.gmail.com>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<CALEXWq0oKW-osVTK-RMMCBuy=BjKsf1qZ0Skk0ngm6kSguvy-g@mail.gmail.com>"
+      ],
+      "body_plain": "Thinking out loud here... do we want to have some macro magic to embed a\ndependency on an R(ABI) provides? Where R 4.0.0 would provide R(ABI) = 4\nand all R packages built against it would pick up Requires: R(ABI) = 4 ?\nI don't suppose we need it, since the likelihood of someone installing R\nmodule packages but not updating R is low, but I wanted to throw it out\nthere.\n\nTom\n\nOn Mon, May 4, 2020 at 3:31 PM I?aki Ucar <iucar at fedoraproject.org> wrote:\n\n> On Mon, 4 May 2020 at 19:15, Tom Callaway <tcallawa at redhat.com> wrote:\n> >\n> > Hi folks,\n> >\n> > As expected of a new major release of R, there is a break in\n> compatibility\n> > for R packages. From the NEWS entry for 4.0.0:\n> >\n> >    Packages need to be (re-)installed under this version (4.0.0) of R.\n> >\n> > This has two impacts on Fedora/EPEL.\n> >\n> > 1. Users who update to 4.0.0 will need to rebuild any/all packages\n> > installed from CRAN.\n> > 2. Fedora/EPEL R packages will need to be rebuilt for 4.0.0.\n> >\n> > For EPEL, #2 is less impactful (there are not that many R packages in\n> EPEL)\n> > but for Fedora, this is a pretty big lift.\n> >\n> > I'm thinking that we'll only push this update to EPEL-8, F32, and\n> rawhide,\n> > but please, if you have input here, chime in.\n>\n> I agree. And we patched the symbol issues in v3.6.3 in F31 (please,\n> don't forget to trigger a build and an update) thanks to Paul Murrell,\n> so we're fine on that front.\n>\n> I'll have to rebuild 15k packages on the CRAN Copr repo. That's gonna\n> be huuuge. :) I'll try to do that while the update is sitting in\n> updates-testing and before it's pushed to stable.\n>\n> I?aki\n>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Thinking out loud here... do we want to have some macro magic to embed a\ndependency on an R(ABI) provides? Where R 4.0.0 would provide R(ABI) = 4\nand all R packages built against it would pick up Requ",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 2,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-3d3b83e1bbd3",
+      "message_id": "<CALEXWq0=VR3T4f1sdhuJJpFAAz_-JvfT7u1Ek0kkf0arU+DObg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-09T11:31:55+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<CANA0HMaYYyf=6da78sR3auCfTKG7=uxAA-it3ciLC+wA6AGW_w@mail.gmail.com>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<CALEXWq0oKW-osVTK-RMMCBuy=BjKsf1qZ0Skk0ngm6kSguvy-g@mail.gmail.com>",
+        "<CANA0HMaYYyf=6da78sR3auCfTKG7=uxAA-it3ciLC+wA6AGW_w@mail.gmail.com>"
+      ],
+      "body_plain": "On Sat, 9 May 2020 at 05:46, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> Thinking out loud here... do we want to have some macro magic to embed a\n> dependency on an R(ABI) provides? Where R 4.0.0 would provide R(ABI) = 4\n> and all R packages built against it would pick up Requires: R(ABI) = 4 ?\n\nNote that recompilation is sometimes required too for minor version\nchanges, so the virtual provides should include the minor version to\nbe in the safe side.\n\n> I don't suppose we need it, since the likelihood of someone installing R\n> module packages but not updating R is low, but I wanted to throw it out\n> there.\n\nOr updating R and not updating R packages. Even if the chances are\nlow, I think it's a cheap thing to add and would make the installation\nmore robust to this kind of issue.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Sat, 9 May 2020 at 05:46, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> Thinking out loud here... do we want to have some macro magic to embed a\n> dependency on an R(ABI) provides? Where R 4.0.0",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 3,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-64dce21d2abc",
+      "message_id": "<CANA0HMYNGwXW_fbii8BDs=EnMKC5WQQGY5wdSAeWTXkR4dJSRQ@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "b0864efc945ad746d5bce55bf7c4d85fa011a673c705bb017c133f1ae5ab7506",
+      "date": "2020-05-11T10:29:02-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<CALEXWq0=VR3T4f1sdhuJJpFAAz_-JvfT7u1Ek0kkf0arU+DObg@mail.gmail.com>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<CALEXWq0oKW-osVTK-RMMCBuy=BjKsf1qZ0Skk0ngm6kSguvy-g@mail.gmail.com>",
+        "<CANA0HMaYYyf=6da78sR3auCfTKG7=uxAA-it3ciLC+wA6AGW_w@mail.gmail.com>",
+        "<CALEXWq0=VR3T4f1sdhuJJpFAAz_-JvfT7u1Ek0kkf0arU+DObg@mail.gmail.com>"
+      ],
+      "body_plain": "Hmmm. That seems like a rather heavy dependency, given that I think we've\nonly been forced to do rebuilds for everything as a result of 4.0.0 and\n3.4.0.\n\nDoes anyone know if upstream has any sort of commitment to ABI here that we\ncould depend on (e.g. only breaking on major versions, never minor) ?\n\nTom\n\nOn Sat, May 9, 2020 at 5:32 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n\n> On Sat, 9 May 2020 at 05:46, Tom Callaway <tcallawa at redhat.com> wrote:\n> >\n> > Thinking out loud here... do we want to have some macro magic to embed a\n> > dependency on an R(ABI) provides? Where R 4.0.0 would provide R(ABI) = 4\n> > and all R packages built against it would pick up Requires: R(ABI) = 4 ?\n>\n> Note that recompilation is sometimes required too for minor version\n> changes, so the virtual provides should include the minor version to\n> be in the safe side.\n>\n> > I don't suppose we need it, since the likelihood of someone installing R\n> > module packages but not updating R is low, but I wanted to throw it out\n> > there.\n>\n> Or updating R and not updating R packages. Even if the chances are\n> low, I think it's a cheap thing to add and would make the installation\n> more robust to this kind of issue.\n>\n> --\n> I?aki ?car\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hmmm. That seems like a rather heavy dependency, given that I think we've\nonly been forced to do rebuilds for everything as a result of 4.0.0 and\n3.4.0.\n\nDoes anyone know if upstream has any sort of c",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 4,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-be9c5033c768",
+      "message_id": "<CALEXWq3M_2cNEHOjN71HTJ+4H_=nhxfZWoT2W0JuNKus+vFfpQ@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-11T17:47:55+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<CANA0HMYNGwXW_fbii8BDs=EnMKC5WQQGY5wdSAeWTXkR4dJSRQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<CALEXWq0oKW-osVTK-RMMCBuy=BjKsf1qZ0Skk0ngm6kSguvy-g@mail.gmail.com>",
+        "<CANA0HMaYYyf=6da78sR3auCfTKG7=uxAA-it3ciLC+wA6AGW_w@mail.gmail.com>",
+        "<CALEXWq0=VR3T4f1sdhuJJpFAAz_-JvfT7u1Ek0kkf0arU+DObg@mail.gmail.com>",
+        "<CANA0HMYNGwXW_fbii8BDs=EnMKC5WQQGY5wdSAeWTXkR4dJSRQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Mon, 11 May 2020 at 16:29, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> Hmmm. That seems like a rather heavy dependency, given that I think we've\n> only been forced to do rebuilds for everything as a result of 4.0.0 and\n> 3.4.0.\n\nThat's just coincidence, because if you browse old NEWS, you can see\n\"packages [doing this or that] need to be re(-)installed\" here and\nthere if most minor versions: maybe there wasn't any of such packages\nin Fedora, maybe a mass rebuild or an update fixed the issue before\nanyone noticed... It's just that we don't have any mechanism to detect\nthat unless a user complains.\n\n> Does anyone know if upstream has any sort of commitment to ABI here that we\n> could depend on (e.g. only breaking on major versions, never minor) ?\n\nAFAIK, there's this commitment only for patch versions. In fact, the\npath for the personal library is:\n\n~/R/x86_64-redhat-linux-gnu-library/<major>.<minor>/\n\nso, when you install a new minor version, you don't have any package\nin your personal library. Most of the time, for many packages, it just\nworks if you copy the old packages into the new folder, but many times\nthings break and reinstallation is needed. And this may happen for\ncompiled packages, but also for non-compiled ones (e.g.: \"Packages\ndefining S4 classes with the above S3/S4 classes as slots should be\nreinstalled\", in R 3.3.0).\n\nSo maybe we should streamline mass rebuild of R packages, and do it\nfor all minor updates. The virtual provide you proposed will force us\nto do that, and will prevent breakages and complaints.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Mon, 11 May 2020 at 16:29, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> Hmmm. That seems like a rather heavy dependency, given that I think we've\n> only been forced to do rebuilds for everythin",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 5,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-de6b6a38858e",
+      "message_id": "<CANA0HMZRR4ACaFc+x5fU03EjP9md2Q13kr5Yifrb2auS7F=XrA@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "b0864efc945ad746d5bce55bf7c4d85fa011a673c705bb017c133f1ae5ab7506",
+      "date": "2020-05-12T12:12:34-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<CALEXWq3M_2cNEHOjN71HTJ+4H_=nhxfZWoT2W0JuNKus+vFfpQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<CALEXWq0oKW-osVTK-RMMCBuy=BjKsf1qZ0Skk0ngm6kSguvy-g@mail.gmail.com>",
+        "<CANA0HMaYYyf=6da78sR3auCfTKG7=uxAA-it3ciLC+wA6AGW_w@mail.gmail.com>",
+        "<CALEXWq0=VR3T4f1sdhuJJpFAAz_-JvfT7u1Ek0kkf0arU+DObg@mail.gmail.com>",
+        "<CANA0HMYNGwXW_fbii8BDs=EnMKC5WQQGY5wdSAeWTXkR4dJSRQ@mail.gmail.com>",
+        "<CALEXWq3M_2cNEHOjN71HTJ+4H_=nhxfZWoT2W0JuNKus+vFfpQ@mail.gmail.com>"
+      ],
+      "body_plain": "Okay, I'm convinced.\n\nhttps://github.com/rpm-software-management/R-rpm-macros/pull/1\n\nThanks,\nTom\n\nOn Mon, May 11, 2020 at 11:48 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n\n> On Mon, 11 May 2020 at 16:29, Tom Callaway <tcallawa at redhat.com> wrote:\n> >\n> > Hmmm. That seems like a rather heavy dependency, given that I think we've\n> > only been forced to do rebuilds for everything as a result of 4.0.0 and\n> > 3.4.0.\n>\n> That's just coincidence, because if you browse old NEWS, you can see\n> \"packages [doing this or that] need to be re(-)installed\" here and\n> there if most minor versions: maybe there wasn't any of such packages\n> in Fedora, maybe a mass rebuild or an update fixed the issue before\n> anyone noticed... It's just that we don't have any mechanism to detect\n> that unless a user complains.\n>\n> > Does anyone know if upstream has any sort of commitment to ABI here that\n> we\n> > could depend on (e.g. only breaking on major versions, never minor) ?\n>\n> AFAIK, there's this commitment only for patch versions. In fact, the\n> path for the personal library is:\n>\n> ~/R/x86_64-redhat-linux-gnu-library/<major>.<minor>/\n>\n> so, when you install a new minor version, you don't have any package\n> in your personal library. Most of the time, for many packages, it just\n> works if you copy the old packages into the new folder, but many times\n> things break and reinstallation is needed. And this may happen for\n> compiled packages, but also for non-compiled ones (e.g.: \"Packages\n> defining S4 classes with the above S3/S4 classes as slots should be\n> reinstalled\", in R 3.3.0).\n>\n> So maybe we should streamline mass rebuild of R packages, and do it\n> for all minor updates. The virtual provide you proposed will force us\n> to do that, and will prevent breakages and complaints.\n>\n> --\n> I?aki ?car\n>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Okay, I'm convinced.\n\nhttps://github.com/rpm-software-management/R-rpm-macros/pull/1\n\nThanks,\nTom\n\nOn Mon, May 11, 2020 at 11:48 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n\n> On Mon, 11 May 202",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 6,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-2c333df46588",
+      "message_id": "<2032528.Mh6RI2rZIc@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-05-14T20:41:02+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<CALEXWq3M_2cNEHOjN71HTJ+4H_=nhxfZWoT2W0JuNKus+vFfpQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<CANA0HMYNGwXW_fbii8BDs=EnMKC5WQQGY5wdSAeWTXkR4dJSRQ@mail.gmail.com>",
+        "<CALEXWq3M_2cNEHOjN71HTJ+4H_=nhxfZWoT2W0JuNKus+vFfpQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Monday, 11 May 2020 16.47.55 WEST I?aki Ucar wrote:\n> AFAIK, there's this commitment only for patch versions. In fact, the\n> path for the personal library is:\n> \n> ~/R/x86_64-redhat-linux-gnu-library/<major>.<minor>/\n> \n> so, when you install a new minor version, you don't have any package\n> in your personal library. Most of the time, for many packages, it just\n> works if you copy the old packages into the new folder, but many times\n> things break and reinstallation is needed. And this may happen for\n> compiled packages, but also for non-compiled ones (e.g.: \"Packages\n> defining S4 classes with the above S3/S4 classes as slots should be\n> reinstalled\", in R 3.3.0).\n> \n> So maybe we should streamline mass rebuild of R packages, and do it\n> for all minor updates. The virtual provide you proposed will force us\n> to do that, and will prevent breakages and complaints.\n\nSomething that I have been wondering for some time, previous to this thread, \nis why is not this the default also for system installation and not just for \nusers installs.\n\nWith this I mean to have the system directories to be respectively:\n\n%{__libdir}|%{__datadir}/R<major>.<minor>\n\nIs this due to inertia or are there other reasons. That would naturally solve \nthe need to rebuild for each minor release. The major point here is that would \napply not only to our packages but also for others installed using R itself.\n\nBest regards,\n-- \nJos? Ab?lio",
+      "body_snippet": "On Monday, 11 May 2020 16.47.55 WEST I?aki Ucar wrote:\n> AFAIK, there's this commitment only for patch versions. In fact, the\n> path for the personal library is:\n> \n> ~/R/x86_64-redhat-linux-gnu-libra",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 6,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-64fae016ca90",
+      "message_id": "<CALEXWq0x2BAj9_h9C02CbTHwJMQOexE2CzFfnYmSDTtC0T6vtg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-14T22:30:13+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<2032528.Mh6RI2rZIc@myth>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<CANA0HMYNGwXW_fbii8BDs=EnMKC5WQQGY5wdSAeWTXkR4dJSRQ@mail.gmail.com>",
+        "<CALEXWq3M_2cNEHOjN71HTJ+4H_=nhxfZWoT2W0JuNKus+vFfpQ@mail.gmail.com>",
+        "<2032528.Mh6RI2rZIc@myth>"
+      ],
+      "body_plain": "On Thu, 14 May 2020 at 21:41, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Monday, 11 May 2020 16.47.55 WEST I?aki Ucar wrote:\n> > AFAIK, there's this commitment only for patch versions. In fact, the\n> > path for the personal library is:\n> >\n> > ~/R/x86_64-redhat-linux-gnu-library/<major>.<minor>/\n> >\n> > so, when you install a new minor version, you don't have any package\n> > in your personal library. Most of the time, for many packages, it just\n> > works if you copy the old packages into the new folder, but many times\n> > things break and reinstallation is needed. And this may happen for\n> > compiled packages, but also for non-compiled ones (e.g.: \"Packages\n> > defining S4 classes with the above S3/S4 classes as slots should be\n> > reinstalled\", in R 3.3.0).\n> >\n> > So maybe we should streamline mass rebuild of R packages, and do it\n> > for all minor updates. The virtual provide you proposed will force us\n> > to do that, and will prevent breakages and complaints.\n>\n> Something that I have been wondering for some time, previous to this thread,\n> is why is not this the default also for system installation and not just for\n> users installs.\n>\n> With this I mean to have the system directories to be respectively:\n>\n> %{__libdir}|%{__datadir}/R<major>.<minor>\n>\n> Is this due to inertia or are there other reasons. That would naturally solve\n> the need to rebuild for each minor release. The major point here is that would\n> apply not only to our packages but also for others installed using R itself.\n\nMmmh... but then you have to change that in the packages' SPEC and\nrebuild them anyway when you update R. So... what's the advantage of\nthis?\n\n-- \nI?aki ?car",
+      "body_snippet": "On Thu, 14 May 2020 at 21:41, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Monday, 11 May 2020 16.47.55 WEST I?aki Ucar wrote:\n> > AFAIK, there's this commitment only for patch versions. In f",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 7,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-da66f42af299",
+      "message_id": "<2282337.jE0xQCEvom@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-05-14T23:22:36+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<CALEXWq0x2BAj9_h9C02CbTHwJMQOexE2CzFfnYmSDTtC0T6vtg@mail.gmail.com>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<2032528.Mh6RI2rZIc@myth>",
+        "<CALEXWq0x2BAj9_h9C02CbTHwJMQOexE2CzFfnYmSDTtC0T6vtg@mail.gmail.com>"
+      ],
+      "body_plain": "On Thursday, 14 May 2020 21.30.13 WEST I?aki Ucar wrote:\n> Mmmh... but then you have to change that in the packages' SPEC and\n> rebuild them anyway when you update R. So... what's the advantage of\n> this?\n\nWe already have other examples of how to do this with less steps. :-)\n\nCreate macros like\n\n%{r_sitearch}\n%{r_sitelib}\n\nthat expand with the R version being used and place them in R-rpm-macros and \nchange all the R srpms to use them. We can also contribute changes to srpm \ngenerators like https://pagure.io/r2spec.\n\nThis is a one-time change.\n\nThen when a new R version shows up it is enough to bump the release and \nrebuild the package. With the added advantage that all the cobwebs and dust \nare cleaned. :-)\n\nAnother advantage is that the boilerplate code required to create a srpm \npackage decreases. :-)\n\nRegards,\n-- \nJos? Ab?lio",
+      "body_snippet": "On Thursday, 14 May 2020 21.30.13 WEST I?aki Ucar wrote:\n> Mmmh... but then you have to change that in the packages' SPEC and\n> rebuild them anyway when you update R. So... what's the advantage of\n> t",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 8,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-3492a0dea9a1",
+      "message_id": "<CALEXWq2OfMyB7h1FodKz9vX+NF5YH4oAp0XbYF+0JH0m2f_bHQ@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-15T00:58:02+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<2282337.jE0xQCEvom@myth>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<2032528.Mh6RI2rZIc@myth>",
+        "<CALEXWq0x2BAj9_h9C02CbTHwJMQOexE2CzFfnYmSDTtC0T6vtg@mail.gmail.com>",
+        "<2282337.jE0xQCEvom@myth>"
+      ],
+      "body_plain": "On Fri, 15 May 2020 at 00:23, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Thursday, 14 May 2020 21.30.13 WEST I?aki Ucar wrote:\n> > Mmmh... but then you have to change that in the packages' SPEC and\n> > rebuild them anyway when you update R. So... what's the advantage of\n> > this?\n>\n> We already have other examples of how to do this with less steps. :-)\n>\n> Create macros like\n>\n> %{r_sitearch}\n> %{r_sitelib}\n>\n> that expand with the R version being used and place them in R-rpm-macros and\n> change all the R srpms to use them. We can also contribute changes to srpm\n> generators like https://pagure.io/r2spec.\n>\n> This is a one-time change.\n>\n> Then when a new R version shows up it is enough to bump the release and\n> rebuild the package. With the added advantage that all the cobwebs and dust\n> are cleaned. :-)\n>\n> Another advantage is that the boilerplate code required to create a srpm\n> package decreases. :-)\n\nBut we still have to rebuild the packages anyway, and this setup\ndoesn't force us to actually rebuild them, nor the user to update\nthem. So a user could end up with R major.minor and a bunch of\npackages installed in some major.minor-1 path that are just junk. Or\nthe other way around: a bunch of packages updated under major.minor+1\nwith a previous version of R.\n\nI mean, +1 to less boilerplate for packages, but changing the release\n+ the ABI specification is not a big deal and solves those issues. For\nme, having a path with full version specification only makes sense if\nthere is more than one version installed at the same time, like\nPython.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Fri, 15 May 2020 at 00:23, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Thursday, 14 May 2020 21.30.13 WEST I?aki Ucar wrote:\n> > Mmmh... but then you have to change that in the packages' ",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 9,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-8c2b219b77e1",
+      "message_id": "<CAJP_izcFcRNnBhCa9UmaZ2kMSU_KVNUTsMO7Oy2THuL_Z7wUYA@mail.gmail.com>",
+      "from_name": "Elliott Sales de Andrade",
+      "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
+      "date": "2020-05-15T05:05:42-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<CANA0HMZRR4ACaFc+x5fU03EjP9md2Q13kr5Yifrb2auS7F=XrA@mail.gmail.com>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<CALEXWq0oKW-osVTK-RMMCBuy=BjKsf1qZ0Skk0ngm6kSguvy-g@mail.gmail.com>",
+        "<CANA0HMaYYyf=6da78sR3auCfTKG7=uxAA-it3ciLC+wA6AGW_w@mail.gmail.com>",
+        "<CALEXWq0=VR3T4f1sdhuJJpFAAz_-JvfT7u1Ek0kkf0arU+DObg@mail.gmail.com>",
+        "<CANA0HMYNGwXW_fbii8BDs=EnMKC5WQQGY5wdSAeWTXkR4dJSRQ@mail.gmail.com>",
+        "<CALEXWq3M_2cNEHOjN71HTJ+4H_=nhxfZWoT2W0JuNKus+vFfpQ@mail.gmail.com>",
+        "<CANA0HMZRR4ACaFc+x5fU03EjP9md2Q13kr5Yifrb2auS7F=XrA@mail.gmail.com>"
+      ],
+      "body_plain": "On Tue, 12 May 2020 at 12:13, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> Okay, I'm convinced.\n>\n> https://github.com/rpm-software-management/R-rpm-macros/pull/1\n>\n\nI merged the PR and pushed it to dist-git as well. I have not built\nanything though, since as I mentioned in the PR, I think builds should\nbe done in a side tag to avoid breakage.\n\n> Thanks,\n> Tom\n>\n> On Mon, May 11, 2020 at 11:48 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> > On Mon, 11 May 2020 at 16:29, Tom Callaway <tcallawa at redhat.com> wrote:\n> > >\n> > > Hmmm. That seems like a rather heavy dependency, given that I think we've\n> > > only been forced to do rebuilds for everything as a result of 4.0.0 and\n> > > 3.4.0.\n> >\n> > That's just coincidence, because if you browse old NEWS, you can see\n> > \"packages [doing this or that] need to be re(-)installed\" here and\n> > there if most minor versions: maybe there wasn't any of such packages\n> > in Fedora, maybe a mass rebuild or an update fixed the issue before\n> > anyone noticed... It's just that we don't have any mechanism to detect\n> > that unless a user complains.\n> >\n> > > Does anyone know if upstream has any sort of commitment to ABI here that\n> > we\n> > > could depend on (e.g. only breaking on major versions, never minor) ?\n> >\n> > AFAIK, there's this commitment only for patch versions. In fact, the\n> > path for the personal library is:\n> >\n> > ~/R/x86_64-redhat-linux-gnu-library/<major>.<minor>/\n> >\n> > so, when you install a new minor version, you don't have any package\n> > in your personal library. Most of the time, for many packages, it just\n> > works if you copy the old packages into the new folder, but many times\n> > things break and reinstallation is needed. And this may happen for\n> > compiled packages, but also for non-compiled ones (e.g.: \"Packages\n> > defining S4 classes with the above S3/S4 classes as slots should be\n> > reinstalled\", in R 3.3.0).\n> >\n> > So maybe we should streamline mass rebuild of R packages, and do it\n> > for all minor updates. The virtual provide you proposed will force us\n> > to do that, and will prevent breakages and complaints.\n> >\n> > --\n> > I?aki ?car\n> >\n> >\n>\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\n-- \nElliott",
+      "body_snippet": "On Tue, 12 May 2020 at 12:13, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> Okay, I'm convinced.\n>\n> https://github.com/rpm-software-management/R-rpm-macros/pull/1\n>\n\nI merged the PR and pushed it ",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 7,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-909145bc4b8f",
+      "message_id": "<12521160.dW097sEU6C@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-05-15T10:57:52+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<CALEXWq2OfMyB7h1FodKz9vX+NF5YH4oAp0XbYF+0JH0m2f_bHQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<2282337.jE0xQCEvom@myth>",
+        "<CALEXWq2OfMyB7h1FodKz9vX+NF5YH4oAp0XbYF+0JH0m2f_bHQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Thursday, 14 May 2020 23.58.02 WEST I?aki Ucar wrote:\n> But we still have to rebuild the packages anyway, and this setup\n> doesn't force us to actually rebuild them, nor the user to update\n> them. So a user could end up with R major.minor and a bunch of\n> packages installed in some major.minor-1 path that are just junk. Or\n> the other way around: a bunch of packages updated under major.minor+1\n> with a previous version of R.\n\nHonestly my point here was for consistency with the user settings.\nIf you have per version directories for users why not to do the same for the \nsystem?\n\n> I mean, +1 to less boilerplate for packages, but changing the release\n> + the ABI specification is not a big deal and solves those issues. For\n> me, having a path with full version specification only makes sense if\n> there is more than one version installed at the same time, like\n> Python.\n\nThat would also be a nice side effect. :-)\n\n-- \nJos? Ab?lio",
+      "body_snippet": "On Thursday, 14 May 2020 23.58.02 WEST I?aki Ucar wrote:\n> But we still have to rebuild the packages anyway, and this setup\n> doesn't force us to actually rebuild them, nor the user to update\n> them. ",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 10,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-e6f7de390205",
+      "message_id": "<CALEXWq2iw0BA=ga2PmqgbkEKT=Fm9uxMJd4vqMSfF3Sj5f3csQ@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-15T12:33:26+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<12521160.dW097sEU6C@myth>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<2282337.jE0xQCEvom@myth>",
+        "<CALEXWq2OfMyB7h1FodKz9vX+NF5YH4oAp0XbYF+0JH0m2f_bHQ@mail.gmail.com>",
+        "<12521160.dW097sEU6C@myth>"
+      ],
+      "body_plain": "On Fri, 15 May 2020 at 11:58, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Thursday, 14 May 2020 23.58.02 WEST I?aki Ucar wrote:\n> > But we still have to rebuild the packages anyway, and this setup\n> > doesn't force us to actually rebuild them, nor the user to update\n> > them. So a user could end up with R major.minor and a bunch of\n> > packages installed in some major.minor-1 path that are just junk. Or\n> > the other way around: a bunch of packages updated under major.minor+1\n> > with a previous version of R.\n>\n> Honestly my point here was for consistency with the user settings.\n> If you have per version directories for users why not to do the same for the\n> system?\n\nThe rationale behind the user settings is that the user dir is not\ncontrolled by the system, so versioning it is the only way to avoid\nbreakage. For the system library, there are better tools to prevent\nthat.\n\n> > I mean, +1 to less boilerplate for packages, but changing the release\n> > + the ABI specification is not a big deal and solves those issues. For\n> > me, having a path with full version specification only makes sense if\n> > there is more than one version installed at the same time, like\n> > Python.\n>\n> That would also be a nice side effect. :-)\n\nAre you suggesting that we should maintain several versions of R at\nthe same time? I don't think we want or should go down that path... :D\n\n-- \nI?aki ?car",
+      "body_snippet": "On Fri, 15 May 2020 at 11:58, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Thursday, 14 May 2020 23.58.02 WEST I?aki Ucar wrote:\n> > But we still have to rebuild the packages anyway, and this",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 11,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-22c4f6bf337d",
+      "message_id": "<12521437.uLZWGnKmhe@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-05-15T23:48:36+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<CALEXWq2iw0BA=ga2PmqgbkEKT=Fm9uxMJd4vqMSfF3Sj5f3csQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<12521160.dW097sEU6C@myth>",
+        "<CALEXWq2iw0BA=ga2PmqgbkEKT=Fm9uxMJd4vqMSfF3Sj5f3csQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Friday, 15 May 2020 11.33.26 WEST I?aki Ucar wrote:\n> The rationale behind the user settings is that the user dir is not\n> controlled by the system, so versioning it is the only way to avoid\n> breakage. For the system library, there are better tools to prevent\n> that.\n\nDo you know the difference between theory and practice? :-)\n\nIn theory they are equal but in practice... :-)\n\n> > > I mean, +1 to less boilerplate for packages, but changing the release\n> > > + the ABI specification is not a big deal and solves those issues. For\n> > > me, having a path with full version specification only makes sense if\n> > > there is more than one version installed at the same time, like\n> > > Python.\n> > \n> > That would also be a nice side effect. \n> \n> Are you suggesting that we should maintain several versions of R at\n> the same time? I don't think we want or should go down that path... \n\nNo I am not suggesting that. :-)\n\nIf we take the example from python where I have installed versions from python \n3.4 to 3.9 (that is yet in alpha stage).\n\n# rpm -qf /usr/bin/python3.?\npython34-3.4.10-10.fc32.x86_64\npython35-3.5.9-1.fc32.x86_64\npython36-3.6.10-2.fc32.x86_64\npython37-3.7.7-1.fc32.x86_64\npython3-3.8.2-2.fc32.x86_64\npython39-3.9.0~a6-1.fc32.x86_64\n\nThe only version where I have python packages installed is for 3.8 (since I am \nusing Fedora 32 - as it can be seen above).\n\nThat allows me to test the base version for python without having to compile \nevery time and every where I want to use it.\n\nAnd although it was not my initial motivation but you probably saw the \ndiscussion today on R-devel (Rd) about people not testing the versions alpha, \nbeta and rc from r-devel.\nA versioned system path would allow to test this more easily.\n\n-- \nJos? Ab?lio",
+      "body_snippet": "On Friday, 15 May 2020 11.33.26 WEST I?aki Ucar wrote:\n> The rationale behind the user settings is that the user dir is not\n> controlled by the system, so versioning it is the only way to avoid\n> brea",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 12,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-713c4d6e5ae5",
+      "message_id": "<CALEXWq0xSSXUpcVwB1wK3J1cQ56OmSz0qDk3kBB1OMCoUuuBHQ@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-16T01:38:34+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<12521437.uLZWGnKmhe@myth>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<12521160.dW097sEU6C@myth>",
+        "<CALEXWq2iw0BA=ga2PmqgbkEKT=Fm9uxMJd4vqMSfF3Sj5f3csQ@mail.gmail.com>",
+        "<12521437.uLZWGnKmhe@myth>"
+      ],
+      "body_plain": "On Sat, 16 May 2020 at 00:49, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> If we take the example from python where I have installed versions from python\n> 3.4 to 3.9 (that is yet in alpha stage).\n>\n> # rpm -qf /usr/bin/python3.?\n> python34-3.4.10-10.fc32.x86_64\n> python35-3.5.9-1.fc32.x86_64\n> python36-3.6.10-2.fc32.x86_64\n> python37-3.7.7-1.fc32.x86_64\n> python3-3.8.2-2.fc32.x86_64\n> python39-3.9.0~a6-1.fc32.x86_64\n>\n> The only version where I have python packages installed is for 3.8 (since I am\n> using Fedora 32 - as it can be seen above).\n>\n> That allows me to test the base version for python without having to compile\n> every time and every where I want to use it.\n>\n> And although it was not my initial motivation but you probably saw the\n> discussion today on R-devel (Rd) about people not testing the versions alpha,\n> beta and rc from r-devel.\n> A versioned system path would allow to test this more easily.\n\nSorry, but I'm not sure I'm following you. How does having\n/usr/lib64/R/library as system library prevent you from testing\nr-devel?\n\nBut anyway, I'm only saying that, independently of the path, we can\nbenefit from the R(ABI) virtual provide, as Python does.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Sat, 16 May 2020 at 00:49, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> If we take the example from python where I have installed versions from python\n> 3.4 to 3.9 (that is yet in alpha stage",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 13,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-f8e0f5269136",
+      "message_id": "<7101543.EvYhyI6sBW@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-05-16T09:25:42+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<CALEXWq0xSSXUpcVwB1wK3J1cQ56OmSz0qDk3kBB1OMCoUuuBHQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<12521437.uLZWGnKmhe@myth>",
+        "<CALEXWq0xSSXUpcVwB1wK3J1cQ56OmSz0qDk3kBB1OMCoUuuBHQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Saturday, 16 May 2020 00.38.34 WEST I?aki Ucar wrote:\n> Sorry, but I'm not sure I'm following you. How does having\n> /usr/lib64/R/library as system library prevent you from testing\n> r-devel?\n\nFirst the context, we are speaking of srpms.\n\nUse case: you want to test a pre-version of R before it is released and you \nwant to do it using dnf while not having to de-install the current version, \nwith all its libraries.\n\nSince the purpose is both to install and test both r-devel and the rpm \npackages the goal should be that the spec file should be as close as possible \nto the final spec file.\n\nWhat I am saying is that by experience it is easier to test and adapt a spec \nfile if only a small number of conditionals are needed to use the current spec \nfile.\nAs far as I remember, from Miro's messages in fedora-devel, that is what is \nbeing done in the python packages.\nThat is also what I have done for other packages, although not a language, \nlike lyx.\n\nI hope that now it makes sense,\n-- \nJos? Ab?lio",
+      "body_snippet": "On Saturday, 16 May 2020 00.38.34 WEST I?aki Ucar wrote:\n> Sorry, but I'm not sure I'm following you. How does having\n> /usr/lib64/R/library as system library prevent you from testing\n> r-devel?\n\nFirs",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 14,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-0c59a05f2517",
+      "message_id": "<CALEXWq30=Dgn0b+nvMoaDVXxOQp8egpXSMYaXa_K_wubJyYPng@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-16T12:24:06+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0",
+      "subject_clean": "R 4.0.0",
+      "in_reply_to": "<7101543.EvYhyI6sBW@myth>",
+      "references": [
+        "<CANA0HMZxwDzwUYzYYop26TuVKYi-E07rVaevOkhu7k6vPt9isQ@mail.gmail.com>",
+        "<12521437.uLZWGnKmhe@myth>",
+        "<CALEXWq0xSSXUpcVwB1wK3J1cQ56OmSz0qDk3kBB1OMCoUuuBHQ@mail.gmail.com>",
+        "<7101543.EvYhyI6sBW@myth>"
+      ],
+      "body_plain": "On Sat, 16 May 2020 at 10:26, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Saturday, 16 May 2020 00.38.34 WEST I?aki Ucar wrote:\n> > Sorry, but I'm not sure I'm following you. How does having\n> > /usr/lib64/R/library as system library prevent you from testing\n> > r-devel?\n>\n> First the context, we are speaking of srpms.\n>\n> Use case: you want to test a pre-version of R before it is released and you\n> want to do it using dnf while not having to de-install the current version,\n> with all its libraries.\n>\n> Since the purpose is both to install and test both r-devel and the rpm\n> packages the goal should be that the spec file should be as close as possible\n> to the final spec file.\n>\n> What I am saying is that by experience it is easier to test and adapt a spec\n> file if only a small number of conditionals are needed to use the current spec\n> file.\n> As far as I remember, from Miro's messages in fedora-devel, that is what is\n> being done in the python packages.\n> That is also what I have done for other packages, although not a language,\n> like lyx.\n>\n> I hope that now it makes sense,\n\nMakes sense. Then I think it's worthwhile paying attention at what\nDirk does for Debian. Debian's system path for R libraries is not\nversioned, and neither it is the path for the r-devel package they\nprovide. Instead, r-devel stuff goes to /usr/local, and the binaries\nare renamed as RD, RDscript. Finally, the R_LIBS_SITE variable in the\nRenviron file takes the library under /usr/local first, then the\nofficial system path /usr/lib/R/library.\n\nWhy is that? First, if you want to test r-devel, but you don't have\nany packages, it makes little sense. But 90% of the time, the packages\ncompiled for the current version of R just work for r-devel, and\nthat's why /usr/lib/R/library is in their Renviron for r-devel. At\nsome point, a breaking change happens and some packages require\nrebuilding. Then you can rebuild those few packages and place them\neither under /usr/local or in your user dir, because both of them take\nprecedence, while continuing to reuse system libraries that still work\nfor r-devel.\n\nSo, wrapping up, there are 3 things that you need to do in the spec to\nbuild r-devel as an RPM and test it: 1) redefine %{_libdir} and\n%{_datadir} to include /local/; 2) modify the line that echoes\nR_LIBS_SITE to the Renviron at your convenience (including or not the\nofficial system path); 3) rename the executables to something like RD\nand RDscript. And I think we could simply set up a Copr repo for this.\nMaybe I'll do that.\n\nThat said, without any Copr repo, there are easier and faster ways to\ntest r-devel:\n\n$ podman run --rm -it rocker/r-devel RD\n\nand you're ready to go in a minute. :)\n\n-- \nI?aki ?car",
+      "body_snippet": "On Sat, 16 May 2020 at 10:26, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Saturday, 16 May 2020 00.38.34 WEST I?aki Ucar wrote:\n> > Sorry, but I'm not sure I'm following you. How does having",
+      "thread_id": "thread-7367e8db4ebb",
+      "thread_depth": 15,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-fc36608b47e8",
+      "message_id": "<CAAHES9yc+CpQ7r4vwbe3CrucT=hnzrT_=f-JJgSsHBYZWcg0Qg@mail.gmail.com>",
+      "from_name": "Gavin Simpson",
+      "from_email_hash": "d4b6f008c4c5158667bb80a145897e16b1335189ecc5759b14ee7c011dcddcd9",
+      "date": "2020-05-26T17:14:52-06:00",
+      "subject": "[R-sig-Fedora] Changing the BLAS from openblas on a F32 box",
+      "subject_clean": "Changing the BLAS from openblas on a F32 box",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear list,\n\nWhat is the recommended incantation on Fedora 32 to swap out the\nopenblas BLAS that the packaged (rpm) version of R-core installs for\nATLAS?\n\nI'm running into some problems with some big models I want to fit\nusing the mgcv package, and openblas is apparently not thread safe and\nis causing problems.\n\nI have the following installed:\n\n$ dnf list installed | grep ^R\nR-core.x86_64                               3.6.3-1.fc32\n      @fedora\nR-core-devel.x86_64                         3.6.3-1.fc32\n      @fedora\n$ dnf list installed | grep openblas-R\nopenblas-Rblas.x86_64                       0.3.9-2.fc32\n      @fedora\n\nAnd i'd like to temporarily switch to the atlas BLAS.\n\nIf anyone is interested, the issue Simon Wood reports with openblas\nand *mgcv* is:\n\nIssues:\n\n** openblas 0.3.x x<7 is not thread safe if itself compiled for single thread\n   use and then called from multiple threads (unlike the reference BLAS, say).\n   0.2.20 appears to be OK. For 0.3.x x>6 make USE_THREAD=0 USE_LOCKING=1\n   to make openblas ensures thread safety (currently unclear if USE_LOCKING\n   will be default from 0.3.7).\n\nand running `mgcv:::blas.thread.test()` (Simon's non-exported function\nto test for problems) returns:\n\n> mgcv:::blas.thread.test()\n  |                                                                      |   0%\nBLAS thread safety problem at iteration 2\n\nOn my systems.\n\nThanks in advance for any suggestions as to how to best swap in/out the BLAS\n\nAll the best\n\nGavin\n-- \nGavin Simpson, PhD [he/him/his]           [t] +1 306 337 8863\n? Research Scientist                      [f] +1 306 337 2410\nInstitute of Environmental               [tw] @ucfagls\n  Change & Society                        [w] goo.gl/Zpkdem\nUniversity of Regina         [w] www.iecs-uregina.ca\nRegina, SK S4S 0A2, Canada               [iD] 0000-0002-9084-8413\n\n? Adjunct Professor, Department of Biology, University of Regina.",
+      "body_snippet": "Dear list,\n\nWhat is the recommended incantation on Fedora 32 to swap out the\nopenblas BLAS that the packaged (rpm) version of R-core installs for\nATLAS?\n\nI'm running into some problems with some big m",
+      "thread_id": "thread-fc36608b47e8",
+      "thread_depth": 0,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-3e0ac5937120",
+      "message_id": "<CALEXWq072PDbkiidDAq2mk+1eGN2ph3qzGi_6oU1MVuDNzuzyA@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-27T11:00:00+02:00",
+      "subject": "[R-sig-Fedora] Changing the BLAS from openblas on a F32 box",
+      "subject_clean": "Changing the BLAS from openblas on a F32 box",
+      "in_reply_to": "<CAAHES9yc+CpQ7r4vwbe3CrucT=hnzrT_=f-JJgSsHBYZWcg0Qg@mail.gmail.com>",
+      "references": [
+        "<CAAHES9yc+CpQ7r4vwbe3CrucT=hnzrT_=f-JJgSsHBYZWcg0Qg@mail.gmail.com>"
+      ],
+      "body_plain": "Hi Gavin,\n\nOn Wed, 27 May 2020 at 01:15, Gavin Simpson <ucfagls at gmail.com> wrote:\n>\n> Dear list,\n>\n> What is the recommended incantation on Fedora 32 to swap out the\n> openblas BLAS that the packaged (rpm) version of R-core installs for\n> ATLAS?\n\nI'm afraid there is no official mechanism in place to do that yet.\nThere was a proposal [1], but it was never pushed forward due to some\nissues and lack of time. There's a simple hack you can do though.\n\nSince recently, R in Fedora no longer uses openblas-Rblas and links\nagainst system openblas, as you can see here:\n\n$ ldd /usr/lib64/R/bin/exec/R | grep blas\n        libopenblas.so.0 => /lib64/libopenblas.so.0 (0x00007f8fff849000)\n\nSo one simple trick to override that is something along these lines:\n\n$ mkdir ~/blas\n$ ln -s /lib64/atlas/libsatlas.so.3 ~/blas/libopenblas.so.0\n$ LD_LIBRARY_PATH=~/blas ldd /usr/lib64/R/bin/exec/R | grep blas\n        libopenblas.so.0 => /home/****/blas/libopenblas.so.0\n(0x00007f78b3ea2000)\n\nAs you can see, now R points to the link in my home, which in turn\npoints to system's atlas. Now you can define an alias in your .bashrc\nto always prepend that override to R and Rscript. If you remove the\nlink in your home, it will default to system's openblas. If you point\nit to another BLAS implementation, it will pick it up.\n\nHope it helps.\n\n[1] https://fedoraproject.org/w/index.php?title=PackagingDrafts:BLAS_LAPACK\n\n> If anyone is interested, the issue Simon Wood reports with openblas\n> and *mgcv* is:\n>\n> Issues:\n>\n> ** openblas 0.3.x x<7 is not thread safe if itself compiled for single thread\n>    use and then called from multiple threads (unlike the reference BLAS, say).\n>    0.2.20 appears to be OK. For 0.3.x x>6 make USE_THREAD=0 USE_LOCKING=1\n>    to make openblas ensures thread safety (currently unclear if USE_LOCKING\n>    will be default from 0.3.7).\n\nDoes this mean that single-threaded openblas should be built with\nUSE_LOCKING=1 by default? Is there any upstream recommendation about\nthis?\n\n-- \nI?aki ?car",
+      "body_snippet": "Hi Gavin,\n\nOn Wed, 27 May 2020 at 01:15, Gavin Simpson <ucfagls at gmail.com> wrote:\n>\n> Dear list,\n>\n> What is the recommended incantation on Fedora 32 to swap out the\n> openblas BLAS that the packag",
+      "thread_id": "thread-fc36608b47e8",
+      "thread_depth": 1,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-0de8e136b3ed",
+      "message_id": "<CALEXWq3jjHvAXO4m0=MN32ucfFM8TQQbuQ5PZPVMv2NNOB36rQ@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-27T11:20:43+02:00",
+      "subject": "[R-sig-Fedora] Changing the BLAS from openblas on a F32 box",
+      "subject_clean": "Changing the BLAS from openblas on a F32 box",
+      "in_reply_to": "<CALEXWq072PDbkiidDAq2mk+1eGN2ph3qzGi_6oU1MVuDNzuzyA@mail.gmail.com>",
+      "references": [
+        "<CAAHES9yc+CpQ7r4vwbe3CrucT=hnzrT_=f-JJgSsHBYZWcg0Qg@mail.gmail.com>",
+        "<CALEXWq072PDbkiidDAq2mk+1eGN2ph3qzGi_6oU1MVuDNzuzyA@mail.gmail.com>"
+      ],
+      "body_plain": "Of course, even a simpler trick is to launch R as follows:\n\nLD_PRELOAD=/lib64/atlas/libsatlas.so.3 R\n\nand then the symbols in libsatlas take precedence over libopenblas. Or\na mix between both alternatives, i.e., setting\n\nLD_PRELOAD=/path/to/some/link R\n\nand then change that link to point to openblas, atlas... Whatever\nsuits you best.\n\nI?aki\n\nOn Wed, 27 May 2020 at 11:00, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> Hi Gavin,\n>\n> On Wed, 27 May 2020 at 01:15, Gavin Simpson <ucfagls at gmail.com> wrote:\n> >\n> > Dear list,\n> >\n> > What is the recommended incantation on Fedora 32 to swap out the\n> > openblas BLAS that the packaged (rpm) version of R-core installs for\n> > ATLAS?\n>\n> I'm afraid there is no official mechanism in place to do that yet.\n> There was a proposal [1], but it was never pushed forward due to some\n> issues and lack of time. There's a simple hack you can do though.\n>\n> Since recently, R in Fedora no longer uses openblas-Rblas and links\n> against system openblas, as you can see here:\n>\n> $ ldd /usr/lib64/R/bin/exec/R | grep blas\n>         libopenblas.so.0 => /lib64/libopenblas.so.0 (0x00007f8fff849000)\n>\n> So one simple trick to override that is something along these lines:\n>\n> $ mkdir ~/blas\n> $ ln -s /lib64/atlas/libsatlas.so.3 ~/blas/libopenblas.so.0\n> $ LD_LIBRARY_PATH=~/blas ldd /usr/lib64/R/bin/exec/R | grep blas\n>         libopenblas.so.0 => /home/****/blas/libopenblas.so.0\n> (0x00007f78b3ea2000)\n>\n> As you can see, now R points to the link in my home, which in turn\n> points to system's atlas. Now you can define an alias in your .bashrc\n> to always prepend that override to R and Rscript. If you remove the\n> link in your home, it will default to system's openblas. If you point\n> it to another BLAS implementation, it will pick it up.\n>\n> Hope it helps.\n>\n> [1] https://fedoraproject.org/w/index.php?title=PackagingDrafts:BLAS_LAPACK\n>\n> > If anyone is interested, the issue Simon Wood reports with openblas\n> > and *mgcv* is:\n> >\n> > Issues:\n> >\n> > ** openblas 0.3.x x<7 is not thread safe if itself compiled for single thread\n> >    use and then called from multiple threads (unlike the reference BLAS, say).\n> >    0.2.20 appears to be OK. For 0.3.x x>6 make USE_THREAD=0 USE_LOCKING=1\n> >    to make openblas ensures thread safety (currently unclear if USE_LOCKING\n> >    will be default from 0.3.7).\n>\n> Does this mean that single-threaded openblas should be built with\n> USE_LOCKING=1 by default? Is there any upstream recommendation about\n> this?\n>\n> --\n> I?aki ?car\n\n\n\n-- \nI?aki ?car",
+      "body_snippet": "Of course, even a simpler trick is to launch R as follows:\n\nLD_PRELOAD=/lib64/atlas/libsatlas.so.3 R\n\nand then the symbols in libsatlas take precedence over libopenblas. Or\na mix between both alternat",
+      "thread_id": "thread-fc36608b47e8",
+      "thread_depth": 2,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-c0b9ca31d81a",
+      "message_id": "<CAAHES9xmuq-7nxbfX4ZV7b58VhEyJjE-QUciP_PUP4HecKL3UQ@mail.gmail.com>",
+      "from_name": "Gavin Simpson",
+      "from_email_hash": "d4b6f008c4c5158667bb80a145897e16b1335189ecc5759b14ee7c011dcddcd9",
+      "date": "2020-05-27T13:40:18-06:00",
+      "subject": "[R-sig-Fedora] Changing the BLAS from openblas on a F32 box",
+      "subject_clean": "Changing the BLAS from openblas on a F32 box",
+      "in_reply_to": "<CALEXWq3jjHvAXO4m0=MN32ucfFM8TQQbuQ5PZPVMv2NNOB36rQ@mail.gmail.com>",
+      "references": [
+        "<CAAHES9yc+CpQ7r4vwbe3CrucT=hnzrT_=f-JJgSsHBYZWcg0Qg@mail.gmail.com>",
+        "<CALEXWq072PDbkiidDAq2mk+1eGN2ph3qzGi_6oU1MVuDNzuzyA@mail.gmail.com>",
+        "<CALEXWq3jjHvAXO4m0=MN32ucfFM8TQQbuQ5PZPVMv2NNOB36rQ@mail.gmail.com>"
+      ],
+      "body_plain": "Thanks I?aki, that is exactly what i was looking for, esp the last\noption which I have now configured as an alias for easy remembering.\n\nI can answer the question re USE_LOCKING=1. I think that using both\nthose options is required to get thread-safety even if openblas was\ncompiled for single thread use. I don't know to what extent Simon has\nengaged with upstream on this etc.\n\nAll I know is that using the openblas shipped with Fedora for R is\ncurrently a recipe for disaster for the large GAMs we're trying to\nfit. But being able to switch to atlas temporarily is a good\nalternative.\n\nCheers\n\nG\n\nOn Wed, 27 May 2020 at 03:20, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> Of course, even a simpler trick is to launch R as follows:\n>\n> LD_PRELOAD=/lib64/atlas/libsatlas.so.3 R\n>\n> and then the symbols in libsatlas take precedence over libopenblas. Or\n> a mix between both alternatives, i.e., setting\n>\n> LD_PRELOAD=/path/to/some/link R\n>\n> and then change that link to point to openblas, atlas... Whatever\n> suits you best.\n>\n> I?aki\n>\n> On Wed, 27 May 2020 at 11:00, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > Hi Gavin,\n> >\n> > On Wed, 27 May 2020 at 01:15, Gavin Simpson <ucfagls at gmail.com> wrote:\n> > >\n> > > Dear list,\n> > >\n> > > What is the recommended incantation on Fedora 32 to swap out the\n> > > openblas BLAS that the packaged (rpm) version of R-core installs for\n> > > ATLAS?\n> >\n> > I'm afraid there is no official mechanism in place to do that yet.\n> > There was a proposal [1], but it was never pushed forward due to some\n> > issues and lack of time. There's a simple hack you can do though.\n> >\n> > Since recently, R in Fedora no longer uses openblas-Rblas and links\n> > against system openblas, as you can see here:\n> >\n> > $ ldd /usr/lib64/R/bin/exec/R | grep blas\n> >         libopenblas.so.0 => /lib64/libopenblas.so.0 (0x00007f8fff849000)\n> >\n> > So one simple trick to override that is something along these lines:\n> >\n> > $ mkdir ~/blas\n> > $ ln -s /lib64/atlas/libsatlas.so.3 ~/blas/libopenblas.so.0\n> > $ LD_LIBRARY_PATH=~/blas ldd /usr/lib64/R/bin/exec/R | grep blas\n> >         libopenblas.so.0 => /home/****/blas/libopenblas.so.0\n> > (0x00007f78b3ea2000)\n> >\n> > As you can see, now R points to the link in my home, which in turn\n> > points to system's atlas. Now you can define an alias in your .bashrc\n> > to always prepend that override to R and Rscript. If you remove the\n> > link in your home, it will default to system's openblas. If you point\n> > it to another BLAS implementation, it will pick it up.\n> >\n> > Hope it helps.\n> >\n> > [1] https://fedoraproject.org/w/index.php?title=PackagingDrafts:BLAS_LAPACK\n> >\n> > > If anyone is interested, the issue Simon Wood reports with openblas\n> > > and *mgcv* is:\n> > >\n> > > Issues:\n> > >\n> > > ** openblas 0.3.x x<7 is not thread safe if itself compiled for single thread\n> > >    use and then called from multiple threads (unlike the reference BLAS, say).\n> > >    0.2.20 appears to be OK. For 0.3.x x>6 make USE_THREAD=0 USE_LOCKING=1\n> > >    to make openblas ensures thread safety (currently unclear if USE_LOCKING\n> > >    will be default from 0.3.7).\n> >\n> > Does this mean that single-threaded openblas should be built with\n> > USE_LOCKING=1 by default? Is there any upstream recommendation about\n> > this?\n> >\n> > --\n> > I?aki ?car\n>\n>\n>\n> --\n> I?aki ?car\n\n\n\n-- \nGavin Simpson, PhD [he/him/his]           [t] +1 306 337 8863\n? Research Scientist                      [f] +1 306 337 2410\nInstitute of Environmental               [tw] @ucfagls\n  Change & Society                        [w] goo.gl/Zpkdem\nUniversity of Regina         [w] www.iecs-uregina.ca\nRegina, SK S4S 0A2, Canada               [iD] 0000-0002-9084-8413\n\n? Adjunct Professor, Department of Biology, University of Regina.",
+      "body_snippet": "Thanks I?aki, that is exactly what i was looking for, esp the last\noption which I have now configured as an alias for easy remembering.\n\nI can answer the question re USE_LOCKING=1. I think that using ",
+      "thread_id": "thread-fc36608b47e8",
+      "thread_depth": 3,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-63484cb2a957",
+      "message_id": "<CALEXWq2KqpterkcAmkaT4hrwLNAQfZ+isa5iTBb7epCNacddeg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-27T22:09:31+02:00",
+      "subject": "[R-sig-Fedora] Changing the BLAS from openblas on a F32 box",
+      "subject_clean": "Changing the BLAS from openblas on a F32 box",
+      "in_reply_to": "<CAAHES9xmuq-7nxbfX4ZV7b58VhEyJjE-QUciP_PUP4HecKL3UQ@mail.gmail.com>",
+      "references": [
+        "<CAAHES9yc+CpQ7r4vwbe3CrucT=hnzrT_=f-JJgSsHBYZWcg0Qg@mail.gmail.com>",
+        "<CALEXWq072PDbkiidDAq2mk+1eGN2ph3qzGi_6oU1MVuDNzuzyA@mail.gmail.com>",
+        "<CALEXWq3jjHvAXO4m0=MN32ucfFM8TQQbuQ5PZPVMv2NNOB36rQ@mail.gmail.com>",
+        "<CAAHES9xmuq-7nxbfX4ZV7b58VhEyJjE-QUciP_PUP4HecKL3UQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Wed, 27 May 2020 at 21:40, Gavin Simpson <ucfagls at gmail.com> wrote:\n>\n> Thanks I?aki, that is exactly what i was looking for, esp the last\n> option which I have now configured as an alias for easy remembering.\n>\n> I can answer the question re USE_LOCKING=1. I think that using both\n> those options is required to get thread-safety even if openblas was\n> compiled for single thread use. I don't know to what extent Simon has\n> engaged with upstream on this etc.\n\nI've seen that there is a brief note about this in the project's wiki.\nI agree that a sensible default in any distro would be to build\nopenblas-serial with USE_LOCKING=1. But I don't understand why there\nis no recommendation upstream (or I didn't find it besides the note in\nthe wiki) and there's no idea about the performance penalty that we\nincur doing so. I brought this topic to fedora-devel.\n\n> All I know is that using the openblas shipped with Fedora for R is\n> currently a recipe for disaster for the large GAMs we're trying to\n> fit. But being able to switch to atlas temporarily is a good\n> alternative.\n\nNote that switching to openblas-openmp (libopenblaso.so) should be\nthread-safe and will probably get you a better performance than Atlas.\nAlso, Fedora packages blis (which provides\n/lib64/blisblas/libblas.so.3). It seems to be thread-safe should be\nmore performant than Atlas too.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Wed, 27 May 2020 at 21:40, Gavin Simpson <ucfagls at gmail.com> wrote:\n>\n> Thanks I?aki, that is exactly what i was looking for, esp the last\n> option which I have now configured as an alias for ea",
+      "thread_id": "thread-fc36608b47e8",
+      "thread_depth": 4,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-17d3b0ed0066",
+      "message_id": "<CAAHES9wAj4MLPGMak-M=+F36Y4NRyxNiMLMNE2OTwy-M8b_M0w@mail.gmail.com>",
+      "from_name": "Gavin Simpson",
+      "from_email_hash": "d4b6f008c4c5158667bb80a145897e16b1335189ecc5759b14ee7c011dcddcd9",
+      "date": "2020-05-27T15:03:21-06:00",
+      "subject": "[R-sig-Fedora] Changing the BLAS from openblas on a F32 box",
+      "subject_clean": "Changing the BLAS from openblas on a F32 box",
+      "in_reply_to": "<CALEXWq2KqpterkcAmkaT4hrwLNAQfZ+isa5iTBb7epCNacddeg@mail.gmail.com>",
+      "references": [
+        "<CAAHES9yc+CpQ7r4vwbe3CrucT=hnzrT_=f-JJgSsHBYZWcg0Qg@mail.gmail.com>",
+        "<CALEXWq072PDbkiidDAq2mk+1eGN2ph3qzGi_6oU1MVuDNzuzyA@mail.gmail.com>",
+        "<CALEXWq3jjHvAXO4m0=MN32ucfFM8TQQbuQ5PZPVMv2NNOB36rQ@mail.gmail.com>",
+        "<CAAHES9xmuq-7nxbfX4ZV7b58VhEyJjE-QUciP_PUP4HecKL3UQ@mail.gmail.com>",
+        "<CALEXWq2KqpterkcAmkaT4hrwLNAQfZ+isa5iTBb7epCNacddeg@mail.gmail.com>"
+      ],
+      "body_plain": "Thanks (again) I?aki.\n\nThere was a typo in my reply above. I should have said: I *can't*\nanswer the question re USE_LOCKING=1.\n\nThose other suggestions are really helpful too; I really didn't\nunderstand what the difference was (I'm still not clear what the\ndifferences are between say openblas-openmp and openblas-openmp64),\nbut I did get R to pass mgcv's thread safe test with both\nopenblas-openmp and blis-openmp, so I have aliased those options for\nuse too.\n\nJust using blis ( /lib64/blisblas/libblas.so.3 ) was generating a\nsegfault when running the mgcv test.\n\nReally appreciate the help!\n\nAll the best\n\nG\n\nOn Wed, 27 May 2020 at 14:09, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Wed, 27 May 2020 at 21:40, Gavin Simpson <ucfagls at gmail.com> wrote:\n> >\n> > Thanks I?aki, that is exactly what i was looking for, esp the last\n> > option which I have now configured as an alias for easy remembering.\n> >\n> > I can answer the question re USE_LOCKING=1. I think that using both\n> > those options is required to get thread-safety even if openblas was\n> > compiled for single thread use. I don't know to what extent Simon has\n> > engaged with upstream on this etc.\n>\n> I've seen that there is a brief note about this in the project's wiki.\n> I agree that a sensible default in any distro would be to build\n> openblas-serial with USE_LOCKING=1. But I don't understand why there\n> is no recommendation upstream (or I didn't find it besides the note in\n> the wiki) and there's no idea about the performance penalty that we\n> incur doing so. I brought this topic to fedora-devel.\n>\n> > All I know is that using the openblas shipped with Fedora for R is\n> > currently a recipe for disaster for the large GAMs we're trying to\n> > fit. But being able to switch to atlas temporarily is a good\n> > alternative.\n>\n> Note that switching to openblas-openmp (libopenblaso.so) should be\n> thread-safe and will probably get you a better performance than Atlas.\n> Also, Fedora packages blis (which provides\n> /lib64/blisblas/libblas.so.3). It seems to be thread-safe should be\n> more performant than Atlas too.\n>\n> --\n> I?aki ?car\n\n\n\n-- \nGavin Simpson, PhD [he/him/his]           [t] +1 306 337 8863\n? Research Scientist                      [f] +1 306 337 2410\nInstitute of Environmental               [tw] @ucfagls\n  Change & Society                        [w] goo.gl/Zpkdem\nUniversity of Regina         [w] www.iecs-uregina.ca\nRegina, SK S4S 0A2, Canada               [iD] 0000-0002-9084-8413\n\n? Adjunct Professor, Department of Biology, University of Regina.",
+      "body_snippet": "Thanks (again) I?aki.\n\nThere was a typo in my reply above. I should have said: I *can't*\nanswer the question re USE_LOCKING=1.\n\nThose other suggestions are really helpful too; I really didn't\nundersta",
+      "thread_id": "thread-fc36608b47e8",
+      "thread_depth": 5,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-0de52cb814b7",
+      "message_id": "<CALEXWq1HkQ+xzFGLHrcdaLwTRrCJsfuK3ZUcdQw4aCkqEU1NMA@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-27T23:46:39+02:00",
+      "subject": "[R-sig-Fedora] Changing the BLAS from openblas on a F32 box",
+      "subject_clean": "Changing the BLAS from openblas on a F32 box",
+      "in_reply_to": "<CAAHES9wAj4MLPGMak-M=+F36Y4NRyxNiMLMNE2OTwy-M8b_M0w@mail.gmail.com>",
+      "references": [
+        "<CAAHES9yc+CpQ7r4vwbe3CrucT=hnzrT_=f-JJgSsHBYZWcg0Qg@mail.gmail.com>",
+        "<CALEXWq072PDbkiidDAq2mk+1eGN2ph3qzGi_6oU1MVuDNzuzyA@mail.gmail.com>",
+        "<CALEXWq3jjHvAXO4m0=MN32ucfFM8TQQbuQ5PZPVMv2NNOB36rQ@mail.gmail.com>",
+        "<CAAHES9xmuq-7nxbfX4ZV7b58VhEyJjE-QUciP_PUP4HecKL3UQ@mail.gmail.com>",
+        "<CALEXWq2KqpterkcAmkaT4hrwLNAQfZ+isa5iTBb7epCNacddeg@mail.gmail.com>",
+        "<CAAHES9wAj4MLPGMak-M=+F36Y4NRyxNiMLMNE2OTwy-M8b_M0w@mail.gmail.com>"
+      ],
+      "body_plain": "On Wed, 27 May 2020 at 23:03, Gavin Simpson <ucfagls at gmail.com> wrote:\n>\n> Thanks (again) I?aki.\n>\n> There was a typo in my reply above. I should have said: I *can't*\n> answer the question re USE_LOCKING=1.\n\n:)\n\n> Those other suggestions are really helpful too; I really didn't\n> understand what the difference was (I'm still not clear what the\n> differences are between say openblas-openmp and openblas-openmp64),\n> but I did get R to pass mgcv's thread safe test with both\n> openblas-openmp and blis-openmp, so I have aliased those options for\n> use too.\n\nBasically, openblas has a number of features that can be enabled or\ndisabled: 64-bit integer support, threading and parallelization of\ncertain parts using openmp (as, e.g., data.table does). With the\ncombination of these features, we end up with many different flavors,\nand all these are compiled and sub-packaged separately.\n\nUsually, you want parallelization at the top level calling a serial\nversion, as mgcv does. Otherwise, you may end up with an \"explosion\"\nof threads that is counterproductive.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Wed, 27 May 2020 at 23:03, Gavin Simpson <ucfagls at gmail.com> wrote:\n>\n> Thanks (again) I?aki.\n>\n> There was a typo in my reply above. I should have said: I *can't*\n> answer the question re USE_L",
+      "thread_id": "thread-fc36608b47e8",
+      "thread_depth": 6,
+      "month": "2020-05"
+    },
+    {
+      "id": "msg-555b229511f9",
+      "message_id": "<CALEXWq0mp7EUVFRUHjbG1fPhQN_6YcgxT_oZWS47d8BdJeRGxg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-05-28T10:32:11+02:00",
+      "subject": "[R-sig-Fedora] Changing the BLAS from openblas on a F32 box",
+      "subject_clean": "Changing the BLAS from openblas on a F32 box",
+      "in_reply_to": "<CALEXWq1HkQ+xzFGLHrcdaLwTRrCJsfuK3ZUcdQw4aCkqEU1NMA@mail.gmail.com>",
+      "references": [
+        "<CAAHES9yc+CpQ7r4vwbe3CrucT=hnzrT_=f-JJgSsHBYZWcg0Qg@mail.gmail.com>",
+        "<CALEXWq072PDbkiidDAq2mk+1eGN2ph3qzGi_6oU1MVuDNzuzyA@mail.gmail.com>",
+        "<CALEXWq3jjHvAXO4m0=MN32ucfFM8TQQbuQ5PZPVMv2NNOB36rQ@mail.gmail.com>",
+        "<CAAHES9xmuq-7nxbfX4ZV7b58VhEyJjE-QUciP_PUP4HecKL3UQ@mail.gmail.com>",
+        "<CALEXWq2KqpterkcAmkaT4hrwLNAQfZ+isa5iTBb7epCNacddeg@mail.gmail.com>",
+        "<CAAHES9wAj4MLPGMak-M=+F36Y4NRyxNiMLMNE2OTwy-M8b_M0w@mail.gmail.com>",
+        "<CALEXWq1HkQ+xzFGLHrcdaLwTRrCJsfuK3ZUcdQw4aCkqEU1NMA@mail.gmail.com>"
+      ],
+      "body_plain": "FYI, USE_LOCKING=1 has been toggled in Fedora, so the next openblas\nrelease (0.3.9-3) will be thread-safe by default.\n\nOn Wed, 27 May 2020 at 23:46, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Wed, 27 May 2020 at 23:03, Gavin Simpson <ucfagls at gmail.com> wrote:\n> >\n> > Thanks (again) I?aki.\n> >\n> > There was a typo in my reply above. I should have said: I *can't*\n> > answer the question re USE_LOCKING=1.\n>\n> :)\n>\n> > Those other suggestions are really helpful too; I really didn't\n> > understand what the difference was (I'm still not clear what the\n> > differences are between say openblas-openmp and openblas-openmp64),\n> > but I did get R to pass mgcv's thread safe test with both\n> > openblas-openmp and blis-openmp, so I have aliased those options for\n> > use too.\n>\n> Basically, openblas has a number of features that can be enabled or\n> disabled: 64-bit integer support, threading and parallelization of\n> certain parts using openmp (as, e.g., data.table does). With the\n> combination of these features, we end up with many different flavors,\n> and all these are compiled and sub-packaged separately.\n>\n> Usually, you want parallelization at the top level calling a serial\n> version, as mgcv does. Otherwise, you may end up with an \"explosion\"\n> of threads that is counterproductive.\n>\n> --\n> I?aki ?car\n\n\n\n-- \nI?aki ?car",
+      "body_snippet": "FYI, USE_LOCKING=1 has been toggled in Fedora, so the next openblas\nrelease (0.3.9-3) will be thread-safe by default.\n\nOn Wed, 27 May 2020 at 23:46, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> ",
+      "thread_id": "thread-fc36608b47e8",
+      "thread_depth": 7,
+      "month": "2020-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-7367e8db4ebb",
+      "subject": "R 4.0.0",
+      "message_count": 18,
+      "participants": [
+        "Elliott Sales de Andrade",
+        "Iñaki Ucar",
+        "José Abílio Matos",
+        "Tom Callaway"
+      ],
+      "started": "2020-05-04T13:14:38-04:00",
+      "last_reply": "2020-05-16T12:24:06+02:00",
+      "root_message_id": "msg-7367e8db4ebb"
+    },
+    {
+      "id": "thread-c440b98d23c2",
+      "subject": "R package RPMs for Fedora",
+      "message_count": 6,
+      "participants": [
+        "Iñaki Ucar",
+        "José Abílio Matos",
+        "Marc Schwartz",
+        "Tom Callaway"
+      ],
+      "started": "2020-05-04T15:14:05+02:00",
+      "last_reply": "2020-05-04T21:18:24+02:00",
+      "root_message_id": "msg-c440b98d23c2"
+    },
+    {
+      "id": "thread-fc36608b47e8",
+      "subject": "Changing the BLAS from openblas on a F32 box",
+      "message_count": 8,
+      "participants": [
+        "Gavin Simpson",
+        "Iñaki Ucar"
+      ],
+      "started": "2020-05-26T17:14:52-06:00",
+      "last_reply": "2020-05-28T10:32:11+02:00",
+      "root_message_id": "msg-fc36608b47e8"
+    }
+  ]
+}

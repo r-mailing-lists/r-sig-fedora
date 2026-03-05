@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2019-12",
+  "messages": [
+    {
+      "id": "msg-2568893df5a3",
+      "message_id": "<CA+=omePNR2WuGzDgbojBb6rFDHBVBDbDa7SovckCwBL+0+ASsQ@mail.gmail.com>",
+      "from_name": "Jay Ver Hoef - NOAA Federal",
+      "from_email_hash": "f6c556ebfaf36fcfed9bead0358d8a13e6471addddfd500ea881747a5ffa291e",
+      "date": "2019-12-11T19:29:01Z",
+      "subject": "[R-sig-Fedora] Problems with large loops in CentOS",
+      "subject_clean": "Problems with large loops in CentOS",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I have run into a problem when do loops with lots of elements in CentOS (I\nam a new user after using Ubuntu for many years).  I am attaching two\nscripts, one called\nLooping_Centos_minimal_bug_OK.R\nwhich runs fine.  I simply repeat a function call in it 15 times.  However,\nif I repeat that function call 16 times, as in this one,\nLooping_Centos_minimal_bug_breaks.R\nI get the error,\nError: unexpected '}' in:\n\"CorMod\n}\"\n\nI have a laptop with Ubuntu installed, and everything works fine.  This is\njust my minimal example.  I have many other scripts with loops, and if they\nhave too many functions in them, they break in CentOS, while they always\nwork in Ubuntu.  I was wondering if anyone else with CentOS or Fedora is\nhaving a similar issue, and can reproduce my problem.  Thank you.\n\nJay Ver Hoef\n\n> sessionInfo()\nR version 3.6.1 (2019-07-05)\nPlatform: x86_64-pc-linux-gnu (64-bit)\nRunning under: CentOS Linux 7 (Core)\n\nMatrix products: default\nBLAS:   /home/xverhoef/R/R-3.6.1/lib/libRblas.so\nLAPACK: /home/xverhoef/R/R-3.6.1/lib/libRlapack.so\n\nlocale:\n [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C\n [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8\n [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8\n [7] LC_PAPER=en_US.UTF-8       LC_NAME=C\n [9] LC_ADDRESS=C               LC_TELEPHONE=C\n[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C\n\nR Version:\n platform = x86_64-pc-linux-gnu\n arch = x86_64\n os = linux-gnu\n system = x86_64, linux-gnu\n status =\n major = 3\n minor = 6.1\n year = 2019\n month = 07\n day = 05\n svn rev = 76782\n language = R\n version.string = R version 3.6.1 (2019-07-05)\n nickname = Action of the Toes\n\nLocale:\n LC_CTYPE=en_US.UTF-8;LC_NUMERIC=C;LC_TIME=en_US.UTF-\n8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=en_US.UTF-8;LC_MESSAGES=en_US.UTF-\n8;LC_PAPER=en_US.UTF-\n8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.UTF-\n8;LC_IDENTIFICATION=C\n\nSearch Path:\n .GlobalEnv, package:stats, package:graphics, package:grDevices,\n package:utils, package:datasets, package:methods, Autoloads,\n package:baseR Version:\n platform = x86_64-pc-linux-gnu\n arch = x86_64\n os = linux-gnu\n system = x86_64, linux-gnu\n status =\n major = 3\n minor = 6.1\n year = 2019\n month = 07\n day = 05\n svn rev = 76782\n language = R\n version.string = R version 3.6.1 (2019-07-05)\n nickname = Action of the Toes\n\nLocale:\n LC_CTYPE=en_US.UTF-8;LC_NUMERIC=C;LC_TIME=en_US.UTF-\n8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=en_US.UTF-8;LC_MESSAGES=en_US.UTF-\n8;LC_PAPER=en_US.UTF-\n8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.UTF-\n8;LC_IDENTIFICATION=C\n\nSearch Path:\n .GlobalEnv, package:stats, package:graphics, package:grDevices,\n package:utils, package:datasets, package:methods, Autoloads,\n package:base\n\n\n\n*************************************************************\n\n\n\n\n\n\n\n\n*Jay M. Ver Hoef, Ph.D.Senior Scientist/StatisticianMarine Mammal\nLaboratoryNOAA-NMFS Alaska Fisheries Science CenterSeattle, WA and\nFairbanks, AK, USA(907) 347-5552jay.verhoef at noaa.gov <jay.verhoef at noaa.gov>\n http://sites.google.com/site/jayverhoef/\n<http://sites.google.com/site/jayverhoef/>*\n\n*************************************************************\n\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20191211/b2e050a2/attachment-0001.html>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: Looping_Centos_minimal_bug_OK.R\nType: application/octet-stream\nSize: 4047 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20191211/b2e050a2/attachment-0002.obj>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: Looping_Centos_minimal_bug_breaks.R\nType: application/octet-stream\nSize: 4200 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20191211/b2e050a2/attachment-0003.obj>",
+      "body_snippet": "I have run into a problem when do loops with lots of elements in CentOS (I\nam a new user after using Ubuntu for many years).  I am attaching two\nscripts, one called\nLooping_Centos_minimal_bug_OK.R\nwhi",
+      "thread_id": "thread-2568893df5a3",
+      "thread_depth": 0,
+      "month": "2019-12"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-2568893df5a3",
+      "subject": "Problems with large loops in CentOS",
+      "message_count": 1,
+      "participants": [
+        "Jay Ver Hoef - NOAA Federal"
+      ],
+      "started": "2019-12-11T19:29:01+00:00",
+      "last_reply": "2019-12-11T19:29:01+00:00",
+      "root_message_id": "msg-2568893df5a3"
+    }
+  ]
+}

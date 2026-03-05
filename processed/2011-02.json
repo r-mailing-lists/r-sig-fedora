@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2011-02",
+  "messages": [
+    {
+      "id": "msg-990ac66c9113",
+      "message_id": "<201102010846.06343.jaomatos@gmail.com>",
+      "from_name": "José Matos",
+      "from_email_hash": "0d9183ac197a7cd8696df1f4ae2b48fe2b41a6d43d867f3205290c5d5f156da1",
+      "date": "2011-02-01T08:46:05Z",
+      "subject": "[R-sig-Fedora] Fwd: [Rd] Warning: you may need to use R-patched with recent R distros",
+      "subject_clean": "Warning: you may need to use R-patched with recent R distros",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\tI noted this message yesterday in R-devel. I think it would sensible to \npackage a patched version while 2.12.2 is not delivered.\n\n----------  Forwarded Message  ----------\n\nSubject: [Rd] Warning: you may need to use R-patched with recent R distros\nDate: Monday 31 January 2011, 19:48:33\nFrom: Prof Brian Ripley <ripley at stats.ox.ac.uk>\nTo: R-devel at r-project.org\n\nTwo things have emerged in testing on x86_64 Fedora 14 which mean that \na recent R-patched is probably needed.\n\n1) That OS uses zlib 1.2.5: that claims to be binary-compatible with \nzlib 1.2.3 but is not, as we found (painfully) on Windows.  The remedy \nwas to remap _all_ the symbols in R's own copy of zlib (not just those \nzlib arranged to remap).\n\nThe symptoms were crashes using packages XML and rgoobi (both of which \nlink to zlib) and incorrect results in RJaCGH (which contains a copy \nof zlib).  There may well be other problems ....\n\n2)  Fedora 14 uses gcc 4.5.1. With CFLAGS containing the default -O2 \nor higher, HAVE_C99_COMPLEX was detected as false because there is a \n(genuine) incompatibility between types Rcomplex and C99's double \ncomplex.  This means that R's fallback code is used, and regretably \nthat contains a serious bug in an 'optimization' by a colleague, so \nz^n is incorrect for most complex z and integer n (and has been since \n2.10.0).  The remedy is to use R-patched or R-devel, or only optimize \nto -O.\n\nWe've also seen incorrect results from package mvtnorm when C \noptimization was -O3.\n\nThe upshot is that there is likely to be a 2.12.2 to fix these issues.\n\n-- \nBrian D. Ripley,                  ripley at stats.ox.ac.uk\nProfessor of Applied Statistics,  http://www.stats.ox.ac.uk/~ripley/\nUniversity of Oxford,             Tel:  +44 1865 272861 (self)\n1 South Parks Road,                     +44 1865 272866 (PA)\nOxford OX1 3TG, UK                Fax:  +44 1865 272595\n\n______________________________________________\nR-devel at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-devel\n\n-----------------------------------------\n-- \nJos? Ab?lio",
+      "body_snippet": "Hi,\n\tI noted this message yesterday in R-devel. I think it would sensible to \npackage a patched version while 2.12.2 is not delivered.\n\n----------  Forwarded Message  ----------\n\nSubject: [Rd] Warning",
+      "thread_id": "thread-990ac66c9113",
+      "thread_depth": 0,
+      "month": "2011-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-990ac66c9113",
+      "subject": "Warning: you may need to use R-patched with recent R distros",
+      "message_count": 1,
+      "participants": [
+        "José Matos"
+      ],
+      "started": "2011-02-01T08:46:05+00:00",
+      "last_reply": "2011-02-01T08:46:05+00:00",
+      "root_message_id": "msg-990ac66c9113"
+    }
+  ]
+}

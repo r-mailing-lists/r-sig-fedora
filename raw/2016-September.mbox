@@ -1,0 +1,169 @@
+From ericjvandervelden at gmail.com  Wed Sep  7 09:15:38 2016
+From: ericjvandervelden at gmail.com (Eric J. Van der Velden)
+Date: Wed, 7 Sep 2016 09:15:38 +0200
+Subject: [R-sig-Fedora] How to install gmp in R on fedora
+Message-ID: <CAFxAhE98LPJr1gP8ez99XBn1nOv1kaEa+v7GnwRofNYc79R63A@mail.gmail.com>
+
+Hello.
+
+I have installed R with dnf.
+
+Also I have installed gmp and gmp-devel with dnf (I think gmp was already
+installed).
+
+In R I did
+
+> install.packages('Rmpfr')
+
+But then I get
+
+configure: error: GNU MP not found, or not 4.1.4 or up, see
+http://gmplib.org
+
+What must I do?
+
+	[[alternative HTML version deleted]]
+
+
+From plummerm at iarc.fr  Wed Sep  7 10:10:17 2016
+From: plummerm at iarc.fr (Martyn Plummer)
+Date: Wed, 7 Sep 2016 08:10:17 +0000
+Subject: [R-sig-Fedora] How to install gmp in R on fedora
+In-Reply-To: <CAFxAhE98LPJr1gP8ez99XBn1nOv1kaEa+v7GnwRofNYc79R63A@mail.gmail.com>
+References: <CAFxAhE98LPJr1gP8ez99XBn1nOv1kaEa+v7GnwRofNYc79R63A@mail.gmail.com>
+Message-ID: <1473235761.1976.149.camel@iarc.fr>
+
+It works for me. For more information you need to download the source
+package and install via
+
+tar xfvz gmp_0.5-12.tar.gz?
+R CMD INSTALL gmp
+
+Then view the contents of gmp/config.log for a more detailed error
+message.
+
+Martyn
+
+On Wed, 2016-09-07 at 09:15 +0200, Eric J. Van der Velden wrote:
+> Hello.
+> 
+> I have installed R with dnf.
+> 
+> Also I have installed gmp and gmp-devel with dnf (I think gmp was
+> already
+> installed).
+> 
+> In R I did
+> 
+> > 
+> > install.packages('Rmpfr')
+> 
+> But then I get
+> 
+> configure: error: GNU MP not found, or not 4.1.4 or up, see
+> http://gmplib.org
+> 
+> What must I do?
+> 
+> 	[[alternative HTML version deleted]]
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+
+From jeroen.ooms at stat.ucla.edu  Fri Sep 16 16:28:30 2016
+From: jeroen.ooms at stat.ucla.edu (Jeroen Ooms)
+Date: Fri, 16 Sep 2016 16:28:30 +0200
+Subject: [R-sig-Fedora] R_DOC_DIR on EL6
+Message-ID: <CABFfbXuz6_sp0ANDJ2ayMf3=9je7-hhpHq=WO24eQV0A5LFMRg@mail.gmail.com>
+
+Where are the R docs located on EL6? It seems neither R.home("doc")
+nor Sys.getenv("R_DOC_DIR") exists?
+
+
+From tcallawa at redhat.com  Wed Sep 21 19:39:07 2016
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 21 Sep 2016 13:39:07 -0400
+Subject: [R-sig-Fedora] R_DOC_DIR on EL6
+In-Reply-To: <CABFfbXuz6_sp0ANDJ2ayMf3=9je7-hhpHq=WO24eQV0A5LFMRg@mail.gmail.com>
+References: <CABFfbXuz6_sp0ANDJ2ayMf3=9je7-hhpHq=WO24eQV0A5LFMRg@mail.gmail.com>
+Message-ID: <ddbd408e-3d57-d50e-1738-b476de97bd05@redhat.com>
+
+On 09/16/2016 10:28 AM, Jeroen Ooms wrote:
+> Where are the R docs located on EL6? It seems neither R.home("doc")
+> nor Sys.getenv("R_DOC_DIR") exists?
+
+/usr/share/doc/R-3.3.1
+
+~tom
+
+==
+Red Hat
+
+
+From jeroen.ooms at stat.ucla.edu  Thu Sep 22 17:55:12 2016
+From: jeroen.ooms at stat.ucla.edu (Jeroen Ooms)
+Date: Thu, 22 Sep 2016 17:55:12 +0200
+Subject: [R-sig-Fedora] R_DOC_DIR on EL6
+In-Reply-To: <ddbd408e-3d57-d50e-1738-b476de97bd05@redhat.com>
+References: <CABFfbXuz6_sp0ANDJ2ayMf3=9je7-hhpHq=WO24eQV0A5LFMRg@mail.gmail.com>
+	<ddbd408e-3d57-d50e-1738-b476de97bd05@redhat.com>
+Message-ID: <CABFfbXsPtEaDR8uGCxEZEtxtebPd1p4kNrKehmUZQEz=nPtcFw@mail.gmail.com>
+
+On Wed, Sep 21, 2016 at 7:39 PM, Tom Callaway <tcallawa at redhat.com> wrote:
+>
+> On 09/16/2016 10:28 AM, Jeroen Ooms wrote:
+> > Where are the R docs located on EL6? It seems neither R.home("doc")
+> > nor Sys.getenv("R_DOC_DIR") exists?
+>
+> /usr/share/doc/R-3.3.1
+>
+
+Can we set this in R_DOC_DIR accordingly so that it can be
+programmatically found?
+
+
+From plummerm at iarc.fr  Thu Sep 22 18:31:21 2016
+From: plummerm at iarc.fr (Martyn Plummer)
+Date: Thu, 22 Sep 2016 16:31:21 +0000
+Subject: [R-sig-Fedora] R_DOC_DIR on EL6
+In-Reply-To: <CABFfbXsPtEaDR8uGCxEZEtxtebPd1p4kNrKehmUZQEz=nPtcFw@mail.gmail.com>
+References: <CABFfbXuz6_sp0ANDJ2ayMf3=9je7-hhpHq=WO24eQV0A5LFMRg@mail.gmail.com>
+	<ddbd408e-3d57-d50e-1738-b476de97bd05@redhat.com>
+	<CABFfbXsPtEaDR8uGCxEZEtxtebPd1p4kNrKehmUZQEz=nPtcFw@mail.gmail.com>
+Message-ID: <1474561818.3160.157.camel@iarc.fr>
+
+On Thu, 2016-09-22 at 17:55 +0200, Jeroen Ooms wrote:
+> On Wed, Sep 21, 2016 at 7:39 PM, Tom Callaway <tcallawa at redhat.com>
+> wrote:
+> > 
+> > 
+> > On 09/16/2016 10:28 AM, Jeroen Ooms wrote:
+> > > 
+> > > Where are the R docs located on EL6? It seems neither
+> > > R.home("doc")
+> > > nor Sys.getenv("R_DOC_DIR") exists?
+> > 
+> > /usr/share/doc/R-3.3.1
+> > 
+> 
+> Can we set this in R_DOC_DIR accordingly so that it can be
+> programmatically found?
+
+R_DOC_DIR is set in the shell script /usr/bin/R that launches R. For a
+default build of R it is ${R_HOME_DIR}/doc but the configure script
+that builds R in the Fedora spec file resets it using the variable
+rdocdir as described in the R-admin manual.
+
+Martyn
+
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+

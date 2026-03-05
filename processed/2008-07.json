@@ -1,0 +1,40 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2008-07",
+  "messages": [
+    {
+      "id": "msg-b652ef19d555",
+      "message_id": "<Pine.LNX.4.64.0807010016180.12805@reclus.nhh.no>",
+      "from_name": "Roger Bivand",
+      "from_email_hash": "a0c87926e9477aa221755cc93bdef47227c3563fd707e66ae49044467663d168",
+      "date": "2008-07-01T00:26:00+02:00",
+      "subject": "[R-sig-Fedora] Pango/cairo and symbol fonts",
+      "subject_clean": "Pango/cairo and symbol fonts",
+      "in_reply_to": "<4868F24A.5080309@biostat.ku.dk>",
+      "references": [
+        "<Pine.LNX.4.64.0806301119230.11397@reclus.nhh.no>",
+        "<4868D347.7030009@comcast.net>",
+        "<4868F24A.5080309@biostat.ku.dk>"
+      ],
+      "body_plain": "On Mon, 30 Jun 2008, Peter Dalgaard wrote:\n\n> Marc Schwartz wrote:\n>> on 06/30/2008 04:26 AM Roger Bivand wrote:\n>>> Excuse my asking here than on R-help, but it may be a Fedora\n>>> question. On Fedora 7, I'm running a fresh R 2.7.1 built from source,\n>>> usually in en_GB, but also tried in en_GB.UTF8. Running\n>>> example(plotmath) generates lots of:\n>>>\n>>> Pango-WARNING **: shape engine failure, expect ugly output. the\n>>> offending font is 'Symbol Not-Rotated ...'\n>>>\n>>> Setting:\n>>>\n>>> x11(type=\"Xlib\")\n>>>\n>>> relieves the problem, but I'd like to use cairo if possible. I have\n>>> both urw-fonts and liberation-fonts installed. I'm pretty sure it is\n>>> my F7, not R, and would be grateful for any advice. It's the same\n>>> story with the png device.\n>>>\n>>> Roger\n>>\n>> Roger,\n>>\n>> Check capabilities() to be sure that 'cairo' shows as TRUE.\n>>\n>> If it shows FALSE, be sure to install the cairo and cairo-devel RPMs\n>> and re-build R so that cairo support is available. You may just need\n>> the 'cairo-devel' RPM if the 'cairo' RPM is already present.\n>>\n>> Also, as an aside, F7 went EOL on June 13.\n>>\n>> If that is not helpful, post back.\n> I suspect that is isn't helpful. If cairo is not there, you'd just get\n> Xlib and no warnings (and no features either).  So my suspicion is that\n> something needs to be upgraded beyond the F7 level, which could get a\n> little sticky.\n\nRight, cairo is TRUE, so it is most likely a fonts issue. I'm mostly RHEL \n4/5, but also F7, and looked at F9 to upgrade, but have a production \nproject on F7. This means that upgrading is not an option in the short \nterm, while working cairo with a symbols font would be desirable. For the \ntime being I can hold on old PDF/PNG if there is no known alternative.\n\nRoger\n\n\n>\n>\n\n-- \nRoger Bivand\nEconomic Geography Section, Department of Economics, Norwegian School of\nEconomics and Business Administration, Helleveien 30, N-5045 Bergen,\nNorway. voice: +47 55 95 93 55; fax +47 55 95 95 43\ne-mail: Roger.Bivand at nhh.no",
+      "body_snippet": "On Mon, 30 Jun 2008, Peter Dalgaard wrote:\n\n> Marc Schwartz wrote:\n>> on 06/30/2008 04:26 AM Roger Bivand wrote:\n>>> Excuse my asking here than on R-help, but it may be a Fedora\n>>> question. On Fedor",
+      "thread_id": "thread-b652ef19d555",
+      "thread_depth": 0,
+      "month": "2008-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-b652ef19d555",
+      "subject": "Pango/cairo and symbol fonts",
+      "message_count": 1,
+      "participants": [
+        "Roger Bivand"
+      ],
+      "started": "2008-07-01T00:26:00+02:00",
+      "last_reply": "2008-07-01T00:26:00+02:00",
+      "root_message_id": "msg-b652ef19d555"
+    }
+  ]
+}

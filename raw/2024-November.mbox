@@ -1,0 +1,1119 @@
+From phh@80 @end|ng |rom gm@||@com  Sat Nov  2 17:10:03 2024
+From: phh@80 @end|ng |rom gm@||@com (Paul Smith)
+Date: Sat, 2 Nov 2024 16:10:03 +0000
+Subject: [R-sig-Fedora] RStudio crashes with segmentation fault on F41
+Message-ID: <CALS=5mojO8+jPqQ9P19Ceu4X1970v_e5_KTh1iuoh4C=tcX+9Q@mail.gmail.com>
+
+Dear All,
+
+I am facing this problem when running rstudio on F41:
+
+$ rstudio
+[19788:1102/160811.250292:ERROR:gl_factory.cc(120)] Requested GL
+implementation (gl=none,angle=none) not found in allowed
+implementations:
+[(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+[19788:1102/160811.252899:ERROR:viz_main_impl.cc(198)] Exiting GPU
+process due to errors during initialization
+Segmentation fault (core dumped)
+$
+
+Could you please help me?
+
+Thanks in advance,
+
+Paul
+
+
+From |uc@r @end|ng |rom |edor@project@org  Sat Nov  2 21:54:01 2024
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Sat, 2 Nov 2024 21:54:01 +0100
+Subject: [R-sig-Fedora] RStudio crashes with segmentation fault on F41
+In-Reply-To: <CALS=5mojO8+jPqQ9P19Ceu4X1970v_e5_KTh1iuoh4C=tcX+9Q@mail.gmail.com>
+References: <CALS=5mojO8+jPqQ9P19Ceu4X1970v_e5_KTh1iuoh4C=tcX+9Q@mail.gmail.com>
+Message-ID: <CALEXWq2ZFogGXLfC+gTVoLo_7dkoVrcf6S4WPmHpn9=cz_+8hg@mail.gmail.com>
+
+I've seen this before. Please run:
+
+$ sudo dnf install xorg-x11-fonts-Type1
+
+and try again.
+
+Best,
+I?aki
+
+On Sat, 2 Nov 2024 at 17:10, Paul Smith <phhs80 at gmail.com> wrote:
+
+> Dear All,
+>
+> I am facing this problem when running rstudio on F41:
+>
+> $ rstudio
+> [19788:1102/160811.250292:ERROR:gl_factory.cc(120)] Requested GL
+> implementation (gl=none,angle=none) not found in allowed
+> implementations:
+> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+> [19788:1102/160811.252899:ERROR:viz_main_impl.cc(198)] Exiting GPU
+> process due to errors during initialization
+> Segmentation fault (core dumped)
+> $
+>
+> Could you please help me?
+>
+> Thanks in advance,
+>
+> Paul
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+
+From phh@80 @end|ng |rom gm@||@com  Sun Nov  3 01:44:24 2024
+From: phh@80 @end|ng |rom gm@||@com (Paul Smith)
+Date: Sun, 3 Nov 2024 00:44:24 +0000
+Subject: [R-sig-Fedora] RStudio crashes with segmentation fault on F41
+In-Reply-To: <CALEXWq2ZFogGXLfC+gTVoLo_7dkoVrcf6S4WPmHpn9=cz_+8hg@mail.gmail.com>
+References: <CALS=5mojO8+jPqQ9P19Ceu4X1970v_e5_KTh1iuoh4C=tcX+9Q@mail.gmail.com>
+ <CALEXWq2ZFogGXLfC+gTVoLo_7dkoVrcf6S4WPmHpn9=cz_+8hg@mail.gmail.com>
+Message-ID: <CALS=5mp+wZA4PwHZA7e0oT59ijmBNivyMd68Go_MdjObuLJLDw@mail.gmail.com>
+
+Thanks, I?aki, for your answer. Unfortunately, that package was
+already installed on my machine:
+
+# dnf install xorg-x11-fonts-Type1
+Updating and loading repositories:
+Repositories loaded.
+Package "xorg-x11-fonts-Type1-7.5-39.fc41.noarch" is already installed.
+
+Nothing to do.
+root at localhost:/home/x#
+
+
+Nothing to do.
+#
+
+Paul
+
+
+On Sat, Nov 2, 2024 at 8:54?PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> I've seen this before. Please run:
+>
+> $ sudo dnf install xorg-x11-fonts-Type1
+>
+> and try again.
+>
+> Best,
+> I?aki
+>
+> On Sat, 2 Nov 2024 at 17:10, Paul Smith <phhs80 at gmail.com> wrote:
+>>
+>> Dear All,
+>>
+>> I am facing this problem when running rstudio on F41:
+>>
+>> $ rstudio
+>> [19788:1102/160811.250292:ERROR:gl_factory.cc(120)] Requested GL
+>> implementation (gl=none,angle=none) not found in allowed
+>> implementations:
+>> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+>> [19788:1102/160811.252899:ERROR:viz_main_impl.cc(198)] Exiting GPU
+>> process due to errors during initialization
+>> Segmentation fault (core dumped)
+>> $
+>>
+>> Could you please help me?
+>>
+>> Thanks in advance,
+>>
+>> Paul
+>>
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>
+>
+>
+> --
+> I?aki ?car
+
+
+From |uc@r @end|ng |rom |edor@project@org  Sun Nov  3 21:49:06 2024
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Sun, 3 Nov 2024 21:49:06 +0100
+Subject: [R-sig-Fedora] RStudio crashes with segmentation fault on F41
+In-Reply-To: <CALS=5mp+wZA4PwHZA7e0oT59ijmBNivyMd68Go_MdjObuLJLDw@mail.gmail.com>
+References: <CALS=5mojO8+jPqQ9P19Ceu4X1970v_e5_KTh1iuoh4C=tcX+9Q@mail.gmail.com>
+ <CALEXWq2ZFogGXLfC+gTVoLo_7dkoVrcf6S4WPmHpn9=cz_+8hg@mail.gmail.com>
+ <CALS=5mp+wZA4PwHZA7e0oT59ijmBNivyMd68Go_MdjObuLJLDw@mail.gmail.com>
+Message-ID: <CALEXWq09wDNiV7zy6-5G5pFzC-MCbwnkN5GyRDCQnzMBMR4vvA@mail.gmail.com>
+
+Let's try another thing. Do you use Gnome? Any kind of hardware
+acceleration for graphics (NVIDIA...)? If so, you could try launching
+RStudio with GSK_RENDERER=ngl to see if it makes any difference.
+
+I?aki
+
+On Sun, 3 Nov 2024 at 01:44, Paul Smith <phhs80 at gmail.com> wrote:
+
+> Thanks, I?aki, for your answer. Unfortunately, that package was
+> already installed on my machine:
+>
+> # dnf install xorg-x11-fonts-Type1
+> Updating and loading repositories:
+> Repositories loaded.
+> Package "xorg-x11-fonts-Type1-7.5-39.fc41.noarch" is already installed.
+>
+> Nothing to do.
+> root at localhost:/home/x#
+>
+>
+> Nothing to do.
+> #
+>
+> Paul
+>
+>
+> On Sat, Nov 2, 2024 at 8:54?PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+> >
+> > I've seen this before. Please run:
+> >
+> > $ sudo dnf install xorg-x11-fonts-Type1
+> >
+> > and try again.
+> >
+> > Best,
+> > I?aki
+> >
+> > On Sat, 2 Nov 2024 at 17:10, Paul Smith <phhs80 at gmail.com> wrote:
+> >>
+> >> Dear All,
+> >>
+> >> I am facing this problem when running rstudio on F41:
+> >>
+> >> $ rstudio
+> >> [19788:1102/160811.250292:ERROR:gl_factory.cc(120)] Requested GL
+> >> implementation (gl=none,angle=none) not found in allowed
+> >> implementations:
+> >> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+> >> [19788:1102/160811.252899:ERROR:viz_main_impl.cc(198)] Exiting GPU
+> >> process due to errors during initialization
+> >> Segmentation fault (core dumped)
+> >> $
+> >>
+> >> Could you please help me?
+> >>
+> >> Thanks in advance,
+> >>
+> >> Paul
+> >>
+> >> _______________________________________________
+> >> R-SIG-Fedora mailing list
+> >> R-SIG-Fedora at r-project.org
+> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >>
+> >
+> >
+> > --
+> > I?aki ?car
+>
+>
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+
+From phh@80 @end|ng |rom gm@||@com  Sun Nov  3 21:58:03 2024
+From: phh@80 @end|ng |rom gm@||@com (Paul Smith)
+Date: Sun, 3 Nov 2024 20:58:03 +0000
+Subject: [R-sig-Fedora] RStudio crashes with segmentation fault on F41
+In-Reply-To: <CALEXWq09wDNiV7zy6-5G5pFzC-MCbwnkN5GyRDCQnzMBMR4vvA@mail.gmail.com>
+References: <CALS=5mojO8+jPqQ9P19Ceu4X1970v_e5_KTh1iuoh4C=tcX+9Q@mail.gmail.com>
+ <CALEXWq2ZFogGXLfC+gTVoLo_7dkoVrcf6S4WPmHpn9=cz_+8hg@mail.gmail.com>
+ <CALS=5mp+wZA4PwHZA7e0oT59ijmBNivyMd68Go_MdjObuLJLDw@mail.gmail.com>
+ <CALEXWq09wDNiV7zy6-5G5pFzC-MCbwnkN5GyRDCQnzMBMR4vvA@mail.gmail.com>
+Message-ID: <CALS=5mrrRdBZEoHXDu0TNsL1UnR5_m=XJLggpA=dZT=-6k3-TQ@mail.gmail.com>
+
+Thanks, I?aki, for your answer. Yes, I do have a GPU:
+
+NVIDIA GeForce GTX 1650/PCIe/SSE2 NVIDIA Corporation 4.6.0 NVIDIA 560.35.03
+
+And no progress:
+
+$ rstudio GSK_RENDERER=ngl
+[18088:1103/205442.538796:ERROR:gl_factory.cc(120)] Requested GL
+implementation (gl=none,angle=none) not found in allowed
+implementations:
+[(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+[18088:1103/205442.544859:ERROR:viz_main_impl.cc(198)] Exiting GPU
+process due to errors during initialization
+Segmentation fault (core dumped)
+$
+
+Paul
+
+On Sun, Nov 3, 2024 at 8:49?PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> Let's try another thing. Do you use Gnome? Any kind of hardware acceleration for graphics (NVIDIA...)? If so, you could try launching RStudio with GSK_RENDERER=ngl to see if it makes any difference.
+>
+> I?aki
+>
+> On Sun, 3 Nov 2024 at 01:44, Paul Smith <phhs80 at gmail.com> wrote:
+>>
+>> Thanks, I?aki, for your answer. Unfortunately, that package was
+>> already installed on my machine:
+>>
+>> # dnf install xorg-x11-fonts-Type1
+>> Updating and loading repositories:
+>> Repositories loaded.
+>> Package "xorg-x11-fonts-Type1-7.5-39.fc41.noarch" is already installed.
+>>
+>> Nothing to do.
+>> root at localhost:/home/x#
+>>
+>>
+>> Nothing to do.
+>> #
+>>
+>> Paul
+>>
+>>
+>> On Sat, Nov 2, 2024 at 8:54?PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>> >
+>> > I've seen this before. Please run:
+>> >
+>> > $ sudo dnf install xorg-x11-fonts-Type1
+>> >
+>> > and try again.
+>> >
+>> > Best,
+>> > I?aki
+>> >
+>> > On Sat, 2 Nov 2024 at 17:10, Paul Smith <phhs80 at gmail.com> wrote:
+>> >>
+>> >> Dear All,
+>> >>
+>> >> I am facing this problem when running rstudio on F41:
+>> >>
+>> >> $ rstudio
+>> >> [19788:1102/160811.250292:ERROR:gl_factory.cc(120)] Requested GL
+>> >> implementation (gl=none,angle=none) not found in allowed
+>> >> implementations:
+>> >> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+>> >> [19788:1102/160811.252899:ERROR:viz_main_impl.cc(198)] Exiting GPU
+>> >> process due to errors during initialization
+>> >> Segmentation fault (core dumped)
+>> >> $
+>> >>
+>> >> Could you please help me?
+>> >>
+>> >> Thanks in advance,
+>> >>
+>> >> Paul
+>> >>
+>> >> _______________________________________________
+>> >> R-SIG-Fedora mailing list
+>> >> R-SIG-Fedora at r-project.org
+>> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>> >>
+>> >
+>> >
+>> > --
+>> > I?aki ?car
+>>
+>
+>
+> --
+> I?aki ?car
+
+
+From phh@80 @end|ng |rom gm@||@com  Sun Nov  3 22:04:27 2024
+From: phh@80 @end|ng |rom gm@||@com (Paul Smith)
+Date: Sun, 3 Nov 2024 21:04:27 +0000
+Subject: [R-sig-Fedora] RStudio crashes with segmentation fault on F41
+In-Reply-To: <CALEXWq25jknUvwPL9HUyw6A6Y=50EPCof4_wsZiu9KTq1DEsEg@mail.gmail.com>
+References: <CALS=5mojO8+jPqQ9P19Ceu4X1970v_e5_KTh1iuoh4C=tcX+9Q@mail.gmail.com>
+ <CALEXWq2ZFogGXLfC+gTVoLo_7dkoVrcf6S4WPmHpn9=cz_+8hg@mail.gmail.com>
+ <CALS=5mp+wZA4PwHZA7e0oT59ijmBNivyMd68Go_MdjObuLJLDw@mail.gmail.com>
+ <CALEXWq09wDNiV7zy6-5G5pFzC-MCbwnkN5GyRDCQnzMBMR4vvA@mail.gmail.com>
+ <CALS=5mrrRdBZEoHXDu0TNsL1UnR5_m=XJLggpA=dZT=-6k3-TQ@mail.gmail.com>
+ <CALEXWq25jknUvwPL9HUyw6A6Y=50EPCof4_wsZiu9KTq1DEsEg@mail.gmail.com>
+Message-ID: <CALS=5moWBPTR08yuDpGUeSWkxz+tRp6jxNqkgUGZ28OpiOFpnQ@mail.gmail.com>
+
+Thanks, but unfortunately no progress:
+
+$ GSK_RENDERER=ngl rstudio
+
+[19496:1103/210330.025303:ERROR:gl_factory.cc(120)] Requested GL
+implementation (gl=none,angle=none) not found in allowed
+implementations:
+[(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+[19496:1103/210330.028349:ERROR:viz_main_impl.cc(198)] Exiting GPU
+process due to errors during initialization
+Segmentation fault (core dumped)
+$
+
+Paul
+
+On Sun, Nov 3, 2024 at 9:02?PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+>
+> On Sun, 3 Nov 2024 at 21:58, Paul Smith <phhs80 at gmail.com> wrote:
+>>
+>> Thanks, I?aki, for your answer. Yes, I do have a GPU:
+>>
+>> NVIDIA GeForce GTX 1650/PCIe/SSE2 NVIDIA Corporation 4.6.0 NVIDIA 560.35.03
+>>
+>> And no progress:
+>>
+>> $ rstudio GSK_RENDERER=ngl
+>
+>
+> Sorry, I didn't specify... Try the other way around:
+>
+> $ GSK_RENDERER=ngl rstudio
+>
+> I?aki
+>
+>>
+>> [18088:1103/205442.538796:ERROR:gl_factory.cc(120)] Requested GL
+>> implementation (gl=none,angle=none) not found in allowed
+>> implementations:
+>> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+>> [18088:1103/205442.544859:ERROR:viz_main_impl.cc(198)] Exiting GPU
+>> process due to errors during initialization
+>> Segmentation fault (core dumped)
+>> $
+>>
+>> Paul
+>>
+>> On Sun, Nov 3, 2024 at 8:49?PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>> >
+>> > Let's try another thing. Do you use Gnome? Any kind of hardware acceleration for graphics (NVIDIA...)? If so, you could try launching RStudio with GSK_RENDERER=ngl to see if it makes any difference.
+>> >
+>> > I?aki
+>> >
+>> > On Sun, 3 Nov 2024 at 01:44, Paul Smith <phhs80 at gmail.com> wrote:
+>> >>
+>> >> Thanks, I?aki, for your answer. Unfortunately, that package was
+>> >> already installed on my machine:
+>> >>
+>> >> # dnf install xorg-x11-fonts-Type1
+>> >> Updating and loading repositories:
+>> >> Repositories loaded.
+>> >> Package "xorg-x11-fonts-Type1-7.5-39.fc41.noarch" is already installed.
+>> >>
+>> >> Nothing to do.
+>> >> root at localhost:/home/x#
+>> >>
+>> >>
+>> >> Nothing to do.
+>> >> #
+>> >>
+>> >> Paul
+>> >>
+>> >>
+>> >> On Sat, Nov 2, 2024 at 8:54?PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>> >> >
+>> >> > I've seen this before. Please run:
+>> >> >
+>> >> > $ sudo dnf install xorg-x11-fonts-Type1
+>> >> >
+>> >> > and try again.
+>> >> >
+>> >> > Best,
+>> >> > I?aki
+>> >> >
+>> >> > On Sat, 2 Nov 2024 at 17:10, Paul Smith <phhs80 at gmail.com> wrote:
+>> >> >>
+>> >> >> Dear All,
+>> >> >>
+>> >> >> I am facing this problem when running rstudio on F41:
+>> >> >>
+>> >> >> $ rstudio
+>> >> >> [19788:1102/160811.250292:ERROR:gl_factory.cc(120)] Requested GL
+>> >> >> implementation (gl=none,angle=none) not found in allowed
+>> >> >> implementations:
+>> >> >> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+>> >> >> [19788:1102/160811.252899:ERROR:viz_main_impl.cc(198)] Exiting GPU
+>> >> >> process due to errors during initialization
+>> >> >> Segmentation fault (core dumped)
+>> >> >> $
+>> >> >>
+>> >> >> Could you please help me?
+>> >> >>
+>> >> >> Thanks in advance,
+>> >> >>
+>> >> >> Paul
+>> >> >>
+>> >> >> _______________________________________________
+>> >> >> R-SIG-Fedora mailing list
+>> >> >> R-SIG-Fedora at r-project.org
+>> >> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>> >> >>
+>> >> >
+>> >> >
+>> >> > --
+>> >> > I?aki ?car
+>> >>
+>> >
+>> >
+>> > --
+>> > I?aki ?car
+>>
+>
+>
+> --
+> I?aki ?car
+
+
+From |uc@r @end|ng |rom |edor@project@org  Sun Nov  3 22:01:46 2024
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Sun, 3 Nov 2024 22:01:46 +0100
+Subject: [R-sig-Fedora] RStudio crashes with segmentation fault on F41
+In-Reply-To: <CALS=5mrrRdBZEoHXDu0TNsL1UnR5_m=XJLggpA=dZT=-6k3-TQ@mail.gmail.com>
+References: <CALS=5mojO8+jPqQ9P19Ceu4X1970v_e5_KTh1iuoh4C=tcX+9Q@mail.gmail.com>
+ <CALEXWq2ZFogGXLfC+gTVoLo_7dkoVrcf6S4WPmHpn9=cz_+8hg@mail.gmail.com>
+ <CALS=5mp+wZA4PwHZA7e0oT59ijmBNivyMd68Go_MdjObuLJLDw@mail.gmail.com>
+ <CALEXWq09wDNiV7zy6-5G5pFzC-MCbwnkN5GyRDCQnzMBMR4vvA@mail.gmail.com>
+ <CALS=5mrrRdBZEoHXDu0TNsL1UnR5_m=XJLggpA=dZT=-6k3-TQ@mail.gmail.com>
+Message-ID: <CALEXWq25jknUvwPL9HUyw6A6Y=50EPCof4_wsZiu9KTq1DEsEg@mail.gmail.com>
+
+On Sun, 3 Nov 2024 at 21:58, Paul Smith <phhs80 at gmail.com> wrote:
+
+> Thanks, I?aki, for your answer. Yes, I do have a GPU:
+>
+> NVIDIA GeForce GTX 1650/PCIe/SSE2 NVIDIA Corporation 4.6.0 NVIDIA 560.35.03
+>
+> And no progress:
+>
+> $ rstudio GSK_RENDERER=ngl
+>
+
+Sorry, I didn't specify... Try the other way around:
+
+$ GSK_RENDERER=ngl rstudio
+
+I?aki
+
+
+> [18088:1103/205442.538796:ERROR:gl_factory.cc(120)] Requested GL
+> implementation (gl=none,angle=none) not found in allowed
+> implementations:
+> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+> [18088:1103/205442.544859:ERROR:viz_main_impl.cc(198)] Exiting GPU
+> process due to errors during initialization
+> Segmentation fault (core dumped)
+> $
+>
+> Paul
+>
+> On Sun, Nov 3, 2024 at 8:49?PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+> >
+> > Let's try another thing. Do you use Gnome? Any kind of hardware
+> acceleration for graphics (NVIDIA...)? If so, you could try launching
+> RStudio with GSK_RENDERER=ngl to see if it makes any difference.
+> >
+> > I?aki
+> >
+> > On Sun, 3 Nov 2024 at 01:44, Paul Smith <phhs80 at gmail.com> wrote:
+> >>
+> >> Thanks, I?aki, for your answer. Unfortunately, that package was
+> >> already installed on my machine:
+> >>
+> >> # dnf install xorg-x11-fonts-Type1
+> >> Updating and loading repositories:
+> >> Repositories loaded.
+> >> Package "xorg-x11-fonts-Type1-7.5-39.fc41.noarch" is already installed.
+> >>
+> >> Nothing to do.
+> >> root at localhost:/home/x#
+> >>
+> >>
+> >> Nothing to do.
+> >> #
+> >>
+> >> Paul
+> >>
+> >>
+> >> On Sat, Nov 2, 2024 at 8:54?PM I?aki Ucar <iucar at fedoraproject.org>
+> wrote:
+> >> >
+> >> > I've seen this before. Please run:
+> >> >
+> >> > $ sudo dnf install xorg-x11-fonts-Type1
+> >> >
+> >> > and try again.
+> >> >
+> >> > Best,
+> >> > I?aki
+> >> >
+> >> > On Sat, 2 Nov 2024 at 17:10, Paul Smith <phhs80 at gmail.com> wrote:
+> >> >>
+> >> >> Dear All,
+> >> >>
+> >> >> I am facing this problem when running rstudio on F41:
+> >> >>
+> >> >> $ rstudio
+> >> >> [19788:1102/160811.250292:ERROR:gl_factory.cc(120)] Requested GL
+> >> >> implementation (gl=none,angle=none) not found in allowed
+> >> >> implementations:
+> >> >> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+> >> >> [19788:1102/160811.252899:ERROR:viz_main_impl.cc(198)] Exiting GPU
+> >> >> process due to errors during initialization
+> >> >> Segmentation fault (core dumped)
+> >> >> $
+> >> >>
+> >> >> Could you please help me?
+> >> >>
+> >> >> Thanks in advance,
+> >> >>
+> >> >> Paul
+> >> >>
+> >> >> _______________________________________________
+> >> >> R-SIG-Fedora mailing list
+> >> >> R-SIG-Fedora at r-project.org
+> >> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >> >>
+> >> >
+> >> >
+> >> > --
+> >> > I?aki ?car
+> >>
+> >
+> >
+> > --
+> > I?aki ?car
+>
+>
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Sun Nov  3 22:10:10 2024
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Sun, 3 Nov 2024 22:10:10 +0100
+Subject: [R-sig-Fedora] RStudio crashes with segmentation fault on F41
+In-Reply-To: <CALS=5moWBPTR08yuDpGUeSWkxz+tRp6jxNqkgUGZ28OpiOFpnQ@mail.gmail.com>
+References: <CALS=5mojO8+jPqQ9P19Ceu4X1970v_e5_KTh1iuoh4C=tcX+9Q@mail.gmail.com>
+ <CALEXWq2ZFogGXLfC+gTVoLo_7dkoVrcf6S4WPmHpn9=cz_+8hg@mail.gmail.com>
+ <CALS=5mp+wZA4PwHZA7e0oT59ijmBNivyMd68Go_MdjObuLJLDw@mail.gmail.com>
+ <CALEXWq09wDNiV7zy6-5G5pFzC-MCbwnkN5GyRDCQnzMBMR4vvA@mail.gmail.com>
+ <CALS=5mrrRdBZEoHXDu0TNsL1UnR5_m=XJLggpA=dZT=-6k3-TQ@mail.gmail.com>
+ <CALEXWq25jknUvwPL9HUyw6A6Y=50EPCof4_wsZiu9KTq1DEsEg@mail.gmail.com>
+ <CALS=5moWBPTR08yuDpGUeSWkxz+tRp6jxNqkgUGZ28OpiOFpnQ@mail.gmail.com>
+Message-ID: <CALEXWq036AHaGAR+28nYjg2xFU=wN-Tox=5ejgvWJQN+JwXvoA@mail.gmail.com>
+
+It is unlikely to be a packaging issue. I suggest you open a bug report
+here: https://github.com/rstudio/rstudio/issues.
+
+I?aki
+
+On Sun, 3 Nov 2024 at 22:04, Paul Smith <phhs80 at gmail.com> wrote:
+
+> Thanks, but unfortunately no progress:
+>
+> $ GSK_RENDERER=ngl rstudio
+>
+> [19496:1103/210330.025303:ERROR:gl_factory.cc(120)] Requested GL
+> implementation (gl=none,angle=none) not found in allowed
+> implementations:
+> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+> [19496:1103/210330.028349:ERROR:viz_main_impl.cc(198)] Exiting GPU
+> process due to errors during initialization
+> Segmentation fault (core dumped)
+> $
+>
+> Paul
+>
+> On Sun, Nov 3, 2024 at 9:02?PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+> >
+> >
+> > On Sun, 3 Nov 2024 at 21:58, Paul Smith <phhs80 at gmail.com> wrote:
+> >>
+> >> Thanks, I?aki, for your answer. Yes, I do have a GPU:
+> >>
+> >> NVIDIA GeForce GTX 1650/PCIe/SSE2 NVIDIA Corporation 4.6.0 NVIDIA
+> 560.35.03
+> >>
+> >> And no progress:
+> >>
+> >> $ rstudio GSK_RENDERER=ngl
+> >
+> >
+> > Sorry, I didn't specify... Try the other way around:
+> >
+> > $ GSK_RENDERER=ngl rstudio
+> >
+> > I?aki
+> >
+> >>
+> >> [18088:1103/205442.538796:ERROR:gl_factory.cc(120)] Requested GL
+> >> implementation (gl=none,angle=none) not found in allowed
+> >> implementations:
+> >> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+> >> [18088:1103/205442.544859:ERROR:viz_main_impl.cc(198)] Exiting GPU
+> >> process due to errors during initialization
+> >> Segmentation fault (core dumped)
+> >> $
+> >>
+> >> Paul
+> >>
+> >> On Sun, Nov 3, 2024 at 8:49?PM I?aki Ucar <iucar at fedoraproject.org>
+> wrote:
+> >> >
+> >> > Let's try another thing. Do you use Gnome? Any kind of hardware
+> acceleration for graphics (NVIDIA...)? If so, you could try launching
+> RStudio with GSK_RENDERER=ngl to see if it makes any difference.
+> >> >
+> >> > I?aki
+> >> >
+> >> > On Sun, 3 Nov 2024 at 01:44, Paul Smith <phhs80 at gmail.com> wrote:
+> >> >>
+> >> >> Thanks, I?aki, for your answer. Unfortunately, that package was
+> >> >> already installed on my machine:
+> >> >>
+> >> >> # dnf install xorg-x11-fonts-Type1
+> >> >> Updating and loading repositories:
+> >> >> Repositories loaded.
+> >> >> Package "xorg-x11-fonts-Type1-7.5-39.fc41.noarch" is already
+> installed.
+> >> >>
+> >> >> Nothing to do.
+> >> >> root at localhost:/home/x#
+> >> >>
+> >> >>
+> >> >> Nothing to do.
+> >> >> #
+> >> >>
+> >> >> Paul
+> >> >>
+> >> >>
+> >> >> On Sat, Nov 2, 2024 at 8:54?PM I?aki Ucar <iucar at fedoraproject.org>
+> wrote:
+> >> >> >
+> >> >> > I've seen this before. Please run:
+> >> >> >
+> >> >> > $ sudo dnf install xorg-x11-fonts-Type1
+> >> >> >
+> >> >> > and try again.
+> >> >> >
+> >> >> > Best,
+> >> >> > I?aki
+> >> >> >
+> >> >> > On Sat, 2 Nov 2024 at 17:10, Paul Smith <phhs80 at gmail.com> wrote:
+> >> >> >>
+> >> >> >> Dear All,
+> >> >> >>
+> >> >> >> I am facing this problem when running rstudio on F41:
+> >> >> >>
+> >> >> >> $ rstudio
+> >> >> >> [19788:1102/160811.250292:ERROR:gl_factory.cc(120)] Requested GL
+> >> >> >> implementation (gl=none,angle=none) not found in allowed
+> >> >> >> implementations:
+> >> >> >> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+> >> >> >> [19788:1102/160811.252899:ERROR:viz_main_impl.cc(198)] Exiting GPU
+> >> >> >> process due to errors during initialization
+> >> >> >> Segmentation fault (core dumped)
+> >> >> >> $
+> >> >> >>
+> >> >> >> Could you please help me?
+> >> >> >>
+> >> >> >> Thanks in advance,
+> >> >> >>
+> >> >> >> Paul
+> >> >> >>
+> >> >> >> _______________________________________________
+> >> >> >> R-SIG-Fedora mailing list
+> >> >> >> R-SIG-Fedora at r-project.org
+> >> >> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >> >> >>
+> >> >> >
+> >> >> >
+> >> >> > --
+> >> >> > I?aki ?car
+> >> >>
+> >> >
+> >> >
+> >> > --
+> >> > I?aki ?car
+> >>
+> >
+> >
+> > --
+> > I?aki ?car
+>
+>
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Sun Nov  3 22:11:22 2024
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Sun, 3 Nov 2024 22:11:22 +0100
+Subject: [R-sig-Fedora] RStudio crashes with segmentation fault on F41
+In-Reply-To: <CALEXWq036AHaGAR+28nYjg2xFU=wN-Tox=5ejgvWJQN+JwXvoA@mail.gmail.com>
+References: <CALS=5mojO8+jPqQ9P19Ceu4X1970v_e5_KTh1iuoh4C=tcX+9Q@mail.gmail.com>
+ <CALEXWq2ZFogGXLfC+gTVoLo_7dkoVrcf6S4WPmHpn9=cz_+8hg@mail.gmail.com>
+ <CALS=5mp+wZA4PwHZA7e0oT59ijmBNivyMd68Go_MdjObuLJLDw@mail.gmail.com>
+ <CALEXWq09wDNiV7zy6-5G5pFzC-MCbwnkN5GyRDCQnzMBMR4vvA@mail.gmail.com>
+ <CALS=5mrrRdBZEoHXDu0TNsL1UnR5_m=XJLggpA=dZT=-6k3-TQ@mail.gmail.com>
+ <CALEXWq25jknUvwPL9HUyw6A6Y=50EPCof4_wsZiu9KTq1DEsEg@mail.gmail.com>
+ <CALS=5moWBPTR08yuDpGUeSWkxz+tRp6jxNqkgUGZ28OpiOFpnQ@mail.gmail.com>
+ <CALEXWq036AHaGAR+28nYjg2xFU=wN-Tox=5ejgvWJQN+JwXvoA@mail.gmail.com>
+Message-ID: <CALEXWq36YV0dATQfz1m4SVu8=Z_m+z4rySPiutKCajgby23ADw@mail.gmail.com>
+
+BTW, meanwhile, you can install rstudio-server and use RStudio in your
+browser at http://localhost:8787
+
+I?aki
+
+On Sun, 3 Nov 2024 at 22:10, I?aki Ucar <iucar at fedoraproject.org> wrote:
+
+> It is unlikely to be a packaging issue. I suggest you open a bug report
+> here: https://github.com/rstudio/rstudio/issues.
+>
+> I?aki
+>
+> On Sun, 3 Nov 2024 at 22:04, Paul Smith <phhs80 at gmail.com> wrote:
+>
+>> Thanks, but unfortunately no progress:
+>>
+>> $ GSK_RENDERER=ngl rstudio
+>>
+>> [19496:1103/210330.025303:ERROR:gl_factory.cc(120)] Requested GL
+>> implementation (gl=none,angle=none) not found in allowed
+>> implementations:
+>> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+>> [19496:1103/210330.028349:ERROR:viz_main_impl.cc(198)] Exiting GPU
+>> process due to errors during initialization
+>> Segmentation fault (core dumped)
+>> $
+>>
+>> Paul
+>>
+>> On Sun, Nov 3, 2024 at 9:02?PM I?aki Ucar <iucar at fedoraproject.org>
+>> wrote:
+>> >
+>> >
+>> > On Sun, 3 Nov 2024 at 21:58, Paul Smith <phhs80 at gmail.com> wrote:
+>> >>
+>> >> Thanks, I?aki, for your answer. Yes, I do have a GPU:
+>> >>
+>> >> NVIDIA GeForce GTX 1650/PCIe/SSE2 NVIDIA Corporation 4.6.0 NVIDIA
+>> 560.35.03
+>> >>
+>> >> And no progress:
+>> >>
+>> >> $ rstudio GSK_RENDERER=ngl
+>> >
+>> >
+>> > Sorry, I didn't specify... Try the other way around:
+>> >
+>> > $ GSK_RENDERER=ngl rstudio
+>> >
+>> > I?aki
+>> >
+>> >>
+>> >> [18088:1103/205442.538796:ERROR:gl_factory.cc(120)] Requested GL
+>> >> implementation (gl=none,angle=none) not found in allowed
+>> >> implementations:
+>> >> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+>> >> [18088:1103/205442.544859:ERROR:viz_main_impl.cc(198)] Exiting GPU
+>> >> process due to errors during initialization
+>> >> Segmentation fault (core dumped)
+>> >> $
+>> >>
+>> >> Paul
+>> >>
+>> >> On Sun, Nov 3, 2024 at 8:49?PM I?aki Ucar <iucar at fedoraproject.org>
+>> wrote:
+>> >> >
+>> >> > Let's try another thing. Do you use Gnome? Any kind of hardware
+>> acceleration for graphics (NVIDIA...)? If so, you could try launching
+>> RStudio with GSK_RENDERER=ngl to see if it makes any difference.
+>> >> >
+>> >> > I?aki
+>> >> >
+>> >> > On Sun, 3 Nov 2024 at 01:44, Paul Smith <phhs80 at gmail.com> wrote:
+>> >> >>
+>> >> >> Thanks, I?aki, for your answer. Unfortunately, that package was
+>> >> >> already installed on my machine:
+>> >> >>
+>> >> >> # dnf install xorg-x11-fonts-Type1
+>> >> >> Updating and loading repositories:
+>> >> >> Repositories loaded.
+>> >> >> Package "xorg-x11-fonts-Type1-7.5-39.fc41.noarch" is already
+>> installed.
+>> >> >>
+>> >> >> Nothing to do.
+>> >> >> root at localhost:/home/x#
+>> >> >>
+>> >> >>
+>> >> >> Nothing to do.
+>> >> >> #
+>> >> >>
+>> >> >> Paul
+>> >> >>
+>> >> >>
+>> >> >> On Sat, Nov 2, 2024 at 8:54?PM I?aki Ucar <iucar at fedoraproject.org>
+>> wrote:
+>> >> >> >
+>> >> >> > I've seen this before. Please run:
+>> >> >> >
+>> >> >> > $ sudo dnf install xorg-x11-fonts-Type1
+>> >> >> >
+>> >> >> > and try again.
+>> >> >> >
+>> >> >> > Best,
+>> >> >> > I?aki
+>> >> >> >
+>> >> >> > On Sat, 2 Nov 2024 at 17:10, Paul Smith <phhs80 at gmail.com> wrote:
+>> >> >> >>
+>> >> >> >> Dear All,
+>> >> >> >>
+>> >> >> >> I am facing this problem when running rstudio on F41:
+>> >> >> >>
+>> >> >> >> $ rstudio
+>> >> >> >> [19788:1102/160811.250292:ERROR:gl_factory.cc(120)] Requested GL
+>> >> >> >> implementation (gl=none,angle=none) not found in allowed
+>> >> >> >> implementations:
+>> >> >> >> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+>> >> >> >> [19788:1102/160811.252899:ERROR:viz_main_impl.cc(198)] Exiting
+>> GPU
+>> >> >> >> process due to errors during initialization
+>> >> >> >> Segmentation fault (core dumped)
+>> >> >> >> $
+>> >> >> >>
+>> >> >> >> Could you please help me?
+>> >> >> >>
+>> >> >> >> Thanks in advance,
+>> >> >> >>
+>> >> >> >> Paul
+>> >> >> >>
+>> >> >> >> _______________________________________________
+>> >> >> >> R-SIG-Fedora mailing list
+>> >> >> >> R-SIG-Fedora at r-project.org
+>> >> >> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>> >> >> >>
+>> >> >> >
+>> >> >> >
+>> >> >> > --
+>> >> >> > I?aki ?car
+>> >> >>
+>> >> >
+>> >> >
+>> >> > --
+>> >> > I?aki ?car
+>> >>
+>> >
+>> >
+>> > --
+>> > I?aki ?car
+>>
+>>
+>
+> --
+> I?aki ?car
+>
+
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+
+From phh@80 @end|ng |rom gm@||@com  Sun Nov  3 22:16:36 2024
+From: phh@80 @end|ng |rom gm@||@com (Paul Smith)
+Date: Sun, 3 Nov 2024 21:16:36 +0000
+Subject: [R-sig-Fedora] RStudio crashes with segmentation fault on F41
+In-Reply-To: <CALEXWq36YV0dATQfz1m4SVu8=Z_m+z4rySPiutKCajgby23ADw@mail.gmail.com>
+References: <CALS=5mojO8+jPqQ9P19Ceu4X1970v_e5_KTh1iuoh4C=tcX+9Q@mail.gmail.com>
+ <CALEXWq2ZFogGXLfC+gTVoLo_7dkoVrcf6S4WPmHpn9=cz_+8hg@mail.gmail.com>
+ <CALS=5mp+wZA4PwHZA7e0oT59ijmBNivyMd68Go_MdjObuLJLDw@mail.gmail.com>
+ <CALEXWq09wDNiV7zy6-5G5pFzC-MCbwnkN5GyRDCQnzMBMR4vvA@mail.gmail.com>
+ <CALS=5mrrRdBZEoHXDu0TNsL1UnR5_m=XJLggpA=dZT=-6k3-TQ@mail.gmail.com>
+ <CALEXWq25jknUvwPL9HUyw6A6Y=50EPCof4_wsZiu9KTq1DEsEg@mail.gmail.com>
+ <CALS=5moWBPTR08yuDpGUeSWkxz+tRp6jxNqkgUGZ28OpiOFpnQ@mail.gmail.com>
+ <CALEXWq036AHaGAR+28nYjg2xFU=wN-Tox=5ejgvWJQN+JwXvoA@mail.gmail.com>
+ <CALEXWq36YV0dATQfz1m4SVu8=Z_m+z4rySPiutKCajgby23ADw@mail.gmail.com>
+Message-ID: <CALS=5mqT2CVkZTHyGgyqrBO09fN4kU8P=ke4o2PgvjVoXCiayg@mail.gmail.com>
+
+Thanks, I?aki!
+
+I have meanwhile done so:
+
+https://github.com/rstudio/rstudio/issues/15396
+
+Paul
+
+On Sun, Nov 3, 2024 at 9:11?PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> BTW, meanwhile, you can install rstudio-server and use RStudio in your browser at http://localhost:8787
+>
+> I?aki
+>
+> On Sun, 3 Nov 2024 at 22:10, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>>
+>> It is unlikely to be a packaging issue. I suggest you open a bug report here: https://github.com/rstudio/rstudio/issues.
+>>
+>> I?aki
+>>
+>> On Sun, 3 Nov 2024 at 22:04, Paul Smith <phhs80 at gmail.com> wrote:
+>>>
+>>> Thanks, but unfortunately no progress:
+>>>
+>>> $ GSK_RENDERER=ngl rstudio
+>>>
+>>> [19496:1103/210330.025303:ERROR:gl_factory.cc(120)] Requested GL
+>>> implementation (gl=none,angle=none) not found in allowed
+>>> implementations:
+>>> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+>>> [19496:1103/210330.028349:ERROR:viz_main_impl.cc(198)] Exiting GPU
+>>> process due to errors during initialization
+>>> Segmentation fault (core dumped)
+>>> $
+>>>
+>>> Paul
+>>>
+>>> On Sun, Nov 3, 2024 at 9:02?PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>>> >
+>>> >
+>>> > On Sun, 3 Nov 2024 at 21:58, Paul Smith <phhs80 at gmail.com> wrote:
+>>> >>
+>>> >> Thanks, I?aki, for your answer. Yes, I do have a GPU:
+>>> >>
+>>> >> NVIDIA GeForce GTX 1650/PCIe/SSE2 NVIDIA Corporation 4.6.0 NVIDIA 560.35.03
+>>> >>
+>>> >> And no progress:
+>>> >>
+>>> >> $ rstudio GSK_RENDERER=ngl
+>>> >
+>>> >
+>>> > Sorry, I didn't specify... Try the other way around:
+>>> >
+>>> > $ GSK_RENDERER=ngl rstudio
+>>> >
+>>> > I?aki
+>>> >
+>>> >>
+>>> >> [18088:1103/205442.538796:ERROR:gl_factory.cc(120)] Requested GL
+>>> >> implementation (gl=none,angle=none) not found in allowed
+>>> >> implementations:
+>>> >> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+>>> >> [18088:1103/205442.544859:ERROR:viz_main_impl.cc(198)] Exiting GPU
+>>> >> process due to errors during initialization
+>>> >> Segmentation fault (core dumped)
+>>> >> $
+>>> >>
+>>> >> Paul
+>>> >>
+>>> >> On Sun, Nov 3, 2024 at 8:49?PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>>> >> >
+>>> >> > Let's try another thing. Do you use Gnome? Any kind of hardware acceleration for graphics (NVIDIA...)? If so, you could try launching RStudio with GSK_RENDERER=ngl to see if it makes any difference.
+>>> >> >
+>>> >> > I?aki
+>>> >> >
+>>> >> > On Sun, 3 Nov 2024 at 01:44, Paul Smith <phhs80 at gmail.com> wrote:
+>>> >> >>
+>>> >> >> Thanks, I?aki, for your answer. Unfortunately, that package was
+>>> >> >> already installed on my machine:
+>>> >> >>
+>>> >> >> # dnf install xorg-x11-fonts-Type1
+>>> >> >> Updating and loading repositories:
+>>> >> >> Repositories loaded.
+>>> >> >> Package "xorg-x11-fonts-Type1-7.5-39.fc41.noarch" is already installed.
+>>> >> >>
+>>> >> >> Nothing to do.
+>>> >> >> root at localhost:/home/x#
+>>> >> >>
+>>> >> >>
+>>> >> >> Nothing to do.
+>>> >> >> #
+>>> >> >>
+>>> >> >> Paul
+>>> >> >>
+>>> >> >>
+>>> >> >> On Sat, Nov 2, 2024 at 8:54?PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>>> >> >> >
+>>> >> >> > I've seen this before. Please run:
+>>> >> >> >
+>>> >> >> > $ sudo dnf install xorg-x11-fonts-Type1
+>>> >> >> >
+>>> >> >> > and try again.
+>>> >> >> >
+>>> >> >> > Best,
+>>> >> >> > I?aki
+>>> >> >> >
+>>> >> >> > On Sat, 2 Nov 2024 at 17:10, Paul Smith <phhs80 at gmail.com> wrote:
+>>> >> >> >>
+>>> >> >> >> Dear All,
+>>> >> >> >>
+>>> >> >> >> I am facing this problem when running rstudio on F41:
+>>> >> >> >>
+>>> >> >> >> $ rstudio
+>>> >> >> >> [19788:1102/160811.250292:ERROR:gl_factory.cc(120)] Requested GL
+>>> >> >> >> implementation (gl=none,angle=none) not found in allowed
+>>> >> >> >> implementations:
+>>> >> >> >> [(gl=egl-angle,angle=default),(gl=egl-gles2,angle=none)].
+>>> >> >> >> [19788:1102/160811.252899:ERROR:viz_main_impl.cc(198)] Exiting GPU
+>>> >> >> >> process due to errors during initialization
+>>> >> >> >> Segmentation fault (core dumped)
+>>> >> >> >> $
+>>> >> >> >>
+>>> >> >> >> Could you please help me?
+>>> >> >> >>
+>>> >> >> >> Thanks in advance,
+>>> >> >> >>
+>>> >> >> >> Paul
+>>> >> >> >>
+>>> >> >> >> _______________________________________________
+>>> >> >> >> R-SIG-Fedora mailing list
+>>> >> >> >> R-SIG-Fedora at r-project.org
+>>> >> >> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>> >> >> >>
+>>> >> >> >
+>>> >> >> >
+>>> >> >> > --
+>>> >> >> > I?aki ?car
+>>> >> >>
+>>> >> >
+>>> >> >
+>>> >> > --
+>>> >> > I?aki ?car
+>>> >>
+>>> >
+>>> >
+>>> > --
+>>> > I?aki ?car
+>>>
+>>
+>>
+>> --
+>> I?aki ?car
+>
+>
+>
+> --
+> I?aki ?car
+
+

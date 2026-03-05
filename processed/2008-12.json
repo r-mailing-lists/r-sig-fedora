@@ -1,0 +1,147 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2008-12",
+  "messages": [
+    {
+      "id": "msg-153e4fbf885e",
+      "message_id": "<33992.812.qm@web62208.mail.re1.yahoo.com>",
+      "from_name": "Sakda Chaiworawitkul",
+      "from_email_hash": "b01eeb96f7c37f8eafc85852f5911d9d4181bc3686e9166a252dcd6b7107a58e",
+      "date": "2008-12-06T15:00:35-08:00",
+      "subject": "[R-sig-Fedora] libgfortran.so.3 is needed by libblas",
+      "subject_clean": "libgfortran.so.3 is needed by libblas",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20081206/3ac42a80/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20081206/3ac42a80/attachment.pl>",
+      "thread_id": "thread-153e4fbf885e",
+      "thread_depth": 0,
+      "month": "2008-12"
+    },
+    {
+      "id": "msg-869512b26137",
+      "message_id": "<493BF8A5.2050200@comcast.net>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "6b69db75158c6a64599f027a17f3ea4ee49917322d20dbb731688b8fd4f10e1f",
+      "date": "2008-12-07T10:24:05-06:00",
+      "subject": "[R-sig-Fedora] libgfortran.so.3 is needed by libblas",
+      "subject_clean": "libgfortran.so.3 is needed by libblas",
+      "in_reply_to": "<33992.812.qm@web62208.mail.re1.yahoo.com>",
+      "references": [
+        "<33992.812.qm@web62208.mail.re1.yahoo.com>"
+      ],
+      "body_plain": "on 12/06/2008 05:00 PM Sakda Chaiworawitkul wrote:\n> Hi,\n> \n> I can't find any forum that's directly applicable to opensuse. My\n> apology if I post on a wrong mailing list. But I really like R and\n> want to use it on linux. The problem is I'm new to linux. I have\n> opensuse 11.0. I download the x86_64 installer from opensuse repo. I\n> run the installer and got error saying that libgfortran.so.3 is\n> needed by libblas. I found libgfortran.so.3 in my /usr/lib folder\n> (not /user/lib64). I guess it's not on lib64 that's why it's\n> complaining.\n> \n> So I create a symbolic link to libgfortran.so.3 from lib to lib64. It\n> still doesn't work. I try to install libgfortran from opensuse dvd it\n> still says that it needs libblas needs libgfortran.so.3 which doesn't\n> make sense to me.\n> \n> Would anyone kindly advise? It's surprisingly tedious to get a simple\n> thing up and running. Thank you.\n> \n> - sch\n\nGiven that this list is Fedora specific, you are limiting the potential\naudience that will see your post and perhaps be in a position to offer\nsuggestions.\n\nThere are a few OS/Distro specific R lists, but none for SUSE presently.\nThus, posting to r-help would likely be best and increase the\nprobability that another SUSE user would see it.\n\nThat being said, based upon a search of the archives, you might find\nthis post helpful:\n\n  http://tolstoy.newcastle.edu.au/R/e4/help/08/05/11309.html\n\nHTH,\n\nMarc Schwartz",
+      "body_snippet": "on 12/06/2008 05:00 PM Sakda Chaiworawitkul wrote:\n> Hi,\n> \n> I can't find any forum that's directly applicable to opensuse. My\n> apology if I post on a wrong mailing list. But I really like R and\n> w",
+      "thread_id": "thread-153e4fbf885e",
+      "thread_depth": 1,
+      "month": "2008-12"
+    },
+    {
+      "id": "msg-4e8f276c9238",
+      "message_id": "<1229980888.4528.53.camel@localhost.localdomain>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-12-22T16:21:28-05:00",
+      "subject": "[R-sig-Fedora] R 2.8.1",
+      "subject_clean": "R 2.8.1",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "R 2.8.1 is packaged up and queued up for testing. Please test this out:\n\nFedora 9:\nhttps://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc9,R-2.8.1-1.fc9\nFedora 10:\nhttps://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc10,R-2.8.1-1.fc10\n\nOnce you've tested it, please, please, go to the update URL above and\nclick \"Add A Comment\". If it works for you, click \"Works for me\" and\nwrite a little bit about how you tested it. That counts as a \"+1\" of\nkarma for that update. When it gets to +3, the system automatically\nflags the update to be pushed to stable.\n\nYou don't have to specifically test rpy to give karma on the update, I\nhave a high degree of confidence in rpy continuing to work. \n\nThanks in advance,\n\n~spot",
+      "body_snippet": "R 2.8.1 is packaged up and queued up for testing. Please test this out:\n\nFedora 9:\nhttps://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc9,R-2.8.1-1.fc9\nFedora 10:\nhttps://admin.fedoraproject.org/upda",
+      "thread_id": "thread-4e8f276c9238",
+      "thread_depth": 0,
+      "month": "2008-12"
+    },
+    {
+      "id": "msg-b9fc94e4b67d",
+      "message_id": "<49500BA6.6010200@biostat.ku.dk>",
+      "from_name": "Peter Dalgaard",
+      "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
+      "date": "2008-12-22T22:50:30+01:00",
+      "subject": "[R-sig-Fedora] R 2.8.1",
+      "subject_clean": "R 2.8.1",
+      "in_reply_to": "<1229980888.4528.53.camel@localhost.localdomain>",
+      "references": [
+        "<1229980888.4528.53.camel@localhost.localdomain>"
+      ],
+      "body_plain": "Tom \"spot\" Callaway wrote:\n> R 2.8.1 is packaged up and queued up for testing. Please test this out:\n> \n> Fedora 9:\n> https://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc9,R-2.8.1-1.fc9\n> Fedora 10:\n> https://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc10,R-2.8.1-1.fc10\n> \n> Once you've tested it, please, please, go to the update URL above and\n> click \"Add A Comment\". If it works for you, click \"Works for me\" and\n> write a little bit about how you tested it. That counts as a \"+1\" of\n> karma for that update. When it gets to +3, the system automatically\n> flags the update to be pushed to stable.\n> \n> You don't have to specifically test rpy to give karma on the update, I\n> have a high degree of confidence in rpy continuing to work. \n\nEr, I don't think you can be sure that everyone knows the magic \nincantations...\n\nIs this it?\n\n  yum --enablerepo=updates-testing-newkey update R\n\nbut, first we need to wait for the package to move from pending to \ntesting, right?\n\n-- \n    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B\n   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K\n  (*) \\(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918\n~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907",
+      "body_snippet": "Tom \"spot\" Callaway wrote:\n> R 2.8.1 is packaged up and queued up for testing. Please test this out:\n> \n> Fedora 9:\n> https://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc9,R-2.8.1-1.fc9\n> Fedora 10:",
+      "thread_id": "thread-4e8f276c9238",
+      "thread_depth": 1,
+      "month": "2008-12"
+    },
+    {
+      "id": "msg-68e3eff373c5",
+      "message_id": "<1229983083.4528.58.camel@localhost.localdomain>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-12-22T16:58:03-05:00",
+      "subject": "[R-sig-Fedora] R 2.8.1",
+      "subject_clean": "R 2.8.1",
+      "in_reply_to": "<49500BA6.6010200@biostat.ku.dk>",
+      "references": [
+        "<1229980888.4528.53.camel@localhost.localdomain>",
+        "<49500BA6.6010200@biostat.ku.dk>"
+      ],
+      "body_plain": "On Mon, 2008-12-22 at 22:50 +0100, Peter Dalgaard wrote:\n\n> Er, I don't think you can be sure that everyone knows the magic \n> incantations...\n> \n> Is this it?\n> \n>   yum --enablerepo=updates-testing-newkey update R\n> \n> but, first we need to wait for the package to move from pending to \n> testing, right?\n\nThat's F-9, yes. F-10 should be just updates-testing (I think)\n\nYou could also manually download the files locally, and call:\n\nyum update R-*.rpm libRmath-*\n\n~spot",
+      "body_snippet": "On Mon, 2008-12-22 at 22:50 +0100, Peter Dalgaard wrote:\n\n> Er, I don't think you can be sure that everyone knows the magic \n> incantations...\n> \n> Is this it?\n> \n>   yum --enablerepo=updates-testing-",
+      "thread_id": "thread-4e8f276c9238",
+      "thread_depth": 2,
+      "month": "2008-12"
+    },
+    {
+      "id": "msg-d44be141b2b9",
+      "message_id": "<20081228154756.BMR42505@expms6.cites.uiuc.edu>",
+      "from_name": "Tim F Liao",
+      "from_email_hash": "9da8514e93536e2fcb80da6cecd9c0921ae5ab111ec00c9a47ace6df8aaad9f3",
+      "date": "2008-12-28T15:47:56-06:00",
+      "subject": "[R-sig-Fedora] R and Linpus Linux Lite",
+      "subject_clean": "R and Linpus Linux Lite",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Has anyone installed R on an Acer Aspire One with the OS of Linpus Linux Lite?  I'd like to know if it's R would work on the machine before getting it.  Thanks.\n\nTim\n\nPS: please direct a copy of the answer to my email as I do not yet subscribe to the r-sig-fedora list.",
+      "body_snippet": "Has anyone installed R on an Acer Aspire One with the OS of Linpus Linux Lite?  I'd like to know if it's R would work on the machine before getting it.  Thanks.\n\nTim\n\nPS: please direct a copy of the a",
+      "thread_id": "thread-d44be141b2b9",
+      "thread_depth": 0,
+      "month": "2008-12"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-153e4fbf885e",
+      "subject": "libgfortran.so.3 is needed by libblas",
+      "message_count": 2,
+      "participants": [
+        "Marc Schwartz",
+        "Sakda Chaiworawitkul"
+      ],
+      "started": "2008-12-06T15:00:35-08:00",
+      "last_reply": "2008-12-07T10:24:05-06:00",
+      "root_message_id": "msg-153e4fbf885e"
+    },
+    {
+      "id": "thread-4e8f276c9238",
+      "subject": "R 2.8.1",
+      "message_count": 3,
+      "participants": [
+        "Peter Dalgaard",
+        "Tom \"spot\" Callaway"
+      ],
+      "started": "2008-12-22T16:21:28-05:00",
+      "last_reply": "2008-12-22T16:58:03-05:00",
+      "root_message_id": "msg-4e8f276c9238"
+    },
+    {
+      "id": "thread-d44be141b2b9",
+      "subject": "R and Linpus Linux Lite",
+      "message_count": 1,
+      "participants": [
+        "Tim F Liao"
+      ],
+      "started": "2008-12-28T15:47:56-06:00",
+      "last_reply": "2008-12-28T15:47:56-06:00",
+      "root_message_id": "msg-d44be141b2b9"
+    }
+  ]
+}

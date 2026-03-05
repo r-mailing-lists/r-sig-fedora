@@ -1,0 +1,55 @@
+From t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk  Thu Jun 19 14:13:50 2025
+From: t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk (Tim Taylor)
+Date: Thu, 19 Jun 2025 13:13:50 +0100
+Subject: [R-sig-Fedora] Copr for rdevel
+Message-ID: <5BF15D26-208B-4F54-AD04-810726D6F492@hiddenelephants.co.uk>
+
+Not a request to implement but an enquiry as to feasibility. Would it be feasible to have a copr repo that tracks rdevel and updates dailyish (perhaps more frequently if appropriate)?
+
+If so, and before I add it to my list of things I probably won?t get to, are there any particular gotchas/snags to be aware of?
+
+Cheers
+
+Tim
+
+From |uc@r @end|ng |rom |edor@project@org  Thu Jun 19 14:28:11 2025
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Thu, 19 Jun 2025 14:28:11 +0200
+Subject: [R-sig-Fedora] Copr for rdevel
+In-Reply-To: <5BF15D26-208B-4F54-AD04-810726D6F492@hiddenelephants.co.uk>
+References: <5BF15D26-208B-4F54-AD04-810726D6F492@hiddenelephants.co.uk>
+Message-ID: <CALEXWq2oyKAcdWay0-mQCN=pC=bXmDT+RrpNKYOMU0HyD-8u1g@mail.gmail.com>
+
+It should be easy, yes, because I have everything pretty much automated
+nowadays. The only issue would be to make this parallel-installable. Where
+and how to deal with name conflicts for the executables, headers and
+libraries.
+
+I?aki
+
+On Thu, 19 Jun 2025 at 14:14, Tim Taylor <tim.taylor at hiddenelephants.co.uk>
+wrote:
+
+> Not a request to implement but an enquiry as to feasibility. Would it be
+> feasible to have a copr repo that tracks rdevel and updates dailyish
+> (perhaps more frequently if appropriate)?
+>
+> If so, and before I add it to my list of things I probably won?t get to,
+> are there any particular gotchas/snags to be aware of?
+>
+> Cheers
+>
+> Tim
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+

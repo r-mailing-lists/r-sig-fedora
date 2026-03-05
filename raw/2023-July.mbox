@@ -1,0 +1,23 @@
+From t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk  Fri Jul 21 00:43:07 2023
+From: t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk (Tim Taylor)
+Date: Thu, 20 Jul 2023 23:43:07 +0100
+Subject: [R-sig-Fedora] tzdata requirement
+Message-ID: <75166815-6671-1e13-cc56-9b7f716ea2cc@hiddenelephants.co.uk>
+
+I'm very ignorant of the building of rpms and spec files but should R 
+have a requirement (both build and run) tzdata? I was exploring the spec 
+file and couldn't see it mentioned but, AFAICT, it is required unless 
+you are using the optional bundled data base.
+
+My curiosity was triggered after reading the recent thread on devel 
+(https://lists.fedoraproject.org/archives/list/devel at lists.fedoraproject.org/thread/CRUWIEHISRLYQ5ZLPFSAFJPRTDQQLBO2/) 
+and then seeing that the related change request was recently approved 
+(https://pagure.io/fesco/issue/3031).
+
+Apologies for the noise if I'm misunderstanding how things work.
+
+Cheers
+
+Tim
+
+

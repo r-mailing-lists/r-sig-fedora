@@ -1,0 +1,42 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2015-10",
+  "messages": [
+    {
+      "id": "msg-a8504417a120",
+      "message_id": "<CAK1hC9uBMHS7oDhQKKyHgGHUekydR5iBhdn=r6Lw4DxGA0H38A@mail.gmail.com>",
+      "from_name": "arnaud gaboury",
+      "from_email_hash": "3fd1ca79c7c6068e196062a46bb8918874de6d5ebc4e1c82dbd5d8787c97a20d",
+      "date": "2015-10-11T18:52:04+02:00",
+      "subject": "[R-sig-Fedora] Build rpm package for R-MKL",
+      "subject_clean": "Build rpm package for R-MKL",
+      "in_reply_to": "<CAK1hC9siAA-SU=HiZ6w6TBfkDTHbsRF8QJycC2eMwR20iYjdMA@mail.gmail.com>",
+      "references": [
+        "<CAK1hC9vyw8p1xugFfrGL7eC2nn2AkZkeLohkfBia3ko6bktJ=g@mail.gmail.com>",
+        "<55EF1C93.3010809@redhat.com>",
+        "<CAK1hC9vZMf-g7+kGKRoFU7vR_haQ3WnZZvSFYgUbJOyJqPg-aA@mail.gmail.com>",
+        "<55EF21D5.9040401@redhat.com>",
+        "<CAK1hC9siAA-SU=HiZ6w6TBfkDTHbsRF8QJycC2eMwR20iYjdMA@mail.gmail.com>"
+      ],
+      "body_plain": "On Tue, Sep 8, 2015 at 9:30 PM, arnaud gaboury <arnaud.gaboury at gmail.com> wrote:\n> On Tue, Sep 8, 2015 at 7:58 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n>> On 09/08/2015 01:51 PM, arnaud gaboury wrote:\n>>> So no idea why, at this part of the process, icc is not found. Weird,\n>>> as building manually from source (no rpmbuild) is OK.\n>>\n>> Hm. Is icc in a normal place that is in a standard PATH (e.g. /usr/bin\n>> or /bin) or are you overriding PATH?\n>\n> Pfff, 10 years of Linux, and still don't manage my path correctly. Shame on me.\n>\n> $ ls /opt/intel/bin\n> .....\n> icc@\n>\n> PATH=${PATH}:/opt/intel/bin\n>\n> Now I am left with only one issue, the texinfo stuff.\n>\n> Bzw, are you interested in my spec file to build R with MKL and ICC ?\n> I would be happy this can help other Fedora users.\n>\n> Thank you for your attention.\n>>\n\nFinally, after so many attempts, R-intel_mkl builds, installs and runs\nfine. It may still contain some small bugs.\nIn case anyone is interested, find the R.spec file in my github[0].\n\nAny comments are welcome.\n\n[0]https://github.com/gabx/r-project/tree/master/R-mkl\n\n-- \n\ngoogle.com/+arnaudgabourygabx",
+      "body_snippet": "On Tue, Sep 8, 2015 at 9:30 PM, arnaud gaboury <arnaud.gaboury at gmail.com> wrote:\n> On Tue, Sep 8, 2015 at 7:58 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n>> On 09/08/2015 01:51 PM, arnaud gab",
+      "thread_id": "thread-a8504417a120",
+      "thread_depth": 0,
+      "month": "2015-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-a8504417a120",
+      "subject": "Build rpm package for R-MKL",
+      "message_count": 1,
+      "participants": [
+        "arnaud gaboury"
+      ],
+      "started": "2015-10-11T18:52:04+02:00",
+      "last_reply": "2015-10-11T18:52:04+02:00",
+      "root_message_id": "msg-a8504417a120"
+    }
+  ]
+}

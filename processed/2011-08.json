@@ -1,0 +1,212 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2011-08",
+  "messages": [
+    {
+      "id": "msg-888b5d9d4bb5",
+      "message_id": "<4E3C00F4.3010901@gmail.com>",
+      "from_name": "Michael Smith",
+      "from_email_hash": "a7e1151e628d8816b7bab185f82d3d0b8e635db81353cc0fe989960cea37147b",
+      "date": "2011-08-05T22:40:52+08:00",
+      "subject": "[R-sig-Fedora] Scrolling in Help System Doesn't Work",
+      "subject_clean": "Scrolling in Help System Doesn't Work",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "UsRs,\n\nWhen accessing help by typing, for example,\n> ?read.table\nthe up and down keys do no longer scroll the help page. The page-up and\npage-down keys also do not work any longer. I can scroll down by\npressing the d key, but I cannot scroll up by pressing the b key\n(although it should work according to the text displayed when you press\nthe h key).\n\nI'm not sure whether this question is Fedora-specific, but since this\nlist is most close to my configuration I first would like to know if\nthis can be replicated (or maybe I'm missing something obvious).\n\nBelow is more information on my computer.\n\nThanks,\nMichael\n\n\nI'm running F15 and R is from the Fedora repos.\n\n> sessionInfo()\nR version 2.13.1 (2011-07-08)\nPlatform: x86_64-redhat-linux-gnu (64-bit)\n\nlocale:\n [1] LC_CTYPE=en_US.utf8       LC_NUMERIC=C\n [3] LC_TIME=en_US.utf8        LC_COLLATE=en_US.utf8\n [5] LC_MONETARY=C             LC_MESSAGES=en_US.utf8\n [7] LC_PAPER=en_US.utf8       LC_NAME=C\n [9] LC_ADDRESS=C              LC_TELEPHONE=C\n[11] LC_MEASUREMENT=en_US.utf8 LC_IDENTIFICATION=C\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base\n\nloaded via a namespace (and not attached):\n[1] tools_2.13.1\n> Sys.getlocale()\n[1]\n\"LC_CTYPE=en_US.utf8;LC_NUMERIC=C;LC_TIME=en_US.utf8;LC_COLLATE=en_US.utf8;LC_MONETARY=C;LC_MESSAGES=en_US.utf8;LC_PAPER=en_US.utf8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.utf8;LC_IDENTIFICATION=C\"",
+      "body_snippet": "UsRs,\n\nWhen accessing help by typing, for example,\n> ?read.table\nthe up and down keys do no longer scroll the help page. The page-up and\npage-down keys also do not work any longer. I can scroll down b",
+      "thread_id": "thread-888b5d9d4bb5",
+      "thread_depth": 0,
+      "month": "2011-08"
+    },
+    {
+      "id": "msg-e051740fdb2e",
+      "message_id": "<4E3C0777.1010202@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2011-08-05T11:08:39-04:00",
+      "subject": "[R-sig-Fedora] Scrolling in Help System Doesn't Work",
+      "subject_clean": "Scrolling in Help System Doesn't Work",
+      "in_reply_to": "<4E3C00F4.3010901@gmail.com>",
+      "references": [
+        "<4E3C00F4.3010901@gmail.com>"
+      ],
+      "body_plain": "On 08/05/2011 10:40 AM, Michael Smith wrote:\n> UsRs,\n>\n> When accessing help by typing, for example,\n>> ?read.table\n> the up and down keys do no longer scroll the help page. The page-up and\n> page-down keys also do not work any longer. I can scroll down by\n> pressing the d key, but I cannot scroll up by pressing the b key\n> (although it should work according to the text displayed when you press\n> the h key).\n>\n> I'm not sure whether this question is Fedora-specific, but since this\n> list is most close to my configuration I first would like to know if\n> this can be replicated (or maybe I'm missing something obvious).\n\nBy default, R uses \"more\" as a pager. You can see this by looking at \n/usr/lib[64]/R/etc/Renviron, specifically, the \"PAGER\" variable. If you \nwanted to switch to a pager that supports up-down scrolling, switch it \nto /usr/bin/less.\n\n~tom\n\n==\nFedora Project",
+      "body_snippet": "On 08/05/2011 10:40 AM, Michael Smith wrote:\n> UsRs,\n>\n> When accessing help by typing, for example,\n>> ?read.table\n> the up and down keys do no longer scroll the help page. The page-up and\n> page-dow",
+      "thread_id": "thread-888b5d9d4bb5",
+      "thread_depth": 1,
+      "month": "2011-08"
+    },
+    {
+      "id": "msg-4c7bd5c079f7",
+      "message_id": "<57C140E9-CEA6-43B1-9A44-C3E1C0FD230A@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2011-08-05T10:30:20-05:00",
+      "subject": "[R-sig-Fedora] Scrolling in Help System Doesn't Work",
+      "subject_clean": "Scrolling in Help System Doesn't Work",
+      "in_reply_to": "<4E3C0777.1010202@redhat.com>",
+      "references": [
+        "<4E3C00F4.3010901@gmail.com>",
+        "<4E3C0777.1010202@redhat.com>"
+      ],
+      "body_plain": "On Aug 5, 2011, at 10:08 AM, Tom Callaway wrote:\n\n> On 08/05/2011 10:40 AM, Michael Smith wrote:\n>> UsRs,\n>> \n>> When accessing help by typing, for example,\n>>> ?read.table\n>> the up and down keys do no longer scroll the help page. The page-up and\n>> page-down keys also do not work any longer. I can scroll down by\n>> pressing the d key, but I cannot scroll up by pressing the b key\n>> (although it should work according to the text displayed when you press\n>> the h key).\n>> \n>> I'm not sure whether this question is Fedora-specific, but since this\n>> list is most close to my configuration I first would like to know if\n>> this can be replicated (or maybe I'm missing something obvious).\n> \n> By default, R uses \"more\" as a pager. You can see this by looking at /usr/lib[64]/R/etc/Renviron, specifically, the \"PAGER\" variable. If you wanted to switch to a pager that supports up-down scrolling, switch it to /usr/bin/less.\n> \n> ~tom\n\n\nJust to add to Tom's reply, if you would prefer to use HTML help pages and view them in a browser, you can put:\n\n  options(help_type=\"html\")\n\nin your ~/.Rprofile\n\nSee ?options and ?help\n\nRegards,\n\nMarc Schwartz",
+      "body_snippet": "On Aug 5, 2011, at 10:08 AM, Tom Callaway wrote:\n\n> On 08/05/2011 10:40 AM, Michael Smith wrote:\n>> UsRs,\n>> \n>> When accessing help by typing, for example,\n>>> ?read.table\n>> the up and down keys do ",
+      "thread_id": "thread-888b5d9d4bb5",
+      "thread_depth": 2,
+      "month": "2011-08"
+    },
+    {
+      "id": "msg-8bb89de555b7",
+      "message_id": "<4E3CBB79.4040603@gmail.com>",
+      "from_name": "Michael Smith",
+      "from_email_hash": "a7e1151e628d8816b7bab185f82d3d0b8e635db81353cc0fe989960cea37147b",
+      "date": "2011-08-06T11:56:41+08:00",
+      "subject": "[R-sig-Fedora] Scrolling in Help System Doesn't Work",
+      "subject_clean": "Scrolling in Help System Doesn't Work",
+      "in_reply_to": "<57C140E9-CEA6-43B1-9A44-C3E1C0FD230A@me.com>",
+      "references": [
+        "<4E3C00F4.3010901@gmail.com>",
+        "<4E3C0777.1010202@redhat.com>",
+        "<57C140E9-CEA6-43B1-9A44-C3E1C0FD230A@me.com>"
+      ],
+      "body_plain": "On 08/05/2011 11:30 PM, Marc Schwartz wrote:\n> On Aug 5, 2011, at 10:08 AM, Tom Callaway wrote:\n> \n>> On 08/05/2011 10:40 AM, Michael Smith wrote:\n>>> UsRs,\n>>>\n>>> When accessing help by typing, for example,\n>>>> ?read.table\n>>> the up and down keys do no longer scroll the help page. The page-up and\n>>> page-down keys also do not work any longer. I can scroll down by\n>>> pressing the d key, but I cannot scroll up by pressing the b key\n>>> (although it should work according to the text displayed when you press\n>>> the h key).\n>>>\n>>> I'm not sure whether this question is Fedora-specific, but since this\n>>> list is most close to my configuration I first would like to know if\n>>> this can be replicated (or maybe I'm missing something obvious).\n>>\n>> By default, R uses \"more\" as a pager. You can see this by looking at /usr/lib[64]/R/etc/Renviron, specifically, the \"PAGER\" variable. If you wanted to switch to a pager that supports up-down scrolling, switch it to /usr/bin/less.\n>>\n>> ~tom\n> \n> \n> Just to add to Tom's reply, if you would prefer to use HTML help pages and view them in a browser, you can put:\n> \n>   options(help_type=\"html\")\n> \n> in your ~/.Rprofile\n> \n> See ?options and ?help\n> \n> Regards,\n> \n> Marc Schwartz\n> \n\nThank you so much for your feedback, I appreciate it very much. The\nfollowing commands changed the pager to less:\n\n# cd /usr/lib64/R/etc/\n# cp Renviron Renviron_backup\n# sed -i 's_/bin/more_/usr/bin/less_g' Renviron\n\nOn my old F13 box, R 2.13.0 still uses \"less\" by default. Since \"less\"\nis often regarded as a more sophisticated version of \"more\", I wonder\nwhy this change has been made.\n\nThanks,\nMichael",
+      "body_snippet": "On 08/05/2011 11:30 PM, Marc Schwartz wrote:\n> On Aug 5, 2011, at 10:08 AM, Tom Callaway wrote:\n> \n>> On 08/05/2011 10:40 AM, Michael Smith wrote:\n>>> UsRs,\n>>>\n>>> When accessing help by typing, for ",
+      "thread_id": "thread-888b5d9d4bb5",
+      "thread_depth": 3,
+      "month": "2011-08"
+    },
+    {
+      "id": "msg-d70eafd6800f",
+      "message_id": "<4E3FFD04.607@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2011-08-08T11:13:08-04:00",
+      "subject": "[R-sig-Fedora] Scrolling in Help System Doesn't Work",
+      "subject_clean": "Scrolling in Help System Doesn't Work",
+      "in_reply_to": "<4E3CBB79.4040603@gmail.com>",
+      "references": [
+        "<4E3C00F4.3010901@gmail.com>",
+        "<4E3C0777.1010202@redhat.com>",
+        "<57C140E9-CEA6-43B1-9A44-C3E1C0FD230A@me.com>",
+        "<4E3CBB79.4040603@gmail.com>"
+      ],
+      "body_plain": "On 08/05/2011 11:56 PM, Michael Smith wrote:\n> On my old F13 box, R 2.13.0 still uses \"less\" by default. Since \"less\"\n> is often regarded as a more sophisticated version of \"more\", I wonder\n> why this change has been made.\n\nThe change is not Fedora specific, we use the default Environ from upstream.\n\n~tom\n\n==\nFedora Project",
+      "body_snippet": "On 08/05/2011 11:56 PM, Michael Smith wrote:\n> On my old F13 box, R 2.13.0 still uses \"less\" by default. Since \"less\"\n> is often regarded as a more sophisticated version of \"more\", I wonder\n> why this",
+      "thread_id": "thread-888b5d9d4bb5",
+      "thread_depth": 4,
+      "month": "2011-08"
+    },
+    {
+      "id": "msg-d42a26707f8b",
+      "message_id": "<1EE2C624-083D-450C-ABAF-C479DFB3B265@gmail.com>",
+      "from_name": "peter dalgaard",
+      "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
+      "date": "2011-08-08T18:50:19+02:00",
+      "subject": "[R-sig-Fedora] Scrolling in Help System Doesn't Work",
+      "subject_clean": "Scrolling in Help System Doesn't Work",
+      "in_reply_to": "<4E3FFD04.607@redhat.com>",
+      "references": [
+        "<4E3C00F4.3010901@gmail.com>",
+        "<4E3C0777.1010202@redhat.com>",
+        "<57C140E9-CEA6-43B1-9A44-C3E1C0FD230A@me.com>",
+        "<4E3CBB79.4040603@gmail.com>",
+        "<4E3FFD04.607@redhat.com>"
+      ],
+      "body_plain": "On Aug 8, 2011, at 17:13 , Tom Callaway wrote:\n\n> On 08/05/2011 11:56 PM, Michael Smith wrote:\n>> On my old F13 box, R 2.13.0 still uses \"less\" by default. Since \"less\"\n>> is often regarded as a more sophisticated version of \"more\", I wonder\n>> why this change has been made.\n> \n> The change is not Fedora specific, we use the default Environ from upstream.\n> \n\nBut that is generated by configure, which does\n\nconfigure:for ac_prog in ${PAGER} less more page pg\n\nso if it ends up with \"more\" as the default, I'd say that the test for \"less\" failed in the build environment. Either that or the shell itself sets PAGER to \"more\". \n\n(Conversely, you can always override it by \"export PAGER=less\" before starting R, or Sys.setenv(PAGER=\"less\"), etc.) \n\n> ~tom\n> \n> ==\n> Fedora Project\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n-- \nPeter Dalgaard, Professor,\nCenter for Statistics, Copenhagen Business School\nSolbjerg Plads 3, 2000 Frederiksberg, Denmark\nPhone: (+45)38153501\nEmail: pd.mes at cbs.dk  Priv: PDalgd at gmail.com\n\"D?den skal tape!\" --- Nordahl Grieg",
+      "body_snippet": "On Aug 8, 2011, at 17:13 , Tom Callaway wrote:\n\n> On 08/05/2011 11:56 PM, Michael Smith wrote:\n>> On my old F13 box, R 2.13.0 still uses \"less\" by default. Since \"less\"\n>> is often regarded as a more ",
+      "thread_id": "thread-888b5d9d4bb5",
+      "thread_depth": 5,
+      "month": "2011-08"
+    },
+    {
+      "id": "msg-5e47f736f2d4",
+      "message_id": "<4E401496.5080204@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2011-08-08T12:53:42-04:00",
+      "subject": "[R-sig-Fedora] Scrolling in Help System Doesn't Work",
+      "subject_clean": "Scrolling in Help System Doesn't Work",
+      "in_reply_to": "<1EE2C624-083D-450C-ABAF-C479DFB3B265@gmail.com>",
+      "references": [
+        "<4E3C00F4.3010901@gmail.com>",
+        "<4E3C0777.1010202@redhat.com>",
+        "<57C140E9-CEA6-43B1-9A44-C3E1C0FD230A@me.com>",
+        "<4E3CBB79.4040603@gmail.com>",
+        "<4E3FFD04.607@redhat.com>",
+        "<1EE2C624-083D-450C-ABAF-C479DFB3B265@gmail.com>"
+      ],
+      "body_plain": "On 08/08/2011 12:50 PM, peter dalgaard wrote:\n>\n> On Aug 8, 2011, at 17:13 , Tom Callaway wrote:\n>\n>> On 08/05/2011 11:56 PM, Michael Smith wrote:\n>>> On my old F13 box, R 2.13.0 still uses \"less\" by default. Since \"less\"\n>>> is often regarded as a more sophisticated version of \"more\", I wonder\n>>> why this change has been made.\n>>\n>> The change is not Fedora specific, we use the default Environ from upstream.\n>>\n>\n> But that is generated by configure, which does\n>\n> configure:for ac_prog in ${PAGER} less more page pg\n>\n> so if it ends up with \"more\" as the default, I'd say that the test for \"less\" failed in the build environment. Either that or the shell itself sets PAGER to \"more\".\n>\n> (Conversely, you can always override it by \"export PAGER=less\" before starting R, or Sys.setenv(PAGER=\"less\"), etc.)\n\nAha! Okay, so that's easy enough to fix. Not really worthy of pushing an \nupdate for, but I'll update the spec file in git so that on the next \nupdate, less will be present in the buildroot.\n\n~tom\n\n==\nFedora Project",
+      "body_snippet": "On 08/08/2011 12:50 PM, peter dalgaard wrote:\n>\n> On Aug 8, 2011, at 17:13 , Tom Callaway wrote:\n>\n>> On 08/05/2011 11:56 PM, Michael Smith wrote:\n>>> On my old F13 box, R 2.13.0 still uses \"less\" by ",
+      "thread_id": "thread-888b5d9d4bb5",
+      "thread_depth": 6,
+      "month": "2011-08"
+    },
+    {
+      "id": "msg-76959d2cb800",
+      "message_id": "<1312827795.13681.13.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2011-08-08T20:23:15+02:00",
+      "subject": "[R-sig-Fedora] Scrolling in Help System Doesn't Work",
+      "subject_clean": "Scrolling in Help System Doesn't Work",
+      "in_reply_to": "<4E401496.5080204@redhat.com>",
+      "references": [
+        "<4E3C00F4.3010901@gmail.com>",
+        "<4E3C0777.1010202@redhat.com>",
+        "<57C140E9-CEA6-43B1-9A44-C3E1C0FD230A@me.com>",
+        "<4E3CBB79.4040603@gmail.com>",
+        "<4E3FFD04.607@redhat.com>",
+        "<1EE2C624-083D-450C-ABAF-C479DFB3B265@gmail.com>",
+        "<4E401496.5080204@redhat.com>"
+      ],
+      "body_plain": "On Mon, 2011-08-08 at 12:53 -0400, Tom Callaway wrote:\n> On 08/08/2011 12:50 PM, peter dalgaard wrote:\n> >\n> > On Aug 8, 2011, at 17:13 , Tom Callaway wrote:\n> >\n> >> On 08/05/2011 11:56 PM, Michael Smith wrote:\n> >>> On my old F13 box, R 2.13.0 still uses \"less\" by default. Since \"less\"\n> >>> is often regarded as a more sophisticated version of \"more\", I wonder\n> >>> why this change has been made.\n> >>\n> >> The change is not Fedora specific, we use the default Environ from upstream.\n> >>\n> >\n> > But that is generated by configure, which does\n> >\n> > configure:for ac_prog in ${PAGER} less more page pg\n> >\n> > so if it ends up with \"more\" as the default, I'd say that the test for \"less\" failed in the build environment. Either that or the shell itself sets PAGER to \"more\".\n> >\n> > (Conversely, you can always override it by \"export PAGER=less\" before starting R, or Sys.setenv(PAGER=\"less\"), etc.)\n> \n> Aha! Okay, so that's easy enough to fix. Not really worthy of pushing an \n> update for, but I'll update the spec file in git so that on the next \n> update, less will be present in the buildroot.\n\nOn Fedora 14\n$ grep -i pager /usr/lib64/R/etc/Renviron\n## Default pager\nPAGER=${PAGER-'/usr/bin/less'}\n\nOn Fedora 15\n$ grep -i pager /usr/lib64/R/etc/Renviron\n## Default pager\nPAGER=${PAGER-'/bin/more'}\n\nSo the change happened in between.\n\nPierre",
+      "body_snippet": "On Mon, 2011-08-08 at 12:53 -0400, Tom Callaway wrote:\n> On 08/08/2011 12:50 PM, peter dalgaard wrote:\n> >\n> > On Aug 8, 2011, at 17:13 , Tom Callaway wrote:\n> >\n> >> On 08/05/2011 11:56 PM, Michael S",
+      "thread_id": "thread-888b5d9d4bb5",
+      "thread_depth": 7,
+      "month": "2011-08"
+    },
+    {
+      "id": "msg-d3732cdae6fa",
+      "message_id": "<4E402A48.6050609@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2011-08-08T14:26:16-04:00",
+      "subject": "[R-sig-Fedora] Scrolling in Help System Doesn't Work",
+      "subject_clean": "Scrolling in Help System Doesn't Work",
+      "in_reply_to": "<1312827795.13681.13.camel@ambre.pingoured.fr>",
+      "references": [
+        "<4E3C00F4.3010901@gmail.com>",
+        "<4E3C0777.1010202@redhat.com>",
+        "<57C140E9-CEA6-43B1-9A44-C3E1C0FD230A@me.com>",
+        "<4E3CBB79.4040603@gmail.com>",
+        "<4E3FFD04.607@redhat.com>",
+        "<1EE2C624-083D-450C-ABAF-C479DFB3B265@gmail.com>",
+        "<4E401496.5080204@redhat.com>",
+        "<1312827795.13681.13.camel@ambre.pingoured.fr>"
+      ],
+      "body_plain": "On 08/08/2011 02:23 PM, Pierre-Yves Chibon wrote:\n\n> On Fedora 14\n> $ grep -i pager /usr/lib64/R/etc/Renviron\n> ## Default pager\n> PAGER=${PAGER-'/usr/bin/less'}\n>\n> On Fedora 15\n> $ grep -i pager /usr/lib64/R/etc/Renviron\n> ## Default pager\n> PAGER=${PAGER-'/bin/more'}\n>\n> So the change happened in between.\n\nBest guess is that something was pulling less into the buildroot in \nFedora 14, but it no longer does so in later Fedora releases.\n\n~tom\n\n==\nFedora Project",
+      "body_snippet": "On 08/08/2011 02:23 PM, Pierre-Yves Chibon wrote:\n\n> On Fedora 14\n> $ grep -i pager /usr/lib64/R/etc/Renviron\n> ## Default pager\n> PAGER=${PAGER-'/usr/bin/less'}\n>\n> On Fedora 15\n> $ grep -i pager /us",
+      "thread_id": "thread-888b5d9d4bb5",
+      "thread_depth": 8,
+      "month": "2011-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-888b5d9d4bb5",
+      "subject": "Scrolling in Help System Doesn't Work",
+      "message_count": 9,
+      "participants": [
+        "Marc Schwartz",
+        "Michael Smith",
+        "Pierre-Yves Chibon",
+        "Tom Callaway",
+        "peter dalgaard"
+      ],
+      "started": "2011-08-05T22:40:52+08:00",
+      "last_reply": "2011-08-08T14:26:16-04:00",
+      "root_message_id": "msg-888b5d9d4bb5"
+    }
+  ]
+}

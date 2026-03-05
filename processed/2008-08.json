@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2008-08",
+  "messages": [
+    {
+      "id": "msg-8e031e1bc71b",
+      "message_id": "<1220026091.3606.44.camel@localhost.localdomain>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-08-29T12:08:11-04:00",
+      "subject": "[R-sig-Fedora] R 2.7.2",
+      "subject_clean": "R 2.7.2",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "R 2.7.2 is coming! Builds are going for EL-4, EL-5, F-8, F-9, and devel.\nI'll need to rebuild rpy and push updates, so this won't happen\novernight, but this is your official \"heads-up\".\n\nThanks,\n\n~spot",
+      "body_snippet": "R 2.7.2 is coming! Builds are going for EL-4, EL-5, F-8, F-9, and devel.\nI'll need to rebuild rpy and push updates, so this won't happen\novernight, but this is your official \"heads-up\".\n\nThanks,\n\n~spo",
+      "thread_id": "thread-8e031e1bc71b",
+      "thread_depth": 0,
+      "month": "2008-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-8e031e1bc71b",
+      "subject": "R 2.7.2",
+      "message_count": 1,
+      "participants": [
+        "Tom \"spot\" Callaway"
+      ],
+      "started": "2008-08-29T12:08:11-04:00",
+      "last_reply": "2008-08-29T12:08:11-04:00",
+      "root_message_id": "msg-8e031e1bc71b"
+    }
+  ]
+}

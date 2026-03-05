@@ -1,0 +1,76 @@
+From eda at waniasset.com  Fri Oct 18 18:37:05 2013
+From: eda at waniasset.com (Ed Avis)
+Date: Fri, 18 Oct 2013 16:37:05 +0000
+Subject: [R-sig-Fedora] R packages in Fedora 18 and 19
+Message-ID: <7E039918541B4C4183BFDB8F015C743046C4EB@WCL-EXCH02.wcl.local>
+
+I thought that Fedora 18 and Fedora 19 included packages for R.
+But now I find that yum reports nothing available:
+
+# yum install R-devel R
+Loaded plugins: auto-update-debuginfo, langpacks, refresh-packagekit, versionlock
+No package R-devel available.
+No package R available.
+
+So I went to check manually in the download directory, e.g.
+
+http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/fedora/linux/releases/18/Fedora/x86_64/os/Packages/r/
+
+This doesn't contain any R packages either.  What am I missing?
+
+-- 
+Ed Avis <eda at waniasset.com>
+
+
+______________________________________________________________________
+This email has been scanned by the Symantec Email Security.cloud service.
+For more information please visit http://www.symanteccloud.com
+
+
+From rwomack at scarletmail.rutgers.edu  Fri Oct 18 20:39:34 2013
+From: rwomack at scarletmail.rutgers.edu (Ryan Womack)
+Date: Fri, 18 Oct 2013 14:39:34 -0400
+Subject: [R-sig-Fedora] R packages in Fedora 18 and 19
+In-Reply-To: <7E039918541B4C4183BFDB8F015C743046C4EB@WCL-EXCH02.wcl.local>
+References: <7E039918541B4C4183BFDB8F015C743046C4EB@WCL-EXCH02.wcl.local>
+Message-ID: <52618066.2070302@rutgers.edu>
+
+In Fedora, the R packages are listed as R-core and R-core-devel.  Try that.
+
+On 10/18/2013 12:37 PM, Ed Avis wrote:
+> I thought that Fedora 18 and Fedora 19 included packages for R.
+> But now I find that yum reports nothing available:
+> 
+> # yum install R-devel R
+> Loaded plugins: auto-update-debuginfo, langpacks, refresh-packagekit, versionlock
+> No package R-devel available.
+> No package R available.
+> 
+> So I went to check manually in the download directory, e.g.
+> 
+> http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/fedora/linux/releases/18/Fedora/x86_64/os/Packages/r/
+> 
+> This doesn't contain any R packages either.  What am I missing?
+> 
+
+-- 
+**************************************
+Ryan Womack
+
+Data Librarian
+Rutgers University - New Brunswick
+http://www.rci.rutgers.edu/~rwomack/
+
+tweeting @RyanData
+blogging at
+http://ryandata.wordpress.com
+**************************************
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 901 bytes
+Desc: OpenPGP digital signature
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20131018/253d396a/attachment.bin>
+

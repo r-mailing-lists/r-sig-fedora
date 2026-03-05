@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2018-03",
+  "messages": [
+    {
+      "id": "msg-57d8ae30e863",
+      "message_id": "<fa7281447a29d5f86390c3181d595991@posteo.de>",
+      "from_name": "xbr17 at posteo.de",
+      "from_email_hash": "4900c5b50f5a2b04411398eeed97e79a3014178ff8934f21481d8aed46b28925",
+      "date": "2018-03-22T22:11:28+01:00",
+      "subject": "[R-sig-Fedora] Cannot install broom package",
+      "subject_clean": "Cannot install broom package",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,\n\nI've problems installing several packages in my R on Fedora 27 64 bit. I \nfound out that it has to do something with a missing  compiler \n(libgfortran.so.3, see below).\nIt works if I downgrade the current version of libgfortran to the \nspecified version by downloading libgfortran-6.2.1-2.fc25.x86_64.rpm and \nmanually installing it.\nHowever, I don't want to mess up my system, because the current version \nof libgfortran is replaced by it.\n\nIs there any other solution to my problem? Can I use e.g. \"broom\" (see \nbelow) without having to downgrade libgfortran?\n\nThanks! Cheers\nHans\n\n\n\n> install.packages(\"broom\")\nInstalling package into \n?/home/hans/R/x86_64-redhat-linux-gnu-library/3.4?\n(as ?lib? is unspecified)\nversuche URL 'https://cran.rstudio.com/src/contrib/broom_0.4.3.tar.gz'\nContent type 'application/x-gzip' length 1397648 bytes (1.3 MB)\n==================================================\ndownloaded 1.3 MB\n\n* installing *source* package ?broom? ...\n** Paket ?broom? erfolgreich entpackt und MD5 Summen ?berpr?ft\n** R\n** inst\n** preparing package for lazy loading\nError : .onLoad failed in loadNamespace() for 'mnormt', details:\n   call: dyn.load(file, DLLpath = DLLpath, ...)\n   error: kann shared object \n'/home/hans/R/x86_64-redhat-linux-gnu-library/3.4/mnormt/libs/mnormt.so' \nnicht laden:\n   libgfortran.so.3: cannot open shared object file: No such file or \ndirectory\nERROR: lazy loading failed for package ?broom?\n* removing ?/home/hans/R/x86_64-redhat-linux-gnu-library/3.4/broom?\nWarning in install.packages :\n   installation of package ?broom? had non-zero exit status\n\nThe downloaded source packages are in\n\t?/tmp/RtmprofgpM/downloaded_packages?",
+      "body_snippet": "Hello,\n\nI've problems installing several packages in my R on Fedora 27 64 bit. I \nfound out that it has to do something with a missing  compiler \n(libgfortran.so.3, see below).\nIt works if I downgrade",
+      "thread_id": "thread-57d8ae30e863",
+      "thread_depth": 0,
+      "month": "2018-03"
+    },
+    {
+      "id": "msg-cc8ad4c7bf27",
+      "message_id": "<1f21ad42-2dcd-41b0-948b-3e5a630432a3@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2018-03-28T11:48:49-04:00",
+      "subject": "[R-sig-Fedora] Cannot install broom package",
+      "subject_clean": "Cannot install broom package",
+      "in_reply_to": "<fa7281447a29d5f86390c3181d595991@posteo.de>",
+      "references": [
+        "<fa7281447a29d5f86390c3181d595991@posteo.de>"
+      ],
+      "body_plain": "On 03/22/2018 05:11 PM, xbr17 at posteo.de wrote:\n> Hello,\n> \n> I've problems installing several packages in my R on Fedora 27 64 bit. I\n> found out that it has to do something with a missing? compiler\n> (libgfortran.so.3, see below).\n> It works if I downgrade the current version of libgfortran to the\n> specified version by downloading libgfortran-6.2.1-2.fc25.x86_64.rpm and\n> manually installing it.\n> However, I don't want to mess up my system, because the current version\n> of libgfortran is replaced by it.\n> \n> Is there any other solution to my problem? Can I use e.g. \"broom\" (see\n> below) without having to downgrade libgfortran?\n> \n> Thanks! Cheers\n> Hans\n> \n> \n> \n>> install.packages(\"broom\")\n> Installing package into ?/home/hans/R/x86_64-redhat-linux-gnu-library/3.4?\n> (as ?lib? is unspecified)\n> versuche URL 'https://cran.rstudio.com/src/contrib/broom_0.4.3.tar.gz'\n> Content type 'application/x-gzip' length 1397648 bytes (1.3 MB)\n> ==================================================\n> downloaded 1.3 MB\n> \n> * installing *source* package ?broom? ...\n> ** Paket ?broom? erfolgreich entpackt und MD5 Summen ?berpr?ft\n> ** R\n> ** inst\n> ** preparing package for lazy loading\n> Error : .onLoad failed in loadNamespace() for 'mnormt', details:\n> ? call: dyn.load(file, DLLpath = DLLpath, ...)\n> ? error: kann shared object\n> '/home/hans/R/x86_64-redhat-linux-gnu-library/3.4/mnormt/libs/mnormt.so'\n> nicht laden:\n> ? libgfortran.so.3: cannot open shared object file: No such file or\n> directory\n\nThe error above usually occurs when you build a module from CRAN (in\nthis case, mnormt) at one point in time, then upgrade Fedora. Because\nmodules built from source and installed via CRAN tools aren't tracked by\nFedora, Fedora doesn't realize that upgrading libgfortran will break them.\n\nI believe the fix should be as simple as running (in R):\n\ninstall.packages('mnormt')\n\nThis should built it again from source, and link the module against the\ncurrent libgfortran library, replacing the copy that you'd built before.\nIt may result in a newer build of mnormt getting installed, so be aware.\n\nhth,\n\n~tom",
+      "body_snippet": "On 03/22/2018 05:11 PM, xbr17 at posteo.de wrote:\n> Hello,\n> \n> I've problems installing several packages in my R on Fedora 27 64 bit. I\n> found out that it has to do something with a missing? compile",
+      "thread_id": "thread-57d8ae30e863",
+      "thread_depth": 1,
+      "month": "2018-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-57d8ae30e863",
+      "subject": "Cannot install broom package",
+      "message_count": 2,
+      "participants": [
+        "Tom Callaway",
+        "xbr17 at posteo.de"
+      ],
+      "started": "2018-03-22T22:11:28+01:00",
+      "last_reply": "2018-03-28T11:48:49-04:00",
+      "root_message_id": "msg-57d8ae30e863"
+    }
+  ]
+}

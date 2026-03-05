@@ -1,0 +1,158 @@
+From phhs80 at gmail.com  Tue May 20 16:27:49 2008
+From: phhs80 at gmail.com (Paul Smith)
+Date: Tue, 20 May 2008 15:27:49 +0100
+Subject: [R-sig-Fedora] Problems with installing the rgl package
+Message-ID: <6ade6f6c0805200727p18719822m53c6c864178a652d@mail.gmail.com>
+
+Dear All,
+
+I am having the following problem while trying to install the rgl
+package on R 2.7.0:
+
+configure: error: missing required header GL/glu.h
+ERROR: configuration failed for package 'rgl'
+** Removing '/usr/lib/R/library/rgl'
+** Restoring previous '/usr/lib/R/library/rgl'
+
+The downloaded packages are in
+        /tmp/RtmpRLEDta/downloaded_packages
+Updating HTML index of packages in '.Library'
+Warning message:
+In install.packages(update[instlib == l, "Package"], l, contriburl =
+contriburl,  :
+  installation of package 'rgl' had non-zero exit status
+
+Any ideas?
+
+Thanks in advnace,
+
+Paul
+
+
+From marc_schwartz at comcast.net  Tue May 20 19:53:04 2008
+From: marc_schwartz at comcast.net (Marc Schwartz)
+Date: Tue, 20 May 2008 12:53:04 -0500
+Subject: [R-sig-Fedora] Problems with installing the rgl package
+Message-ID: <48331000.809@comcast.net>
+
+> Dear All,
+> 
+> I am having the following problem while trying to install the rgl
+> package on R 2.7.0:
+> 
+> configure: error: missing required header GL/glu.h
+> ERROR: configuration failed for package 'rgl'
+> ** Removing '/usr/lib/R/library/rgl'
+> ** Restoring previous '/usr/lib/R/library/rgl'
+> 
+> The downloaded packages are in
+>         /tmp/RtmpRLEDta/downloaded_packages
+> Updating HTML index of packages in '.Library'
+> Warning message:
+> In install.packages(update[instlib == l, "Package"], l, contriburl =
+> contriburl,  :
+>   installation of package 'rgl' had non-zero exit status
+> 
+> Any ideas?
+> 
+> Thanks in advnace,
+> 
+> Paul
+
+Paul,
+
+You don't indicate which version of Fedora/RH you are on, but you need 
+to install the libGLU headers, which for F9 are in:
+
+   mesa-libGLU-devel-7.1-0.29.fc9.i386.rpm
+
+So, as root, you'll likely need:
+
+   yum install mesa-libGLU-devel
+
+Once that is installed, you should be good to go unless you are also 
+missing other dependencies as well.
+
+HTH,
+
+Marc Schwartz
+
+
+From phhs80 at gmail.com  Wed May 21 12:58:21 2008
+From: phhs80 at gmail.com (Paul Smith)
+Date: Wed, 21 May 2008 11:58:21 +0100
+Subject: [R-sig-Fedora] Problems with installing the rgl package
+In-Reply-To: <48331000.809@comcast.net>
+References: <48331000.809@comcast.net>
+Message-ID: <6ade6f6c0805210358n6858f06yb38c940c9bf0a266@mail.gmail.com>
+
+On Tue, May 20, 2008 at 6:53 PM, Marc Schwartz
+<marc_schwartz at comcast.net> wrote:
+>> I am having the following problem while trying to install the rgl
+>> package on R 2.7.0:
+>>
+>> configure: error: missing required header GL/glu.h
+>> ERROR: configuration failed for package 'rgl'
+>> ** Removing '/usr/lib/R/library/rgl'
+>> ** Restoring previous '/usr/lib/R/library/rgl'
+>>
+>> The downloaded packages are in
+>>        /tmp/RtmpRLEDta/downloaded_packages
+>> Updating HTML index of packages in '.Library'
+>> Warning message:
+>> In install.packages(update[instlib == l, "Package"], l, contriburl =
+>> contriburl,  :
+>>  installation of package 'rgl' had non-zero exit status
+>>
+>> Any ideas?
+>
+> You don't indicate which version of Fedora/RH you are on, but you need to
+> install the libGLU headers, which for F9 are in:
+>
+>  mesa-libGLU-devel-7.1-0.29.fc9.i386.rpm
+>
+> So, as root, you'll likely need:
+>
+>  yum install mesa-libGLU-devel
+>
+> Once that is installed, you should be good to go unless you are also missing
+> other dependencies as well.
+
+Thanks, Marc. Actually, on this machine, I am running F8. However,
+your suggestion
+
+yum install mesa-libGLU-devel
+
+has solved the reported problem.
+
+Paul
+
+
+From p.dalgaard at biostat.ku.dk  Wed May 21 21:12:52 2008
+From: p.dalgaard at biostat.ku.dk (Peter Dalgaard)
+Date: Wed, 21 May 2008 21:12:52 +0200
+Subject: [R-sig-Fedora] No antialiasing with 2.7.0
+Message-ID: <48347434.5020909@biostat.ku.dk>
+
+Finally, the RPMs for 2.7.0 arrived, but it looks like they were not 
+built against the Cairo libs, at least not on F8 (based on the reports, 
+I should probably wait a couple of weeks before upgrading to F9).
+
+ > capabilities()
+    jpeg      png    tcltk      X11     aqua http/ftp  sockets   libxml
+    TRUE     TRUE     TRUE     TRUE    FALSE     TRUE     TRUE     TRUE
+    fifo   cledit    iconv      NLS  profmem    cairo
+    TRUE     TRUE     TRUE     TRUE    FALSE    FALSE
+
+I have the libs and my own test builds antialias just fine, so it is not 
+an installation issue, rather it is probably the joy of building in 
+chroot jails: If a library is not in the jail, it won't be found by 
+configure, and it won't be in the jail unless it is put there.
+
+-- 
+   O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B
+  c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K
+ (*) \(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918
+~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907
+
+

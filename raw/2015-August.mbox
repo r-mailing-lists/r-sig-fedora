@@ -1,0 +1,70 @@
+From backus at genepi.med.utah.edu  Sat Aug  1 01:15:17 2015
+From: backus at genepi.med.utah.edu (Steven Backus)
+Date: Fri, 31 Jul 2015 17:15:17 -0600 (MDT)
+Subject: [R-sig-Fedora] x11() hangs in R 3.2.1
+Message-ID: <201507312315.t6VNFHPw016262@genepi.med.utah.edu>
+
+I'm on RHEL 6.6, R version 3.2.1 Patched (2015-07-30 r68761) --
+"World-Famous Astronaut".  Issuing the x11() command hangs R and
+does not complete.  A window is partially drawn then freezes.
+Does anyone know of a solution?
+
+Thanks,
+  Steve
+-- 
+Steven J. Backus                        Computer Systems Manager
+University of Utah                      E-Mail:  steven.backus at utah.edu
+Genetic Epidemiology                    Alternate:  backus at math.utah.edu
+391 Chipeta Way -- Suite D              Office:  801.587.9308
+Salt Lake City, UT 84108-1266           http://www.math.utah.edu/~backus
+
+
+From arnaud.gaboury at gmail.com  Mon Aug 31 09:20:08 2015
+From: arnaud.gaboury at gmail.com (arnaud gaboury)
+Date: Mon, 31 Aug 2015 09:20:08 +0200
+Subject: [R-sig-Fedora] Build R with Intel MKL and compiler
+Message-ID: <CAK1hC9vBvqfL4CUaX+rgeUgnZf3B0J0os1mEuBWJe7rtayYEug@mail.gmail.com>
+
+I wonder if anyone has already built a Fedora package for R-MKL (did
+not found entry in rpmfusion)?
+
+I just installed parrallel-studio-xe-2016 and would like to build R
+with the Intel compiler and MKL library on Fedora 22.
+Shall I thus make my own rpm package to install properly R-MKL ? If
+yes, I guess I can use the Fedora src.rpm package as a base and modify
+the R.spce file ?
+
+Thank you for hints
+
+-- 
+
+google.com/+arnaudgabourygabx
+
+
+From tcallawa at redhat.com  Mon Aug 31 17:45:30 2015
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 31 Aug 2015 11:45:30 -0400
+Subject: [R-sig-Fedora] Build R with Intel MKL and compiler
+In-Reply-To: <CAK1hC9vBvqfL4CUaX+rgeUgnZf3B0J0os1mEuBWJe7rtayYEug@mail.gmail.com>
+References: <CAK1hC9vBvqfL4CUaX+rgeUgnZf3B0J0os1mEuBWJe7rtayYEug@mail.gmail.com>
+Message-ID: <55E4769A.9060809@redhat.com>
+
+On 08/31/2015 03:20 AM, arnaud gaboury wrote:
+> I wonder if anyone has already built a Fedora package for R-MKL (did
+> not found entry in rpmfusion)?
+> 
+> I just installed parrallel-studio-xe-2016 and would like to build R
+> with the Intel compiler and MKL library on Fedora 22.
+> Shall I thus make my own rpm package to install properly R-MKL ? If
+> yes, I guess I can use the Fedora src.rpm package as a base and modify
+> the R.spce file ?
+
+Yes, you should be able to do this. I'm not aware of any existing
+package for an MKL enabled R.
+
+~tom
+
+==
+Red Hat
+
+

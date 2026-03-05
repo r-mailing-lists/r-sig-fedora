@@ -1,0 +1,170 @@
+From adschai at yahoo.com  Sun Dec  7 00:00:35 2008
+From: adschai at yahoo.com (Sakda Chaiworawitkul)
+Date: Sat, 6 Dec 2008 15:00:35 -0800 (PST)
+Subject: [R-sig-Fedora] libgfortran.so.3 is needed by libblas
+Message-ID: <33992.812.qm@web62208.mail.re1.yahoo.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20081206/3ac42a80/attachment.pl>
+
+From marc_schwartz at comcast.net  Sun Dec  7 17:24:05 2008
+From: marc_schwartz at comcast.net (Marc Schwartz)
+Date: Sun, 07 Dec 2008 10:24:05 -0600
+Subject: [R-sig-Fedora] libgfortran.so.3 is needed by libblas
+In-Reply-To: <33992.812.qm@web62208.mail.re1.yahoo.com>
+References: <33992.812.qm@web62208.mail.re1.yahoo.com>
+Message-ID: <493BF8A5.2050200@comcast.net>
+
+on 12/06/2008 05:00 PM Sakda Chaiworawitkul wrote:
+> Hi,
+> 
+> I can't find any forum that's directly applicable to opensuse. My
+> apology if I post on a wrong mailing list. But I really like R and
+> want to use it on linux. The problem is I'm new to linux. I have
+> opensuse 11.0. I download the x86_64 installer from opensuse repo. I
+> run the installer and got error saying that libgfortran.so.3 is
+> needed by libblas. I found libgfortran.so.3 in my /usr/lib folder
+> (not /user/lib64). I guess it's not on lib64 that's why it's
+> complaining.
+> 
+> So I create a symbolic link to libgfortran.so.3 from lib to lib64. It
+> still doesn't work. I try to install libgfortran from opensuse dvd it
+> still says that it needs libblas needs libgfortran.so.3 which doesn't
+> make sense to me.
+> 
+> Would anyone kindly advise? It's surprisingly tedious to get a simple
+> thing up and running. Thank you.
+> 
+> - sch
+
+Given that this list is Fedora specific, you are limiting the potential
+audience that will see your post and perhaps be in a position to offer
+suggestions.
+
+There are a few OS/Distro specific R lists, but none for SUSE presently.
+Thus, posting to r-help would likely be best and increase the
+probability that another SUSE user would see it.
+
+That being said, based upon a search of the archives, you might find
+this post helpful:
+
+  http://tolstoy.newcastle.edu.au/R/e4/help/08/05/11309.html
+
+HTH,
+
+Marc Schwartz
+
+
+From tcallawa at redhat.com  Mon Dec 22 22:21:28 2008
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Mon, 22 Dec 2008 16:21:28 -0500
+Subject: [R-sig-Fedora] R 2.8.1
+Message-ID: <1229980888.4528.53.camel@localhost.localdomain>
+
+R 2.8.1 is packaged up and queued up for testing. Please test this out:
+
+Fedora 9:
+https://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc9,R-2.8.1-1.fc9
+Fedora 10:
+https://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc10,R-2.8.1-1.fc10
+
+Once you've tested it, please, please, go to the update URL above and
+click "Add A Comment". If it works for you, click "Works for me" and
+write a little bit about how you tested it. That counts as a "+1" of
+karma for that update. When it gets to +3, the system automatically
+flags the update to be pushed to stable.
+
+You don't have to specifically test rpy to give karma on the update, I
+have a high degree of confidence in rpy continuing to work. 
+
+Thanks in advance,
+
+~spot
+
+
+From p.dalgaard at biostat.ku.dk  Mon Dec 22 22:50:30 2008
+From: p.dalgaard at biostat.ku.dk (Peter Dalgaard)
+Date: Mon, 22 Dec 2008 22:50:30 +0100
+Subject: [R-sig-Fedora] R 2.8.1
+In-Reply-To: <1229980888.4528.53.camel@localhost.localdomain>
+References: <1229980888.4528.53.camel@localhost.localdomain>
+Message-ID: <49500BA6.6010200@biostat.ku.dk>
+
+Tom "spot" Callaway wrote:
+> R 2.8.1 is packaged up and queued up for testing. Please test this out:
+> 
+> Fedora 9:
+> https://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc9,R-2.8.1-1.fc9
+> Fedora 10:
+> https://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc10,R-2.8.1-1.fc10
+> 
+> Once you've tested it, please, please, go to the update URL above and
+> click "Add A Comment". If it works for you, click "Works for me" and
+> write a little bit about how you tested it. That counts as a "+1" of
+> karma for that update. When it gets to +3, the system automatically
+> flags the update to be pushed to stable.
+> 
+> You don't have to specifically test rpy to give karma on the update, I
+> have a high degree of confidence in rpy continuing to work. 
+
+Er, I don't think you can be sure that everyone knows the magic 
+incantations...
+
+Is this it?
+
+  yum --enablerepo=updates-testing-newkey update R
+
+but, first we need to wait for the package to move from pending to 
+testing, right?
+
+-- 
+    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B
+   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K
+  (*) \(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918
+~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907
+
+
+From tcallawa at redhat.com  Mon Dec 22 22:58:03 2008
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Mon, 22 Dec 2008 16:58:03 -0500
+Subject: [R-sig-Fedora] R 2.8.1
+In-Reply-To: <49500BA6.6010200@biostat.ku.dk>
+References: <1229980888.4528.53.camel@localhost.localdomain>
+	<49500BA6.6010200@biostat.ku.dk>
+Message-ID: <1229983083.4528.58.camel@localhost.localdomain>
+
+On Mon, 2008-12-22 at 22:50 +0100, Peter Dalgaard wrote:
+
+> Er, I don't think you can be sure that everyone knows the magic 
+> incantations...
+> 
+> Is this it?
+> 
+>   yum --enablerepo=updates-testing-newkey update R
+> 
+> but, first we need to wait for the package to move from pending to 
+> testing, right?
+
+That's F-9, yes. F-10 should be just updates-testing (I think)
+
+You could also manually download the files locally, and call:
+
+yum update R-*.rpm libRmath-*
+
+~spot
+
+
+From tfliao at illinois.edu  Sun Dec 28 22:47:56 2008
+From: tfliao at illinois.edu (Tim F Liao)
+Date: Sun, 28 Dec 2008 15:47:56 -0600 (CST)
+Subject: [R-sig-Fedora] R and Linpus Linux Lite
+Message-ID: <20081228154756.BMR42505@expms6.cites.uiuc.edu>
+
+Has anyone installed R on an Acer Aspire One with the OS of Linpus Linux Lite?  I'd like to know if it's R would work on the machine before getting it.  Thanks.
+
+Tim
+
+PS: please direct a copy of the answer to my email as I do not yet subscribe to the r-sig-fedora list.
+
+

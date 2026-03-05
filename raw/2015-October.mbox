@@ -1,0 +1,50 @@
+From arnaud.gaboury at gmail.com  Sun Oct 11 18:52:04 2015
+From: arnaud.gaboury at gmail.com (arnaud gaboury)
+Date: Sun, 11 Oct 2015 18:52:04 +0200
+Subject: [R-sig-Fedora] Build rpm package for R-MKL
+In-Reply-To: <CAK1hC9siAA-SU=HiZ6w6TBfkDTHbsRF8QJycC2eMwR20iYjdMA@mail.gmail.com>
+References: <CAK1hC9vyw8p1xugFfrGL7eC2nn2AkZkeLohkfBia3ko6bktJ=g@mail.gmail.com>
+	<55EF1C93.3010809@redhat.com>
+	<CAK1hC9vZMf-g7+kGKRoFU7vR_haQ3WnZZvSFYgUbJOyJqPg-aA@mail.gmail.com>
+	<55EF21D5.9040401@redhat.com>
+	<CAK1hC9siAA-SU=HiZ6w6TBfkDTHbsRF8QJycC2eMwR20iYjdMA@mail.gmail.com>
+Message-ID: <CAK1hC9uBMHS7oDhQKKyHgGHUekydR5iBhdn=r6Lw4DxGA0H38A@mail.gmail.com>
+
+On Tue, Sep 8, 2015 at 9:30 PM, arnaud gaboury <arnaud.gaboury at gmail.com> wrote:
+> On Tue, Sep 8, 2015 at 7:58 PM, Tom Callaway <tcallawa at redhat.com> wrote:
+>> On 09/08/2015 01:51 PM, arnaud gaboury wrote:
+>>> So no idea why, at this part of the process, icc is not found. Weird,
+>>> as building manually from source (no rpmbuild) is OK.
+>>
+>> Hm. Is icc in a normal place that is in a standard PATH (e.g. /usr/bin
+>> or /bin) or are you overriding PATH?
+>
+> Pfff, 10 years of Linux, and still don't manage my path correctly. Shame on me.
+>
+> $ ls /opt/intel/bin
+> .....
+> icc@
+>
+> PATH=${PATH}:/opt/intel/bin
+>
+> Now I am left with only one issue, the texinfo stuff.
+>
+> Bzw, are you interested in my spec file to build R with MKL and ICC ?
+> I would be happy this can help other Fedora users.
+>
+> Thank you for your attention.
+>>
+
+Finally, after so many attempts, R-intel_mkl builds, installs and runs
+fine. It may still contain some small bugs.
+In case anyone is interested, find the R.spec file in my github[0].
+
+Any comments are welcome.
+
+[0]https://github.com/gabx/r-project/tree/master/R-mkl
+
+-- 
+
+google.com/+arnaudgabourygabx
+
+

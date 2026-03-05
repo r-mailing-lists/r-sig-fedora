@@ -1,0 +1,36 @@
+From pingou at pingoured.fr  Sun Aug  2 22:12:14 2009
+From: pingou at pingoured.fr (Pierre-Yves)
+Date: Sun, 02 Aug 2009 22:12:14 +0200
+Subject: [R-sig-Fedora] R2spec v2.5.3
+Message-ID: <1249243934.2573.23.camel@red.localdomain>
+
+Dear list,
+
+As just announced on my blog I released a new version of R2spec and
+there is the changelog for this version:
+
+Version 2.5.3 -- 02nd Aug 2009
+- Features added
+  * Prints warning if summary is empty
+  * Prints warning if description is empty
+  * Add support for r-forge.net (option --rforge)
+  * Add support for r-forge.r-project.org (option --rproject)
+  * Add the prefix R- to the list of dependencies with a list of package
+to ignore (ie: R)
+  * Add a default source0 and url if the bioconductor release is not set
+- Bugs correction
+  * Does not add the 'Requires:' to the spec if they are empty
+  * Changes the '-' into '.' if the version of the R library contains
+any '-'
+
+Package is available for F-10, F-11, rawhide, EPEL-4 and EPEL-5.
+
+Feel free to add some karma if you test it :)
+
+Thanks,
+
+Best regards,
+
+Pierre
+
+

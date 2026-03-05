@@ -1,0 +1,63 @@
+From jeroenoom@ @end|ng |rom gm@||@com  Thu Aug 28 13:48:17 2025
+From: jeroenoom@ @end|ng |rom gm@||@com (Jeroen Ooms)
+Date: Thu, 28 Aug 2025 13:48:17 +0200
+Subject: [R-sig-Fedora] Updating some rpm R packages
+Message-ID: <CABFfbXvi+w_vovvL58MpE_ZgAdO9wcVwjTk9uomwcboJE=LzAg@mail.gmail.com>
+
+I noticed that some of my R packages that have been repacked in fedora
+are quite outdated, including:
+
+ - R-curl
+ - R-openssl
+ - R-xml2
+
+These packages will need to be updated to work with the latest
+versions of libcurl, libxml2, libssl, because each of these upstream
+libs has had breaking changes recently.
+
+
+From |uc@r @end|ng |rom |edor@project@org  Thu Aug 28 17:04:35 2025
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Thu, 28 Aug 2025 17:04:35 +0200
+Subject: [R-sig-Fedora] Updating some rpm R packages
+In-Reply-To: <CABFfbXvi+w_vovvL58MpE_ZgAdO9wcVwjTk9uomwcboJE=LzAg@mail.gmail.com>
+References: <CABFfbXvi+w_vovvL58MpE_ZgAdO9wcVwjTk9uomwcboJE=LzAg@mail.gmail.com>
+Message-ID: <CALEXWq3kPeCQE81tsGxYfG2betX+gXpP93BJnJUwz9P0bN6TSQ@mail.gmail.com>
+
+Yeap, many packages are outdated because we lack hands, time for the hands
+available, and the current guidelines do not scale very well. Also there
+are other, better, solutions for getting binary packages, including yours,
+and including my own Copr repo for Fedora, so I only update packages in the
+official repos when I'm forced to (e.g. when they fail and block an R
+update). Or if you poke me a bit.
+
+Thanks for the heads-up. Updated now.
+
+I?aki
+
+On Thu, 28 Aug 2025 at 13:48, Jeroen Ooms <jeroenooms at gmail.com> wrote:
+
+> I noticed that some of my R packages that have been repacked in fedora
+> are quite outdated, including:
+>
+>  - R-curl
+>  - R-openssl
+>  - R-xml2
+>
+> These packages will need to be updated to work with the latest
+> versions of libcurl, libxml2, libssl, because each of these upstream
+> libs has had breaking changes recently.
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+

@@ -1,0 +1,318 @@
+From josh at globalherald.net  Tue Nov 25 19:13:59 2008
+From: josh at globalherald.net (Joshua Kramer)
+Date: Tue, 25 Nov 2008 13:13:59 -0500 (EST)
+Subject: [R-sig-Fedora] Problem running R from within a script
+Message-ID: <alpine.LFD.2.00.0811251304290.11212@localhost.localdomain>
+
+
+Howdy Folks,
+
+I am running R version 2.7.2 (2008-08-25) on CentOS 5.2 - the standard RPM 
+distribution.
+
+I am having a curious occurance trying to run a R script from within a 
+shell script.  Basically, I have a small R script that processes a file. 
+It takes two parameters - the input file, and the output file.  I then 
+have a shell script that runs the R script for each file matching a glob.
+
+R is not picking up the correct parameters *when run from the script*. 
+When I run the command line by itself, it runs fine.
+
+The command line is this:
+
+/usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.log
+
+Here's the output of the script:
+Processing /usr/bin/R CMD BATCH --no-restore --no-save '--args Call0103.xpt Call0103.xpt.taxonomy' batchMakeTax.R batchMakeTax.log
+/usr/lib/R/bin/BATCH: line 55: Call0103.xpt: Permission denied
+
+I do not know why it's trying to write to the input file... any ideas?
+
+Here's the shellscript:
+
+[josh at localhost cr]$ cat batchMakeTax.sh
+#!/bin/sh
+
+FILES="*.xpt"
+
+echo MakeCommand is $makeCommand
+
+for taxFile in $FILES
+do
+         makeCommand="/usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.log"
+         echo "Processing $makeCommand"
+         $makeCommand
+done
+
+...and, the R script.  Note that R never gets as far as running the 
+script, however - the error occurs in the CMD shell script that is under 
+/usr/bin/R/CMD.
+
+[josh at localhost cr]$ cat batchMakeTax.R
+library(foreign)
+scratchOne <- commandArgs()
+inFileArg <- scratchOne[10]
+taxFileArg <- scratchOne[11]
+sink("debugout.txt", FALSE, "output", FALSE)
+print (inFileArg)
+print (taxFileArg)
+bankData <- read.xport(inFileArg)
+sink(NULL)
+sink(taxFileArg, FALSE, "output", FALSE)
+
+bdNames <- names(bankData)
+
+numCol <- ncol(bankData)
+i=1
+while (i <= numCol) {
+         myVar <- paste(bdNames[i], typeof(bankData[[bdNames[i]]]), 
+sep=":")
+         print(myVar)
+         i=i+1
+}
+q()
+
+Thanks!
+-josh
+
+-- 
+
+-----
+http://www.globalherald.net/jb01
+GlobalHerald.NET, the Smarter Social Network! (tm)
+
+
+From tcallawa at redhat.com  Tue Nov 25 19:11:57 2008
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Tue, 25 Nov 2008 13:11:57 -0500
+Subject: [R-sig-Fedora] Problem running R from within a script
+In-Reply-To: <alpine.LFD.2.00.0811251304290.11212@localhost.localdomain>
+References: <alpine.LFD.2.00.0811251304290.11212@localhost.localdomain>
+Message-ID: <1227636717.3551.119.camel@localhost.localdomain>
+
+On Tue, 2008-11-25 at 13:13 -0500, Joshua Kramer wrote:
+> Howdy Folks,
+> 
+> I am running R version 2.7.2 (2008-08-25) on CentOS 5.2 - the standard RPM 
+> distribution.
+> 
+> I am having a curious occurance trying to run a R script from within a 
+> shell script.  Basically, I have a small R script that processes a file. 
+> It takes two parameters - the input file, and the output file.  I then 
+> have a shell script that runs the R script for each file matching a glob.
+> 
+> R is not picking up the correct parameters *when run from the script*. 
+> When I run the command line by itself, it runs fine.
+> 
+> The command line is this:
+> 
+> /usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.log
+
+I'm just guessing here, but those ' ' single quotes don't seem to make
+sense. Try dropping them (or moving them to just be around '$taxFile
+$taxFile.taxonomy').
+
+~spot
+
+
+From josh at globalherald.net  Tue Nov 25 20:12:16 2008
+From: josh at globalherald.net (Joshua Kramer)
+Date: Tue, 25 Nov 2008 14:12:16 -0500 (EST)
+Subject: [R-sig-Fedora] Problem running R from within a script
+In-Reply-To: <1227636717.3551.119.camel@localhost.localdomain>
+References: <alpine.LFD.2.00.0811251304290.11212@localhost.localdomain>
+	<1227636717.3551.119.camel@localhost.localdomain>
+Message-ID: <alpine.LFD.2.00.0811251410070.12193@localhost.localdomain>
+
+
+Thanks for the help Tom!
+
+>> /usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.log
+>
+> I'm just guessing here, but those ' ' single quotes don't seem to make
+> sense. Try dropping them (or moving them to just be around '$taxFile
+> $taxFile.taxonomy').
+
+The problem is this.  When I drop the quotes alltogether, R considers the 
+$taxFile to be the R input file, not a parameter.  When I put quotes 
+around the '$taxFile $taxFile.taxonomy', it picks them up correctly but 
+takes them literally, IE expects the $taxFile to have a quote as the first 
+character of its filename.
+
+Thanks,
+-Josh
+
+-- 
+
+-----
+http://www.globalherald.net/jb01
+GlobalHerald.NET, the Smarter Social Network! (tm)
+
+
+From marc_schwartz at comcast.net  Wed Nov 26 05:52:34 2008
+From: marc_schwartz at comcast.net (Marc Schwartz)
+Date: Tue, 25 Nov 2008 22:52:34 -0600
+Subject: [R-sig-Fedora] Fedora 10,
+	R and yes...help.start()...deja vu all over again...
+Message-ID: <492CD612.3040000@comcast.net>
+
+Hi all,
+
+I installed F10 Final today. This was a clean install, not an upgrade
+from F9.
+
+Kudos the the Fedora team as the level of maturity noted in the install
+process, including using encrypted partitions, keeps getting better with
+each release. I'd still like to see easier options in the GUI with
+respect to selecting entire groups of applications, rather than having
+to go through individual check-boxes. That part of the process took
+almost as long as the installation itself.
+
+Nice also to see the RPMFusion repo fully in place, to centralize the
+use of multiple former repos (Livna, FreshRPMS, etc.).
+
+I built R version 2.8.0 Patched (2008-11-24 r47019) from SVN and have a
+few observations:
+
+1. F10 is using gcc (GCC) 4.3.2 20081105 (Red Hat 4.3.2-7)
+
+2. R passed 'make check-all' without issue
+
+3. When using the help.start() search engine, the "Applet started."
+messages appears in the Firefox status line. However, when searching on
+any term (eg. "plot") the Search Results page shows:
+
+  No matches for "plot" have been found!
+
+Thus, it would appear that the Java-Javascript bridge is still
+non-functional in the OpenJDK (formerly IcedTea) plugin. The following
+error messages appear in the R Console when using the search applet with
+OpenJDK:
+
+  > ICEDTEAPLUGIN_DEBUG = (null)
+  Initializing JVM...
+  NOT IMPLEMENTED: virtual nsresult IcedTeaPluginInstance::Start()
+  JNLPRuntime already initialized
+  NOT IMPLEMENTED: virtual nsresult IcedTeaPluginInstance::Stop()
+
+
+The instructions available here:
+
+  http://www.mjmwired.net/resources/mjm-fedora-f10.html#java
+
+provide a step by step process to get the Sun JRE installed on F10, with
+one additional step not noted there, required due to SELinux. So follow
+the steps on the above page. After which, using the search applet you
+may still see:
+
+  No matches for "plot" have been found!
+
+If you are running SELinux in Enforcing Mode, you may see an AVC error
+pop-up in the SELinux Troubleshooting Panel Applet. Use the following
+command:
+
+  sudo restorecon -v /opt/jre1.6/plugin/i386/ns7/libjavaplugin_oji.so
+
+which will re-set the SELinux context for the newly installed Java
+plug-in file.
+
+At that point, if all is well, you should subsequently get proper
+results from the search applet. You may need to exit from Firefox and
+use help.start() again just to be sure that any residual issues are not
+present.
+
+If there are any problems, be sure that the 'alternatives' command is
+configured to use the Sun JRE. This is a two step process:
+
+1. Use:
+
+  sudo /usr/sbin/alternatives --config java
+
+and be sure that /opt/jre1.6/bin/java is selected as designated by the '+':
+
+There are 3 programs which provide 'java'.
+
+  Selection    Command
+-----------------------------------------------
+ + 1           /usr/lib/jvm/jre-1.6.0-openjdk/bin/java
+   2           /usr/lib/jvm/jre-1.5.0-gcj/bin/java
+*  3           /opt/jre1.6/bin/java
+
+Enter to keep the current selection[+], or type selection number: 3
+
+
+2. Use:
+
+  sudo /usr/sbin/alternatives --config libjavaplugin.so
+
+and be sure that '/opt/jre1.6/plugin/i386/ns7/libjavaplugin_oji.so' is
+selected as designated by the '+':
+
+There are 2 programs which provide 'libjavaplugin.so'.
+
+  Selection    Command
+-----------------------------------------------
+ + 1           /usr/lib/jvm/jre-1.6.0-openjdk/lib/i386/IcedTeaPlugin.so
+*  2           /opt/jre1.6/plugin/i386/ns7/libjavaplugin_oji.so
+
+Enter to keep the current selection[+], or type selection number: 2
+
+
+All in all, everything else is going well so far (save of course my
+ongoing frustration with nVidia, but that's another story for another
+thread....).
+
+Hope that the above is helpful. Off to bed...
+
+Regards,
+
+Marc Schwartz
+
+
+From martyn.plummer at r-project.org  Wed Nov 26 11:41:54 2008
+From: martyn.plummer at r-project.org (Martyn Plummer)
+Date: Wed, 26 Nov 2008 11:41:54 +0100
+Subject: [R-sig-Fedora] Problem running R from within a script
+In-Reply-To: <alpine.LFD.2.00.0811251410070.12193@localhost.localdomain>
+References: <alpine.LFD.2.00.0811251304290.11212@localhost.localdomain>
+	<1227636717.3551.119.camel@localhost.localdomain>
+	<alpine.LFD.2.00.0811251410070.12193@localhost.localdomain>
+Message-ID: <1227696114.30817.60.camel@seurat.iarc.fr>
+
+On Tue, 2008-11-25 at 14:12 -0500, Joshua Kramer wrote:
+> Thanks for the help Tom!
+> 
+> >> /usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.log
+> >
+> > I'm just guessing here, but those ' ' single quotes don't seem to make
+> > sense. Try dropping them (or moving them to just be around '$taxFile
+> > $taxFile.taxonomy').
+> 
+> The problem is this.  When I drop the quotes alltogether, R considers the 
+> $taxFile to be the R input file, not a parameter.  When I put quotes 
+> around the '$taxFile $taxFile.taxonomy', it picks them up correctly but 
+> takes them literally, IE expects the $taxFile to have a quote as the first 
+> character of its filename.
+> 
+> Thanks,
+> -Josh
+
+This looks like a shell problem rather than an R problem. On the command
+line, your invocation of R works correctly.  Try changing your script to
+invoke R directly, instead of defining and then expanding the shell
+variable "makeCommand":
+
+for taxFile in $FILES
+do
+	echo "Processing $taxFile"
+	/usr/bin/R CMD BATCH --no-restore --no-save "--args $taxFile $taxFile.taxonomy" batchMakeTax.R batchMakeTax.log
+done
+
+Martyn
+-- 
+Martyn Plummer <martyn.plummer at r-project.org>
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+

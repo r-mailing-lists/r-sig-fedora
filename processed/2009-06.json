@@ -1,0 +1,102 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2009-06",
+  "messages": [
+    {
+      "id": "msg-a91badd47e50",
+      "message_id": "<alpine.LRH.2.00.0906101442160.25668@arj.bjyevire.pbz>",
+      "from_name": "R P Herrold",
+      "from_email_hash": "fbd00a6d807b904d02f38ce043653aaf614702440f15acf5b7c9fda8b7279c59",
+      "date": "2009-06-10T15:21:50-04:00",
+      "subject": "[R-sig-Fedora] License quandry in the Fedora sub-space of all R packages",
+      "subject_clean": "License quandry in the Fedora sub-space of all R packages",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "There was mention of this [r-sig-fedora at r-project.org] mailing \nlist on one of the other R lists overnight.  I thought the \nlist needed a bit of posting, as I could not recall seeing \ncontent recently on it.  I cross post to the Red Hat hosted \nlist as well, it raises issues relevant there as well\n\nI have been packaging in support of many of the financial \npackages at CRAN and in R-Forge [ http://r-forge.r-project.org/ ],\nand end up with a big clutch, to 'satisfy' all needed \nintermediate BuildRequirements and installation dependencies\n \thttp://cran.r-project.org/web/views/Finance.html\n \thttp://cran.r-project.org/web/views/Econometrics.html\n\n[herrold at centos-5 ~]$ for i in zoo xts TTR quantmod opentick \\\n \tIBrokers ; do rpm -q R-$i \\\n \t--qf '%{name}-%{version}-%{release} \\t %{license} \\n' ; done\nR-zoo-1.6-1orc   \t GPL-2\nR-xts-0.6.5-1orc         GPL-3\nR-TTR-0.20-1orc          GPL-3\nR-quantmod-0.3.9-1orc    GPL-3\nR-opentick-0.1.2-1orc    GPL-3\nR-IBrokers-0.2.1-1orc    GPL-3\n[herrold at centos-5 ~]$\n\nThese are all fine, with GPL licenses, but some of them have \ndependencies (or sub-dependencies) on packages, which in turn \nhave licenses that are a problem in the Fedora view of the \nworld.  I extract those in the troublesome subset up top in \nthis email, and note the complete list of my packaging \ndelendency tree after my signature\n\nLet me take a moment, by the way, and commend the fine work \nof Pierre-YvesChibon [pingou -at- fedoraproject -dot- org] and \nthe R2spec package which he has devised and worked on.  It \nmade much of my effort possible.  Thanks !!\n\nI also have adopted the 'tarball release flattening' approach \nrecommended on the Fedora R mailing list earlier this month, \nand will probably make a run through the RawHide packagings \nshortly, filing bugs patches for adopting such throughout:\n   https://www.redhat.com/archives/fedora-r-devel-list/2009-June/msg00003.html\n\nIn a quick review of the current RawHide packagings, they have \n'short-circuited' around the 'check' phase in some cases, and \nI will file, or not a lincense deiven inability to clean that \nup as well\n\nFinally I have come up with a 'bootstrap' method to solve the \n'check' phase BuildRequires issue cleanly and traceably, and \ncan outline it if anyone else needs a solution\n\n\nTo the license questionable packages, then:\n\nR-acepack\t\t'ace is on Statlib'\nR-mapproj\t\tnon-commercial purposes only\nR-gpclib\t\tfurther review needed\nR-mlbench\t\tfurther review needed\nR-tcltk2\t\tfurther review needed\n \t\t... these three have a field: file LICENSE\n \t\twhich I need to read in each case\nR-akima\t\t\tFortran code: ACM, free for non-commercial use,\n \t\t\t\tR functions GPL\n \t\t... which confuses me mightily as a\n \t\t'derivative work' seems to me to properly be under the\n \t\tsame license as the work it is derived from (assuming\n \t\tsuch a port is the method of creation .. need to check still)\nR-tripack\t\tR functions: GPL, Fortran code: ACM, free for\n \t\t\t\tnoncommercial use\n \t\t... ugghhh -- a combination of issues\n \t\t\t[noncommercial and possible derivative]\nR-adapt\t\t\tUnclear (Fortran) -- code in Statlib's ./S/adapt\n \t\t... ugghhh -- a combination of issues\n \t\t\t[unclear, and possible derivative]\n\nThe obvious solution is to simply remove the questionably \nlicensed content, but they are dragged in and appear as either \nrequirements, or 'Sugggests'.\n\nIn R parlance, if one wants a clean 'check' phase, one has to \nhave the suggests present, it seems, and I can see the reasons \nfor that.  My initial thought would be to satisfy the \ndependency with a simply 'dummy' package, but there are \nfunctional expectations in the 'check' scripts, and this is \nnot doable.\n\nThoughts?  How, other than bypassing the 'check' phase, do \nothers address this?\n\n-- Russ herrold\n\n[herrold at centos-5 R2spec]$ rpm -qa R-\\* --qf '%{license} \\t  %{name} \\n' | sort\nApache License 2.0       R-RColorBrewer\nArtistic 2.0     R-DynDoc\nArtistic-2.0     R-graph\nArtistic-2.0     R-RBGL\nArtistic-2.0     R-TeachingDemos\navas is public domain, ace is on Statlib         R-acepack\nBSD      R-Rcompression\nBSD      R-XML\nDistribution and use for non-commercial purposes only.   R-mapproj\nfile LICENSE     R-gpclib\nfile LICENSE     R-mlbench\nfile LICENSE     R-tcltk2\nFortran code: ACM, free for non-commercial use, R functions GPL          R-akima\nGNU GPL Version 2        R-rpanel\nGPL-2 | file LICENSE     R-tframe\nGPL-2 | file LICENSE     R-tframePlus\nGPL-2 | GPL-3    R-RODBC\nGPL 2 or later   R-Defaults\nGPL-2    R-AER\nGPL (>= 2)       R-car\nGPL-2    R-chron\nGPL (>= 2)       R-coda\nGPL (>= 2)       R-deldir\nGPL (>= 2)       R-Design\nGPL-2    R-digest\nGPL-2    R-dynlm\nGPL-2    R-e1071\nGPL (>= 2)       R-fAssets\nGPL (>= 2)       R-fBasics\nGPL (>= 2)       R-fCalendar\nGPL (>= 2)       R-fCopulae\nGPL (>= 2)       R-fEcofin\nGPL (>= 2)       R-fExtremes\nGPL (>= 2)       R-fGarch\nGPL-2    R-Formula\nGPL (>= 2)       R-fPortfolio\nGPL (>= 2)       R-fSeries\nGPL (>= 2)       R-fTrading\nGPL (>= 2)       R-fUtilities\nGPL-2    R-gam\nGPL-2    R-gdata\nGPL (>= 2)       R-geoR\nGPL-2    R-gplots\nGPL (>= 2)       R-Hmisc\nGPL (>= 2)       R-igraph\nGPL (>= 2)       R-kinship\nGPL (>= 2)       R-leaps\nGPL-2    R-lmtest\nGPL-2    R-maps\nGPL (>= 2)       R-maptools\nGPL (>= 2)       R-maxLik\nGPL (>=2)        R-mlogit\nGPL-2    R-mvtnorm\nGPL-2    R-oz\nGPL (>= 2)       R-PBSmapping\nGPL (>= 2)       R-plm\nGPL-2    R-pscl\nGPL-2    R-quadprog\nGPL (>= 2)       R-quantreg\nGPL-2    R-Rglpk\nGPL-2    R-RMySQL\nGPL (>= 2)       R-robustbase\nGPL-2    R-Rsymphony\nGPL-2    R-RUnit\nGPL (>= 2)       R-sampleSelection\nGPL-2    R-sandwich\nGPL-2    R-scatterplot3d\nGPL (>= 2)       R-sem\nGPL-2    R-sn\nGPL (>= 2)       R-sp\nGPL (>= 2)       R-SparseM\nGPL (>= 2)       R-spatstat\nGPL-2    R-strucchange\nGPL (>= 2)       R-svDialogs\nGPL (>= 2)       R-svGUI\nGPL (>= 2)       R-svIDE\nGPL (>= 2)       R-svMisc\nGPL (>= 2)       R-svSocket\nGPL (>= 2)       R-svTools\nGPL (>= 2)       R-svUnit\nGPL (>= 2)       R-svWidgets\nGPL (>= 2)       R-systemfit\nGPL (>= 2)       R-timeDate\nGPL (>= 2)       R-timeSeries\nGPL-2    R-tseries\nGPL (>=2)        R-urca\nGPL-2    R-VGAM\nGPL (>= 2)       R-xtable\nGPL-2    R-zoo\nGPL (>= 3)       R-corpcor\nGPL-3    R-IBrokers\nGPL-3    R-opentick\nGPL-3    R-operators\nGPL-3    R-pack\nGPL-3    R-quantmod\nGPL-3    R-TTR\nGPL-3    R-xts\nGPL      R-biglm\nGPL      R-ineq\nGPL      R-misc3d\nGPL      R-np\nGPL      R-rgl\nGPL      R-tkrplot\nGPLv2+   R-core\nGPLv2+   R-devel\nGPL version 2 or later.          R-backtest\nGPL version 2 or later   R-bitops\nGPL Version 2 or later.          R-RandomFields\nGPL version 2 or later   R-randomForest\nGPL version 2 or later   R-RArcInfo\nGPL (version 2 or later)         R-ROCR\nGPL version 2 or newer   R-covRobust\nGPL version 2 or newer   R-Ecdat\nGPL version 2 or newer   R-logspline\nGPL version 2 or newer (see README).     R-splancs\nGPL Version 2    R-its\nGPL version 2    R-MCMCpack\nGPL Version 2    R-mnormt\nGPL (version 2)          R-sm\nGPL version 3    R-caTools\nGPL Version 3    R-fts\nLGPL-2.1         R-gtools\nLGPL (>= 2.1)    R-Rcpp\nLGPL (>= 2.1)    R-R.methodsS3\nLGPL (>= 2.1)    R-R.oo\nLGPL (>= 2.1)    R-R.utils\nLGPLv2+          R-DBI\nLGPLv2+          R-RSQLite\nOriginal ??, extensions GPL version 2 or newer   R-sgeostat\nPublic domain    R-evalstrat\nR functions: GPL, Fortran code: ACM, free for noncommercial use          R-tripack\nUnclear (Fortran) -- code in Statlib's ./S/adapt         R-adapt\nUnlimited        R-DAAG\nUnlimited        R-fame\nUnlimited        R-tis\n[herrold at centos-5 R2spec]$",
+      "body_snippet": "There was mention of this [r-sig-fedora at r-project.org] mailing \nlist on one of the other R lists overnight.  I thought the \nlist needed a bit of posting, as I could not recall seeing \ncontent recen",
+      "thread_id": "thread-a91badd47e50",
+      "thread_depth": 0,
+      "month": "2009-06"
+    },
+    {
+      "id": "msg-2d40b158e01c",
+      "message_id": "<4A44B66A.6000204@cornell.edu>",
+      "from_name": "Evan Cooch",
+      "from_email_hash": "557e79b3b6a62cba05e05b00fefe295809de40ae86c6472508d39d3e9bbfe931",
+      "date": "2009-06-26T07:52:10-04:00",
+      "subject": "[R-sig-Fedora] problems compiling for RHEL 5.3 x86_64",
+      "subject_clean": "problems compiling for RHEL 5.3 x86_64",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Well, CentOS 5.3, which amounts to the same thing.\n\nI recently decided to upgrade my main research machine from Fedora Core \n8 -> CentOS 5.3. Basically, I was looking to move to a distro with \nlonger 'term-of-life' than the release schedule for Fedora currently \nallows. The machine is a multi-Opteron box, so both 32- and 64-bit apps \nnatively supported. Since I do a lot of 'linear algebra'-heavy things \nwith R, I had compiled R 2.9.0 against the ACML blas. ACML contains \nlapack, so I killed two birds with one stone. Generally, I would do a \nconfigure with\n\n./configure --with-tcltk --with-blas=\"-L/opt/acml4.3.0/gfortran64/lib \n-lacml\"\n\nWorked perfectly. Led to 10-20x speedup in certain calculations.\n\n\nThings haven't been so good since moving to CentOS. The install of the \nOS went fine, but I can't for the life of me figure out how to compile R \nagainst blas - ACML-variety or otherwise. Moreover, putting in \n--with-lapack explicitly causes all sorts of errors - the main one being \n'hinted at' in the R admin docs. The error is\n\nError in La.svd(x, nu, nv) :\n BLAS/LAPACK routine 'DGESDD' gave error code -12\nCalls: cancor -> svd -> La.svd -> .Call\nExecution halted\n\nSo, from the admin guide, I find the following\n\nSince ACML contains a full LAPACK, if selected as the BLAS it can be \nused as the LAPACK /via/ --with-lapack.\nIf you do use --with-lapack, be aware of potential problems with bugs in \nthe LAPACK 3.0 sources (or in the posted corrections to those sources). \nIn particular, bugs in |DGEEV| and |DGESDD| have resulted in error \nmessages such as\n\nDGEBRD gave error code -10\n\nNot quite the same error code, but close enough I suspect they're related.\n\nI tried different forms of blas too (atlas, acml) - made little difference.\n\nSo, several quick questions:\n\n1. anyone managed to get x86_64 R compiled under either RHEL, Fedora, or \nCentOS? I don't mean 'installed from an RPM', but...compiled from source.\n\n2. anyone who answers 'yes' to (1) - did you manage to get it to play \nnice with blas and lapack?\n\n\nBefore I do a clean install of yet another distro, I'd really like to \nfigure out what is going on, and possibly solve the problem.\n\nThanks in advance...",
+      "body_snippet": "Well, CentOS 5.3, which amounts to the same thing.\n\nI recently decided to upgrade my main research machine from Fedora Core \n8 -> CentOS 5.3. Basically, I was looking to move to a distro with \nlonger ",
+      "thread_id": "thread-2d40b158e01c",
+      "thread_depth": 0,
+      "month": "2009-06"
+    },
+    {
+      "id": "msg-c52a411100c5",
+      "message_id": "<alpine.LRH.2.00.0906261510420.8603@reclus.nhh.no>",
+      "from_name": "Roger Bivand",
+      "from_email_hash": "a0c87926e9477aa221755cc93bdef47227c3563fd707e66ae49044467663d168",
+      "date": "2009-06-26T15:16:27+02:00",
+      "subject": "[R-sig-Fedora] problems compiling for RHEL 5.3 x86_64",
+      "subject_clean": "problems compiling for RHEL 5.3 x86_64",
+      "in_reply_to": "<4A44B66A.6000204@cornell.edu>",
+      "references": [
+        "<4A44B66A.6000204@cornell.edu>"
+      ],
+      "body_plain": "On Fri, 26 Jun 2009, Evan Cooch wrote:\n\n> Well, CentOS 5.3, which amounts to the same thing.\n>\n> I recently decided to upgrade my main research machine from Fedora Core 8 -> \n> CentOS 5.3. Basically, I was looking to move to a distro with longer \n> 'term-of-life' than the release schedule for Fedora currently allows. The \n> machine is a multi-Opteron box, so both 32- and 64-bit apps natively \n> supported. Since I do a lot of 'linear algebra'-heavy things with R, I had \n> compiled R 2.9.0 against the ACML blas. ACML contains lapack, so I killed two \n> birds with one stone. Generally, I would do a configure with\n>\n> ./configure --with-tcltk --with-blas=\"-L/opt/acml4.3.0/gfortran64/lib -lacml\"\n>\n> Worked perfectly. Led to 10-20x speedup in certain calculations.\n>\n>\n> Things haven't been so good since moving to CentOS. The install of the OS \n> went fine, but I can't for the life of me figure out how to compile R against \n> blas - ACML-variety or otherwise. Moreover, putting in --with-lapack \n> explicitly causes all sorts of errors - the main one being 'hinted at' in the \n> R admin docs. The error is\n>\n> Error in La.svd(x, nu, nv) :\n> BLAS/LAPACK routine 'DGESDD' gave error code -12\n> Calls: cancor -> svd -> La.svd -> .Call\n> Execution halted\n>\n> So, from the admin guide, I find the following\n>\n> Since ACML contains a full LAPACK, if selected as the BLAS it can be used as \n> the LAPACK /via/ --with-lapack.\n> If you do use --with-lapack, be aware of potential problems with bugs in the \n> LAPACK 3.0 sources (or in the posted corrections to those sources). In \n> particular, bugs in |DGEEV| and |DGESDD| have resulted in error messages such \n> as\n>\n> DGEBRD gave error code -10\n>\n> Not quite the same error code, but close enough I suspect they're related.\n>\n> I tried different forms of blas too (atlas, acml) - made little difference.\n>\n> So, several quick questions:\n>\n> 1. anyone managed to get x86_64 R compiled under either RHEL, Fedora, or \n> CentOS? I don't mean 'installed from an RPM', but...compiled from source.\n\nYes, RHEL5, x86_64, no problem.\n\n>\n> 2. anyone who answers 'yes' to (1) - did you manage to get it to play nice \n> with blas and lapack?\n\nYes, with GoToBLAS, using the instructions in:\n\nhttp://cran.r-project.org/doc/manuals/R-admin.html#Linear-algebra\n\nespecially:\n\n\"Another option to change the BLAS in use is to symlink a dynamic BLAS \nlibrary (such as ACML or Goto's) to R_HOME/lib/libRblas.so. For example, \njust\n\n      mv R_HOME/lib/libRblas.so R_HOME/lib/libRblas.so.keep\n      ln -s /opt/acml4.0.1/gfortran64_mp/lib/libacml_mp.so \\\n      R_HOME/lib/libRblas.so\n\nwill change the BLAS in use to multithreaded ACML.\"\n\nNote especially A.3.2. Running on a dual core box works well.\n\nHope this helps,\n\nRoger\n\n>\n>\n> Before I do a clean install of yet another distro, I'd really like to figure \n> out what is going on, and possibly solve the problem.\n>\n> Thanks in advance...\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n-- \nRoger Bivand\nEconomic Geography Section, Department of Economics, Norwegian School of\nEconomics and Business Administration, Helleveien 30, N-5045 Bergen,\nNorway. voice: +47 55 95 93 55; fax +47 55 95 95 43\ne-mail: Roger.Bivand at nhh.no",
+      "body_snippet": "On Fri, 26 Jun 2009, Evan Cooch wrote:\n\n> Well, CentOS 5.3, which amounts to the same thing.\n>\n> I recently decided to upgrade my main research machine from Fedora Core 8 -> \n> CentOS 5.3. Basically, ",
+      "thread_id": "thread-2d40b158e01c",
+      "thread_depth": 1,
+      "month": "2009-06"
+    },
+    {
+      "id": "msg-13b601c418f2",
+      "message_id": "<4A44EBD2.6030904@verizon.net>",
+      "from_name": "egc",
+      "from_email_hash": "0402abb62cd6939811ca65aaac8c3bf76d790d3c18a28bbc763f804cef48f90f",
+      "date": "2009-06-26T11:40:02-04:00",
+      "subject": "[R-sig-Fedora] problems compiling for RHEL 5.3 x86_64",
+      "subject_clean": "problems compiling for RHEL 5.3 x86_64",
+      "in_reply_to": "<alpine.LRH.2.00.0906261510420.8603@reclus.nhh.no>",
+      "references": [
+        "<4A44B66A.6000204@cornell.edu>",
+        "<alpine.LRH.2.00.0906261510420.8603@reclus.nhh.no>"
+      ],
+      "body_plain": "Hei Roger - thanks - comments below...\n\nRoger Bivand wrote:\n> On Fri, 26 Jun 2009, Evan Cooch wrote:\n>\n>>\n>> So, several quick questions:\n>>\n>> 1. anyone managed to get x86_64 R compiled under either RHEL, Fedora, \n>> or CentOS? I don't mean 'installed from an RPM', but...compiled from \n>> source.\n>\n> Yes, RHEL5, x86_64, no problem.\n\nSince CentOS 5.3 is 99.95% RHEL 5.3, I guess it amounts to the same \nthing - or it should. \n\n>\n>>\n>> 2. anyone who answers 'yes' to (1) - did you manage to get it to play \n>> nice with blas and lapack?\n>\n> Yes, with GoToBLAS, using the instructions in:\n>\n> http://cran.r-project.org/doc/manuals/R-admin.html#Linear-algebra\n>\n> especially:\n>\n> \"Another option to change the BLAS in use is to symlink a dynamic BLAS \n> library (such as ACML or Goto's) to R_HOME/lib/libRblas.so. For \n> example, just\n>\n>      mv R_HOME/lib/libRblas.so R_HOME/lib/libRblas.so.keep\n>      ln -s /opt/acml4.0.1/gfortran64_mp/lib/libacml_mp.so \\\n>      R_HOME/lib/libRblas.so\n>\n> will change the BLAS in use to multithreaded ACML.\"\n>\n>\nI tried this, but got hung up having to set some environment variables, \nand never seemed to get it to work. I didn't try GoToBLAS, but the ACML \nblas.\n\nWhere I'm still somewhat puzzled is the lapack end of things. blas is \nthe basic lib, but lapack makes it zippy fast. Some blas has lapack in \nit (like ACML). But, R seems to not to like compiling against it. As \nlong as I use\n\n./configure --with-tcltk\n\nmake, make install, then change the link to libRblas.so (as noted \nabove), no problem - except that R uses the liblapack.so, which it \ndidn't create from ACML (since I didn't use the \n--with-blas=/pointer/to/ACML -lacml  directive during config. If I do \nthis, however, using ./configure --with-tcltk --with-lapack \n--with-blas=\"-L/pointer/to/ACML/lib -lacml\", the make check fails \nmiserably on anything requiring high-level algebra).",
+      "body_snippet": "Hei Roger - thanks - comments below...\n\nRoger Bivand wrote:\n> On Fri, 26 Jun 2009, Evan Cooch wrote:\n>\n>>\n>> So, several quick questions:\n>>\n>> 1. anyone managed to get x86_64 R compiled under either ",
+      "thread_id": "thread-2d40b158e01c",
+      "thread_depth": 2,
+      "month": "2009-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-a91badd47e50",
+      "subject": "License quandry in the Fedora sub-space of all R packages",
+      "message_count": 1,
+      "participants": [
+        "R P Herrold"
+      ],
+      "started": "2009-06-10T15:21:50-04:00",
+      "last_reply": "2009-06-10T15:21:50-04:00",
+      "root_message_id": "msg-a91badd47e50"
+    },
+    {
+      "id": "thread-2d40b158e01c",
+      "subject": "problems compiling for RHEL 5.3 x86_64",
+      "message_count": 3,
+      "participants": [
+        "Evan Cooch",
+        "Roger Bivand",
+        "egc"
+      ],
+      "started": "2009-06-26T07:52:10-04:00",
+      "last_reply": "2009-06-26T11:40:02-04:00",
+      "root_message_id": "msg-2d40b158e01c"
+    }
+  ]
+}

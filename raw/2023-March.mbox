@@ -1,0 +1,22 @@
+From @potrh @end|ng |rom gm@||@com  Tue Mar  7 15:57:44 2023
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Tue, 7 Mar 2023 09:57:44 -0500
+Subject: [R-sig-Fedora] New deps for R-gh
+Message-ID: <CACp8ZrKnuGR=DihLa6tB4vJxtwtxCh9xmf9z7SdK11w_O5A7BA@mail.gmail.com>
+
+Hi friends,
+
+R-gh's latest version grew a dependency on httr2 (which has a suggests for
+%check on docopt), so I made two new packages for Fedora. They're both
+noarch and simple, should be quick reviews for someone. Any help here is
+appreciated.
+
+R-docopt: https://bugzilla.redhat.com/show_bug.cgi?id=2176170
+R-httr2: https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=2176171
+
+Thanks in advance,
+~spot
+
+	[[alternative HTML version deleted]]
+
+

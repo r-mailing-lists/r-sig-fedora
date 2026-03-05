@@ -1,0 +1,1088 @@
+From r.turner at auckland.ac.nz  Sun May 10 23:52:54 2015
+From: r.turner at auckland.ac.nz (Rolf Turner)
+Date: Mon, 11 May 2015 09:52:54 +1200
+Subject: [R-sig-Fedora] [R] Building R-3.2.0 from source.
+In-Reply-To: <425F1A4A-454E-4CF0-A9D5-766DAA301A86@gmail.com>
+References: <554F4BF6.8060508@auckland.ac.nz>
+	<425F1A4A-454E-4CF0-A9D5-766DAA301A86@gmail.com>
+Message-ID: <554FD336.1030604@auckland.ac.nz>
+
+
+I am cross-posting this to r-sig-fedora (I hope that's not an egregious 
+sin) in the hope that doing so might provide some source of insight.
+
+I tried
+
+     sudo yum install zlib
+
+and was told
+
+> Package zlib-1.2.5-7.fc17.x86_64 already installed and latest version
+
+
+Likewise for "zlib-devel".
+
+I also tried
+
+     sudo yum install bzlib
+
+and was told
+
+> No package bzlib available.
+
+Likewise for "bzlib-devel".
+
+Finally I sort of got some joy with "lzma" and "lzma-devel" --- both of 
+those yielded an actual installation.  But it didn't help.
+
+I re-did the configure and then the make and got the same 
+errors/complaints about undefined references to deflate, inflate, crc32, 
+etc.
+
+Can anyone provide any guidance/suggestions about what else I could try?
+I'm getting very frustrated! :-)
+
+cheers,
+
+Rolf Turner
+
+On 11/05/15 00:50, peter dalgaard wrote:
+>
+>> On 10 May 2015, at 14:15 , Rolf Turner <r.turner at auckland.ac.nz> wrote:
+>>
+>>
+>>
+>> I am just now getting around to upgrading from 3.1.2 to 3.2.0 and am getting hammered by a problem which is beyond my limited capabilities of handling.
+>>
+>> I executed
+>>
+>>   ./configure --with-tcltk --with cairo
+>>
+>> which seemed to go just fine, and then did:
+>>
+>>    make
+>>
+>> In fairly short order I started getting  error messages like unto:
+>>
+>>> connections.o: In function `gzcon_write':
+>>> /home/rolf/Desktop/Rinst/R-3.2.0/src/main/connections.c:5469: undefined reference to `deflate'
+>>
+>> There were also complaints about undefined references to inflate, crc32, deflateEnd, inflateEnd, inflateReset, inflateInit2_, deflateInit2_, compress, uncompress, and zlibVersion, many of which were issued repeatedly.  It finally gave up, saying:
+>>
+>>> collect2: error: ld returned 1 exit status
+>>
+>> A bit of googling informed me (I think?) that a workaround was to configure using --without-system-pcre.  This however achieved nothing in my case.
+>>
+>> Can anyone point me at what I need to do to fix this?  Install or update something?
+>>
+>> I am running an (elderly, no-longer-supported) Fedora 17 Linux.
+>>
+>> Thanks for any assistance.
+>
+> PCRE (regular expressions) won't help you with compression algorithms... If anything, it is  --without-system-xz, -zlib, -bzlib that would come into play, but it would be a better idea to ensure that you do have the libraries and headers installed.
+>
+> I'm not completely up to speed on Fedora, but the order of the day is that you need to install some variation of lzma/zlib/bzlib and their -dev/-devel header files etc. Check appendix A.1 and A.2 of the R Installation and Administration manual.
+>
+
+
+-- 
+Technical Editor ANZJS
+Department of Statistics
+University of Auckland
+Phone: +64-9-373-7599 ext. 88276
+Home phone: +64-9-480-4619
+
+
+From znmeb at znmeb.net  Mon May 11 02:06:41 2015
+From: znmeb at znmeb.net (M. Edward (Ed) Borasky)
+Date: Sun, 10 May 2015 17:06:41 -0700
+Subject: [R-sig-Fedora] [R] Building R-3.2.0 from source.
+In-Reply-To: <554FD336.1030604@auckland.ac.nz>
+References: <554F4BF6.8060508@auckland.ac.nz>
+	<425F1A4A-454E-4CF0-A9D5-766DAA301A86@gmail.com>
+	<554FD336.1030604@auckland.ac.nz>
+Message-ID: <CAHkRx6FVxw_nVC9HqRPYh6Ay23frAQ0e5wOHvO15mRRTvOTjcQ@mail.gmail.com>
+
+1. R 3.2.0 is packaged for Fedora now; it's in Rawhide and Fedora 22.
+I'm running Fedora 22 (late beta) and haven't had any problems with R.
+RStudio Desktop Preview (0.99.435) from the RStudio Fedora RPM is also
+running fine. You might save yourself some hassles by upgrading to
+Fedora 22.
+2. I have a bash script to build R from source that works on Fedora
+22. It probably also works on Fedora 21 but it's been a while since I
+tried it. Note that it installs 'calibre' and makes the ebooks of the
+manuals. It also does some packaging things at the end you probably
+don't need.
+
+On Sun, May 10, 2015 at 2:52 PM, Rolf Turner <r.turner at auckland.ac.nz> wrote:
+>
+> I am cross-posting this to r-sig-fedora (I hope that's not an egregious sin)
+> in the hope that doing so might provide some source of insight.
+>
+> I tried
+>
+>     sudo yum install zlib
+>
+> and was told
+>
+>> Package zlib-1.2.5-7.fc17.x86_64 already installed and latest version
+>
+>
+>
+> Likewise for "zlib-devel".
+>
+> I also tried
+>
+>     sudo yum install bzlib
+>
+> and was told
+>
+>> No package bzlib available.
+>
+>
+> Likewise for "bzlib-devel".
+>
+> Finally I sort of got some joy with "lzma" and "lzma-devel" --- both of
+> those yielded an actual installation.  But it didn't help.
+>
+> I re-did the configure and then the make and got the same errors/complaints
+> about undefined references to deflate, inflate, crc32, etc.
+>
+> Can anyone provide any guidance/suggestions about what else I could try?
+> I'm getting very frustrated! :-)
+>
+> cheers,
+>
+> Rolf Turner
+>
+> On 11/05/15 00:50, peter dalgaard wrote:
+>>
+>>
+>>> On 10 May 2015, at 14:15 , Rolf Turner <r.turner at auckland.ac.nz> wrote:
+>>>
+>>>
+>>>
+>>> I am just now getting around to upgrading from 3.1.2 to 3.2.0 and am
+>>> getting hammered by a problem which is beyond my limited capabilities of
+>>> handling.
+>>>
+>>> I executed
+>>>
+>>>   ./configure --with-tcltk --with cairo
+>>>
+>>> which seemed to go just fine, and then did:
+>>>
+>>>    make
+>>>
+>>> In fairly short order I started getting  error messages like unto:
+>>>
+>>>> connections.o: In function `gzcon_write':
+>>>> /home/rolf/Desktop/Rinst/R-3.2.0/src/main/connections.c:5469: undefined
+>>>> reference to `deflate'
+>>>
+>>>
+>>> There were also complaints about undefined references to inflate, crc32,
+>>> deflateEnd, inflateEnd, inflateReset, inflateInit2_, deflateInit2_,
+>>> compress, uncompress, and zlibVersion, many of which were issued repeatedly.
+>>> It finally gave up, saying:
+>>>
+>>>> collect2: error: ld returned 1 exit status
+>>>
+>>>
+>>> A bit of googling informed me (I think?) that a workaround was to
+>>> configure using --without-system-pcre.  This however achieved nothing in my
+>>> case.
+>>>
+>>> Can anyone point me at what I need to do to fix this?  Install or update
+>>> something?
+>>>
+>>> I am running an (elderly, no-longer-supported) Fedora 17 Linux.
+>>>
+>>> Thanks for any assistance.
+>>
+>>
+>> PCRE (regular expressions) won't help you with compression algorithms...
+>> If anything, it is  --without-system-xz, -zlib, -bzlib that would come into
+>> play, but it would be a better idea to ensure that you do have the libraries
+>> and headers installed.
+>>
+>> I'm not completely up to speed on Fedora, but the order of the day is that
+>> you need to install some variation of lzma/zlib/bzlib and their -dev/-devel
+>> header files etc. Check appendix A.1 and A.2 of the R Installation and
+>> Administration manual.
+>>
+>
+>
+> --
+> Technical Editor ANZJS
+> Department of Statistics
+> University of Auckland
+> Phone: +64-9-373-7599 ext. 88276
+> Home phone: +64-9-480-4619
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+OSJourno: Robust Power Tools for Digital Journalists
+http://www.znmeb.mobi/stories/osjourno-robust-power-tools-for-digital-journalists
+
+Remember, if you're traveling to Bactria, Hump Day is Tuesday and Thursday.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: build.bash
+Type: application/octet-stream
+Size: 1641 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20150510/66a5c6d3/attachment.obj>
+
+From r.turner at auckland.ac.nz  Mon May 11 03:09:57 2015
+From: r.turner at auckland.ac.nz (Rolf Turner)
+Date: Mon, 11 May 2015 13:09:57 +1200
+Subject: [R-sig-Fedora] [R] Building R-3.2.0 from source.
+In-Reply-To: <CAHkRx6FVxw_nVC9HqRPYh6Ay23frAQ0e5wOHvO15mRRTvOTjcQ@mail.gmail.com>
+References: <554F4BF6.8060508@auckland.ac.nz>	<425F1A4A-454E-4CF0-A9D5-766DAA301A86@gmail.com>	<554FD336.1030604@auckland.ac.nz>
+	<CAHkRx6FVxw_nVC9HqRPYh6Ay23frAQ0e5wOHvO15mRRTvOTjcQ@mail.gmail.com>
+Message-ID: <55500165.2070004@auckland.ac.nz>
+
+On 11/05/15 12:06, M. Edward (Ed) Borasky wrote:
+> 1. R 3.2.0 is packaged for Fedora now; it's in Rawhide and Fedora 22.
+> I'm running Fedora 22 (late beta) and haven't had any problems with R.
+> RStudio Desktop Preview (0.99.435) from the RStudio Fedora RPM is also
+> running fine. You might save yourself some hassles by upgrading to
+> Fedora 22.
+
+I'm sure I would, but I don't dare.  Everything I see on the Fedora 
+mailing list fills me with terror in respect of the disasters that can 
+occur.  I don't have the skills to cope with such disasters and I have 
+no access to support in respect of Fedora.
+
+> 2. I have a bash script to build R from source that works on Fedora
+> 22. It probably also works on Fedora 21 but it's been a while since I
+> tried it. Note that it installs 'calibre' and makes the ebooks of the
+> manuals. It also does some packaging things at the end you probably
+> don't need.
+
+Thanks, but I don't think it's any help in my situation.
+
+I had no problem at all building R 3.1.2 from source.  What changed from
+3.1.2 to 3.2.0 that would cause those undefined reference problems?
+
+cheers,
+
+Rolf Turner
+
+>
+> On Sun, May 10, 2015 at 2:52 PM, Rolf Turner <r.turner at auckland.ac.nz> wrote:
+>>
+>> I am cross-posting this to r-sig-fedora (I hope that's not an egregious sin)
+>> in the hope that doing so might provide some source of insight.
+>>
+>> I tried
+>>
+>>      sudo yum install zlib
+>>
+>> and was told
+>>
+>>> Package zlib-1.2.5-7.fc17.x86_64 already installed and latest version
+>>
+>>
+>>
+>> Likewise for "zlib-devel".
+>>
+>> I also tried
+>>
+>>      sudo yum install bzlib
+>>
+>> and was told
+>>
+>>> No package bzlib available.
+>>
+>>
+>> Likewise for "bzlib-devel".
+>>
+>> Finally I sort of got some joy with "lzma" and "lzma-devel" --- both of
+>> those yielded an actual installation.  But it didn't help.
+>>
+>> I re-did the configure and then the make and got the same errors/complaints
+>> about undefined references to deflate, inflate, crc32, etc.
+>>
+>> Can anyone provide any guidance/suggestions about what else I could try?
+>> I'm getting very frustrated! :-)
+>>
+>> cheers,
+>>
+>> Rolf Turner
+>>
+>> On 11/05/15 00:50, peter dalgaard wrote:
+>>>
+>>>
+>>>> On 10 May 2015, at 14:15 , Rolf Turner <r.turner at auckland.ac.nz> wrote:
+>>>>
+>>>>
+>>>>
+>>>> I am just now getting around to upgrading from 3.1.2 to 3.2.0 and am
+>>>> getting hammered by a problem which is beyond my limited capabilities of
+>>>> handling.
+>>>>
+>>>> I executed
+>>>>
+>>>>    ./configure --with-tcltk --with cairo
+>>>>
+>>>> which seemed to go just fine, and then did:
+>>>>
+>>>>     make
+>>>>
+>>>> In fairly short order I started getting  error messages like unto:
+>>>>
+>>>>> connections.o: In function `gzcon_write':
+>>>>> /home/rolf/Desktop/Rinst/R-3.2.0/src/main/connections.c:5469: undefined
+>>>>> reference to `deflate'
+>>>>
+>>>>
+>>>> There were also complaints about undefined references to inflate, crc32,
+>>>> deflateEnd, inflateEnd, inflateReset, inflateInit2_, deflateInit2_,
+>>>> compress, uncompress, and zlibVersion, many of which were issued repeatedly.
+>>>> It finally gave up, saying:
+>>>>
+>>>>> collect2: error: ld returned 1 exit status
+>>>>
+>>>>
+>>>> A bit of googling informed me (I think?) that a workaround was to
+>>>> configure using --without-system-pcre.  This however achieved nothing in my
+>>>> case.
+>>>>
+>>>> Can anyone point me at what I need to do to fix this?  Install or update
+>>>> something?
+>>>>
+>>>> I am running an (elderly, no-longer-supported) Fedora 17 Linux.
+>>>>
+>>>> Thanks for any assistance.
+>>>
+>>>
+>>> PCRE (regular expressions) won't help you with compression algorithms...
+>>> If anything, it is  --without-system-xz, -zlib, -bzlib that would come into
+>>> play, but it would be a better idea to ensure that you do have the libraries
+>>> and headers installed.
+>>>
+>>> I'm not completely up to speed on Fedora, but the order of the day is that
+>>> you need to install some variation of lzma/zlib/bzlib and their -dev/-devel
+>>> header files etc. Check appendix A.1 and A.2 of the R Installation and
+>>> Administration manual.
+>>>
+>>
+>>
+>> --
+>> Technical Editor ANZJS
+>> Department of Statistics
+>> University of Auckland
+>> Phone: +64-9-373-7599 ext. 88276
+>> Home phone: +64-9-480-4619
+>>
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+>
+
+
+-- 
+Technical Editor ANZJS
+Department of Statistics
+University of Auckland
+Phone: +64-9-373-7599 ext. 88276
+Home phone: +64-9-480-4619
+
+
+From tcallawa at redhat.com  Mon May 11 06:19:16 2015
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 11 May 2015 00:19:16 -0400 (EDT)
+Subject: [R-sig-Fedora] [R] Building R-3.2.0 from source.
+Message-ID: <0d598c13-e2ec-4a01-8d1f-6c4f323302a5@email.android.com>
+
+I just landed in Paris, and haven't read backwards in this thread, but I've done 3.2.0 builds for all current Fedora releases, they're all in updates-testing (I think the Fedora 22 builds are in updates stable now).
+
+The thing that changed is that R doesn't bundle a number of libraries like it used to. This doesn't affect the official Fedora R package, since we never used the bundled libraries. This is documented in the 3.2.0 release notes.
+
+If you really want to build from source, I think you can run:
+
+yum-builddep R
+
+That will install all the necessary Build Requires to build R from source. You need to have the yum-utils package installed for that command to exist.
+
+Hope that helps.
+
+On May 11, 2015 3:10 AM, Rolf Turner <r.turner at auckland.ac.nz> wrote:
+>
+> On 11/05/15 12:06, M. Edward (Ed) Borasky wrote: 
+> > 1. R 3.2.0 is packaged for Fedora now; it's in Rawhide and Fedora 22. 
+> > I'm running Fedora 22 (late beta) and haven't had any problems with R. 
+> > RStudio Desktop Preview (0.99.435) from the RStudio Fedora RPM is also 
+> > running fine. You might save yourself some hassles by upgrading to 
+> > Fedora 22. 
+>
+> I'm sure I would, but I don't dare.? Everything I see on the Fedora 
+> mailing list fills me with terror in respect of the disasters that can 
+> occur.? I don't have the skills to cope with such disasters and I have 
+> no access to support in respect of Fedora. 
+>
+> > 2. I have a bash script to build R from source that works on Fedora 
+> > 22. It probably also works on Fedora 21 but it's been a while since I 
+> > tried it. Note that it installs 'calibre' and makes the ebooks of the 
+> > manuals. It also does some packaging things at the end you probably 
+> > don't need. 
+>
+> Thanks, but I don't think it's any help in my situation. 
+>
+> I had no problem at all building R 3.1.2 from source.? What changed from 
+> 3.1.2 to 3.2.0 that would cause those undefined reference problems? 
+>
+> cheers, 
+>
+> Rolf Turner 
+>
+> > 
+> > On Sun, May 10, 2015 at 2:52 PM, Rolf Turner <r.turner at auckland.ac.nz> wrote: 
+> >> 
+> >> I am cross-posting this to r-sig-fedora (I hope that's not an egregious sin) 
+> >> in the hope that doing so might provide some source of insight. 
+> >> 
+> >> I tried 
+> >> 
+> >>????? sudo yum install zlib 
+> >> 
+> >> and was told 
+> >> 
+> >>> Package zlib-1.2.5-7.fc17.x86_64 already installed and latest version 
+> >> 
+> >> 
+> >> 
+> >> Likewise for "zlib-devel". 
+> >> 
+> >> I also tried 
+> >> 
+> >>????? sudo yum install bzlib 
+> >> 
+> >> and was told 
+> >> 
+> >>> No package bzlib available. 
+> >> 
+> >> 
+> >> Likewise for "bzlib-devel". 
+> >> 
+> >> Finally I sort of got some joy with "lzma" and "lzma-devel" --- both of 
+> >> those yielded an actual installation.? But it didn't help. 
+> >> 
+> >> I re-did the configure and then the make and got the same errors/complaints 
+> >> about undefined references to deflate, inflate, crc32, etc. 
+> >> 
+> >> Can anyone provide any guidance/suggestions about what else I could try? 
+> >> I'm getting very frustrated! :-) 
+> >> 
+> >> cheers, 
+> >> 
+> >> Rolf Turner 
+> >> 
+> >> On 11/05/15 00:50, peter dalgaard wrote: 
+> >>> 
+> >>> 
+> >>>> On 10 May 2015, at 14:15 , Rolf Turner <r.turner at auckland.ac.nz> wrote: 
+> >>>> 
+> >>>> 
+> >>>> 
+> >>>> I am just now getting around to upgrading from 3.1.2 to 3.2.0 and am 
+> >>>> getting hammered by a problem which is beyond my limited capabilities of 
+> >>>> handling. 
+> >>>> 
+> >>>> I executed 
+> >>>> 
+> >>>>??? ./configure --with-tcltk --with cairo 
+> >>>> 
+> >>>> which seemed to go just fine, and then did: 
+> >>>> 
+> >>>>???? make 
+> >>>> 
+> >>>> In fairly short order I started getting? error messages like unto: 
+> >>>> 
+> >>>>> connections.o: In function `gzcon_write': 
+> >>>>> /home/rolf/Desktop/Rinst/R-3.2.0/src/main/connections.c:5469: undefined 
+> >>>>> reference to `deflate' 
+> >>>> 
+> >>>> 
+> >>>> There were also complaints about undefined references to inflate, crc32, 
+> >>>> deflateEnd, inflateEnd, inflateReset, inflateInit2_, deflateInit2_, 
+> >>>> compress, uncompress, and zlibVersion, many of which were issued repeatedly. 
+> >>>> It finally gave up, saying: 
+> >>>> 
+> >>>>> collect2: error: ld returned 1 exit status 
+> >>>> 
+> >>>> 
+> >>>> A bit of googling informed me (I think?) that a workaround was to 
+> >>>> configure using --without-system-pcre.? This however achieved nothing in my 
+> >>>> case. 
+> >>>> 
+> >>>> Can anyone point me at what I need to do to fix this?? Install or update 
+> >>>> something? 
+> >>>> 
+> >>>> I am running an (elderly, no-longer-supported) Fedora 17 Linux. 
+> >>>> 
+> >>>> Thanks for any assistance. 
+> >>> 
+> >>> 
+> >>> PCRE (regular expressions) won't help you with compression algorithms... 
+> >>> If anything, it is? --without-system-xz, -zlib, -bzlib that would come into 
+> >>> play, but it would be a better idea to ensure that you do have the libraries 
+> >>> and headers installed. 
+> >>> 
+> >>> I'm not completely up to speed on Fedora, but the order of the day is that 
+> >>> you need to install some variation of lzma/zlib/bzlib and their -dev/-devel 
+> >>> header files etc. Check appendix A.1 and A.2 of the R Installation and 
+> >>> Administration manual. 
+> >>> 
+> >> 
+> >> 
+> >> -- 
+> >> Technical Editor ANZJS 
+> >> Department of Statistics 
+> >> University of Auckland 
+> >> Phone: +64-9-373-7599 ext. 88276 
+> >> Home phone: +64-9-480-4619 
+> >> 
+> >> _______________________________________________ 
+> >> R-SIG-Fedora mailing list 
+> >> R-SIG-Fedora at r-project.org 
+> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora 
+> > 
+> > 
+> > 
+>
+>
+> -- 
+> Technical Editor ANZJS 
+> Department of Statistics 
+> University of Auckland 
+> Phone: +64-9-373-7599 ext. 88276 
+> Home phone: +64-9-480-4619 
+>
+> _______________________________________________ 
+> R-SIG-Fedora mailing list 
+> R-SIG-Fedora at r-project.org 
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora 
+
+From r.turner at auckland.ac.nz  Mon May 11 09:42:53 2015
+From: r.turner at auckland.ac.nz (Rolf Turner)
+Date: Mon, 11 May 2015 19:42:53 +1200
+Subject: [R-sig-Fedora] [R] Building R-3.2.0 from source.
+In-Reply-To: <0d598c13-e2ec-4a01-8d1f-6c4f323302a5@email.android.com>
+References: <0d598c13-e2ec-4a01-8d1f-6c4f323302a5@email.android.com>
+Message-ID: <55505D7D.5080005@auckland.ac.nz>
+
+On 11/05/15 16:19, Tom Callaway wrote:
+> I just landed in Paris, and haven't read backwards in this thread,
+> but I've done 3.2.0 builds for all current Fedora releases, they're
+> all in updates-testing (I think the Fedora 22 builds are in updates
+> stable now).
+>
+> The thing that changed is that R doesn't bundle a number of libraries
+> like it used to. This doesn't affect the official Fedora R package,
+> since we never used the bundled libraries. This is documented in the
+> 3.2.0 release notes.
+>
+> If you really want to build from source, I think you can run:
+>
+> yum-builddep R
+>
+> That will install all the necessary Build Requires to build R from
+> source. You need to have the yum-utils package installed for that
+> command to exist.
+>
+> Hope that helps.
+
+It certainly did!  Success.  Thank you hugely!
+
+But if I may ask a supplementary question:  You say "If you really want 
+to build from source ....".  No, I don't *want* to; I have to.  At least 
+in my understanding.  I run the ancient and beyond end-of-life Fedora 
+17.  (I haven't the nerve to try to upgrade; my current system may be 
+kludgey, but at least it works.  And I *know* that if I try to upgrade 
+all hell will break loose.)  It is my understanding that "current Fedora 
+releases" *do not* include Fedora 17.  Or do they?
+If so, how would I get my hands on an R binary for Fedora 17?
+
+That's really just an academic question at present, since I have now 
+managed, thanks to your help, to build R 3.2.0 from source.
+
+Thanks again.
+
+cheers,
+
+Rolf Turner
+
+>
+> On May 11, 2015 3:10 AM, Rolf Turner <r.turner at auckland.ac.nz> wrote:
+>>
+>> On 11/05/15 12:06, M. Edward (Ed) Borasky wrote:
+>>> 1. R 3.2.0 is packaged for Fedora now; it's in Rawhide and Fedora 22.
+>>> I'm running Fedora 22 (late beta) and haven't had any problems with R.
+>>> RStudio Desktop Preview (0.99.435) from the RStudio Fedora RPM is also
+>>> running fine. You might save yourself some hassles by upgrading to
+>>> Fedora 22.
+>>
+>> I'm sure I would, but I don't dare.  Everything I see on the Fedora
+>> mailing list fills me with terror in respect of the disasters that can
+>> occur.  I don't have the skills to cope with such disasters and I have
+>> no access to support in respect of Fedora.
+>>
+>>> 2. I have a bash script to build R from source that works on Fedora
+>>> 22. It probably also works on Fedora 21 but it's been a while since I
+>>> tried it. Note that it installs 'calibre' and makes the ebooks of the
+>>> manuals. It also does some packaging things at the end you probably
+>>> don't need.
+>>
+>> Thanks, but I don't think it's any help in my situation.
+>>
+>> I had no problem at all building R 3.1.2 from source.  What changed from
+>> 3.1.2 to 3.2.0 that would cause those undefined reference problems?
+>>
+>> cheers,
+>>
+>> Rolf Turner
+>>
+>>>
+>>> On Sun, May 10, 2015 at 2:52 PM, Rolf Turner <r.turner at auckland.ac.nz> wrote:
+>>>>
+>>>> I am cross-posting this to r-sig-fedora (I hope that's not an egregious sin)
+>>>> in the hope that doing so might provide some source of insight.
+>>>>
+>>>> I tried
+>>>>
+>>>>        sudo yum install zlib
+>>>>
+>>>> and was told
+>>>>
+>>>>> Package zlib-1.2.5-7.fc17.x86_64 already installed and latest version
+>>>>
+>>>>
+>>>>
+>>>> Likewise for "zlib-devel".
+>>>>
+>>>> I also tried
+>>>>
+>>>>        sudo yum install bzlib
+>>>>
+>>>> and was told
+>>>>
+>>>>> No package bzlib available.
+>>>>
+>>>>
+>>>> Likewise for "bzlib-devel".
+>>>>
+>>>> Finally I sort of got some joy with "lzma" and "lzma-devel" --- both of
+>>>> those yielded an actual installation.  But it didn't help.
+>>>>
+>>>> I re-did the configure and then the make and got the same errors/complaints
+>>>> about undefined references to deflate, inflate, crc32, etc.
+>>>>
+>>>> Can anyone provide any guidance/suggestions about what else I could try?
+>>>> I'm getting very frustrated! :-)
+>>>>
+>>>> cheers,
+>>>>
+>>>> Rolf Turner
+>>>>
+>>>> On 11/05/15 00:50, peter dalgaard wrote:
+>>>>>
+>>>>>
+>>>>>> On 10 May 2015, at 14:15 , Rolf Turner <r.turner at auckland.ac.nz> wrote:
+>>>>>>
+>>>>>>
+>>>>>>
+>>>>>> I am just now getting around to upgrading from 3.1.2 to 3.2.0 and am
+>>>>>> getting hammered by a problem which is beyond my limited capabilities of
+>>>>>> handling.
+>>>>>>
+>>>>>> I executed
+>>>>>>
+>>>>>>      ./configure --with-tcltk --with cairo
+>>>>>>
+>>>>>> which seemed to go just fine, and then did:
+>>>>>>
+>>>>>>       make
+>>>>>>
+>>>>>> In fairly short order I started getting  error messages like unto:
+>>>>>>
+>>>>>>> connections.o: In function `gzcon_write':
+>>>>>>> /home/rolf/Desktop/Rinst/R-3.2.0/src/main/connections.c:5469: undefined
+>>>>>>> reference to `deflate'
+>>>>>>
+>>>>>>
+>>>>>> There were also complaints about undefined references to inflate, crc32,
+>>>>>> deflateEnd, inflateEnd, inflateReset, inflateInit2_, deflateInit2_,
+>>>>>> compress, uncompress, and zlibVersion, many of which were issued repeatedly.
+>>>>>> It finally gave up, saying:
+>>>>>>
+>>>>>>> collect2: error: ld returned 1 exit status
+>>>>>>
+>>>>>>
+>>>>>> A bit of googling informed me (I think?) that a workaround was to
+>>>>>> configure using --without-system-pcre.  This however achieved nothing in my
+>>>>>> case.
+>>>>>>
+>>>>>> Can anyone point me at what I need to do to fix this?  Install or update
+>>>>>> something?
+>>>>>>
+>>>>>> I am running an (elderly, no-longer-supported) Fedora 17 Linux.
+>>>>>>
+>>>>>> Thanks for any assistance.
+>>>>>
+>>>>>
+>>>>> PCRE (regular expressions) won't help you with compression algorithms...
+>>>>> If anything, it is  --without-system-xz, -zlib, -bzlib that would come into
+>>>>> play, but it would be a better idea to ensure that you do have the libraries
+>>>>> and headers installed.
+>>>>>
+>>>>> I'm not completely up to speed on Fedora, but the order of the day is that
+>>>>> you need to install some variation of lzma/zlib/bzlib and their -dev/-devel
+>>>>> header files etc. Check appendix A.1 and A.2 of the R Installation and
+>>>>> Administration manual.
+>>>>>
+>>>>
+>>>>
+>>>> --
+>>>> Technical Editor ANZJS
+>>>> Department of Statistics
+>>>> University of Auckland
+>>>> Phone: +64-9-373-7599 ext. 88276
+>>>> Home phone: +64-9-480-4619
+>>>>
+>>>> _______________________________________________
+>>>> R-SIG-Fedora mailing list
+>>>> R-SIG-Fedora at r-project.org
+>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>
+>>>
+>>>
+>>
+>>
+>> --
+>> Technical Editor ANZJS
+>> Department of Statistics
+>> University of Auckland
+>> Phone: +64-9-373-7599 ext. 88276
+>> Home phone: +64-9-480-4619
+>>
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+-- 
+Technical Editor ANZJS
+Department of Statistics
+University of Auckland
+Phone: +64-9-373-7599 ext. 88276
+Home phone: +64-9-480-4619
+
+
+From jamatos at fc.up.pt  Mon May 11 11:08:31 2015
+From: jamatos at fc.up.pt (=?ISO-8859-1?Q?Jos=E9?= Matos)
+Date: Mon, 11 May 2015 10:08:31 +0100
+Subject: [R-sig-Fedora] [R] Building R-3.2.0 from source.
+In-Reply-To: <55505D7D.5080005@auckland.ac.nz>
+References: <0d598c13-e2ec-4a01-8d1f-6c4f323302a5@email.android.com>
+	<55505D7D.5080005@auckland.ac.nz>
+Message-ID: <2160580.mBB7BbbJ27@ulysses>
+
+On Monday 11 May 2015 19:42:53 Rolf Turner wrote:
+> It certainly did!  Success.  Thank you hugely!
+> 
+> But if I may ask a supplementary question:  You say "If you really want 
+> to build from source ....".  No, I don't *want* to; I have to.  At least 
+> in my understanding.  I run the ancient and beyond end-of-life Fedora 
+> 17.  (I haven't the nerve to try to upgrade; my current system may be 
+> kludgey, but at least it works.  And I *know* that if I try to upgrade 
+> all hell will break loose.)  It is my understanding that "current Fedora 
+> releases" *do not* include Fedora 17.  Or do they?
+> If so, how would I get my hands on an R binary for Fedora 17?
+
+The list of supported versions is here:
+https://fedoraproject.org/wiki/Releases
+
+In short each version is supported for one month after the release of version N+2.
+
+That means in particular that as soon as Fedora 22 is released Fedora will be supported one more month.
+
+> That's really just an academic question at present, since I have now 
+> managed, thanks to your help, to build R 3.2.0 from source.
+> 
+> Thanks again.
+> 
+> cheers,
+> 
+> Rolf Turner
+
+If you prefer a short release cycle a reasonable approach is CentOS where R is packaged in the EPEL repositories, that belong the Fedora infrastructure.
+
+Regards,
+-- 
+Jos? Ab?lio
+
+
+From tcallawa at redhat.com  Mon May 11 11:26:39 2015
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 11 May 2015 11:26:39 +0200
+Subject: [R-sig-Fedora] [R] Building R-3.2.0 from source.
+In-Reply-To: <55505D7D.5080005@auckland.ac.nz>
+References: <0d598c13-e2ec-4a01-8d1f-6c4f323302a5@email.android.com>
+	<55505D7D.5080005@auckland.ac.nz>
+Message-ID: <555075CF.9030902@redhat.com>
+
+On 05/11/2015 09:42 AM, Rolf Turner wrote:
+> It certainly did!  Success.  Thank you hugely!
+> 
+> But if I may ask a supplementary question:  You say "If you really want
+> to build from source ....".  No, I don't *want* to; I have to.  At least
+> in my understanding.  I run the ancient and beyond end-of-life Fedora
+> 17.  (I haven't the nerve to try to upgrade; my current system may be
+> kludgey, but at least it works.  And I *know* that if I try to upgrade
+> all hell will break loose.)  It is my understanding that "current Fedora
+> releases" *do not* include Fedora 17.  Or do they?
+> If so, how would I get my hands on an R binary for Fedora 17?
+> 
+> That's really just an academic question at present, since I have now
+> managed, thanks to your help, to build R 3.2.0 from source.
+
+Wow. Well, I can't say that I'm building anything for end-of-lifed
+Fedora releases, though I understand your predicament.
+
+That said, I am still building for EL5, which is older than Fedora 17,
+so you could try to rebuild the R src.rpm from koji. If it does not work
+properly, let me know, and I will try to fix the conditionals so that it
+does.
+
+Glad you got it working. :)
+
+~tom
+
+==
+Red Hat
+
+
+From steve.taylor.nz at gmail.com  Wed May 13 22:03:13 2015
+From: steve.taylor.nz at gmail.com (Steve Taylor)
+Date: Thu, 14 May 2015 08:03:13 +1200
+Subject: [R-sig-Fedora] [R] Building R-3.2.0 from source.
+In-Reply-To: <55500165.2070004@auckland.ac.nz>
+References: <554F4BF6.8060508@auckland.ac.nz>
+	<425F1A4A-454E-4CF0-A9D5-766DAA301A86@gmail.com>
+	<554FD336.1030604@auckland.ac.nz>
+	<CAHkRx6FVxw_nVC9HqRPYh6Ay23frAQ0e5wOHvO15mRRTvOTjcQ@mail.gmail.com>
+	<55500165.2070004@auckland.ac.nz>
+Message-ID: <CALJKDF9_ry2_gFqc6m0jsB2BPwA_3RcnwS8nPDynZqJrsJzSWQ@mail.gmail.com>
+
+Hi Rolf,
+
+I watched a review of Fedora 22 beta on youtube and I'm keen to try it.  I
+like what they've done with nautilus and with the notifications.
+
+If it's released as planned on the 26th and is well received, I think I'll
+upgrade during Queen's birthday weekend.  You're welcome to pop over to
+observe the process and result if you like, since we're almost neighbours.
+
+cheers,
+    Steve
+
+On 11 May 2015 at 13:09, Rolf Turner <r.turner at auckland.ac.nz> wrote:
+
+> On 11/05/15 12:06, M. Edward (Ed) Borasky wrote:
+>
+>> 1. R 3.2.0 is packaged for Fedora now; it's in Rawhide and Fedora 22.
+>> I'm running Fedora 22 (late beta) and haven't had any problems with R.
+>> RStudio Desktop Preview (0.99.435) from the RStudio Fedora RPM is also
+>> running fine. You might save yourself some hassles by upgrading to
+>> Fedora 22.
+>>
+>
+> I'm sure I would, but I don't dare.  Everything I see on the Fedora
+> mailing list fills me with terror in respect of the disasters that can
+> occur.  I don't have the skills to cope with such disasters and I have no
+> access to support in respect of Fedora.
+>
+>  2. I have a bash script to build R from source that works on Fedora
+>> 22. It probably also works on Fedora 21 but it's been a while since I
+>> tried it. Note that it installs 'calibre' and makes the ebooks of the
+>> manuals. It also does some packaging things at the end you probably
+>> don't need.
+>>
+>
+> Thanks, but I don't think it's any help in my situation.
+>
+> I had no problem at all building R 3.1.2 from source.  What changed from
+> 3.1.2 to 3.2.0 that would cause those undefined reference problems?
+>
+> cheers,
+>
+> Rolf Turner
+>
+>
+>
+>> On Sun, May 10, 2015 at 2:52 PM, Rolf Turner <r.turner at auckland.ac.nz>
+>> wrote:
+>>
+>>>
+>>> I am cross-posting this to r-sig-fedora (I hope that's not an egregious
+>>> sin)
+>>> in the hope that doing so might provide some source of insight.
+>>>
+>>> I tried
+>>>
+>>>      sudo yum install zlib
+>>>
+>>> and was told
+>>>
+>>>  Package zlib-1.2.5-7.fc17.x86_64 already installed and latest version
+>>>>
+>>>
+>>>
+>>>
+>>> Likewise for "zlib-devel".
+>>>
+>>> I also tried
+>>>
+>>>      sudo yum install bzlib
+>>>
+>>> and was told
+>>>
+>>>  No package bzlib available.
+>>>>
+>>>
+>>>
+>>> Likewise for "bzlib-devel".
+>>>
+>>> Finally I sort of got some joy with "lzma" and "lzma-devel" --- both of
+>>> those yielded an actual installation.  But it didn't help.
+>>>
+>>> I re-did the configure and then the make and got the same
+>>> errors/complaints
+>>> about undefined references to deflate, inflate, crc32, etc.
+>>>
+>>> Can anyone provide any guidance/suggestions about what else I could try?
+>>> I'm getting very frustrated! :-)
+>>>
+>>> cheers,
+>>>
+>>> Rolf Turner
+>>>
+>>> On 11/05/15 00:50, peter dalgaard wrote:
+>>>
+>>>>
+>>>>
+>>>>  On 10 May 2015, at 14:15 , Rolf Turner <r.turner at auckland.ac.nz>
+>>>>> wrote:
+>>>>>
+>>>>>
+>>>>>
+>>>>> I am just now getting around to upgrading from 3.1.2 to 3.2.0 and am
+>>>>> getting hammered by a problem which is beyond my limited capabilities
+>>>>> of
+>>>>> handling.
+>>>>>
+>>>>> I executed
+>>>>>
+>>>>>    ./configure --with-tcltk --with cairo
+>>>>>
+>>>>> which seemed to go just fine, and then did:
+>>>>>
+>>>>>     make
+>>>>>
+>>>>> In fairly short order I started getting  error messages like unto:
+>>>>>
+>>>>>  connections.o: In function `gzcon_write':
+>>>>>> /home/rolf/Desktop/Rinst/R-3.2.0/src/main/connections.c:5469:
+>>>>>> undefined
+>>>>>> reference to `deflate'
+>>>>>>
+>>>>>
+>>>>>
+>>>>> There were also complaints about undefined references to inflate,
+>>>>> crc32,
+>>>>> deflateEnd, inflateEnd, inflateReset, inflateInit2_, deflateInit2_,
+>>>>> compress, uncompress, and zlibVersion, many of which were issued
+>>>>> repeatedly.
+>>>>> It finally gave up, saying:
+>>>>>
+>>>>>  collect2: error: ld returned 1 exit status
+>>>>>>
+>>>>>
+>>>>>
+>>>>> A bit of googling informed me (I think?) that a workaround was to
+>>>>> configure using --without-system-pcre.  This however achieved nothing
+>>>>> in my
+>>>>> case.
+>>>>>
+>>>>> Can anyone point me at what I need to do to fix this?  Install or
+>>>>> update
+>>>>> something?
+>>>>>
+>>>>> I am running an (elderly, no-longer-supported) Fedora 17 Linux.
+>>>>>
+>>>>> Thanks for any assistance.
+>>>>>
+>>>>
+>>>>
+>>>> PCRE (regular expressions) won't help you with compression algorithms...
+>>>> If anything, it is  --without-system-xz, -zlib, -bzlib that would come
+>>>> into
+>>>> play, but it would be a better idea to ensure that you do have the
+>>>> libraries
+>>>> and headers installed.
+>>>>
+>>>> I'm not completely up to speed on Fedora, but the order of the day is
+>>>> that
+>>>> you need to install some variation of lzma/zlib/bzlib and their
+>>>> -dev/-devel
+>>>> header files etc. Check appendix A.1 and A.2 of the R Installation and
+>>>> Administration manual.
+>>>>
+>>>>
+>>>
+>>> --
+>>> Technical Editor ANZJS
+>>> Department of Statistics
+>>> University of Auckland
+>>> Phone: +64-9-373-7599 ext. 88276
+>>> Home phone: +64-9-480-4619
+>>>
+>>> _______________________________________________
+>>> R-SIG-Fedora mailing list
+>>> R-SIG-Fedora at r-project.org
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>
+>>
+>>
+>>
+>>
+>
+> --
+> Technical Editor ANZJS
+> Department of Statistics
+> University of Auckland
+> Phone: +64-9-373-7599 ext. 88276
+> Home phone: +64-9-480-4619
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+	[[alternative HTML version deleted]]
+
+

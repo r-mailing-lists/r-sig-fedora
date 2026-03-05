@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2023-03",
+  "messages": [
+    {
+      "id": "msg-d850c0411409",
+      "message_id": "<CACp8ZrKnuGR=DihLa6tB4vJxtwtxCh9xmf9z7SdK11w_O5A7BA@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "4c62ad279bd6222ba841f6ee81e7796b9d37828a7872803f2e701c687ad903ea",
+      "date": "2023-03-07T09:57:44-05:00",
+      "subject": "[R-sig-Fedora] New deps for R-gh",
+      "subject_clean": "New deps for R-gh",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi friends,\n\nR-gh's latest version grew a dependency on httr2 (which has a suggests for\n%check on docopt), so I made two new packages for Fedora. They're both\nnoarch and simple, should be quick reviews for someone. Any help here is\nappreciated.\n\nR-docopt: https://bugzilla.redhat.com/show_bug.cgi?id=2176170\nR-httr2: https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=2176171\n\nThanks in advance,\n~spot\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi friends,\n\nR-gh's latest version grew a dependency on httr2 (which has a suggests for\n%check on docopt), so I made two new packages for Fedora. They're both\nnoarch and simple, should be quick review",
+      "thread_id": "thread-d850c0411409",
+      "thread_depth": 0,
+      "month": "2023-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-d850c0411409",
+      "subject": "New deps for R-gh",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2023-03-07T09:57:44-05:00",
+      "last_reply": "2023-03-07T09:57:44-05:00",
+      "root_message_id": "msg-d850c0411409"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2014-05",
+  "messages": [
+    {
+      "id": "msg-93d7a4f60bcc",
+      "message_id": "<CADsJW9GXM5oH-c0kYRq4=O6v7mQfAVZwEwqnqC_S=8ZyQeuqcQ@mail.gmail.com>",
+      "from_name": "Peter Baker",
+      "from_email_hash": "54d4450331c143f502978ebc74bd31ae61abbce5d642c14fe1656ef28cb1d5c2",
+      "date": "2014-05-23T01:19:35+10:00",
+      "subject": "[R-sig-Fedora] R 3.1 breaks RStudio in Fedora 20?",
+      "subject_clean": "R 3.1 breaks RStudio in Fedora 20?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140523/87e81f26/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140523/87e81f26/attachment.pl>",
+      "thread_id": "thread-93d7a4f60bcc",
+      "thread_depth": 0,
+      "month": "2014-05"
+    },
+    {
+      "id": "msg-3f52bfc9f624",
+      "message_id": "<1400776744.3163.67.camel@braque.iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2014-05-22T16:39:04Z",
+      "subject": "[R-sig-Fedora] R 3.1 breaks RStudio in Fedora 20?",
+      "subject_clean": "R 3.1 breaks RStudio in Fedora 20?",
+      "in_reply_to": "<CADsJW9GXM5oH-c0kYRq4=O6v7mQfAVZwEwqnqC_S=8ZyQeuqcQ@mail.gmail.com>",
+      "references": [
+        "<CADsJW9GXM5oH-c0kYRq4=O6v7mQfAVZwEwqnqC_S=8ZyQeuqcQ@mail.gmail.com>"
+      ],
+      "body_plain": "This looks like a change in the way the the R RPM is built, not a change\nin R itself. The new RPM relies directly on external BLAS and LAPACK and\ndoes not build its own. That is a legitimate choice, so the best course\nof action is to inform RStudio.\n\nMartyn\n\n\n\nOn Fri, 2014-05-23 at 01:19 +1000, Peter Baker wrote:\n> Hi All\n> \n> I just installed R 3.1 on fedora 20 after removing rstudio\n> \n> # rpm -q R\n> R-3.1.0-5.fc20.x86_64\n> \n> after I removed rstudio (I don't use it that much but need it for teaching)\n> I tried to reinstall rstudio but its missing libRblas.so and libRlapack.so\n> dependencies\n> \n> I'm guessed it would be OK to force it because lapack-devel and blas-devel\n> are installed so I tried\n> \n> # rpm -ivh --no-deps rstudio-0.98.507-x86_64.rpm\n> \n> but I'm not sure this is OK because rstudio seems to be dead although I\n> suspect thats a different problem - eg in terminal\n> \n> $ rstudio\n> \"TypeError: 'undefined' is not an object (evaluating\n> 'window.desktopHooks.notifyRCrashed')\"\n> \n> Comments welcome\n> \n> Thanks\n> \n> Cheers\n> Peter\n> \n> ==================================================\n> \n> # rpm -ivh /home/pete/Downloads/rstudio-0.98.507-x86_64.rpm\n> error: Failed dependencies:\n> libRblas.so()(64bit) is needed by rstudio-0.98.507-1.x86_64\n> libRlapack.so()(64bit) is needed by rstudio-0.98.507-1.x86_64\n> \n> # yum install /home/pete/Downloads/rstudio-0.98.507-x86_64.rpm\n> Loaded plugins: langpacks, refresh-packagekit\n> Examining /home/pete/Downloads/rstudio-0.98.507-x86_64.rpm:\n> rstudio-0.98.507-1.x86_64\n> Marking /home/pete/Downloads/rstudio-0.98.507-x86_64.rpm to be installed\n> Resolving Dependencies\n> --> Running transaction check\n> ---> Package rstudio.x86_64 0:0.98.507-1 will be installed\n> --> Processing Dependency: libRblas.so()(64bit) for package:\n> rstudio-0.98.507-1.x86_64\n> --> Processing Dependency: libRlapack.so()(64bit) for package:\n> rstudio-0.98.507-1.x86_64\n> --> Finished Dependency Resolution\n> Error: Package: rstudio-0.98.507-1.x86_64 (/rstudio-0.98.507-x86_64)\n>            Requires: libRlapack.so()(64bit)\n>            Available: R-core-3.0.2-1.fc20.x86_64 (fedora)\n>                libRlapack.so()(64bit)\n>            Installed: R-core-3.1.0-5.fc20.x86_64 (@updates)\n>                Not found\n> Error: Package: rstudio-0.98.507-1.x86_64 (/rstudio-0.98.507-x86_64)\n>            Requires: libRblas.so()(64bit)\n>            Available: R-core-3.0.2-1.fc20.x86_64 (fedora)\n>                libRblas.so()(64bit)\n>            Installed: R-core-3.1.0-5.fc20.x86_64 (@updates)\n>                Not found\n>  You could try using --skip-broken to work around the problem\n>  You could try running: rpm -Va --nofiles --nodigest\n> \n\n-----------------------------------------------------------------------\nThis message and its attachments are strictly confidenti...{{dropped:8}}",
+      "body_snippet": "This looks like a change in the way the the R RPM is built, not a change\nin R itself. The new RPM relies directly on external BLAS and LAPACK and\ndoes not build its own. That is a legitimate choice, s",
+      "thread_id": "thread-93d7a4f60bcc",
+      "thread_depth": 1,
+      "month": "2014-05"
+    },
+    {
+      "id": "msg-f19b8f6adfa2",
+      "message_id": "<1627109.rB9hE4A4nb@ulysses>",
+      "from_name": "José Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2014-05-22T18:19:25+01:00",
+      "subject": "[R-sig-Fedora] R 3.1 breaks RStudio in Fedora 20?",
+      "subject_clean": "R 3.1 breaks RStudio in Fedora 20?",
+      "in_reply_to": "<1400776744.3163.67.camel@braque.iarc.fr>",
+      "references": [
+        "<CADsJW9GXM5oH-c0kYRq4=O6v7mQfAVZwEwqnqC_S=8ZyQeuqcQ@mail.gmail.com>",
+        "<1400776744.3163.67.camel@braque.iarc.fr>"
+      ],
+      "body_plain": "On Thursday 22 May 2014 16:39:04 Martyn Plummer wrote:\n> This looks like a change in the way the the R RPM is built, not a change\n> in R itself. The new RPM relies directly on external BLAS and LAPACK and\n> does not build its own. That is a legitimate choice, so the best course\n> of action is to inform RStudio.\n> \n> Martyn\n> \n\nThey were already informed and acted on it: :-)\nhttps://support.rstudio.com/hc/communities/public/questions/201046993-Library-dependency-issue-on-Fedora-20-?locale=en-us\n\nThe workaround, for the moment, is to update to version available from\nhttp://www.rstudio.com/ide/download/preview\n\nwhere the problem is fixed.\n\nFWIW, any version above, or equal to, v0.98.836 works.\n\nRegards,\n-- \nJos? Ab?lio",
+      "body_snippet": "On Thursday 22 May 2014 16:39:04 Martyn Plummer wrote:\n> This looks like a change in the way the the R RPM is built, not a change\n> in R itself. The new RPM relies directly on external BLAS and LAPACK",
+      "thread_id": "thread-93d7a4f60bcc",
+      "thread_depth": 2,
+      "month": "2014-05"
+    },
+    {
+      "id": "msg-8f3a236c0150",
+      "message_id": "<1400788986.82781.YahooMailNeo@web124906.mail.ne1.yahoo.com>",
+      "from_name": "Michael Hannon",
+      "from_email_hash": "01860cded8fa4662e18931d40108a5d9cac89987b46747b9193585604d12bf43",
+      "date": "2014-05-22T13:03:06-07:00",
+      "subject": "[R-sig-Fedora] R 3.1 breaks RStudio in Fedora 20?",
+      "subject_clean": "R 3.1 breaks RStudio in Fedora 20?",
+      "in_reply_to": "<1627109.rB9hE4A4nb@ulysses>",
+      "references": [
+        "<CADsJW9GXM5oH-c0kYRq4=O6v7mQfAVZwEwqnqC_S=8ZyQeuqcQ@mail.gmail.com>",
+        "<1400776744.3163.67.camel@braque.iarc.fr>",
+        "<1627109.rB9hE4A4nb@ulysses>"
+      ],
+      "body_plain": "Thanks, Jos?.? I just installed the latest preview version, and it does indded seem to have fixed the problem.\n\n-- Mike\n\n\n>________________________________\n> From: Jos? Matos <jamatos at fc.up.pt>\n>To: r-sig-fedora at r-project.org \n>Sent: Thursday, May 22, 2014 10:19 AM\n>Subject: Re: [R-sig-Fedora] R 3.1 breaks RStudio in Fedora 20?\n> \n>\n>On Thursday 22 May 2014 16:39:04 Martyn Plummer wrote:\n>> This looks like a change in the way the the R RPM is built, not a change\n>> in R itself. The new RPM relies directly on external BLAS and LAPACK and\n>> does not build its own. That is a legitimate choice, so the best course\n>> of action is to inform RStudio.\n>> \n>> Martyn\n>> \n>\n>They were already informed and acted on it: :-)\n>https://support.rstudio.com/hc/communities/public/questions/201046993-Library-dependency-issue-on-Fedora-20-?locale=en-us\n>\n>The workaround, for the moment, is to update to version available from\n>http://www.rstudio.com/ide/download/preview\n>\n>where the problem is fixed.\n>\n>FWIW, any version above, or equal to, v0.98.836 works.\n>\n>Regards,\n>-- \n>Jos? Ab?lio\n>\n>\n>_______________________________________________\n>R-SIG-Fedora mailing list\n>R-SIG-Fedora at r-project.org\n>https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n>\n>",
+      "body_snippet": "Thanks, Jos?.? I just installed the latest preview version, and it does indded seem to have fixed the problem.\n\n-- Mike\n\n\n>________________________________\n> From: Jos? Matos <jamatos at fc.up.pt>\n>To",
+      "thread_id": "thread-93d7a4f60bcc",
+      "thread_depth": 3,
+      "month": "2014-05"
+    },
+    {
+      "id": "msg-b5c5de5f28b7",
+      "message_id": "<CADsJW9EPXrtv6DpnsZ9MXmWF904j+EzFwB-HLYf1Obwh-vRvjg@mail.gmail.com>",
+      "from_name": "Peter Baker",
+      "from_email_hash": "54d4450331c143f502978ebc74bd31ae61abbce5d642c14fe1656ef28cb1d5c2",
+      "date": "2014-05-23T08:28:25+10:00",
+      "subject": "[R-sig-Fedora] R 3.1 breaks RStudio in Fedora 20?",
+      "subject_clean": "R 3.1 breaks RStudio in Fedora 20?",
+      "in_reply_to": "<1627109.rB9hE4A4nb@ulysses>",
+      "references": [
+        "<CADsJW9GXM5oH-c0kYRq4=O6v7mQfAVZwEwqnqC_S=8ZyQeuqcQ@mail.gmail.com>",
+        "<1400776744.3163.67.camel@braque.iarc.fr>",
+        "<1627109.rB9hE4A4nb@ulysses>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140523/010b112e/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140523/010b112e/attachment.pl>",
+      "thread_id": "thread-93d7a4f60bcc",
+      "thread_depth": 3,
+      "month": "2014-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-93d7a4f60bcc",
+      "subject": "R 3.1 breaks RStudio in Fedora 20?",
+      "message_count": 5,
+      "participants": [
+        "José Matos",
+        "Martyn Plummer",
+        "Michael Hannon",
+        "Peter Baker"
+      ],
+      "started": "2014-05-23T01:19:35+10:00",
+      "last_reply": "2014-05-23T08:28:25+10:00",
+      "root_message_id": "msg-93d7a4f60bcc"
+    }
+  ]
+}

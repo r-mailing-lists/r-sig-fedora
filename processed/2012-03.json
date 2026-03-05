@@ -1,0 +1,452 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2012-03",
+  "messages": [
+    {
+      "id": "msg-233a4d916976",
+      "message_id": "<jjll6v$qck$1@dough.gmane.org>",
+      "from_name": "Allen S. Rout",
+      "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+      "date": "2012-03-12T16:10:06-04:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Is there somewhere a succinct guide to just how much extra crud we need \nto install on RHEL to make use of EPEL packages?\n\n[root at troll-1 noarch]# rpm -ivh R2spec-4.1.0-1.el6.noarch.rpm\nerror: Failed dependencies:\n         fedora-packager is needed by R2spec-4.1.0-1.el6.noarch\n\n\n[root at troll-1 noarch]# wget \nhttp://dl.fedoraproject.org/pub/epel/6/x86_64/fedora-packager-0.5.9.4-1.el6.noarch.rpm\n[...]\n[root at troll-1 noarch]# rpm -ivh fedora-packager-0.5.9.4-1.el6.noarch.rpm\nerror: Failed dependencies:\n         bodhi-client is needed by fedora-packager-0.5.9.4-1.el6.noarch\n         fedora-cert = 0.5.9.4-1.el6 is needed by \nfedora-packager-0.5.9.4-1.el6.noarch\n         fedpkg >= 1.0 is needed by fedora-packager-0.5.9.4-1.el6.noarch\n         koji is needed by fedora-packager-0.5.9.4-1.el6.noarch\n         mock is needed by fedora-packager-0.5.9.4-1.el6.noarch\n         redhat-rpm-config is needed by fedora-packager-0.5.9.4-1.el6.noarch\n         rpmdevtools is needed by fedora-packager-0.5.9.4-1.el6.noarch\n         rpmlint is needed by fedora-packager-0.5.9.4-1.el6.noarch\n         ykpers is needed by fedora-packager-0.5.9.4-1.el6.noarch\n\n\n\nOy.\n\n\n- Allen S. Rout",
+      "body_snippet": "Is there somewhere a succinct guide to just how much extra crud we need \nto install on RHEL to make use of EPEL packages?\n\n[root at troll-1 noarch]# rpm -ivh R2spec-4.1.0-1.el6.noarch.rpm\nerror: Faile",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 0,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-8009e3b09576",
+      "message_id": "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2012-03-12T15:32:36-05:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<jjll6v$qck$1@dough.gmane.org>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>"
+      ],
+      "body_plain": "On Mar 12, 2012, at 3:10 PM, Allen S. Rout wrote:\n\n> \n> \n> Is there somewhere a succinct guide to just how much extra crud we need to install on RHEL to make use of EPEL packages?\n> \n> [root at troll-1 noarch]# rpm -ivh R2spec-4.1.0-1.el6.noarch.rpm\n> error: Failed dependencies:\n>        fedora-packager is needed by R2spec-4.1.0-1.el6.noarch\n> \n> \n> [root at troll-1 noarch]# wget http://dl.fedoraproject.org/pub/epel/6/x86_64/fedora-packager-0.5.9.4-1.el6.noarch.rpm\n> [...]\n> [root at troll-1 noarch]# rpm -ivh fedora-packager-0.5.9.4-1.el6.noarch.rpm\n> error: Failed dependencies:\n>        bodhi-client is needed by fedora-packager-0.5.9.4-1.el6.noarch\n>        fedora-cert = 0.5.9.4-1.el6 is needed by fedora-packager-0.5.9.4-1.el6.noarch\n>        fedpkg >= 1.0 is needed by fedora-packager-0.5.9.4-1.el6.noarch\n>        koji is needed by fedora-packager-0.5.9.4-1.el6.noarch\n>        mock is needed by fedora-packager-0.5.9.4-1.el6.noarch\n>        redhat-rpm-config is needed by fedora-packager-0.5.9.4-1.el6.noarch\n>        rpmdevtools is needed by fedora-packager-0.5.9.4-1.el6.noarch\n>        rpmlint is needed by fedora-packager-0.5.9.4-1.el6.noarch\n>        ykpers is needed by fedora-packager-0.5.9.4-1.el6.noarch\n> \n> \n> \n> Oy.\n\n\nOtherwise known as \"RPM Hell\", which is why years ago, Fedora and RH moved to 'yum' as the default package manager, since yum handles all of the dependencies... :-)\n\nVisit:\n\n  http://fedoraproject.org/wiki/EPEL\n\nfor information on getting your system configured to use the EPEL.\n\nOnce you do that:\n\n  yum install R2spec\n\nas root, should be all that you need...no downloading RPM files locally and dealing with circular dependencies via the CLI.\n\nCheers,\n\nMarc Schwartz",
+      "body_snippet": "On Mar 12, 2012, at 3:10 PM, Allen S. Rout wrote:\n\n> \n> \n> Is there somewhere a succinct guide to just how much extra crud we need to install on RHEL to make use of EPEL packages?\n> \n> [root at troll-",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 1,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-97f9e7a02dc2",
+      "message_id": "<1331584477.13053.5.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-03-12T21:34:37+01:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<jjll6v$qck$1@dough.gmane.org>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>"
+      ],
+      "body_plain": "On Mon, 2012-03-12 at 16:10 -0400, Allen S. Rout wrote:\n> Is there somewhere a succinct guide to just how much extra crud we\n> need to install on RHEL to make use of EPEL packages? \n\nAll the information are provided there:\nhttp://fedoraproject.org/wiki/EPEL\nAnd basically, all you have to do is install the epel-release rpm:\nhttp://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm\n\nRegards,\nPierre",
+      "body_snippet": "On Mon, 2012-03-12 at 16:10 -0400, Allen S. Rout wrote:\n> Is there somewhere a succinct guide to just how much extra crud we\n> need to install on RHEL to make use of EPEL packages? \n\nAll the informati",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 1,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-1fd6c71b808c",
+      "message_id": "<4F5E6156.4080605@ufl.edu>",
+      "from_name": "Allen S. Rout",
+      "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+      "date": "2012-03-12T16:49:26-04:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>",
+        "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>"
+      ],
+      "body_plain": "On 03/12/2012 04:32 PM, Marc Schwartz wrote:\n>\n>\n> Otherwise known as \"RPM Hell\", which is why years ago, Fedora and RH moved to 'yum' as the default package manager, since yum handles all of the dependencies... :-)\n>\n\nYes; but   <grumble> I don't want to install EPEL wholesale; we try to \nmanage which packages we pull into our locally maintained repos.    What \nI want to do is make a new set of CRAN-based packages.   </grumble>\n\nSo, having pulled R2spec 4.1.0-1.el5 into my rhel5.5 system,\n\n\n-bash-3.2$ R2spec --help\nTraceback (most recent call last):\n   File \"/usr/bin/R2spec\", line 26, in ?\n     PARSER = setup_parser('R2spec')\n   File \"/usr/lib/python2.4/site-packages/r2spec/r2spec_obj.py\", line \n54, in setup_parser\n     version='%(prog)s ' +VERSION)\n   File \"/usr/lib/python2.4/site-packages/argparse.py\", line 1264, in \nadd_argument\n     action = action_class(**kwargs)\nTypeError: __init__() got an unexpected keyword argument 'version'\n\n\n- Allen S. Rout",
+      "body_snippet": "On 03/12/2012 04:32 PM, Marc Schwartz wrote:\n>\n>\n> Otherwise known as \"RPM Hell\", which is why years ago, Fedora and RH moved to 'yum' as the default package manager, since yum handles all of the depe",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 2,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-81ee0d95475e",
+      "message_id": "<2CB3A1E7-B29F-4FF3-979A-541DDAA63B90@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2012-03-12T18:28:51-05:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<4F5E6156.4080605@ufl.edu>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>",
+        "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+        "<4F5E6156.4080605@ufl.edu>"
+      ],
+      "body_plain": "On Mar 12, 2012, at 3:49 PM, Allen S. Rout wrote:\n\n> On 03/12/2012 04:32 PM, Marc Schwartz wrote:\n>> \n>> \n>> Otherwise known as \"RPM Hell\", which is why years ago, Fedora and RH moved to 'yum' as the default package manager, since yum handles all of the dependencies... :-)\n>> \n> \n> Yes; but   <grumble> I don't want to install EPEL wholesale; we try to manage which packages we pull into our locally maintained repos.    What I want to do is make a new set of CRAN-based packages.   </grumble>\n> \n> So, having pulled R2spec 4.1.0-1.el5 into my rhel5.5 system,\n> \n> \n> -bash-3.2$ R2spec --help\n> Traceback (most recent call last):\n>  File \"/usr/bin/R2spec\", line 26, in ?\n>    PARSER = setup_parser('R2spec')\n>  File \"/usr/lib/python2.4/site-packages/r2spec/r2spec_obj.py\", line 54, in setup_parser\n>    version='%(prog)s ' +VERSION)\n>  File \"/usr/lib/python2.4/site-packages/argparse.py\", line 1264, in add_argument\n>    action = action_class(**kwargs)\n> TypeError: __init__() got an unexpected keyword argument 'version'\n> \n> \n> - Allen S. Rout\n\nAllen,\n\nYou seem to have a special need which is perhaps not satisfied by the default RPM build of the package, given the additional dependencies. You might review:\n\n  https://fedorahosted.org/r2spec/\n\nfor additional installation scenarios. If that is not helpful, I would suggest that you directly contact the R2spec package maintainer for specific assistance. That appears to be Pierre-Yves (pingou at pingoured.fr).\n\nMarc",
+      "body_snippet": "On Mar 12, 2012, at 3:49 PM, Allen S. Rout wrote:\n\n> On 03/12/2012 04:32 PM, Marc Schwartz wrote:\n>> \n>> \n>> Otherwise known as \"RPM Hell\", which is why years ago, Fedora and RH moved to 'yum' as the ",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 3,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-d2f83dbd9739",
+      "message_id": "<1331619260.13053.8.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-03-13T07:14:20+01:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<4F5E6156.4080605@ufl.edu>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>",
+        "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+        "<4F5E6156.4080605@ufl.edu>"
+      ],
+      "body_plain": "On Mon, 2012-03-12 at 16:49 -0400, Allen S. Rout wrote:\n> \n> So, having pulled R2spec 4.1.0-1.el5 into my rhel5.5 system,\n> \n> -bash-3.2$ R2spec --help\n> Traceback (most recent call last):\n>    File \"/usr/bin/R2spec\", line 26, in ?\n>      PARSER = setup_parser('R2spec')\n>    File \"/usr/lib/python2.4/site-packages/r2spec/r2spec_obj.py\", line \n> 54, in setup_parser\n>      version='%(prog)s ' +VERSION)\n>    File \"/usr/lib/python2.4/site-packages/argparse.py\", line 1264, in \n> add_argument\n>      action = action_class(**kwargs)\n> TypeError: __init__() got an unexpected keyword argument 'version'\n\nhm, I am thinking of an older version of python-argparse. Do you have\n1.2.1 ? (which is available on EPEL btw).\n\nPierre",
+      "body_snippet": "On Mon, 2012-03-12 at 16:49 -0400, Allen S. Rout wrote:\n> \n> So, having pulled R2spec 4.1.0-1.el5 into my rhel5.5 system,\n> \n> -bash-3.2$ R2spec --help\n> Traceback (most recent call last):\n>    File \"",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 3,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-7f384ae0bfa6",
+      "message_id": "<jjnhpc$qto$1@dough.gmane.org>",
+      "from_name": "Allen S. Rout",
+      "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+      "date": "2012-03-13T09:23:55-04:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<1331619260.13053.8.camel@ambre.pingoured.fr>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>",
+        "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+        "<4F5E6156.4080605@ufl.edu>",
+        "<1331619260.13053.8.camel@ambre.pingoured.fr>"
+      ],
+      "body_plain": "On 03/13/2012 02:14 AM, Pierre-Yves Chibon wrote:\n\n> hm, I am thinking of an older version of python-argparse. Do you have\n> 1.2.1 ? (which is available on EPEL btw).\n\nWas at 1.0.1; updated to 1.2.1, and got past that error.  We'll see what \nthe next hurdle looks like.\n\nWould you like a patch for the dependency?\n\n- Allen S. Rout",
+      "body_snippet": "On 03/13/2012 02:14 AM, Pierre-Yves Chibon wrote:\n\n> hm, I am thinking of an older version of python-argparse. Do you have\n> 1.2.1 ? (which is available on EPEL btw).\n\nWas at 1.0.1; updated to 1.2.1, ",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 4,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-e972f1f18225",
+      "message_id": "<CA+Dw+SOppoZ6VaJZ2ENbGGV1veHm1BHRWU2=BLya5kj7ZWRHhg@mail.gmail.com>",
+      "from_name": "Torbjørn Lindahl",
+      "from_email_hash": "c24ab93a586a82ed7a2ab9de6e12947b36898e7d87a6c5c4b699ac045b5e8d26",
+      "date": "2012-03-13T14:29:54+01:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<1331619260.13053.8.camel@ambre.pingoured.fr>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>",
+        "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+        "<4F5E6156.4080605@ufl.edu>",
+        "<1331619260.13053.8.camel@ambre.pingoured.fr>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120313/d60508ff/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120313/d60508ff/attachment.pl>",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 4,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-bb9535ca9a3b",
+      "message_id": "<4F5F50A0.7080502@ufl.edu>",
+      "from_name": "Allen S. Rout",
+      "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+      "date": "2012-03-13T09:50:24-04:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<2CB3A1E7-B29F-4FF3-979A-541DDAA63B90@me.com>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>",
+        "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+        "<4F5E6156.4080605@ufl.edu>",
+        "<2CB3A1E7-B29F-4FF3-979A-541DDAA63B90@me.com>"
+      ],
+      "body_plain": "On 03/12/2012 07:28 PM, Marc Schwartz wrote:\n>  [...]\n\nSo I've updated everything Python from EPEL on my RHEL 5 box.   Versions \nincluded below.\n\n\n#  R2spec -p RColorBrewer\nTraceback (most recent call last):\n   File \"/usr/bin/R2spec\", line 29, in ?\n     R2spec().main(ARG)\n   File \"/usr/lib/python2.4/site-packages/r2spec/r2spec_obj.py\", line \n235, in main\n     pack.search_package_in_repo()\n   File \"/usr/lib/python2.4/site-packages/r2spec/rpackage.py\", line 237, \nin search_package_in_repo\n     self.source = '{name}_{version}.tar.gz'.format(name=self.name,\nAttributeError: 'str' object has no attribute 'format'\n\n\nThis feels to me like another library drift issue.  Aaand stackoverflow \nsays yeah, that's it.\n\nPierre-Yves, would you entertain a patch to fix this?\n\n- Allen S. Rout",
+      "body_snippet": "On 03/12/2012 07:28 PM, Marc Schwartz wrote:\n>  [...]\n\nSo I've updated everything Python from EPEL on my RHEL 5 box.   Versions \nincluded below.\n\n\n#  R2spec -p RColorBrewer\nTraceback (most recent call",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 4,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-38eeb820f4fc",
+      "message_id": "<1331652311.3403.0.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-03-13T16:25:11+01:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<jjnhpc$qto$1@dough.gmane.org>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>",
+        "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+        "<4F5E6156.4080605@ufl.edu>",
+        "<1331619260.13053.8.camel@ambre.pingoured.fr>",
+        "<jjnhpc$qto$1@dough.gmane.org>"
+      ],
+      "body_plain": "On Tue, 2012-03-13 at 09:23 -0400, Allen S. Rout wrote:\n> On 03/13/2012 02:14 AM, Pierre-Yves Chibon wrote:\n> \n> > hm, I am thinking of an older version of python-argparse. Do you\n> have\n> > 1.2.1 ? (which is available on EPEL btw).\n> \n> Was at 1.0.1; updated to 1.2.1, and got past that error.  We'll see\n> what the next hurdle looks like.\n> \n> Would you like a patch for the dependency?\n\nSure :)\n\nPierre",
+      "body_snippet": "On Tue, 2012-03-13 at 09:23 -0400, Allen S. Rout wrote:\n> On 03/13/2012 02:14 AM, Pierre-Yves Chibon wrote:\n> \n> > hm, I am thinking of an older version of python-argparse. Do you\n> have\n> > 1.2.1 ? (",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 5,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-ba68ae97f03f",
+      "message_id": "<1331652418.3403.2.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-03-13T16:26:58+01:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<4F5F50A0.7080502@ufl.edu>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>",
+        "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+        "<4F5E6156.4080605@ufl.edu>",
+        "<2CB3A1E7-B29F-4FF3-979A-541DDAA63B90@me.com>",
+        "<4F5F50A0.7080502@ufl.edu>"
+      ],
+      "body_plain": "On Tue, 2012-03-13 at 09:50 -0400, Allen S. Rout wrote:\n> On 03/12/2012 07:28 PM, Marc Schwartz wrote:\n> >  [...]\n> \n> So I've updated everything Python from EPEL on my RHEL 5 box.\n> Versions included below.\n> \n> \n> #  R2spec -p RColorBrewer\n> Traceback (most recent call last):\n>    File \"/usr/bin/R2spec\", line 29, in ?\n>      R2spec().main(ARG)\n>    File \"/usr/lib/python2.4/site-packages/r2spec/r2spec_obj.py\", line \n> 235, in main\n>      pack.search_package_in_repo()\n>    File \"/usr/lib/python2.4/site-packages/r2spec/rpackage.py\", line\n> 237, \n> in search_package_in_repo\n>      self.source = '{name}_{version}.tar.gz'.format(name=self.name,\n> AttributeError: 'str' object has no attribute 'format'\n> \n> \n> This feels to me like another library drift issue.  Aaand\n> stackoverflow says yeah, that's it.\n\nI guess that means replacing all .format to use %\n\n> Pierre-Yves, would you entertain a patch to fix this? \n\nThat would be nice. I have to say that I do not have a python 2.4 around\non which I can run the unit-tests.\n\nPierre",
+      "body_snippet": "On Tue, 2012-03-13 at 09:50 -0400, Allen S. Rout wrote:\n> On 03/12/2012 07:28 PM, Marc Schwartz wrote:\n> >  [...]\n> \n> So I've updated everything Python from EPEL on my RHEL 5 box.\n> Versions included",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 5,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-2a145b68372b",
+      "message_id": "<1331666344.53558.YahooMailNeo@web161904.mail.bf1.yahoo.com>",
+      "from_name": "Michael Hannon",
+      "from_email_hash": "01860cded8fa4662e18931d40108a5d9cac89987b46747b9193585604d12bf43",
+      "date": "2012-03-13T12:19:04-07:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<4F5F50A0.7080502@ufl.edu>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>",
+        "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+        "<4F5E6156.4080605@ufl.edu>",
+        "<2CB3A1E7-B29F-4FF3-979A-541DDAA63B90@me.com>",
+        "<4F5F50A0.7080502@ufl.edu>"
+      ],
+      "body_plain": "> From: Allen S. Rout <asr at ufl.edu>\n>\n>On 03/12/2012 07:28 PM, Marc Schwartz wrote:\n>>? [...]\n>\n>So I've updated everything Python from EPEL on my RHEL 5 box.?? Versions\n>included below.\n>\n>\n>#? R2spec -p RColorBrewer\n>Traceback (most recent call last):\n>? File \"/usr/bin/R2spec\", line 29, in ?\n>??? R2spec().main(ARG)\n>? File \"/usr/lib/python2.4/site-packages/r2spec/r2spec_obj.py\", line 235, in\n>? main\n>??? pack.search_package_in_repo()\n>? File \"/usr/lib/python2.4/site-packages/r2spec/rpackage.py\", line 237, in\n>? search_package_in_repo\n>??? self.source = '{name}_{version}.tar.gz'.format(name=self.name,\n>AttributeError: 'str' object has no attribute 'format'\n>\n>\n>This feels to me like another library drift issue.? Aaand stackoverflow says\n>yeah, that's it.\n>\n>Pierre-Yves, would you entertain a patch to fix this?\n\nI haven't been following this thread, but I'm pretty sure that the Python\nstring method \"format\" did not appear until Python 2.6.? It appears that\nyou're using Python 2.4.\n\n-- Mike",
+      "body_snippet": "> From: Allen S. Rout <asr at ufl.edu>\n>\n>On 03/12/2012 07:28 PM, Marc Schwartz wrote:\n>>? [...]\n>\n>So I've updated everything Python from EPEL on my RHEL 5 box.?? Versions\n>included below.\n>\n>\n>#? R2",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 5,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-3a50b78dd054",
+      "message_id": "<4F5FB5FB.3090005@ufl.edu>",
+      "from_name": "Allen S. Rout",
+      "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+      "date": "2012-03-13T17:02:51-04:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>",
+        "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>"
+      ],
+      "body_plain": "On 03/13/2012 11:25 AM, Pierre-Yves Chibon wrote:\n > On Tue, 2012-03-13 at 09:23 -0400, Allen S. Rout wrote:\n >>\n >> [... patches ...]\n >\n > Sure :)\n\n\nOK, here are four of them.\n\nOne fixes the dependencies I happened to run into.\n\nOne reverts the .format invocations to '%'\n\nThose are what I've already spoken about.   Two more are submitted for \nyour consideration.\n\n\nIn one, I've added some comments to the specfile template, to make it \nclear, as you're editing the generated spec, what the R view of the \ndependencies is, to help you mess around with them after generation time.\n\nIn the other, I've made the '-p' package name willing to accept both \n\"packagename\"  and \"R-packagename\".     This is to help the recursive \nbuild-dependencies problem, one step closer to (Good lord, I hope) \nautomating this process.\n\n\n- Allen S. Rout\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: 0001-Fix-some-python-and-python-package-deps.patch\nType: text/x-patch\nSize: 896 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120313/894ce8c0/attachment-0003.bin>\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: 0001-Switch-.format-invocations-to-backward-compatible.patch\nType: text/x-patch\nSize: 1767 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120313/894ce8c0/attachment-0004.bin>\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: 0001-Document-the-R-perspective-and-our-gaps-in-it-for-th.patch\nType: text/x-patch\nSize: 953 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120313/894ce8c0/attachment-0005.bin>",
+      "body_snippet": "On 03/13/2012 11:25 AM, Pierre-Yves Chibon wrote:\n > On Tue, 2012-03-13 at 09:23 -0400, Allen S. Rout wrote:\n >>\n >> [... patches ...]\n >\n > Sure :)\n\n\nOK, here are four of them.\n\nOne fixes the depende",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 2,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-85faccdaf21a",
+      "message_id": "<4F5FB65D.2050006@ufl.edu>",
+      "from_name": "Allen S. Rout",
+      "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+      "date": "2012-03-13T17:04:29-04:00",
+      "subject": "[R-sig-Fedora] R-repo.org ?",
+      "subject_clean": "R-repo.org ?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "On a totally different topic (or maybe not so different)...\n\nI noticed that r-repo.org's first release is also its last release. \nWhat's blocking you?  Can I help?\n\n- Allen S. Rout",
+      "body_snippet": "On a totally different topic (or maybe not so different)...\n\nI noticed that r-repo.org's first release is also its last release. \nWhat's blocking you?  Can I help?\n\n- Allen S. Rout",
+      "thread_id": "thread-85faccdaf21a",
+      "thread_depth": 0,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-fa28eada403c",
+      "message_id": "<1331673172.26518.12.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-03-13T22:12:52+01:00",
+      "subject": "[R-sig-Fedora] R-repo.org ?",
+      "subject_clean": "R-repo.org ?",
+      "in_reply_to": "<4F5FB65D.2050006@ufl.edu>",
+      "references": [
+        "<4F5FB65D.2050006@ufl.edu>"
+      ],
+      "body_plain": "On Tue, 2012-03-13 at 17:04 -0400, Allen S. Rout wrote:\n> \n> On a totally different topic (or maybe not so different)...\n> \n> I noticed that r-repo.org's first release is also its last release. \n> What's blocking you?  Can I help?\n\nNothing is really blocking but time. All the specs are on github and\nstill a number of them needs to be finish actually (quite a number of\nempty %file section as the build didn't finish).\n\nOn the script repo I have the script to find the packages that needs\nupdate.\nI normally also have the script to rebuild the update.\n\nWhat's lacking will be \n- time\n- feedback that it works (or not)\n- cronjob on the scripts (at least part of them) :)\n\nPierre",
+      "body_snippet": "On Tue, 2012-03-13 at 17:04 -0400, Allen S. Rout wrote:\n> \n> On a totally different topic (or maybe not so different)...\n> \n> I noticed that r-repo.org's first release is also its last release. \n> Wha",
+      "thread_id": "thread-85faccdaf21a",
+      "thread_depth": 1,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-d876d744a99e",
+      "message_id": "<1331673675.26518.17.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-03-13T22:21:15+01:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<4F5FB5FB.3090005@ufl.edu>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>",
+        "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+        "<4F5FB5FB.3090005@ufl.edu>"
+      ],
+      "body_plain": "On Tue, 2012-03-13 at 17:02 -0400, Allen S. Rout wrote:\n> One fixes the dependencies I happened to run into.\n\nApplied and pushed\n\n> One reverts the .format invocations to '%'\n\nApplied and pushed\n\n> Those are what I've already spoken about.   Two more are submitted for\n> your consideration.\n> \n> In one, I've added some comments to the specfile template, to make it \n> clear, as you're editing the generated spec, what the R view of the \n> dependencies is, to help you mess around with them after generation\n> time.\n\nApplied and pushed\n\n> In the other, I've made the '-p' package name willing to accept both \n> \"packagename\"  and \"R-packagename\".     This is to help the recursive \n> build-dependencies problem, one step closer to (Good lord, I hope) \n> automating this process. \n\nI think this one was missing from the email :)\n\nPierre",
+      "body_snippet": "On Tue, 2012-03-13 at 17:02 -0400, Allen S. Rout wrote:\n> One fixes the dependencies I happened to run into.\n\nApplied and pushed\n\n> One reverts the .format invocations to '%'\n\nApplied and pushed\n\n> Th",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 3,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-208d4805cb99",
+      "message_id": "<4F60A326.7070502@ufl.edu>",
+      "from_name": "Allen S. Rout",
+      "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+      "date": "2012-03-14T09:54:46-04:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<1331673675.26518.17.camel@ambre.pingoured.fr>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>",
+        "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+        "<4F5FB5FB.3090005@ufl.edu>",
+        "<1331673675.26518.17.camel@ambre.pingoured.fr>"
+      ],
+      "body_plain": "On 03/13/2012 05:21 PM, Pierre-Yves Chibon wrote:\n> On Tue, 2012-03-13 at 17:02 -0400, Allen S. Rout wrote:\n>\n>> In the other, I've made the '-p' package name willing to accept both\n>> \"packagename\"  and \"R-packagename\".     This is to help the recursive\n>> build-dependencies problem, one step closer to (Good lord, I hope)\n>> automating this process.\n>\n> I think this one was missing from the email :)\n\nDuuh.\n\nTrying again.\n\n- Allen S. Rout\n\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: 0001-Accept-package-names-with-leading-R.patch\nType: text/x-patch\nSize: 1269 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120314/9d0aa652/attachment.bin>",
+      "body_snippet": "On 03/13/2012 05:21 PM, Pierre-Yves Chibon wrote:\n> On Tue, 2012-03-13 at 17:02 -0400, Allen S. Rout wrote:\n>\n>> In the other, I've made the '-p' package name willing to accept both\n>> \"packagename\"  ",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 4,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-8723ee04014b",
+      "message_id": "<1331734038.2159.4.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-03-14T15:07:18+01:00",
+      "subject": "[R-sig-Fedora] Trying to use current R2spec on RHEL.",
+      "subject_clean": "Trying to use current R2spec on RHEL.",
+      "in_reply_to": "<4F60A326.7070502@ufl.edu>",
+      "references": [
+        "<jjll6v$qck$1@dough.gmane.org>",
+        "<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>",
+        "<4F5FB5FB.3090005@ufl.edu>",
+        "<1331673675.26518.17.camel@ambre.pingoured.fr>",
+        "<4F60A326.7070502@ufl.edu>"
+      ],
+      "body_plain": "On Wed, 2012-03-14 at 09:54 -0400, Allen S. Rout wrote:\n> On 03/13/2012 05:21 PM, Pierre-Yves Chibon wrote:\n> > On Tue, 2012-03-13 at 17:02 -0400, Allen S. Rout wrote:\n> >\n> >> In the other, I've made the '-p' package name willing to accept\n> both\n> >> \"packagename\"  and \"R-packagename\".     This is to help the\n> recursive\n> >> build-dependencies problem, one step closer to (Good lord, I hope)\n> >> automating this process.\n> >\n> > I think this one was missing from the email :)\n> \n> Duuh.\n> \n> Trying again.\n\nApplied and pushed\n\nThanks for the patches :)\n\nPierre",
+      "body_snippet": "On Wed, 2012-03-14 at 09:54 -0400, Allen S. Rout wrote:\n> On 03/13/2012 05:21 PM, Pierre-Yves Chibon wrote:\n> > On Tue, 2012-03-13 at 17:02 -0400, Allen S. Rout wrote:\n> >\n> >> In the other, I've made",
+      "thread_id": "thread-233a4d916976",
+      "thread_depth": 5,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-9f80a133dd90",
+      "message_id": "<4F60AD56.9010308@ufl.edu>",
+      "from_name": "Allen S. Rout",
+      "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+      "date": "2012-03-14T10:38:14-04:00",
+      "subject": "[R-sig-Fedora] Planning for R-repo...",
+      "subject_clean": "Planning for R-repo...",
+      "in_reply_to": "<1331673172.26518.12.camel@ambre.pingoured.fr>",
+      "references": [
+        "<4F5FB65D.2050006@ufl.edu>",
+        "<1331673172.26518.12.camel@ambre.pingoured.fr>"
+      ],
+      "body_plain": "On 03/13/2012 05:12 PM, Pierre-Yves Chibon wrote:\n> All the specs are on github and\n> still a number of them needs to be finish actually (quite a number of\n> empty %file section as the build didn't finish).\n>\n> On the script repo I have the script to find the packages that needs\n> update.\n> I normally also have the script to rebuild the update.\n>\n> What's lacking will be\n> - time\n> - feedback that it works (or not)\n> - cronjob on the scripts (at least part of them) :)\n\nI've got some strong motivation to help nudge this process towards \nautomation.  I think the lack of a good R repo for redhat-like distros \nis a horrid lack.  I do enough work to maintain our little corner of \npackages, if I can do a bit more and help make One Repo to Rule them \nall, that'd be great.\n\nI think it's worthwhile to chew on the structural obstacles (that *#(@ \ndependency map) because if we can get beyond that, we can be more \nautomatic.  The long term time savings would be huge.\n\nBut I really want to proceed in a way that is aligned with where you're \ndriving, Pierre-Yves:  the work I did in ca. 2009 was clearly not \naligned with where you're going, and I don't want to lose more such \neffort.   So I want to start from scratch, to figure out where you want \nto go.\n\n----\n\nI see several structural issues:   Dependency loops,  and unstated or \nincorrectly (inconsistently?) stated system dependencies.\n\nThe Debian R repo maintenance folks keep a list of metadata they need to \nresolve issues in the builds.   We might do something similar:  A \nhuman-decided list of facts like\n\n'Package GDD has a system dependency of \"libgd\" '\n\nand\n\n'It's safe to cut the dependency link that says RColorBrewer depends on \nggplot2'\n\ncould eventually converge on a state where we could Just Automatically \nDo It.\n\n\nWe might also simplify our building graph if we think about a build \nsession in two phases:  One for 'what are the deps we need to build this \npackage?', and a separate phase for 'what are the deps we need to \n_check_ this package?'\n\nThis would require we have a distinction, between a package we've built, \nand a package we've \"blessed\", if I may use the term.\n\n\nAm I making sense?\n\n\n\n- Allen S. Rout",
+      "body_snippet": "On 03/13/2012 05:12 PM, Pierre-Yves Chibon wrote:\n> All the specs are on github and\n> still a number of them needs to be finish actually (quite a number of\n> empty %file section as the build didn't fi",
+      "thread_id": "thread-85faccdaf21a",
+      "thread_depth": 2,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-784a32a33132",
+      "message_id": "<1332148360.28002.15.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-03-19T10:12:40+01:00",
+      "subject": "[R-sig-Fedora] Planning for R-repo...",
+      "subject_clean": "Planning for R-repo...",
+      "in_reply_to": "<4F60AD56.9010308@ufl.edu>",
+      "references": [
+        "<4F5FB65D.2050006@ufl.edu>",
+        "<1331673172.26518.12.camel@ambre.pingoured.fr>",
+        "<4F60AD56.9010308@ufl.edu>"
+      ],
+      "body_plain": "On Wed, 2012-03-14 at 10:38 -0400, Allen S. Rout wrote:\n> On 03/13/2012 05:12 PM, Pierre-Yves Chibon wrote:\n> > All the specs are on github and\n> > still a number of them needs to be finish actually (quite a number of\n> > empty %file section as the build didn't finish).\n> >\n> > On the script repo I have the script to find the packages that needs\n> > update.\n> > I normally also have the script to rebuild the update.\n> >\n> > What's lacking will be\n> > - time\n> > - feedback that it works (or not)\n> > - cronjob on the scripts (at least part of them) :)\n> \n> I've got some strong motivation to help nudge this process towards \n> automation.  I think the lack of a good R repo for redhat-like distros \n> is a horrid lack.  I do enough work to maintain our little corner of \n> packages, if I can do a bit more and help make One Repo to Rule them \n> all, that'd be great.\n> \n> I think it's worthwhile to chew on the structural obstacles (that *#(@ \n> dependency map) because if we can get beyond that, we can be more \n> automatic.  The long term time savings would be huge.\n> \n> But I really want to proceed in a way that is aligned with where you're \n> driving, Pierre-Yves:  the work I did in ca. 2009 was clearly not \n> aligned with where you're going, and I don't want to lose more such \n> effort.   So I want to start from scratch, to figure out where you want \n> to go.\n\nI think the idea of R-repo is more in line with what you have in mind.\nR2spec is a tool to generate spec file and make them as compliant as\npossible with Fedora packaging guidelines. I think it should remain this\nway.\nR-repo aims at generating and providing RPM in an automatic way. This\nhas pros and cons but it will be up to the user/sysadmin to weight them\nand decide to use R-repo or not.\n\nMy vision of R-repo is:\n- Generate a first layer of spec files automatically (done)\n- Build them (done)\n- Fix the one that do not build (so by hand) (started, still far from\ndone)\n- Perform the updates as they are needed (I have one script but we would\nneed to finish step 3 first)\n\nSo hopefully we would face the dependency issues only in stage 1 and 3\n(and eventually 4). So if package X requires something outside R\nrepository, you will detect it at stage 3 and fix it once and for all.\n\nI might have an idealistic vision of the reality here, so I went for a\nsimple scheme.\n\nI hope that by using git/github we can gather a group of interested\npeople who can just submit merge request to fix the spec files.",
+      "body_snippet": "On Wed, 2012-03-14 at 10:38 -0400, Allen S. Rout wrote:\n> On 03/13/2012 05:12 PM, Pierre-Yves Chibon wrote:\n> > All the specs are on github and\n> > still a number of them needs to be finish actually (",
+      "thread_id": "thread-85faccdaf21a",
+      "thread_depth": 3,
+      "month": "2012-03"
+    },
+    {
+      "id": "msg-61f0affed177",
+      "message_id": "<4F67BB0B.9030301@ufl.edu>",
+      "from_name": "Allen S. Rout",
+      "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+      "date": "2012-03-19T19:02:35-04:00",
+      "subject": "[R-sig-Fedora] Planning for R-repo...",
+      "subject_clean": "Planning for R-repo...",
+      "in_reply_to": "<1332148360.28002.15.camel@ambre.pingoured.fr>",
+      "references": [
+        "<4F5FB65D.2050006@ufl.edu>",
+        "<1331673172.26518.12.camel@ambre.pingoured.fr>",
+        "<4F60AD56.9010308@ufl.edu>",
+        "<1332148360.28002.15.camel@ambre.pingoured.fr>"
+      ],
+      "body_plain": "On 03/19/2012 05:12 AM, Pierre-Yves Chibon wrote:\n\n\n> I think the idea of R-repo is more in line with what you have in\n> mind.  R2spec is a tool to generate spec file and make them as\n> compliant as possible with Fedora packaging guidelines. I think it\n> should remain this way.  R-repo aims at generating and providing RPM\n> in an automatic way. This has pros and cons but it will be up to the\n> user/sysadmin to weight them and decide to use R-repo or not.\n\nI agree.  The critical piece I'd pick out of this is: We would like\nthe R-repo to be close to Fedora's guidelines, but we don't\nnecessarily expect to get it all the way there.\n\n\n> My vision of R-repo is:\n> - Generate a first layer of spec files automatically (done)\n> - Build them (done)\n> - Fix the one that do not build (so by hand) (started, still far from\n> done)\n> - Perform the updates as they are needed (I have one script but we would\n> need to finish step 3 first)\n\nDo you mean that R-repo is a published tree of specfiles?  I was\nenvisioning that R-repo would be a live repository of RPMs, which we\nwould (Hopefully, eventually) maintain not too far behind the state of\nCRAN.\n\nThen, in parallel to it, R2spec / R2rpm would be the toolset that\nwe're using to maintain and automate that build process.\n\n\n\n> So hopefully we would face the dependency issues only in stage 1 and 3\n> (and eventually 4). So if package X requires something outside R\n> repository, you will detect it at stage 3 and fix it once and for all.\n\n\n\"Fix it once and for all\".  Here's what I think that means:\n\n1) human discovers the dependency (e.g. \"Oh, GDD reqires a package\n    called 'libgd' to run, and 'libgd-devel' to build\")\n\n2) Note that human discovery in a table or data file, shipped with\n    (R-repo?  cran2spec?)\n\n3) Make sure that cran2spec can read that table to supply the\n    dependency at specfile generate time.  Then, when\n    GDD-1.2.whatevers-next comes out, we don't have to rediscover it.\n\nIs that how you envision it?\n\n\n\n> I might have an idealistic vision of the reality here, so I went for a\n> simple scheme.\n\nI belive that, to be useful to the community, we have to have a\ntoolset that can build \"most of\" CRAN and friends without \"too much\"\neffort.\n\nHow much is most of?  How much effort is too much?  I'll make up\nnumbers, you can shoot them down.\n\nR2spec is at V4.1; so let's say that for version 4.3, \"Enough\" is all\nthe packages that pingou and asr care about installing on their\nmachines (and for me that includes ggplot2, so that's a lot...).\n\nThen, \"too much\" means there shouldn't be any human intervention: That\nmeans we set it up on a brand clean fedora or RHEL machine, say \"GO!\"..\n\n% R2trop_plus_rpms ggplot2\n\nand however many hours later we've got our preference list of\npackages, and all their dependencies, as brand new signed RPMs, ready\nto copy into my repo at work so my stats customers can just yum\ninstall from them.\n\nThen, say, by version 4.5 the target is (again, I'm making this up)\n80% of all of CRAN can be built without human intervention.\n\nif we got to that stage, I think we'd have a very good understanding\nof what the rest of the problems are.  But while I'm fantasizing, I'll\npretend that 5.0 can build every package except for 20 Problem\nChildren.\n\n\n> How does this sound for you?\n\nI think we are talking about very similar things.  It remains to\ndetermine wether the differences are critical (mostly, to you: you're\nin charge).\n\nI think that every by-hand tweak of a generated specfile is a loss.\nThis means that we need to engage the attention of one of the humans\nin charge of the repository every time that package has a revision.\nThis adds up to \"R-repo is always behind, because pingou has a job all\nday. :)\"\n\nI do not say we must have -zero- by-hand fixes.  But I think we should\nwork very very hard to avoid them.  So:\n\n\n> Basically, I think what you were saying makes sense and is the most\n> sensible approach. First get auto-generated spec files, then review\n> them by hand to fix build problems.\n\nYes; but I suggest that the review should result in changes to R2spec,\nso that it generates the correct spec next time, and for everyone.\n\nIn my imagining, R2rpm eventually becomes: A process that is smart\nenough to make the RPM correctly most of the time, plus a list of\nknown exceptions and tweaks we have to drop in for things we can't\nfigure out automatically.  That way anyone could build their own repo.\n\n\n\n> For the dependencies, the two steps approach you were referring to\n> is probably the best approach. First build with the minimum\n> dependencies then rebuild as the other have become available. Now\n> that we have the first round in place and available we can start\n> working on the second run.\n\nI am working on a concrete plan for this; I will do a little testing\nto make sure it can function, and then I will write it out in detail,\nsubmitted for your consideration.\n\n\n\n\n- Allen S. Rout",
+      "body_snippet": "On 03/19/2012 05:12 AM, Pierre-Yves Chibon wrote:\n\n\n> I think the idea of R-repo is more in line with what you have in\n> mind.  R2spec is a tool to generate spec file and make them as\n> compliant as p",
+      "thread_id": "thread-85faccdaf21a",
+      "thread_depth": 4,
+      "month": "2012-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-233a4d916976",
+      "subject": "Trying to use current R2spec on RHEL.",
+      "message_count": 16,
+      "participants": [
+        "Allen S. Rout",
+        "Marc Schwartz",
+        "Michael Hannon",
+        "Pierre-Yves Chibon",
+        "Torbjørn Lindahl"
+      ],
+      "started": "2012-03-12T16:10:06-04:00",
+      "last_reply": "2012-03-14T15:07:18+01:00",
+      "root_message_id": "msg-233a4d916976"
+    },
+    {
+      "id": "thread-85faccdaf21a",
+      "subject": "R-repo.org ?",
+      "message_count": 5,
+      "participants": [
+        "Allen S. Rout",
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2012-03-13T17:04:29-04:00",
+      "last_reply": "2012-03-19T19:02:35-04:00",
+      "root_message_id": "msg-85faccdaf21a"
+    }
+  ]
+}

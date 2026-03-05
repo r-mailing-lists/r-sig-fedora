@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2023-07",
+  "messages": [
+    {
+      "id": "msg-3ce6c896d8bf",
+      "message_id": "<75166815-6671-1e13-cc56-9b7f716ea2cc@hiddenelephants.co.uk>",
+      "from_name": "Tim Taylor",
+      "from_email_hash": "e3071ae8257bda4085d8999a9801b324cc930f4864ac0aec1c44601958781446",
+      "date": "2023-07-20T23:43:07+01:00",
+      "subject": "[R-sig-Fedora] tzdata requirement",
+      "subject_clean": "tzdata requirement",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I'm very ignorant of the building of rpms and spec files but should R \nhave a requirement (both build and run) tzdata? I was exploring the spec \nfile and couldn't see it mentioned but, AFAICT, it is required unless \nyou are using the optional bundled data base.\n\nMy curiosity was triggered after reading the recent thread on devel \n(https://lists.fedoraproject.org/archives/list/devel at lists.fedoraproject.org/thread/CRUWIEHISRLYQ5ZLPFSAFJPRTDQQLBO2/) \nand then seeing that the related change request was recently approved \n(https://pagure.io/fesco/issue/3031).\n\nApologies for the noise if I'm misunderstanding how things work.\n\nCheers\n\nTim",
+      "body_snippet": "I'm very ignorant of the building of rpms and spec files but should R \nhave a requirement (both build and run) tzdata? I was exploring the spec \nfile and couldn't see it mentioned but, AFAICT, it is r",
+      "thread_id": "thread-3ce6c896d8bf",
+      "thread_depth": 0,
+      "month": "2023-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-3ce6c896d8bf",
+      "subject": "tzdata requirement",
+      "message_count": 1,
+      "participants": [
+        "Tim Taylor"
+      ],
+      "started": "2023-07-20T23:43:07+01:00",
+      "last_reply": "2023-07-20T23:43:07+01:00",
+      "root_message_id": "msg-3ce6c896d8bf"
+    }
+  ]
+}

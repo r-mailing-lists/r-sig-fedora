@@ -1,0 +1,170 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2017-10",
+  "messages": [
+    {
+      "id": "msg-4f8e1c6be559",
+      "message_id": "<CALS=5moDApJHE5B039cnfpRo3Vwv-FC8bEFGmmrzhdVWA9-iEA@mail.gmail.com>",
+      "from_name": "Paul Smith",
+      "from_email_hash": "fd2c50431e2a6cb6e7be5ae41e049555b30efcd2f9185895e4465d7e61ddebf8",
+      "date": "2017-10-09T16:16:38+01:00",
+      "subject": "[R-sig-Fedora] Cannot install igraph package",
+      "subject_clean": "Cannot install igraph package",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear All,\n\nI am trying to install\n\nigraph package\n\nbut getting the following error:\n\n------------------\nmake: *** [/usr/lib64/R/etc/Makeconf:159: foreign-graphml.o] Error 1\nERROR: compilation failed for package ?igraph?\n* removing ?/usr/lib64/R/library/igraph?\n------------------\n\nAny ideas?\n\nThanks in advance,\n\nPaul",
+      "body_snippet": "Dear All,\n\nI am trying to install\n\nigraph package\n\nbut getting the following error:\n\n------------------\nmake: *** [/usr/lib64/R/etc/Makeconf:159: foreign-graphml.o] Error 1\nERROR: compilation failed f",
+      "thread_id": "thread-4f8e1c6be559",
+      "thread_depth": 0,
+      "month": "2017-10"
+    },
+    {
+      "id": "msg-b321f32b405e",
+      "message_id": "<c9468846-09cf-a742-ac91-b3f65a565cc3@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2017-10-09T11:42:00-04:00",
+      "subject": "[R-sig-Fedora] Cannot install igraph package",
+      "subject_clean": "Cannot install igraph package",
+      "in_reply_to": "<CALS=5moDApJHE5B039cnfpRo3Vwv-FC8bEFGmmrzhdVWA9-iEA@mail.gmail.com>",
+      "references": [
+        "<CALS=5moDApJHE5B039cnfpRo3Vwv-FC8bEFGmmrzhdVWA9-iEA@mail.gmail.com>"
+      ],
+      "body_plain": "On 10/09/2017 11:16 AM, Paul Smith wrote:\n> Dear All,\n> \n> I am trying to install\n> \n> igraph package\n> \n> but getting the following error:\n> \n> ------------------\n> make: *** [/usr/lib64/R/etc/Makeconf:159: foreign-graphml.o] Error 1\n> ERROR: compilation failed for package ?igraph?\n> * removing ?/usr/lib64/R/library/igraph?\n> ------------------\n> \n> Any ideas?\n\nNeed to see a lot more logs, specifically, the items before that Error\noccurs.\n\n~tom",
+      "body_snippet": "On 10/09/2017 11:16 AM, Paul Smith wrote:\n> Dear All,\n> \n> I am trying to install\n> \n> igraph package\n> \n> but getting the following error:\n> \n> ------------------\n> make: *** [/usr/lib64/R/etc/Makeco",
+      "thread_id": "thread-4f8e1c6be559",
+      "thread_depth": 1,
+      "month": "2017-10"
+    },
+    {
+      "id": "msg-3e4a268ce8cd",
+      "message_id": "<CALS=5mpZpYb=d3YEAmT+8D=Bb5A8Sy_Kjix46VvVzfAqVcG7ng@mail.gmail.com>",
+      "from_name": "Paul Smith",
+      "from_email_hash": "fd2c50431e2a6cb6e7be5ae41e049555b30efcd2f9185895e4465d7e61ddebf8",
+      "date": "2017-10-10T01:40:53+01:00",
+      "subject": "[R-sig-Fedora] Cannot install igraph package",
+      "subject_clean": "Cannot install igraph package",
+      "in_reply_to": "<c9468846-09cf-a742-ac91-b3f65a565cc3@redhat.com>",
+      "references": [
+        "<CALS=5moDApJHE5B039cnfpRo3Vwv-FC8bEFGmmrzhdVWA9-iEA@mail.gmail.com>",
+        "<c9468846-09cf-a742-ac91-b3f65a565cc3@redhat.com>"
+      ],
+      "body_plain": "On Mon, Oct 9, 2017 at 4:42 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> On 10/09/2017 11:16 AM, Paul Smith wrote:\n>>\n>> I am trying to install\n>>\n>> igraph package\n>>\n>> but getting the following error:\n>>\n>> ------------------\n>> make: *** [/usr/lib64/R/etc/Makeconf:159: foreign-graphml.o] Error 1\n>> ERROR: compilation failed for package ?igraph?\n>> * removing ?/usr/lib64/R/library/igraph?\n>> ------------------\n>>\n>> Any ideas?\n>\n> Need to see a lot more logs, specifically, the items before that Error\n> occurs.\n\nThanks, Tom. Below, you can find more logs:\n\n---------------------\n #  define strdup igraph_i_strdup\n\nIn file included from /usr/include/string.h:634:0,\n                 from src/foreign-gml-parser.y:54:\n/usr/include/bits/string2.h:208:0: note: this is the location of the\nprevious definition\n #   define strdup(s) __strdup (s)\n\ngcc -m64 -I/usr/include/R -DNDEBUG   -I/usr/local/include  -DUSING_R\n-I. -Iinclude -Ics -Iglpk -Iplfit -ICHOLMOD/Include -IAMD/Include\n-ICOLAMD/Include -ISuiteSparse_config -I/usr/local/include -O2 -g\n-pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2\n-fexceptions -fstack-protector-strong --param=ssp-buffer-size=4\n-grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1\n-m64 -mtune=generic -DNDEBUG -DNPARTITION -DNTIMER -DNCAMD -DNPRINT\n-DPACKAGE_VERSION=\\\"1.1.1\\\" -DINTERNAL_ARPACK\n-DIGRAPH_THREAD_LOCAL=/**/ -fpic  -O2 -g -pipe -Wall\n-Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fexceptions\n-fstack-protector-strong --param=ssp-buffer-size=4\n-grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1\n-m64 -mtune=generic  -c foreign-graphml.c -o foreign-graphml.o\nforeign-graphml.c: In function ?igraph_write_graph_graphml?:\nforeign-graphml.c:1408:46: error: expected ?)? before ?GRAPHML_NAMESPACE_URI?\n   ret=fprintf(outstream, \"<graphml xmlns=\\\"\" GRAPHML_NAMESPACE_URI \"\\\"\\n\");\n                                              ^~~~~~~~~~~~~~~~~~~~~\nforeign-graphml.c:1412:59: error: expected ?)? before ?GRAPHML_NAMESPACE_URI?\n   ret=fprintf(outstream, \"         xsi:schemaLocation=\\\"\"\nGRAPHML_NAMESPACE_URI \"\\n\");\n                                                           ^~~~~~~~~~~~~~~~~~~~~\nforeign-graphml.c:1414:38: error: expected ?)? before ?GRAPHML_NAMESPACE_URI?\n   ret=fprintf(outstream, \"         \" GRAPHML_NAMESPACE_URI\n\"/1.0/graphml.xsd\\\">\\n\");\n                                      ^~~~~~~~~~~~~~~~~~~~~\nmake: *** [/usr/lib64/R/etc/Makeconf:159: foreign-graphml.o] Error 1\nERROR: compilation failed for package ?igraph?\n* removing ?/usr/lib64/R/library/igraph?\n\nThe downloaded source packages are in\n    ?/tmp/Rtmpq4eKlz/downloaded_packages?\nUpdating HTML index of packages in '.Library'\nMaking 'packages.html' ... done\nWarning message:\nIn install.packages(\"igraph\") :\n  installation of package ?igraph? had non-zero exit status\n---------------------\n\nAre they enough logs?\n\nPaul",
+      "body_snippet": "On Mon, Oct 9, 2017 at 4:42 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> On 10/09/2017 11:16 AM, Paul Smith wrote:\n>>\n>> I am trying to install\n>>\n>> igraph package\n>>\n>> but getting the follo",
+      "thread_id": "thread-4f8e1c6be559",
+      "thread_depth": 2,
+      "month": "2017-10"
+    },
+    {
+      "id": "msg-c481f0057c04",
+      "message_id": "<20171011113308.GP6214@dhcp200-201.gsslab.pnq.redhat.com>",
+      "from_name": "Pai",
+      "from_email_hash": "fbdef0218d374b6a5e85561616bd8d72b4b77bea51b475af705e452a1670e6f9",
+      "date": "2017-10-11T11:33:08Z",
+      "subject": "[R-sig-Fedora] Cannot install igraph package",
+      "subject_clean": "Cannot install igraph package",
+      "in_reply_to": "<CALS=5mpZpYb=d3YEAmT+8D=Bb5A8Sy_Kjix46VvVzfAqVcG7ng@mail.gmail.com>",
+      "references": [
+        "<CALS=5moDApJHE5B039cnfpRo3Vwv-FC8bEFGmmrzhdVWA9-iEA@mail.gmail.com>",
+        "<c9468846-09cf-a742-ac91-b3f65a565cc3@redhat.com>",
+        "<CALS=5mpZpYb=d3YEAmT+8D=Bb5A8Sy_Kjix46VvVzfAqVcG7ng@mail.gmail.com>"
+      ],
+      "body_plain": "Hello,\n\nCould you please test the solution at \nhttps://stackoverflow.com/questions/45318188/getting-error-in-function-igraph-write-graph-graphml-while-installing-igrap\n\nSpecifically -\n\ninstall.packages(\"devtools\")\nlibrary(devtools)\ninstall_github(\"igraph/rigraph\")\n\nPlease let us know if this works\n\nRegards,\n-- Saint Pai\n\n\nOn Tue, Oct 10, 2017 at 01:40:53AM +0100, Paul Smith wrote:\n> On Mon, Oct 9, 2017 at 4:42 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n> >\n> > On 10/09/2017 11:16 AM, Paul Smith wrote:\n> >>\n> >> I am trying to install\n> >>\n> >> igraph package\n> >>\n> >> but getting the following error:\n> >>\n> >> ------------------\n> >> make: *** [/usr/lib64/R/etc/Makeconf:159: foreign-graphml.o] Error 1\n> >> ERROR: compilation failed for package ?igraph?\n> >> * removing ?/usr/lib64/R/library/igraph?\n> >> ------------------\n> >>\n> >> Any ideas?\n> >\n> > Need to see a lot more logs, specifically, the items before that Error\n> > occurs.\n> \n> Thanks, Tom. Below, you can find more logs:\n> \n> ---------------------\n>  #  define strdup igraph_i_strdup\n> \n> In file included from /usr/include/string.h:634:0,\n>                  from src/foreign-gml-parser.y:54:\n> /usr/include/bits/string2.h:208:0: note: this is the location of the\n> previous definition\n>  #   define strdup(s) __strdup (s)\n> \n> gcc -m64 -I/usr/include/R -DNDEBUG   -I/usr/local/include  -DUSING_R\n> -I. -Iinclude -Ics -Iglpk -Iplfit -ICHOLMOD/Include -IAMD/Include\n> -ICOLAMD/Include -ISuiteSparse_config -I/usr/local/include -O2 -g\n> -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2\n> -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4\n> -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1\n> -m64 -mtune=generic -DNDEBUG -DNPARTITION -DNTIMER -DNCAMD -DNPRINT\n> -DPACKAGE_VERSION=\\\"1.1.1\\\" -DINTERNAL_ARPACK\n> -DIGRAPH_THREAD_LOCAL=/**/ -fpic  -O2 -g -pipe -Wall\n> -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fexceptions\n> -fstack-protector-strong --param=ssp-buffer-size=4\n> -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1\n> -m64 -mtune=generic  -c foreign-graphml.c -o foreign-graphml.o\n> foreign-graphml.c: In function ?igraph_write_graph_graphml?:\n> foreign-graphml.c:1408:46: error: expected ?)? before ?GRAPHML_NAMESPACE_URI?\n>    ret=fprintf(outstream, \"<graphml xmlns=\\\"\" GRAPHML_NAMESPACE_URI \"\\\"\\n\");\n>                                               ^~~~~~~~~~~~~~~~~~~~~\n> foreign-graphml.c:1412:59: error: expected ?)? before ?GRAPHML_NAMESPACE_URI?\n>    ret=fprintf(outstream, \"         xsi:schemaLocation=\\\"\"\n> GRAPHML_NAMESPACE_URI \"\\n\");\n>                                                            ^~~~~~~~~~~~~~~~~~~~~\n> foreign-graphml.c:1414:38: error: expected ?)? before ?GRAPHML_NAMESPACE_URI?\n>    ret=fprintf(outstream, \"         \" GRAPHML_NAMESPACE_URI\n> \"/1.0/graphml.xsd\\\">\\n\");\n>                                       ^~~~~~~~~~~~~~~~~~~~~\n> make: *** [/usr/lib64/R/etc/Makeconf:159: foreign-graphml.o] Error 1\n> ERROR: compilation failed for package ?igraph?\n> * removing ?/usr/lib64/R/library/igraph?\n> \n> The downloaded source packages are in\n>     ?/tmp/Rtmpq4eKlz/downloaded_packages?\n> Updating HTML index of packages in '.Library'\n> Making 'packages.html' ... done\n> Warning message:\n> In install.packages(\"igraph\") :\n>   installation of package ?igraph? had non-zero exit status\n> ---------------------\n> \n> Are they enough logs?\n> \n> Paul\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n-- \nRegards,\nM K Pai\nData Scientist\nRed Hat",
+      "body_snippet": "Hello,\n\nCould you please test the solution at \nhttps://stackoverflow.com/questions/45318188/getting-error-in-function-igraph-write-graph-graphml-while-installing-igrap\n\nSpecifically -\n\ninstall.package",
+      "thread_id": "thread-4f8e1c6be559",
+      "thread_depth": 3,
+      "month": "2017-10"
+    },
+    {
+      "id": "msg-0f31db54370a",
+      "message_id": "<CALS=5mrvUko_6QXbS91tJfYE7Dihk2Zm_xnd=mEEJQocLJcHGg@mail.gmail.com>",
+      "from_name": "Paul Smith",
+      "from_email_hash": "fd2c50431e2a6cb6e7be5ae41e049555b30efcd2f9185895e4465d7e61ddebf8",
+      "date": "2017-10-11T13:29:35+01:00",
+      "subject": "[R-sig-Fedora] Cannot install igraph package",
+      "subject_clean": "Cannot install igraph package",
+      "in_reply_to": "<20171011113308.GP6214@dhcp200-201.gsslab.pnq.redhat.com>",
+      "references": [
+        "<CALS=5moDApJHE5B039cnfpRo3Vwv-FC8bEFGmmrzhdVWA9-iEA@mail.gmail.com>",
+        "<c9468846-09cf-a742-ac91-b3f65a565cc3@redhat.com>",
+        "<CALS=5mpZpYb=d3YEAmT+8D=Bb5A8Sy_Kjix46VvVzfAqVcG7ng@mail.gmail.com>",
+        "<20171011113308.GP6214@dhcp200-201.gsslab.pnq.redhat.com>"
+      ],
+      "body_plain": "Thanks, Saint Pai, that did the trick!\n\nPaul\n\n\nOn Wed, Oct 11, 2017 at 12:33 PM, Pai <mkpai at redhat.com> wrote:\n> Hello,\n>\n> Could you please test the solution at\n> https://stackoverflow.com/questions/45318188/getting-error-in-function-igraph-write-graph-graphml-while-installing-igrap\n>\n> Specifically -\n>\n> install.packages(\"devtools\")\n> library(devtools)\n> install_github(\"igraph/rigraph\")\n>\n> Please let us know if this works\n>\n> Regards,\n> -- Saint Pai\n>\n>\n> On Tue, Oct 10, 2017 at 01:40:53AM +0100, Paul Smith wrote:\n>> On Mon, Oct 9, 2017 at 4:42 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n>> >\n>> > On 10/09/2017 11:16 AM, Paul Smith wrote:\n>> >>\n>> >> I am trying to install\n>> >>\n>> >> igraph package\n>> >>\n>> >> but getting the following error:\n>> >>\n>> >> ------------------\n>> >> make: *** [/usr/lib64/R/etc/Makeconf:159: foreign-graphml.o] Error 1\n>> >> ERROR: compilation failed for package ?igraph?\n>> >> * removing ?/usr/lib64/R/library/igraph?\n>> >> ------------------\n>> >>\n>> >> Any ideas?\n>> >\n>> > Need to see a lot more logs, specifically, the items before that Error\n>> > occurs.\n>>\n>> Thanks, Tom. Below, you can find more logs:\n>>\n>> ---------------------\n>>  #  define strdup igraph_i_strdup\n>>\n>> In file included from /usr/include/string.h:634:0,\n>>                  from src/foreign-gml-parser.y:54:\n>> /usr/include/bits/string2.h:208:0: note: this is the location of the\n>> previous definition\n>>  #   define strdup(s) __strdup (s)\n>>\n>> gcc -m64 -I/usr/include/R -DNDEBUG   -I/usr/local/include  -DUSING_R\n>> -I. -Iinclude -Ics -Iglpk -Iplfit -ICHOLMOD/Include -IAMD/Include\n>> -ICOLAMD/Include -ISuiteSparse_config -I/usr/local/include -O2 -g\n>> -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2\n>> -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4\n>> -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1\n>> -m64 -mtune=generic -DNDEBUG -DNPARTITION -DNTIMER -DNCAMD -DNPRINT\n>> -DPACKAGE_VERSION=\\\"1.1.1\\\" -DINTERNAL_ARPACK\n>> -DIGRAPH_THREAD_LOCAL=/**/ -fpic  -O2 -g -pipe -Wall\n>> -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fexceptions\n>> -fstack-protector-strong --param=ssp-buffer-size=4\n>> -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1\n>> -m64 -mtune=generic  -c foreign-graphml.c -o foreign-graphml.o\n>> foreign-graphml.c: In function ?igraph_write_graph_graphml?:\n>> foreign-graphml.c:1408:46: error: expected ?)? before ?GRAPHML_NAMESPACE_URI?\n>>    ret=fprintf(outstream, \"<graphml xmlns=\\\"\" GRAPHML_NAMESPACE_URI \"\\\"\\n\");\n>>                                               ^~~~~~~~~~~~~~~~~~~~~\n>> foreign-graphml.c:1412:59: error: expected ?)? before ?GRAPHML_NAMESPACE_URI?\n>>    ret=fprintf(outstream, \"         xsi:schemaLocation=\\\"\"\n>> GRAPHML_NAMESPACE_URI \"\\n\");\n>>                                                            ^~~~~~~~~~~~~~~~~~~~~\n>> foreign-graphml.c:1414:38: error: expected ?)? before ?GRAPHML_NAMESPACE_URI?\n>>    ret=fprintf(outstream, \"         \" GRAPHML_NAMESPACE_URI\n>> \"/1.0/graphml.xsd\\\">\\n\");\n>>                                       ^~~~~~~~~~~~~~~~~~~~~\n>> make: *** [/usr/lib64/R/etc/Makeconf:159: foreign-graphml.o] Error 1\n>> ERROR: compilation failed for package ?igraph?\n>> * removing ?/usr/lib64/R/library/igraph?\n>>\n>> The downloaded source packages are in\n>>     ?/tmp/Rtmpq4eKlz/downloaded_packages?\n>> Updating HTML index of packages in '.Library'\n>> Making 'packages.html' ... done\n>> Warning message:\n>> In install.packages(\"igraph\") :\n>>   installation of package ?igraph? had non-zero exit status\n>> ---------------------\n>>\n>> Are they enough logs?\n>>\n>> Paul\n>>\n>> _______________________________________________\n>> R-SIG-Fedora mailing list\n>> R-SIG-Fedora at r-project.org\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n> --\n> Regards,\n> M K Pai\n> Data Scientist\n> Red Hat",
+      "body_snippet": "Thanks, Saint Pai, that did the trick!\n\nPaul\n\n\nOn Wed, Oct 11, 2017 at 12:33 PM, Pai <mkpai at redhat.com> wrote:\n> Hello,\n>\n> Could you please test the solution at\n> https://stackoverflow.com/questio",
+      "thread_id": "thread-4f8e1c6be559",
+      "thread_depth": 4,
+      "month": "2017-10"
+    },
+    {
+      "id": "msg-6bbc69b57150",
+      "message_id": "<CAMBc2W7sSju0fP_jGLR280NPLua3u73QVF83=XwZSriVpRk_=Q@mail.gmail.com>",
+      "from_name": "andreas betz",
+      "from_email_hash": "fe9bd0d95c613ec7ac9ccc2daaf9f4c4d9e4cae068fd2681da7e9d65bec0a51a",
+      "date": "2017-10-13T09:22:31-07:00",
+      "subject": "[R-sig-Fedora] greport on fedora",
+      "subject_clean": "greport on fedora",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,\n\nI am trying to run the greport package by Frank Harell on Fedora 26.\nHowever, there are two software issues. Adobe Acrobat reader is\nrecommended, but Adobe does have a version for Linux anymore. The second\nissue are the required ocgtools in the latex package, which are not\navailable. The links given on the home page of the package fail. Does\nanybody use the package and do you have any recommendations in terms of\nsetup. It looks very useful for the reporting of clinical trials.\n\nAny help would be very much appreciated.\n\nThank you\n\nAndreas\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello,\n\nI am trying to run the greport package by Frank Harell on Fedora 26.\nHowever, there are two software issues. Adobe Acrobat reader is\nrecommended, but Adobe does have a version for Linux anymor",
+      "thread_id": "thread-6bbc69b57150",
+      "thread_depth": 0,
+      "month": "2017-10"
+    },
+    {
+      "id": "msg-f4216203d708",
+      "message_id": "<CACwCsY6wnTyiEHLO+PGgQSZV3oQMB9sSVLEOnb8X-bQeBK19Ag@mail.gmail.com>",
+      "from_name": "Larry Martell",
+      "from_email_hash": "d954a0a7764ff90cda3343f3837f17a14c92fffa0e601a21628b36b55296e137",
+      "date": "2017-10-29T15:31:16Z",
+      "subject": "[R-sig-Fedora] R-cran-ggplot2 and R-cran-caret in RHEL 7",
+      "subject_clean": "R-cran-ggplot2 and R-cran-caret in RHEL 7",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "What packages provide R-cran-ggplot2 and R-cran-caret in RHEL 7?",
+      "body_snippet": "What packages provide R-cran-ggplot2 and R-cran-caret in RHEL 7?",
+      "thread_id": "thread-f4216203d708",
+      "thread_depth": 0,
+      "month": "2017-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-4f8e1c6be559",
+      "subject": "Cannot install igraph package",
+      "message_count": 5,
+      "participants": [
+        "Pai",
+        "Paul Smith",
+        "Tom Callaway"
+      ],
+      "started": "2017-10-09T16:16:38+01:00",
+      "last_reply": "2017-10-11T13:29:35+01:00",
+      "root_message_id": "msg-4f8e1c6be559"
+    },
+    {
+      "id": "thread-6bbc69b57150",
+      "subject": "greport on fedora",
+      "message_count": 1,
+      "participants": [
+        "andreas betz"
+      ],
+      "started": "2017-10-13T09:22:31-07:00",
+      "last_reply": "2017-10-13T09:22:31-07:00",
+      "root_message_id": "msg-6bbc69b57150"
+    },
+    {
+      "id": "thread-f4216203d708",
+      "subject": "R-cran-ggplot2 and R-cran-caret in RHEL 7",
+      "message_count": 1,
+      "participants": [
+        "Larry Martell"
+      ],
+      "started": "2017-10-29T15:31:16+00:00",
+      "last_reply": "2017-10-29T15:31:16+00:00",
+      "root_message_id": "msg-f4216203d708"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+From @gent@ @end|ng |rom medd@t@|nc@com  Sun Nov  1 00:11:31 2020
+From: @gent@ @end|ng |rom medd@t@|nc@com (H)
+Date: Sat, 31 Oct 2020 19:11:31 -0400
+Subject: [R-sig-Fedora] R 4.0 for CentOS 7
+In-Reply-To: <CALEXWq0ePx9T2SEVrg=4PTLe6taOU7DD6FBbi8MK-cCaRqe-Uw@mail.gmail.com>
+References: <85e47848-9372-cf80-956e-4c423775d073@meddatainc.com>
+ <CALEXWq05HWZf4=VrWgXmZSMhiOmea=C58u+SKs0fmH2W3GT6wQ@mail.gmail.com>
+ <35a65618-d0e0-19b8-bac8-491e70791de6@meddatainc.com>
+ <6af5c609-b0fb-dbbc-fd1e-103450ff57a0@gmail.com>
+ <CALEXWq27=fEz_T_LgqjK_8Ximvma9Xuy7kHcOzzgAswYypqcJg@mail.gmail.com>
+ <637540a9-31f9-c488-3a59-2404a494de4d@meddatainc.com>
+ <CALEXWq0ePx9T2SEVrg=4PTLe6taOU7DD6FBbi8MK-cCaRqe-Uw@mail.gmail.com>
+Message-ID: <70ba58ab-107d-69b4-900f-eab489f39ade@meddatainc.com>
+
+On 10/31/2020 06:05 PM, I?aki Ucar wrote:
+> On Sat, 31 Oct 2020 at 20:52, H <agents at meddatainc.com> wrote:
+>> Understood. Since I am running CentOS 7, I guess I could create a CentOS 8 docker container and install R in that? I am not planning to upgrade the system to CentOS 8.
+> Of course, you can do that. With podman it's even easier. But then I'd
+> use Fedora as the base image instead, because you'll enjoy binary
+> installations for most of CRAN via Copr [1]. You even have a docker
+> image ready to go [2]. (Disclaimer: I'm the maintainer of that
+> project).
+>
+> [1] https://copr.fedorainfracloud.org/coprs/iucar/cran/
+> [2] https://hub.docker.com/r/enchufa2/cran2copr/dockerfile
+>
+OK, since I am already running CentOS, I may still stick with CentOS but your point is well-taken. I also prefer to define my containers myself so I have full control - and understand - how they are set up...
+
+I have come across COPR but it is not among my repos, I need to learn more.
+
+Thank you!
+
+

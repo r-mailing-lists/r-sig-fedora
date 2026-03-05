@@ -1,0 +1,139 @@
+From nara at cloudbiosciences.com  Fri Mar 26 20:48:30 2010
+From: nara at cloudbiosciences.com (Nara Rama)
+Date: Fri, 26 Mar 2010 12:48:30 -0700
+Subject: [R-sig-Fedora] R Scatter plot partially generated in Fedora
+Message-ID: <f95f4e331003261248x1c0cc5b4n51c6c78afc37caf9@mail.gmail.com>
+
+Hi:
+
+I?have installed R?first time in Linux/Fedora. I used the yum command
+(yum install R). The installation was successful and went without any
+errors. I could also run the following R script without any errors.
+But, the generated scatter plot only has three blue dots added through
+the first plot(...) statement. It does not show the main title,
+x-/y-axes, x-/y-labels, and also the green dots added through
+points(...) statement.
+
+I don't know if this is an installation problem. Please help.
+
+Linux version:
+===========
+
+Linux domU-12-31-39-03-00-76 2.6.21.7-2.fc8xen #1 SMP Fri Feb 15
+12:39:36 EST 2008 i686 athlon i386 GNU/Linux
+
+R version:
+========
+
+Installed Packages
+Name?????? : R
+Arch?????? : i386
+Version??? : 2.8.0
+Release??? : 2.fc8
+
+R Script:
+=======
+
+png(filename="a.png", height=295, width=300,? bg="yellow");
+x <- c(12, 14, 16);
+y <- c(7, 12, 10);
+plot(x, y, col="blue", main="Test", xlab="X", ylab="y");
+x2 <- c(10, 15);
+y2 <- c(8, 12);
+points(x2, y2, col="green");
+dev.off();
+
+Thanks
+
+Nara
+
+
+From pauljohn32 at gmail.com  Sat Mar 27 19:26:36 2010
+From: pauljohn32 at gmail.com (Paul Johnson)
+Date: Sat, 27 Mar 2010 13:26:36 -0500
+Subject: [R-sig-Fedora] R Scatter plot partially generated in Fedora
+In-Reply-To: <f95f4e331003261248x1c0cc5b4n51c6c78afc37caf9@mail.gmail.com>
+References: <f95f4e331003261248x1c0cc5b4n51c6c78afc37caf9@mail.gmail.com>
+Message-ID: <13e802631003271126w470f8a3al9b8cbc1c347303f4@mail.gmail.com>
+
+Your R install is fine. You plot commands are wrong, though.
+
+Also no need for semicolons at end of lines anymore.
+
+Note your first x axis goes from 12, 16.
+
+then later you try to write points at 10, which are out of bounds.  if
+you want to write at 10, re-do your figure.  This code shows 5 points
+on graph.
+
+plot(x=c(7,18), y=c(6,14) , type="n", main="Test", xlab="X", ylab="y")
+
+x <- c(12, 14, 16);
+y <- c(7, 12, 10);
+points(x,y, col="blue")
+x2 <- c(10, 15);
+y2 <- c(8, 12);
+points(x2, y2, col="green");
+
+After it looks good on screen, then wrap in the png commands.
+
+
+On Fri, Mar 26, 2010 at 2:48 PM, Nara Rama <nara at cloudbiosciences.com> wrote:
+> Hi:
+>
+> I?have installed R?first time in Linux/Fedora. I used the yum command
+> (yum install R). The installation was successful and went without any
+> errors. I could also run the following R script without any errors.
+> But, the generated scatter plot only has three blue dots added through
+> the first plot(...) statement. It does not show the main title,
+> x-/y-axes, x-/y-labels, and also the green dots added through
+> points(...) statement.
+>
+> I don't know if this is an installation problem. Please help.
+>
+> Linux version:
+> ===========
+>
+> Linux domU-12-31-39-03-00-76 2.6.21.7-2.fc8xen #1 SMP Fri Feb 15
+> 12:39:36 EST 2008 i686 athlon i386 GNU/Linux
+>
+> R version:
+> ========
+>
+> Installed Packages
+> Name?????? : R
+> Arch?????? : i386
+> Version??? : 2.8.0
+> Release??? : 2.fc8
+>
+> R Script:
+> =======
+>
+> png(filename="a.png", height=295, width=300,? bg="yellow");
+> x <- c(12, 14, 16);
+> y <- c(7, 12, 10);
+> plot(x, y, col="blue", main="Test", xlab="X", ylab="y");
+> x2 <- c(10, 15);
+> y2 <- c(8, 12);
+> points(x2, y2, col="green");
+> dev.off();
+>
+> Thanks
+>
+> Nara
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+
+
+-- 
+Paul E. Johnson
+Professor, Political Science
+1541 Lilac Lane, Room 504
+University of Kansas
+
+

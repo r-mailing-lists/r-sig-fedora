@@ -1,0 +1,777 @@
+From tcallawa at redhat.com  Fri Jan  2 22:30:48 2015
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 02 Jan 2015 16:30:48 -0500
+Subject: [R-sig-Fedora] upquote.sty in Fedora 21
+In-Reply-To: <CABFfbXv9icx4+k=pT1gHGVKcXuzBML+2EKbdY=Lx7qe=SmYoHQ@mail.gmail.com>
+References: <CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>
+	<548EF666.1040300@redhat.com>
+	<CABFfbXv9icx4+k=pT1gHGVKcXuzBML+2EKbdY=Lx7qe=SmYoHQ@mail.gmail.com>
+Message-ID: <54A70E08.5030900@redhat.com>
+
+On 12/22/2014 11:56 PM, Jeroen Ooms wrote:
+> ?qpdf? is needed for checks on size reduction of PDFs
+
+Okay, I've added Requires: qpdf for R-core-devel. Not going to push an
+update for a WARNING in the test suite though, we'll just inherit this
+with the next update of R.
+
+~tom
+
+==
+Red Hat
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: tcallawa.vcf
+Type: text/x-vcard
+Size: 4 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20150102/6eb211ae/attachment.vcf>
+
+From pizarro at ebd.csic.es  Thu Jan 15 11:09:36 2015
+From: pizarro at ebd.csic.es (Manuel Pizarro =?utf-8?b?R2F2aWzDoW4=?=)
+Date: Thu, 15 Jan 2015 11:09:36 +0100
+Subject: [R-sig-Fedora] Error installing 'rgdal' on Centos 7
+Message-ID: <20150115110936.Horde.fdQ4_fy03bfSZq6QlC8oaw6@webmail.csic.es>
+
+
+Hello:
+
+I can't install the ' rgdal ' package in R and ' GDAL ' on CentOS 7  
+(ELGIS repo added).
+
+Is there any solution?
+
+Thanks
+
+-- 
+Manuel Pizarro
+EBD-CSIC
+
+
+From plummerm at iarc.fr  Thu Jan 15 12:29:53 2015
+From: plummerm at iarc.fr (Martyn Plummer)
+Date: Thu, 15 Jan 2015 11:29:53 +0000
+Subject: [R-sig-Fedora] Error installing 'rgdal' on Centos 7
+In-Reply-To: <20150115110936.Horde.fdQ4_fy03bfSZq6QlC8oaw6@webmail.csic.es>
+References: <20150115110936.Horde.fdQ4_fy03bfSZq6QlC8oaw6@webmail.csic.es>
+Message-ID: <1421321393.3943.66.camel@iarc.fr>
+
+You don't say exactly what the problem is, but I can give you some
+general advice.
+
+The first thing to check on any RPM-based system is that you have the
+appropriate development package installed, in this case gdal-devel.
+
+I see that ELGIS does not support CentOS 7, so that might be your
+problem. EPEL 7 does include gdal so you might rely on their package.
+
+If neither of these are helpful then you need to be more specific.
+
+Martyn
+
+On Thu, 2015-01-15 at 11:09 +0100, Manuel Pizarro Gavil?n wrote:
+> Hello:
+> 
+> I can't install the ' rgdal ' package in R and ' GDAL ' on CentOS 7  
+> (ELGIS repo added).
+> 
+> Is there any solution?
+> 
+> Thanks
+> 
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+
+From Roger.Bivand at nhh.no  Thu Jan 15 12:29:16 2015
+From: Roger.Bivand at nhh.no (Roger Bivand)
+Date: Thu, 15 Jan 2015 12:29:16 +0100
+Subject: [R-sig-Fedora] [R-sig-Geo] Error installing 'rgdal' on Centos 7
+In-Reply-To: <20150115110936.Horde.fdQ4_fy03bfSZq6QlC8oaw6@webmail.csic.es>
+References: <20150115110936.Horde.fdQ4_fy03bfSZq6QlC8oaw6@webmail.csic.es>
+Message-ID: <alpine.LRH.2.03.1501151218170.24971@reclus.nhh.no>
+
+Please do not cross-post. Please do provide sufficient information to help 
+diagnose your problem (here the output of the ./configure run during 
+installation). Almost certainly you are trying to install from source when 
+one or more external dependency is not satisfied. Did you read:
+
+http://cran.r-project.org/bin/linux/redhat/README
+
+and note that R-rgdal is *not* provided as a binary?
+
+Did you read:
+
+http://cran.r-project.org/web/packages/rgdal/index.html
+
+Did you download the source package and read the README file, also on 
+R-Forge linked from the CRAN page:
+
+https://r-forge.r-project.org/scm/viewvc.php/pkg/inst/README?view=markup&revision=409&root=rgdal
+
+Roger
+
+
+On Thu, 15 Jan 2015, Manuel Pizarro Gavil?n wrote:
+
+>
+> Hello:
+>
+> I can't install the ' rgdal ' package in R and ' GDAL ' on CentOS 7 (ELGIS 
+> repo added).
+>
+> Is there any solution?
+>
+> Thanks
+>
+>
+
+-- 
+Roger Bivand
+Department of Economics, Norwegian School of Economics,
+Helleveien 30, N-5045 Bergen, Norway.
+voice: +47 55 95 93 55; fax +47 55 95 91 00
+e-mail: Roger.Bivand at nhh.no
+
+From pizarro at ebd.csic.es  Fri Jan 16 11:18:28 2015
+From: pizarro at ebd.csic.es (Manuel Pizarro =?utf-8?b?R2F2aWzDoW4=?=)
+Date: Fri, 16 Jan 2015 11:18:28 +0100
+Subject: [R-sig-Fedora] Error installing 'rgdal' on Centos 7
+In-Reply-To: <1421321393.3943.66.camel@iarc.fr>
+References: <20150115110936.Horde.fdQ4_fy03bfSZq6QlC8oaw6@webmail.csic.es>
+	<1421321393.3943.66.camel@iarc.fr>
+Message-ID: <20150116111828.Horde.7sM5uwwtfTDlTcJH3_UJ4A4@webmail.csic.es>
+
+Good morning Martyn.
+
+Thank you for your email.
+
+Some details for the problem.
+
+This is the message of the console in R:
+
+
+------------------
+
+> install.packages("rgdal")
+Installing package into  
+?/home/aliendist/R/x86_64-redhat-linux-gnu-library/3.1?
+(as ?lib? is unspecified)
+probando la URL 'http://cran.rstudio.com/src/contrib/rgdal_0.9-1.tar.gz'
+Content type 'application/x-gzip' length 1624496 bytes (1.5 Mb)
+URL abierta
+==================================================
+downloaded 1.5 Mb
+
+* installing *source* package ?rgdal? ...
+** package ?rgdal? successfully unpacked and MD5 sums checked
+configure: CC: gcc -m64 -std=gnu99
+configure: CXX: g++ -m64
+configure: rgdal: 0.9-1
+checking for /usr/bin/svnversion... yes
+configure: svn revision: 518
+configure: gdal-config: gdal-config
+checking gdal-config usability...
+./configure: line 2119: gdal-config: command not found
+no
+Error: gdal-config not found
+The gdal-config script distributed with GDAL could not be found.
+If you have not installed the GDAL libraries, you can
+download the source from  http://www.gdal.org/
+If you have installed the GDAL libraries, then make sure that
+gdal-config is in your path. Try typing gdal-config at a
+shell prompt and see if it runs. If not, use:
+  --configure-args='--with-gdal-config=/usr/local/bin/gdal-config'
+with appropriate values for your installation.
+
+ERROR: configuration failed for package ?rgdal?
+* removing ?/home/aliendist/R/x86_64-redhat-linux-gnu-library/3.1/rgdal?
+Warning in install.packages :
+   installation of package ?rgdal? had non-zero exit status
+
+The downloaded source packages are in
+	?/tmp/Rtmpeaf9P4/downloaded_packages?
+>
+
+-------------------
+
+I tried to install gdal -dev and gdal but it is impossible.
+
+Regards,
+Manuel
+
+
+
+
+Martyn Plummer <plummerm at iarc.fr> escribi?:
+
+> You don't say exactly what the problem is, but I can give you some
+> general advice.
+>
+> The first thing to check on any RPM-based system is that you have the
+> appropriate development package installed, in this case gdal-devel.
+>
+> I see that ELGIS does not support CentOS 7, so that might be your
+> problem. EPEL 7 does include gdal so you might rely on their package.
+>
+> If neither of these are helpful then you need to be more specific.
+>
+> Martyn
+>
+> On Thu, 2015-01-15 at 11:09 +0100, Manuel Pizarro Gavil?n wrote:
+>> Hello:
+>>
+>> I can't install the ' rgdal ' package in R and ' GDAL ' on CentOS 7
+>> (ELGIS repo added).
+>>
+>> Is there any solution?
+>>
+>> Thanks
+>>
+>
+> -----------------------------------------------------------------------
+> This message and its attachments are strictly confiden...{{dropped:13}}
+
+
+From pizarro at ebd.csic.es  Fri Jan 16 11:19:41 2015
+From: pizarro at ebd.csic.es (Manuel Pizarro =?utf-8?b?R2F2aWzDoW4=?=)
+Date: Fri, 16 Jan 2015 11:19:41 +0100
+Subject: [R-sig-Fedora] [R-sig-Geo] Error installing 'rgdal' on Centos 7
+In-Reply-To: <alpine.LRH.2.03.1501151218170.24971@reclus.nhh.no>
+References: <20150115110936.Horde.fdQ4_fy03bfSZq6QlC8oaw6@webmail.csic.es>
+	<alpine.LRH.2.03.1501151218170.24971@reclus.nhh.no>
+Message-ID: <20150116111941.Horde.3EihRh5Lku2eIOX65WKU9A8@webmail.csic.es>
+
+Hello Roger:
+
+Thank you for your email.
+
+Some details for the problem.
+
+This is the message of the console in R:
+
+
+------------------
+install.packages("rgdal")
+Installing package into  
+?/home/aliendist/R/x86_64-redhat-linux-gnu-library/3.1?
+(as ?lib? is unspecified)
+probando la URL 'http://cran.rstudio.com/src/contrib/rgdal_0.9-1.tar.gz'
+Content type 'application/x-gzip' length 1624496 bytes (1.5 Mb)
+URL abierta
+==================================================
+downloaded 1.5 Mb
+
+* installing *source* package ?rgdal? ...
+** package ?rgdal? successfully unpacked and MD5 sums checked
+configure: CC: gcc -m64 -std=gnu99
+configure: CXX: g++ -m64
+configure: rgdal: 0.9-1
+checking for /usr/bin/svnversion... yes
+configure: svn revision: 518
+configure: gdal-config: gdal-config
+checking gdal-config usability...
+./configure: line 2119: gdal-config: command not found
+no
+Error: gdal-config not found
+The gdal-config script distributed with GDAL could not be found.
+If you have not installed the GDAL libraries, you can
+download the source from  http://www.gdal.org/
+If you have installed the GDAL libraries, then make sure that
+gdal-config is in your path. Try typing gdal-config at a
+shell prompt and see if it runs. If not, use:
+  --configure-args='--with-gdal-config=/usr/local/bin/gdal-config'
+with appropriate values for your installation.
+
+ERROR: configuration failed for package ?rgdal?
+* removing ?/home/aliendist/R/x86_64-redhat-linux-gnu-library/3.1/rgdal?
+Warning in install.packages :
+   installation of package ?rgdal? had non-zero exit status
+
+The downloaded source packages are in
+         ?/tmp/Rtmpeaf9P4/downloaded_packages?
+-------------------
+
+I tried to install gdal -dev and gdal but it is impossible.
+
+Regards,
+Manuel
+
+
+
+
+
+
+Roger Bivand <Roger.Bivand at nhh.no> escribi?:
+
+> Please do not cross-post. Please do provide sufficient information  
+> to help diagnose your problem (here the output of the ./configure  
+> run during installation). Almost certainly you are trying to install  
+> from source when one or more external dependency is not satisfied.  
+> Did you read:
+>
+> http://cran.r-project.org/bin/linux/redhat/README
+>
+> and note that R-rgdal is *not* provided as a binary?
+>
+> Did you read:
+>
+> http://cran.r-project.org/web/packages/rgdal/index.html
+>
+> Did you download the source package and read the README file, also  
+> on R-Forge linked from the CRAN page:
+>
+> https://r-forge.r-project.org/scm/viewvc.php/pkg/inst/README?view=markup&revision=409&root=rgdal
+>
+> Roger
+>
+>
+> On Thu, 15 Jan 2015, Manuel Pizarro Gavil?n wrote:
+>
+>>
+>> Hello:
+>>
+>> I can't install the ' rgdal ' package in R and ' GDAL ' on CentOS 7  
+>> (ELGIS repo added).
+>>
+>> Is there any solution?
+>>
+>> Thanks
+>>
+>>
+>
+> -- 
+> Roger Bivand
+> Department of Economics, Norwegian School of Economics,
+> Helleveien 30, N-5045 Bergen, Norway.
+> voice: +47 55 95 93 55; fax +47 55 95 91 00
+> e-mail: Roger.Bivand at nhh.no
+
+
+-- 
+Manuel Pizarro
+EBD-CSIC
+
+
+From plummerm at iarc.fr  Fri Jan 16 11:22:51 2015
+From: plummerm at iarc.fr (Martyn Plummer)
+Date: Fri, 16 Jan 2015 10:22:51 +0000
+Subject: [R-sig-Fedora] Error installing 'rgdal' on Centos 7
+In-Reply-To: <20150116111828.Horde.7sM5uwwtfTDlTcJH3_UJ4A4@webmail.csic.es>
+References: <20150115110936.Horde.fdQ4_fy03bfSZq6QlC8oaw6@webmail.csic.es>
+	<1421321393.3943.66.camel@iarc.fr>
+	<20150116111828.Horde.7sM5uwwtfTDlTcJH3_UJ4A4@webmail.csic.es>
+Message-ID: <1421403771.3943.86.camel@iarc.fr>
+
+[Snipping r-dig-geo as I do not have the right to post there]
+
+The gdal-config script is provided by the gdal-devel RPM, so you need to
+install that. I did suggest this in my previous email.
+
+Martyn
+
+On Fri, 2015-01-16 at 11:18 +0100, Manuel Pizarro Gavil?n wrote:
+> Good morning Martyn.
+> 
+> Thank you for your email.
+> 
+> Some details for the problem.
+> 
+> This is the message of the console in R:
+> 
+> 
+> ------------------
+> 
+> > install.packages("rgdal")
+> Installing package into  
+> ?/home/aliendist/R/x86_64-redhat-linux-gnu-library/3.1?
+> (as ?lib? is unspecified)
+> probando la URL 'http://cran.rstudio.com/src/contrib/rgdal_0.9-1.tar.gz'
+> Content type 'application/x-gzip' length 1624496 bytes (1.5 Mb)
+> URL abierta
+> ==================================================
+> downloaded 1.5 Mb
+> 
+> * installing *source* package ?rgdal? ...
+> ** package ?rgdal? successfully unpacked and MD5 sums checked
+> configure: CC: gcc -m64 -std=gnu99
+> configure: CXX: g++ -m64
+> configure: rgdal: 0.9-1
+> checking for /usr/bin/svnversion... yes
+> configure: svn revision: 518
+> configure: gdal-config: gdal-config
+> checking gdal-config usability...
+> ./configure: line 2119: gdal-config: command not found
+> no
+> Error: gdal-config not found
+> The gdal-config script distributed with GDAL could not be found.
+> If you have not installed the GDAL libraries, you can
+> download the source from  http://www.gdal.org/
+> If you have installed the GDAL libraries, then make sure that
+> gdal-config is in your path. Try typing gdal-config at a
+> shell prompt and see if it runs. If not, use:
+>   --configure-args='--with-gdal-config=/usr/local/bin/gdal-config'
+> with appropriate values for your installation.
+> 
+> ERROR: configuration failed for package ?rgdal?
+> * removing ?/home/aliendist/R/x86_64-redhat-linux-gnu-library/3.1/rgdal?
+> Warning in install.packages :
+>    installation of package ?rgdal? had non-zero exit status
+> 
+> The downloaded source packages are in
+> 	?/tmp/Rtmpeaf9P4/downloaded_packages?
+> >
+> 
+> -------------------
+> 
+> I tried to install gdal -dev and gdal but it is impossible.
+> 
+> Regards,
+> Manuel
+> 
+> 
+> 
+> 
+> Martyn Plummer <plummerm at iarc.fr> escribi?:
+> 
+> > You don't say exactly what the problem is, but I can give you some
+> > general advice.
+> >
+> > The first thing to check on any RPM-based system is that you have the
+> > appropriate development package installed, in this case gdal-devel.
+> >
+> > I see that ELGIS does not support CentOS 7, so that might be your
+> > problem. EPEL 7 does include gdal so you might rely on their package.
+> >
+> > If neither of these are helpful then you need to be more specific.
+> >
+> > Martyn
+> >
+> > On Thu, 2015-01-15 at 11:09 +0100, Manuel Pizarro Gavil?n wrote:
+> >> Hello:
+> >>
+> >> I can't install the ' rgdal ' package in R and ' GDAL ' on CentOS 7
+> >> (ELGIS repo added).
+> >>
+> >> Is there any solution?
+> >>
+> >> Thanks
+> >>
+> >
+> > -----------------------------------------------------------------------
+> > This message and its attachments are strictly confidential. If you are
+> > not the intended recipient of this message, please immediately notify
+> > the sender and delete it. Since its integrity cannot be guaranteed,
+> > its content cannot involve the sender's responsibility. Any misuse,
+> > any disclosure or publication of its content, either whole or partial,
+> > is prohibited, exception made of formally approved use
+> > -----------------------------------------------------------------------
+> 
+> 
+
+
+From Roger.Bivand at nhh.no  Fri Jan 16 11:38:57 2015
+From: Roger.Bivand at nhh.no (Roger Bivand)
+Date: Fri, 16 Jan 2015 11:38:57 +0100
+Subject: [R-sig-Fedora] [R-sig-Geo] Error installing 'rgdal' on Centos 7
+In-Reply-To: <20150116111941.Horde.3EihRh5Lku2eIOX65WKU9A8@webmail.csic.es>
+References: <20150115110936.Horde.fdQ4_fy03bfSZq6QlC8oaw6@webmail.csic.es>
+	<alpine.LRH.2.03.1501151218170.24971@reclus.nhh.no>
+	<20150116111941.Horde.3EihRh5Lku2eIOX65WKU9A8@webmail.csic.es>
+Message-ID: <alpine.LRH.2.03.1501161131120.10479@reclus.nhh.no>
+
+On Fri, 16 Jan 2015, Manuel Pizarro Gavil?n wrote:
+
+> Hello Roger:
+>
+> Thank you for your email.
+>
+> Some details for the problem.
+>
+> This is the message of the console in R:
+>
+>
+> ------------------
+> install.packages("rgdal")
+> Installing package into 
+> ?/home/aliendist/R/x86_64-redhat-linux-gnu-library/3.1?
+> (as ?lib? is unspecified)
+> probando la URL 'http://cran.rstudio.com/src/contrib/rgdal_0.9-1.tar.gz'
+> Content type 'application/x-gzip' length 1624496 bytes (1.5 Mb)
+> URL abierta
+> ==================================================
+> downloaded 1.5 Mb
+>
+> * installing *source* package ?rgdal? ...
+> ** package ?rgdal? successfully unpacked and MD5 sums checked
+> configure: CC: gcc -m64 -std=gnu99
+> configure: CXX: g++ -m64
+> configure: rgdal: 0.9-1
+> checking for /usr/bin/svnversion... yes
+> configure: svn revision: 518
+> configure: gdal-config: gdal-config
+> checking gdal-config usability...
+> ./configure: line 2119: gdal-config: command not found
+> no
+> Error: gdal-config not found
+> The gdal-config script distributed with GDAL could not be found.
+> If you have not installed the GDAL libraries, you can
+> download the source from  http://www.gdal.org/
+> If you have installed the GDAL libraries, then make sure that
+> gdal-config is in your path. Try typing gdal-config at a
+> shell prompt and see if it runs. If not, use:
+> --configure-args='--with-gdal-config=/usr/local/bin/gdal-config'
+> with appropriate values for your installation.
+>
+> ERROR: configuration failed for package ?rgdal?
+> * removing ?/home/aliendist/R/x86_64-redhat-linux-gnu-library/3.1/rgdal?
+> Warning in install.packages :
+> installation of package ?rgdal? had non-zero exit status
+>
+> The downloaded source packages are in
+>       ?/tmp/Rtmpeaf9P4/downloaded_packages?
+> -------------------
+>
+> I tried to install gdal -dev and gdal but it is impossible.
+
+No, it isn't. Install PROJ.4 first then GDAL from source, and everything 
+is under your control.
+
+The README file I referred to does list the RPMs needed, but you will do 
+better choosing the drivers for GDAL you need yourself, installing their 
+dependencies, and building at least PROJ.4 and GDAL from source. Centos 7 
+does not yet seem to be well supported anywhere for these, and for 6 the 
+versions are typically old or very old.
+
+http://download.osgeo.org/proj/proj-4.8.0.tar.gz
+http://download.osgeo.org/proj/proj-datumgrid-1.5.zip
+
+then
+
+http://download.osgeo.org/gdal/1.11.1/gdal-1.11.1.tar.gz
+
+Remember to run ldconfig after installing to make the shared objects 
+visible.
+
+Roger
+
+>
+> Regards,
+> Manuel
+>
+>
+>
+>
+>
+>
+> Roger Bivand <Roger.Bivand at nhh.no> escribi?:
+>
+>> Please do not cross-post. Please do provide sufficient information to help 
+>> diagnose your problem (here the output of the ./configure run during 
+>> installation). Almost certainly you are trying to install from source when 
+>> one or more external dependency is not satisfied. Did you read:
+>> 
+>> http://cran.r-project.org/bin/linux/redhat/README
+>> 
+>> and note that R-rgdal is *not* provided as a binary?
+>> 
+>> Did you read:
+>> 
+>> http://cran.r-project.org/web/packages/rgdal/index.html
+>> 
+>> Did you download the source package and read the README file, also on 
+>> R-Forge linked from the CRAN page:
+>> 
+>> https://r-forge.r-project.org/scm/viewvc.php/pkg/inst/README?view=markup&revision=409&root=rgdal
+>> 
+>> Roger
+>> 
+>> 
+>> On Thu, 15 Jan 2015, Manuel Pizarro Gavil?n wrote:
+>> 
+>>> 
+>>> Hello:
+>>> 
+>>> I can't install the ' rgdal ' package in R and ' GDAL ' on CentOS 7 (ELGIS 
+>>> repo added).
+>>> 
+>>> Is there any solution?
+>>> 
+>>> Thanks
+>>> 
+>>> 
+>> 
+>> -- 
+>> Roger Bivand
+>> Department of Economics, Norwegian School of Economics,
+>> Helleveien 30, N-5045 Bergen, Norway.
+>> voice: +47 55 95 93 55; fax +47 55 95 91 00
+>> e-mail: Roger.Bivand at nhh.no
+>
+>
+>
+
+-- 
+Roger Bivand
+Department of Economics, Norwegian School of Economics,
+Helleveien 30, N-5045 Bergen, Norway.
+voice: +47 55 95 93 55; fax +47 55 95 91 00
+e-mail: Roger.Bivand at nhh.no
+
+From Thierry.ONKELINX at inbo.be  Fri Jan 16 11:40:08 2015
+From: Thierry.ONKELINX at inbo.be (ONKELINX, Thierry)
+Date: Fri, 16 Jan 2015 10:40:08 +0000
+Subject: [R-sig-Fedora] [R-sig-Geo] Error installing 'rgdal' on Centos 7
+In-Reply-To: <20150116111941.Horde.3EihRh5Lku2eIOX65WKU9A8@webmail.csic.es>
+References: <20150115110936.Horde.fdQ4_fy03bfSZq6QlC8oaw6@webmail.csic.es>
+	<alpine.LRH.2.03.1501151218170.24971@reclus.nhh.no>,
+	<20150116111941.Horde.3EihRh5Lku2eIOX65WKU9A8@webmail.csic.es>
+Message-ID: <AA818EAD2576BC488B4F623941DA742701096F94C3@inbomail.inbo.be>
+
+Dear Manuel,
+
+The underlying problem is that you have problems installing the GDAL library on your system. Without GDAL you cannot install rgdal on Linux OS. You need to provide more information on why it is impossible to install GDAL on your system.
+
+Best regards,
+
+Thierry
+
+ir. Thierry Onkelinx
+Instituut voor natuur- en bosonderzoek / Research Institute for Nature and Forest
+team Biometrie & Kwaliteitszorg / team Biometrics & Quality Assurance
+Kliniekstraat 25
+1070 Anderlecht
+Belgium
++ 32 2 525 02 51
++ 32 54 43 61 85
+Thierry.Onkelinx at inbo.be
+www.inbo.be
+To call in the statistician after the experiment is done may be no more than asking him to perform a post-mortem examination: he may be able to say what the experiment died of. ~ Sir Ronald Aylmer Fisher
+The plural of anecdote is not data. ~ Roger Brinner
+The combination of some data and an aching desire for an answer does not ensure that a reasonable answer can be extracted from a given body of data. ~ John Tukey
+
+________________________________________
+Van: R-sig-Geo [r-sig-geo-bounces at r-project.org] namens Manuel Pizarro Gavil?n [pizarro at ebd.csic.es]
+Verzonden: vrijdag 16 januari 2015 11:19
+Aan: Roger Bivand
+CC: r-sig-geo at r-project.org; r-sig-fedora at r-project.org
+Onderwerp: Re: [R-sig-Geo] Error installing 'rgdal' on Centos 7
+
+Hello Roger:
+
+Thank you for your email.
+
+Some details for the problem.
+
+This is the message of the console in R:
+
+
+------------------
+install.packages("rgdal")
+Installing package into
+?/home/aliendist/R/x86_64-redhat-linux-gnu-library/3.1?
+(as ?lib? is unspecified)
+probando la URL 'http://cran.rstudio.com/src/contrib/rgdal_0.9-1.tar.gz'
+Content type 'application/x-gzip' length 1624496 bytes (1.5 Mb)
+URL abierta
+==================================================
+downloaded 1.5 Mb
+
+* installing *source* package ?rgdal? ...
+** package ?rgdal? successfully unpacked and MD5 sums checked
+configure: CC: gcc -m64 -std=gnu99
+configure: CXX: g++ -m64
+configure: rgdal: 0.9-1
+checking for /usr/bin/svnversion... yes
+configure: svn revision: 518
+configure: gdal-config: gdal-config
+checking gdal-config usability...
+./configure: line 2119: gdal-config: command not found
+no
+Error: gdal-config not found
+The gdal-config script distributed with GDAL could not be found.
+If you have not installed the GDAL libraries, you can
+download the source from  http://www.gdal.org/
+If you have installed the GDAL libraries, then make sure that
+gdal-config is in your path. Try typing gdal-config at a
+shell prompt and see if it runs. If not, use:
+  --configure-args='--with-gdal-config=/usr/local/bin/gdal-config'
+with appropriate values for your installation.
+
+ERROR: configuration failed for package ?rgdal?
+* removing ?/home/aliendist/R/x86_64-redhat-linux-gnu-library/3.1/rgdal?
+Warning in install.packages :
+   installation of package ?rgdal? had non-zero exit status
+
+The downloaded source packages are in
+         ?/tmp/Rtmpeaf9P4/downloaded_packages?
+-------------------
+
+I tried to install gdal -dev and gdal but it is impossible.
+
+Regards,
+Manuel
+
+
+
+
+
+
+Roger Bivand <Roger.Bivand at nhh.no> escribi?:
+
+> Please do not cross-post. Please do provide sufficient information
+> to help diagnose your problem (here the output of the ./configure
+> run during installation). Almost certainly you are trying to install
+> from source when one or more external dependency is not satisfied.
+> Did you read:
+>
+> http://cran.r-project.org/bin/linux/redhat/README
+>
+> and note that R-rgdal is *not* provided as a binary?
+>
+> Did you read:
+>
+> http://cran.r-project.org/web/packages/rgdal/index.html
+>
+> Did you download the source package and read the README file, also
+> on R-Forge linked from the CRAN page:
+>
+> https://r-forge.r-project.org/scm/viewvc.php/pkg/inst/README?view=markup&revision=409&root=rgdal
+>
+> Roger
+>
+>
+> On Thu, 15 Jan 2015, Manuel Pizarro Gavil?n wrote:
+>
+>>
+>> Hello:
+>>
+>> I can't install the ' rgdal ' package in R and ' GDAL ' on CentOS 7
+>> (ELGIS repo added).
+>>
+>> Is there any solution?
+>>
+>> Thanks
+>>
+>>
+>
+> --
+> Roger Bivand
+> Department of Economics, Norwegian School of Economics,
+> Helleveien 30, N-5045 Bergen, Norway.
+> voice: +47 55 95 93 55; fax +47 55 95 91 00
+> e-mail: Roger.Bivand at nhh.no
+
+
+--
+Manuel Pizarro
+EBD-CSIC
+
+_______________________________________________
+R-sig-Geo mailing list
+R-sig-Geo at r-project.org
+https://stat.ethz.ch/mailman/listinfo/r-sig-geo
+Disclaimer<https://www.inbo.be/nl/disclaimer-mailberichten-van-het-inbo>
+
+

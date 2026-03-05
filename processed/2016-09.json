@@ -1,0 +1,141 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2016-09",
+  "messages": [
+    {
+      "id": "msg-082465ff772e",
+      "message_id": "<CAFxAhE98LPJr1gP8ez99XBn1nOv1kaEa+v7GnwRofNYc79R63A@mail.gmail.com>",
+      "from_name": "Eric J. Van der Velden",
+      "from_email_hash": "8a3ce1b80cb364aa5f60829423f5b5b40434353d27af3339371ed38c3e4ede40",
+      "date": "2016-09-07T09:15:38+02:00",
+      "subject": "[R-sig-Fedora] How to install gmp in R on fedora",
+      "subject_clean": "How to install gmp in R on fedora",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello.\n\nI have installed R with dnf.\n\nAlso I have installed gmp and gmp-devel with dnf (I think gmp was already\ninstalled).\n\nIn R I did\n\n> install.packages('Rmpfr')\n\nBut then I get\n\nconfigure: error: GNU MP not found, or not 4.1.4 or up, see\nhttp://gmplib.org\n\nWhat must I do?\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello.\n\nI have installed R with dnf.\n\nAlso I have installed gmp and gmp-devel with dnf (I think gmp was already\ninstalled).\n\nIn R I did\n\n> install.packages('Rmpfr')\n\nBut then I get\n\nconfigure: error: ",
+      "thread_id": "thread-082465ff772e",
+      "thread_depth": 0,
+      "month": "2016-09"
+    },
+    {
+      "id": "msg-ed67d1f312f5",
+      "message_id": "<1473235761.1976.149.camel@iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2016-09-07T08:10:17Z",
+      "subject": "[R-sig-Fedora] How to install gmp in R on fedora",
+      "subject_clean": "How to install gmp in R on fedora",
+      "in_reply_to": "<CAFxAhE98LPJr1gP8ez99XBn1nOv1kaEa+v7GnwRofNYc79R63A@mail.gmail.com>",
+      "references": [
+        "<CAFxAhE98LPJr1gP8ez99XBn1nOv1kaEa+v7GnwRofNYc79R63A@mail.gmail.com>"
+      ],
+      "body_plain": "It works for me. For more information you need to download the source\npackage and install via\n\ntar xfvz gmp_0.5-12.tar.gz?\nR CMD INSTALL gmp\n\nThen view the contents of gmp/config.log for a more detailed error\nmessage.\n\nMartyn\n\nOn Wed, 2016-09-07 at 09:15 +0200, Eric J. Van der Velden wrote:\n> Hello.\n> \n> I have installed R with dnf.\n> \n> Also I have installed gmp and gmp-devel with dnf (I think gmp was\n> already\n> installed).\n> \n> In R I did\n> \n> > \n> > install.packages('Rmpfr')\n> \n> But then I get\n> \n> configure: error: GNU MP not found, or not 4.1.4 or up, see\n> http://gmplib.org\n> \n> What must I do?\n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora-----------------------------------------------------------------------\nThis message and its attachments are strictly confidenti...{{dropped:8}}",
+      "body_snippet": "It works for me. For more information you need to download the source\npackage and install via\n\ntar xfvz gmp_0.5-12.tar.gz?\nR CMD INSTALL gmp\n\nThen view the contents of gmp/config.log for a more detail",
+      "thread_id": "thread-082465ff772e",
+      "thread_depth": 1,
+      "month": "2016-09"
+    },
+    {
+      "id": "msg-428298fe28f9",
+      "message_id": "<CABFfbXuz6_sp0ANDJ2ayMf3=9je7-hhpHq=WO24eQV0A5LFMRg@mail.gmail.com>",
+      "from_name": "Jeroen Ooms",
+      "from_email_hash": "8cec1f7bf29300b425ea1be687fbb6d3fccf3de57737bb017534932e9e18a5f3",
+      "date": "2016-09-16T16:28:30+02:00",
+      "subject": "[R-sig-Fedora] R_DOC_DIR on EL6",
+      "subject_clean": "R_DOC_DIR on EL6",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Where are the R docs located on EL6? It seems neither R.home(\"doc\")\nnor Sys.getenv(\"R_DOC_DIR\") exists?",
+      "body_snippet": "Where are the R docs located on EL6? It seems neither R.home(\"doc\")\nnor Sys.getenv(\"R_DOC_DIR\") exists?",
+      "thread_id": "thread-428298fe28f9",
+      "thread_depth": 0,
+      "month": "2016-09"
+    },
+    {
+      "id": "msg-9e91d6828c1a",
+      "message_id": "<ddbd408e-3d57-d50e-1738-b476de97bd05@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2016-09-21T13:39:07-04:00",
+      "subject": "[R-sig-Fedora] R_DOC_DIR on EL6",
+      "subject_clean": "R_DOC_DIR on EL6",
+      "in_reply_to": "<CABFfbXuz6_sp0ANDJ2ayMf3=9je7-hhpHq=WO24eQV0A5LFMRg@mail.gmail.com>",
+      "references": [
+        "<CABFfbXuz6_sp0ANDJ2ayMf3=9je7-hhpHq=WO24eQV0A5LFMRg@mail.gmail.com>"
+      ],
+      "body_plain": "On 09/16/2016 10:28 AM, Jeroen Ooms wrote:\n> Where are the R docs located on EL6? It seems neither R.home(\"doc\")\n> nor Sys.getenv(\"R_DOC_DIR\") exists?\n\n/usr/share/doc/R-3.3.1\n\n~tom\n\n==\nRed Hat",
+      "body_snippet": "On 09/16/2016 10:28 AM, Jeroen Ooms wrote:\n> Where are the R docs located on EL6? It seems neither R.home(\"doc\")\n> nor Sys.getenv(\"R_DOC_DIR\") exists?\n\n/usr/share/doc/R-3.3.1\n\n~tom\n\n==\nRed Hat",
+      "thread_id": "thread-428298fe28f9",
+      "thread_depth": 1,
+      "month": "2016-09"
+    },
+    {
+      "id": "msg-18b255f57a6c",
+      "message_id": "<CABFfbXsPtEaDR8uGCxEZEtxtebPd1p4kNrKehmUZQEz=nPtcFw@mail.gmail.com>",
+      "from_name": "Jeroen Ooms",
+      "from_email_hash": "8cec1f7bf29300b425ea1be687fbb6d3fccf3de57737bb017534932e9e18a5f3",
+      "date": "2016-09-22T17:55:12+02:00",
+      "subject": "[R-sig-Fedora] R_DOC_DIR on EL6",
+      "subject_clean": "R_DOC_DIR on EL6",
+      "in_reply_to": "<ddbd408e-3d57-d50e-1738-b476de97bd05@redhat.com>",
+      "references": [
+        "<CABFfbXuz6_sp0ANDJ2ayMf3=9je7-hhpHq=WO24eQV0A5LFMRg@mail.gmail.com>",
+        "<ddbd408e-3d57-d50e-1738-b476de97bd05@redhat.com>"
+      ],
+      "body_plain": "On Wed, Sep 21, 2016 at 7:39 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> On 09/16/2016 10:28 AM, Jeroen Ooms wrote:\n> > Where are the R docs located on EL6? It seems neither R.home(\"doc\")\n> > nor Sys.getenv(\"R_DOC_DIR\") exists?\n>\n> /usr/share/doc/R-3.3.1\n>\n\nCan we set this in R_DOC_DIR accordingly so that it can be\nprogrammatically found?",
+      "body_snippet": "On Wed, Sep 21, 2016 at 7:39 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> On 09/16/2016 10:28 AM, Jeroen Ooms wrote:\n> > Where are the R docs located on EL6? It seems neither R.home(\"doc\")\n> >",
+      "thread_id": "thread-428298fe28f9",
+      "thread_depth": 2,
+      "month": "2016-09"
+    },
+    {
+      "id": "msg-7c23130617c3",
+      "message_id": "<1474561818.3160.157.camel@iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2016-09-22T16:31:21Z",
+      "subject": "[R-sig-Fedora] R_DOC_DIR on EL6",
+      "subject_clean": "R_DOC_DIR on EL6",
+      "in_reply_to": "<CABFfbXsPtEaDR8uGCxEZEtxtebPd1p4kNrKehmUZQEz=nPtcFw@mail.gmail.com>",
+      "references": [
+        "<CABFfbXuz6_sp0ANDJ2ayMf3=9je7-hhpHq=WO24eQV0A5LFMRg@mail.gmail.com>",
+        "<ddbd408e-3d57-d50e-1738-b476de97bd05@redhat.com>",
+        "<CABFfbXsPtEaDR8uGCxEZEtxtebPd1p4kNrKehmUZQEz=nPtcFw@mail.gmail.com>"
+      ],
+      "body_plain": "On Thu, 2016-09-22 at 17:55 +0200, Jeroen Ooms wrote:\n> On Wed, Sep 21, 2016 at 7:39 PM, Tom Callaway <tcallawa at redhat.com>\n> wrote:\n> > \n> > \n> > On 09/16/2016 10:28 AM, Jeroen Ooms wrote:\n> > > \n> > > Where are the R docs located on EL6? It seems neither\n> > > R.home(\"doc\")\n> > > nor Sys.getenv(\"R_DOC_DIR\") exists?\n> > \n> > /usr/share/doc/R-3.3.1\n> > \n> \n> Can we set this in R_DOC_DIR accordingly so that it can be\n> programmatically found?\n\nR_DOC_DIR is set in the shell script /usr/bin/R that launches R. For a\ndefault build of R it is ${R_HOME_DIR}/doc but the configure script\nthat builds R in the Fedora spec file resets it using the variable\nrdocdir as described in the R-admin manual.\n\nMartyn\n\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora-----------------------------------------------------------------------\nThis message and its attachments are strictly confidenti...{{dropped:8}}",
+      "body_snippet": "On Thu, 2016-09-22 at 17:55 +0200, Jeroen Ooms wrote:\n> On Wed, Sep 21, 2016 at 7:39 PM, Tom Callaway <tcallawa at redhat.com>\n> wrote:\n> > \n> > \n> > On 09/16/2016 10:28 AM, Jeroen Ooms wrote:\n> > > \n",
+      "thread_id": "thread-428298fe28f9",
+      "thread_depth": 3,
+      "month": "2016-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-082465ff772e",
+      "subject": "How to install gmp in R on fedora",
+      "message_count": 2,
+      "participants": [
+        "Eric J. Van der Velden",
+        "Martyn Plummer"
+      ],
+      "started": "2016-09-07T09:15:38+02:00",
+      "last_reply": "2016-09-07T08:10:17+00:00",
+      "root_message_id": "msg-082465ff772e"
+    },
+    {
+      "id": "thread-428298fe28f9",
+      "subject": "R_DOC_DIR on EL6",
+      "message_count": 4,
+      "participants": [
+        "Jeroen Ooms",
+        "Martyn Plummer",
+        "Tom Callaway"
+      ],
+      "started": "2016-09-16T16:28:30+02:00",
+      "last_reply": "2016-09-22T16:31:21+00:00",
+      "root_message_id": "msg-428298fe28f9"
+    }
+  ]
+}

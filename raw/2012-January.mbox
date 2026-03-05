@@ -1,0 +1,127 @@
+From tcallawa at redhat.com  Wed Jan  4 23:01:46 2012
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 04 Jan 2012 17:01:46 -0500
+Subject: [R-sig-Fedora] install warning on fedora 16
+In-Reply-To: <CAHz+bWaoWYjy40+i3PhCd=5=E1Eja9gXtu949=wOPc_7b1cBBQ@mail.gmail.com>
+References: <CAHz+bWaoWYjy40+i3PhCd=5=E1Eja9gXtu949=wOPc_7b1cBBQ@mail.gmail.com>
+Message-ID: <4F04CC4A.8010500@redhat.com>
+
+On 12/24/2011 10:39 PM, Mark Leeds wrote:
+> Does anyone know what the problem might be ? Maybe a difference with gcc ?
+> It's only a warning but it scares me a little because the variables should
+> be getting used contrary to what the warning says.
+> Thanks a lot for any hints/suggestions.
+
+Well, I can't find the source code to be sure, but the gcc in F16 is
+newer than the ones before it, and each new gcc is usually stricter
+about std compliance than the one before. In addition, -std=gnu99 is
+being passed as an optflag, which may result in these warnings when they
+would not otherwise.
+
+I would look very closely at those variables and be sure there is not a
+logic path where they are set but not actually used.
+
+~tom
+
+==
+Fedora Project
+
+
+From markleeds2 at gmail.com  Wed Jan  4 23:06:40 2012
+From: markleeds2 at gmail.com (Mark Leeds)
+Date: Wed, 4 Jan 2012 17:06:40 -0500
+Subject: [R-sig-Fedora] install warning on fedora 16
+In-Reply-To: <4F04CC4A.8010500@redhat.com>
+References: <CAHz+bWaoWYjy40+i3PhCd=5=E1Eja9gXtu949=wOPc_7b1cBBQ@mail.gmail.com>
+	<4F04CC4A.8010500@redhat.com>
+Message-ID: <CAHz+bWada10cJc=mYF+36K0XiduBGyH-pOCdEU1ohDLBcHGtQw@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120104/c3d697b9/attachment.pl>
+
+From tcallawa at redhat.com  Wed Jan  4 23:12:57 2012
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 04 Jan 2012 17:12:57 -0500
+Subject: [R-sig-Fedora] install warning on fedora 16
+In-Reply-To: <CAHz+bWada10cJc=mYF+36K0XiduBGyH-pOCdEU1ohDLBcHGtQw@mail.gmail.com>
+References: <CAHz+bWaoWYjy40+i3PhCd=5=E1Eja9gXtu949=wOPc_7b1cBBQ@mail.gmail.com>
+	<4F04CC4A.8010500@redhat.com>
+	<CAHz+bWada10cJc=mYF+36K0XiduBGyH-pOCdEU1ohDLBcHGtQw@mail.gmail.com>
+Message-ID: <4F04CEE9.1020505@redhat.com>
+
+On 01/04/2012 05:06 PM, Mark Leeds wrote:
+> thanks tom: I've just been letting the error happen and everything seems
+> fine. When you have a chance, could you explain what you'd like me to do
+> ? I'd love to look into
+> it further but I'm not sure what you mean by your last statement. thanks.
+> 
+
+Look at the gcc invocation lines and the warnings:
+
+gcc -m32 -std=gnu99 -I/usr/include/R  -I/usr/local/include    -fpic  -O2 -g
+-pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector
+--param=ssp-buffer-size=4  -m32 -march=i686 -mtune=atom
+-fasynchronous-unwind-tables -c ar1_functions.c -o ar1_functions.o
+ar1_functions.c: In function ?calc_ar1_hessian?:
+ar1_functions.c:261:10: warning: variable ?phigrad? set but not used
+[-Wunused-but-set-variable]
+ar1_functions.c:260:10: warning: variable ?alphagrad? set but not used
+[-Wunused-but-set-variable]
+ar1_functions.c:259:10: warning: variable ?betagrad? set but not used
+[-Wunused-but-set-variable]
+ar1_functions.c:258:10: warning: variable ?rhograd? set but not used
+[-Wunused-but-set-variable]
+gcc -m32 -std=gnu99 -I/usr/include/R  -I/usr/local/include    -fpic  -O2 -g
+-pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector
+--param=ssp-buffer-size=4  -m32 -march=i686 -mtune=atom
+-fasynchronous-unwind-tables -c ma1_functions.c -o ma1_functions.o
+ma1_functions.c: In function ?calc_ma1_hessian?:
+ma1_functions.c:246:10: warning: variable ?alphagrad? set but not used
+[-Wunused-but-set-variable]
+ma1_functions.c:245:10: warning: variable ?betagrad? set but not used
+[-Wunused-but-set-variable]
+ma1_functions.c:244:10: warning: variable ?rhograd? set but not used
+[-Wunused-but-set-variable]
+
+The warnings are output in the syntax:
+
+sourcefile:line_number:row_number: warning: description of warning
+
+So, for the first warning:
+
+ar1_functions.c: In function ?calc_ar1_hessian?:
+ar1_functions.c:261:10: warning: variable ?phigrad? set but not used
+[-Wunused-but-set-variable]
+
+Look inside arl_functions.c, line 261, row 10. It should be a definition
+or assignment of "phigrad". If you look throughout the rest of
+calc_arl_hessian, you may discover that "phigrad" is not being used in
+some workflows. This is what gcc is telling you. Now, if you don't need
+phigrad, this is harmless, but in that case, why assign a value to it?
+In most cases, this check finds errors in code where you actually do
+want to use phigrad.
+
+Hope that helps,
+
+~tom
+
+==
+Fedora Project
+
+
+From markleeds2 at gmail.com  Wed Jan  4 23:19:02 2012
+From: markleeds2 at gmail.com (Mark Leeds)
+Date: Wed, 4 Jan 2012 17:19:02 -0500
+Subject: [R-sig-Fedora] install warning on fedora 16
+In-Reply-To: <4F04CEE9.1020505@redhat.com>
+References: <CAHz+bWaoWYjy40+i3PhCd=5=E1Eja9gXtu949=wOPc_7b1cBBQ@mail.gmail.com>
+	<4F04CC4A.8010500@redhat.com>
+	<CAHz+bWada10cJc=mYF+36K0XiduBGyH-pOCdEU1ohDLBcHGtQw@mail.gmail.com>
+	<4F04CEE9.1020505@redhat.com>
+Message-ID: <CAHz+bWYcjZ-K+rdSF6FsnkOZDDUFAa2rZAf9tC4TPsenEeL8Zg@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120104/fbe2eae1/attachment.pl>
+

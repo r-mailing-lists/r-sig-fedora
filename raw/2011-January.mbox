@@ -1,0 +1,51 @@
+From mattbascom at gmail.com  Fri Jan 28 21:29:58 2011
+From: mattbascom at gmail.com (Matthew Bascom)
+Date: Fri, 28 Jan 2011 12:29:58 -0800
+Subject: [R-sig-Fedora] Ubuntu?
+Message-ID: <AANLkTi=bSgfs-i0jOSdDjsSN2Ds=VduQm1jTbnJ9V0a9@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110128/bf55f688/attachment.pl>
+
+From marc_schwartz at me.com  Fri Jan 28 21:38:42 2011
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Fri, 28 Jan 2011 14:38:42 -0600
+Subject: [R-sig-Fedora] Ubuntu?
+In-Reply-To: <AANLkTi=bSgfs-i0jOSdDjsSN2Ds=VduQm1jTbnJ9V0a9@mail.gmail.com>
+References: <AANLkTi=bSgfs-i0jOSdDjsSN2Ds=VduQm1jTbnJ9V0a9@mail.gmail.com>
+Message-ID: <93F72A24-1B33-432C-BE41-4EAF306F6EF7@me.com>
+
+On Jan 28, 2011, at 2:29 PM, Matthew Bascom wrote:
+
+> Hello,
+> 
+> What is your opinion on Ubuntu.  I?ve encountered a couple hurdles here.
+> 
+> The Keyboard: I have to hit the quote button twice to get a quote or
+> apostrophe! I tried adjusting keyboard settings but nothing changed.  And
+> the RKWard GUI won?t recognize quotes from my machines even though they show
+> up on the RKWard text editor. On the other hand, RKWard will quoted material
+> whien  I copy and paste material with quotes, such as in a help.search
+> query.
+> 
+> Thank you in advance,
+> 
+> Matt
+
+
+You would be better served by posing your initial question to r-sig-debian, since Ubuntu is a Debian derivative.
+
+More info here:
+
+  https://stat.ethz.ch/mailman/listinfo/r-sig-debian
+
+There are also RKWard specific resources. More info here:
+
+  http://rkward.sourceforge.net/
+
+HTH,
+
+Marc Schwartz
+
+

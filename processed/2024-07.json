@@ -1,0 +1,161 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2024-07",
+  "messages": [
+    {
+      "id": "msg-77cc42d2356d",
+      "message_id": "<5fea70a3-8b28-4af9-998b-1b1086d51899@hiddenelephants.co.uk>",
+      "from_name": "Tim Taylor",
+      "from_email_hash": "e3071ae8257bda4085d8999a9801b324cc930f4864ac0aec1c44601958781446",
+      "date": "2024-07-04T07:42:11+01:00",
+      "subject": "[R-sig-Fedora] libdeflate",
+      "subject_clean": "libdeflate",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Since the 4.4.0 release, R can make use of libdeflate. From the release \nnotes:\n\n > memCompress() and memDecompress() will use the libdeflate library \n(https://github.com/ebiggers/libdeflate) if installed. This uses the \nsame type of compression for type = \"gzip\" but is 1.5-2x faster than the \nsystem libz library on some common platforms: the speed-up may depend on \nthe library version.\n\n >? If the libdeflate library and headers are available, libdeflate \nrather than libz is used to (de)compress R objects in lazy-load \ndatabases. Typically tasks spend up to 5% of their time on such \noperations, although creating lazy-data databases is one of the exceptions.\n > This can be suppressed if the library is available by the configure \noption --without-libdeflate-compression.\n\nWould it be worth taking advantage of this in the Fedora build?\n\nTim",
+      "body_snippet": "Since the 4.4.0 release, R can make use of libdeflate. From the release \nnotes:\n\n > memCompress() and memDecompress() will use the libdeflate library \n(https://github.com/ebiggers/libdeflate) if insta",
+      "thread_id": "thread-77cc42d2356d",
+      "thread_depth": 0,
+      "month": "2024-07"
+    },
+    {
+      "id": "msg-37348055d67a",
+      "message_id": "<CALEXWq1qFJ_-cyBZfQ_6xX_cB_AK-BDjOm7jbzv+6w-s7JWuXQ@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2024-07-04T20:33:13+02:00",
+      "subject": "[R-sig-Fedora] libdeflate",
+      "subject_clean": "libdeflate",
+      "in_reply_to": "<5fea70a3-8b28-4af9-998b-1b1086d51899@hiddenelephants.co.uk>",
+      "references": [
+        "<5fea70a3-8b28-4af9-998b-1b1086d51899@hiddenelephants.co.uk>"
+      ],
+      "body_plain": "Thanks, good catch. R has been rebuilt with support for libdeflate and will\nbe available soon as an update.\n\nI?aki\n\nOn Thu, 4 Jul 2024 at 08:43, Tim Taylor <tim.taylor at hiddenelephants.co.uk>\nwrote:\n\n> Since the 4.4.0 release, R can make use of libdeflate. From the release\n> notes:\n>\n>  > memCompress() and memDecompress() will use the libdeflate library\n> (https://github.com/ebiggers/libdeflate) if installed. This uses the\n> same type of compression for type = \"gzip\" but is 1.5-2x faster than the\n> system libz library on some common platforms: the speed-up may depend on\n> the library version.\n>\n>  >  If the libdeflate library and headers are available, libdeflate\n> rather than libz is used to (de)compress R objects in lazy-load\n> databases. Typically tasks spend up to 5% of their time on such\n> operations, although creating lazy-data databases is one of the exceptions.\n>  > This can be suppressed if the library is available by the configure\n> option --without-libdeflate-compression.\n>\n> Would it be worth taking advantage of this in the Fedora build?\n>\n> Tim\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\n-- \nI?aki ?car\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Thanks, good catch. R has been rebuilt with support for libdeflate and will\nbe available soon as an update.\n\nI?aki\n\nOn Thu, 4 Jul 2024 at 08:43, Tim Taylor <tim.taylor at hiddenelephants.co.uk>\nwrote:",
+      "thread_id": "thread-77cc42d2356d",
+      "thread_depth": 1,
+      "month": "2024-07"
+    },
+    {
+      "id": "msg-009a66aa8b6b",
+      "message_id": "<CAL3-7Mqqz0VTxM_FwcLp=7oXNKZFNPOq0f=aVNMJSWDA6_sgaQ@mail.gmail.com>",
+      "from_name": "Ian Malone",
+      "from_email_hash": "6be4249cdfb286b35b2d0444023c8b971e1a8ed5b87da933a86af0577bad3539",
+      "date": "2024-07-17T10:31:29+01:00",
+      "subject": "[R-sig-Fedora] default pager is more",
+      "subject_clean": "default pager is more",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Was wondering why R help in recent Fedora only provided --More--\nprompt for viewing, rather than allowing arrow key navigation as on\nRHEL. It turns out it uses a system command for paging and the current\ndefault pager is more:\ngrep PAGER /usr/lib64/R/etc/Renviron\nPAGER=${PAGER-'/usr/bin/more'}\n\nrpm -qf /usr/lib64/R/etc/Renviron\nR-core-4.4.1-3.fc41.x86_64\n\nThis primarily affects function help, where less is much more capable\nfor navigation and searching.\n\nBack in 2011 there was some discussion on this list, it it seems the\nintention is the default should be less:\nhttps://stat.ethz.ch/pipermail/r-sig-fedora/2011-August/000194.html\n\nI hadn't noticed an issue until recently upgrading to fc41 testing,\nhowever it appears to be the case in FC39 and EL9, while the EL8\npackage is still less:\n\nFor R-core-4.3.3-2.fc39.x86_64:\nPAGER=${PAGER-'/usr/bin/more'}\n\nR-core-4.4.1-3.el9.x86_64:\nPAGER=${PAGER-'/usr/bin/more'}\n\nR-core-4.4.1-3.el8.x86_64\nPAGER=${PAGER-'/usr/bin/less'}\n\nconfigure for R still prefers less if available:\n$ grep \"ac_prog.*PAGER\" /tmp/R-4.4.1-3.fc41.src/R-4.4.1/configure\nfor ac_prog in ${PAGER} less more page pg\n\nI suspect this was fixed (certainly don't remember it from Fedora <39,\nbut I'd have to hunt down packages to check) and has regressed\nrelatively recently.\n\n-- \nimalone",
+      "body_snippet": "Was wondering why R help in recent Fedora only provided --More--\nprompt for viewing, rather than allowing arrow key navigation as on\nRHEL. It turns out it uses a system command for paging and the curr",
+      "thread_id": "thread-009a66aa8b6b",
+      "thread_depth": 0,
+      "month": "2024-07"
+    },
+    {
+      "id": "msg-868fb23bb1b9",
+      "message_id": "<CALEXWq3JC82NWDraOh+R2t4yFSLcZ7kz8viTV_-4mxD=SmZ6jg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2024-07-18T11:12:40+02:00",
+      "subject": "[R-sig-Fedora] default pager is more",
+      "subject_clean": "default pager is more",
+      "in_reply_to": "<CAL3-7Mqqz0VTxM_FwcLp=7oXNKZFNPOq0f=aVNMJSWDA6_sgaQ@mail.gmail.com>",
+      "references": [
+        "<CAL3-7Mqqz0VTxM_FwcLp=7oXNKZFNPOq0f=aVNMJSWDA6_sgaQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Wed, 17 Jul 2024 at 11:33, Ian Malone <ibmalone at gmail.com> wrote:\n\n> Was wondering why R help in recent Fedora only provided --More--\n> prompt for viewing, rather than allowing arrow key navigation as on\n> RHEL. It turns out it uses a system command for paging and the current\n> default pager is more:\n> grep PAGER /usr/lib64/R/etc/Renviron\n> PAGER=${PAGER-'/usr/bin/more'}\n>\n> rpm -qf /usr/lib64/R/etc/Renviron\n> R-core-4.4.1-3.fc41.x86_64\n>\n\nThis was dropped as part of an effort to minimize dependencies of R-core,\nwith e.g. containers in mind.\n\n\n> This primarily affects function help, where less is much more capable\n> for navigation and searching.\n>\n> Back in 2011 there was some discussion on this list, it it seems the\n> intention is the default should be less:\n> https://stat.ethz.ch/pipermail/r-sig-fedora/2011-August/000194.html\n\n\nThese days there are other utilities more capable than less. Also these\ndays most people don't read R docs in the console.\nIf you do and do have a preferred pager, then you can do e.g.\n\n$ echo \"PAGER=less\" >> ~/.Renviron\n\nand you're good to go.\n\n\n> I hadn't noticed an issue until recently upgrading to fc41 testing,\n> however it appears to be the case in FC39 and EL9, while the EL8\n> package is still less:\n>\n> For R-core-4.3.3-2.fc39.x86_64:\n> PAGER=${PAGER-'/usr/bin/more'}\n>\n> R-core-4.4.1-3.el9.x86_64:\n> PAGER=${PAGER-'/usr/bin/more'}\n>\n> R-core-4.4.1-3.el8.x86_64\n> PAGER=${PAGER-'/usr/bin/less'}\n>\n\nThis is probably because \"less\" still is part of the default image in\nEPEL8, but the spec is exactly the same.\n\n\n> configure for R still prefers less if available:\n> $ grep \"ac_prog.*PAGER\" /tmp/R-4.4.1-3.fc41.src/R-4.4.1/configure\n> for ac_prog in ${PAGER} less more page pg\n>\n> I suspect this was fixed (certainly don't remember it from Fedora <39,\n> but I'd have to hunt down packages to check) and has regressed\n> relatively recently.\n>\n\nAs said, it is not a regression, but a conscious decision.\n\n-- \nI?aki ?car\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On Wed, 17 Jul 2024 at 11:33, Ian Malone <ibmalone at gmail.com> wrote:\n\n> Was wondering why R help in recent Fedora only provided --More--\n> prompt for viewing, rather than allowing arrow key navigat",
+      "thread_id": "thread-009a66aa8b6b",
+      "thread_depth": 1,
+      "month": "2024-07"
+    },
+    {
+      "id": "msg-0ef8ca8349c5",
+      "message_id": "<CAL3-7Mpq1dOr8XuyqJrPJeqqyDX22ef_7ZPn18mVNtmknKoz3g@mail.gmail.com>",
+      "from_name": "Ian Malone",
+      "from_email_hash": "6be4249cdfb286b35b2d0444023c8b971e1a8ed5b87da933a86af0577bad3539",
+      "date": "2024-07-18T17:58:03+01:00",
+      "subject": "[R-sig-Fedora] default pager is more",
+      "subject_clean": "default pager is more",
+      "in_reply_to": "<CALEXWq3JC82NWDraOh+R2t4yFSLcZ7kz8viTV_-4mxD=SmZ6jg@mail.gmail.com>",
+      "references": [
+        "<CAL3-7Mqqz0VTxM_FwcLp=7oXNKZFNPOq0f=aVNMJSWDA6_sgaQ@mail.gmail.com>",
+        "<CALEXWq3JC82NWDraOh+R2t4yFSLcZ7kz8viTV_-4mxD=SmZ6jg@mail.gmail.com>"
+      ],
+      "body_plain": "On Thu, 18 Jul 2024 at 10:12, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n>\n> On Wed, 17 Jul 2024 at 11:33, Ian Malone <ibmalone at gmail.com> wrote:\n>>\n>> Was wondering why R help in recent Fedora only provided --More--\n>> prompt for viewing, rather than allowing arrow key navigation as on\n>> RHEL. It turns out it uses a system command for paging and the current\n>> default pager is more:\n>> grep PAGER /usr/lib64/R/etc/Renviron\n>> PAGER=${PAGER-'/usr/bin/more'}\n>>\n>> rpm -qf /usr/lib64/R/etc/Renviron\n>> R-core-4.4.1-3.fc41.x86_64\n>\n>\n> This was dropped as part of an effort to minimize dependencies of R-core, with e.g. containers in mind.\n>\n\nR-core is > 100MB not including dependencies.\n\"R\" additionally pulls R-devel and another 167MB of installed dependencies.\nless is ~370kB (and incidentally a dependency of git)\n\n>>\n>> This primarily affects function help, where less is much more capable\n>> for navigation and searching.\n>>\n>> Back in 2011 there was some discussion on this list, it it seems the\n>> intention is the default should be less:\n>> https://stat.ethz.ch/pipermail/r-sig-fedora/2011-August/000194.html\n>\n>\n> These days there are other utilities more capable than less.\n\nThis is not really the issue, although if there are any that can be\nexpected to be well supported and are in fact included in Fedora then\nplease do consider making one the default. \"most\" installs at about\n130kB, although R will not autoconfigure to use it. Maybe suggest it\nto upstream?\n\n> Also these days most people don't read R docs in the console.\n\nAh, I'm \"holding it wrong\".\nInstalling Rstudio to read documentation is 580MB and only useful\nlocally. Additionally these are R docs, not R Studio docs.\n\n> If you do and do have a preferred pager, then you can do e.g.\n>\n> $ echo \"PAGER=less\" >> ~/.Renviron\n\nYes, I can set an environment variable.\n\n>\n> and you're good to go.\n\nI was aware of that before writing. However this represents a lot of\nwasted effort for every person who encounters this; it is not obvious\nwhere in the documentation to look,\nhttps://www.r-project.org/help.html or help(help) do not make any\nmention of file.show().\n\n<snip>\n>>\n>> I suspect this was fixed (certainly don't remember it from Fedora <39,\n>> but I'd have to hunt down packages to check) and has regressed\n>> relatively recently.\n>\n>\n> As said, it is not a regression, but a conscious decision.\n>\nThis is certainly a point of view.\n\n\n--\nimalone",
+      "body_snippet": "On Thu, 18 Jul 2024 at 10:12, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n>\n> On Wed, 17 Jul 2024 at 11:33, Ian Malone <ibmalone at gmail.com> wrote:\n>>\n>> Was wondering why R help in recent Fedo",
+      "thread_id": "thread-009a66aa8b6b",
+      "thread_depth": 2,
+      "month": "2024-07"
+    },
+    {
+      "id": "msg-451c41c0ce2b",
+      "message_id": "<CALEXWq2zRMimDon=BjYvpzXRByjN8+vW2tBZNj+6oc6DY-JyKw@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2024-07-22T17:46:29+02:00",
+      "subject": "[R-sig-Fedora] default pager is more",
+      "subject_clean": "default pager is more",
+      "in_reply_to": "<CAL3-7Mpq1dOr8XuyqJrPJeqqyDX22ef_7ZPn18mVNtmknKoz3g@mail.gmail.com>",
+      "references": [
+        "<CAL3-7Mqqz0VTxM_FwcLp=7oXNKZFNPOq0f=aVNMJSWDA6_sgaQ@mail.gmail.com>",
+        "<CALEXWq3JC82NWDraOh+R2t4yFSLcZ7kz8viTV_-4mxD=SmZ6jg@mail.gmail.com>",
+        "<CAL3-7Mpq1dOr8XuyqJrPJeqqyDX22ef_7ZPn18mVNtmknKoz3g@mail.gmail.com>"
+      ],
+      "body_plain": "FYI I added less back to the buildroot. Updates will be published soon.\n\nI?aki\n\nOn Thu, 18 Jul 2024 at 18:59, Ian Malone <ibmalone at gmail.com> wrote:\n\n> On Thu, 18 Jul 2024 at 10:12, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> >\n> > On Wed, 17 Jul 2024 at 11:33, Ian Malone <ibmalone at gmail.com> wrote:\n> >>\n> >> Was wondering why R help in recent Fedora only provided --More--\n> >> prompt for viewing, rather than allowing arrow key navigation as on\n> >> RHEL. It turns out it uses a system command for paging and the current\n> >> default pager is more:\n> >> grep PAGER /usr/lib64/R/etc/Renviron\n> >> PAGER=${PAGER-'/usr/bin/more'}\n> >>\n> >> rpm -qf /usr/lib64/R/etc/Renviron\n> >> R-core-4.4.1-3.fc41.x86_64\n> >\n> >\n> > This was dropped as part of an effort to minimize dependencies of\n> R-core, with e.g. containers in mind.\n> >\n>\n> R-core is > 100MB not including dependencies.\n> \"R\" additionally pulls R-devel and another 167MB of installed dependencies.\n> less is ~370kB (and incidentally a dependency of git)\n>\n> >>\n> >> This primarily affects function help, where less is much more capable\n> >> for navigation and searching.\n> >>\n> >> Back in 2011 there was some discussion on this list, it it seems the\n> >> intention is the default should be less:\n> >> https://stat.ethz.ch/pipermail/r-sig-fedora/2011-August/000194.html\n> >\n> >\n> > These days there are other utilities more capable than less.\n>\n> This is not really the issue, although if there are any that can be\n> expected to be well supported and are in fact included in Fedora then\n> please do consider making one the default. \"most\" installs at about\n> 130kB, although R will not autoconfigure to use it. Maybe suggest it\n> to upstream?\n>\n> > Also these days most people don't read R docs in the console.\n>\n> Ah, I'm \"holding it wrong\".\n> Installing Rstudio to read documentation is 580MB and only useful\n> locally. Additionally these are R docs, not R Studio docs.\n>\n> > If you do and do have a preferred pager, then you can do e.g.\n> >\n> > $ echo \"PAGER=less\" >> ~/.Renviron\n>\n> Yes, I can set an environment variable.\n>\n> >\n> > and you're good to go.\n>\n> I was aware of that before writing. However this represents a lot of\n> wasted effort for every person who encounters this; it is not obvious\n> where in the documentation to look,\n> https://www.r-project.org/help.html or help(help) do not make any\n> mention of file.show().\n>\n> <snip>\n> >>\n> >> I suspect this was fixed (certainly don't remember it from Fedora <39,\n> >> but I'd have to hunt down packages to check) and has regressed\n> >> relatively recently.\n> >\n> >\n> > As said, it is not a regression, but a conscious decision.\n> >\n> This is certainly a point of view.\n>\n>\n> --\n> imalone\n>\n\n\n-- \nI?aki ?car\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "FYI I added less back to the buildroot. Updates will be published soon.\n\nI?aki\n\nOn Thu, 18 Jul 2024 at 18:59, Ian Malone <ibmalone at gmail.com> wrote:\n\n> On Thu, 18 Jul 2024 at 10:12, I?aki Ucar <iuc",
+      "thread_id": "thread-009a66aa8b6b",
+      "thread_depth": 3,
+      "month": "2024-07"
+    },
+    {
+      "id": "msg-03a9dcf068be",
+      "message_id": "<CAL3-7MogSrNYpzAJzizUm2NdbQvrXkCM86mn=Dzuu+tD7g_QYg@mail.gmail.com>",
+      "from_name": "Ian Malone",
+      "from_email_hash": "6be4249cdfb286b35b2d0444023c8b971e1a8ed5b87da933a86af0577bad3539",
+      "date": "2024-07-22T17:59:45+01:00",
+      "subject": "[R-sig-Fedora] default pager is more",
+      "subject_clean": "default pager is more",
+      "in_reply_to": "<CALEXWq2zRMimDon=BjYvpzXRByjN8+vW2tBZNj+6oc6DY-JyKw@mail.gmail.com>",
+      "references": [
+        "<CAL3-7Mqqz0VTxM_FwcLp=7oXNKZFNPOq0f=aVNMJSWDA6_sgaQ@mail.gmail.com>",
+        "<CALEXWq3JC82NWDraOh+R2t4yFSLcZ7kz8viTV_-4mxD=SmZ6jg@mail.gmail.com>",
+        "<CAL3-7Mpq1dOr8XuyqJrPJeqqyDX22ef_7ZPn18mVNtmknKoz3g@mail.gmail.com>",
+        "<CALEXWq2zRMimDon=BjYvpzXRByjN8+vW2tBZNj+6oc6DY-JyKw@mail.gmail.com>"
+      ],
+      "body_plain": "On Mon, 22 Jul 2024, 16:46 I?aki Ucar, <iucar at fedoraproject.org> wrote:\n\n> FYI I added less back to the buildroot. Updates will be published soon.\n>\n> I?aki\n>\n\nMuch appreciated, thank you.\n\n\n> On Thu, 18 Jul 2024 at 18:59, Ian Malone <ibmalone at gmail.com> wrote:\n>\n>> On Thu, 18 Jul 2024 at 10:12, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>> >\n>> >\n>> > On Wed, 17 Jul 2024 at 11:33, Ian Malone <ibmalone at gmail.com> wrote:\n>> >>\n>> >> Was wondering why R help in recent Fedora only provided --More--\n>> >> prompt for viewing, rather than allowing arrow key navigation as on\n>> >> RHEL. It turns out it uses a system command for paging and the current\n>> >> default pager is more:\n>> >> grep PAGER /usr/lib64/R/etc/Renviron\n>> >> PAGER=${PAGER-'/usr/bin/more'}\n>> >>\n>> >> rpm -qf /usr/lib64/R/etc/Renviron\n>> >> R-core-4.4.1-3.fc41.x86_64\n>> >\n>> >\n>> > This was dropped as part of an effort to minimize dependencies of\n>> R-core, with e.g. containers in mind.\n>> >\n>>\n>> R-core is > 100MB not including dependencies.\n>> \"R\" additionally pulls R-devel and another 167MB of installed\n>> dependencies.\n>> less is ~370kB (and incidentally a dependency of git)\n>>\n>> >>\n>> >> This primarily affects function help, where less is much more capable\n>> >> for navigation and searching.\n>> >>\n>> >> Back in 2011 there was some discussion on this list, it it seems the\n>> >> intention is the default should be less:\n>> >> https://stat.ethz.ch/pipermail/r-sig-fedora/2011-August/000194.html\n>> >\n>> >\n>> > These days there are other utilities more capable than less.\n>>\n>> This is not really the issue, although if there are any that can be\n>> expected to be well supported and are in fact included in Fedora then\n>> please do consider making one the default. \"most\" installs at about\n>> 130kB, although R will not autoconfigure to use it. Maybe suggest it\n>> to upstream?\n>>\n>> > Also these days most people don't read R docs in the console.\n>>\n>> Ah, I'm \"holding it wrong\".\n>> Installing Rstudio to read documentation is 580MB and only useful\n>> locally. Additionally these are R docs, not R Studio docs.\n>>\n>> > If you do and do have a preferred pager, then you can do e.g.\n>> >\n>> > $ echo \"PAGER=less\" >> ~/.Renviron\n>>\n>> Yes, I can set an environment variable.\n>>\n>> >\n>> > and you're good to go.\n>>\n>> I was aware of that before writing. However this represents a lot of\n>> wasted effort for every person who encounters this; it is not obvious\n>> where in the documentation to look,\n>> https://www.r-project.org/help.html or help(help) do not make any\n>> mention of file.show().\n>>\n>> <snip>\n>> >>\n>> >> I suspect this was fixed (certainly don't remember it from Fedora <39,\n>> >> but I'd have to hunt down packages to check) and has regressed\n>> >> relatively recently.\n>> >\n>> >\n>> > As said, it is not a regression, but a conscious decision.\n>> >\n>> This is certainly a point of view.\n>>\n>>\n>> --\n>> imalone\n>>\n>\n>\n> --\n> I?aki ?car\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On Mon, 22 Jul 2024, 16:46 I?aki Ucar, <iucar at fedoraproject.org> wrote:\n\n> FYI I added less back to the buildroot. Updates will be published soon.\n>\n> I?aki\n>\n\nMuch appreciated, thank you.\n\n\n> On T",
+      "thread_id": "thread-009a66aa8b6b",
+      "thread_depth": 4,
+      "month": "2024-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-77cc42d2356d",
+      "subject": "libdeflate",
+      "message_count": 2,
+      "participants": [
+        "Iñaki Ucar",
+        "Tim Taylor"
+      ],
+      "started": "2024-07-04T07:42:11+01:00",
+      "last_reply": "2024-07-04T20:33:13+02:00",
+      "root_message_id": "msg-77cc42d2356d"
+    },
+    {
+      "id": "thread-009a66aa8b6b",
+      "subject": "default pager is more",
+      "message_count": 5,
+      "participants": [
+        "Ian Malone",
+        "Iñaki Ucar"
+      ],
+      "started": "2024-07-17T10:31:29+01:00",
+      "last_reply": "2024-07-22T17:59:45+01:00",
+      "root_message_id": "msg-009a66aa8b6b"
+    }
+  ]
+}

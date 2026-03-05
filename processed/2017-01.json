@@ -1,0 +1,253 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2017-01",
+  "messages": [
+    {
+      "id": "msg-b1916a13dbf3",
+      "message_id": "<DC6306FFE044A644A9BEAE5A43DEA9250F75EE12@CC-CLEXMB53.cc.ad.cchs.net>",
+      "from_name": "Weiner, Michael",
+      "from_email_hash": "ffa966cf67c6f0b1d8a38aaf9ef1ba79154551a7608e1ee4e77c94a73c9267a0",
+      "date": "2017-01-11T19:49:42Z",
+      "subject": "[R-sig-Fedora] rgl",
+      "subject_clean": "rgl",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I have a Fedora linux 24 64bit workstation I am trying to install rgl on and I keep running into this error:\n\ntrying URL 'https://cran.cnr.berkeley.edu/src/contrib/rgl_0.97.0.tar.gz'\nContent type 'application/x-gzip' length 2369444 bytes (2.3 MB) ==================================================\ndownloaded 2.3 MB\n\n* installing *source* package 'rgl' ...\n** package 'rgl' successfully unpacked and MD5 sums checked checking for gcc... gcc -m64 checking whether the C compiler works... yes checking for C compiler default output file name... a.out checking for suffix of executables...\nchecking whether we are cross compiling... no checking for suffix of object files... o checking whether we are using the GNU C compiler... yes checking whether gcc -m64 accepts -g... yes checking for gcc -m64 option to accept ISO C89... none needed checking how to run the C preprocessor... gcc -m64 -E checking for gcc... (cached) gcc -m64 checking whether we are using the GNU C compiler... (cached) yes checking whether gcc -m64 accepts -g... (cached) yes checking for gcc -m64 option to accept ISO C89... (cached) none needed checking whether __attribute__((visibility())) is supported... yes checking whether gcc -m64 accepts -fvisibility... yes checking whether  accepts -fvisibility... no checking for libpng-config... yes\nconfigure: using libpng-config\nconfigure: using libpng dynamic linkage\nchecking for X... libraries , headers\nchecking GL/gl.h usability... yes\nchecking GL/gl.h presence... yes\nchecking for GL/gl.h... yes\nchecking GL/glu.h usability... yes\nchecking GL/glu.h presence... yes\nchecking for GL/glu.h... yes\nchecking for glEnd in -lGL... no\nconfigure: error: missing required library GL\nERROR: configuration failed for package 'rgl'\n* removing '/usr/lib64/R/library/rgl'\n\nThe downloaded source packages are in\n        '/tmp/Rtmp0VF17F/downloaded_packages'\nUpdating HTML index of packages in '.Library'\nMaking 'packages.html' ... done\nWarning message:\nIn install.packages(\"rgl\") :\n  installation of package 'rgl' had non-zero exit status\n\nAs you can see, it finds the GL headers, but fails on glEnd and then complains it cannot find the GL libraries. I have the mesa-libGL mesa-libGL-devel mesa-libGLU mesa-libGLU-devel packages installed but I still get the errors.\n\nAny thoughts?\n\nThank you in advance\nMichael Weiner\n\n\n\n===================================\n\n\n Please consider the environment before printing this e-mail\n\nCleveland Clinic is ranked as one of the top hospitals in America by U.S.News & World Report (2015).  \nVisit us online at http://www.clevelandclinic.org for a complete listing of our services, staff and locations.\n\n\nConfidentiality Note:  This message is intended for use ...{{dropped:18}}",
+      "body_snippet": "I have a Fedora linux 24 64bit workstation I am trying to install rgl on and I keep running into this error:\n\ntrying URL 'https://cran.cnr.berkeley.edu/src/contrib/rgl_0.97.0.tar.gz'\nContent type 'app",
+      "thread_id": "thread-b1916a13dbf3",
+      "thread_depth": 0,
+      "month": "2017-01"
+    },
+    {
+      "id": "msg-863241346f1f",
+      "message_id": "<1484210142.2097.252.camel@iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2017-01-12T08:36:09Z",
+      "subject": "[R-sig-Fedora] rgl",
+      "subject_clean": "rgl",
+      "in_reply_to": "<DC6306FFE044A644A9BEAE5A43DEA9250F75EE12@CC-CLEXMB53.cc.ad.cchs.net>",
+      "references": [
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F75EE12@CC-CLEXMB53.cc.ad.cchs.net>"
+      ],
+      "body_plain": "On Wed, 2017-01-11 at 19:49 +0000, Weiner, Michael wrote:\n> I have a Fedora linux 24 64bit workstation I am trying to install rgl\n> on and I keep running into this error:\n> \n> trying URL 'https://cran.cnr.berkeley.edu/src/contrib/rgl_0.97.0.tar.\n> gz'\n> Content type 'application/x-gzip' length 2369444 bytes (2.3 MB)\n> ==================================================\n> downloaded 2.3 MB\n> \n> * installing *source* package 'rgl' ...\n> ** package 'rgl' successfully unpacked and MD5 sums checked checking\n> for gcc... gcc -m64 checking whether the C compiler works... yes\n> checking for C compiler default output file name... a.out checking\n> for suffix of executables...\n> checking whether we are cross compiling... no checking for suffix of\n> object files... o checking whether we are using the GNU C compiler...\n> yes checking whether gcc -m64 accepts -g... yes checking for gcc -m64\n> option to accept ISO C89... none needed checking how to run the C\n> preprocessor... gcc -m64 -E checking for gcc... (cached) gcc -m64\n> checking whether we are using the GNU C compiler... (cached) yes\n> checking whether gcc -m64 accepts -g... (cached) yes checking for gcc\n> -m64 option to accept ISO C89... (cached) none needed checking\n> whether __attribute__((visibility())) is supported... yes checking\n> whether gcc -m64 accepts -fvisibility... yes checking\n> whether??accepts -fvisibility... no checking for libpng-config... yes\n> configure: using libpng-config\n> configure: using libpng dynamic linkage\n> checking for X... libraries , headers\n> checking GL/gl.h usability... yes\n> checking GL/gl.h presence... yes\n> checking for GL/gl.h... yes\n> checking GL/glu.h usability... yes\n> checking GL/glu.h presence... yes\n> checking for GL/glu.h... yes\n> checking for glEnd in -lGL... no\n> configure: error: missing required library GL\n> ERROR: configuration failed for package 'rgl'\n> * removing '/usr/lib64/R/library/rgl'\n> \n> The downloaded source packages are in\n> ????????'/tmp/Rtmp0VF17F/downloaded_packages'\n> Updating HTML index of packages in '.Library'\n> Making 'packages.html' ... done\n> Warning message:\n> In install.packages(\"rgl\") :\n> ? installation of package 'rgl' had non-zero exit status\n> \n> As you can see, it finds the GL headers, but fails on glEnd and then\n> complains it cannot find the GL libraries. I have the mesa-libGL\n> mesa-libGL-devel mesa-libGLU mesa-libGLU-devel packages installed but\n> I still get the errors.\n> \n> Any thoughts?\n\nOne possibility is that you have the 32-bit version of mesa-libGL-devel \ninstalled. This will provide the headers but not the 64-bit library\nwhich is what you need (I can see this from the compiler flag -m64).\n\nIf that is not the problem then you need to look at the configure log.\nThe log is normally erased, but you can preserve it by unpacking the\nsource tarball and building from the resulting directory on the command\nline:\n\ntar xfvz rgl_0.97.0.tar.gz?\nR CMD INSTALL rgl\n\nThen open the file 'rgl/config.log' with your favourite editor and\nsearch for \"glEnd\".\n\nMartyn\n??\n> Thank you in advance\n> Michael Weiner\n> \n> \n> \n> ===================================\n> \n> \n> ?Please consider the environment before printing this e-mail\n> \n> Cleveland Clinic is ranked as one of the top hospitals in America by\n> U.S.News & World Report (2015).??\n> Visit us online at http://www.clevelandclinic.org for a complete\n> listing of our services, staff and locations.\n> \n> \n> Confidentiality Note:??This message is intended for use\n> ...{{dropped:18}}\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora-----------------------------------------------------------------------\nThis message and its attachments are strictly confidenti...{{dropped:8}}",
+      "body_snippet": "On Wed, 2017-01-11 at 19:49 +0000, Weiner, Michael wrote:\n> I have a Fedora linux 24 64bit workstation I am trying to install rgl\n> on and I keep running into this error:\n> \n> trying URL 'https://cran",
+      "thread_id": "thread-b1916a13dbf3",
+      "thread_depth": 1,
+      "month": "2017-01"
+    },
+    {
+      "id": "msg-c5b8d1cd0605",
+      "message_id": "<DC6306FFE044A644A9BEAE5A43DEA9250F76035A@CC-CLEXMB53.cc.ad.cchs.net>",
+      "from_name": "Weiner, Michael",
+      "from_email_hash": "ffa966cf67c6f0b1d8a38aaf9ef1ba79154551a7608e1ee4e77c94a73c9267a0",
+      "date": "2017-01-12T12:29:17Z",
+      "subject": "[R-sig-Fedora] rgl",
+      "subject_clean": "rgl",
+      "in_reply_to": "<1484210142.2097.252.camel@iarc.fr>",
+      "references": [
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F75EE12@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484210142.2097.252.camel@iarc.fr>"
+      ],
+      "body_plain": "----Original Message-----\nFrom: Martyn Plummer [mailto:plummerm at iarc.fr] \nSent: Thursday, January 12, 2017 3:36 AM\nTo: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\nSubject: Re: [R-sig-Fedora] rgl\n\n>One possibility is that you have the 32-bit version of mesa-libGL-devel installed. This will provide the headers but not the 64-bit l>ibrary which is what you need (I can see this from the compiler flag -m64).\n>\n>If that is not the problem then you need to look at the configure log.\n>The log is normally erased, but you can preserve it by unpacking the source tarball and building from the resulting directory on the >command\n>line:\n>\n>tar xfvz rgl_0.97.0.tar.gz\n>R CMD INSTALL rgl\n>\n>Then open the file 'rgl/config.log' with your favourite editor and search for \"glEnd\".\n\nI actually had both on the system, removed the 32-bit version and reinstalled the 64-bit version but I am seeing only this in the config.log:\n\nconfigure:4429: checking for glEnd in -lGL\nconfigure:4454: gcc -o conftest -g -O2  -DHAVE_PNG_H -I/usr/include/libpng16  conftest.c -lGL   -L/usr/lib64 -lpng16 -lX11 >&5\n/usr/bin/ld: cannot find -lGL\ncollect2: error: ld returned 1 exit status\nconfigure:4454: $? = 1\nconfigure: failed program was:\n| /* confdefs.h */\n| #define PACKAGE_NAME \"\"\n| #define PACKAGE_TARNAME \"\"\n| #define PACKAGE_VERSION \"\"\n| #define PACKAGE_STRING \"\"\n| #define PACKAGE_BUGREPORT \"\"\n| #define PACKAGE_URL \"\"\n| #define HAVE_VISIBILITY_ATTRIBUTE 1\n| #define HAVE_GL_GL_H 1\n| #define HAVE_GL_GLU_H 1\n| /* end confdefs.h.  */\n\n===================================\n\n\n Please consider the environment before printing this e-mail\n\nCleveland Clinic is ranked as one of the top hospitals in America by U.S.News & World Report (2015).  \nVisit us online at http://www.clevelandclinic.org for a complete listing of our services, staff and locations.\n\n\nConfidentiality Note:  This message is intended for use ...{{dropped:18}}",
+      "body_snippet": "----Original Message-----\nFrom: Martyn Plummer [mailto:plummerm at iarc.fr] \nSent: Thursday, January 12, 2017 3:36 AM\nTo: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\nSubject: R",
+      "thread_id": "thread-b1916a13dbf3",
+      "thread_depth": 2,
+      "month": "2017-01"
+    },
+    {
+      "id": "msg-338184812b92",
+      "message_id": "<1484224822.2097.294.camel@iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2017-01-12T12:40:48Z",
+      "subject": "[R-sig-Fedora] rgl",
+      "subject_clean": "rgl",
+      "in_reply_to": "<DC6306FFE044A644A9BEAE5A43DEA9250F76035A@CC-CLEXMB53.cc.ad.cchs.net>",
+      "references": [
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F75EE12@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484210142.2097.252.camel@iarc.fr>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F76035A@CC-CLEXMB53.cc.ad.cchs.net>"
+      ],
+      "body_plain": "On Thu, 2017-01-12 at 12:29 +0000, Weiner, Michael wrote:\n> ----Original Message-----\n> From: Martyn Plummer [mailto:plummerm at iarc.fr]?\n> Sent: Thursday, January 12, 2017 3:36 AM\n> To: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\n> Subject: Re: [R-sig-Fedora] rgl\n> \n> > \n> > One possibility is that you have the 32-bit version of mesa-libGL-devel installed. This will provide the headers but not the 64-bit l>ibrary which is what you need (I can see this from the compiler flag -m64).\n> > \n> > If that is not the problem then you need to look at the configure log.\n> > The log is normally erased, but you can preserve it by unpacking the source tarball and building from the resulting directory on the >command\n> > line:\n> > \n> > tar xfvz rgl_0.97.0.tar.gz\n> > R CMD INSTALL rgl\n> > \n> > Then open the file 'rgl/config.log' with your favourite editor and\n> > search for \"glEnd\".\n> \n> I actually had both on the system, removed the 32-bit version and\n> reinstalled the 64-bit version but I am seeing only this in the\n> config.log:\n> \n> configure:4429: checking for glEnd in -lGL\n> configure:4454: gcc -o conftest -g -O2??-DHAVE_PNG_H\n> -I/usr/include/libpng16??conftest.c -lGL???-L/usr/lib64 -lpng16 -lX11\n> >&5\n> /usr/bin/ld: cannot find -lGL\n\nWell that is odd. It means that the linker cannot find libGL even\nthough it is installed on the system. Try?\n\n/sbin/ldconfig -p | grep libGL.so\n\nYou should see something like this.\n\n[martyn at braque-iarc-lan minutes]$ /sbin/ldconfig -p | grep libGL.so\n\tlibGL.so.1 (libc6,x86-64) => /lib64/libGL.so.1\n\tlibGL.so.1 (libc6) => /lib/libGL.so.1\n\tlibGL.so (libc6,x86-64) => /lib64/libGL.so\n\nIf you don't see the entry pointing to /lib64/libGL.so then type\n\nsudo /sbin/ldconfig\n\nand try again.\n\nMartyn\n\n> collect2: error: ld returned 1 exit status\n> configure:4454: $? = 1\n> configure: failed program was:\n> > \n> > /* confdefs.h */\n> > #define PACKAGE_NAME \"\"\n> > #define PACKAGE_TARNAME \"\"\n> > #define PACKAGE_VERSION \"\"\n> > #define PACKAGE_STRING \"\"\n> > #define PACKAGE_BUGREPORT \"\"\n> > #define PACKAGE_URL \"\"\n> > #define HAVE_VISIBILITY_ATTRIBUTE 1\n> > #define HAVE_GL_GL_H 1\n> > #define HAVE_GL_GLU_H 1\n> > /* end confdefs.h.??*/\n> \n> ===================================\n> \n> \n> ?Please consider the environment before printing this e-mail\n> \n> Cleveland Clinic is ranked as one of the top hospitals in America by\n> U.S.News & World Report (2015).??\n> Visit us online at http://www.clevelandclinic.org for a complete\n> listing of our services, staff and locations.\n> \n> \n> Confidentiality Note:??This message is intended for use\n> ...{{dropped:18}}\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora-----------------------------------------------------------------------\nThis message and its attachments are strictly confidenti...{{dropped:8}}",
+      "body_snippet": "On Thu, 2017-01-12 at 12:29 +0000, Weiner, Michael wrote:\n> ----Original Message-----\n> From: Martyn Plummer [mailto:plummerm at iarc.fr]?\n> Sent: Thursday, January 12, 2017 3:36 AM\n> To: Weiner, Mich",
+      "thread_id": "thread-b1916a13dbf3",
+      "thread_depth": 3,
+      "month": "2017-01"
+    },
+    {
+      "id": "msg-ce60d8c0bc0d",
+      "message_id": "<DC6306FFE044A644A9BEAE5A43DEA9250F76045D@CC-CLEXMB53.cc.ad.cchs.net>",
+      "from_name": "Weiner, Michael",
+      "from_email_hash": "ffa966cf67c6f0b1d8a38aaf9ef1ba79154551a7608e1ee4e77c94a73c9267a0",
+      "date": "2017-01-12T12:45:31Z",
+      "subject": "[R-sig-Fedora] rgl",
+      "subject_clean": "rgl",
+      "in_reply_to": "<1484224822.2097.294.camel@iarc.fr>",
+      "references": [
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F75EE12@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484210142.2097.252.camel@iarc.fr>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F76035A@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484224822.2097.294.camel@iarc.fr>"
+      ],
+      "body_plain": "-----Original Message-----\nFrom: Martyn Plummer [mailto:plummerm at iarc.fr] \nSent: Thursday, January 12, 2017 7:41 AM\nTo: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\nSubject: Re: [R-sig-Fedora] rgl\n\n>> configure:4429: checking for glEnd in -lGL\n>> configure:4454: gcc -o conftest -g -O2??-DHAVE_PNG_H\n>> -I/usr/include/libpng16??conftest.c -lGL???-L/usr/lib64 -lpng16 -lX11\n>> >&5\n>> /usr/bin/ld: cannot find -lGL\n>\n>Well that is odd. It means that the linker cannot find libGL even though it is installed on the system. Try?\n>\n>/sbin/ldconfig -p | grep libGL.so\n>\n>You should see something like this.\n>\n>[martyn at braque-iarc-lan minutes]$ /sbin/ldconfig -p | grep libGL.so\n>\tlibGL.so.1 (libc6,x86-64) => /lib64/libGL.so.1\n>\tlibGL.so.1 (libc6) => /lib/libGL.so.1\n>\tlibGL.so (libc6,x86-64) => /lib64/libGL.so\n\nOdd:\n\n[root at lri-105689 rgl]# /sbin/ldconfig -p | grep libGL.so\n        libGL.so.1 (libc6,x86-64) => /lib64/libGL.so.1\n        libGL.so.1 (libc6) => /lib/libGL.so.1\n        libGL.so (libc6) => /lib/libGL.so\n\n===================================\n\n\n Please consider the environment before printing this e-mail\n\nCleveland Clinic is ranked as one of the top hospitals in America by U.S.News & World Report (2015).  \nVisit us online at http://www.clevelandclinic.org for a complete listing of our services, staff and locations.\n\n\nConfidentiality Note:  This message is intended for use ...{{dropped:18}}",
+      "body_snippet": "-----Original Message-----\nFrom: Martyn Plummer [mailto:plummerm at iarc.fr] \nSent: Thursday, January 12, 2017 7:41 AM\nTo: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\nSubject: ",
+      "thread_id": "thread-b1916a13dbf3",
+      "thread_depth": 4,
+      "month": "2017-01"
+    },
+    {
+      "id": "msg-07f410a20d1d",
+      "message_id": "<1484225838.2097.301.camel@iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2017-01-12T12:57:44Z",
+      "subject": "[R-sig-Fedora] rgl",
+      "subject_clean": "rgl",
+      "in_reply_to": "<DC6306FFE044A644A9BEAE5A43DEA9250F76045D@CC-CLEXMB53.cc.ad.cchs.net>",
+      "references": [
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F75EE12@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484210142.2097.252.camel@iarc.fr>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F76035A@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484224822.2097.294.camel@iarc.fr>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F76045D@CC-CLEXMB53.cc.ad.cchs.net>"
+      ],
+      "body_plain": "On Thu, 2017-01-12 at 12:45 +0000, Weiner, Michael wrote:\n> -----Original Message-----\n> From: Martyn Plummer [mailto:plummerm at iarc.fr]?\n> Sent: Thursday, January 12, 2017 7:41 AM\n> To: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\n> Subject: Re: [R-sig-Fedora] rgl\n> \n> > \n> > > \n> > > configure:4429: checking for glEnd in -lGL\n> > > configure:4454: gcc -o conftest -g -O2??-DHAVE_PNG_H\n> > > -I/usr/include/libpng16??conftest.c -lGL???-L/usr/lib64 -lpng16\n> > > -lX11\n> > > > \n> > > > &5\n> > > /usr/bin/ld: cannot find -lGL\n> > \n> > Well that is odd. It means that the linker cannot find libGL even\n> > though it is installed on the system. Try?\n> > \n> > /sbin/ldconfig -p | grep libGL.so\n> > \n> > You should see something like this.\n> > \n> > [martyn at braque-iarc-lan minutes]$ /sbin/ldconfig -p | grep libGL.so\n> > \tlibGL.so.1 (libc6,x86-64) => /lib64/libGL.so.1\n> > \tlibGL.so.1 (libc6) => /lib/libGL.so.1\n> > \tlibGL.so (libc6,x86-64) => /lib64/libGL.so\n> \n> Odd:\n> \n> [root at lri-105689 rgl]# /sbin/ldconfig -p | grep libGL.so\n> ????????libGL.so.1 (libc6,x86-64) => /lib64/libGL.so.1\n> ????????libGL.so.1 (libc6) => /lib/libGL.so.1\n> ????????libGL.so (libc6) => /lib/libGL.so\n\nYours is not quite the same. I have a link to the 64-bit version of\nlibGL.so, but you don't. Your link is to the 32-bit version (i.e.\nwithout the qualifier x86-64 in brackets) which you have removed. This\nmeans your linker cache is out of date.\n\nTry /sbin/ldconfig as root (or with sudo) and it should resolve.\n\nMartyn\n\n> ===================================\n> \n> \n> ?Please consider the environment before printing this e-mail\n> \n> Cleveland Clinic is ranked as one of the top hospitals in America by\n> U.S.News & World Report (2015).??\n> Visit us online at http://www.clevelandclinic.org for a complete\n> listing of our services, staff and locations.\n> \n> \n> Confidentiality Note:??This message is intended for use\n> ...{{dropped:18}}\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora-----------------------------------------------------------------------\nThis message and its attachments are strictly confidenti...{{dropped:8}}",
+      "body_snippet": "On Thu, 2017-01-12 at 12:45 +0000, Weiner, Michael wrote:\n> -----Original Message-----\n> From: Martyn Plummer [mailto:plummerm at iarc.fr]?\n> Sent: Thursday, January 12, 2017 7:41 AM\n> To: Weiner, Mic",
+      "thread_id": "thread-b1916a13dbf3",
+      "thread_depth": 5,
+      "month": "2017-01"
+    },
+    {
+      "id": "msg-74a990c5d0eb",
+      "message_id": "<DC6306FFE044A644A9BEAE5A43DEA9250F7604DB@CC-CLEXMB53.cc.ad.cchs.net>",
+      "from_name": "Weiner, Michael",
+      "from_email_hash": "ffa966cf67c6f0b1d8a38aaf9ef1ba79154551a7608e1ee4e77c94a73c9267a0",
+      "date": "2017-01-12T13:01:49Z",
+      "subject": "[R-sig-Fedora] rgl",
+      "subject_clean": "rgl",
+      "in_reply_to": null,
+      "references": [
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F75EE12@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484210142.2097.252.camel@iarc.fr>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F76035A@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484224822.2097.294.camel@iarc.fr>"
+      ],
+      "body_plain": "-----Original Message-----\nFrom: Weiner, Michael \nSent: Thursday, January 12, 2017 7:46 AM\nTo: r-sig-fedora at r-project.org\nSubject: RE: [R-sig-Fedora] rgl\n\n-----Original Message-----\nFrom: Martyn Plummer [mailto:plummerm at iarc.fr] \nSent: Thursday, January 12, 2017 7:41 AM\nTo: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\nSubject: Re: [R-sig-Fedora] rgl\n\n>> configure:4429: checking for glEnd in -lGL\n>> configure:4454: gcc -o conftest -g -O2??-DHAVE_PNG_H\n>> -I/usr/include/libpng16??conftest.c -lGL???-L/usr/lib64 -lpng16 -lX11\n>> >&5\n>> /usr/bin/ld: cannot find -lGL\n>\n>Well that is odd. It means that the linker cannot find libGL even though it is installed on the system. Try?\n>\n>/sbin/ldconfig -p | grep libGL.so\n>\n>You should see something like this.\n>\n>[martyn at braque-iarc-lan minutes]$ /sbin/ldconfig -p | grep libGL.so\n>\tlibGL.so.1 (libc6,x86-64) => /lib64/libGL.so.1\n>\tlibGL.so.1 (libc6) => /lib/libGL.so.1\n>\tlibGL.so (libc6,x86-64) => /lib64/libGL.so\n\nOdd:\n\n[root at lri-105689 rgl]# /sbin/ldconfig -p | grep libGL.so\n        libGL.so.1 (libc6,x86-64) => /lib64/libGL.so.1\n        libGL.so.1 (libc6) => /lib/libGL.so.1\n        libGL.so (libc6) => /lib/libGL.so\n\nI resolved this by reinstalling mesa-libGL (dnf reinstall libGL) seems /lib64/libGL.so.1.2.0 was missing off the disk.\n\nThank you!\n\n===================================\n\n\n Please consider the environment before printing this e-mail\n\nCleveland Clinic is ranked as one of the top hospitals in America by U.S.News & World Report (2015).  \nVisit us online at http://www.clevelandclinic.org for a complete listing of our services, staff and locations.\n\n\nConfidentiality Note:  This message is intended for use ...{{dropped:18}}",
+      "body_snippet": "-----Original Message-----\nFrom: Weiner, Michael \nSent: Thursday, January 12, 2017 7:46 AM\nTo: r-sig-fedora at r-project.org\nSubject: RE: [R-sig-Fedora] rgl\n\n-----Original Message-----\nFrom: Martyn Pl",
+      "thread_id": "thread-b1916a13dbf3",
+      "thread_depth": 4,
+      "month": "2017-01"
+    },
+    {
+      "id": "msg-e7c90d4115fe",
+      "message_id": "<84172d20-278a-e82b-cb9d-d8e64105af78@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2017-01-12T08:24:53-05:00",
+      "subject": "[R-sig-Fedora] rgl",
+      "subject_clean": "rgl",
+      "in_reply_to": "<DC6306FFE044A644A9BEAE5A43DEA9250F7604DB@CC-CLEXMB53.cc.ad.cchs.net>",
+      "references": [
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F75EE12@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484210142.2097.252.camel@iarc.fr>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F76035A@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484224822.2097.294.camel@iarc.fr>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F7604DB@CC-CLEXMB53.cc.ad.cchs.net>"
+      ],
+      "body_plain": "On 01/12/2017 08:01 AM, Weiner, Michael wrote:\n\n> I resolved this by reinstalling mesa-libGL (dnf reinstall libGL) seems /lib64/libGL.so.1.2.0 was missing off the disk.\n\nAny chance that you have the NVIDIA driver in play here? They monkey\naround with libGL.\n\n~tom\n\n==\nRed Hat",
+      "body_snippet": "On 01/12/2017 08:01 AM, Weiner, Michael wrote:\n\n> I resolved this by reinstalling mesa-libGL (dnf reinstall libGL) seems /lib64/libGL.so.1.2.0 was missing off the disk.\n\nAny chance that you have the N",
+      "thread_id": "thread-b1916a13dbf3",
+      "thread_depth": 5,
+      "month": "2017-01"
+    },
+    {
+      "id": "msg-e39fbc0e95ef",
+      "message_id": "<DC6306FFE044A644A9BEAE5A43DEA9250F7605DD@CC-CLEXMB53.cc.ad.cchs.net>",
+      "from_name": "Weiner, Michael",
+      "from_email_hash": "ffa966cf67c6f0b1d8a38aaf9ef1ba79154551a7608e1ee4e77c94a73c9267a0",
+      "date": "2017-01-12T13:26:53Z",
+      "subject": "[R-sig-Fedora] rgl",
+      "subject_clean": "rgl",
+      "in_reply_to": "<84172d20-278a-e82b-cb9d-d8e64105af78@redhat.com>",
+      "references": [
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F75EE12@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484210142.2097.252.camel@iarc.fr>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F76035A@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484224822.2097.294.camel@iarc.fr>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F7604DB@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<84172d20-278a-e82b-cb9d-d8e64105af78@redhat.com>"
+      ],
+      "body_plain": "-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: Thursday, January 12, 2017 8:25 AM\nTo: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\nSubject: Re: [R-sig-Fedora] rgl\n\nOn 01/12/2017 08:01 AM, Weiner, Michael wrote:\n\n> I resolved this by reinstalling mesa-libGL (dnf reinstall libGL) seems /lib64/libGL.so.1.2.0 was missing off the disk.\n\nAny chance that you have the NVIDIA driver in play here? They monkey around with libGL.\n\nEXACTLY!!! I use the NVidia drivers from their site, and that is exactly what happened. I reinstalled mesa-libGL.x86_64 and that resolved the issue (though not sure if that broke anything else on the workstation that relies on the NVidia drivers)\n\n===================================\n\n\n Please consider the environment before printing this e-mail\n\nCleveland Clinic is ranked as one of the top hospitals in America by U.S.News & World Report (2015).  \nVisit us online at http://www.clevelandclinic.org for a complete listing of our services, staff and locations.\n\n\nConfidentiality Note:  This message is intended for use ...{{dropped:18}}",
+      "body_snippet": "-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: Thursday, January 12, 2017 8:25 AM\nTo: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\nSubject:",
+      "thread_id": "thread-b1916a13dbf3",
+      "thread_depth": 6,
+      "month": "2017-01"
+    },
+    {
+      "id": "msg-332be216d928",
+      "message_id": "<cf694dd0-967d-b5b6-43de-5a9e2b5d4a8f@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2017-01-12T08:30:15-05:00",
+      "subject": "[R-sig-Fedora] rgl",
+      "subject_clean": "rgl",
+      "in_reply_to": "<DC6306FFE044A644A9BEAE5A43DEA9250F7605DD@CC-CLEXMB53.cc.ad.cchs.net>",
+      "references": [
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F75EE12@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484210142.2097.252.camel@iarc.fr>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F76035A@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484224822.2097.294.camel@iarc.fr>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F7604DB@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<84172d20-278a-e82b-cb9d-d8e64105af78@redhat.com>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F7605DD@CC-CLEXMB53.cc.ad.cchs.net>"
+      ],
+      "body_plain": "On 01/12/2017 08:26 AM, Weiner, Michael wrote:\n> EXACTLY!!! I use the NVidia drivers from their site, and that is exactly what happened. I reinstalled mesa-libGL.x86_64 and that resolved the issue (though not sure if that broke anything else on the workstation that relies on the NVidia drivers)\n\nNVIDIA has a fork of libGL that is optimized for their driver. You may\nwish to figure out how to replace the mesa-libGL libraries with their\ncopy. If memory serves, they put their libGL library in a different\ndirectory (then remove the system copy).\n\n~tom\n\n==\nRed Hat",
+      "body_snippet": "On 01/12/2017 08:26 AM, Weiner, Michael wrote:\n> EXACTLY!!! I use the NVidia drivers from their site, and that is exactly what happened. I reinstalled mesa-libGL.x86_64 and that resolved the issue (th",
+      "thread_id": "thread-b1916a13dbf3",
+      "thread_depth": 7,
+      "month": "2017-01"
+    },
+    {
+      "id": "msg-5d10d58f00db",
+      "message_id": "<DC6306FFE044A644A9BEAE5A43DEA9250F7606A3@CC-CLEXMB53.cc.ad.cchs.net>",
+      "from_name": "Weiner, Michael",
+      "from_email_hash": "ffa966cf67c6f0b1d8a38aaf9ef1ba79154551a7608e1ee4e77c94a73c9267a0",
+      "date": "2017-01-12T13:37:04Z",
+      "subject": "[R-sig-Fedora] rgl",
+      "subject_clean": "rgl",
+      "in_reply_to": "<cf694dd0-967d-b5b6-43de-5a9e2b5d4a8f@redhat.com>",
+      "references": [
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F75EE12@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484210142.2097.252.camel@iarc.fr>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F76035A@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<1484224822.2097.294.camel@iarc.fr>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F7604DB@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<84172d20-278a-e82b-cb9d-d8e64105af78@redhat.com>",
+        "<DC6306FFE044A644A9BEAE5A43DEA9250F7605DD@CC-CLEXMB53.cc.ad.cchs.net>",
+        "<cf694dd0-967d-b5b6-43de-5a9e2b5d4a8f@redhat.com>"
+      ],
+      "body_plain": "-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: Thursday, January 12, 2017 8:30 AM\nTo: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\nSubject: Re: [R-sig-Fedora] rgl\n\n>NVIDIA has a fork of libGL that is optimized for their driver. You may wish to figure out how to replace the mesa-libGL libraries >with their copy. If memory serves, they put their libGL library in a different directory (then remove the system copy).\n\nYour memory serves you well, it does in fact do that very thing. I am looking into this as you suggest, because I have a feeling putting the mesa version back will have some consequences\n\n===================================\n\n\n Please consider the environment before printing this e-mail\n\nCleveland Clinic is ranked as one of the top hospitals in America by U.S.News & World Report (2015).  \nVisit us online at http://www.clevelandclinic.org for a complete listing of our services, staff and locations.\n\n\nConfidentiality Note:  This message is intended for use ...{{dropped:18}}",
+      "body_snippet": "-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: Thursday, January 12, 2017 8:30 AM\nTo: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\nSubject:",
+      "thread_id": "thread-b1916a13dbf3",
+      "thread_depth": 8,
+      "month": "2017-01"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-b1916a13dbf3",
+      "subject": "rgl",
+      "message_count": 11,
+      "participants": [
+        "Martyn Plummer",
+        "Tom Callaway",
+        "Weiner, Michael"
+      ],
+      "started": "2017-01-11T19:49:42+00:00",
+      "last_reply": "2017-01-12T13:37:04+00:00",
+      "root_message_id": "msg-b1916a13dbf3"
+    }
+  ]
+}

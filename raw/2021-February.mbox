@@ -1,0 +1,62 @@
+From j@m@to@ @end|ng |rom |c@up@pt  Thu Feb  4 17:14:24 2021
+From: j@m@to@ @end|ng |rom |c@up@pt (=?ISO-8859-1?Q?Jos=E9_Ab=EDlio?= Matos)
+Date: Thu, 04 Feb 2021 16:14:24 +0000
+Subject: [R-sig-Fedora] Normalize latex path
+Message-ID: <3347871.iIbC2pHGDl@griffin>
+
+Hi,
+  due to an unrelated bug report in maxima I found out that some packages 
+install latex packages in /usr/share/texmf/tex/latex. Instead of using the 
+prefix %{_datadir}/texmf we can use the canonical %_texmf defined by texlive.
+
+Is there any objection to change the location to the canonical location?
+Actually if you look into the spec file we are using a symbolic link. As far 
+as I can see the change is harmless.
+
+Probably the %postun and %posttrans sections can be simplified.
+
+Best regards,
+-- 
+Jos? Ab?lio
+
+
+From @potrh @end|ng |rom gm@||@com  Thu Feb  4 17:19:30 2021
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Thu, 4 Feb 2021 11:19:30 -0500
+Subject: [R-sig-Fedora] Normalize latex path
+In-Reply-To: <3347871.iIbC2pHGDl@griffin>
+References: <3347871.iIbC2pHGDl@griffin>
+Message-ID: <CACp8ZrJ7cp-ttp1dnhRpn7qPRROz-XOR-RgVfVL9i5rfMd39Ng@mail.gmail.com>
+
+Seems reasonable.
+
+~spot
+
+On Thu, Feb 4, 2021 at 11:15 AM Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:
+
+> Hi,
+>   due to an unrelated bug report in maxima I found out that some packages
+> install latex packages in /usr/share/texmf/tex/latex. Instead of using the
+> prefix %{_datadir}/texmf we can use the canonical %_texmf defined by
+> texlive.
+>
+> Is there any objection to change the location to the canonical location?
+> Actually if you look into the spec file we are using a symbolic link. As
+> far
+> as I can see the change is harmless.
+>
+> Probably the %postun and %posttrans sections can be simplified.
+>
+> Best regards,
+> --
+> Jos? Ab?lio
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+	[[alternative HTML version deleted]]
+
+

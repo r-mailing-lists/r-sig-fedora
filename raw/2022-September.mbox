@@ -1,0 +1,205 @@
+From uc|@g|@ @end|ng |rom gm@||@com  Fri Sep 16 12:09:16 2022
+From: uc|@g|@ @end|ng |rom gm@||@com (Gavin Simpson)
+Date: Fri, 16 Sep 2022 12:09:16 +0200
+Subject: [R-sig-Fedora] dependencies for building R
+In-Reply-To: <3408710.iIbC2pHGDl@griffin>
+References: <CA+8X3fU04NZgQRZQMmQOnp4T8zm34kPDzuvJ58CCJooEG=W6gw@mail.gmail.com>
+ <CACp8Zr+2XVr1QHGvhYJZ9=xwPCHkNE4qV-92tHi4-y3CS4VvLA@mail.gmail.com>
+ <CA+8X3fX3zQwhZVntVvNcsNqwyesGwgpr8jXVF=LgX35EyirYdQ@mail.gmail.com>
+ <3408710.iIbC2pHGDl@griffin>
+Message-ID: <CAAHES9wLHpgkfp_-zSfcEkBcjetnAoUOh9bU3DPx8fQCj2Zhuw@mail.gmail.com>
+
+I know this is an older thread now, but
+
+> Your remark seems strange because in general Tom rebuilds R in one or two
+weeks after it is released, at least for point releases.
+
+isn't quite accurate. The latest Fedora, F36 is still on 4.1.3. And this
+was Jim's point here, I believe. CRAN demands you to attest that you tested
+your submitted package on r-release and r-devel and currently neither of
+which is possible with the version of R in the F36 package repo. You can
+use the toolbox to get at the version in Rawhide of F37beta right now
+(4.2.1 IIRC), but you're still on the hook for compiling r-devel yourself.
+
+None of this is a complaint by the way - while I'd prefer a faster update
+cycle for R in Fedora, I don't have the time nor experience/skills to do
+that or even to really contribute usefully at all, and I very much
+appreciate the time and efforts of Tom and I?aki, in particular, over many
+years in providing the R support in Fedora that *is* available as it is is
+a huge time-saver for me running R on other shared computing devices that
+don't need to be running the latest R release for day to day work.
+
+It's just an observation that checking R packages against the CRAN-required
+versions of R is not straightforward in Fedora. For those reasons I have
+mostly handed off my checks to GitHub Actions so I only need one version of
+R installed locally, but I'm still compiling R by hand on Fedora to be able
+to use the 4.2 release on my Fedora-running laptop.
+
+All the best
+
+Gavin
+
+On Fri, 7 Jan 2022 at 13:16, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:
+
+> On Friday, 7 January 2022 07.30.22 WET Jim Lemon wrote:
+> > Hi Tom,
+> > As I maintain a few packages on CRAN, The Rules say I should build
+> > them with an up to the minute version of R. Whenever I have installed
+> > R from a repo, it always seems to be a few versions behind. I'll let
+> > you know how it goes. Thanks.
+> >
+> > Jim
+>
+> Please take what follows as genuine curiosity, because it is. :-)
+>
+> Your remark seems strange because in general Tom rebuilds R in one or two
+> weeks after it is released, at least for point releases.
+>
+> The issue sometimes happens when a new release happens where in some cases
+> the
+> only viable option is to rebuild all the R packages. In that case we need
+> to
+> come with a way to automatically rebuild the packages (because order
+> matters
+> here).
+>
+> Is this the problem that you are seeing?
+>
+> Another worthwhile mentioning project is:
+> https://copr.fedorainfracloud.org/coprs/iucar/cran/
+>
+> Best regards,
+> --
+> Jos? Ab?lio
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+
+-- 
+Gavin Simpson, PhD [he/him/his]
+[tw] @ucfagls [OrciD] 0000-0002-9084-8413
+[web] fromthebottomoftheheap.net
+? Assistant Professor
+? Department of Animal Science, Aarhus University
+? Adjunct Professor, Department of Biology, University of Regina.
+
+	[[alternative HTML version deleted]]
+
+
+From @potrh @end|ng |rom gm@||@com  Fri Sep 16 12:36:09 2022
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Fri, 16 Sep 2022 11:36:09 +0100
+Subject: [R-sig-Fedora] dependencies for building R
+In-Reply-To: <CAAHES9wLHpgkfp_-zSfcEkBcjetnAoUOh9bU3DPx8fQCj2Zhuw@mail.gmail.com>
+References: <CA+8X3fU04NZgQRZQMmQOnp4T8zm34kPDzuvJ58CCJooEG=W6gw@mail.gmail.com>
+ <CACp8Zr+2XVr1QHGvhYJZ9=xwPCHkNE4qV-92tHi4-y3CS4VvLA@mail.gmail.com>
+ <CA+8X3fX3zQwhZVntVvNcsNqwyesGwgpr8jXVF=LgX35EyirYdQ@mail.gmail.com>
+ <3408710.iIbC2pHGDl@griffin>
+ <CAAHES9wLHpgkfp_-zSfcEkBcjetnAoUOh9bU3DPx8fQCj2Zhuw@mail.gmail.com>
+Message-ID: <CACp8ZrLVLbA12BRoAAP0xi9vwQj+XF2SrJp29W_bw9WM+jMesw@mail.gmail.com>
+
+There is a 4.2.1 package built for F37 (soon to be released) and F38. For
+the reasons stated previously, it's not feasible to do builds for older
+Fedora releases at this point, but you should be able to rebuild the R SRPM
+locally and get what you need easily.
+
+~spot
+
+On Fri, Sep 16, 2022, 11:09 AM Gavin Simpson <ucfagls at gmail.com> wrote:
+
+> I know this is an older thread now, but
+>
+> > Your remark seems strange because in general Tom rebuilds R in one or two
+> weeks after it is released, at least for point releases.
+>
+> isn't quite accurate. The latest Fedora, F36 is still on 4.1.3. And this
+> was Jim's point here, I believe. CRAN demands you to attest that you tested
+> your submitted package on r-release and r-devel and currently neither of
+> which is possible with the version of R in the F36 package repo. You can
+> use the toolbox to get at the version in Rawhide of F37beta right now
+> (4.2.1 IIRC), but you're still on the hook for compiling r-devel yourself.
+>
+> None of this is a complaint by the way - while I'd prefer a faster update
+> cycle for R in Fedora, I don't have the time nor experience/skills to do
+> that or even to really contribute usefully at all, and I very much
+> appreciate the time and efforts of Tom and I?aki, in particular, over many
+> years in providing the R support in Fedora that *is* available as it is is
+> a huge time-saver for me running R on other shared computing devices that
+> don't need to be running the latest R release for day to day work.
+>
+> It's just an observation that checking R packages against the CRAN-required
+> versions of R is not straightforward in Fedora. For those reasons I have
+> mostly handed off my checks to GitHub Actions so I only need one version of
+> R installed locally, but I'm still compiling R by hand on Fedora to be able
+> to use the 4.2 release on my Fedora-running laptop.
+>
+> All the best
+>
+> Gavin
+>
+> On Fri, 7 Jan 2022 at 13:16, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:
+>
+> > On Friday, 7 January 2022 07.30.22 WET Jim Lemon wrote:
+> > > Hi Tom,
+> > > As I maintain a few packages on CRAN, The Rules say I should build
+> > > them with an up to the minute version of R. Whenever I have installed
+> > > R from a repo, it always seems to be a few versions behind. I'll let
+> > > you know how it goes. Thanks.
+> > >
+> > > Jim
+> >
+> > Please take what follows as genuine curiosity, because it is. :-)
+> >
+> > Your remark seems strange because in general Tom rebuilds R in one or two
+> > weeks after it is released, at least for point releases.
+> >
+> > The issue sometimes happens when a new release happens where in some
+> cases
+> > the
+> > only viable option is to rebuild all the R packages. In that case we need
+> > to
+> > come with a way to automatically rebuild the packages (because order
+> > matters
+> > here).
+> >
+> > Is this the problem that you are seeing?
+> >
+> > Another worthwhile mentioning project is:
+> > https://copr.fedorainfracloud.org/coprs/iucar/cran/
+> >
+> > Best regards,
+> > --
+> > Jos? Ab?lio
+> >         [[alternative HTML version deleted]]
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+>
+>
+> --
+> Gavin Simpson, PhD [he/him/his]
+> [tw] @ucfagls [OrciD] 0000-0002-9084-8413
+> [web] fromthebottomoftheheap.net
+> ? Assistant Professor
+> ? Department of Animal Science, Aarhus University
+> ? Adjunct Professor, Department of Biology, University of Regina.
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+	[[alternative HTML version deleted]]
+
+

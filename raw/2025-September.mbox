@@ -1,0 +1,186 @@
+From h@|themkhe||@ @end|ng |rom y@hoo@|r  Mon Sep 22 21:51:50 2025
+From: h@|themkhe||@ @end|ng |rom y@hoo@|r (Haithem Khelfa)
+Date: Mon, 22 Sep 2025 19:51:50 +0000 (UTC)
+Subject: [R-sig-Fedora] Request for RPMs of the latest R 4 version supported
+ on RHEL 7.6
+References: <131310081.10488862.1758570710867.ref@mail.yahoo.com>
+Message-ID: <131310081.10488862.1758570710867@mail.yahoo.com>
+
+Dear Red Hat Support,
+I am currently working with a system running RHEL 7.6 and would like to install the latest stable version of R 4 that is officially supported on this platform. Based on my research through CRAN, EPEL, and other repositories, it appears that R 4.3.1 is the last version available as RPMs for RHEL 7.
+Unfortunately, migrating to RHEL 8 or 9 is not an option in our current environment. I am therefore looking for a way to install R 4.3.1 using RPM packages compatible with RHEL 7.6.
+Could you please confirm:
+? Whether R 4.3.1 is indeed the final version of R 4 supported on RHEL 7.6?? If there is an official channel or recommended procedure to obtain and install these RPMs?? Whether any alternatives exist within Red Hat support to maintain an up-to-date R environment without upgrading the operating system?
+
+Thank you in advance for your assistance and guidance.
+Best regards,Haithem KHELFAEmployee at Orange
+
+
+Envoy? depuis Yahoo?Mail pour iPhone
+
+	[[alternative HTML version deleted]]
+
+
+From h@|themkhe||@ @end|ng |rom y@hoo@|r  Mon Sep 22 22:20:02 2025
+From: h@|themkhe||@ @end|ng |rom y@hoo@|r (Haithem Khelfa)
+Date: Mon, 22 Sep 2025 20:20:02 +0000 (UTC)
+Subject: [R-sig-Fedora] =?utf-8?q?Tr=C2=A0=3A_Request_for_RPMs_of_the_lat?=
+ =?utf-8?q?est_R_4_version_supported_on_RHEL_7=2E6?=
+In-Reply-To: <131310081.10488862.1758570710867@mail.yahoo.com>
+References: <131310081.10488862.1758570710867.ref@mail.yahoo.com>
+ <131310081.10488862.1758570710867@mail.yahoo.com>
+Message-ID: <200889572.1962523.1758572402808@mail.yahoo.com>
+
+
+
+Dear Red Hat Support,
+I am currently working with a system running RHEL 7.6 and would like to install the latest stable version of R 4 that is officially supported on this platform. Based on my research through CRAN, EPEL, and other repositories, it appears that R 4.3.1 is the last version available as RPMs for RHEL 7.
+Unfortunately, migrating to RHEL 8 or 9 is not an option in our current environment. I am therefore looking for a way to install R 4.3.1 using RPM packages compatible with RHEL 7.6.
+Could you please confirm:
+? Whether R 4.3.1 is indeed the final version of R 4 supported on RHEL 7.6?? If there is an official channel or recommended procedure to obtain and install these RPMs?? Whether any alternatives exist within Red Hat support to maintain an up-to-date R environment without upgrading the operating system?
+
+Thank you in advance for your assistance and guidance.
+Best regards,Haithem KHELFAEmployee at Orange
+
+
+Envoy? depuis Yahoo?Mail pour iPhone
+
+
+
+
+	[[alternative HTML version deleted]]
+
+
+From jeroenoom@ @end|ng |rom gm@||@com  Tue Sep 23 11:12:53 2025
+From: jeroenoom@ @end|ng |rom gm@||@com (Jeroen Ooms)
+Date: Tue, 23 Sep 2025 11:12:53 +0200
+Subject: [R-sig-Fedora] 
+ Request for RPMs of the latest R 4 version supported on RHEL 7.6
+In-Reply-To: <131310081.10488862.1758570710867@mail.yahoo.com>
+References: <131310081.10488862.1758570710867.ref@mail.yahoo.com>
+ <131310081.10488862.1758570710867@mail.yahoo.com>
+Message-ID: <CABFfbXs2pARC+rfRd6iDeuqT9WUO30JOTganN0F_qx9pfWQDjw@mail.gmail.com>
+
+You can use 'rig' to install any version of R on RHEL7, see
+https://github.com/r-lib/rig?tab=readme-ov-file#id-rhel-fedora-rocky-linux-almalinux-etc-rpm-package
+
+We also publish a docker container based on centos-7 and the latest R
+that you can test like so:
+
+   docker run -it ghcr.io/r-devel/centos-7
+
+The source for this container is:
+https://github.com/r-devel/containers/blob/main/centos-7/Dockerfile
+
+
+
+
+
+
+On Mon, Sep 22, 2025 at 9:57?PM Haithem Khelfa via R-SIG-Fedora
+<r-sig-fedora at r-project.org> wrote:
+>
+> Dear Red Hat Support,
+> I am currently working with a system running RHEL 7.6 and would like to install the latest stable version of R 4 that is officially supported on this platform. Based on my research through CRAN, EPEL, and other repositories, it appears that R 4.3.1 is the last version available as RPMs for RHEL 7.
+> Unfortunately, migrating to RHEL 8 or 9 is not an option in our current environment. I am therefore looking for a way to install R 4.3.1 using RPM packages compatible with RHEL 7.6.
+> Could you please confirm:
+> ? Whether R 4.3.1 is indeed the final version of R 4 supported on RHEL 7.6?? If there is an official channel or recommended procedure to obtain and install these RPMs?? Whether any alternatives exist within Red Hat support to maintain an up-to-date R environment without upgrading the operating system?
+>
+> Thank you in advance for your assistance and guidance.
+> Best regards,Haithem KHELFAEmployee at Orange
+>
+>
+> Envoy? depuis Yahoo Mail pour iPhone
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+From |uc@r @end|ng |rom |edor@project@org  Tue Sep 23 12:07:09 2025
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Tue, 23 Sep 2025 12:07:09 +0200
+Subject: [R-sig-Fedora] 
+ Request for RPMs of the latest R 4 version supported on RHEL 7.6
+In-Reply-To: <CABFfbXs2pARC+rfRd6iDeuqT9WUO30JOTganN0F_qx9pfWQDjw@mail.gmail.com>
+References: <131310081.10488862.1758570710867.ref@mail.yahoo.com>
+ <131310081.10488862.1758570710867@mail.yahoo.com>
+ <CABFfbXs2pARC+rfRd6iDeuqT9WUO30JOTganN0F_qx9pfWQDjw@mail.gmail.com>
+Message-ID: <CALEXWq3fyKtMrQCtLVy4Au=B_ZwxhvxfKBfee0B2Z1KBh9rpMA@mail.gmail.com>
+
+Also, Haithem, please note that this is NOT Red Hat Support. This is a
+mailing list run by CRAN for people using Fedora/EPEL RPMs, where some
+volunteers like Jeroen and myself may chime in. If your employer pays for
+extended support and you are looking for official support, this is not the
+proper channel.
+
+Best,
+I?aki
+
+On Tue, 23 Sept 2025 at 11:13, Jeroen Ooms <jeroenooms at gmail.com> wrote:
+
+> You can use 'rig' to install any version of R on RHEL7, see
+>
+> https://github.com/r-lib/rig?tab=readme-ov-file#id-rhel-fedora-rocky-linux-almalinux-etc-rpm-package
+>
+> We also publish a docker container based on centos-7 and the latest R
+> that you can test like so:
+>
+>    docker run -it ghcr.io/r-devel/centos-7
+>
+> The source for this container is:
+> https://github.com/r-devel/containers/blob/main/centos-7/Dockerfile
+>
+>
+>
+>
+>
+>
+> On Mon, Sep 22, 2025 at 9:57?PM Haithem Khelfa via R-SIG-Fedora
+> <r-sig-fedora at r-project.org> wrote:
+> >
+> > Dear Red Hat Support,
+> > I am currently working with a system running RHEL 7.6 and would like to
+> install the latest stable version of R 4 that is officially supported on
+> this platform. Based on my research through CRAN, EPEL, and other
+> repositories, it appears that R 4.3.1 is the last version available as RPMs
+> for RHEL 7.
+> > Unfortunately, migrating to RHEL 8 or 9 is not an option in our current
+> environment. I am therefore looking for a way to install R 4.3.1 using RPM
+> packages compatible with RHEL 7.6.
+> > Could you please confirm:
+> > ? Whether R 4.3.1 is indeed the final version of R 4 supported on RHEL
+> 7.6?? If there is an official channel or recommended procedure to obtain
+> and install these RPMs?? Whether any alternatives exist within Red Hat
+> support to maintain an up-to-date R environment without upgrading the
+> operating system?
+> >
+> > Thank you in advance for your assistance and guidance.
+> > Best regards,Haithem KHELFAEmployee at Orange
+> >
+> >
+> > Envoy? depuis Yahoo Mail pour iPhone
+> >
+> >         [[alternative HTML version deleted]]
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+

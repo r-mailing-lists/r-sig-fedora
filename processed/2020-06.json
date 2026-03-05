@@ -1,0 +1,829 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2020-06",
+  "messages": [
+    {
+      "id": "msg-86f9cfe23091",
+      "message_id": "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "b0864efc945ad746d5bce55bf7c4d85fa011a673c705bb017c133f1ae5ab7506",
+      "date": "2020-06-08T22:40:52-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Over the last several days, I've been working hard to get all of the Fedora\nR packages rebuilt against R 4.0 in rawhide (in the F33-R-4 side tag). With\nthe exception of R-biomaRt, R-BSgenome, R-GenomicAlignments, and\nR-rtracklayer, I believe everything is built and updated to the latest\nversions. And of those packages, they're all ready to go when Fedora\ninfrastructure is working reliably again (the great datacenter migration\nhas started and I can no longer git push). I'll also push R 4.0.1 into the\ntag when that's possible.\n\nThere are two new packages that I created that are needed for R-biomaRt to\nbe updated:\n\nR-AnnotationDbi\nhttps://bugzilla.redhat.com/show_bug.cgi?id=1845360\n\nR-BiocFileCache\nhttps://bugzilla.redhat.com/show_bug.cgi?id=1845362\n\nThey are relatively simple noarch packages and should be quick reviews.\nHelp in getting these reviewed quickly would be appreciated.\n\nGiven the huge amount of builds (and rebuilds) in this process, I am\nstrongly disinclined to attempt this work for Fedora 32 (the idea of\nhundreds of bodhi overrides does not fill me with joy), but I would not\nprevent someone else who wished to try to do so.\n\nThanks,\nTom\n\nP.S. I noticed that R-pls and R-statmod were orphaned (and as a result,\nthey did not get rebuilt for R 4). Nothing seems to depend on them in\nFedora, so this seems fine, but if you were using those packages, you may\nwish to revive them.\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Over the last several days, I've been working hard to get all of the Fedora\nR packages rebuilt against R 4.0 in rawhide (in the F33-R-4 side tag). With\nthe exception of R-biomaRt, R-BSgenome, R-Genomi",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 0,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-b995eae8f216",
+      "message_id": "<CALEXWq1XractbaQ75xypHWWbCEjS95KbFO6k0Xd58wbXBopVew@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-06-09T10:21:54+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>"
+      ],
+      "body_plain": "On Tue, 9 Jun 2020 at 04:42, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> Over the last several days, I've been working hard to get all of the Fedora\n> R packages rebuilt against R 4.0 in rawhide (in the F33-R-4 side tag). With\n> the exception of R-biomaRt, R-BSgenome, R-GenomicAlignments, and\n> R-rtracklayer, I believe everything is built and updated to the latest\n> versions. And of those packages, they're all ready to go when Fedora\n> infrastructure is working reliably again (the great datacenter migration\n> has started and I can no longer git push). I'll also push R 4.0.1 into the\n> tag when that's possible.\n\nMuch appreciated.\n\n> There are two new packages that I created that are needed for R-biomaRt to\n> be updated:\n>\n> R-AnnotationDbi\n> https://bugzilla.redhat.com/show_bug.cgi?id=1845360\n>\n> R-BiocFileCache\n> https://bugzilla.redhat.com/show_bug.cgi?id=1845362\n>\n> They are relatively simple noarch packages and should be quick reviews.\n> Help in getting these reviewed quickly would be appreciated.\n\nI took them. In progress.\n\n> Given the huge amount of builds (and rebuilds) in this process, I am\n> strongly disinclined to attempt this work for Fedora 32 (the idea of\n> hundreds of bodhi overrides does not fill me with joy), but I would not\n> prevent someone else who wished to try to do so.\n\nNote that this is no longer needed. It is possible to use a side tag\nfor F32 too, which is much easier and more appropriate for a massive\nupdate like this.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 9 Jun 2020 at 04:42, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> Over the last several days, I've been working hard to get all of the Fedora\n> R packages rebuilt against R 4.0 in rawhide ",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 1,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-4a3cc3b4fd79",
+      "message_id": "<CALEXWq2vXV=BrSnw+H1hTTOzAm6T=_E0qhpxR0XsEhUD=2Tbsg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-06-23T12:06:00+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq1XractbaQ75xypHWWbCEjS95KbFO6k0Xd58wbXBopVew@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq1XractbaQ75xypHWWbCEjS95KbFO6k0Xd58wbXBopVew@mail.gmail.com>"
+      ],
+      "body_plain": "On Tue, 9 Jun 2020 at 10:21, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> > Given the huge amount of builds (and rebuilds) in this process, I am\n> > strongly disinclined to attempt this work for Fedora 32 (the idea of\n> > hundreds of bodhi overrides does not fill me with joy), but I would not\n> > prevent someone else who wished to try to do so.\n>\n> Note that this is no longer needed. It is possible to use a side tag\n> for F32 too, which is much easier and more appropriate for a massive\n> update like this.\n\nAny plan on doing this in a side tag for F32? I would happily\nvolunteer, but I'm not a provenpackager.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 9 Jun 2020 at 10:21, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> > Given the huge amount of builds (and rebuilds) in this process, I am\n> > strongly disinclined to attempt this work for",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 2,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-65142c9ca79c",
+      "message_id": "<CACp8Zr+UJxpF7JBYGHh8099kHSCq+YX7e7Z2hefJtqtMLNXykQ@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "4c62ad279bd6222ba841f6ee81e7796b9d37828a7872803f2e701c687ad903ea",
+      "date": "2020-06-23T09:01:39-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq2vXV=BrSnw+H1hTTOzAm6T=_E0qhpxR0XsEhUD=2Tbsg@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq1XractbaQ75xypHWWbCEjS95KbFO6k0Xd58wbXBopVew@mail.gmail.com>",
+        "<CALEXWq2vXV=BrSnw+H1hTTOzAm6T=_E0qhpxR0XsEhUD=2Tbsg@mail.gmail.com>"
+      ],
+      "body_plain": "At this point, I simply don't have the time.\n\nTom\n\nOn Tue, Jun 23, 2020, 6:06 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n\n> On Tue, 9 Jun 2020 at 10:21, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > > Given the huge amount of builds (and rebuilds) in this process, I am\n> > > strongly disinclined to attempt this work for Fedora 32 (the idea of\n> > > hundreds of bodhi overrides does not fill me with joy), but I would not\n> > > prevent someone else who wished to try to do so.\n> >\n> > Note that this is no longer needed. It is possible to use a side tag\n> > for F32 too, which is much easier and more appropriate for a massive\n> > update like this.\n>\n> Any plan on doing this in a side tag for F32? I would happily\n> volunteer, but I'm not a provenpackager.\n>\n> --\n> I?aki ?car\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "At this point, I simply don't have the time.\n\nTom\n\nOn Tue, Jun 23, 2020, 6:06 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n\n> On Tue, 9 Jun 2020 at 10:21, I?aki Ucar <iucar at fedoraproject.org> ",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 3,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-cfa70ba2c2e3",
+      "message_id": "<CALEXWq2s=krhMTm5YoLqC_+W53RCas6Whyh9mQ1Ea_ckj2TiRA@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-06-23T15:43:38+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CACp8Zr+UJxpF7JBYGHh8099kHSCq+YX7e7Z2hefJtqtMLNXykQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq1XractbaQ75xypHWWbCEjS95KbFO6k0Xd58wbXBopVew@mail.gmail.com>",
+        "<CALEXWq2vXV=BrSnw+H1hTTOzAm6T=_E0qhpxR0XsEhUD=2Tbsg@mail.gmail.com>",
+        "<CACp8Zr+UJxpF7JBYGHh8099kHSCq+YX7e7Z2hefJtqtMLNXykQ@mail.gmail.com>"
+      ],
+      "body_plain": "Maybe Elliott?\n\nOn Tue, 23 Jun 2020 at 15:01, Tom Callaway <spotrh at gmail.com> wrote:\n>\n> At this point, I simply don't have the time.\n>\n> Tom\n>\n> On Tue, Jun 23, 2020, 6:06 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n>>\n>> On Tue, 9 Jun 2020 at 10:21, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>> >\n>> > > Given the huge amount of builds (and rebuilds) in this process, I am\n>> > > strongly disinclined to attempt this work for Fedora 32 (the idea of\n>> > > hundreds of bodhi overrides does not fill me with joy), but I would not\n>> > > prevent someone else who wished to try to do so.\n>> >\n>> > Note that this is no longer needed. It is possible to use a side tag\n>> > for F32 too, which is much easier and more appropriate for a massive\n>> > update like this.\n>>\n>> Any plan on doing this in a side tag for F32? I would happily\n>> volunteer, but I'm not a provenpackager.\n>>\n>> --\n>> I?aki ?car\n>>\n>> _______________________________________________\n>> R-SIG-Fedora mailing list\n>> R-SIG-Fedora at r-project.org\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\n-- \nI?aki ?car",
+      "body_snippet": "Maybe Elliott?\n\nOn Tue, 23 Jun 2020 at 15:01, Tom Callaway <spotrh at gmail.com> wrote:\n>\n> At this point, I simply don't have the time.\n>\n> Tom\n>\n> On Tue, Jun 23, 2020, 6:06 AM I?aki Ucar <iucar at ",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 4,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-f35e8d90f559",
+      "message_id": "<3062257.44csPzL39Z@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-23T15:58:46+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CACp8Zr+UJxpF7JBYGHh8099kHSCq+YX7e7Z2hefJtqtMLNXykQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq2vXV=BrSnw+H1hTTOzAm6T=_E0qhpxR0XsEhUD=2Tbsg@mail.gmail.com>",
+        "<CACp8Zr+UJxpF7JBYGHh8099kHSCq+YX7e7Z2hefJtqtMLNXykQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Tuesday, 23 June 2020 14.01.39 WEST Tom Callaway wrote:\n> At this point, I simply don't have the time.\n> \n> Tom\n\nWhat needs to be done and how can the work be streamlined?\n\nI asked this since this procedure will happen for other updates (in one year I \nknow but time flies).\n\nI am a provenpackager so that I can drive the process.\n\nRegards,\n-- \nJos? Ab?lio\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On Tuesday, 23 June 2020 14.01.39 WEST Tom Callaway wrote:\n> At this point, I simply don't have the time.\n> \n> Tom\n\nWhat needs to be done and how can the work be streamlined?\n\nI asked this since this ",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 4,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-13635c5edb19",
+      "message_id": "<CALEXWq2az-t24gRkjBAwWjgR01AeNWm43kGptQanuNWbu3FKKw@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-06-23T17:10:07+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<3062257.44csPzL39Z@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq2vXV=BrSnw+H1hTTOzAm6T=_E0qhpxR0XsEhUD=2Tbsg@mail.gmail.com>",
+        "<CACp8Zr+UJxpF7JBYGHh8099kHSCq+YX7e7Z2hefJtqtMLNXykQ@mail.gmail.com>",
+        "<3062257.44csPzL39Z@myth>"
+      ],
+      "body_plain": "On Tue, 23 Jun 2020 at 17:01, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Tuesday, 23 June 2020 14.01.39 WEST Tom Callaway wrote:\n> > At this point, I simply don't have the time.\n> >\n> > Tom\n>\n> What needs to be done and how can the work be streamlined?\n>\n> I asked this since this procedure will happen for other updates (in one year I\n> know but time flies).\n>\n> I am a provenpackager so that I can drive the process.\n\nGreat, thanks! :) Basically, we need (correct me if I'm wrong, Tom):\n\n1) A new user side tag.\n2) For R, merge master in F32 and send a build to that side tag.\n3) For all packages, either merge master into F32 or just increase the\nrelease version and send builds to that side tag *in order*.\n4) When everything is built, create an update from that side tag.\n\nI have tooling in my Copr repo to resolve CRAN dependencies and create\na list of lists of builds in order. I can give you that. But note that\nBioc packages (and others) are not included.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 23 Jun 2020 at 17:01, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Tuesday, 23 June 2020 14.01.39 WEST Tom Callaway wrote:\n> > At this point, I simply don't have the time.\n> >\n> > Tom",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 5,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-3d661fa32c19",
+      "message_id": "<7116098.EvYhyI6sBW@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-23T16:31:03+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq2az-t24gRkjBAwWjgR01AeNWm43kGptQanuNWbu3FKKw@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<3062257.44csPzL39Z@myth>",
+        "<CALEXWq2az-t24gRkjBAwWjgR01AeNWm43kGptQanuNWbu3FKKw@mail.gmail.com>"
+      ],
+      "body_plain": "On Tuesday, 23 June 2020 16.10.07 WEST I?aki Ucar wrote:\n> 3) For all packages, either merge master into F32 or just increase the\n> release version and send builds to that side tag *in order*.\n\nThe part that worries me is the *in order*. :-)\n\nDo we need to do bootstrap builds that are later replaced by the real \nbuilds?\n\nBecause other than that it is business as usual. :-)\n-- \nJos? Ab?lio\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On Tuesday, 23 June 2020 16.10.07 WEST I?aki Ucar wrote:\n> 3) For all packages, either merge master into F32 or just increase the\n> release version and send builds to that side tag *in order*.\n\nThe pa",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 6,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-af3959abf594",
+      "message_id": "<CANA0HMbGT-yMs+vY10+eokxF=dW7wxcVjX5KuHDuZwn-3UHSug@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "b0864efc945ad746d5bce55bf7c4d85fa011a673c705bb017c133f1ae5ab7506",
+      "date": "2020-06-23T11:48:53-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<7116098.EvYhyI6sBW@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<3062257.44csPzL39Z@myth>",
+        "<CALEXWq2az-t24gRkjBAwWjgR01AeNWm43kGptQanuNWbu3FKKw@mail.gmail.com>",
+        "<7116098.EvYhyI6sBW@myth>"
+      ],
+      "body_plain": "There are a few of those, but not many.\n\nOn Tue, Jun 23, 2020 at 11:31 AM Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n\n> On Tuesday, 23 June 2020 16.10.07 WEST I?aki Ucar wrote:\n> > 3) For all packages, either merge master into F32 or just increase the\n> > release version and send builds to that side tag *in order*.\n>\n> The part that worries me is the *in order*. :-)\n>\n> Do we need to do bootstrap builds that are later replaced by the real\n> builds?\n>\n> Because other than that it is business as usual. :-)\n> --\n> Jos? Ab?lio\n>\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "There are a few of those, but not many.\n\nOn Tue, Jun 23, 2020 at 11:31 AM Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n\n> On Tuesday, 23 June 2020 16.10.07 WEST I?aki Ucar wrote:\n> > 3) For all pack",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 7,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-754c593b2a83",
+      "message_id": "<CAJP_izc+UrTjLAeiL-RFO307LH-U9fRq4UA7pHNtw0JVvJ370w@mail.gmail.com>",
+      "from_name": "Elliott Sales de Andrade",
+      "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
+      "date": "2020-06-24T05:33:38-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq2s=krhMTm5YoLqC_+W53RCas6Whyh9mQ1Ea_ckj2TiRA@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq1XractbaQ75xypHWWbCEjS95KbFO6k0Xd58wbXBopVew@mail.gmail.com>",
+        "<CALEXWq2vXV=BrSnw+H1hTTOzAm6T=_E0qhpxR0XsEhUD=2Tbsg@mail.gmail.com>",
+        "<CACp8Zr+UJxpF7JBYGHh8099kHSCq+YX7e7Z2hefJtqtMLNXykQ@mail.gmail.com>",
+        "<CALEXWq2s=krhMTm5YoLqC_+W53RCas6Whyh9mQ1Ea_ckj2TiRA@mail.gmail.com>"
+      ],
+      "body_plain": "I could do so, but it wouldn't be until this weekend.\n\nAlso, Tom mixed in some version bumps to the rebuild, so we'd have to\ncheck whether those would actually be okay in a released version. I\nwould also appreciate some review on new (mostly test) dependencies\nfor these bumps.\n\nOn Tue, 23 Jun 2020 at 09:43, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> Maybe Elliott?\n>\n> On Tue, 23 Jun 2020 at 15:01, Tom Callaway <spotrh at gmail.com> wrote:\n> >\n> > At this point, I simply don't have the time.\n> >\n> > Tom\n> >\n> > On Tue, Jun 23, 2020, 6:06 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >>\n> >> On Tue, 9 Jun 2020 at 10:21, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >> >\n> >> > > Given the huge amount of builds (and rebuilds) in this process, I am\n> >> > > strongly disinclined to attempt this work for Fedora 32 (the idea of\n> >> > > hundreds of bodhi overrides does not fill me with joy), but I would not\n> >> > > prevent someone else who wished to try to do so.\n> >> >\n> >> > Note that this is no longer needed. It is possible to use a side tag\n> >> > for F32 too, which is much easier and more appropriate for a massive\n> >> > update like this.\n> >>\n> >> Any plan on doing this in a side tag for F32? I would happily\n> >> volunteer, but I'm not a provenpackager.\n> >>\n> >> --\n> >> I?aki ?car\n> >>\n> >> _______________________________________________\n> >> R-SIG-Fedora mailing list\n> >> R-SIG-Fedora at r-project.org\n> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n>\n>\n> --\n> I?aki ?car\n\n\n\n-- \nElliott",
+      "body_snippet": "I could do so, but it wouldn't be until this weekend.\n\nAlso, Tom mixed in some version bumps to the rebuild, so we'd have to\ncheck whether those would actually be okay in a released version. I\nwould a",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 5,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-b578a519268b",
+      "message_id": "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-06-24T11:42:10+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CAJP_izc+UrTjLAeiL-RFO307LH-U9fRq4UA7pHNtw0JVvJ370w@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq1XractbaQ75xypHWWbCEjS95KbFO6k0Xd58wbXBopVew@mail.gmail.com>",
+        "<CALEXWq2vXV=BrSnw+H1hTTOzAm6T=_E0qhpxR0XsEhUD=2Tbsg@mail.gmail.com>",
+        "<CACp8Zr+UJxpF7JBYGHh8099kHSCq+YX7e7Z2hefJtqtMLNXykQ@mail.gmail.com>",
+        "<CALEXWq2s=krhMTm5YoLqC_+W53RCas6Whyh9mQ1Ea_ckj2TiRA@mail.gmail.com>",
+        "<CAJP_izc+UrTjLAeiL-RFO307LH-U9fRq4UA7pHNtw0JVvJ370w@mail.gmail.com>"
+      ],
+      "body_plain": "Thanks, Jos? and Elliott. I can help with reviews.\n\nI attach here a list of batches of CRAN packages to be rebuilt in\norder (batches separated by a blank line), and the script that\ngenerates it. Hope it helps.\n\nI?aki\n\nOn Wed, 24 Jun 2020 at 11:35, Elliott Sales de Andrade\n<quantum.analyst at gmail.com> wrote:\n>\n> I could do so, but it wouldn't be until this weekend.\n>\n> Also, Tom mixed in some version bumps to the rebuild, so we'd have to\n> check whether those would actually be okay in a released version. I\n> would also appreciate some review on new (mostly test) dependencies\n> for these bumps.\n>\n> On Tue, 23 Jun 2020 at 09:43, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > Maybe Elliott?\n> >\n> > On Tue, 23 Jun 2020 at 15:01, Tom Callaway <spotrh at gmail.com> wrote:\n> > >\n> > > At this point, I simply don't have the time.\n> > >\n> > > Tom\n> > >\n> > > On Tue, Jun 23, 2020, 6:06 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n> > >>\n> > >> On Tue, 9 Jun 2020 at 10:21, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> > >> >\n> > >> > > Given the huge amount of builds (and rebuilds) in this process, I am\n> > >> > > strongly disinclined to attempt this work for Fedora 32 (the idea of\n> > >> > > hundreds of bodhi overrides does not fill me with joy), but I would not\n> > >> > > prevent someone else who wished to try to do so.\n> > >> >\n> > >> > Note that this is no longer needed. It is possible to use a side tag\n> > >> > for F32 too, which is much easier and more appropriate for a massive\n> > >> > update like this.\n> > >>\n> > >> Any plan on doing this in a side tag for F32? I would happily\n> > >> volunteer, but I'm not a provenpackager.\n> > >>\n> > >> --\n> > >> I?aki ?car\n> > >>\n> > >> _______________________________________________\n> > >> R-SIG-Fedora mailing list\n> > >> R-SIG-Fedora at r-project.org\n> > >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> >\n> >\n> >\n> > --\n> > I?aki ?car\n>\n>\n>\n> --\n> Elliott\n\n\n\n-- \nI?aki ?car\n\n-------------- next part --------------\nAn embedded and charset-unspecified text was scrubbed...\nName: build-list.txt\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20200624/985b95e1/attachment-0001.txt>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: build-list.R\nType: text/x-r-source\nSize: 963 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20200624/985b95e1/attachment-0001.bin>",
+      "body_snippet": "Thanks, Jos? and Elliott. I can help with reviews.\n\nI attach here a list of batches of CRAN packages to be rebuilt in\norder (batches separated by a blank line), and the script that\ngenerates it. Hope ",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 6,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-0389d9186b07",
+      "message_id": "<CALEXWq1Thfgk3c=_6CcF6EBXfVGJBuqGHWr2JLJ130ZcZxVA2g@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-06-24T11:44:14+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq1XractbaQ75xypHWWbCEjS95KbFO6k0Xd58wbXBopVew@mail.gmail.com>",
+        "<CALEXWq2vXV=BrSnw+H1hTTOzAm6T=_E0qhpxR0XsEhUD=2Tbsg@mail.gmail.com>",
+        "<CACp8Zr+UJxpF7JBYGHh8099kHSCq+YX7e7Z2hefJtqtMLNXykQ@mail.gmail.com>",
+        "<CALEXWq2s=krhMTm5YoLqC_+W53RCas6Whyh9mQ1Ea_ckj2TiRA@mail.gmail.com>",
+        "<CAJP_izc+UrTjLAeiL-RFO307LH-U9fRq4UA7pHNtw0JVvJ370w@mail.gmail.com>",
+        "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>"
+      ],
+      "body_plain": "Oh, and maybe in this process we could add to all packages the\nrequirement on R(ABI) = 4 that Tom implemented.\n\nOn Wed, 24 Jun 2020 at 11:42, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> Thanks, Jos? and Elliott. I can help with reviews.\n>\n> I attach here a list of batches of CRAN packages to be rebuilt in\n> order (batches separated by a blank line), and the script that\n> generates it. Hope it helps.\n>\n> I?aki\n>\n> On Wed, 24 Jun 2020 at 11:35, Elliott Sales de Andrade\n> <quantum.analyst at gmail.com> wrote:\n> >\n> > I could do so, but it wouldn't be until this weekend.\n> >\n> > Also, Tom mixed in some version bumps to the rebuild, so we'd have to\n> > check whether those would actually be okay in a released version. I\n> > would also appreciate some review on new (mostly test) dependencies\n> > for these bumps.\n> >\n> > On Tue, 23 Jun 2020 at 09:43, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> > >\n> > > Maybe Elliott?\n> > >\n> > > On Tue, 23 Jun 2020 at 15:01, Tom Callaway <spotrh at gmail.com> wrote:\n> > > >\n> > > > At this point, I simply don't have the time.\n> > > >\n> > > > Tom\n> > > >\n> > > > On Tue, Jun 23, 2020, 6:06 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n> > > >>\n> > > >> On Tue, 9 Jun 2020 at 10:21, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> > > >> >\n> > > >> > > Given the huge amount of builds (and rebuilds) in this process, I am\n> > > >> > > strongly disinclined to attempt this work for Fedora 32 (the idea of\n> > > >> > > hundreds of bodhi overrides does not fill me with joy), but I would not\n> > > >> > > prevent someone else who wished to try to do so.\n> > > >> >\n> > > >> > Note that this is no longer needed. It is possible to use a side tag\n> > > >> > for F32 too, which is much easier and more appropriate for a massive\n> > > >> > update like this.\n> > > >>\n> > > >> Any plan on doing this in a side tag for F32? I would happily\n> > > >> volunteer, but I'm not a provenpackager.\n> > > >>\n> > > >> --\n> > > >> I?aki ?car\n> > > >>\n> > > >> _______________________________________________\n> > > >> R-SIG-Fedora mailing list\n> > > >> R-SIG-Fedora at r-project.org\n> > > >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> > >\n> > >\n> > >\n> > > --\n> > > I?aki ?car\n> >\n> >\n> >\n> > --\n> > Elliott\n>\n>\n>\n> --\n> I?aki ?car\n\n\n\n-- \nI?aki ?car",
+      "body_snippet": "Oh, and maybe in this process we could add to all packages the\nrequirement on R(ABI) = 4 that Tom implemented.\n\nOn Wed, 24 Jun 2020 at 11:42, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> Thanks,",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 7,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-901f6270e8b4",
+      "message_id": "<CAJP_izfTVu2Br=tjHELmii=1qbG41ca4P9qC8hR-qh__GPs7+A@mail.gmail.com>",
+      "from_name": "Elliott Sales de Andrade",
+      "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
+      "date": "2020-06-24T17:09:41-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq1XractbaQ75xypHWWbCEjS95KbFO6k0Xd58wbXBopVew@mail.gmail.com>",
+        "<CALEXWq2vXV=BrSnw+H1hTTOzAm6T=_E0qhpxR0XsEhUD=2Tbsg@mail.gmail.com>",
+        "<CACp8Zr+UJxpF7JBYGHh8099kHSCq+YX7e7Z2hefJtqtMLNXykQ@mail.gmail.com>",
+        "<CALEXWq2s=krhMTm5YoLqC_+W53RCas6Whyh9mQ1Ea_ckj2TiRA@mail.gmail.com>",
+        "<CAJP_izc+UrTjLAeiL-RFO307LH-U9fRq4UA7pHNtw0JVvJ370w@mail.gmail.com>",
+        "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>"
+      ],
+      "body_plain": "On Wed, 24 Jun 2020 at 05:42, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> Thanks, Jos? and Elliott. I can help with reviews.\n>\n\nThanks. I have a few open already:\n- https://bugzilla.redhat.com/show_bug.cgi?id=1839451 - R-servr\n- https://bugzilla.redhat.com/show_bug.cgi?id=1839456 - R-filelock\n- https://bugzilla.redhat.com/show_bug.cgi?id=1839474 - R-DBItest\n\n> I attach here a list of batches of CRAN packages to be rebuilt in\n> order (batches separated by a blank line), and the script that\n> generates it. Hope it helps.\n>\n> I?aki\n>\n> On Wed, 24 Jun 2020 at 11:35, Elliott Sales de Andrade\n> <quantum.analyst at gmail.com> wrote:\n> >\n> > I could do so, but it wouldn't be until this weekend.\n> >\n> > Also, Tom mixed in some version bumps to the rebuild, so we'd have to\n> > check whether those would actually be okay in a released version. I\n> > would also appreciate some review on new (mostly test) dependencies\n> > for these bumps.\n> >\n> > On Tue, 23 Jun 2020 at 09:43, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> > >\n> > > Maybe Elliott?\n> > >\n> > > On Tue, 23 Jun 2020 at 15:01, Tom Callaway <spotrh at gmail.com> wrote:\n> > > >\n> > > > At this point, I simply don't have the time.\n> > > >\n> > > > Tom\n> > > >\n> > > > On Tue, Jun 23, 2020, 6:06 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n> > > >>\n> > > >> On Tue, 9 Jun 2020 at 10:21, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> > > >> >\n> > > >> > > Given the huge amount of builds (and rebuilds) in this process, I am\n> > > >> > > strongly disinclined to attempt this work for Fedora 32 (the idea of\n> > > >> > > hundreds of bodhi overrides does not fill me with joy), but I would not\n> > > >> > > prevent someone else who wished to try to do so.\n> > > >> >\n> > > >> > Note that this is no longer needed. It is possible to use a side tag\n> > > >> > for F32 too, which is much easier and more appropriate for a massive\n> > > >> > update like this.\n> > > >>\n> > > >> Any plan on doing this in a side tag for F32? I would happily\n> > > >> volunteer, but I'm not a provenpackager.\n> > > >>\n> > > >> --\n> > > >> I?aki ?car\n> > > >>\n> > > >> _______________________________________________\n> > > >> R-SIG-Fedora mailing list\n> > > >> R-SIG-Fedora at r-project.org\n> > > >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> > >\n> > >\n> > >\n> > > --\n> > > I?aki ?car\n> >\n> >\n> >\n> > --\n> > Elliott\n>\n>\n>\n> --\n> I?aki ?car\n\n\n\n-- \nElliott",
+      "body_snippet": "On Wed, 24 Jun 2020 at 05:42, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> Thanks, Jos? and Elliott. I can help with reviews.\n>\n\nThanks. I have a few open already:\n- https://bugzilla.redhat.com/",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 7,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-32cd71ccc792",
+      "message_id": "<5517514.MhkbZ0Pkbq@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-25T17:45:42+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CAJP_izc+UrTjLAeiL-RFO307LH-U9fRq4UA7pHNtw0JVvJ370w@mail.gmail.com>",
+        "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>"
+      ],
+      "body_plain": "On Wednesday, 24 June 2020 10.42.10 WEST I?aki Ucar wrote:\n> Thanks, Jos? and Elliott. I can help with reviews.\n> \n> I attach here a list of batches of CRAN packages to be rebuilt in\n> order (batches separated by a blank line), and the script that\n> generates it. Hope it helps.\n> \n> I?aki\n\nSure it does.\nI am doing the rebuild in side tag f32-build-side-24797.\n\n-- \nJos? Ab?lio",
+      "body_snippet": "On Wednesday, 24 June 2020 10.42.10 WEST I?aki Ucar wrote:\n> Thanks, Jos? and Elliott. I can help with reviews.\n> \n> I attach here a list of batches of CRAN packages to be rebuilt in\n> order (batches ",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 7,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-98010229b1af",
+      "message_id": "<1846785.usQuhbGJ8B@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-25T18:11:58+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq1Thfgk3c=_6CcF6EBXfVGJBuqGHWr2JLJ130ZcZxVA2g@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>",
+        "<CALEXWq1Thfgk3c=_6CcF6EBXfVGJBuqGHWr2JLJ130ZcZxVA2g@mail.gmail.com>"
+      ],
+      "body_plain": "On Wednesday, 24 June 2020 10.44.14 WEST I?aki Ucar wrote:\n> Oh, and maybe in this process we could add to all packages the\n> requirement on R(ABI) = 4 that Tom implemented.\n\nFor that we need to start with rawhide and then change the R-rpm-macros \npackage.\n\nProbably it should be enough to change the /usr/lib/rpm/R-deps.R script to add\n\nRequires: R(ABI)=4.0\n\nI suggest to continue this as is and then implement that change in rawhide and \nbring it back to Fedora 32 as new updates are issued.\n\nWhat do you think?\n-- \nJos? Ab?lio",
+      "body_snippet": "On Wednesday, 24 June 2020 10.44.14 WEST I?aki Ucar wrote:\n> Oh, and maybe in this process we could add to all packages the\n> requirement on R(ABI) = 4 that Tom implemented.\n\nFor that we need to start",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 8,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-06ad9620c45b",
+      "message_id": "<CACp8ZrLRCN05e8eghOMeG-Bk8BOi+mWs+AQC+APQ8zC6KXrjRA@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "4c62ad279bd6222ba841f6ee81e7796b9d37828a7872803f2e701c687ad903ea",
+      "date": "2020-06-25T13:26:20-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<1846785.usQuhbGJ8B@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>",
+        "<CALEXWq1Thfgk3c=_6CcF6EBXfVGJBuqGHWr2JLJ130ZcZxVA2g@mail.gmail.com>",
+        "<1846785.usQuhbGJ8B@myth>"
+      ],
+      "body_plain": "This work is already complete in rawhide.\n\nTom\n\nOn Thu, Jun 25, 2020, 1:12 PM Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n\n> On Wednesday, 24 June 2020 10.44.14 WEST I?aki Ucar wrote:\n> > Oh, and maybe in this process we could add to all packages the\n> > requirement on R(ABI) = 4 that Tom implemented.\n>\n> For that we need to start with rawhide and then change the R-rpm-macros\n> package.\n>\n> Probably it should be enough to change the /usr/lib/rpm/R-deps.R script to\n> add\n>\n> Requires: R(ABI)=4.0\n>\n> I suggest to continue this as is and then implement that change in rawhide\n> and\n> bring it back to Fedora 32 as new updates are issued.\n>\n> What do you think?\n> --\n> Jos? Ab?lio\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "This work is already complete in rawhide.\n\nTom\n\nOn Thu, Jun 25, 2020, 1:12 PM Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n\n> On Wednesday, 24 June 2020 10.44.14 WEST I?aki Ucar wrote:\n> > Oh, and m",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 9,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-277d244be4d7",
+      "message_id": "<21828438.6Emhk5qWAg@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-25T18:55:10+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CACp8ZrLRCN05e8eghOMeG-Bk8BOi+mWs+AQC+APQ8zC6KXrjRA@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<1846785.usQuhbGJ8B@myth>",
+        "<CACp8ZrLRCN05e8eghOMeG-Bk8BOi+mWs+AQC+APQ8zC6KXrjRA@mail.gmail.com>"
+      ],
+      "body_plain": "On Thursday, 25 June 2020 18.26.20 WEST Tom Callaway wrote:\n> This work is already complete in rawhide.\n> \n> Tom\n\nOK.\nBuilding R-rpm-macros now and then untag and rebuild the modules already done. \nAfter all this is an iterative procedure. :-(\n\nThank you for the remark. :-)\n-- \nJos? Ab?lio",
+      "body_snippet": "On Thursday, 25 June 2020 18.26.20 WEST Tom Callaway wrote:\n> This work is already complete in rawhide.\n> \n> Tom\n\nOK.\nBuilding R-rpm-macros now and then untag and rebuild the modules already done. \nAf",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 10,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-62eb3e51dd2c",
+      "message_id": "<43062506.fMDQidcC6G@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-26T00:01:19+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CAJP_izc+UrTjLAeiL-RFO307LH-U9fRq4UA7pHNtw0JVvJ370w@mail.gmail.com>",
+        "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>"
+      ],
+      "body_plain": "On Wednesday, 24 June 2020 10.42.10 WEST I?aki Ucar wrote:\n> Thanks, Jos? and Elliott. I can help with reviews.\n> \n> I attach here a list of batches of CRAN packages to be rebuilt in\n> order (batches separated by a blank line), and the script that\n> generates it. Hope it helps.\n> \n> I?aki\n\nR-acepack depends on R-testthat so I moved it the batch after R-testthat. :-)\n\nIf I find a circular dependency I will need to do a bootstrap build.\n\nFun lies ahead... :-)\n-- \nJos? Ab?lio",
+      "body_snippet": "On Wednesday, 24 June 2020 10.42.10 WEST I?aki Ucar wrote:\n> Thanks, Jos? and Elliott. I can help with reviews.\n> \n> I attach here a list of batches of CRAN packages to be rebuilt in\n> order (batches ",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 7,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-a433eaf75229",
+      "message_id": "<CAJP_izdka9MWseVhVnkztKRxT0=Upp0iw5OGyygDPD0qSUxWCQ@mail.gmail.com>",
+      "from_name": "Elliott Sales de Andrade",
+      "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
+      "date": "2020-06-25T19:45:46-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<43062506.fMDQidcC6G@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CAJP_izc+UrTjLAeiL-RFO307LH-U9fRq4UA7pHNtw0JVvJ370w@mail.gmail.com>",
+        "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>",
+        "<43062506.fMDQidcC6G@myth>"
+      ],
+      "body_plain": "On Thu, 25 Jun 2020 at 19:01, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Wednesday, 24 June 2020 10.42.10 WEST I?aki Ucar wrote:\n> > Thanks, Jos? and Elliott. I can help with reviews.\n> >\n> > I attach here a list of batches of CRAN packages to be rebuilt in\n> > order (batches separated by a blank line), and the script that\n> > generates it. Hope it helps.\n> >\n> > I?aki\n>\n> R-acepack depends on R-testthat so I moved it the batch after R-testthat. :-)\n>\n> If I find a circular dependency I will need to do a bootstrap build.\n>\n> Fun lies ahead... :-)\n\nThanks for starting off builds. However, please be careful merging to\nmaster, as some packages were bumped and have incompatibilities that\nshould not be put in stable releases. I will try to come up with an\nexact list soon.\n\n> --\n> Jos? Ab?lio\n>\n\n-- \nElliott",
+      "body_snippet": "On Thu, 25 Jun 2020 at 19:01, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Wednesday, 24 June 2020 10.42.10 WEST I?aki Ucar wrote:\n> > Thanks, Jos? and Elliott. I can help with reviews.\n> >\n>",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 8,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-dbd20b12e105",
+      "message_id": "<796569981.0ifERbkFSE@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-26T01:04:33+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CAJP_izdka9MWseVhVnkztKRxT0=Upp0iw5OGyygDPD0qSUxWCQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<43062506.fMDQidcC6G@myth>",
+        "<CAJP_izdka9MWseVhVnkztKRxT0=Upp0iw5OGyygDPD0qSUxWCQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Friday, 26 June 2020 00.45.46 WEST Elliott Sales de Andrade wrote:\n> Thanks for starting off builds. However, please be careful merging to\n> master, as some packages were bumped and have incompatibilities that\n> should not be put in stable releases. I will try to come up with an\n> exact list soon.\n\nI am doing the process manually to ensure that this does not happen.\n\nBasically my method is for a given package called appropriately pkg:\n\ncd R-pkg\nless R-pkg.spec # read file to ensure that it is safe to build it\n\nif it is safe then I run:\n\n$ fedpkg switch-branch f32 && git merge master && git push && fedpkg build --\ntarget=f32-build-side-24797 && fedpkg switch-branch master; cd ..\n\nthe idea, of course, is that if the merge fails then the case needs to be \ndealt manually.\n\nFWIW most of the credit goes to Tom (spot) since the heavy lifting was already \ndone. :-)\n\nI will welcome your list as it becomes easier to find those cases. As I said \nbefore I am doing my best to avoid those cases.\n-- \nJos? Ab?lio",
+      "body_snippet": "On Friday, 26 June 2020 00.45.46 WEST Elliott Sales de Andrade wrote:\n> Thanks for starting off builds. However, please be careful merging to\n> master, as some packages were bumped and have incompatib",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 9,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-f2f4e89e1647",
+      "message_id": "<3063118.44csPzL39Z@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-26T09:29:09+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CACp8ZrLRCN05e8eghOMeG-Bk8BOi+mWs+AQC+APQ8zC6KXrjRA@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<1846785.usQuhbGJ8B@myth>",
+        "<CACp8ZrLRCN05e8eghOMeG-Bk8BOi+mWs+AQC+APQ8zC6KXrjRA@mail.gmail.com>"
+      ],
+      "body_plain": "On Thursday, 25 June 2020 18.26.20 WEST Tom Callaway wrote:\n> This work is already complete in rawhide.\n> \n> Tom\n\nBTW I suspect that now we can simplify the requires generator.\nAs an example we have:\n\n$ rpm -qp --requires R-AUC-0.3.0-8.fc32.noarch.rpm\nR(ABI) = 4.0\nR-core\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\n\nI guess that now R(ABI) and R-core are synonyms and thus we can remove the R-\ncore requirement.\n\nOf course that this in minimal and mainly aesthetic. :-)\n-- \nJos? Ab?lio",
+      "body_snippet": "On Thursday, 25 June 2020 18.26.20 WEST Tom Callaway wrote:\n> This work is already complete in rawhide.\n> \n> Tom\n\nBTW I suspect that now we can simplify the requires generator.\nAs an example we have:\n",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 10,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-97b8b19f1bf2",
+      "message_id": "<1666506.VLH7GnMWUR@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-26T10:36:04+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CANA0HMbGT-yMs+vY10+eokxF=dW7wxcVjX5KuHDuZwn-3UHSug@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<7116098.EvYhyI6sBW@myth>",
+        "<CANA0HMbGT-yMs+vY10+eokxF=dW7wxcVjX5KuHDuZwn-3UHSug@mail.gmail.com>"
+      ],
+      "body_plain": "On Tuesday, 23 June 2020 16.48.53 WEST Tom Callaway wrote:\n> There are a few of those, but not many.\n\nHi Tom,\n  I noticed that for example in R-assertthat you have used the bcond:\n\n%bcond_with check\n\nwould not it be better to use bootstrap instead to take advantage of:\nhttps://docs.fedoraproject.org/en-US/packaging-guidelines/#bootstrapping \n\nI am asking for curiosity since from now on we will need to do this dance once \na year for the releases that we deem worth (I would expect that to be rawhide \nand the latest stable).\n\nForgive me if the question does not make sense since I am still trying to make \nsense of this maze. :-)\n-- \nJos? Ab?lio",
+      "body_snippet": "On Tuesday, 23 June 2020 16.48.53 WEST Tom Callaway wrote:\n> There are a few of those, but not many.\n\nHi Tom,\n  I noticed that for example in R-assertthat you have used the bcond:\n\n%bcond_with check\n\n",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 8,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-49d6337d8a87",
+      "message_id": "<CALEXWq1CujUCs=GLaVBLAttp4Ycr6wcQHRywWOt2HOXUbBQFWw@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-06-26T11:47:13+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<1666506.VLH7GnMWUR@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<7116098.EvYhyI6sBW@myth>",
+        "<CANA0HMbGT-yMs+vY10+eokxF=dW7wxcVjX5KuHDuZwn-3UHSug@mail.gmail.com>",
+        "<1666506.VLH7GnMWUR@myth>"
+      ],
+      "body_plain": "On Fri, 26 Jun 2020 at 11:36, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Tuesday, 23 June 2020 16.48.53 WEST Tom Callaway wrote:\n> > There are a few of those, but not many.\n>\n> Hi Tom,\n>   I noticed that for example in R-assertthat you have used the bcond:\n>\n> %bcond_with check\n>\n> would not it be better to use bootstrap instead to take advantage of:\n> https://docs.fedoraproject.org/en-US/packaging-guidelines/#bootstrapping\n>\n> I am asking for curiosity since from now on we will need to do this dance once\n> a year for the releases that we deem worth (I would expect that to be rawhide\n> and the latest stable).\n>\n> Forgive me if the question does not make sense since I am still trying to make\n> sense of this maze. :-)\n\nI used bcond locally and wrongly assumed that fedpkg build would\nsupport --with BCOND and --without BCOND. Instead, the way to activate\nit is to change to \"%bcond_with check\" and then revert to\n\"%bcond_without check\". The only difference with bootstrap is that\n\"bootstrap\" is recognized and a suffix ~bootstrap can be added\nautomatically to the resulting build. So the question is whether we\nwant that suffix or not.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Fri, 26 Jun 2020 at 11:36, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Tuesday, 23 June 2020 16.48.53 WEST Tom Callaway wrote:\n> > There are a few of those, but not many.\n>\n> Hi Tom,\n>   ",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 9,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-30aea05641fb",
+      "message_id": "<CAJP_izfBFBE9nroyc90hDS866TRT6mmd5gd3qQStcYGQ09d8ZQ@mail.gmail.com>",
+      "from_name": "Elliott Sales de Andrade",
+      "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
+      "date": "2020-06-26T05:52:44-04:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<796569981.0ifERbkFSE@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<43062506.fMDQidcC6G@myth>",
+        "<CAJP_izdka9MWseVhVnkztKRxT0=Upp0iw5OGyygDPD0qSUxWCQ@mail.gmail.com>",
+        "<796569981.0ifERbkFSE@myth>"
+      ],
+      "body_plain": "Hi Jos?,\n\nOn Thu, 25 Jun 2020 at 20:05, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Friday, 26 June 2020 00.45.46 WEST Elliott Sales de Andrade wrote:\n> > Thanks for starting off builds. However, please be careful merging to\n> > master, as some packages were bumped and have incompatibilities that\n> > should not be put in stable releases. I will try to come up with an\n> > exact list soon.\n>\n> I am doing the process manually to ensure that this does not happen.\n>\n\nAh, great, thanks for being careful.\n\n> Basically my method is for a given package called appropriately pkg:\n>\n> cd R-pkg\n> less R-pkg.spec # read file to ensure that it is safe to build it\n>\n> if it is safe then I run:\n>\n> $ fedpkg switch-branch f32 && git merge master && git push && fedpkg build --\n> target=f32-build-side-24797 && fedpkg switch-branch master; cd ..\n>\n> the idea, of course, is that if the merge fails then the case needs to be\n> dealt manually.\n>\n\nFor simple bumps that would not cause any merge issues, as it would\njust fast-forward.\n\n> FWIW most of the credit goes to Tom (spot) since the heavy lifting was already\n> done. :-)\n>\n> I will welcome your list as it becomes easier to find those cases. As I said\n> before I am doing my best to avoid those cases.\n\nIt turns out the list is shorter than I expected; I went through their\nNEWS files to determine which ones are okay:\n\n               master        f32\nRCurl        1.98.1.2  1.95.4.12\nRSQLite         2.2.0      2.1.2\nbiglm           0.9.2      0.9.1\ndigest         0.6.25     0.6.22\nfs              1.4.1      1.3.1        - was missing dependencies\nbefore, I think?\ngargle          0.5.0      0.4.0         - was missing latest\ntestthat; should be fine to update\nglue            1.4.1      1.3.2         - requires new vctrs; do not bump\nhaven           2.3.0      2.2.0         - requires new vctrs; do not bump\nhttpuv          1.5.4    1.5.3.1\nlater         1.1.0.1      1.0.0\nlubridate       1.7.8      1.7.4         - should be okay to build\n1.7.8, but not 1.7.9, as it needs new vctrs\nmatrixStats    0.56.0     0.55.0        - there are 'significant\nchanges', but I'm not familiar with this package for whether that's\nokay\nmultcomp       1.4.13     1.4.12\nmvtnorm         1.1.0     1.0.12\npdftools        2.3.1        2.2      - needs new dependencies, but I\nthink check was turned off\npkgload         1.1.0      1.0.2\nprettyunits     1.1.1      1.0.2\nqcc               2.7        2.2\nquantities      0.1.4      0.1.3        - should be okay to build\n0.1.4, but not 0.1.5, as it needs new vctrs\nrgdal           1.5.8      1.4.8\nrmarkdown         2.2        2.1\nrsvg              2.1        1.3        - probably okay, but missing\ntest dependencies\nsandwich        2.5.1      2.3.0\ntidyr           1.1.0      1.0.2        - requires new vctrs; do not bump\ntinytest        1.2.1      1.1.0\ntinytex          0.23       0.20\nvctrs           0.3.0      0.2.4        - many breaking changes; do not bump\n\nFeel free to double-check these.\n\nAlso, let me know if you need to stop building and I can do so.\n\n> --\n> Jos? Ab?lio\n>\n\n-- \nElliott",
+      "body_snippet": "Hi Jos?,\n\nOn Thu, 25 Jun 2020 at 20:05, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Friday, 26 June 2020 00.45.46 WEST Elliott Sales de Andrade wrote:\n> > Thanks for starting off builds. How",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 10,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-8a2073e157c1",
+      "message_id": "<2422780.Lt9SDvczpP@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-26T11:06:55+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq1CujUCs=GLaVBLAttp4Ycr6wcQHRywWOt2HOXUbBQFWw@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<1666506.VLH7GnMWUR@myth>",
+        "<CALEXWq1CujUCs=GLaVBLAttp4Ycr6wcQHRywWOt2HOXUbBQFWw@mail.gmail.com>"
+      ],
+      "body_plain": "On Friday, 26 June 2020 10.47.13 WEST I?aki Ucar wrote:\n> I used bcond locally and wrongly assumed that fedpkg build would\n> support --with BCOND and --without BCOND. Instead, the way to activate\n> it is to change to \"%bcond_with check\" and then revert to\n> \"%bcond_without check\". The only difference with bootstrap is that\n> \"bootstrap\" is recognized and a suffix ~bootstrap can be added\n> automatically to the resulting build. So the question is whether we\n> want that suffix or not.\n\nAFAIU the issue is that the bootstrap scheme does not requires to bump the \nrelease because with the suffix (~) is considered lower while changing from \n\"%bcond_with check\" to \"%bcond_without check\" requires to bump the release.\n\nThe issue is that koji does not allow 2 builds with the same nvr.\n\nSince we should ensure the upgrade path that also requires to bump the release \nnumber in rawhide before applying it on f32 (in this particular case).\n\n-- \nJos? Ab?lio",
+      "body_snippet": "On Friday, 26 June 2020 10.47.13 WEST I?aki Ucar wrote:\n> I used bcond locally and wrongly assumed that fedpkg build would\n> support --with BCOND and --without BCOND. Instead, the way to activate\n> it",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 10,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-723c221d3fc6",
+      "message_id": "<CALEXWq1sffiA=mcEBokFx=bE893=+u7j-nki+XT0zT4kYMbpRg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-06-26T12:17:56+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<2422780.Lt9SDvczpP@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<1666506.VLH7GnMWUR@myth>",
+        "<CALEXWq1CujUCs=GLaVBLAttp4Ycr6wcQHRywWOt2HOXUbBQFWw@mail.gmail.com>",
+        "<2422780.Lt9SDvczpP@myth>"
+      ],
+      "body_plain": "On Fri, 26 Jun 2020 at 12:09, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Friday, 26 June 2020 10.47.13 WEST I?aki Ucar wrote:\n> > I used bcond locally and wrongly assumed that fedpkg build would\n> > support --with BCOND and --without BCOND. Instead, the way to activate\n> > it is to change to \"%bcond_with check\" and then revert to\n> > \"%bcond_without check\". The only difference with bootstrap is that\n> > \"bootstrap\" is recognized and a suffix ~bootstrap can be added\n> > automatically to the resulting build. So the question is whether we\n> > want that suffix or not.\n>\n> AFAIU the issue is that the bootstrap scheme does not requires to bump the\n> release because with the suffix (~) is considered lower while changing from\n> \"%bcond_with check\" to \"%bcond_without check\" requires to bump the release.\n>\n> The issue is that koji does not allow 2 builds with the same nvr.\n>\n> Since we should ensure the upgrade path that also requires to bump the release\n> number in rawhide before applying it on f32 (in this particular case).\n\nThen probably sticking to bootstrap is the best option. We should\npropose a change of the template SPEC in the guidelines to reflect\nthat all packages should enclose their suggests and %check into a\n%{without boostrap} block, with a \"%bcond_with bootstrap\" defined on\ntop.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Fri, 26 Jun 2020 at 12:09, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Friday, 26 June 2020 10.47.13 WEST I?aki Ucar wrote:\n> > I used bcond locally and wrongly assumed that fedpkg build ",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 11,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-98744dc4adaf",
+      "message_id": "<3483766.MHq7AAxBmi@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-26T12:11:48+01:00",
+      "subject": "[R-sig-Fedora] Error:  rebuild R-data.table on F32 for R 4.0.2",
+      "subject_clean": "Error:  rebuild R-data.table on F32 for R 4.0.2",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I am at loss here\n\nR-data.table fails to rebuild, the failure happens in the tests where 3 are \nfailing.\nhttps://koji.fedoraproject.org/koji/taskinfo?taskID=46195243\n\nI will continue with the rebuild and let this case to look later or if anyone \ncould help I would appreciate. :-)\n\nRegards,\n-- \nJos? Ab?lio",
+      "body_snippet": "I am at loss here\n\nR-data.table fails to rebuild, the failure happens in the tests where 3 are \nfailing.\nhttps://koji.fedoraproject.org/koji/taskinfo?taskID=46195243\n\nI will continue with the rebuild ",
+      "thread_id": "thread-98744dc4adaf",
+      "thread_depth": 0,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-5efe0c4905f7",
+      "message_id": "<CALEXWq0Aum4pL9da=fJGweC8tPGWYcRi2GvBmTXpr5uWOW6Xdw@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-06-26T13:36:07+02:00",
+      "subject": "[R-sig-Fedora] Error: rebuild R-data.table on F32 for R 4.0.2",
+      "subject_clean": "Error: rebuild R-data.table on F32 for R 4.0.2",
+      "in_reply_to": "<3483766.MHq7AAxBmi@myth>",
+      "references": [
+        "<3483766.MHq7AAxBmi@myth>"
+      ],
+      "body_plain": "On Fri, 26 Jun 2020 at 13:12, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> I am at loss here\n>\n> R-data.table fails to rebuild, the failure happens in the tests where 3 are\n> failing.\n> https://koji.fedoraproject.org/koji/taskinfo?taskID=46195243\n>\n> I will continue with the rebuild and let this case to look later or if anyone\n> could help I would appreciate. :-)\n\nIt's erroring on CRAN too:\nhttps://cran.r-project.org/web/checks/check_results_data.table.html\n\n-- \nI?aki ?car",
+      "body_snippet": "On Fri, 26 Jun 2020 at 13:12, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> I am at loss here\n>\n> R-data.table fails to rebuild, the failure happens in the tests where 3 are\n> failing.\n> https://",
+      "thread_id": "thread-98744dc4adaf",
+      "thread_depth": 1,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-2ea21a1e1cd6",
+      "message_id": "<3919761.1IzOArtZ34@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-27T00:30:50+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq1sffiA=mcEBokFx=bE893=+u7j-nki+XT0zT4kYMbpRg@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<2422780.Lt9SDvczpP@myth>",
+        "<CALEXWq1sffiA=mcEBokFx=bE893=+u7j-nki+XT0zT4kYMbpRg@mail.gmail.com>"
+      ],
+      "body_plain": "On Friday, 26 June 2020 11.17.56 WEST I?aki Ucar wrote:\n> Then probably sticking to bootstrap is the best option. We should\n> propose a change of the template SPEC in the guidelines to reflect\n> that all packages should enclose their suggests and %check into a\n> %{without boostrap} block, with a \"%bcond_with bootstrap\" defined on\n> top.\n\nI agree. And probably such that the bootstrap stage exclude the testing part.\n\nSo in the first instance we build the packages without testing and after the \nbootstrap we rebuild again those packages but with the tests on again.\n\nAfter finishing the second batch of packages (from your file) I have a huge \nlist of packages that were not rebuild because they require either R-testthat \nor R-testit:\n\n# fails test stage: missing testthat or testit\nR-R-acepack\nR-R-bindr\nR-R-clipr\nR-R-clisymbols\nR-R-commonmark\nR-errors\nR-farver\nR-fastmap\nR-formatR\nR-fs\nR-glue\nR-ini\nR-jsonlite\nR-lazyeval\nR-packrat\nR-qtl\nR-rappdirs\nR-rlang\nR-systemfonts\nR-utf8\nR-viridisLite\nR-xml2\nR-zeallot\nR-askpass\nR-diffobj\nR-hunspell\nR-igraph\nR-later *\nR-lifecycle\nR-lubridate *\nR-mockr\nR-munsell\nR-plyr\nR-prettycode\nR-rex\nR-rgeos\nR-rprintf\nR-simmer\nR-stringr\nR-units\n\n# package fails because it requires dependencies above\nR-V8\nR-bindrcpp\nR-cli\nR-corpus\nR-debugme\nR-ellipsis\nR-gdtools\nR-htmltools\nR-jqr\nR-lambda.r\nR-purrr\nR-reticulate\nR-rversions\nR-tweenr\nR-webutils\n\n\nThe list of packages rebuilt until now is\n# first round/batch\nR\nR-rpm-macros\nrpy\nR-AUC\nR-AsioHeaders\nR-BH\nR-Cairo\nR-DBI\nR-FMStable\nR-NISTunits\nR-R.methodsS3\nR-R6\nR-RColorBrewer\nR-RUnit\nR-Rcpp\nR-RhpcBLASctl\nR-XML\nR-abind\nR-argon2\nR-backports\nR-assertthat\nR-base64enc\nR-bit\nR-bitops\nR-brew\nR-chron\nR-coda\nR-colorspace\nR-combinat\nR-crayon\nR-curl\nR-date\nR-deldir\nR-dichromat\nR-digest\nR-disposables\nR-evaluate\nR-expm\nR-fansi\nR-fastmatch\nR-filehash\nR-fontBitstreamVera\nR-fontLiberation\nR-fortunes\nR-futile.options\nR-gamlss.dist\nR-gee\nR-generics\nR-ggplot2movies\nR-git2r\nR-globals\nR-gmp\nR-gsl\nR-gss\nR-gtable\nR-gtools\nR-highlight\nR-import\nR-inline\nR-iterators\nR-jpeg\nR-labeling\nR-listenv\nR-lmodel2\nR-mAr\nR-magrittr\nR-maps\nR-matrixStats\nR-measurements\nR-microbenchmark\nR-mime\nR-mlbench\nR-mvtnorm\nR-ncdf4\nR-nws\nR-pbdRPC\nR-pbdZMQ *\nR-pkgconfig\nR-plogr\nR-png\nR-polyclip\nR-polynom\nR-praise\nR-prettyunits\nR-ps\nR-quadprog\nR-rematch\nR-remotes\nR-rlecuyer\nR-rstudioapi\nR-rsvg\nR-scatterplot3d\nR-sciplot\nR-sfsmisc\nR-snow\nR-sodium\nR-sourcetools\nR-sp\nR-stringdist\nR-stringi\nR-sys\nR-sysfonts\nR-testit\nR-timeDate\nR-tinytest\nR-tkrplot\nR-udunits2\nR-unix\nR-uuid\nR-waveslim\nR-wavethresh\nR-webp\nR-wesanderson\nR-whisker\nR-withr\nR-xfun\nR-xmlparsedata\nR-xtable\nR-yaml\nR-zoo\n\n# 2nd round/batch\nR-R.oo\nR-RCurl\nR-RInside\nR-RcppCCTZ\nR-Rmpfr\nR-V8\nR-ape\nR-biglm\nR-bit64\nR-caTools\nR-car\nR-foreach\nR-fts\nR-future\nR-gdata\nR-getPass\nR-itertools\nR-lmtest\nR-lokern\nR-mapproj\nR-markdown\nR-memoise\nR-msm\nR-poLCA\nR-processx\nR-rgdal\nR-rprojroot\nR-sandwich\nR-showtextdb\nR-statnet.common\nR-tikzDevice\nR-timeSeries\nR-tinytex\n\n# 3rd round/batch\nR-Bessel\nR-R.utils\n\n-- \nJos? Ab?lio",
+      "body_snippet": "On Friday, 26 June 2020 11.17.56 WEST I?aki Ucar wrote:\n> Then probably sticking to bootstrap is the best option. We should\n> propose a change of the template SPEC in the guidelines to reflect\n> that ",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 12,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-52a39c218248",
+      "message_id": "<alpine.LFD.2.22.394.2006291007550.2954318@reclus.nhh.no>",
+      "from_name": "Roger Bivand",
+      "from_email_hash": "37a3c7637f7cdc3576966201a0fd58853d44abb21284a9eb85afffcb057c33b5",
+      "date": "2020-06-29T10:20:39+02:00",
+      "subject": "[R-sig-Fedora] -specs=/usr/lib/rpm/redhat/redhat-hardened-ld woes",
+      "subject_clean": "-specs=/usr/lib/rpm/redhat/redhat-hardened-ld woes",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "In the rgdal package, configure.ac has had : ${LDFLAGS=`\"${RBIN}\" CMD \nconfig LDFLAGS`} at least since 2012, so picking up LDFLAGS known to the R \nversion installed. Very recently, users installing rgdal from source with \nR installed from RPM are seeing problems, such as those reported in this \nthread: https://stat.ethz.ch/pipermail/r-sig-geo/2020-June/028251.html\n\nThe diagnosis by Bennet Fauber, that\n\nLDFLAGS='-specs=/usr/lib/rpm/redhat/redhat-hardened-ld'\n\nis the problem, that LDFLAGS='-Wl,-z,relro -Wl,--as-needed -Wl,-z,now' \nworks OK, and that the -specs= conflict with autoconf has not been \nresolved seems accurate to me (see also \nhttps://developers.redhat.com/blog/2018/03/21/compiler-and-linker-flags-gcc/, \nhttps://bugzilla.redhat.com/show_bug.cgi?id=1343892).\n\nI realise that the R RPM needs to follow RH/F standards, but has something \nhappened in the RPM ecosystem recently to poison the -spec/autoconf \nrelationship?\n\nReprex:  install.packages(\"rgdal\", repos=\"http://R-Forge.R-project.org\") \nand  install.packages(\"rgdal\", repos=\"http://R-Forge.R-project.org\", \nconfigure.args=\"--disable-loadflags\") on a system with R RPM, plus GDAL \nand PROJ (gdal-devel proj-devel proj-epsg proj-nad sqlite-devel I think).\n\nAre there any known work-arounds that might apply to other packages using \nautoconf?\n\nRoger\n\n-- \nRoger Bivand\nDepartment of Economics, Norwegian School of Economics,\nHelleveien 30, N-5045 Bergen, Norway.\nvoice: +47 55 95 93 55; e-mail: Roger.Bivand at nhh.no\nhttps://orcid.org/0000-0003-2392-6140\nhttps://scholar.google.no/citations?user=AWeghB0AAAAJ&hl=en",
+      "body_snippet": "In the rgdal package, configure.ac has had : ${LDFLAGS=`\"${RBIN}\" CMD \nconfig LDFLAGS`} at least since 2012, so picking up LDFLAGS known to the R \nversion installed. Very recently, users installing rg",
+      "thread_id": "thread-52a39c218248",
+      "thread_depth": 0,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-189c379db242",
+      "message_id": "<CALEXWq2Hq5oQsaxZUN9c0c1U_hMaQXj6MgMi90wXyX6xy1=Jjw@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-06-29T11:24:37+02:00",
+      "subject": "[R-sig-Fedora]  -specs=/usr/lib/rpm/redhat/redhat-hardened-ld woes",
+      "subject_clean": "-specs=/usr/lib/rpm/redhat/redhat-hardened-ld woes",
+      "in_reply_to": "<alpine.LFD.2.22.394.2006291007550.2954318@reclus.nhh.no>",
+      "references": [
+        "<alpine.LFD.2.22.394.2006291007550.2954318@reclus.nhh.no>"
+      ],
+      "body_plain": "On Mon, 29 Jun 2020 at 10:21, Roger Bivand <Roger.Bivand at nhh.no> wrote:\n>\n> In the rgdal package, configure.ac has had : ${LDFLAGS=`\"${RBIN}\" CMD\n> config LDFLAGS`} at least since 2012, so picking up LDFLAGS known to the R\n> version installed. Very recently, users installing rgdal from source with\n> R installed from RPM are seeing problems, such as those reported in this\n> thread: https://stat.ethz.ch/pipermail/r-sig-geo/2020-June/028251.html\n>\n> The diagnosis by Bennet Fauber, that\n>\n> LDFLAGS='-specs=/usr/lib/rpm/redhat/redhat-hardened-ld'\n>\n> is the problem, that LDFLAGS='-Wl,-z,relro -Wl,--as-needed -Wl,-z,now'\n> works OK, and that the -specs= conflict with autoconf has not been\n> resolved seems accurate to me (see also\n> https://developers.redhat.com/blog/2018/03/21/compiler-and-linker-flags-gcc/,\n> https://bugzilla.redhat.com/show_bug.cgi?id=1343892).\n>\n> I realise that the R RPM needs to follow RH/F standards, but has something\n> happened in the RPM ecosystem recently to poison the -spec/autoconf\n> relationship?\n\nDid something change in rgdal's flags from 1.5-10 to 1.5-12? Because\nthe former installs fine. You can see in [1] that it fails since the\nlast update.\n\n[1] https://copr.fedorainfracloud.org/coprs/iucar/cran/package/R-CRAN-rgdal/\n\n-- \nI?aki ?car",
+      "body_snippet": "On Mon, 29 Jun 2020 at 10:21, Roger Bivand <Roger.Bivand at nhh.no> wrote:\n>\n> In the rgdal package, configure.ac has had : ${LDFLAGS=`\"${RBIN}\" CMD\n> config LDFLAGS`} at least since 2012, so picking ",
+      "thread_id": "thread-52a39c218248",
+      "thread_depth": 1,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-5ddc463557a1",
+      "message_id": "<CALEXWq3dGTTcAxeOTwURH92sBMa5eC_R9Fkwy8yzEoDc+YqfDw@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-06-29T12:27:11+02:00",
+      "subject": "[R-sig-Fedora]  -specs=/usr/lib/rpm/redhat/redhat-hardened-ld woes",
+      "subject_clean": "-specs=/usr/lib/rpm/redhat/redhat-hardened-ld woes",
+      "in_reply_to": "<CALEXWq2Hq5oQsaxZUN9c0c1U_hMaQXj6MgMi90wXyX6xy1=Jjw@mail.gmail.com>",
+      "references": [
+        "<alpine.LFD.2.22.394.2006291007550.2954318@reclus.nhh.no>",
+        "<CALEXWq2Hq5oQsaxZUN9c0c1U_hMaQXj6MgMi90wXyX6xy1=Jjw@mail.gmail.com>"
+      ],
+      "body_plain": "On Mon, 29 Jun 2020 at 11:24, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Mon, 29 Jun 2020 at 10:21, Roger Bivand <Roger.Bivand at nhh.no> wrote:\n> >\n> > In the rgdal package, configure.ac has had : ${LDFLAGS=`\"${RBIN}\" CMD\n> > config LDFLAGS`} at least since 2012, so picking up LDFLAGS known to the R\n> > version installed. Very recently, users installing rgdal from source with\n> > R installed from RPM are seeing problems, such as those reported in this\n> > thread: https://stat.ethz.ch/pipermail/r-sig-geo/2020-June/028251.html\n> >\n> > The diagnosis by Bennet Fauber, that\n> >\n> > LDFLAGS='-specs=/usr/lib/rpm/redhat/redhat-hardened-ld'\n> >\n> > is the problem, that LDFLAGS='-Wl,-z,relro -Wl,--as-needed -Wl,-z,now'\n> > works OK, and that the -specs= conflict with autoconf has not been\n> > resolved seems accurate to me (see also\n> > https://developers.redhat.com/blog/2018/03/21/compiler-and-linker-flags-gcc/,\n> > https://bugzilla.redhat.com/show_bug.cgi?id=1343892).\n> >\n> > I realise that the R RPM needs to follow RH/F standards, but has something\n> > happened in the RPM ecosystem recently to poison the -spec/autoconf\n> > relationship?\n>\n> Did something change in rgdal's flags from 1.5-10 to 1.5-12? Because\n> the former installs fine. You can see in [1] that it fails since the\n> last update.\n\nI see that rgdal changed to C++ recently. The issue is in rgdal,\nbecause the configure script is missing:\n\nCXXFLAGS=`\"${R_HOME}/bin/R\" CMD config CXXFLAGS`\n\nas indicated in Writing R Extensions (note that CPPFLAGS are *not*\nCXXFLAGS; I say this because it's a common mistake).\n\n-- \nI?aki ?car",
+      "body_snippet": "On Mon, 29 Jun 2020 at 11:24, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Mon, 29 Jun 2020 at 10:21, Roger Bivand <Roger.Bivand at nhh.no> wrote:\n> >\n> > In the rgdal package, configure.ac h",
+      "thread_id": "thread-52a39c218248",
+      "thread_depth": 2,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-70e8b8c27756",
+      "message_id": "<3484402.MHq7AAxBmi@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-29T12:19:19+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CAJP_izc+UrTjLAeiL-RFO307LH-U9fRq4UA7pHNtw0JVvJ370w@mail.gmail.com>",
+        "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>"
+      ],
+      "body_plain": "On Wednesday, 24 June 2020 10.42.10 WEST I?aki Ucar wrote:\n> Thanks, Jos? and Elliott. I can help with reviews.\n> \n> I attach here a list of batches of CRAN packages to be rebuilt in\n> order (batches separated by a blank line), and the script that\n> generates it. Hope it helps.\n> \n> I?aki\n\nHi I?aki,\n  I noticed that you do not have TH.data, that in Fedora corresponds to R-TH-data in your \nresults.\n\nI noticed it because multcomp depends on it and the compilation failed because R-TH-data \nwas not yet ported.\n\nThis questions is mainly directed to you, to Elliot and Tom, should we add to the rpm-\nmacros something that puts Provides(R-rname) or since the naming is more or less the \nsame we can add manually this for packages for which the R-rname and the Fedora \npackage diverge...\n\n\nSo in this case we would add, either directly or automatically,\n\nProvides(R-TH.data)\n\nWhat do you think?\n\n-- \nJos? Ab?lio\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On Wednesday, 24 June 2020 10.42.10 WEST I?aki Ucar wrote:\n> Thanks, Jos? and Elliott. I can help with reviews.\n> \n> I attach here a list of batches of CRAN packages to be rebuilt in\n> order (batches ",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 7,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-080961c1530c",
+      "message_id": "<CALEXWq1ZbvFPvyrh5BeYXMqw+OimAZhXB7Rw8ifYr8XHoiKrMw@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-06-29T13:35:35+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<3484402.MHq7AAxBmi@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<CAJP_izc+UrTjLAeiL-RFO307LH-U9fRq4UA7pHNtw0JVvJ370w@mail.gmail.com>",
+        "<CALEXWq0P588QTKz7WX2gf4w4UBBE33kJ16_c_7pWCx1xcvKp0g@mail.gmail.com>",
+        "<3484402.MHq7AAxBmi@myth>"
+      ],
+      "body_plain": "On Mon, 29 Jun 2020 at 13:19, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Wednesday, 24 June 2020 10.42.10 WEST I?aki Ucar wrote:\n> > Thanks, Jos? and Elliott. I can help with reviews.\n> >\n> > I attach here a list of batches of CRAN packages to be rebuilt in\n> > order (batches separated by a blank line), and the script that\n> > generates it. Hope it helps.\n> >\n> > I?aki\n>\n> Hi I?aki,\n>   I noticed that you do not have TH.data, that in Fedora corresponds to R-TH-data in your\n> results.\n\nYeah, sorry, that's a kind of bug in my script. I'm using CRAN names,\nand I forgot that some RPM packages change those names due to the dot\nto adhere to the guidelines. So TH-data is mistakenly dropped.\n\n> I noticed it because multcomp depends on it and the compilation failed because R-TH-data\n> was not yet ported.\n>\n> This questions is mainly directed to you, to Elliot and Tom, should we add to the rpm-\n> macros something that puts Provides(R-rname) or since the naming is more or less the\n> same we can add manually this for packages for which the R-rname and the Fedora\n> package diverge...\n>\n>\n> So in this case we would add, either directly or automatically,\n>\n> Provides(R-TH.data)\n>\n> What do you think?\n\nNow, we have\n\n$ sudo dnf repoquery --provides R-TH-data\nR(TH.data) = 1.0-10\nR-TH-data = 1.0.10-4.fc3\n\nwhich is what you are looking for I guess? I should be using that\ninstead of the RPM package names.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Mon, 29 Jun 2020 at 13:19, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Wednesday, 24 June 2020 10.42.10 WEST I?aki Ucar wrote:\n> > Thanks, Jos? and Elliott. I can help with reviews.\n> >\n>",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 8,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-56180d85e8e4",
+      "message_id": "<alpine.LFD.2.22.394.2006291346160.2961111@reclus.nhh.no>",
+      "from_name": "Roger Bivand",
+      "from_email_hash": "37a3c7637f7cdc3576966201a0fd58853d44abb21284a9eb85afffcb057c33b5",
+      "date": "2020-06-29T13:55:32+02:00",
+      "subject": "[R-sig-Fedora]  -specs=/usr/lib/rpm/redhat/redhat-hardened-ld woes",
+      "subject_clean": "-specs=/usr/lib/rpm/redhat/redhat-hardened-ld woes",
+      "in_reply_to": "<CALEXWq3dGTTcAxeOTwURH92sBMa5eC_R9Fkwy8yzEoDc+YqfDw@mail.gmail.com>",
+      "references": [
+        "<alpine.LFD.2.22.394.2006291007550.2954318@reclus.nhh.no>",
+        "<CALEXWq2Hq5oQsaxZUN9c0c1U_hMaQXj6MgMi90wXyX6xy1=Jjw@mail.gmail.com>",
+        "<CALEXWq3dGTTcAxeOTwURH92sBMa5eC_R9Fkwy8yzEoDc+YqfDw@mail.gmail.com>"
+      ],
+      "body_plain": "On Mon, 29 Jun 2020, I?aki Ucar wrote:\n\n> On Mon, 29 Jun 2020 at 11:24, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>>\n>> On Mon, 29 Jun 2020 at 10:21, Roger Bivand <Roger.Bivand at nhh.no> wrote:\n>>>\n>>> In the rgdal package, configure.ac has had : ${LDFLAGS=`\"${RBIN}\" CMD\n>>> config LDFLAGS`} at least since 2012, so picking up LDFLAGS known to the R\n>>> version installed. Very recently, users installing rgdal from source with\n>>> R installed from RPM are seeing problems, such as those reported in this\n>>> thread: https://stat.ethz.ch/pipermail/r-sig-geo/2020-June/028251.html\n>>>\n>>> The diagnosis by Bennet Fauber, that\n>>>\n>>> LDFLAGS='-specs=/usr/lib/rpm/redhat/redhat-hardened-ld'\n>>>\n>>> is the problem, that LDFLAGS='-Wl,-z,relro -Wl,--as-needed -Wl,-z,now'\n>>> works OK, and that the -specs= conflict with autoconf has not been\n>>> resolved seems accurate to me (see also\n>>> https://developers.redhat.com/blog/2018/03/21/compiler-and-linker-flags-gcc/,\n>>> https://bugzilla.redhat.com/show_bug.cgi?id=1343892).\n>>>\n>>> I realise that the R RPM needs to follow RH/F standards, but has something\n>>> happened in the RPM ecosystem recently to poison the -spec/autoconf\n>>> relationship?\n>>\n>> Did something change in rgdal's flags from 1.5-10 to 1.5-12? Because\n>> the former installs fine. You can see in [1] that it fails since the\n>> last update.\n>\n> I see that rgdal changed to C++ recently. The issue is in rgdal,\n> because the configure script is missing:\n>\n> CXXFLAGS=`\"${R_HOME}/bin/R\" CMD config CXXFLAGS`\n>\n> as indicated in Writing R Extensions (note that CPPFLAGS are *not*\n> CXXFLAGS; I say this because it's a common mistake).\n\nThanks, added R-forge revision 1021. The problem was caused by the \naddition of AC_LANG(C++) (about line 500, 11 June) in connection with \npreparations for macOS static builds; without AC_LANG(C++) Fedora runs \nconfigure OK. With AC_LANG(C++), Fedora needs CXXFLAGS set if using the R \nrpm (otherwise and other systems not).  CPPFLAGS were used for the C \npre-processor.\n\nRoger\n\n>\n>\n\n-- \nRoger Bivand\nDepartment of Economics, Norwegian School of Economics,\nHelleveien 30, N-5045 Bergen, Norway.\nvoice: +47 55 95 93 55; e-mail: Roger.Bivand at nhh.no\nhttps://orcid.org/0000-0003-2392-6140\nhttps://scholar.google.no/citations?user=AWeghB0AAAAJ&hl=en",
+      "body_snippet": "On Mon, 29 Jun 2020, I?aki Ucar wrote:\n\n> On Mon, 29 Jun 2020 at 11:24, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>>\n>> On Mon, 29 Jun 2020 at 10:21, Roger Bivand <Roger.Bivand at nhh.no> wrote:\n",
+      "thread_id": "thread-52a39c218248",
+      "thread_depth": 3,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-e17bcc636d72",
+      "message_id": "<2491154.BddDVKsqQX@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-29T13:24:56+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CALEXWq1ZbvFPvyrh5BeYXMqw+OimAZhXB7Rw8ifYr8XHoiKrMw@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<3484402.MHq7AAxBmi@myth>",
+        "<CALEXWq1ZbvFPvyrh5BeYXMqw+OimAZhXB7Rw8ifYr8XHoiKrMw@mail.gmail.com>"
+      ],
+      "body_plain": "On Monday, 29 June 2020 12.35.35 WEST I?aki Ucar wrote:\n> Yeah, sorry, that's a kind of bug in my script. I'm using CRAN names,\n> and I forgot that some RPM packages change those names due to the dot\n> to adhere to the guidelines. So TH-data is mistakenly dropped.\n\nThank you for feedback.\nI am trying to make this process as automatic as possible.\n\n> > I noticed it because multcomp depends on it and the compilation failed\n> > because R-TH-data was not yet ported.\n> > \n> > This questions is mainly directed to you, to Elliot and Tom, should we add\n> > to the rpm- macros something that puts Provides(R-rname) or since the\n> > naming is more or less the same we can add manually this for packages for\n> > which the R-rname and the Fedora package diverge...\n> > \n> > \n> > So in this case we would add, either directly or automatically,\n> > \n> > Provides(R-TH.data)\n> > \n> > What do you think?\n> \n> Now, we have\n> \n> $ sudo dnf repoquery --provides R-TH-data\n> R(TH.data) = 1.0-10\n> R-TH-data = 1.0.10-4.fc3\n> \n> which is what you are looking for I guess?\n\nYou guessed right. :-)\nApologies for not verifying this before but while controlling the build processes my \nattention span becomes that of a toddler. :-)\n\nI do not know if the process will succeed or not.\nThe extreme example was R-pbdZMQ that took more than a day building.\n\nThe issue was with the testing stage in s390x where a test with ports were stuck. I guess \nthat there was a long timeout.\n\n\n> I should be using that instead of the RPM package names.\n\nAgain you guessed right, that was the main idea. :-)\nAs I told above and to reiterate it, the idea of this work is to make it easier to automate the \nprocess. Similarly to how we do the mass builds for all the packages.\n\nBTW your idea to separate the builds in batches is a very useful idea. The reason is that it \ntakes some time for the builds to be added to the repository associated with the side tag. I \nhad already three cases where the build failed because the new build of a dependent \npackage was not yet in the repository and so the resolver took an older build (made with \nR-3.6).\n\nBest regards,\n-- \nJos? Ab?lio\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On Monday, 29 June 2020 12.35.35 WEST I?aki Ucar wrote:\n> Yeah, sorry, that's a kind of bug in my script. I'm using CRAN names,\n> and I forgot that some RPM packages change those names due to the dot\n",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 9,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-2c09d785b3ff",
+      "message_id": "<CALEXWq3CHTOta-gjajcmGUeX8R+drQTGn_pLHZRyh3DhgcA4eg@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2020-06-29T14:46:02+02:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<2491154.BddDVKsqQX@myth>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<3484402.MHq7AAxBmi@myth>",
+        "<CALEXWq1ZbvFPvyrh5BeYXMqw+OimAZhXB7Rw8ifYr8XHoiKrMw@mail.gmail.com>",
+        "<2491154.BddDVKsqQX@myth>"
+      ],
+      "body_plain": "On Mon, 29 Jun 2020 at 14:25, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> Again you guessed right, that was the main idea. :-)\n> As I told above and to reiterate it, the idea of this work is to make it easier to automate the\n> process. Similarly to how we do the mass builds for all the packages.\n\nBut the mass rebuild process is very different, because releng doesn't\nfollow any particular order (they don't need to, because nothing\nreally changed).\n\nThe question is whether there is any tool to resolve dependencies and\ngenerate a list of builds, as I do with the CRAN database, for an\narbitrary list of RPMs. That would be perfect. In theory, this should\nbe possible with dnf, but when I tried, I failed (or my script would\ntheoretically work, but it would take ages to complete). I also took a\nlook at releng's repos on Pagure, but I didn't find any tool to do\nthis either.\n\nWe should bring this to devel, maybe ask Miro and other Python folks\nwho may have The Method(TM), as they are rebuilding stuff on a daily\nbasis.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Mon, 29 Jun 2020 at 14:25, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> Again you guessed right, that was the main idea. :-)\n> As I told above and to reiterate it, the idea of this work is to",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 10,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-4f4216ededee",
+      "message_id": "<17139400.sWSEgdgrri@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-29T23:57:25+01:00",
+      "subject": "[R-sig-Fedora] Error: rebuild R-data.table on F32 for R 4.0.2",
+      "subject_clean": "Error: rebuild R-data.table on F32 for R 4.0.2",
+      "in_reply_to": "<CALEXWq0Aum4pL9da=fJGweC8tPGWYcRi2GvBmTXpr5uWOW6Xdw@mail.gmail.com>",
+      "references": [
+        "<3483766.MHq7AAxBmi@myth>",
+        "<CALEXWq0Aum4pL9da=fJGweC8tPGWYcRi2GvBmTXpr5uWOW6Xdw@mail.gmail.com>"
+      ],
+      "body_plain": "On Friday, 26 June 2020 12.36.07 WEST I?aki Ucar wrote:\n> It's erroring on CRAN too:\n> https://cran.r-project.org/web/checks/check_results_data.table.html\n\nThe only other package affected by this failure is R-nanotime.\n-- \nJos? Ab?lio",
+      "body_snippet": "On Friday, 26 June 2020 12.36.07 WEST I?aki Ucar wrote:\n> It's erroring on CRAN too:\n> https://cran.r-project.org/web/checks/check_results_data.table.html\n\nThe only other package affected by this fail",
+      "thread_id": "thread-98744dc4adaf",
+      "thread_depth": 2,
+      "month": "2020-06"
+    },
+    {
+      "id": "msg-8eed0b20516f",
+      "message_id": "<2464366.tIAgqjz4sF@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2020-06-30T01:10:50+01:00",
+      "subject": "[R-sig-Fedora] R 4.0.0 rebuild status",
+      "subject_clean": "R 4.0.0 rebuild status",
+      "in_reply_to": "<CAJP_izfBFBE9nroyc90hDS866TRT6mmd5gd3qQStcYGQ09d8ZQ@mail.gmail.com>",
+      "references": [
+        "<CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>",
+        "<796569981.0ifERbkFSE@myth>",
+        "<CAJP_izfBFBE9nroyc90hDS866TRT6mmd5gd3qQStcYGQ09d8ZQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Friday, 26 June 2020 10.52.44 WEST Elliott Sales de Andrade wrote:\n> Feel free to double-check these.\n> \n> Also, let me know if you need to stop building and I can do so.\n\nThe first round is ready. I built all the cran packages using I?aki's order.\n\nFor the remainder those that failed I will implement the bootstrap in packages \nas described before.\n\nI intend to disable testing and building vignettes in bootstrap mode. After \nall the packages are rebuilt I will apply the same recipe but with the \nbootstrap mode disabled.\n\nMost of the version differences were minor and I have updated those package. \nThe exceptions goes as you suggested to the dependences of vctrs.\n\nI pinned vctrs version in F32. The same should apply to all the dependences, I \nthink that I made a mistake for some of the dependences that I will fix in the \nnext stage, one example is haven were I have updated the spec to rawhide \nversion. This mistake is harmless at this stage because those packages do not \nbuild since vectrs' version is unchanged.\n\nI will revert that in the next stage.\n\nRegards,\n-- \nJos? Ab?lio",
+      "body_snippet": "On Friday, 26 June 2020 10.52.44 WEST Elliott Sales de Andrade wrote:\n> Feel free to double-check these.\n> \n> Also, let me know if you need to stop building and I can do so.\n\nThe first round is ready.",
+      "thread_id": "thread-86f9cfe23091",
+      "thread_depth": 11,
+      "month": "2020-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-86f9cfe23091",
+      "subject": "R 4.0.0 rebuild status",
+      "message_count": 32,
+      "participants": [
+        "Elliott Sales de Andrade",
+        "Iñaki Ucar",
+        "José Abílio Matos",
+        "Tom Callaway"
+      ],
+      "started": "2020-06-08T22:40:52-04:00",
+      "last_reply": "2020-06-30T01:10:50+01:00",
+      "root_message_id": "msg-86f9cfe23091"
+    },
+    {
+      "id": "thread-98744dc4adaf",
+      "subject": "Error:  rebuild R-data.table on F32 for R 4.0.2",
+      "message_count": 3,
+      "participants": [
+        "Iñaki Ucar",
+        "José Abílio Matos"
+      ],
+      "started": "2020-06-26T12:11:48+01:00",
+      "last_reply": "2020-06-29T23:57:25+01:00",
+      "root_message_id": "msg-98744dc4adaf"
+    },
+    {
+      "id": "thread-52a39c218248",
+      "subject": "-specs=/usr/lib/rpm/redhat/redhat-hardened-ld woes",
+      "message_count": 4,
+      "participants": [
+        "Iñaki Ucar",
+        "Roger Bivand"
+      ],
+      "started": "2020-06-29T10:20:39+02:00",
+      "last_reply": "2020-06-29T13:55:32+02:00",
+      "root_message_id": "msg-52a39c218248"
+    }
+  ]
+}

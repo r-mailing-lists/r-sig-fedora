@@ -1,0 +1,116 @@
+From they||@n||u @end|ng |rom gm@||@com  Mon Jul 12 07:01:13 2021
+From: they||@n||u @end|ng |rom gm@||@com (Yifan Liu)
+Date: Mon, 12 Jul 2021 00:01:13 -0500
+Subject: [R-sig-Fedora] RStudio discounts with R when restarting R
+Message-ID: <CADdpgawrBwtdGq3pVd1Y4cpCXOcpekq3bAQdZdiOrL3a4CRpMQ@mail.gmail.com>
+
+Hi All,
+
+I am currently using R 4.0.5 on RStudio 1.4.1717 on Fedora 34. When I
+restart R (Ctrl + Shift + F10), RStudio will always discount with R. This
+issue occurs to my two computers and has been around for about one month.
+Did anyone experience the same issue?
+
+Sincerely,
+
+Yifan Liu
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Mon Jul 12 13:24:34 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Mon, 12 Jul 2021 13:24:34 +0200
+Subject: [R-sig-Fedora] RStudio discounts with R when restarting R
+In-Reply-To: <CADdpgawrBwtdGq3pVd1Y4cpCXOcpekq3bAQdZdiOrL3a4CRpMQ@mail.gmail.com>
+References: <CADdpgawrBwtdGq3pVd1Y4cpCXOcpekq3bAQdZdiOrL3a4CRpMQ@mail.gmail.com>
+Message-ID: <CALEXWq3oWKOLOMhkox+0OiJ3Dsg-R6FWpNVgC3CAx87Ns_pESQ@mail.gmail.com>
+
+On Mon, 12 Jul 2021 at 13:19, Yifan Liu <theyifanliu at gmail.com> wrote:
+>
+> Hi All,
+>
+> I am currently using R 4.0.5 on RStudio 1.4.1717 on Fedora 34. When I
+> restart R (Ctrl + Shift + F10), RStudio will always discount with R. This
+> issue occurs to my two computers and has been around for about one month.
+> Did anyone experience the same issue?
+
+Sorry, what do you mean by "discount with R"?
+
+-- 
+I?aki ?car
+
+
+From |uc@r @end|ng |rom |edor@project@org  Mon Jul 12 23:43:33 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Mon, 12 Jul 2021 23:43:33 +0200
+Subject: [R-sig-Fedora] RStudio discounts with R when restarting R
+In-Reply-To: <CADdpgayxRX9x_HO-fvo1=P-_np6DXBW8s6FKj91gc6FWJ5kfeQ@mail.gmail.com>
+References: <CADdpgawrBwtdGq3pVd1Y4cpCXOcpekq3bAQdZdiOrL3a4CRpMQ@mail.gmail.com>
+ <CALEXWq3oWKOLOMhkox+0OiJ3Dsg-R6FWpNVgC3CAx87Ns_pESQ@mail.gmail.com>
+ <CADdpgayxRX9x_HO-fvo1=P-_np6DXBW8s6FKj91gc6FWJ5kfeQ@mail.gmail.com>
+Message-ID: <CALEXWq1xqwdDOn9TU1o29MdmMB8UZWS09g8xM_r4h4Jif8GOxQ@mail.gmail.com>
+
+On Mon, 12 Jul 2021 at 17:56, Yifan Liu <theyifanliu at gmail.com> wrote:
+>
+> Sorry, it is a typo. I actually mean disconnect.
+
+I can't reproduce the issue. My session just restarts as expected. So
+probably the cause of the issue is some session state or local
+configuration. Try renaming the ~/.rstudio folder and/or report this
+upstream.
+
+-- 
+I?aki ?car
+
+
+From b|nt@oc @end|ng |rom y@hoo@com@@u  Wed Jul 28 11:57:29 2021
+From: b|nt@oc @end|ng |rom y@hoo@com@@u (Bintao Cui)
+Date: Wed, 28 Jul 2021 09:57:29 +0000 (UTC)
+Subject: [R-sig-Fedora] Makefile error
+References: <627170618.417505.1627466249658.ref@mail.yahoo.com>
+Message-ID: <627170618.417505.1627466249658@mail.yahoo.com>
+
+Makefile.in:87: *** missing separator.? Stop. 
+
+I am trying to install R-4.1.0 version to fedora, and got the error above, please help!
+Thanks.
+
+With regards,Bintao
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20210728/5853593d/attachment.html>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Makefile.in
+Type: application/octet-stream
+Size: 10088 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20210728/5853593d/attachment.obj>
+
+From |uc@r @end|ng |rom |edor@project@org  Thu Jul 29 15:08:23 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Thu, 29 Jul 2021 15:08:23 +0200
+Subject: [R-sig-Fedora] Makefile error
+In-Reply-To: <627170618.417505.1627466249658@mail.yahoo.com>
+References: <627170618.417505.1627466249658.ref@mail.yahoo.com>
+ <627170618.417505.1627466249658@mail.yahoo.com>
+Message-ID: <CALEXWq2g_P8Qv3st-f_ChtVK5fxryrC9OJ2iLvU76ksEPsH_Yg@mail.gmail.com>
+
+On Wed, 28 Jul 2021 at 11:59, Bintao Cui <bintaoc at yahoo.com.au> wrote:
+>
+> Makefile.in:87: *** missing separator.  Stop.
+>
+> I am trying to install R-4.1.0 version to fedora, and got the error above, please help!
+
+This version is available in rawhide. See [1] about how to install it.
+
+[1] https://stat.ethz.ch/pipermail/r-sig-fedora/2021-June/000770.html
+
+-- 
+I?aki ?car
+
+

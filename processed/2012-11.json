@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2012-11",
+  "messages": [
+    {
+      "id": "msg-bdd36a03a055",
+      "message_id": "<CAF63_=hA5qTkp+e5QX3c_5=hGygWD8=Fg9ivD4BkWn7ku6=U+w@mail.gmail.com>",
+      "from_name": "sasidhar M",
+      "from_email_hash": "340ffe26794f92622cdb66e8c35601fa21d176455a53a5a72af4b8466efeff9e",
+      "date": "2012-11-30T16:08:34+05:30",
+      "subject": "[R-sig-Fedora] oracle db connection From R in Linux",
+      "subject_clean": "oracle db connection From R in Linux",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20121130/fac258c3/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20121130/fac258c3/attachment.pl>",
+      "thread_id": "thread-bdd36a03a055",
+      "thread_depth": 0,
+      "month": "2012-11"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-bdd36a03a055",
+      "subject": "oracle db connection From R in Linux",
+      "message_count": 1,
+      "participants": [
+        "sasidhar M"
+      ],
+      "started": "2012-11-30T16:08:34+05:30",
+      "last_reply": "2012-11-30T16:08:34+05:30",
+      "root_message_id": "msg-bdd36a03a055"
+    }
+  ]
+}

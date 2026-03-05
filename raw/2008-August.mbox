@@ -1,0 +1,15 @@
+From tcallawa at redhat.com  Fri Aug 29 18:08:11 2008
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Fri, 29 Aug 2008 12:08:11 -0400
+Subject: [R-sig-Fedora] R 2.7.2
+Message-ID: <1220026091.3606.44.camel@localhost.localdomain>
+
+R 2.7.2 is coming! Builds are going for EL-4, EL-5, F-8, F-9, and devel.
+I'll need to rebuild rpy and push updates, so this won't happen
+overnight, but this is your official "heads-up".
+
+Thanks,
+
+~spot
+
+

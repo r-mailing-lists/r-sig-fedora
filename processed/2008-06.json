@@ -1,0 +1,75 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2008-06",
+  "messages": [
+    {
+      "id": "msg-738080dd21f1",
+      "message_id": "<Pine.LNX.4.64.0806301119230.11397@reclus.nhh.no>",
+      "from_name": "Roger Bivand",
+      "from_email_hash": "a0c87926e9477aa221755cc93bdef47227c3563fd707e66ae49044467663d168",
+      "date": "2008-06-30T11:26:50+02:00",
+      "subject": "[R-sig-Fedora] Pango/cairo and symbol fonts",
+      "subject_clean": "Pango/cairo and symbol fonts",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Excuse my asking here than on R-help, but it may be a Fedora question. On \nFedora 7, I'm running a fresh R 2.7.1 built from source, usually in en_GB, \nbut also tried in en_GB.UTF8. Running example(plotmath) generates lots of:\n\nPango-WARNING **: shape engine failure, expect ugly output. the offending \nfont is 'Symbol Not-Rotated ...'\n\nSetting:\n\nx11(type=\"Xlib\")\n\nrelieves the problem, but I'd like to use cairo if possible. I have both \nurw-fonts and liberation-fonts installed. I'm pretty sure it is my F7, not \nR, and would be grateful for any advice. It's the same story with the png \ndevice.\n\nRoger\n\n-- \nRoger Bivand\nEconomic Geography Section, Department of Economics, Norwegian School of\nEconomics and Business Administration, Helleveien 30, N-5045 Bergen,\nNorway. voice: +47 55 95 93 55; fax +47 55 95 95 43\ne-mail: Roger.Bivand at nhh.no",
+      "body_snippet": "Excuse my asking here than on R-help, but it may be a Fedora question. On \nFedora 7, I'm running a fresh R 2.7.1 built from source, usually in en_GB, \nbut also tried in en_GB.UTF8. Running example(plo",
+      "thread_id": "thread-738080dd21f1",
+      "thread_depth": 0,
+      "month": "2008-06"
+    },
+    {
+      "id": "msg-8767b968e1df",
+      "message_id": "<4868D347.7030009@comcast.net>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "6b69db75158c6a64599f027a17f3ea4ee49917322d20dbb731688b8fd4f10e1f",
+      "date": "2008-06-30T07:36:23-05:00",
+      "subject": "[R-sig-Fedora] Pango/cairo and symbol fonts",
+      "subject_clean": "Pango/cairo and symbol fonts",
+      "in_reply_to": "<Pine.LNX.4.64.0806301119230.11397@reclus.nhh.no>",
+      "references": [
+        "<Pine.LNX.4.64.0806301119230.11397@reclus.nhh.no>"
+      ],
+      "body_plain": "on 06/30/2008 04:26 AM Roger Bivand wrote:\n> Excuse my asking here than on R-help, but it may be a Fedora question. \n> On Fedora 7, I'm running a fresh R 2.7.1 built from source, usually in \n> en_GB, but also tried in en_GB.UTF8. Running example(plotmath) generates \n> lots of:\n> \n> Pango-WARNING **: shape engine failure, expect ugly output. the \n> offending font is 'Symbol Not-Rotated ...'\n> \n> Setting:\n> \n> x11(type=\"Xlib\")\n> \n> relieves the problem, but I'd like to use cairo if possible. I have both \n> urw-fonts and liberation-fonts installed. I'm pretty sure it is my F7, \n> not R, and would be grateful for any advice. It's the same story with \n> the png device.\n> \n> Roger\n\nRoger,\n\nCheck capabilities() to be sure that 'cairo' shows as TRUE.\n\nIf it shows FALSE, be sure to install the cairo and cairo-devel RPMs and \nre-build R so that cairo support is available. You may just need the \n'cairo-devel' RPM if the 'cairo' RPM is already present.\n\nAlso, as an aside, F7 went EOL on June 13.\n\nIf that is not helpful, post back.\n\nRegards,\n\nMarc",
+      "body_snippet": "on 06/30/2008 04:26 AM Roger Bivand wrote:\n> Excuse my asking here than on R-help, but it may be a Fedora question. \n> On Fedora 7, I'm running a fresh R 2.7.1 built from source, usually in \n> en_GB, ",
+      "thread_id": "thread-738080dd21f1",
+      "thread_depth": 1,
+      "month": "2008-06"
+    },
+    {
+      "id": "msg-b7a042b05290",
+      "message_id": "<4868F24A.5080309@biostat.ku.dk>",
+      "from_name": "Peter Dalgaard",
+      "from_email_hash": "6970d38b63c93ff8b781d9787948d92fe2e7b4240149faca590409068c44b75c",
+      "date": "2008-06-30T16:48:42+02:00",
+      "subject": "[R-sig-Fedora] Pango/cairo and symbol fonts",
+      "subject_clean": "Pango/cairo and symbol fonts",
+      "in_reply_to": "<4868D347.7030009@comcast.net>",
+      "references": [
+        "<Pine.LNX.4.64.0806301119230.11397@reclus.nhh.no>",
+        "<4868D347.7030009@comcast.net>"
+      ],
+      "body_plain": "Marc Schwartz wrote:\n> on 06/30/2008 04:26 AM Roger Bivand wrote:\n>> Excuse my asking here than on R-help, but it may be a Fedora\n>> question. On Fedora 7, I'm running a fresh R 2.7.1 built from source,\n>> usually in en_GB, but also tried in en_GB.UTF8. Running\n>> example(plotmath) generates lots of:\n>>\n>> Pango-WARNING **: shape engine failure, expect ugly output. the\n>> offending font is 'Symbol Not-Rotated ...'\n>>\n>> Setting:\n>>\n>> x11(type=\"Xlib\")\n>>\n>> relieves the problem, but I'd like to use cairo if possible. I have\n>> both urw-fonts and liberation-fonts installed. I'm pretty sure it is\n>> my F7, not R, and would be grateful for any advice. It's the same\n>> story with the png device.\n>>\n>> Roger\n>\n> Roger,\n>\n> Check capabilities() to be sure that 'cairo' shows as TRUE.\n>\n> If it shows FALSE, be sure to install the cairo and cairo-devel RPMs\n> and re-build R so that cairo support is available. You may just need\n> the 'cairo-devel' RPM if the 'cairo' RPM is already present.\n>\n> Also, as an aside, F7 went EOL on June 13.\n>\n> If that is not helpful, post back.\nI suspect that is isn't helpful. If cairo is not there, you'd just get\nXlib and no warnings (and no features either).  So my suspicion is that\nsomething needs to be upgraded beyond the F7 level, which could get a\nlittle sticky.\n\n-- \n   O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B\n  c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K\n (*) \\(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918\n~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907",
+      "body_snippet": "Marc Schwartz wrote:\n> on 06/30/2008 04:26 AM Roger Bivand wrote:\n>> Excuse my asking here than on R-help, but it may be a Fedora\n>> question. On Fedora 7, I'm running a fresh R 2.7.1 built from sourc",
+      "thread_id": "thread-738080dd21f1",
+      "thread_depth": 2,
+      "month": "2008-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-738080dd21f1",
+      "subject": "Pango/cairo and symbol fonts",
+      "message_count": 3,
+      "participants": [
+        "Marc Schwartz",
+        "Peter Dalgaard",
+        "Roger Bivand"
+      ],
+      "started": "2008-06-30T11:26:50+02:00",
+      "last_reply": "2008-06-30T16:48:42+02:00",
+      "root_message_id": "msg-738080dd21f1"
+    }
+  ]
+}

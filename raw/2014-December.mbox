@@ -1,0 +1,146 @@
+From tcallawa at redhat.com  Fri Dec 12 16:21:37 2014
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 12 Dec 2014 10:21:37 -0500
+Subject: [R-sig-Fedora] RJAGS Installation Issues
+In-Reply-To: <CAPRP4-dqA+ev7xdbuNozmam6bL4d9CMt7_GHKdV44XoKKimNCA@mail.gmail.com>
+References: <CAPRP4-dqA+ev7xdbuNozmam6bL4d9CMt7_GHKdV44XoKKimNCA@mail.gmail.com>
+Message-ID: <548B0801.2020806@redhat.com>
+
+On 10/06/2014 10:54 AM, Martin Maechler wrote:
+> A few months ago,  Eric asked about this for CentOS 6:
+>  https://stat.ethz.ch/pipermail/r-sig-fedora/2014-April/000310.html
+> 
+> and was kindly helped by Marc Schwartz.
+> OTOH, we are running Fedora 19,  currently upgrading to Fedora 20.
+> 
+> The RPM find link for  'jags-devel' which Marc provided really seems
+> to cater to CentOS or RHEL 5,
+> but not directly to any newer Fedora.
+
+I've put in a review request to add jags to Fedora (and EPEL):
+
+https://bugzilla.redhat.com/show_bug.cgi?id=1173656
+
+~tom
+
+==
+Red Hat
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: tcallawa.vcf
+Type: text/x-vcard
+Size: 4 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20141212/c279b732/attachment.vcf>
+
+From jeroenooms at gmail.com  Sun Dec 14 21:56:51 2014
+From: jeroenooms at gmail.com (Jeroen Ooms)
+Date: Sun, 14 Dec 2014 12:56:51 -0800
+Subject: [R-sig-Fedora] upquote.sty in Fedora 21
+Message-ID: <CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>
+
+My CMD check server started failing after upgrading to Fedora 21:
+
+LaTeX errors when creating PDF version.
+  This typically indicates Rd problems.
+  LaTeX errors found:
+  ! LaTeX Error: File `upquote.sty' not found.
+
+The problem was easily resolved by installing texlive-upquote. Perhaps
+this package should be included as a dependency to the R-devel
+package?
+
+
+From plummerm at iarc.fr  Mon Dec 15 10:58:13 2014
+From: plummerm at iarc.fr (Martyn Plummer)
+Date: Mon, 15 Dec 2014 09:58:13 +0000
+Subject: [R-sig-Fedora] upquote.sty in Fedora 21
+In-Reply-To: <CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>
+References: <CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>
+Message-ID: <1418637494.15411.3.camel@iarc.fr>
+
+On Sun, 2014-12-14 at 12:56 -0800, Jeroen Ooms wrote:
+> My CMD check server started failing after upgrading to Fedora 21:
+> 
+> LaTeX errors when creating PDF version.
+>   This typically indicates Rd problems.
+>   LaTeX errors found:
+>   ! LaTeX Error: File `upquote.sty' not found.
+> 
+> The problem was easily resolved by installing texlive-upquote. Perhaps
+> this package should be included as a dependency to the R-devel
+> package?
+
+This dependency was removed in R 3.1.2 (not yet available on Fedora).
+See doc/NEWS.Rd:
+
+      \item LaTeX package \pkg{upquote} is no longer required for \R's
+      use of \pkg{inconsolata}.
+
+Martyn
+_______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+
+From tcallawa at redhat.com  Mon Dec 15 15:55:34 2014
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 15 Dec 2014 09:55:34 -0500
+Subject: [R-sig-Fedora] upquote.sty in Fedora 21
+In-Reply-To: <CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>
+References: <CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>
+Message-ID: <548EF666.1040300@redhat.com>
+
+On 12/14/2014 03:56 PM, Jeroen Ooms wrote:
+> My CMD check server started failing after upgrading to Fedora 21:
+> 
+> LaTeX errors when creating PDF version.
+>   This typically indicates Rd problems.
+>   LaTeX errors found:
+>   ! LaTeX Error: File `upquote.sty' not found.
+> 
+> The problem was easily resolved by installing texlive-upquote. Perhaps
+> this package should be included as a dependency to the R-devel
+> package?
+
+As pointed out, this is no longer an issue in R 3.1.2, which is in all
+Fedora branches (except 21, where it is landing later today, hopefully).
+
+~tom
+
+==
+Red Hat
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: tcallawa.vcf
+Type: text/x-vcard
+Size: 4 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20141215/b297ccec/attachment.vcf>
+
+From jeroenooms at gmail.com  Tue Dec 23 05:56:44 2014
+From: jeroenooms at gmail.com (Jeroen Ooms)
+Date: Mon, 22 Dec 2014 20:56:44 -0800
+Subject: [R-sig-Fedora] upquote.sty in Fedora 21
+In-Reply-To: <548EF666.1040300@redhat.com>
+References: <CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>
+	<548EF666.1040300@redhat.com>
+Message-ID: <CABFfbXv9icx4+k=pT1gHGVKcXuzBML+2EKbdY=Lx7qe=SmYoHQ@mail.gmail.com>
+
+On Mon, Dec 15, 2014 at 6:55 AM, Tom Callaway <tcallawa at redhat.com> wrote:
+> As pointed out, this is no longer an issue in R 3.1.2, which is in all
+> Fedora branches (except 21, where it is landing later today, hopefully).
+
+Thank you. Another missing dependency pops up when running CMD check:
+
+  * checking compiled code ... OK
+   WARNING
+  ?qpdf? is needed for checks on size reduction of PDFs
+
+Perhaps qpdf could be declared as a dependency for R-devel.
+
+

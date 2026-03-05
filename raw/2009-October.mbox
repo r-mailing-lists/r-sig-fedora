@@ -1,0 +1,72 @@
+From Jacob.Peterson at acxiom.com  Mon Oct 12 23:32:01 2009
+From: Jacob.Peterson at acxiom.com (Peterson Jacob - jacpet)
+Date: Mon, 12 Oct 2009 16:32:01 -0500
+Subject: [R-sig-Fedora] Font permissions with X11-adobe
+Message-ID: <9B736790B24CE546A9C08867A2D6D8490900485A@SMTMSX01.Corp.Acxiom.net>
+
+Hi All, 
+
+ 
+
+We're trying to get R with the standard gui loaded onto CentOS 4, and
+under certain users R will not render certain graphics. When logged in
+as root the graphics render, but under the restricted user they don't.
+The graphics don't render with the error:
+
+ 
+
+testdata <-
+rbind(c(1,2,3,4,5,6),c(3,4,5,4,6,2),c(3,6,7,2,2,1),c(5,4,9,8,9,1))
+> pairs(testdata)
+Error in text.default(x, y, txt, cex = cex, font = font) : 
+ X11 font -adobe-helvetica-%s-%s-*-*-%d-*-*-*-*-*-*-*, face 1 at size 16
+could not be loaded
+
+ 
+
+Has anyone come across this before?  I looked in the archive and
+couldn't find anything.  Any system/install information you'd like to
+see?
+
+ 
+
+-    Jake
+
+ 
+
+Jake Peterson | Analytics Consultant
+
+Acxiom Digital Marketing Science
+
+00-1-650-372-2214 office | 00-1-650-400-0994 cell 
+1051 E Hillsdale Blvd Suite 400 | Foster City, CA, 94010 | USA | 
+www.acxiom.com <http://www.acxiom.com> 
+
+ 
+
+***************************************************************************
+The information contained in this communication is confidential, is
+intended only for the use of the recipient named above, and may be legally
+privileged.
+
+If the reader of this message is not the intended recipient, you are
+hereby notified that any dissemination, distribution or copying of this
+communication is strictly prohibited.
+
+If you have received this communication in error, please resend this
+communication to the sender and delete the original message or any copy
+of it from your computer system.
+
+Thank You.
+****************************************************************************
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20091012/1defc36c/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: image/gif
+Size: 2831 bytes
+Desc: image001.gif
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20091012/1defc36c/attachment.gif>
+

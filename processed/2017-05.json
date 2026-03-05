@@ -1,0 +1,121 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2017-05",
+  "messages": [
+    {
+      "id": "msg-454477b33bf6",
+      "message_id": "<1494520648.10161.5.camel@iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2017-05-11T16:37:41Z",
+      "subject": "[R-sig-Fedora] R 3.4.0 RPMS",
+      "subject_clean": "R 3.4.0 RPMS",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear Tom,\n\nI see that RPMS for R 3.4.0 are not successfully built on Fedora, nor\non RHEL 7.\n\nhttps://koji.fedoraproject.org/koji/packageinfo?packageID=1230\n\nWhen I build with mock on Fedora 25 I also get a build failure. R is\nnot able to establish the time zone inside the chroot and this triggers\na regression tests which is new in R 3.4.0. Specifically, in file\ntests/reg-tests-1d.R this test fails:\n\n## PR#17186 - Sys.timezone() on some Debian-derived platforms\n(S.t <- Sys.timezone())\nif(is.na(S.t) || !nzchar(S.t)) stop(\"could not get timezone\")\n## has been NA_character_??in Ubuntu 14.04.5 LTS\n\n\nThe work-around is to set the environment variable TZ to any non-empty\nstring before running make check, in the %check section of the SPEC\nfile, e.g.\n\nTZ=\"Europe/Paris\" make check\n\nbest regards\nMartyn",
+      "body_snippet": "Dear Tom,\n\nI see that RPMS for R 3.4.0 are not successfully built on Fedora, nor\non RHEL 7.\n\nhttps://koji.fedoraproject.org/koji/packageinfo?packageID=1230\n\nWhen I build with mock on Fedora 25 I also ",
+      "thread_id": "thread-454477b33bf6",
+      "thread_depth": 0,
+      "month": "2017-05"
+    },
+    {
+      "id": "msg-7874a3a190fe",
+      "message_id": "<4177975.MF5k9LdnlB@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2017-05-12T16:24:41+01:00",
+      "subject": "[R-sig-Fedora] R 3.4.0 RPMS",
+      "subject_clean": "R 3.4.0 RPMS",
+      "in_reply_to": "<1494520648.10161.5.camel@iarc.fr>",
+      "references": [
+        "<1494520648.10161.5.camel@iarc.fr>"
+      ],
+      "body_plain": "On Thursday, 11 May 2017 17.37.41 WEST Martyn Plummer wrote:\n> Dear Tom,\n> \n> I see that RPMS for R 3.4.0 are not successfully built on Fedora, nor\n> on RHEL 7.\n> \n> https://koji.fedoraproject.org/koji/packageinfo?packageID=1230\n> \n> When I build with mock on Fedora 25 I also get a build failure. R is\n> not able to establish the time zone inside the chroot and this triggers\n> a regression tests which is new in R 3.4.0. Specifically, in file\n> tests/reg-tests-1d.R this test fails:\n> \n> ## PR#17186 - Sys.timezone() on some Debian-derived platforms\n> (S.t <- Sys.timezone())\n> if(is.na(S.t) || !nzchar(S.t)) stop(\"could not get timezone\")\n> ## has been NA_character_  in Ubuntu 14.04.5 LTS\n> \n> \n> The work-around is to set the environment variable TZ to any non-empty\n> string before running make check, in the %check section of the SPEC\n> file, e.g.\n> \n> TZ=\"Europe/Paris\" make check\n> \n> best regards\n> Martyn\n\nThank you Martyn. :-)\n\nI am rebuilding R bumping the version since the previous version succeeded to \nbuild on el6.\n\nBTW Tom, it is probably time to get rid of the\n%defattr(-, root, root, -)\n\nafter we are already in the Spring here in the North hemisphere. :-)\n\nRegards,\n-- \nJos? Ab?lio",
+      "body_snippet": "On Thursday, 11 May 2017 17.37.41 WEST Martyn Plummer wrote:\n> Dear Tom,\n> \n> I see that RPMS for R 3.4.0 are not successfully built on Fedora, nor\n> on RHEL 7.\n> \n> https://koji.fedoraproject.org/koj",
+      "thread_id": "thread-454477b33bf6",
+      "thread_depth": 1,
+      "month": "2017-05"
+    },
+    {
+      "id": "msg-21d6ce440bbe",
+      "message_id": "<CANA0HMbij7A6QXtSyKZF1WP8E4EZ9DppLULgMKDrKe0aGCSdcQ@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2017-05-12T11:44:22-04:00",
+      "subject": "[R-sig-Fedora] R 3.4.0 RPMS",
+      "subject_clean": "R 3.4.0 RPMS",
+      "in_reply_to": "<4177975.MF5k9LdnlB@myth>",
+      "references": [
+        "<1494520648.10161.5.camel@iarc.fr>",
+        "<4177975.MF5k9LdnlB@myth>"
+      ],
+      "body_plain": "Thanks. I've been traveling almost non stop for the last several months. I\nappreciate your help here.\n\nOn May 12, 2017 10:25 AM, \"Jos? Ab?lio Matos\" <jamatos at fc.up.pt> wrote:\n\n> On Thursday, 11 May 2017 17.37.41 WEST Martyn Plummer wrote:\n> > Dear Tom,\n> >\n> > I see that RPMS for R 3.4.0 are not successfully built on Fedora, nor\n> > on RHEL 7.\n> >\n> > https://koji.fedoraproject.org/koji/packageinfo?packageID=1230\n> >\n> > When I build with mock on Fedora 25 I also get a build failure. R is\n> > not able to establish the time zone inside the chroot and this triggers\n> > a regression tests which is new in R 3.4.0. Specifically, in file\n> > tests/reg-tests-1d.R this test fails:\n> >\n> > ## PR#17186 - Sys.timezone() on some Debian-derived platforms\n> > (S.t <- Sys.timezone())\n> > if(is.na(S.t) || !nzchar(S.t)) stop(\"could not get timezone\")\n> > ## has been NA_character_  in Ubuntu 14.04.5 LTS\n> >\n> >\n> > The work-around is to set the environment variable TZ to any non-empty\n> > string before running make check, in the %check section of the SPEC\n> > file, e.g.\n> >\n> > TZ=\"Europe/Paris\" make check\n> >\n> > best regards\n> > Martyn\n>\n> Thank you Martyn. :-)\n>\n> I am rebuilding R bumping the version since the previous version succeeded\n> to\n> build on el6.\n>\n> BTW Tom, it is probably time to get rid of the\n> %defattr(-, root, root, -)\n>\n> after we are already in the Spring here in the North hemisphere. :-)\n>\n> Regards,\n> --\n> Jos? Ab?lio\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Thanks. I've been traveling almost non stop for the last several months. I\nappreciate your help here.\n\nOn May 12, 2017 10:25 AM, \"Jos? Ab?lio Matos\" <jamatos at fc.up.pt> wrote:\n\n> On Thursday, 11 May",
+      "thread_id": "thread-454477b33bf6",
+      "thread_depth": 2,
+      "month": "2017-05"
+    },
+    {
+      "id": "msg-6f7acc87b0b9",
+      "message_id": "<CABaQXBtHdRPoicNFTpvcmC2CQs2GSEtQGS9Jt=0Rxpx_fNhVqw@mail.gmail.com>",
+      "from_name": "Shu-Ju Tu",
+      "from_email_hash": "dd1d3d797ab65a4bc730792d4d7660bdf422c0209a9b3add03c99b04f4cda10a",
+      "date": "2017-05-16T10:31:49+08:00",
+      "subject": "[R-sig-Fedora] Fail to install xgboost",
+      "subject_clean": "Fail to install xgboost",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi\n\nI planned to learn R and their machine learning algorithms such as xgboost.\nI just installed R 3.3 in our CentOS linux system.\nLinus system: centos-release-6-9.el6.12.3.x86_64\nI used the command: yum install R.\nI successfully install \"rJava\" and \"mlr\" packages.\nThen I used the following command:\ninstall.packages(\"xgboost\")\nUnfortunately, I cannot install xgboost successfully.\nCan anyone out there help me when you can get a chance.\n\nThanks\n\n--- begin error message\ntrying URL 'https://mirror.usertrust.info/cranmirror/src/contrib/xgboost_0.6-4.tar.gz'\nContent type 'application/x-gzip' length 596158 bytes (582 KB)\n==================================================\ndownloaded 582 KB\n\n* installing *source* package ???xgboost??? ...\n** package ???xgboost??? successfully unpacked and MD5 sums checked\nconfigure: creating ./config.status\nconfig.status: creating src/Makevars\n** libs\ng++ -m64 -std=c++0x -I/usr/include/R -DNDEBUG -I./include\n-I./dmlc-core/include -I./rabit/include -I. -DXGBOOST_STRICT_R_MODE=1\n-DDMLC_LOG_BEFORE_THROW=0 -DDMLC_ENABLE_STD_THREAD=0\n-DDMLC_DISABLE_STDIN=1 -DDMLC_LOG_CUSTOMIZE=1\n-DXGBOOST_CUSTOMIZE_LOGGER=1 -DRABIT_CUSTOMIZE_MSG_\n-DRABIT_STRICT_CXX98_ -I/usr/local/include   -fopenmp  -fpic  -O2 -g\n-pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector\n--param=ssp-buffer-size=4 -m64 -mtune=generic -c xgboost_R.cc -o\nxgboost_R.o\nIn file included from ./dmlc-core/include/dmlc/logging.h:15,\n                 from xgboost_R.cc:2:\n./dmlc-core/include/dmlc/./base.h:71: note: #pragma message: Will need\ng++-4.6 or higher to compile allthe features in dmlc-core, compile\nwithout c++0x, some features may be disabled\nxgboost_R.cc: In function ???SEXPREC* XGBoosterSetAttr_R(SEXPREC*,\nSEXPREC*, SEXPREC*)???:\nxgboost_R.cc:412: error: ???nullptr??? was not declared in this scope\nmake: *** [xgboost_R.o] Error 1\nERROR: compilation failed for package ???xgboost???\n* removing ???/home/sjtu/R/x86_64-redhat-linux-gnu-library/3.3/xgboost???\n\nThe downloaded source packages are in\n        ???/tmp/Rtmp8IwXn4/downloaded_packages???\nWarning message:\nIn install.packages(\"xgboost\") :\n  installation of package ???xgboost??? had non-zero exit status",
+      "body_snippet": "Hi\n\nI planned to learn R and their machine learning algorithms such as xgboost.\nI just installed R 3.3 in our CentOS linux system.\nLinus system: centos-release-6-9.el6.12.3.x86_64\nI used the command: ",
+      "thread_id": "thread-6f7acc87b0b9",
+      "thread_depth": 0,
+      "month": "2017-05"
+    },
+    {
+      "id": "msg-952ab390f4f8",
+      "message_id": "<a14f8f11-2c6f-8b20-4c97-73532ad496a9@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2017-05-16T11:34:33-04:00",
+      "subject": "[R-sig-Fedora] Fail to install xgboost",
+      "subject_clean": "Fail to install xgboost",
+      "in_reply_to": "<CABaQXBtHdRPoicNFTpvcmC2CQs2GSEtQGS9Jt=0Rxpx_fNhVqw@mail.gmail.com>",
+      "references": [
+        "<CABaQXBtHdRPoicNFTpvcmC2CQs2GSEtQGS9Jt=0Rxpx_fNhVqw@mail.gmail.com>"
+      ],
+      "body_plain": "On 05/15/2017 10:31 PM, Shu-Ju Tu wrote:\n> /dmlc-core/include/dmlc/./base.h:71: note: #pragma message: Will need\n> g++-4.6 or higher to compile allthe features in dmlc-core, compile\n> without c++0x, some features may be disabled\n\nThis is the relevant error. The compiler in RHEL 6 is too old.\n\n~tom",
+      "body_snippet": "On 05/15/2017 10:31 PM, Shu-Ju Tu wrote:\n> /dmlc-core/include/dmlc/./base.h:71: note: #pragma message: Will need\n> g++-4.6 or higher to compile allthe features in dmlc-core, compile\n> without c++0x, s",
+      "thread_id": "thread-6f7acc87b0b9",
+      "thread_depth": 1,
+      "month": "2017-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-454477b33bf6",
+      "subject": "R 3.4.0 RPMS",
+      "message_count": 3,
+      "participants": [
+        "José Abílio Matos",
+        "Martyn Plummer",
+        "Tom Callaway"
+      ],
+      "started": "2017-05-11T16:37:41+00:00",
+      "last_reply": "2017-05-12T11:44:22-04:00",
+      "root_message_id": "msg-454477b33bf6"
+    },
+    {
+      "id": "thread-6f7acc87b0b9",
+      "subject": "Fail to install xgboost",
+      "message_count": 2,
+      "participants": [
+        "Shu-Ju Tu",
+        "Tom Callaway"
+      ],
+      "started": "2017-05-16T10:31:49+08:00",
+      "last_reply": "2017-05-16T11:34:33-04:00",
+      "root_message_id": "msg-6f7acc87b0b9"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+From abetz58 at gmail.com  Fri Aug 12 10:34:06 2016
+From: abetz58 at gmail.com (andreas betz)
+Date: Fri, 12 Aug 2016 01:34:06 -0700
+Subject: [R-sig-Fedora] installing R on Fedora 24 without Fedora texlive
+Message-ID: <CAMBc2W4gUZfsEjvaqOoUzTXvVJbVkbmHLT3vGF-123E8MdTx1Q@mail.gmail.com>
+
+Hello,
+
+I have installed texlive 2016 complete from the Tex website on my Fedora 24
+system.
+
+When I proceeded to install R, I was forced to install all the Fedora
+texlive dependencies. Is there any way to make R use the texlive 2016
+package already existing on my computer.
+
+
+Thank you
+
+Andreas
+
+	[[alternative HTML version deleted]]
+
+

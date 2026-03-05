@@ -1,0 +1,504 @@
+From so2346 at columbia.edu  Wed Mar  2 16:46:46 2011
+From: so2346 at columbia.edu (Sean O'Keeffe)
+Date: Wed, 2 Mar 2011 10:46:46 -0500
+Subject: [R-sig-Fedora] CentOS 5 install won't make with shared libs enabled
+Message-ID: <AANLkTi=PCk2=nyD6f53nJPQfCLtZU5YJoBUbuVZMwahH@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110302/ad359f16/attachment.pl>
+
+From tcallawa at redhat.com  Wed Mar  2 16:51:13 2011
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 02 Mar 2011 10:51:13 -0500
+Subject: [R-sig-Fedora] CentOS 5 install won't make with shared libs
+	enabled
+In-Reply-To: <AANLkTi=PCk2=nyD6f53nJPQfCLtZU5YJoBUbuVZMwahH@mail.gmail.com>
+References: <AANLkTi=PCk2=nyD6f53nJPQfCLtZU5YJoBUbuVZMwahH@mail.gmail.com>
+Message-ID: <4D6E6771.4000306@redhat.com>
+
+On 03/02/2011 10:46 AM, Sean O'Keeffe wrote:
+> Hi,
+> I've been trying to get a shared library version of the R package(version
+> 2.12.1) installed on a CentOS 5 system. (It installs fine without but other
+> packages demand shared libs - namely Rapache).
+> I've tried this with yum but don't know of any flags to set to tell it to
+> installl with shared libs enabled. I then tried a local R install as
+> non-root with source packages:
+
+The R package in EPEL should work fine on CentOS, and it is built with
+shared libs. If you have EPEL enabled, and run "yum install R", you'll
+get everything.
+
+~tom
+
+==
+Fedora Project
+
+
+From marc_schwartz at me.com  Wed Mar  2 17:14:08 2011
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Wed, 02 Mar 2011 10:14:08 -0600
+Subject: [R-sig-Fedora] CentOS 5 install won't make with shared libs
+	enabled
+In-Reply-To: <AANLkTi=PCk2=nyD6f53nJPQfCLtZU5YJoBUbuVZMwahH@mail.gmail.com>
+References: <AANLkTi=PCk2=nyD6f53nJPQfCLtZU5YJoBUbuVZMwahH@mail.gmail.com>
+Message-ID: <45A73850-C204-4D1C-B85F-FF5ACC3F4AB8@me.com>
+
+On Mar 2, 2011, at 9:46 AM, Sean O'Keeffe wrote:
+
+> Hi,
+> I've been trying to get a shared library version of the R package(version
+> 2.12.1) installed on a CentOS 5 system. (It installs fine without but other
+> packages demand shared libs - namely Rapache).
+> I've tried this with yum but don't know of any flags to set to tell it to
+> installl with shared libs enabled. I then tried a local R install as
+> non-root with source packages:
+> 
+> after downloading the latest tarball and unzipping:
+> ./configure --prefix=/opt --enable-R-shlib
+> make
+> 
+> make[3]: Entering directory
+> `/ifs/data/columbia/tm_lab/so2346/R-2.12.1/src/main'
+> gcc -std=gnu99 -shared -L/usr/local/lib64  -o libR.so CConverters.o
+> CommandLineArgs.o Rdynload.o Renviron.o RNG.o agrep.o apply.o arithmetic.o
+> array.o attrib.o base.o bind.o builtin.o character.o coerce.o colors.o
+> complex.o connections.o context.o cov.o cum.o dcf.o datetime.o debug.o
+> deparse.o deriv.o devices.o dotcode.o dounzip.o dstruct.o duplicate.o
+> engine.o envir.o errors.o eval.o format.o fourier.o gevents.o gram.o
+> gram-ex.o gramLatex.o gramRd.o graphics.o grep.o identical.o inlined.o
+> inspect.o internet.o iosupport.o lapack.o list.o localecharset.o logic.o
+> main.o mapply.o match.o memory.o model.o names.o objects.o optim.o
+> optimize.o options.o par.o paste.o platform.o plot.o plot3d.o plotmath.o
+> print.o printarray.o printvector.o printutils.o qsort.o random.o raw.o
+> registration.o relop.o rlocale.o saveload.o scan.o seq.o serialize.o size.o
+> sort.o source.o split.o sprintf.o startup.o subassign.o subscript.o subset.o
+> summary.o sysutils.o unique.o util.o version.o vfonts.o xxxpr.o
+> ../unix/Rembedded.o ../unix/libunix.a ../appl/libappl.a ../nmath/libnmath.a
+> ../extra/zlib/libz.a ../extra/bzip2/libbz2.a ../extra/pcre/libpcre.a
+> ../extra/tre/libtre.a  ../extra/xz/liblzma.a  -L../../lib -lRblas -lgfortran
+> -lm   -lreadline -lncurses  -ldl -lm
+> /usr/bin/ld: CConverters.o: relocation R_X86_64_32S against `R_FunTab' can
+> not be used when making a shared object; recompile with -fPIC
+> CConverters.o: could not read symbols: Bad value
+> collect2: ld returned 1 exit status
+> make[3]: *** [libR.so] Error 1
+> make[3]: Leaving directory
+> `/ifs/data/columbia/tm_lab/so2346/R-2.12.1/src/main'
+> make[2]: *** [R] Error 2
+> make[2]: Leaving directory
+> `/ifs/data/columbia/tm_lab/so2346/R-2.12.1/src/main'
+> make[1]: *** [R] Error 1
+> make[1]: Leaving directory `/ifs/data/columbia/tm_lab/so2346/R-2.12.1/src'
+> make: *** [R] Error 1
+> 
+> 
+> I then added the -fPIC to the CC line in Makeconf and did a new make but no
+> joy:
+> 
+> make[3]: Entering directory
+> `/ifs/data/columbia/tm_lab/so2346/R-2.12.1/src/main'
+> gcc -std=gnu99 -fPIC -shared -L/usr/local/lib64  -o libR.so CConverters.o
+> CommandLineArgs.o Rdynload.o Renviron.o RNG.o agrep.o apply.o arithmetic.o
+> array.o attrib.o base.o bind.o builtin.o character.o coerce.o colors.o
+> complex.o connections.o context.o cov.o cum.o dcf.o datetime.o debug.o
+> deparse.o deriv.o devices.o dotcode.o dounzip.o dstruct.o duplicate.o
+> engine.o envir.o errors.o eval.o format.o fourier.o gevents.o gram.o
+> gram-ex.o gramLatex.o gramRd.o graphics.o grep.o identical.o inlined.o
+> inspect.o internet.o iosupport.o lapack.o list.o localecharset.o logic.o
+> main.o mapply.o match.o memory.o model.o names.o objects.o optim.o
+> optimize.o options.o par.o paste.o platform.o plot.o plot3d.o plotmath.o
+> print.o printarray.o printvector.o printutils.o qsort.o random.o raw.o
+> registration.o relop.o rlocale.o saveload.o scan.o seq.o serialize.o size.o
+> sort.o source.o split.o sprintf.o startup.o subassign.o subscript.o subset.o
+> summary.o sysutils.o unique.o util.o version.o vfonts.o xxxpr.o
+> ../unix/Rembedded.o ../unix/libunix.a ../appl/libappl.a ../nmath/libnmath.a
+> ../extra/zlib/libz.a ../extra/bzip2/libbz2.a ../extra/pcre/libpcre.a
+> ../extra/tre/libtre.a  ../extra/xz/liblzma.a  -L../../lib -lRblas -lgfortran
+> -lm   -lreadline -lncurses  -ldl -lm
+> /usr/bin/ld: CConverters.o: relocation R_X86_64_32S against `R_FunTab' can
+> not be used when making a shared object; recompile with -fPIC
+> CConverters.o: could not read symbols: Bad value
+> collect2: ld returned 1 exit status
+> make[3]: *** [libR.so] Error 1
+> 
+> I've checked all the faq's and been googling this with no joy.
+> I'd be grateful for any help on installing this dependency to get Rapache
+> installed
+> 
+> Thanks,
+> Sean.
+
+
+Sean,
+
+Why not just use the RPMs provided by the EPEL:
+
+ http://fedoraproject.org/wiki/EPEL
+
+Config information is available from the above link.
+
+R 2.12.1 is available:
+
+ http://download.fedora.redhat.com/pub/epel/5/x86_64/repoview/R.html
+
+The R RPMs are built for shlibs.
+
+That will save you the hassle of building from source, unless you have other compelling requirements.
+
+HTH,
+
+Marc Schwartz
+
+
+From pauljohn32 at gmail.com  Fri Mar  4 01:13:44 2011
+From: pauljohn32 at gmail.com (Paul Johnson)
+Date: Thu, 3 Mar 2011 18:13:44 -0600
+Subject: [R-sig-Fedora] CentOS 5 install won't make with shared libs
+	enabled
+In-Reply-To: <AANLkTi=PCk2=nyD6f53nJPQfCLtZU5YJoBUbuVZMwahH@mail.gmail.com>
+References: <AANLkTi=PCk2=nyD6f53nJPQfCLtZU5YJoBUbuVZMwahH@mail.gmail.com>
+Message-ID: <AANLkTikAO6-Au+1-60eiiaka5QkxAvrWiU7xkbTi15bE@mail.gmail.com>
+
+On Wed, Mar 2, 2011 at 9:46 AM, Sean O'Keeffe <so2346 at columbia.edu> wrote:
+> Hi,
+> I've been trying to get a shared library version of the R package(version
+> 2.12.1) installed on a CentOS 5 system. (It installs fine without but other
+> packages demand shared libs - namely Rapache).
+> I've tried this with yum but don't know of any flags to set to tell it to
+> installl with shared libs enabled. I then tried a local R install as
+> non-root with source packages:
+>
+> after downloading the latest tarball and unzipping:
+> ./configure --prefix=/opt --enable-R-shlib
+> make
+>
+
+Wow. I'm stunned that Rapache shows up as a requirement.  I think the
+other guys are right that  you should just use R from Epel, but if you
+want to be a do-it-yourselfer, I would suggest he following.
+
+DO NOT build R from source that way. DO get the SRPM file that is used
+to build RPMS.  Then set your build directory in a file in your home
+directory (.rpmmacros as I recall), then install the SRPM file, then
+go read the SPEC file in the rpm tree. The SPEC file shows how the
+thing is built, and you can rebuild in the command line like
+
+$ rpmbuild -ba whatever.spec
+
+This will give you an RPM that is exactly matching your system, same
+as "configure ..  make" but more easily managed.  If you have trouble
+getting started, I think I can double-check the instructions. I know
+I've written them out before.
+
+Here's another point.  The "default" configure statement for R's RPM
+is much more elaborate than you think.  So trying it from scratch is
+probably a big mistake.  If you look at the SPEC file, you will see
+what I mean.
+
+If you do succeed in building RPMS, it will be then easy for you to
+take the RPM for Rapache and rebuild that for your system.  Or it will
+be VERY OBVIOUS in the R spec file what you need to do to get rid of
+the Rapache package requirement.  It sounds to me like a very
+aggressive piece  of packaging, there, since most R installations will
+never need it.
+
+ Until you posted, I did not know that Rapache had been packaged in
+Fedora, while running a RedHat system, I built my own.  It is a very
+simple build, actually, it is just an apache module and a apache
+config file.  Next time I have spare time, i will see how their
+packaging differs from mine.
+
+Or you can check and tell me. The installable is
+http://pj.free.faculty.org/Centos/5/i386/kups/packages/rapache-1.1.13-1.i386.rpm
+
+Here's the SRPM, you could rebuild
+
+http://pj.free.faculty.org/Centos/5/i386/kups/SRPMS/rapache-1.1.13-1.src.rpm
+
+Good luck. I hope this will be an exciting chance for you to join the
+smart, clever group of RPM building linux users.  Advice I got years
+ago: Never install anything with "make install" because it puts
+unaccountable damage all over your file system, and if you do that,
+set the prefix in the configure to be a unique, separate thing. Never
+manually install into /usr.
+
+And if something is worth building by hand, it is worth building in a
+package so you can remove it!
+
+-- 
+Paul E. Johnson
+Professor, Political Science
+1541 Lilac Lane, Room 504
+University of Kansas
+
+
+From jules.hernandez.sanchez at gmail.com  Mon Mar  7 14:05:48 2011
+From: jules.hernandez.sanchez at gmail.com (jules hernandez)
+Date: Mon, 7 Mar 2011 14:05:48 +0100
+Subject: [R-sig-Fedora] installing R in Fedora14 with yum
+Message-ID: <AANLkTi=BbTJdbvEBS2YGv=YeUodmj1xtrQS=DDjYbep0@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110307/1df434f8/attachment.pl>
+
+From eda at waniasset.com  Mon Mar  7 14:23:40 2011
+From: eda at waniasset.com (Ed Avis)
+Date: Mon, 7 Mar 2011 13:23:40 -0000
+Subject: [R-sig-Fedora] installing R in Fedora14 with yum
+References: <AANLkTi=BbTJdbvEBS2YGv=YeUodmj1xtrQS=DDjYbep0@mail.gmail.com>
+Message-ID: <07CC43C25304A546B995A31E70BF56B5044500@wcl-exc.wcl.local>
+
+>*Error: Cannot retrieve repository metadata (repomd.xml) for
+repository:
+>fedora. Please verify its path and try again
+
+This is a yum error and not specific to R.  Can you install any package
+at all?
+Sometimes I see this error but it goes away again after a few hours.
+
+-- 
+Ed Avis <eda at waniasset.com>
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+
+
+From jules.hernandez.sanchez at gmail.com  Wed Mar  9 13:34:40 2011
+From: jules.hernandez.sanchez at gmail.com (jules hernandez)
+Date: Wed, 9 Mar 2011 13:34:40 +0100
+Subject: [R-sig-Fedora] installing R in Fedora14 with yum
+In-Reply-To: <07CC43C25304A546B995A31E70BF56B5044500@wcl-exc.wcl.local>
+References: <AANLkTi=BbTJdbvEBS2YGv=YeUodmj1xtrQS=DDjYbep0@mail.gmail.com>
+	<07CC43C25304A546B995A31E70BF56B5044500@wcl-exc.wcl.local>
+Message-ID: <AANLkTikoO36786koMn=ci8XyRrH8qZMBW-qSQ7KLKBk8@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/ec77fec2/attachment.pl>
+
+From eda at waniasset.com  Wed Mar  9 13:44:58 2011
+From: eda at waniasset.com (Ed Avis)
+Date: Wed, 9 Mar 2011 12:44:58 -0000
+Subject: [R-sig-Fedora] installing R in Fedora14 with yum
+References: <AANLkTi=BbTJdbvEBS2YGv=YeUodmj1xtrQS=DDjYbep0@mail.gmail.com><07CC43C25304A546B995A31E70BF56B5044500@wcl-exc.wcl.local>
+	<AANLkTikoO36786koMn=ci8XyRrH8qZMBW-qSQ7KLKBk8@mail.gmail.com>
+Message-ID: <07CC43C25304A546B995A31E70BF56B5044529@wcl-exc.wcl.local>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/b63f8e46/attachment.pl>
+
+From jules.hernandez.sanchez at gmail.com  Wed Mar  9 14:09:38 2011
+From: jules.hernandez.sanchez at gmail.com (jules hernandez)
+Date: Wed, 9 Mar 2011 14:09:38 +0100
+Subject: [R-sig-Fedora] installing R in Fedora14 with yum
+In-Reply-To: <AANLkTikoO36786koMn=ci8XyRrH8qZMBW-qSQ7KLKBk8@mail.gmail.com>
+References: <AANLkTi=BbTJdbvEBS2YGv=YeUodmj1xtrQS=DDjYbep0@mail.gmail.com>
+	<07CC43C25304A546B995A31E70BF56B5044500@wcl-exc.wcl.local>
+	<AANLkTikoO36786koMn=ci8XyRrH8qZMBW-qSQ7KLKBk8@mail.gmail.com>
+Message-ID: <AANLkTi=aEKzZmxRMbA4Y97shsXehbKEuwa+S03ysP=+L@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/cffdffb6/attachment.pl>
+
+From JieNing.Fu at tdsecurities.com  Tue Mar 15 20:08:19 2011
+From: JieNing.Fu at tdsecurities.com (Fu, Jie Ning)
+Date: Tue, 15 Mar 2011 15:08:19 -0400
+Subject: [R-sig-Fedora] Latest version RPM for RHEL5
+Message-ID: <33BD2DC119D43D40AA204A9ED97432C3CB8691F4@EX7T2-SV05.TDBFG.COM>
+
+Hello,
+
+As of now, the latest version RPM for RHEL5 is 2.10 (http://probability.ca/cran/bin/linux/redhat/el5/x86_64/).
+
+I would really like to be able to use some features/fixes in later versions. So can a 2.12.2 RPM for RHEL5 be compiled? Thank you.
+
+William
+NOTICE: Confidential message which may be privileged. Unauthorized use/disclosure prohibited. If received in error, please go to www.td.com/legal for instructions.
+AVIS : Message confidentiel dont le contenu peut ?tre privil?gi?. Utilisation/divulgation interdites sans permission. Si re?u par erreur, pri?re d'aller au www.td.com/francais/avis_juridique pour des instructions.
+
+
+From marc_schwartz at me.com  Tue Mar 15 20:22:29 2011
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Tue, 15 Mar 2011 14:22:29 -0500
+Subject: [R-sig-Fedora] Latest version RPM for RHEL5
+In-Reply-To: <33BD2DC119D43D40AA204A9ED97432C3CB8691F4@EX7T2-SV05.TDBFG.COM>
+References: <33BD2DC119D43D40AA204A9ED97432C3CB8691F4@EX7T2-SV05.TDBFG.COM>
+Message-ID: <CB9FEFF9-A573-4F93-A61C-2C7FD07C5E96@me.com>
+
+On Mar 15, 2011, at 2:08 PM, Fu, Jie Ning wrote:
+
+> Hello,
+> 
+> As of now, the latest version RPM for RHEL5 is 2.10 (http://probability.ca/cran/bin/linux/redhat/el5/x86_64/).
+> 
+> I would really like to be able to use some features/fixes in later versions. So can a 2.12.2 RPM for RHEL5 be compiled? Thank you.
+> 
+> William
+
+Pre-built binary RPMs for RH (RHEL/CentOS) and Fedora based distros are no longer being maintained on CRAN as the RH/Fedora folks are maintaining these in the standard yum repos.
+
+Go here:
+
+  http://fedoraproject.org/wiki/EPEL
+
+and follow the directions for configuring your RHEL system to use the EPEL. Once done, all you need to do is:
+
+  yum install R
+
+as root or perhaps:
+
+  yum update R
+
+as root to obtain a more recent version of R.
+
+It might be prudent to remove your existing R installation first and then install cleanly, in case anything has changed in the EPEL based RPMs since 2.10.x.
+
+HTH,
+
+Marc Schwartz
+
+
+From mkpai at redhat.com  Wed Mar 16 08:03:19 2011
+From: mkpai at redhat.com (Pai)
+Date: Wed, 16 Mar 2011 12:33:19 +0530
+Subject: [R-sig-Fedora] License of the nutshell package
+Message-ID: <20110316070319.GA3373@mkpai.csb>
+
+Hello,
+
+I wish to package the nutshell package. I need help to understand which
+license is relevant.
+
+The upstream page at
+http://cran.r-project.org/web/packages/nutshell/index.html says
+that the license is "file LICENSE". 
+
+This is further explained at
+http://cran.r-project.org/web/packages/nutshell/LICENSE as
+
+[snip]
+
+The audioscrobbler data is made avaialable under the following Creative Commons license:
+
+	http://creativecommons.org/licenses/by-nc-sa/1.0/
+
+All other data files are made available under a Creative Commons Attribution 3.0 United States License:
+
+	http://creativecommons.org/licenses/by/3.0/us
+
+[/snip]
+
+So, which version of the creative commons license is appropriate ?
+
+Thanks and regards,
+-- Pai
+
+
+From eda at waniasset.com  Wed Mar 16 08:14:45 2011
+From: eda at waniasset.com (Ed Avis)
+Date: Wed, 16 Mar 2011 07:14:45 -0000
+Subject: [R-sig-Fedora] License of the nutshell package
+References: <20110316070319.GA3373@mkpai.csb>
+Message-ID: <07CC43C25304A546B995A31E70BF56B50445D0@wcl-exc.wcl.local>
+
+Pai <mkpai at redhat.com> wrote:
+
+>I wish to package the nutshell package. I need help to understand which
+>license is relevant.
+
+>The audioscrobbler data is made avaialable under the following Creative
+>Commons license:
+>
+>	http://creativecommons.org/licenses/by-nc-sa/1.0/
+
+That's 'non-commercial use only' so not suitable for Fedora.  You would
+need
+to strip out this data.  You might ask the upstream project if they'd
+put it in a separate distribution themselves.
+
+>All other data files are made available under a Creative Commons
+>Attribution 3.0 United States License:
+>
+>	http://creativecommons.org/licenses/by/3.0/us
+
+That sounds fine.  But it says 'data files'.  Did you find out what
+licence
+applies to the code itself?
+
+-- 
+Ed Avis <eda at waniasset.com>
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+
+
+From mkpai at redhat.com  Wed Mar 16 08:31:25 2011
+From: mkpai at redhat.com (Pai)
+Date: Wed, 16 Mar 2011 13:01:25 +0530
+Subject: [R-sig-Fedora] License of the nutshell package
+In-Reply-To: <07CC43C25304A546B995A31E70BF56B50445D0@wcl-exc.wcl.local>
+References: <20110316070319.GA3373@mkpai.csb>
+	<07CC43C25304A546B995A31E70BF56B50445D0@wcl-exc.wcl.local>
+Message-ID: <20110316073125.GB3373@mkpai.csb>
+
+
+Hello Ed,
+
+> 
+> >The audioscrobbler data is made avaialable under the following Creative
+> >Commons license:
+> >
+> >	http://creativecommons.org/licenses/by-nc-sa/1.0/
+> 
+> That's 'non-commercial use only' so not suitable for Fedora.  You would
+> need
+> to strip out this data.  You might ask the upstream project if they'd
+> put it in a separate distribution themselves.
+> 
+
+The nutshell package contains data and programs that accompany an O'Reilly
+book called "R in a nutshell". I think they'll be unwilling to create
+a separate package just for a subset of the data - especially because
+the book asks the reader to install packages via install.packages route.
+
+I take this to mean that R-nutshell is not appropriate for Fedora :(
+
+Thanks for the prompt reply to a newbie.
+
+Regards,
+-- Pai
+
+
+From jamatos at fc.up.pt  Wed Mar 16 12:50:27 2011
+From: jamatos at fc.up.pt (=?iso-8859-1?q?Jos=E9_Matos?=)
+Date: Wed, 16 Mar 2011 11:50:27 +0000
+Subject: [R-sig-Fedora] License of the nutshell package
+In-Reply-To: <20110316073125.GB3373@mkpai.csb>
+References: <20110316070319.GA3373@mkpai.csb>
+	<07CC43C25304A546B995A31E70BF56B50445D0@wcl-exc.wcl.local>
+	<20110316073125.GB3373@mkpai.csb>
+Message-ID: <201103161150.27631.jamatos@fc.up.pt>
+
+On Wednesday 16 March 2011 07:31:25 Pai wrote:
+> I take this to mean that R-nutshell is not appropriate for Fedora :(
+
+It is if you remove the non-free conforming part of the package.
+
+The next question is if the package is still interesting without that part.
+
+> Thanks for the prompt reply to a newbie.
+> 
+> Regards,
+> -- Pai
+
+-- 
+Jos? Ab?lio
+
+

@@ -1,0 +1,177 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2010-04",
+  "messages": [
+    {
+      "id": "msg-f6da66dae8d8",
+      "message_id": "<OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>",
+      "from_name": "Dennis.Burian at faa.gov",
+      "from_email_hash": "4b2a2434a28b5ada8586b04cf5d2279ab08cdc6d3c00e12dcb34b869b2494378",
+      "date": "2010-04-16T17:59:40-05:00",
+      "subject": "[R-sig-Fedora] R installation on Fedora 12",
+      "subject_clean": "R installation on Fedora 12",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I am migrating from 64-bit RHEL 5 to 64-bit Fedora 12 and I'm getting the\nfollowing error when I run ./configure in the directory R-2.10.1...\n\nchecking for IceConnectionNumber in -lICE... yes\nchecking X11/Intrinsic.h usability... no\nchecking X11/Intrinsic.h presence... no\nchecking for X11/Intrinsic.h... no\nconfigure: error: --with-x=yes (default) and X11 headers/libs are not\navailable\n\nI've used yum search to look for X11 packages and on the key word Intrinsic\nwithout seeing something obvious.  Which package do I need to install to\nget past this error?\n\nThanks\n\nDennis Burian, Ph.D.\nFunctional Genomics Group\nCivil Aerospace Medical Institute, AAM-610\n6500 S. MacArthur Blvd.\nOklahoma City OK  73169\n405-954-6087\ndennis.burian at faa.gov",
+      "body_snippet": "I am migrating from 64-bit RHEL 5 to 64-bit Fedora 12 and I'm getting the\nfollowing error when I run ./configure in the directory R-2.10.1...\n\nchecking for IceConnectionNumber in -lICE... yes\nchecking",
+      "thread_id": "thread-f6da66dae8d8",
+      "thread_depth": 0,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-896e7455dd35",
+      "message_id": "<1271459723.2115.8.camel@localhost>",
+      "from_name": "Gavin Simpson",
+      "from_email_hash": "de29578fbbb79e6883c8203a1faebef3fddd10c08cc122f35e5ad109dc250099",
+      "date": "2010-04-17T00:15:23+01:00",
+      "subject": "[R-sig-Fedora] R installation on Fedora 12",
+      "subject_clean": "R installation on Fedora 12",
+      "in_reply_to": "<OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>",
+      "references": [
+        "<OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>"
+      ],
+      "body_plain": "On Fri, 2010-04-16 at 17:59 -0500, Dennis.Burian at faa.gov wrote:\n> I am migrating from 64-bit RHEL 5 to 64-bit Fedora 12 and I'm getting the\n> following error when I run ./configure in the directory R-2.10.1...\n> \n> checking for IceConnectionNumber in -lICE... yes\n> checking X11/Intrinsic.h usability... no\n> checking X11/Intrinsic.h presence... no\n> checking for X11/Intrinsic.h... no\n> configure: error: --with-x=yes (default) and X11 headers/libs are not\n> available\n> \n> I've used yum search to look for X11 packages and on the key word Intrinsic\n> without seeing something obvious.  Which package do I need to install to\n> get past this error?\n\nsu -c \"yum install libXt-devel\"\n\nin a shell/terminal should install the relevant header that was missing\nabove.\n\nIt highly likely that you are missing more of the X11 headers you'll\nneed and I forget now exactly which they are.\n\nHTH\n\nG\n\n> \n> Thanks\n> \n> Dennis Burian, Ph.D.\n> Functional Genomics Group\n> Civil Aerospace Medical Institute, AAM-610\n> 6500 S. MacArthur Blvd.\n> Oklahoma City OK  73169\n> 405-954-6087\n> dennis.burian at faa.gov\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n-- \n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%\n Dr. Gavin Simpson             [t] +44 (0)20 7679 0522\n ECRC, UCL Geography,          [f] +44 (0)20 7679 0565\n Pearson Building,             [e] gavin.simpsonATNOSPAMucl.ac.uk\n Gower Street, London          [w] http://www.ucl.ac.uk/~ucfagls/\n UK. WC1E 6BT.                 [w] http://www.freshwaters.org.uk\n%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%",
+      "body_snippet": "On Fri, 2010-04-16 at 17:59 -0500, Dennis.Burian at faa.gov wrote:\n> I am migrating from 64-bit RHEL 5 to 64-bit Fedora 12 and I'm getting the\n> following error when I run ./configure in the directory",
+      "thread_id": "thread-f6da66dae8d8",
+      "thread_depth": 1,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-6f88313b3b0c",
+      "message_id": "<8FE1AB09-3CF1-4798-954F-F743685B4C29@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2010-04-16T18:37:13-05:00",
+      "subject": "[R-sig-Fedora] R installation on Fedora 12",
+      "subject_clean": "R installation on Fedora 12",
+      "in_reply_to": "<1271459723.2115.8.camel@localhost>",
+      "references": [
+        "<OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>",
+        "<1271459723.2115.8.camel@localhost>"
+      ],
+      "body_plain": "On Apr 16, 2010, at 6:15 PM, Gavin Simpson wrote:\n\n> On Fri, 2010-04-16 at 17:59 -0500, Dennis.Burian at faa.gov wrote:\n>> I am migrating from 64-bit RHEL 5 to 64-bit Fedora 12 and I'm getting the\n>> following error when I run ./configure in the directory R-2.10.1...\n>> \n>> checking for IceConnectionNumber in -lICE... yes\n>> checking X11/Intrinsic.h usability... no\n>> checking X11/Intrinsic.h presence... no\n>> checking for X11/Intrinsic.h... no\n>> configure: error: --with-x=yes (default) and X11 headers/libs are not\n>> available\n>> \n>> I've used yum search to look for X11 packages and on the key word Intrinsic\n>> without seeing something obvious.  Which package do I need to install to\n>> get past this error?\n> \n> su -c \"yum install libXt-devel\"\n> \n> in a shell/terminal should install the relevant header that was missing\n> above.\n> \n> It highly likely that you are missing more of the X11 headers you'll\n> need and I forget now exactly which they are.\n> \n> HTH\n> \n> G\n\nThis is covered in the R Installation and Administration Manual in Appendix A:\n\n  http://cran.r-project.org/doc/manuals/R-admin.html#Essential-and-useful-other-programs-under-Unix\n\n\"Unless you do not want to view graphs on-screen you need ?X11? installed, including its headers and client libraries. For recent Fedora distributions it means (at least) ?libX11?, ?libX11-devel?, ?libXt? and ?libXt-devel?.\"\n\nHTH,\n\nMarc Schwartz",
+      "body_snippet": "On Apr 16, 2010, at 6:15 PM, Gavin Simpson wrote:\n\n> On Fri, 2010-04-16 at 17:59 -0500, Dennis.Burian at faa.gov wrote:\n>> I am migrating from 64-bit RHEL 5 to 64-bit Fedora 12 and I'm getting the\n>> ",
+      "thread_id": "thread-f6da66dae8d8",
+      "thread_depth": 2,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-e9d97b9f16aa",
+      "message_id": "<20100417024042.GA20207@planetpingou.org>",
+      "from_name": "pingou at pingoured.fr",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2010-04-17T04:40:43+02:00",
+      "subject": "[R-sig-Fedora] R installation on Fedora 12",
+      "subject_clean": "R installation on Fedora 12",
+      "in_reply_to": "<OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>",
+      "references": [
+        "<OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>"
+      ],
+      "body_plain": "On Fri, Apr 16, 2010 at 05:59:40PM -0500, Dennis.Burian at faa.gov wrote:\n> \n> I've used yum search to look for X11 packages and on the key word Intrinsic\n> without seeing something obvious.  Which package do I need to install to\n> get past this error?\n> \n\nJust out of curiosity, any special reason not to use directly yum to install R ?\n\nPierre",
+      "body_snippet": "On Fri, Apr 16, 2010 at 05:59:40PM -0500, Dennis.Burian at faa.gov wrote:\n> \n> I've used yum search to look for X11 packages and on the key word Intrinsic\n> without seeing something obvious.  Which pa",
+      "thread_id": "thread-f6da66dae8d8",
+      "thread_depth": 1,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-9868cff4abe1",
+      "message_id": "<OF582C1216.27A4F436-ON8625770A.004C750A-8625770A.004CD0E5@faa.gov>",
+      "from_name": "Dennis.Burian at faa.gov",
+      "from_email_hash": "4b2a2434a28b5ada8586b04cf5d2279ab08cdc6d3c00e12dcb34b869b2494378",
+      "date": "2010-04-19T08:59:02-05:00",
+      "subject": "[R-sig-Fedora] R-SIG-Fedora Digest, Vol 20, Issue 1",
+      "subject_clean": "R-SIG-Fedora Digest, Vol 20, Issue 1",
+      "in_reply_to": "<mailman.17.1271498407.30929.r-sig-fedora@r-project.org>",
+      "references": [
+        "<mailman.17.1271498407.30929.r-sig-fedora@r-project.org>"
+      ],
+      "body_plain": "Thanks Gavin and Marc, never thought to look in the Appendix.\n\nPierre, that would be simpler, wouldn't it;  thanks for the suggestion,  DB\n\nDennis Burian, Ph.D.\nFunctional Genomics Group\nCivil Aerospace Medical Institute, AAM-610\n6500 S. MacArthur Blvd.\nOklahoma City OK  73169\n405-954-6087\ndennis.burian at faa.gov",
+      "body_snippet": "Thanks Gavin and Marc, never thought to look in the Appendix.\n\nPierre, that would be simpler, wouldn't it;  thanks for the suggestion,  DB\n\nDennis Burian, Ph.D.\nFunctional Genomics Group\nCivil Aerospa",
+      "thread_id": "thread-9868cff4abe1",
+      "thread_depth": 0,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-e23781cc3435",
+      "message_id": "<4BD1D719.8000907@redhat.com>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2010-04-23T13:21:29-04:00",
+      "subject": "[R-sig-Fedora] R 2.11.0 in Fedora Updates Testing",
+      "subject_clean": "R 2.11.0 in Fedora Updates Testing",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "R 2.11.0 is built now for Fedora and EPEL. It is in \"updates-testing\".\n\nIn accordance with the new policies on Fedora Updates, these new\npackages will not be pushed as official updates until they either\nreceive positive testing from users, or sit in updates-testing for two\nweeks.\n\nYou can help us test these packages, and move them forward. Here's how:\n\n1. Go to the Fedora Updates web application (its real name is \"Bodhi\"):\nhttps://admin.fedoraproject.org/updates/\n\nOnce you're there, click the login blue box at the top left, and login\nwith your Fedora Account. If you don't have a Fedora Account, you can\nskip this step.\n\n2. Click on the link for the Fedora R test update that matches your release:\n\nFedora 11:\nhttps://admin.fedoraproject.org/updates/rpy-2.0.8-2.fc11,R-2.11.0-1.fc11\n\nFedora 12:\nhttps://admin.fedoraproject.org/updates/rpy-2.0.8-2.fc12,R-2.11.0-1.fc12\n\nEPEL-4 (RHEL-4):\nhttps://admin.fedoraproject.org/updates/R-2.11.0-1.el4\n\nEPEL-5 (RHEL-5):\nhttps://admin.fedoraproject.org/updates/R-2.11.0-1.el5\n\n3. Now, on your Fedora (or RHEL) system, run this command (as root, or\nwith root privs) to install the test update:\n\nyum --enablerepo=updates-testing update R\n\nThat should update R to the test update (if you don't want the full R\nsuite, you can replace \"R\" in that string with \"R-core\").\n\n4. Test it! Make sure it does all the things you would expect it to.\n\n5. Go back to the web page for the R update (step 2), and at\nthe bottom, click \"Add a comment >>\"\n\n(If you didn't login, it will ask you for an email address and make you\ncomplete a captcha to make sure you are a unique individual.)\n\nIn that text box which opens up, write a little bit about the testing\nyou did and if it works okay for you or not. Then (this is the important\npart), click the \"Works for me\" or \"Does not work\" radio button below\nit, and click the Add Comment button.\n\n6. That's it! If it worked, you've given that update a +1 karma vote.\n(If it didn't work, you've given it a -1 karma vote). Now, if three\npeople give a +1, and the package update gets to +3, the Fedora Update\nsystem will automatically move the update from testing to a real update,\nand everyone will get it.\n\nThanks in advance,\n\n~spot, Fedora/EPEL R maintainer",
+      "body_snippet": "R 2.11.0 is built now for Fedora and EPEL. It is in \"updates-testing\".\n\nIn accordance with the new policies on Fedora Updates, these new\npackages will not be pushed as official updates until they eith",
+      "thread_id": "thread-e23781cc3435",
+      "thread_depth": 0,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-ad75ccddb008",
+      "message_id": "<1272060956.20881.38.camel@localhost.localdomain>",
+      "from_name": "Pierre-Yves",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2010-04-24T00:15:56+02:00",
+      "subject": "[R-sig-Fedora] R-repo",
+      "subject_clean": "R-repo",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nThere is a some group of people which is gathering at this moment to\nbuild a RPMs R-repository. \n\nThis repository will be built using R2rpm which mean:\n- No -devel subpackage\n- Automated spec generation\n- Dependencies resolved based on the DESCRIPTION file\n\nWe will make sure that the package that don't build have logs available.\n\nAt the moment we are trying to put together all the infrastructure. We\nhave started to build the first packages and are hoping to have the\nfirst generation of the repository in few days.\n\nFor those of you who would be interested we have just set up a mailing\nlist at:\nhttp://www.bioinformatics.org/mailman/listinfo/r-repo-dev\nFeel free to join the discussions to make of this project something\nuseful for all.\n\nRegards,\n\nPierre",
+      "body_snippet": "Dear all,\n\nThere is a some group of people which is gathering at this moment to\nbuild a RPMs R-repository. \n\nThis repository will be built using R2rpm which mean:\n- No -devel subpackage\n- Automated sp",
+      "thread_id": "thread-ad75ccddb008",
+      "thread_depth": 0,
+      "month": "2010-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-f6da66dae8d8",
+      "subject": "R installation on Fedora 12",
+      "message_count": 4,
+      "participants": [
+        "Dennis.Burian at faa.gov",
+        "Gavin Simpson",
+        "Marc Schwartz",
+        "pingou at pingoured.fr"
+      ],
+      "started": "2010-04-16T17:59:40-05:00",
+      "last_reply": "2010-04-17T04:40:43+02:00",
+      "root_message_id": "msg-f6da66dae8d8"
+    },
+    {
+      "id": "thread-9868cff4abe1",
+      "subject": "R-SIG-Fedora Digest, Vol 20, Issue 1",
+      "message_count": 1,
+      "participants": [
+        "Dennis.Burian at faa.gov"
+      ],
+      "started": "2010-04-19T08:59:02-05:00",
+      "last_reply": "2010-04-19T08:59:02-05:00",
+      "root_message_id": "msg-9868cff4abe1"
+    },
+    {
+      "id": "thread-e23781cc3435",
+      "subject": "R 2.11.0 in Fedora Updates Testing",
+      "message_count": 1,
+      "participants": [
+        "Tom \"spot\" Callaway"
+      ],
+      "started": "2010-04-23T13:21:29-04:00",
+      "last_reply": "2010-04-23T13:21:29-04:00",
+      "root_message_id": "msg-e23781cc3435"
+    },
+    {
+      "id": "thread-ad75ccddb008",
+      "subject": "R-repo",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves"
+      ],
+      "started": "2010-04-24T00:15:56+02:00",
+      "last_reply": "2010-04-24T00:15:56+02:00",
+      "root_message_id": "msg-ad75ccddb008"
+    }
+  ]
+}

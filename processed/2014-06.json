@@ -1,0 +1,275 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2014-06",
+  "messages": [
+    {
+      "id": "msg-a6555504462a",
+      "message_id": "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>",
+      "from_name": "enzo at smartinsightsfromdata.com",
+      "from_email_hash": "aeee491988d85e6833d9843039a2415c24ee619b26da7ce8f8a9e24e7e6898e8",
+      "date": "2014-06-16T09:53:12+01:00",
+      "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
+      "subject_clean": "Centos / Fedora rpm - issue with openblas",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140616/63724677/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140616/63724677/attachment.pl>",
+      "thread_id": "thread-a6555504462a",
+      "thread_depth": 0,
+      "month": "2014-06"
+    },
+    {
+      "id": "msg-4d4ff30afc5d",
+      "message_id": "<1402915776.17749.66.camel@braque.iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2014-06-16T10:49:36Z",
+      "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
+      "subject_clean": "Centos / Fedora rpm - issue with openblas",
+      "in_reply_to": "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>",
+      "references": [
+        "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>"
+      ],
+      "body_plain": "This is a change in the way that the RPM is built. The RPM for R 3.1.0\ndoes not build its own blas and lapack libraries, but links directly to\nexternal blas and lapack provided by Fedora.  This means that you can no\nlonger swap out libRblas.so by replacing it with a symbolic link to\nopenblas.\n\nIf you really want openblas then you should install R from source using\nthe configure option --with-blas=\"openblas\" (Recall that you need to\ninstall the openblas-devel RPM).\n\nMartyn\n\nOn Mon, 2014-06-16 at 08:53 +0000, enzo at smartinsightsfromdata.com wrote:\n> \n> I?ve installed R 3.1 with the latest Fedora rpm\n> (R-3.1.0-5.el6.x86_64.rpm) and I run into some issues with openblas.\n> \n> I?ve documented this with an open question on stack overflow here:\n> http://stackoverflow.com/questions/24158372/openblas-r-3-1-and-fedora-centos-dist\n> \n> Basically before 3.1 I had 3.02 and I was able to install and use\n> openblas following the instruction from official CRAN documentation,\n> symlinking the openblas library instead of the ?official? one, with a\n> significant improvement in performance.\n> \n> Now I do not know how to dynamic-link the openblas libraries anymore,\n> as it seems that either the address of the standard libs is changed,\n> or the working of the libraries has changed.\n> \n> Could somebody be so kind to shed some light?\n> \n> Many thanks in advance!\n> \n> Enzo Martoglio\n>         [[alternative HTML version deleted]]\n> \n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>",
+      "body_snippet": "This is a change in the way that the RPM is built. The RPM for R 3.1.0\ndoes not build its own blas and lapack libraries, but links directly to\nexternal blas and lapack provided by Fedora.  This means ",
+      "thread_id": "thread-a6555504462a",
+      "thread_depth": 1,
+      "month": "2014-06"
+    },
+    {
+      "id": "msg-e2ca59aca9f0",
+      "message_id": "<8A0EFB11-9BCC-4214-AED0-9D33E56EAEC3@smartinsightsfromdata.com>",
+      "from_name": "enzo at smartinsightsfromdata.com",
+      "from_email_hash": "aeee491988d85e6833d9843039a2415c24ee619b26da7ce8f8a9e24e7e6898e8",
+      "date": "2014-06-16T13:05:31+01:00",
+      "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
+      "subject_clean": "Centos / Fedora rpm - issue with openblas",
+      "in_reply_to": "<1402915776.17749.66.camel@braque.iarc.fr>",
+      "references": [
+        "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>",
+        "<1402915776.17749.66.camel@braque.iarc.fr>"
+      ],
+      "body_plain": "Martyn\n\nMany thanks for your clear reply.  I?m sure that this has been done for good reasons, but I am disappointed that  I need to organise myself to compile R from sources *just* to link another library: it looks like a functional regression to me, compared to 3.02 (and previous releases).\n\nMay I suggest at some point to amend R standard docs to clarify that the option described is no longer viable with Linux / Fedora?\n\nMany thanks again.\n\nEnzo\n \nOn 16 Jun 2014, at 11:49, Martyn Plummer <plummerm at iarc.fr> wrote:\n\n> This is a change in the way that the RPM is built. The RPM for R 3.1.0\n> does not build its own blas and lapack libraries, but links directly to\n> external blas and lapack provided by Fedora.  This means that you can no\n> longer swap out libRblas.so by replacing it with a symbolic link to\n> openblas.\n> \n> If you really want openblas then you should install R from source using\n> the configure option --with-blas=\"openblas\" (Recall that you need to\n> install the openblas-devel RPM).\n> \n> Martyn\n> \n> On Mon, 2014-06-16 at 08:53 +0000, enzo at smartinsightsfromdata.com wrote:\n>> \n>> I?ve installed R 3.1 with the latest Fedora rpm\n>> (R-3.1.0-5.el6.x86_64.rpm) and I run into some issues with openblas.\n>> \n>> I?ve documented this with an open question on stack overflow here:\n>> http://stackoverflow.com/questions/24158372/openblas-r-3-1-and-fedora-centos-dist\n>> \n>> Basically before 3.1 I had 3.02 and I was able to install and use\n>> openblas following the instruction from official CRAN documentation,\n>> symlinking the openblas library instead of the ?official? one, with a\n>> significant improvement in performance.\n>> \n>> Now I do not know how to dynamic-link the openblas libraries anymore,\n>> as it seems that either the address of the standard libs is changed,\n>> or the working of the libraries has changed.\n>> \n>> Could somebody be so kind to shed some light?\n>> \n>> Many thanks in advance!\n>> \n>> Enzo Martoglio\n>>        [[alternative HTML version deleted]]\n>> \n>> \n>> _______________________________________________\n>> R-SIG-Fedora mailing list\n>> R-SIG-Fedora at r-project.org\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>> \n>",
+      "body_snippet": "Martyn\n\nMany thanks for your clear reply.  I?m sure that this has been done for good reasons, but I am disappointed that  I need to organise myself to compile R from sources *just* to link another lib",
+      "thread_id": "thread-a6555504462a",
+      "thread_depth": 2,
+      "month": "2014-06"
+    },
+    {
+      "id": "msg-a13571221fab",
+      "message_id": "<539EEEC9.8060607@gmail.com>",
+      "from_name": "Michael Smith",
+      "from_email_hash": "a7e1151e628d8816b7bab185f82d3d0b8e635db81353cc0fe989960cea37147b",
+      "date": "2014-06-16T21:19:05+08:00",
+      "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
+      "subject_clean": "Centos / Fedora rpm - issue with openblas",
+      "in_reply_to": "<8A0EFB11-9BCC-4214-AED0-9D33E56EAEC3@smartinsightsfromdata.com>",
+      "references": [
+        "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>",
+        "<1402915776.17749.66.camel@braque.iarc.fr>",
+        "<8A0EFB11-9BCC-4214-AED0-9D33E56EAEC3@smartinsightsfromdata.com>"
+      ],
+      "body_plain": "I'm very glad for this question, since it reminds me of how Revolution\nAnalytics get some of their speedup (using MKL if I'm not mistaken).\n\nYou mention you get a 50% speedup with OpenBLAS, which is wonderful. Are\nthere some other libraries out there that we could use on Fedora/CentOS\nto speed up R?\n\nThanks,\nM\n\n\nOn 06/16/2014 08:05 PM, enzo at smartinsightsfromdata.com wrote:\n> Martyn\n> \n> Many thanks for your clear reply.  I?m sure that this has been done for good reasons, but I am disappointed that  I need to organise myself to compile R from sources *just* to link another library: it looks like a functional regression to me, compared to 3.02 (and previous releases).\n> \n> May I suggest at some point to amend R standard docs to clarify that the option described is no longer viable with Linux / Fedora?\n> \n> Many thanks again.\n> \n> Enzo\n>  \n> On 16 Jun 2014, at 11:49, Martyn Plummer <plummerm at iarc.fr> wrote:\n> \n>> This is a change in the way that the RPM is built. The RPM for R 3.1.0\n>> does not build its own blas and lapack libraries, but links directly to\n>> external blas and lapack provided by Fedora.  This means that you can no\n>> longer swap out libRblas.so by replacing it with a symbolic link to\n>> openblas.\n>>\n>> If you really want openblas then you should install R from source using\n>> the configure option --with-blas=\"openblas\" (Recall that you need to\n>> install the openblas-devel RPM).\n>>\n>> Martyn\n>>\n>> On Mon, 2014-06-16 at 08:53 +0000, enzo at smartinsightsfromdata.com wrote:\n>>>\n>>> I?ve installed R 3.1 with the latest Fedora rpm\n>>> (R-3.1.0-5.el6.x86_64.rpm) and I run into some issues with openblas.\n>>>\n>>> I?ve documented this with an open question on stack overflow here:\n>>> http://stackoverflow.com/questions/24158372/openblas-r-3-1-and-fedora-centos-dist\n>>>\n>>> Basically before 3.1 I had 3.02 and I was able to install and use\n>>> openblas following the instruction from official CRAN documentation,\n>>> symlinking the openblas library instead of the ?official? one, with a\n>>> significant improvement in performance.\n>>>\n>>> Now I do not know how to dynamic-link the openblas libraries anymore,\n>>> as it seems that either the address of the standard libs is changed,\n>>> or the working of the libraries has changed.\n>>>\n>>> Could somebody be so kind to shed some light?\n>>>\n>>> Many thanks in advance!\n>>>\n>>> Enzo Martoglio\n>>>        [[alternative HTML version deleted]]\n>>>\n>>>\n>>> _______________________________________________\n>>> R-SIG-Fedora mailing list\n>>> R-SIG-Fedora at r-project.org\n>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>>>\n>>\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>",
+      "body_snippet": "I'm very glad for this question, since it reminds me of how Revolution\nAnalytics get some of their speedup (using MKL if I'm not mistaken).\n\nYou mention you get a 50% speedup with OpenBLAS, which is w",
+      "thread_id": "thread-a6555504462a",
+      "thread_depth": 3,
+      "month": "2014-06"
+    },
+    {
+      "id": "msg-d3177ab600f4",
+      "message_id": "<1402925917.17749.112.camel@braque.iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2014-06-16T13:38:37Z",
+      "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
+      "subject_clean": "Centos / Fedora rpm - issue with openblas",
+      "in_reply_to": "<8A0EFB11-9BCC-4214-AED0-9D33E56EAEC3@smartinsightsfromdata.com>",
+      "references": [
+        "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>",
+        "<1402915776.17749.66.camel@braque.iarc.fr>",
+        "<8A0EFB11-9BCC-4214-AED0-9D33E56EAEC3@smartinsightsfromdata.com>"
+      ],
+      "body_plain": "Enzo,\n\nI am copying in Tom Callaway from Red Hat (Tom: Enzo wrote to us\nprivately on the same issue, but this is on the R-SIG-Fedora list).\n\nThis is a choice made by Red Hat Software, not by the R Development Core\nTeam, so there is nothing to change in the R-admin manual. Everything\ndepends on how you configure R. In the SPEC file that builds the Fedora\nRPM, R is configured using the options \"--with-blas\" and\n\"--with-lapack\", neither of which is the default (and the latter is\nquite strongly discouraged). These options cause R to be linked directly\nto external blas and lapack libraries.\n\nThis has clear advantages for a software distributor like Red Hat. The\nblas used by R is the synchronized with the rest of the system. Updates\nand bug fixes to blas and lapack apply immediately without needing to\npush an update to R.\n\nSomething like the previous behaviour could be put in place by adding\nthe option --enable-BLAS-shlib when R is configured. Then libRblas.so\nwill be built as before. However, this libRblas will not contain a copy\nof the reference blas that comes with R. Instead it will be just be a\nstub that redirects BLAS calls to the external BLAS library. (NB You\nmust also use --enable-R-shlib for this to work, but this is the case\nfor the Fedora SRPM so not a problem).\n\nThis option gives you the best of both worlds. However, such a change\nwould have to wait until the next major release of R.\n\nMartyn\n\nOn Mon, 2014-06-16 at 13:05 +0100, enzo at smartinsightsfromdata.com wrote:\n> Martyn\n> \n> Many thanks for your clear reply.  I?m sure that this has been done\n> for good reasons, but I am disappointed that  I need to organise\n> myself to compile R from sources *just* to link another library: it\n> looks like a functional regression to me, compared to 3.02 (and\n> previous releases).\n> \n> May I suggest at some point to amend R standard docs to clarify that\n> the option described is no longer viable with Linux / Fedora?\n> \n> Many thanks again.\n> \n> Enzo\n>  \n> On 16 Jun 2014, at 11:49, Martyn Plummer <plummerm at iarc.fr> wrote:\n> \n> > This is a change in the way that the RPM is built. The RPM for R 3.1.0\n> > does not build its own blas and lapack libraries, but links directly to\n> > external blas and lapack provided by Fedora.  This means that you can no\n> > longer swap out libRblas.so by replacing it with a symbolic link to\n> > openblas.\n> > \n> > If you really want openblas then you should install R from source using\n> > the configure option --with-blas=\"openblas\" (Recall that you need to\n> > install the openblas-devel RPM).\n> > \n> > Martyn\n> > \n> > On Mon, 2014-06-16 at 08:53 +0000, enzo at smartinsightsfromdata.com wrote:\n> >> \n> >> I?ve installed R 3.1 with the latest Fedora rpm\n> >> (R-3.1.0-5.el6.x86_64.rpm) and I run into some issues with openblas.\n> >> \n> >> I?ve documented this with an open question on stack overflow here:\n> >> http://stackoverflow.com/questions/24158372/openblas-r-3-1-and-fedora-centos-dist\n> >> \n> >> Basically before 3.1 I had 3.02 and I was able to install and use\n> >> openblas following the instruction from official CRAN documentation,\n> >> symlinking the openblas library instead of the ?official? one, with a\n> >> significant improvement in performance.\n> >> \n> >> Now I do not know how to dynamic-link the openblas libraries anymore,\n> >> as it seems that either the address of the standard libs is changed,\n> >> or the working of the libraries has changed.\n> >> \n> >> Could somebody be so kind to shed some light?\n> >> \n> >> Many thanks in advance!\n> >> \n> >> Enzo Martoglio\n> >>        [[alternative HTML version deleted]]\n> >> \n> >> \n> >> _______________________________________________\n> >> R-SIG-Fedora mailing list\n> >> R-SIG-Fedora at r-project.org\n> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> >> \n> > \n>",
+      "body_snippet": "Enzo,\n\nI am copying in Tom Callaway from Red Hat (Tom: Enzo wrote to us\nprivately on the same issue, but this is on the R-SIG-Fedora list).\n\nThis is a choice made by Red Hat Software, not by the R Dev",
+      "thread_id": "thread-a6555504462a",
+      "thread_depth": 3,
+      "month": "2014-06"
+    },
+    {
+      "id": "msg-4fd89a5d329b",
+      "message_id": "<539EF641.7060206@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2014-06-16T09:50:57-04:00",
+      "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
+      "subject_clean": "Centos / Fedora rpm - issue with openblas",
+      "in_reply_to": "<1402925917.17749.112.camel@braque.iarc.fr>",
+      "references": [
+        "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>",
+        "<1402915776.17749.66.camel@braque.iarc.fr>",
+        "<8A0EFB11-9BCC-4214-AED0-9D33E56EAEC3@smartinsightsfromdata.com>",
+        "<1402925917.17749.112.camel@braque.iarc.fr>"
+      ],
+      "body_plain": "On 06/16/2014 09:38 AM, Martyn Plummer wrote:\n> Something like the previous behaviour could be put in place by adding\n> the option --enable-BLAS-shlib when R is configured. Then libRblas.so\n> will be built as before. However, this libRblas will not contain a copy\n> of the reference blas that comes with R. Instead it will be just be a\n> stub that redirects BLAS calls to the external BLAS library. (NB You\n> must also use --enable-R-shlib for this to work, but this is the case\n> for the Fedora SRPM so not a problem).\n> \n> This option gives you the best of both worlds. However, such a change\n> would have to wait until the next major release of R.\n\nI think we'd enable such a change if it were supported in R.\n\n~tom\n\n==\n?.???`?.??`?.??.???`?.?><(((?> OSAS @ Red Hat\nUniversity Outreach || Fedora Special Projects || Fedora Legal\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: tcallawa.vcf\nType: text/x-vcard\nSize: 4 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140616/2b41490f/attachment.vcf>",
+      "body_snippet": "On 06/16/2014 09:38 AM, Martyn Plummer wrote:\n> Something like the previous behaviour could be put in place by adding\n> the option --enable-BLAS-shlib when R is configured. Then libRblas.so\n> will be ",
+      "thread_id": "thread-a6555504462a",
+      "thread_depth": 4,
+      "month": "2014-06"
+    },
+    {
+      "id": "msg-25defe00cac5",
+      "message_id": "<1402928186.17749.122.camel@braque.iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2014-06-16T14:16:26Z",
+      "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
+      "subject_clean": "Centos / Fedora rpm - issue with openblas",
+      "in_reply_to": "<539EF641.7060206@redhat.com>",
+      "references": [
+        "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>",
+        "<1402915776.17749.66.camel@braque.iarc.fr>",
+        "<8A0EFB11-9BCC-4214-AED0-9D33E56EAEC3@smartinsightsfromdata.com>",
+        "<1402925917.17749.112.camel@braque.iarc.fr>",
+        "<539EF641.7060206@redhat.com>"
+      ],
+      "body_plain": "On Mon, 2014-06-16 at 09:50 -0400, Tom Callaway wrote:\n> On 06/16/2014 09:38 AM, Martyn Plummer wrote:\n> > Something like the previous behaviour could be put in place by adding\n> > the option --enable-BLAS-shlib when R is configured. Then libRblas.so\n> > will be built as before. However, this libRblas will not contain a copy\n> > of the reference blas that comes with R. Instead it will be just be a\n> > stub that redirects BLAS calls to the external BLAS library. (NB You\n> > must also use --enable-R-shlib for this to work, but this is the case\n> > for the Fedora SRPM so not a problem).\n> > \n> > This option gives you the best of both worlds. However, such a change\n> > would have to wait until the next major release of R.\n> \n> I think we'd enable such a change if it were supported in R.\n\nSorry I'm not being clear. This option already exists. I just tested it.\n\nBut if you push an update of the R 3.1.0 RPM you might break R packages\nthat need blas and which are already installed by users. This also\napplies to future R 3.1.1 since it will use the same personal package\nlibrary (e.g. ~/R/x86_64-redhat-linux-gnu-library/3.1) . Hence my\nsuggestion to wait for the next major release of R to make the change.\n\nHowever, I might be wrong about that. You certainly can't get rid of\nlibRblas if it exists, but you might be able to add a stub libRblas\nwithout affecting packages that are already installed.\n\n> ~tom\n> \n> ==\n> ?.???`?.??`?.??.???`?.?><(((?> OSAS @ Red Hat\n> University Outreach || Fedora Special Projects || Fedora Legal\n\n-----------------------------------------------------------------------\nThis message and its attachments are strictly confidenti...{{dropped:8}}",
+      "body_snippet": "On Mon, 2014-06-16 at 09:50 -0400, Tom Callaway wrote:\n> On 06/16/2014 09:38 AM, Martyn Plummer wrote:\n> > Something like the previous behaviour could be put in place by adding\n> > the option --enable",
+      "thread_id": "thread-a6555504462a",
+      "thread_depth": 5,
+      "month": "2014-06"
+    },
+    {
+      "id": "msg-027670d7b9d4",
+      "message_id": "<06F959F9-7F00-49D3-AD99-12627C24464E@smartinsightsfromdata.com>",
+      "from_name": "enzo at smartinsightsfromdata.com",
+      "from_email_hash": "aeee491988d85e6833d9843039a2415c24ee619b26da7ce8f8a9e24e7e6898e8",
+      "date": "2014-06-16T15:16:52+01:00",
+      "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
+      "subject_clean": "Centos / Fedora rpm - issue with openblas",
+      "in_reply_to": "<1402925917.17749.112.camel@braque.iarc.fr>",
+      "references": [
+        "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>",
+        "<1402915776.17749.66.camel@braque.iarc.fr>",
+        "<8A0EFB11-9BCC-4214-AED0-9D33E56EAEC3@smartinsightsfromdata.com>",
+        "<1402925917.17749.112.camel@braque.iarc.fr>"
+      ],
+      "body_plain": "Martyn",
+      "body_snippet": "Martyn",
+      "thread_id": "thread-a6555504462a",
+      "thread_depth": 4,
+      "month": "2014-06"
+    },
+    {
+      "id": "msg-bb45851a5cce",
+      "message_id": "<1402928379.4747.35.camel@milan>",
+      "from_name": "Milan Bouchet-Valat",
+      "from_email_hash": "0bb61b03926bd98d69d06d70fa8e9e1fc611c8b4d6e5734399f74a96ef3e03c1",
+      "date": "2014-06-16T16:19:39+02:00",
+      "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
+      "subject_clean": "Centos / Fedora rpm - issue with openblas",
+      "in_reply_to": "<539EF641.7060206@redhat.com>",
+      "references": [
+        "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>",
+        "<1402915776.17749.66.camel@braque.iarc.fr>",
+        "<8A0EFB11-9BCC-4214-AED0-9D33E56EAEC3@smartinsightsfromdata.com>",
+        "<1402925917.17749.112.camel@braque.iarc.fr>",
+        "<539EF641.7060206@redhat.com>"
+      ],
+      "body_plain": "Le lundi 16 juin 2014 ? 09:50 -0400, Tom Callaway a ?crit :\n> On 06/16/2014 09:38 AM, Martyn Plummer wrote:\n> > Something like the previous behaviour could be put in place by adding\n> > the option --enable-BLAS-shlib when R is configured. Then libRblas.so\n> > will be built as before. However, this libRblas will not contain a copy\n> > of the reference blas that comes with R. Instead it will be just be a\n> > stub that redirects BLAS calls to the external BLAS library. (NB You\n> > must also use --enable-R-shlib for this to work, but this is the case\n> > for the Fedora SRPM so not a problem).\n> > \n> > This option gives you the best of both worlds. However, such a change\n> > would have to wait until the next major release of R.\n> \n> I think we'd enable such a change if it were supported in R.\nIndeed this would be great. One of the points of using a system-wide\nBLAS is to allow the user to choose the one which is most suited to\none's hardware and use case. Not being allow to change BLAS without\nrecompiling R is a big annoyance. Personally, I recently discovered that\nusing OpenBLAS instead of the standard one made fitting large models\nabout 4x faster.\n\n\nRegards",
+      "body_snippet": "Le lundi 16 juin 2014 ? 09:50 -0400, Tom Callaway a ?crit :\n> On 06/16/2014 09:38 AM, Martyn Plummer wrote:\n> > Something like the previous behaviour could be put in place by adding\n> > the option --e",
+      "thread_id": "thread-a6555504462a",
+      "thread_depth": 5,
+      "month": "2014-06"
+    },
+    {
+      "id": "msg-0b27f2480ad7",
+      "message_id": "<539F3E74.6030407@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2014-06-16T14:59:00-04:00",
+      "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
+      "subject_clean": "Centos / Fedora rpm - issue with openblas",
+      "in_reply_to": "<1402928186.17749.122.camel@braque.iarc.fr>",
+      "references": [
+        "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>",
+        "<1402915776.17749.66.camel@braque.iarc.fr>",
+        "<8A0EFB11-9BCC-4214-AED0-9D33E56EAEC3@smartinsightsfromdata.com>",
+        "<1402925917.17749.112.camel@braque.iarc.fr>",
+        "<539EF641.7060206@redhat.com>",
+        "<1402928186.17749.122.camel@braque.iarc.fr>"
+      ],
+      "body_plain": "On 06/16/2014 10:16 AM, Martyn Plummer wrote:\n> But if you push an update of the R 3.1.0 RPM you might break R packages\n> that need blas and which are already installed by users. This also\n> applies to future R 3.1.1 since it will use the same personal package\n> library (e.g. ~/R/x86_64-redhat-linux-gnu-library/3.1) . Hence my\n> suggestion to wait for the next major release of R to make the change.\n\nYeah. I think that is the safest bet. Thanks for the explanation.\n\n~tom\n\n==\n?.???`?.??`?.??.???`?.?><(((?> OSAS @ Red Hat\nUniversity Outreach || Fedora Special Projects || Fedora Legal\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: tcallawa.vcf\nType: text/x-vcard\nSize: 4 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140616/3d9eb90d/attachment.vcf>",
+      "body_snippet": "On 06/16/2014 10:16 AM, Martyn Plummer wrote:\n> But if you push an update of the R 3.1.0 RPM you might break R packages\n> that need blas and which are already installed by users. This also\n> applies t",
+      "thread_id": "thread-a6555504462a",
+      "thread_depth": 6,
+      "month": "2014-06"
+    },
+    {
+      "id": "msg-4449b8c017e4",
+      "message_id": "<A2FF9533-F0DF-4EE0-9073-2FC59AFA749D@smartinsightsfromdata.com>",
+      "from_name": "enzo at smartinsightsfromdata.com",
+      "from_email_hash": "aeee491988d85e6833d9843039a2415c24ee619b26da7ce8f8a9e24e7e6898e8",
+      "date": "2014-06-16T21:45:54+01:00",
+      "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
+      "subject_clean": "Centos / Fedora rpm - issue with openblas",
+      "in_reply_to": "<539F3E74.6030407@redhat.com>",
+      "references": [
+        "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>",
+        "<1402915776.17749.66.camel@braque.iarc.fr>",
+        "<8A0EFB11-9BCC-4214-AED0-9D33E56EAEC3@smartinsightsfromdata.com>",
+        "<1402925917.17749.112.camel@braque.iarc.fr>",
+        "<539EF641.7060206@redhat.com>",
+        "<1402928186.17749.122.camel@braque.iarc.fr>",
+        "<539F3E74.6030407@redhat.com>"
+      ],
+      "body_plain": "Guys, with respect, it is the latest RPM that broke things.  \n\nMy Centos 6.5 was safely installed with R 3.02 and a dynamic link to openblas.  Few days ago I got notification of a new RPM for 3.1.  I installed (there was a communication about libraries but not very clear as per the consequences) and  that broke things for me.\n\nThanks\n\nEnzo\nOn 16 Jun 2014, at 19:59, Tom Callaway <tcallawa at redhat.com> wrote:\n\n> On 06/16/2014 10:16 AM, Martyn Plummer wrote:\n>> But if you push an update of the R 3.1.0 RPM you might break R packages\n>> that need blas and which are already installed by users. This also\n>> applies to future R 3.1.1 since it will use the same personal package\n>> library (e.g. ~/R/x86_64-redhat-linux-gnu-library/3.1) . Hence my\n>> suggestion to wait for the next major release of R to make the change.\n> \n> Yeah. I think that is the safest bet. Thanks for the explanation.\n> \n> ~tom\n> \n> ==\n> ?.???`?.??`?.??.???`?.?><(((?> OSAS @ Red Hat\n> University Outreach || Fedora Special Projects || Fedora Legal\n> <tcallawa.vcf>",
+      "body_snippet": "Guys, with respect, it is the latest RPM that broke things.  \n\nMy Centos 6.5 was safely installed with R 3.02 and a dynamic link to openblas.  Few days ago I got notification of a new RPM for 3.1.  I ",
+      "thread_id": "thread-a6555504462a",
+      "thread_depth": 7,
+      "month": "2014-06"
+    },
+    {
+      "id": "msg-d268303261d1",
+      "message_id": "<539F59BF.6090601@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2014-06-16T16:55:27-04:00",
+      "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
+      "subject_clean": "Centos / Fedora rpm - issue with openblas",
+      "in_reply_to": "<A2FF9533-F0DF-4EE0-9073-2FC59AFA749D@smartinsightsfromdata.com>",
+      "references": [
+        "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>",
+        "<1402915776.17749.66.camel@braque.iarc.fr>",
+        "<8A0EFB11-9BCC-4214-AED0-9D33E56EAEC3@smartinsightsfromdata.com>",
+        "<1402925917.17749.112.camel@braque.iarc.fr>",
+        "<539EF641.7060206@redhat.com>",
+        "<1402928186.17749.122.camel@braque.iarc.fr>",
+        "<539F3E74.6030407@redhat.com>",
+        "<A2FF9533-F0DF-4EE0-9073-2FC59AFA749D@smartinsightsfromdata.com>"
+      ],
+      "body_plain": "On 06/16/2014 04:45 PM, enzo at smartinsightsfromdata.com wrote:\n> Guys, with respect, it is the latest RPM that broke things.  \n> \n> My Centos 6.5 was safely installed with R 3.02 and a dynamic link to openblas.  Few days ago I got notification of a new RPM for 3.1.  I installed (there was a communication about libraries but not very clear as per the consequences) and  that broke things for me.\n\nThings are not \"broken\", things are \"different\", and we reserve the\nright to make major changes with major releases. Everything in\nFedora/EPEL is rebuilt against R with no Rblas/Rlapack, we'll enable the\nshim Rblas in the next major R release. In the interim, you can modify\nthe spec file and rebuild locally if you're unable to wait and are\nwilling to also rebuild any affected R packages locally.\n\nI apologize for the inconvenience, but we do not test with openblas, and\nthere is never a good time to change things. :)\n\n~tom\n\n==\n?.???`?.??`?.??.???`?.?><(((?> OSAS @ Red Hat\nUniversity Outreach || Fedora Special Projects || Fedora Legal\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: tcallawa.vcf\nType: text/x-vcard\nSize: 4 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140616/ea311b88/attachment.vcf>",
+      "body_snippet": "On 06/16/2014 04:45 PM, enzo at smartinsightsfromdata.com wrote:\n> Guys, with respect, it is the latest RPM that broke things.  \n> \n> My Centos 6.5 was safely installed with R 3.02 and a dynamic link ",
+      "thread_id": "thread-a6555504462a",
+      "thread_depth": 8,
+      "month": "2014-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-a6555504462a",
+      "subject": "Centos / Fedora rpm - issue with openblas",
+      "message_count": 12,
+      "participants": [
+        "Martyn Plummer",
+        "Michael Smith",
+        "Milan Bouchet-Valat",
+        "Tom Callaway",
+        "enzo at smartinsightsfromdata.com"
+      ],
+      "started": "2014-06-16T09:53:12+01:00",
+      "last_reply": "2014-06-16T16:55:27-04:00",
+      "root_message_id": "msg-a6555504462a"
+    }
+  ]
+}

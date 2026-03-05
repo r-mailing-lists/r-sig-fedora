@@ -1,0 +1,132 @@
+From crunch at 3c58.net  Sun Sep 15 07:56:02 2013
+From: crunch at 3c58.net (Mike Landis)
+Date: Sat, 14 Sep 2013 22:56:02 -0700
+Subject: [R-sig-Fedora] building R, rJava,
+ & Rserve on Centos without admin privileges (or support)
+Message-ID: <52354BF2.8030602@3c58.net>
+
+I am trying to build R on a Centos server without admin privileges (or 
+support), so I can call R functions from NetLogo models (via the NetLogo 
+R extension or possibly Rserve), but I'm getting stuck near the end of 
+make.  Any suggestions?
+
+Here's the setup...
+$ R_SHELL=/bin/sh
+$ R_HOME=~/R-devel
+$ cd $R_HOME; ./configure; make
+       returns
+...
+begin installing recommended package MASS
+Error in untar2(tarfile, files, list, exdir, restore_times) :
+   incomplete block on file
+make[2]: *** [MASS.ts] Error 1
+make[2]: Leaving directory `/home1/optimal1/R-devel/src/library/Recommended'
+make[1]: *** [recommended-packages] Error 2
+make[1]: Leaving directory `/home1/optimal1/R-devel/src/library/Recommended'
+make: *** [stamp-recommended] Error 2
+
+$ cd ../R-packages; R CMD INSTALL MASS
+      succeeds, though
+
+$ make
+      still fails on MASS, as above
+
+$ cd $R_HOME; ./configure --enable-R-shlib
+      returns
+...
+gcc -std=gnu99 -shared -fopenmp -L/usr/local/lib64  -o libR.so 
+CommandLineArgs.o Rdynload.o Renviron.o RNG.o agrep.o apply.o 
+arithmetic.o array.o attrib.o bind.o builtin.o character.o coerce.o 
+colors.o complex.o connections.o context.o cum.o dcf.o datetime.o 
+debug.o deparse.o devices.o dotcode.o dounzip.o dstruct.o duplicate.o 
+edit.o engine.o envir.o errors.o eval.o format.o gevents.o gram.o 
+gram-ex.o graphics.o grep.o identical.o inlined.o inspect.o internet.o 
+iosupport.o lapack.o list.o localecharset.o logic.o main.o mapply.o 
+match.o memory.o names.o objects.o options.o paste.o platform.o plot.o 
+plot3d.o plotmath.o print.o printarray.o printvector.o printutils.o 
+qsort.o random.o raw.o registration.o relop.o rlocale.o saveload.o 
+scan.o seq.o serialize.o sort.o source.o split.o sprintf.o startup.o 
+subassign.o subscript.o subset.o summary.o sysutils.o unique.o util.o 
+version.o vfonts.o xxxpr.o   `ls ../unix/*.o ../appl/*.o ../nmath/*.o` 
+../extra/zlib/libz.a ../extra/bzip2/libbz2.a ../extra/pcre/libpcre.a 
+../extra/tre/libtre.a  ../extra/xz/liblzma.a  -L../../lib -lRblas 
+-lgfortran -lm   -lreadline  -lrt -ldl -lm -licuuc -licui18n
+/usr/bin/ld: CommandLineArgs.o: relocation R_X86_64_32 against 
+`.rodata.str1.1' can not be used when making a shared object; recompile 
+with -fPIC
+CommandLineArgs.o: could not read symbols: Bad value
+collect2: ld returned 1 exit status
+make[3]: *** [libR.so] Error 1
+make[3]: Leaving directory `/home1/optimal1/R-devel/src/main'
+make[2]: *** [R] Error 2
+make[2]: Leaving directory `/home1/optimal1/R-devel/src/main'
+make[1]: *** [R] Error 1
+make[1]: Leaving directory `/home1/optimal1/R-devel/src'
+make: *** [R] Error 1
+-----------------------------
+$ cd ../R-packages; R CMD INSTALL Rserve
+      returns
+...
+** libs
+gcc -std=gnu99 -shared -L/usr/local/lib64 -o Rserve.so RSserver.o 
+Rserv.o base64.o http.o md5.o oc.o qap_decode.o qap_encode.o rsio.o 
+session.o sha1.o standalone.o tls.o websockets.o winembed.o -lssl 
+-lcrypto -ldl -lcrypt -L/home1/optimal1/R-devel/lib -lR
+/usr/bin/ld: cannot find -lR
+collect2: ld returned 1 exit status
+make: *** [Rserve.so] Error 1
+ERROR: compilation failed for package 'Rserve'
+* removing '/home1/optimal1/R-devel/library/Rserve'
+-----------------------------
+$ $JAVA_HOME=~/jdk1.7.0_40
+# $PATH includes $JAVA_HOME/bin & $R_HOME/bin
+$ R CMD INSTALL rJava
+     returns
+...
+interpreter : ''
+archiver    : ''
+compiler    : ''
+header prep.: ''
+cpp flags   : ''
+java libs   : ''
+configure: error: Java Development Kit (JDK) is missing or not 
+registered in R
+Make sure R is configured with full Java support (including JDK). Run
+R CMD javareconf
+as root to add Java support to R.
+If you don't have root privileges, run
+R CMD javareconf -e
+to set all Java-related variables and then install rJava.
+ERROR: configuration failed for package 'rJava'
+* removing '/home1/optimal1/R-devel/library/rJava'
+------------------------
+$ R CMD javareconf -e
+      returns
+Java interpreter : /home1/optimal1/jdk1.7.0_40/jre/bin/java 
+(surprisingly, not $JAVA_HOME/bin/java)
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+Error occurred during initialization of VM
+Could not reserve enough space for object heap
+*** Java interpreter doesn't work properly.
+-----------------------
+$ java -version
+      complains
+Error occurred during initialization of VM
+Could not reserve enough space for object heap
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+      but
+$ alias java $JAVA_HOME/bin/java -Xmx668m -XX:MaxPermSize=128m
+$ java -version
+    works, though javareconf still fails as above
+
+Any ideas?
+
+-- 
+Mike Landis
+Computational Ingelligence <http://3c58.com>
+Las Vegas, NV
+702-763-1957
+
+

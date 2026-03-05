@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2015-07",
+  "messages": [
+    {
+      "id": "msg-3a021a54ffdc",
+      "message_id": "<201507312315.t6VNFHPw016262@genepi.med.utah.edu>",
+      "from_name": "Steven Backus",
+      "from_email_hash": "e453f5502a5b2b8a27ade4738c9620104fcc5bdfc2f76a2ac5fcf1191864e655",
+      "date": "2015-07-31T17:15:17-06:00",
+      "subject": "[R-sig-Fedora] x11() hangs in R 3.2.1",
+      "subject_clean": "x11() hangs in R 3.2.1",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I'm on RHEL 6.6, R version 3.2.1 Patched (2015-07-30 r68761) --\n\"World-Famous Astronaut\".  Issuing the x11() command hangs R and\ndoes not complete.  A window is partially drawn then freezes.\nDoes anyone know of a solution?\n\nThanks,\n  Steve\n-- \nSteven J. Backus                        Computer Systems Manager\nUniversity of Utah                      E-Mail:  steven.backus at utah.edu\nGenetic Epidemiology                    Alternate:  backus at math.utah.edu\n391 Chipeta Way -- Suite D              Office:  801.587.9308\nSalt Lake City, UT 84108-1266           http://www.math.utah.edu/~backus",
+      "body_snippet": "I'm on RHEL 6.6, R version 3.2.1 Patched (2015-07-30 r68761) --\n\"World-Famous Astronaut\".  Issuing the x11() command hangs R and\ndoes not complete.  A window is partially drawn then freezes.\nDoes anyo",
+      "thread_id": "thread-3a021a54ffdc",
+      "thread_depth": 0,
+      "month": "2015-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-3a021a54ffdc",
+      "subject": "x11() hangs in R 3.2.1",
+      "message_count": 1,
+      "participants": [
+        "Steven Backus"
+      ],
+      "started": "2015-07-31T17:15:17-06:00",
+      "last_reply": "2015-07-31T17:15:17-06:00",
+      "root_message_id": "msg-3a021a54ffdc"
+    }
+  ]
+}

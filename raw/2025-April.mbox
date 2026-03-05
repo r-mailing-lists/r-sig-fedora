@@ -1,0 +1,1331 @@
+From Roger@B|v@nd @end|ng |rom nhh@no  Wed Apr 16 09:48:01 2025
+From: Roger@B|v@nd @end|ng |rom nhh@no (Roger Bivand)
+Date: Wed, 16 Apr 2025 07:48:01 +0000
+Subject: [R-sig-Fedora] Fedora 42 R source build issues
+Message-ID: <SV0P279MB04757F1AFC0098146D6E0B46EEBD2@SV0P279MB0475.NORP279.PROD.OUTLOOK.COM>
+
+Building R 4.5.0 from source on Fedora 42 hits problems because 42 ships with Tcl/Tk 9. tcl8-devel and tk8-devel are available and can be used, but I haven't yet found a viable incantation yet. Neither R released nor devel support Tcl/Tk 9 https://www.tcl-lang.com/software/tcltk/9.0.html.
+
+Building against external BLAS is also not self-evident, so may need guidance.
+
+Any suggestions welcome!
+
+Roger
+
+---
+Roger Bivand
+Emeritus Professor
+Department of Economics
+Norwegian School of Economics, Bergen, Norway
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Wed Apr 16 11:11:26 2025
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Wed, 16 Apr 2025 11:11:26 +0200
+Subject: [R-sig-Fedora] Fedora 42 R source build issues
+In-Reply-To: <SV0P279MB04757F1AFC0098146D6E0B46EEBD2@SV0P279MB0475.NORP279.PROD.OUTLOOK.COM>
+References: <SV0P279MB04757F1AFC0098146D6E0B46EEBD2@SV0P279MB0475.NORP279.PROD.OUTLOOK.COM>
+Message-ID: <CALEXWq3Jku627YvhdsRGbFtXLUXPtCuNY_vbV_JrYBQneFqA6Q@mail.gmail.com>
+
+On Wed, 16 Apr 2025 at 09:48, Roger Bivand via R-SIG-Fedora <
+r-sig-fedora at r-project.org> wrote:
+
+> Building R 4.5.0 from source on Fedora 42 hits problems because 42 ships
+> with Tcl/Tk 9. tcl8-devel and tk8-devel are available and can be used, but
+> I haven't yet found a viable incantation yet. Neither R released nor devel
+> support Tcl/Tk 9 https://www.tcl-lang.com/software/tcltk/9.0.html.
+>
+
+Yes, you just need to install tcl8-devel and tk8-devel (and tell dnf to
+remove version 9 if it's already there) and compile as usual.
+
+
+> Building against external BLAS is also not self-evident, so may need
+> guidance.
+
+
+Building against FlexiBLAS is recommended. So you need to install
+flexiblas-devel, then tell R via --with-blas=flexiblas --with-lapack.
+
+See the configure part of our spec for a complete reference of what we do:
+
+https://src.fedoraproject.org/rpms/R/blob/rawhide/f/R.spec#_326
+
+I?aki
+
+
+>
+> Any suggestions welcome!
+>
+> Roger
+>
+> ---
+> Roger Bivand
+> Emeritus Professor
+> Department of Economics
+> Norwegian School of Economics, Bergen, Norway
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+
+From pd@|gd @end|ng |rom gm@||@com  Wed Apr 16 13:03:23 2025
+From: pd@|gd @end|ng |rom gm@||@com (peter dalgaard)
+Date: Wed, 16 Apr 2025 13:03:23 +0200
+Subject: [R-sig-Fedora] Fedora 42 R source build issues
+In-Reply-To: <CALEXWq3Jku627YvhdsRGbFtXLUXPtCuNY_vbV_JrYBQneFqA6Q@mail.gmail.com>
+References: <SV0P279MB04757F1AFC0098146D6E0B46EEBD2@SV0P279MB0475.NORP279.PROD.OUTLOOK.COM>
+ <CALEXWq3Jku627YvhdsRGbFtXLUXPtCuNY_vbV_JrYBQneFqA6Q@mail.gmail.com>
+Message-ID: <0C74D0EB-AB70-4F22-BC05-BED0A80CFEA5@gmail.com>
+
+The Mac builds want stuff like below. I suspect you may need similar tcl and tk lines pointing to *Config.sh for Tcl/Tk 8.
+
+(Tcl/Tk 9 popped up a bit too late in the development cycle for us to go investigating. Do you have any specifics about what has changed and causes problems?)
+
+-pd
+
+pd$ more config.site
+CPPFLAGS=-I/opt/R/x86_64/include
+LDFLAGS=-L/opt/R/x86_64/lib
+with_tcl_config=/opt/R/x86_64/lib/tclConfig.sh
+with_tk_config=/opt/R/x86_64/lib/tkConfig.sh
+
+
+> On 16 Apr 2025, at 11.11, I?aki Ucar <iucar at fedoraproject.org> wrote:
+> 
+> On Wed, 16 Apr 2025 at 09:48, Roger Bivand via R-SIG-Fedora <
+> r-sig-fedora at r-project.org> wrote:
+> 
+>> Building R 4.5.0 from source on Fedora 42 hits problems because 42 ships
+>> with Tcl/Tk 9. tcl8-devel and tk8-devel are available and can be used, but
+>> I haven't yet found a viable incantation yet. Neither R released nor devel
+>> support Tcl/Tk 9 https://www.tcl-lang.com/software/tcltk/9.0.html.
+>> 
+> 
+> Yes, you just need to install tcl8-devel and tk8-devel (and tell dnf to
+> remove version 9 if it's already there) and compile as usual.
+> 
+> 
+>> Building against external BLAS is also not self-evident, so may need
+>> guidance.
+> 
+> 
+> Building against FlexiBLAS is recommended. So you need to install
+> flexiblas-devel, then tell R via --with-blas=flexiblas --with-lapack.
+> 
+> See the configure part of our spec for a complete reference of what we do:
+> 
+> https://src.fedoraproject.org/rpms/R/blob/rawhide/f/R.spec#_326
+> 
+> I?aki
+> 
+> 
+>> 
+>> Any suggestions welcome!
+>> 
+>> Roger
+>> 
+>> ---
+>> Roger Bivand
+>> Emeritus Professor
+>> Department of Economics
+>> Norwegian School of Economics, Bergen, Norway
+>> 
+>>        [[alternative HTML version deleted]]
+>> 
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>> 
+>> 
+> 
+> -- 
+> I?aki ?car
+> 
+> [[alternative HTML version deleted]]
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+-- 
+Peter Dalgaard, Professor,
+Center for Statistics, Copenhagen Business SchoolSolbjerg Plads 3, 2000 Frederiksberg, Denmark
+Phone: (+45)38153501
+Office: A 4.23
+Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+
+
+From Roger@B|v@nd @end|ng |rom nhh@no  Wed Apr 16 15:16:30 2025
+From: Roger@B|v@nd @end|ng |rom nhh@no (Roger Bivand)
+Date: Wed, 16 Apr 2025 15:16:30 +0200 (CEST)
+Subject: [R-sig-Fedora] Fedora 42 R source build issues
+In-Reply-To: <0C74D0EB-AB70-4F22-BC05-BED0A80CFEA5@gmail.com>
+References: <SV0P279MB04757F1AFC0098146D6E0B46EEBD2@SV0P279MB0475.NORP279.PROD.OUTLOOK.COM>
+ <CALEXWq3Jku627YvhdsRGbFtXLUXPtCuNY_vbV_JrYBQneFqA6Q@mail.gmail.com>
+ <0C74D0EB-AB70-4F22-BC05-BED0A80CFEA5@gmail.com>
+Message-ID: <7a662a55-9648-df97-fbc1-4351f22808c@reclus2.nhh.no>
+
+On Wed, 16 Apr 2025, peter dalgaard wrote:
+
+>
+> The Mac builds want stuff like below. I suspect you may need similar tcl 
+> and tk lines pointing to *Config.sh for Tcl/Tk 8.
+
+With only tcl8-devel and tk8-devel installed, I also needed:
+
+--with-tcl-config=/usr/lib64/tcl8.6/tclConfig.sh 
+--with-tk-config=/usr/lib64/tkConfig.sh
+
+to build and check.
+
+Roger
+
+>
+> (Tcl/Tk 9 popped up a bit too late in the development cycle for us to go 
+> investigating. Do you have any specifics about what has changed and 
+> causes problems?)
+>
+> -pd
+>
+> pd$ more config.site
+> CPPFLAGS=-I/opt/R/x86_64/include
+> LDFLAGS=-L/opt/R/x86_64/lib
+> with_tcl_config=/opt/R/x86_64/lib/tclConfig.sh
+> with_tk_config=/opt/R/x86_64/lib/tkConfig.sh
+>
+>
+>> On 16 Apr 2025, at 11.11, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>>
+>> On Wed, 16 Apr 2025 at 09:48, Roger Bivand via R-SIG-Fedora <
+>> r-sig-fedora at r-project.org> wrote:
+>>
+>>> Building R 4.5.0 from source on Fedora 42 hits problems because 42 ships
+>>> with Tcl/Tk 9. tcl8-devel and tk8-devel are available and can be used, but
+>>> I haven't yet found a viable incantation yet. Neither R released nor devel
+>>> support Tcl/Tk 9 https://www.tcl-lang.com/software/tcltk/9.0.html.
+>>>
+>>
+>> Yes, you just need to install tcl8-devel and tk8-devel (and tell dnf to
+>> remove version 9 if it's already there) and compile as usual.
+>>
+>>
+>>> Building against external BLAS is also not self-evident, so may need
+>>> guidance.
+>>
+>>
+>> Building against FlexiBLAS is recommended. So you need to install
+>> flexiblas-devel, then tell R via --with-blas=flexiblas --with-lapack.
+>>
+>> See the configure part of our spec for a complete reference of what we do:
+>>
+>> https://src.fedoraproject.org/rpms/R/blob/rawhide/f/R.spec#_326
+>>
+>> I?aki
+>>
+>>
+>>>
+>>> Any suggestions welcome!
+>>>
+>>> Roger
+>>>
+>>> ---
+>>> Roger Bivand
+>>> Emeritus Professor
+>>> Department of Economics
+>>> Norwegian School of Economics, Bergen, Norway
+>>>
+>>>        [[alternative HTML version deleted]]
+>>>
+>>> _______________________________________________
+>>> R-SIG-Fedora mailing list
+>>> R-SIG-Fedora at r-project.org
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>
+>>>
+>>
+>> --
+>> I?aki ?car
+>>
+>> [[alternative HTML version deleted]]
+>>
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+> --
+> Peter Dalgaard, Professor,
+> Center for Statistics, Copenhagen Business SchoolSolbjerg Plads 3, 2000 Frederiksberg, Denmark
+> Phone: (+45)38153501
+> Office: A 4.23
+> Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+>
+>
+
+-- 
+Roger Bivand
+Emeritus Professor
+Department of Economics, Norwegian School of Economics,
+Postboks 3490 Ytre Sandviken, 5045 Bergen, Norway.
+e-mail: Roger.Bivand at nhh.no
+
+From pd@|gd @end|ng |rom gm@||@com  Wed Apr 16 15:28:05 2025
+From: pd@|gd @end|ng |rom gm@||@com (peter dalgaard)
+Date: Wed, 16 Apr 2025 15:28:05 +0200
+Subject: [R-sig-Fedora] Fedora 42 R source build issues
+In-Reply-To: <7a662a55-9648-df97-fbc1-4351f22808c@reclus2.nhh.no>
+References: <SV0P279MB04757F1AFC0098146D6E0B46EEBD2@SV0P279MB0475.NORP279.PROD.OUTLOOK.COM>
+ <CALEXWq3Jku627YvhdsRGbFtXLUXPtCuNY_vbV_JrYBQneFqA6Q@mail.gmail.com>
+ <0C74D0EB-AB70-4F22-BC05-BED0A80CFEA5@gmail.com>
+ <7a662a55-9648-df97-fbc1-4351f22808c@reclus2.nhh.no>
+Message-ID: <4F6B1EE2-6DC8-435A-A139-433CDF1CC997@gmail.com>
+
+Hm? That should be unnecessary if you have the corresponding lines in config.site in your build directory when running configure.
+
+Anyways, I don't think there is a reason to remove version 9. Those configure *Config.sh scripts should ensure that you pick up version 8 for the build.
+
+-pd
+
+> On 16 Apr 2025, at 15.16, Roger Bivand via R-core <R-core at r-project.org> wrote:
+> 
+> On Wed, 16 Apr 2025, peter dalgaard wrote:
+> 
+>> 
+>> The Mac builds want stuff like below. I suspect you may need similar tcl and tk lines pointing to *Config.sh for Tcl/Tk 8.
+> 
+> With only tcl8-devel and tk8-devel installed, I also needed:
+> 
+> --with-tcl-config=/usr/lib64/tcl8.6/tclConfig.sh --with-tk-config=/usr/lib64/tkConfig.sh
+> 
+> to build and check.
+> 
+> Roger
+> 
+>> 
+>> (Tcl/Tk 9 popped up a bit too late in the development cycle for us to go investigating. Do you have any specifics about what has changed and causes problems?)
+>> 
+>> -pd
+>> 
+>> pd$ more config.site
+>> CPPFLAGS=-I/opt/R/x86_64/include
+>> LDFLAGS=-L/opt/R/x86_64/lib
+>> with_tcl_config=/opt/R/x86_64/lib/tclConfig.sh
+>> with_tk_config=/opt/R/x86_64/lib/tkConfig.sh
+>> 
+>> 
+>>> On 16 Apr 2025, at 11.11, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>>> 
+>>> On Wed, 16 Apr 2025 at 09:48, Roger Bivand via R-SIG-Fedora <
+>>> r-sig-fedora at r-project.org> wrote:
+>>> 
+>>>> Building R 4.5.0 from source on Fedora 42 hits problems because 42 ships
+>>>> with Tcl/Tk 9. tcl8-devel and tk8-devel are available and can be used, but
+>>>> I haven't yet found a viable incantation yet. Neither R released nor devel
+>>>> support Tcl/Tk 9 https://www.tcl-lang.com/software/tcltk/9.0.html.
+>>>> 
+>>> 
+>>> Yes, you just need to install tcl8-devel and tk8-devel (and tell dnf to
+>>> remove version 9 if it's already there) and compile as usual.
+>>> 
+>>> 
+>>>> Building against external BLAS is also not self-evident, so may need
+>>>> guidance.
+>>> 
+>>> 
+>>> Building against FlexiBLAS is recommended. So you need to install
+>>> flexiblas-devel, then tell R via --with-blas=flexiblas --with-lapack.
+>>> 
+>>> See the configure part of our spec for a complete reference of what we do:
+>>> 
+>>> https://src.fedoraproject.org/rpms/R/blob/rawhide/f/R.spec#_326
+>>> 
+>>> I?aki
+>>> 
+>>> 
+>>>> 
+>>>> Any suggestions welcome!
+>>>> 
+>>>> Roger
+>>>> 
+>>>> ---
+>>>> Roger Bivand
+>>>> Emeritus Professor
+>>>> Department of Economics
+>>>> Norwegian School of Economics, Bergen, Norway
+>>>> 
+>>>>       [[alternative HTML version deleted]]
+>>>> 
+>>>> _______________________________________________
+>>>> R-SIG-Fedora mailing list
+>>>> R-SIG-Fedora at r-project.org
+>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>> 
+>>>> 
+>>> 
+>>> --
+>>> I?aki ?car
+>>> 
+>>> [[alternative HTML version deleted]]
+>>> 
+>>> _______________________________________________
+>>> R-SIG-Fedora mailing list
+>>> R-SIG-Fedora at r-project.org
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>> 
+>> --
+>> Peter Dalgaard, Professor,
+>> Center for Statistics, Copenhagen Business SchoolSolbjerg Plads 3, 2000 Frederiksberg, Denmark
+>> Phone: (+45)38153501
+>> Office: A 4.23
+>> Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+>> 
+>> 
+> 
+> -- 
+> Roger Bivand
+> Emeritus Professor
+> Department of Economics, Norwegian School of Economics,
+> Postboks 3490 Ytre Sandviken, 5045 Bergen, Norway.
+> e-mail: Roger.Bivand at nhh.no
+> _______________________________________________
+> R-core list: https://stat.ethz.ch/mailman/listinfo/r-core
+
+
+-- 
+Peter Dalgaard, Professor,
+Center for Statistics, Copenhagen Business SchoolSolbjerg Plads 3, 2000 Frederiksberg, Denmark
+Phone: (+45)38153501
+Office: A 4.23
+Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+
+
+From Roger@B|v@nd @end|ng |rom nhh@no  Wed Apr 16 17:51:20 2025
+From: Roger@B|v@nd @end|ng |rom nhh@no (Roger Bivand)
+Date: Wed, 16 Apr 2025 17:51:20 +0200 (CEST)
+Subject: [R-sig-Fedora] Fedora 42 R source build issues
+In-Reply-To: <4F6B1EE2-6DC8-435A-A139-433CDF1CC997@gmail.com>
+References: <SV0P279MB04757F1AFC0098146D6E0B46EEBD2@SV0P279MB0475.NORP279.PROD.OUTLOOK.COM>
+ <CALEXWq3Jku627YvhdsRGbFtXLUXPtCuNY_vbV_JrYBQneFqA6Q@mail.gmail.com>
+ <0C74D0EB-AB70-4F22-BC05-BED0A80CFEA5@gmail.com>
+ <7a662a55-9648-df97-fbc1-4351f22808c@reclus2.nhh.no>
+ <4F6B1EE2-6DC8-435A-A139-433CDF1CC997@gmail.com>
+Message-ID: <dc4a883b-bbb-96e0-744-d8262721d20@reclus2.nhh.no>
+
+On Wed, 16 Apr 2025, peter dalgaard wrote:
+
+>
+> Hm? That should be unnecessary if you have the corresponding lines in 
+> config.site in your build directory when running configure.
+
+Yes, but I prefer to use configure arguments, so having a record in 
+config.log in the build directory.
+
+>
+> Anyways, I don't think there is a reason to remove version 9. Those 
+> configure *Config.sh scripts should ensure that you pick up version 8 
+> for the build.
+
+No, tk8-devel and tk-devel do not cohabit in Fedora 42:
+
+# dnf install tk8-devel
+Updating and loading repositories:
+Repositories loaded.
+Failed to resolve the transaction:
+Problem: problem with installed package
+   - installed package tk-devel-1:9.0.0-4.fc42.x86_64 conflicts with 
+tk8-devel provided by tk8-devel-1:8.6.15-5.fc42.i686 from fedora
+   - package tk-devel-1:9.0.0-4.fc42.x86_64 from fedora conflicts with 
+tk8-devel provided by tk8-devel-1:8.6.15-5.fc42.i686 from fedora
+   - conflicting requests
+   - installed package tk-devel-1:9.0.0-4.fc42.x86_64 conflicts with 
+tk8-devel provided by tk8-devel-1:8.6.15-5.fc42.x86_64 from fedora
+   - package tk-devel-1:9.0.0-4.fc42.x86_64 from fedora conflicts with 
+tk8-devel provided by tk8-devel-1:8.6.15-5.fc42.x86_64 from fedora
+You can try to add to command line:
+   --allowerasing to allow removing of installed packages to resolve 
+problems
+   --skip-broken to skip uninstallable packages
+# dnf install --allowerasing tk8-devel
+Updating and loading repositories:
+Repositories loaded.
+Package                  Arch    Version                  Repository 
+Size
+Removing dependent packages:
+  tcl-devel               x86_64  1:9.0.0-7.fc42           fedora 
+830.6 KiB
+  tk-devel                x86_64  1:9.0.0-4.fc42           fedora 
+1.1 MiB
+Installing:
+  tk8-devel               x86_64  1:8.6.15-5.fc42          fedora 
+985.5 KiB
+Installing dependencies:
+  tcl8-devel              x86_64  1:8.6.15-10.fc42         fedora 
+793.4 KiB
+
+Transaction Summary:
+  Installing:         2 packages
+  Removing:           2 packages
+
+Total size of inbound packages is 710 KiB. Need to download 710 KiB.
+After this operation, 158 KiB will be freed (install 2 MiB, remove 2 MiB).
+Is this ok [y/N]: y
+[1/2] tcl8-devel-1:8.6.15-10.fc42.x86_6 100% | 404.8 KiB/s | 169.6 KiB | 
+00m00s
+[2/2] tk8-devel-1:8.6.15-5.fc42.x86_64  100% | 872.1 KiB/s | 540.7 KiB | 
+00m01s
+--------------------------------------------------------------------------------
+[2/2] Total                             100% | 872.6 KiB/s | 710.3 KiB | 
+00m01s
+Running transaction
+[1/6] Verify package files              100% | 153.0   B/s |   2.0   B | 
+00m00s
+[2/6] Prepare transaction               100% |   8.0   B/s |   4.0   B | 
+00m00s
+[3/6] Installing tcl8-devel-1:8.6.15-10 100% |  26.1 MiB/s | 800.5 KiB | 
+00m00s
+[4/6] Installing tk8-devel-1:8.6.15-5.f 100% |  24.1 MiB/s |   1.0 MiB | 
+00m00s
+[5/6] Removing tk-devel-1:9.0.0-4.fc42. 100% |  47.6 KiB/s | 341.0   B | 
+00m00s
+[6/6] Removing tcl-devel-1:9.0.0-7.fc42 100% |  47.0   B/s |  47.0   B | 
+00m01s
+Complete!
+...
+$ dnf list --installed tk*
+Installed packages
+tk.x86_64        1:9.0.0-4.fc42  fedora
+tk8.x86_64       1:8.6.15-5.fc42 fedora
+tk8-devel.x86_64 1:8.6.15-5.fc42 fedora
+$ dnf list --installed tcl*
+Installed packages
+tcl.x86_64        1:9.0.0-7.fc42   fedora
+tcl8.x86_64       1:8.6.15-10.fc42 fedora
+tcl8-devel.x86_64 1:8.6.15-10.fc42 fedora
+
+Cohabitation with the 9.0 runtimes seems OK, but not the devel packages.
+
+Roger
+
+>
+> -pd
+>
+>> On 16 Apr 2025, at 15.16, Roger Bivand via R-core <R-core at r-project.org> wrote:
+>>
+>> On Wed, 16 Apr 2025, peter dalgaard wrote:
+>>
+>>>
+>>> The Mac builds want stuff like below. I suspect you may need similar tcl and tk lines pointing to *Config.sh for Tcl/Tk 8.
+>>
+>> With only tcl8-devel and tk8-devel installed, I also needed:
+>>
+>> --with-tcl-config=/usr/lib64/tcl8.6/tclConfig.sh --with-tk-config=/usr/lib64/tkConfig.sh
+>>
+>> to build and check.
+>>
+>> Roger
+>>
+>>>
+>>> (Tcl/Tk 9 popped up a bit too late in the development cycle for us to go investigating. Do you have any specifics about what has changed and causes problems?)
+>>>
+>>> -pd
+>>>
+>>> pd$ more config.site
+>>> CPPFLAGS=-I/opt/R/x86_64/include
+>>> LDFLAGS=-L/opt/R/x86_64/lib
+>>> with_tcl_config=/opt/R/x86_64/lib/tclConfig.sh
+>>> with_tk_config=/opt/R/x86_64/lib/tkConfig.sh
+>>>
+>>>
+>>>> On 16 Apr 2025, at 11.11, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>>>>
+>>>> On Wed, 16 Apr 2025 at 09:48, Roger Bivand via R-SIG-Fedora <
+>>>> r-sig-fedora at r-project.org> wrote:
+>>>>
+>>>>> Building R 4.5.0 from source on Fedora 42 hits problems because 42 ships
+>>>>> with Tcl/Tk 9. tcl8-devel and tk8-devel are available and can be used, but
+>>>>> I haven't yet found a viable incantation yet. Neither R released nor devel
+>>>>> support Tcl/Tk 9 https://www.tcl-lang.com/software/tcltk/9.0.html.
+>>>>>
+>>>>
+>>>> Yes, you just need to install tcl8-devel and tk8-devel (and tell dnf to
+>>>> remove version 9 if it's already there) and compile as usual.
+>>>>
+>>>>
+>>>>> Building against external BLAS is also not self-evident, so may need
+>>>>> guidance.
+>>>>
+>>>>
+>>>> Building against FlexiBLAS is recommended. So you need to install
+>>>> flexiblas-devel, then tell R via --with-blas=flexiblas --with-lapack.
+>>>>
+>>>> See the configure part of our spec for a complete reference of what we do:
+>>>>
+>>>> https://src.fedoraproject.org/rpms/R/blob/rawhide/f/R.spec#_326
+>>>>
+>>>> I?aki
+>>>>
+>>>>
+>>>>>
+>>>>> Any suggestions welcome!
+>>>>>
+>>>>> Roger
+>>>>>
+>>>>> ---
+>>>>> Roger Bivand
+>>>>> Emeritus Professor
+>>>>> Department of Economics
+>>>>> Norwegian School of Economics, Bergen, Norway
+>>>>>
+>>>>>       [[alternative HTML version deleted]]
+>>>>>
+>>>>> _______________________________________________
+>>>>> R-SIG-Fedora mailing list
+>>>>> R-SIG-Fedora at r-project.org
+>>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>>>
+>>>>>
+>>>>
+>>>> --
+>>>> I?aki ?car
+>>>>
+>>>> [[alternative HTML version deleted]]
+>>>>
+>>>> _______________________________________________
+>>>> R-SIG-Fedora mailing list
+>>>> R-SIG-Fedora at r-project.org
+>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>
+>>> --
+>>> Peter Dalgaard, Professor,
+>>> Center for Statistics, Copenhagen Business SchoolSolbjerg Plads 3, 2000 Frederiksberg, Denmark
+>>> Phone: (+45)38153501
+>>> Office: A 4.23
+>>> Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+>>>
+>>>
+>>
+>> --
+>> Roger Bivand
+>> Emeritus Professor
+>> Department of Economics, Norwegian School of Economics,
+>> Postboks 3490 Ytre Sandviken, 5045 Bergen, Norway.
+>> e-mail: Roger.Bivand at nhh.no
+>> _______________________________________________
+>> R-core list: https://stat.ethz.ch/mailman/listinfo/r-core
+>
+>
+> --
+> Peter Dalgaard, Professor,
+> Center for Statistics, Copenhagen Business SchoolSolbjerg Plads 3, 2000 Frederiksberg, Denmark
+> Phone: (+45)38153501
+> Office: A 4.23
+> Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+>
+>
+
+-- 
+Roger Bivand
+Emeritus Professor
+Department of Economics, Norwegian School of Economics,
+Postboks 3490 Ytre Sandviken, 5045 Bergen, Norway.
+e-mail: Roger.Bivand at nhh.no
+
+From Roger@B|v@nd @end|ng |rom nhh@no  Wed Apr 16 17:52:20 2025
+From: Roger@B|v@nd @end|ng |rom nhh@no (Roger Bivand)
+Date: Wed, 16 Apr 2025 17:52:20 +0200 (CEST)
+Subject: [R-sig-Fedora] Fedora 42 R source build issues
+In-Reply-To: <CALEXWq3Jku627YvhdsRGbFtXLUXPtCuNY_vbV_JrYBQneFqA6Q@mail.gmail.com>
+References: <SV0P279MB04757F1AFC0098146D6E0B46EEBD2@SV0P279MB0475.NORP279.PROD.OUTLOOK.COM>
+ <CALEXWq3Jku627YvhdsRGbFtXLUXPtCuNY_vbV_JrYBQneFqA6Q@mail.gmail.com>
+Message-ID: <baa5e9bc-75b-d927-bc89-a8e42fefc1e4@reclus2.nhh.no>
+
+On Wed, 16 Apr 2025, I?aki Ucar wrote:
+
+> On Wed, 16 Apr 2025 at 09:48, Roger Bivand via R-SIG-Fedora 
+> <r-sig-fedora at r-project.org<mailto:r-sig-fedora at r-project.org>> wrote: 
+> Building R 4.5.0 from source on Fedora 42 hits problems because 42 ships 
+> with Tcl/Tk 9. tcl8-devel and tk8-devel are available and can be used, 
+> but I haven't yet found a viable incantation yet. Neither R released nor 
+> devel support Tcl/Tk 9 https://www.tcl-lang.com/software/tcltk/9.0.html.
+>
+> Yes, you just need to install tcl8-devel and tk8-devel (and tell dnf to 
+> remove version 9 if it's already there) and compile as usual.
+>
+> Building against external BLAS is also not self-evident, so may need 
+> guidance.
+>
+> Building against FlexiBLAS is recommended. So you need to install 
+> flexiblas-devel, then tell R via --with-blas=flexiblas --with-lapack.
+
+Thanks, I was missing flexiblas-devel.
+
+Roger
+
+>
+> See the configure part of our spec for a complete reference of what we 
+> do:
+>
+> https://src.fedoraproject.org/rpms/R/blob/rawhide/f/R.spec#_326
+>
+> I?aki
+>
+>
+> Any suggestions welcome!
+>
+> Roger
+>
+> ---
+> Roger Bivand
+> Emeritus Professor
+> Department of Economics
+> Norwegian School of Economics, Bergen, Norway
+>
+>        [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org<mailto:R-SIG-Fedora at r-project.org>
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+>
+> --
+> I?aki ?car
+>
+
+-- 
+Roger Bivand
+Emeritus Professor
+Department of Economics, Norwegian School of Economics,
+Postboks 3490 Ytre Sandviken, 5045 Bergen, Norway.
+e-mail: Roger.Bivand at nhh.no
+
+From pd@|gd @end|ng |rom gm@||@com  Wed Apr 16 19:02:50 2025
+From: pd@|gd @end|ng |rom gm@||@com (peter dalgaard)
+Date: Wed, 16 Apr 2025 19:02:50 +0200
+Subject: [R-sig-Fedora] Fedora 42 R source build issues
+In-Reply-To: <dc4a883b-bbb-96e0-744-d8262721d20@reclus2.nhh.no>
+References: <SV0P279MB04757F1AFC0098146D6E0B46EEBD2@SV0P279MB0475.NORP279.PROD.OUTLOOK.COM>
+ <CALEXWq3Jku627YvhdsRGbFtXLUXPtCuNY_vbV_JrYBQneFqA6Q@mail.gmail.com>
+ <0C74D0EB-AB70-4F22-BC05-BED0A80CFEA5@gmail.com>
+ <7a662a55-9648-df97-fbc1-4351f22808c@reclus2.nhh.no>
+ <4F6B1EE2-6DC8-435A-A139-433CDF1CC997@gmail.com>
+ <dc4a883b-bbb-96e0-744-d8262721d20@reclus2.nhh.no>
+Message-ID: <9070532D-6F11-4A49-B8CE-B2D8A9B0EECA@gmail.com>
+
+
+
+> On 16 Apr 2025, at 17.51, Roger Bivand via R-core <R-core at r-project.org> wrote:
+> 
+> On Wed, 16 Apr 2025, peter dalgaard wrote:
+> 
+>> 
+>> Hm? That should be unnecessary if you have the corresponding lines in config.site in your build directory when running configure.
+> 
+> Yes, but I prefer to use configure arguments, so having a record in config.log in the build directory.
+> 
+
+Ok, to each their own... I prefer configure with no arguments and let config.site be the record.
+
+
+>> 
+>> Anyways, I don't think there is a reason to remove version 9. Those configure *Config.sh scripts should ensure that you pick up version 8 for the build.
+> 
+> No, tk8-devel and tk-devel do not cohabit in Fedora 42:
+
+
+Ok, I suppose both want to own /usr/lib64/tclConfig.sh and /usr/lib64/tkConfig.sh (I noticed that you used the latter and not .../tk8.6/...). As long as the runtimes can coexist I suppose there is no big problem, such as breaking other software in order to use R. 
+
+-pd
+
+> 
+> # dnf install tk8-devel
+> Updating and loading repositories:
+> Repositories loaded.
+> Failed to resolve the transaction:
+> Problem: problem with installed package
+>  - installed package tk-devel-1:9.0.0-4.fc42.x86_64 conflicts with tk8-devel provided by tk8-devel-1:8.6.15-5.fc42.i686 from fedora
+>  - package tk-devel-1:9.0.0-4.fc42.x86_64 from fedora conflicts with tk8-devel provided by tk8-devel-1:8.6.15-5.fc42.i686 from fedora
+>  - conflicting requests
+>  - installed package tk-devel-1:9.0.0-4.fc42.x86_64 conflicts with tk8-devel provided by tk8-devel-1:8.6.15-5.fc42.x86_64 from fedora
+>  - package tk-devel-1:9.0.0-4.fc42.x86_64 from fedora conflicts with tk8-devel provided by tk8-devel-1:8.6.15-5.fc42.x86_64 from fedora
+> You can try to add to command line:
+>  --allowerasing to allow removing of installed packages to resolve problems
+>  --skip-broken to skip uninstallable packages
+> # dnf install --allowerasing tk8-devel
+> Updating and loading repositories:
+> Repositories loaded.
+> Package                  Arch    Version                  Repository Size
+> Removing dependent packages:
+> tcl-devel               x86_64  1:9.0.0-7.fc42           fedora 830.6 KiB
+> tk-devel                x86_64  1:9.0.0-4.fc42           fedora 1.1 MiB
+> Installing:
+> tk8-devel               x86_64  1:8.6.15-5.fc42          fedora 985.5 KiB
+> Installing dependencies:
+> tcl8-devel              x86_64  1:8.6.15-10.fc42         fedora 793.4 KiB
+> 
+> Transaction Summary:
+> Installing:         2 packages
+> Removing:           2 packages
+> 
+> Total size of inbound packages is 710 KiB. Need to download 710 KiB.
+> After this operation, 158 KiB will be freed (install 2 MiB, remove 2 MiB).
+> Is this ok [y/N]: y
+> [1/2] tcl8-devel-1:8.6.15-10.fc42.x86_6 100% | 404.8 KiB/s | 169.6 KiB | 00m00s
+> [2/2] tk8-devel-1:8.6.15-5.fc42.x86_64  100% | 872.1 KiB/s | 540.7 KiB | 00m01s
+> --------------------------------------------------------------------------------
+> [2/2] Total                             100% | 872.6 KiB/s | 710.3 KiB | 00m01s
+> Running transaction
+> [1/6] Verify package files              100% | 153.0   B/s |   2.0   B | 00m00s
+> [2/6] Prepare transaction               100% |   8.0   B/s |   4.0   B | 00m00s
+> [3/6] Installing tcl8-devel-1:8.6.15-10 100% |  26.1 MiB/s | 800.5 KiB | 00m00s
+> [4/6] Installing tk8-devel-1:8.6.15-5.f 100% |  24.1 MiB/s |   1.0 MiB | 00m00s
+> [5/6] Removing tk-devel-1:9.0.0-4.fc42. 100% |  47.6 KiB/s | 341.0   B | 00m00s
+> [6/6] Removing tcl-devel-1:9.0.0-7.fc42 100% |  47.0   B/s |  47.0   B | 00m01s
+> Complete!
+> ...
+> $ dnf list --installed tk*
+> Installed packages
+> tk.x86_64        1:9.0.0-4.fc42  fedora
+> tk8.x86_64       1:8.6.15-5.fc42 fedora
+> tk8-devel.x86_64 1:8.6.15-5.fc42 fedora
+> $ dnf list --installed tcl*
+> Installed packages
+> tcl.x86_64        1:9.0.0-7.fc42   fedora
+> tcl8.x86_64       1:8.6.15-10.fc42 fedora
+> tcl8-devel.x86_64 1:8.6.15-10.fc42 fedora
+> 
+> Cohabitation with the 9.0 runtimes seems OK, but not the devel packages.
+> 
+> Roger
+> 
+>> 
+>> -pd
+>> 
+>>> On 16 Apr 2025, at 15.16, Roger Bivand via R-core <R-core at r-project.org> wrote:
+>>> 
+>>> On Wed, 16 Apr 2025, peter dalgaard wrote:
+>>> 
+>>>> 
+>>>> The Mac builds want stuff like below. I suspect you may need similar tcl and tk lines pointing to *Config.sh for Tcl/Tk 8.
+>>> 
+>>> With only tcl8-devel and tk8-devel installed, I also needed:
+>>> 
+>>> --with-tcl-config=/usr/lib64/tcl8.6/tclConfig.sh --with-tk-config=/usr/lib64/tkConfig.sh
+>>> 
+>>> to build and check.
+>>> 
+>>> Roger
+>>> 
+>>>> 
+>>>> (Tcl/Tk 9 popped up a bit too late in the development cycle for us to go investigating. Do you have any specifics about what has changed and causes problems?)
+>>>> 
+>>>> -pd
+>>>> 
+>>>> pd$ more config.site
+>>>> CPPFLAGS=-I/opt/R/x86_64/include
+>>>> LDFLAGS=-L/opt/R/x86_64/lib
+>>>> with_tcl_config=/opt/R/x86_64/lib/tclConfig.sh
+>>>> with_tk_config=/opt/R/x86_64/lib/tkConfig.sh
+>>>> 
+>>>> 
+>>>>> On 16 Apr 2025, at 11.11, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>>>>> 
+>>>>> On Wed, 16 Apr 2025 at 09:48, Roger Bivand via R-SIG-Fedora <
+>>>>> r-sig-fedora at r-project.org> wrote:
+>>>>> 
+>>>>>> Building R 4.5.0 from source on Fedora 42 hits problems because 42 ships
+>>>>>> with Tcl/Tk 9. tcl8-devel and tk8-devel are available and can be used, but
+>>>>>> I haven't yet found a viable incantation yet. Neither R released nor devel
+>>>>>> support Tcl/Tk 9 https://www.tcl-lang.com/software/tcltk/9.0.html.
+>>>>>> 
+>>>>> 
+>>>>> Yes, you just need to install tcl8-devel and tk8-devel (and tell dnf to
+>>>>> remove version 9 if it's already there) and compile as usual.
+>>>>> 
+>>>>> 
+>>>>>> Building against external BLAS is also not self-evident, so may need
+>>>>>> guidance.
+>>>>> 
+>>>>> 
+>>>>> Building against FlexiBLAS is recommended. So you need to install
+>>>>> flexiblas-devel, then tell R via --with-blas=flexiblas --with-lapack.
+>>>>> 
+>>>>> See the configure part of our spec for a complete reference of what we do:
+>>>>> 
+>>>>> https://src.fedoraproject.org/rpms/R/blob/rawhide/f/R.spec#_326
+>>>>> 
+>>>>> I?aki
+>>>>> 
+>>>>> 
+>>>>>> 
+>>>>>> Any suggestions welcome!
+>>>>>> 
+>>>>>> Roger
+>>>>>> 
+>>>>>> ---
+>>>>>> Roger Bivand
+>>>>>> Emeritus Professor
+>>>>>> Department of Economics
+>>>>>> Norwegian School of Economics, Bergen, Norway
+>>>>>> 
+>>>>>>      [[alternative HTML version deleted]]
+>>>>>> 
+>>>>>> _______________________________________________
+>>>>>> R-SIG-Fedora mailing list
+>>>>>> R-SIG-Fedora at r-project.org
+>>>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>>>> 
+>>>>>> 
+>>>>> 
+>>>>> --
+>>>>> I?aki ?car
+>>>>> 
+>>>>> [[alternative HTML version deleted]]
+>>>>> 
+>>>>> _______________________________________________
+>>>>> R-SIG-Fedora mailing list
+>>>>> R-SIG-Fedora at r-project.org
+>>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>> 
+>>>> --
+>>>> Peter Dalgaard, Professor,
+>>>> Center for Statistics, Copenhagen Business SchoolSolbjerg Plads 3, 2000 Frederiksberg, Denmark
+>>>> Phone: (+45)38153501
+>>>> Office: A 4.23
+>>>> Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+>>>> 
+>>>> 
+>>> 
+>>> --
+>>> Roger Bivand
+>>> Emeritus Professor
+>>> Department of Economics, Norwegian School of Economics,
+>>> Postboks 3490 Ytre Sandviken, 5045 Bergen, Norway.
+>>> e-mail: Roger.Bivand at nhh.no
+>>> _______________________________________________
+>>> R-core list: https://stat.ethz.ch/mailman/listinfo/r-core
+>> 
+>> 
+>> --
+>> Peter Dalgaard, Professor,
+>> Center for Statistics, Copenhagen Business SchoolSolbjerg Plads 3, 2000 Frederiksberg, Denmark
+>> Phone: (+45)38153501
+>> Office: A 4.23
+>> Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+>> 
+>> 
+> 
+> -- 
+> Roger Bivand
+> Emeritus Professor
+> Department of Economics, Norwegian School of Economics,
+> Postboks 3490 Ytre Sandviken, 5045 Bergen, Norway.
+> e-mail: Roger.Bivand at nhh.no
+> _______________________________________________
+> R-core list: https://stat.ethz.ch/mailman/listinfo/r-core
+
+
+-- 
+Peter Dalgaard, Professor,
+Center for Statistics, Copenhagen Business SchoolSolbjerg Plads 3, 2000 Frederiksberg, Denmark
+Phone: (+45)38153501
+Office: A 4.23
+Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+
+
+From m@rtyn@p|ummer @end|ng |rom gm@||@com  Thu Apr 17 16:02:12 2025
+From: m@rtyn@p|ummer @end|ng |rom gm@||@com (Martyn Plummer)
+Date: Thu, 17 Apr 2025 15:02:12 +0100
+Subject: [R-sig-Fedora] Fedora 42 R source build issues
+In-Reply-To: <CALEXWq3Jku627YvhdsRGbFtXLUXPtCuNY_vbV_JrYBQneFqA6Q@mail.gmail.com>
+References: <SV0P279MB04757F1AFC0098146D6E0B46EEBD2@SV0P279MB0475.NORP279.PROD.OUTLOOK.COM>
+ <CALEXWq3Jku627YvhdsRGbFtXLUXPtCuNY_vbV_JrYBQneFqA6Q@mail.gmail.com>
+Message-ID: <CA+aisX310egk11PiksdJQfx9BeX_F=XdwJSX3r82DpMh0O+TiA@mail.gmail.com>
+
+On Wed, 16 Apr 2025 at 10:11, I?aki Ucar <iucar at fedoraproject.org> wrote:
+
+> On Wed, 16 Apr 2025 at 09:48, Roger Bivand via R-SIG-Fedora <
+> r-sig-fedora at r-project.org> wrote:
+>
+> > Building R 4.5.0 from source on Fedora 42 hits problems because 42 ships
+> > with Tcl/Tk 9. tcl8-devel and tk8-devel are available and can be used,
+> but
+> > I haven't yet found a viable incantation yet. Neither R released nor
+> devel
+> > support Tcl/Tk 9 https://www.tcl-lang.com/software/tcltk/9.0.html.
+> >
+>
+> Yes, you just need to install tcl8-devel and tk8-devel (and tell dnf to
+> remove version 9 if it's already there) and compile as usual.
+>
+>
+There is now a fix in R-devel that allows R to be linked to Tcl/Tk 9. I'll
+give it a few days to bed in and then port it over to R-4-5-branch so that
+it can go in R 4.5.1.
+
+Martyn
+
+
+>
+> > Building against external BLAS is also not self-evident, so may need
+> > guidance.
+>
+>
+> Building against FlexiBLAS is recommended. So you need to install
+> flexiblas-devel, then tell R via --with-blas=flexiblas --with-lapack.
+>
+> See the configure part of our spec for a complete reference of what we do:
+>
+> https://src.fedoraproject.org/rpms/R/blob/rawhide/f/R.spec#_326
+>
+> I?aki
+>
+>
+> >
+> > Any suggestions welcome!
+> >
+> > Roger
+> >
+> > ---
+> > Roger Bivand
+> > Emeritus Professor
+> > Department of Economics
+> > Norwegian School of Economics, Bergen, Norway
+> >
+> >         [[alternative HTML version deleted]]
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+> >
+>
+> --
+> I?aki ?car
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Thu Apr 17 19:11:22 2025
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Thu, 17 Apr 2025 19:11:22 +0200
+Subject: [R-sig-Fedora] Fedora 42 R source build issues
+In-Reply-To: <CA+aisX310egk11PiksdJQfx9BeX_F=XdwJSX3r82DpMh0O+TiA@mail.gmail.com>
+References: <SV0P279MB04757F1AFC0098146D6E0B46EEBD2@SV0P279MB0475.NORP279.PROD.OUTLOOK.COM>
+ <CALEXWq3Jku627YvhdsRGbFtXLUXPtCuNY_vbV_JrYBQneFqA6Q@mail.gmail.com>
+ <CA+aisX310egk11PiksdJQfx9BeX_F=XdwJSX3r82DpMh0O+TiA@mail.gmail.com>
+Message-ID: <CALEXWq0DxFdsyWX_fnjVW2YJf7PLsmP=gQyJA9CKXxasLR0wGQ@mail.gmail.com>
+
+On Thu, 17 Apr 2025 at 16:02, Martyn Plummer <martyn.plummer at gmail.com>
+wrote:
+
+>
+>
+> On Wed, 16 Apr 2025 at 10:11, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+>> On Wed, 16 Apr 2025 at 09:48, Roger Bivand via R-SIG-Fedora <
+>> r-sig-fedora at r-project.org> wrote:
+>>
+>> > Building R 4.5.0 from source on Fedora 42 hits problems because 42 ships
+>> > with Tcl/Tk 9. tcl8-devel and tk8-devel are available and can be used,
+>> but
+>> > I haven't yet found a viable incantation yet. Neither R released nor
+>> devel
+>> > support Tcl/Tk 9 https://www.tcl-lang.com/software/tcltk/9.0.html.
+>> >
+>>
+>> Yes, you just need to install tcl8-devel and tk8-devel (and tell dnf to
+>> remove version 9 if it's already there) and compile as usual.
+>>
+>>
+> There is now a fix in R-devel that allows R to be linked to Tcl/Tk 9. I'll
+> give it a few days to bed in and then port it over to R-4-5-branch so that
+> it can go in R 4.5.1.
+>
+
+Great, thanks for the heads-up!
+
+I?aki
+
+
+>
+> Martyn
+>
+>
+>>
+>> > Building against external BLAS is also not self-evident, so may need
+>> > guidance.
+>>
+>>
+>> Building against FlexiBLAS is recommended. So you need to install
+>> flexiblas-devel, then tell R via --with-blas=flexiblas --with-lapack.
+>>
+>> See the configure part of our spec for a complete reference of what we do:
+>>
+>> https://src.fedoraproject.org/rpms/R/blob/rawhide/f/R.spec#_326
+>>
+>> I?aki
+>>
+>>
+>> >
+>> > Any suggestions welcome!
+>> >
+>> > Roger
+>> >
+>> > ---
+>> > Roger Bivand
+>> > Emeritus Professor
+>> > Department of Economics
+>> > Norwegian School of Economics, Bergen, Norway
+>> >
+>> >         [[alternative HTML version deleted]]
+>> >
+>> > _______________________________________________
+>> > R-SIG-Fedora mailing list
+>> > R-SIG-Fedora at r-project.org
+>> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>> >
+>> >
+>>
+>> --
+>> I?aki ?car
+>>
+>>         [[alternative HTML version deleted]]
+>>
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>
+>
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+
+From pd@|gd @end|ng |rom gm@||@com  Thu Apr 17 20:52:12 2025
+From: pd@|gd @end|ng |rom gm@||@com (peter dalgaard)
+Date: Thu, 17 Apr 2025 20:52:12 +0200
+Subject: [R-sig-Fedora] Fedora 42 R source build issues
+In-Reply-To: <CA+aisX310egk11PiksdJQfx9BeX_F=XdwJSX3r82DpMh0O+TiA@mail.gmail.com>
+References: <SV0P279MB04757F1AFC0098146D6E0B46EEBD2@SV0P279MB0475.NORP279.PROD.OUTLOOK.COM>
+ <CALEXWq3Jku627YvhdsRGbFtXLUXPtCuNY_vbV_JrYBQneFqA6Q@mail.gmail.com>
+ <CA+aisX310egk11PiksdJQfx9BeX_F=XdwJSX3r82DpMh0O+TiA@mail.gmail.com>
+Message-ID: <FD7C3B17-C996-4ECC-940D-BFA045F4C1C8@gmail.com>
+
+Ummm, we should probably allow some more time for packages and other code that use extensive amounts of tcltk code to check for issues. Rcmdr & extensions would be one case, but there are people out there doing non-trivial applications (and not always using the cleanest code). 
+
+- pd
+
+> On 17 Apr 2025, at 16.02, Martyn Plummer <martyn.plummer at gmail.com> wrote:
+> 
+> On Wed, 16 Apr 2025 at 10:11, I?aki Ucar <iucar at fedoraproject.org> wrote:
+> 
+>> On Wed, 16 Apr 2025 at 09:48, Roger Bivand via R-SIG-Fedora <
+>> r-sig-fedora at r-project.org> wrote:
+>> 
+>>> Building R 4.5.0 from source on Fedora 42 hits problems because 42 ships
+>>> with Tcl/Tk 9. tcl8-devel and tk8-devel are available and can be used,
+>> but
+>>> I haven't yet found a viable incantation yet. Neither R released nor
+>> devel
+>>> support Tcl/Tk 9 https://www.tcl-lang.com/software/tcltk/9.0.html.
+>>> 
+>> 
+>> Yes, you just need to install tcl8-devel and tk8-devel (and tell dnf to
+>> remove version 9 if it's already there) and compile as usual.
+>> 
+>> 
+> There is now a fix in R-devel that allows R to be linked to Tcl/Tk 9. I'll
+> give it a few days to bed in and then port it over to R-4-5-branch so that
+> it can go in R 4.5.1.
+> 
+> Martyn
+> 
+> 
+>> 
+>>> Building against external BLAS is also not self-evident, so may need
+>>> guidance.
+>> 
+>> 
+>> Building against FlexiBLAS is recommended. So you need to install
+>> flexiblas-devel, then tell R via --with-blas=flexiblas --with-lapack.
+>> 
+>> See the configure part of our spec for a complete reference of what we do:
+>> 
+>> https://src.fedoraproject.org/rpms/R/blob/rawhide/f/R.spec#_326
+>> 
+>> I?aki
+>> 
+>> 
+>>> 
+>>> Any suggestions welcome!
+>>> 
+>>> Roger
+>>> 
+>>> ---
+>>> Roger Bivand
+>>> Emeritus Professor
+>>> Department of Economics
+>>> Norwegian School of Economics, Bergen, Norway
+>>> 
+>>>        [[alternative HTML version deleted]]
+>>> 
+>>> _______________________________________________
+>>> R-SIG-Fedora mailing list
+>>> R-SIG-Fedora at r-project.org
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>> 
+>>> 
+>> 
+>> --
+>> I?aki ?car
+>> 
+>>        [[alternative HTML version deleted]]
+>> 
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>> 
+> 
+> [[alternative HTML version deleted]]
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+-- 
+Peter Dalgaard, Professor,
+Center for Statistics, Copenhagen Business SchoolSolbjerg Plads 3, 2000 Frederiksberg, Denmark
+Phone: (+45)38153501
+Office: A 4.23
+Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+
+
+From @te|@no@|eon@rd| @end|ng |rom un|pr@|t  Sat Apr 26 10:20:44 2025
+From: @te|@no@|eon@rd| @end|ng |rom un|pr@|t (Stefano Leonardi)
+Date: Sat, 26 Apr 2025 10:20:44 +0200
+Subject: [R-sig-Fedora] Does R-CoprManager in fc42 require downgrade?
+Message-ID: <bfadc8c7-bb98-4f32-ae21-9a895143c383@unipr.it>
+
+I have upgraded my fedora system to 42 (from 40) with R-4.5.0 but R-CoprManager seems to require a downgrading to R-4.4.3
+
+Here is an excerpt of my attempt to update a few day later.
+
+sudo dnf update --refresh
+...
+Problem 1: installed package R-CoprManager-0.5.7-1.fc42.copr8193539.noarch requires R(ABI) = 4.4, but none of the 
+providers can be installed
+    - R-core-4.4.3-1.fc42.i686 from fedora has inferior architecture
+   - cannot install both R-core-4.5.0-3.fc42.x86_64 from updates and R-core-4.5.0-3.fc42~bootstrap.x86_64 from @System
+   - cannot install both R-core-4.5.0-3.fc42.x86_64 from updates and R-core-4.4.3-1.fc42.x86_64 from fedora
+   - cannot install both R-core-4.5.0-3.fc42~bootstrap.x86_64 from copr:copr.fedorainfracloud.org:iucar:cran and 
+R-core-4.5.0-3.fc42.x86_64 from updates
+   - cannot install the best update candidate for package R-core-4.5.0-3.fc42~bootstrap.x86_64
+   - cannot install the best update candidate for package R-CoprManager-0.5.7-1.fc42.copr8193539.noarch
+  Problem 2: problem with installed package
+   - installed package R-CoprManager-0.5.7-1.fc42.copr8193539.noarch requires R(ABI) = 4.4, but none of the providers 
+can be installed
+
+....
+
+Am I the only one to have this problem?
+Thank you
+
+Stefano Leonardi
+
+-- 
+==================================================================
+  Stefano Leonardi
+  Dipartimento di Scienze Chimiche, della Vita e
+  della Sostenibilit? Ambientale
+  Universit? degli Studi di Parma E-mail: stefano.leonardi unipr.it
+  Parco Area delle Scienze, 11/a
+  43124 PARMA  (Italy)
+
+
+From @te|@no@|eon@rd| @end|ng |rom un|pr@|t  Sun Apr 27 09:19:05 2025
+From: @te|@no@|eon@rd| @end|ng |rom un|pr@|t (Stefano Leonardi)
+Date: Sun, 27 Apr 2025 09:19:05 +0200
+Subject: [R-sig-Fedora] Does R-CoprManager in fc42 require downgrade?
+In-Reply-To: <bfadc8c7-bb98-4f32-ae21-9a895143c383@unipr.it>
+References: <bfadc8c7-bb98-4f32-ae21-9a895143c383@unipr.it>
+Message-ID: <635ae34e-e8e7-4ee8-a2d6-577cfdcbe9e7@unipr.it>
+
+Today update of R-CoprManager-0.5.7-1.fc42.copr8969447.noarch has fixed this problem.
+Thank you.
+
+Stefano
+
+On 2025-04-26 10.20, Stefano Leonardi wrote:
+> I have upgraded my fedora system to 42 (from 40) with R-4.5.0 but R-CoprManager seems to require a downgrading to R-4.4.3
+> 
+> Here is an excerpt of my attempt to update a few day later.
+> 
+> sudo dnf update --refresh
+> ...
+> Problem 1: installed package R-CoprManager-0.5.7-1.fc42.copr8193539.noarch requires R(ABI) = 4.4, but none of the 
+> providers can be installed
+>  ?? - R-core-4.4.3-1.fc42.i686 from fedora has inferior architecture
+>  ? - cannot install both R-core-4.5.0-3.fc42.x86_64 from updates and R-core-4.5.0-3.fc42~bootstrap.x86_64 from @System
+>  ? - cannot install both R-core-4.5.0-3.fc42.x86_64 from updates and R-core-4.4.3-1.fc42.x86_64 from fedora
+>  ? - cannot install both R-core-4.5.0-3.fc42~bootstrap.x86_64 from copr:copr.fedorainfracloud.org:iucar:cran and R- 
+> core-4.5.0-3.fc42.x86_64 from updates
+>  ? - cannot install the best update candidate for package R-core-4.5.0-3.fc42~bootstrap.x86_64
+>  ? - cannot install the best update candidate for package R-CoprManager-0.5.7-1.fc42.copr8193539.noarch
+>  ?Problem 2: problem with installed package
+>  ? - installed package R-CoprManager-0.5.7-1.fc42.copr8193539.noarch requires R(ABI) = 4.4, but none of the providers 
+> can be installed
+> 
+> ....
+> 
+> Am I the only one to have this problem?
+> Thank you
+> 
+> Stefano Leonardi
+> 
+
+
+-- 
+==================================================================
+  Stefano Leonardi
+  Dipartimento di Scienze Chimiche, della Vita e
+  della Sostenibilit? Ambientale
+  Universit? degli Studi di Parma E-mail: stefano.leonardi at unipr.it
+  Parco Area delle Scienze, 11/a            Phone : +39-0521-905659
+  43124 PARMA  (Italy)                      Fax   : +39-0521-905402
+
+  Il mio photoblog:            http://stefanoleonardi.wordpress.com
+
+

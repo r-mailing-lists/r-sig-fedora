@@ -1,0 +1,43 @@
+From HodgessE at uhd.edu  Wed Jun 19 00:18:48 2013
+From: HodgessE at uhd.edu (Hodgess, Erin)
+Date: Tue, 18 Jun 2013 22:18:48 +0000
+Subject: [R-sig-Fedora] Bad interpreter problem
+Message-ID: <FF9DB805FC41CC4E95825A50F680630217A007A6@challenger.uhd.campus>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130618/be60b1c9/attachment.pl>
+
+From corwin at icebearinc.com  Wed Jun 19 00:36:50 2013
+From: corwin at icebearinc.com (Corwin Joy)
+Date: Tue, 18 Jun 2013 15:36:50 -0700
+Subject: [R-sig-Fedora]  tcktk problem with custom R 2.15.0 build on RHEL5
+Message-ID: <51C0E102.60507@icebearinc.com>
+
+Bruce Pennypacker wrote that he was having a problem using the R library 
+sqldf under Red Hat 5.6:
+
+
+  > library("sqldf")
+..
+  > result<-sqldf("select data.*, meth450part.chromStart as
+MethChromStart, meth450part.chromEnd as MethChromEnd, meth450part.strand
+as MethStrand, meth450part.name as MethName, meth450part.score as
+MethScore from data join meth450part where data.V1=meth450part.chrom and
+data.V2<=meth450part.chromStart and data.V3>=meth450part.chromEnd")
+Loading required package: tcltk
+Error in structure(.External("dotTcl", ..., PACKAGE = "tcltk"), class =
+"tclObj") :
+    [tcl] unknown math function "min".
+
+
+-----
+I had the same problem as discussed in this thread. The problem is that sqldf requires version 8.5 of tcl/tk and there is not an rpm of tcl 8.4.
+What I did was:
+1. Get version 8.5 of tcl for Linux directly from ActiveState:http://www.activestate.com/activetcl/downloads
+2. Tell R where the tcl 8.5 libraries are when you build R:
+./configure --with-tcltk
+--with-tcl-config=/opt/ActiveTcl-8.5/lib/tclConfig.sh
+--with-tk-config=/opt/ActiveTcl-8.5/lib/tkConfig.sh
+
+

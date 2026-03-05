@@ -1,0 +1,87 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2024-08",
+  "messages": [
+    {
+      "id": "msg-28726122d0fc",
+      "message_id": "<26302.2304.296808.582851@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2024-08-15T15:56:16+02:00",
+      "subject": "[R-sig-Fedora]  'Fedora' (only!!) -- Certificates are not trusted",
+      "subject_clean": "'Fedora' (only!!) -- Certificates are not trusted",
+      "in_reply_to": "<f74df1ce-0d97-4e9f-856e-4a310645f856@Be-Logical.nl>",
+      "references": [
+        "<37b7e0a7-1080-4a20-a60d-35910a7752fc@Be-Logical.nl>",
+        "<f74df1ce-0d97-4e9f-856e-4a310645f856@Be-Logical.nl>"
+      ],
+      "body_plain": ">>>>> Ben Engbers \n>>>>>     on Thu, 15 Aug 2024 15:40:37 +0200 writes:\n\n    > I checked the installed versions from R-CRAN-kernlab and R-CRAN-tseries\n    > R-CRAN-kernlab = 0.9.32\n    > R-CRAN-tseries = 0.10.56\n    > .\n    > Updating these packages fails because of incorrect installation\n\nPLEASE !!!   Do not spam the R-devel mailing list with things\nthat should've gone to  R-SIG-Fedora at r-project.org\n(which I now CC -- I will also send this to R-devel, but *not*\n in the same msg in the hope to get rid of this on R-devel!)\n\nMartin\n(co-maintainer of the R-devel mailing list)\n\n--\nMartin Maechler\nETH Zurich and R-Core\n\n    > Op 15-08-2024 om 14:57 schreef Ben Engbers:\n    >> Hi,\n\n    >> The GPG keys intended for repository ?Copr repo for cran owned by\n    >> iucar? are already installed but not correctly for this package.\n    >> Check whether the correct key URLs are specified for thiconfigured as: \n    >> https://download.copr.fedorainfracloud.org/results/iucar/cran/pubkey.gpg\n    >> Publics repository. \n    >> Package that failed is: R-CRAN-kernlab-0.9.33-1.fc40.copr7906033.x86_64\n\n.............",
+      "body_snippet": ">>>>> Ben Engbers \n>>>>>     on Thu, 15 Aug 2024 15:40:37 +0200 writes:\n\n    > I checked the installed versions from R-CRAN-kernlab and R-CRAN-tseries\n    > R-CRAN-kernlab = 0.9.32\n    > R-CRAN-tserie",
+      "thread_id": "thread-28726122d0fc",
+      "thread_depth": 0,
+      "month": "2024-08"
+    },
+    {
+      "id": "msg-176533c75d28",
+      "message_id": "<6538b5ce-c97f-4008-815e-832e01e13841@Be-Logical.nl>",
+      "from_name": "Ben Engbers",
+      "from_email_hash": "4587db87c8d0692f19e627b43e551702c7a09bd4c9f09664cc2f86d331cf12e5",
+      "date": "2024-08-15T17:09:30+02:00",
+      "subject": "[R-sig-Fedora] R-CRAN-kernlab, Certificiate 9D60CBB71A3B4456 invalid: certificate is not alive",
+      "subject_clean": "R-CRAN-kernlab, Certificiate 9D60CBB71A3B4456 invalid: certificate is not alive",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nI tried to update my Fedora installation but update fails because both \npackages R-CRAN-kernlab and R-CRAN-tseries can not be updated (older \nversions are installed).\n\nsudo dnf update R-CRAN-kernlab results in:\nerror: Verifying a signature using certificate \n3124D2EF76DA4D972F6BE4AC9D60CBB71A3B4456 (iucar_cran (None) \n<iucar#cran at copr.fedorahosted.org>):\n   1. Certificiate 9D60CBB71A3B4456 invalid: certificate is not alive\n       because: The primary key is not live\n       because: Expired on 2024-08-13T00:46:08Z\n   2. Key 9D60CBB71A3B4456 invalid: key is not alive\n       because: The primary key is not live\n       because: Expired on 2024-08-13T00:46:08Z\nerror: Verifying a signature using certificate \n3124D2EF76DA4D972F6BE4AC9D60CBB71A3B4456 (iucar_cran (None) \n<iucar#cran at copr.fedorahosted.org>):\n   1. Certificiate 9D60CBB71A3B4456 invalid: certificate is not alive\n       because: The primary key is not live\n       because: Expired on 2024-08-13T00:46:08Z\n   2. Key 9D60CBB71A3B4456 invalid: key is not alive\n       because: The primary key is not live\n       because: Expired on 2024-08-13T00:46:08Z\nCopr repo for cran owned by iucar \n \n                      3.2 kB/s | 985  B     00:00\nGPG-sleutel op \nhttps://download.copr.fedorainfracloud.org/results/iucar/cran/pubkey.gpg \n(0x1A3B4456) is al ge?nstalleerd\nDe GPG-sleutels bedoeld voor repository \"Copr repo for cran owned by \niucar\" zijn al ge?nstalleerd maar niet correct voor dit pakket.\nControleer of de juiste sleutel-URLs voor deze repository zijn \nopgegeven.. Pakket dat mislukt is: \nR-CRAN-kernlab-0.9.33-1.fc40.copr7906033.x86_64\n  GPG-sleutels zijn geconfigureerd als: \nhttps://download.copr.fedorainfracloud.org/results/iucar/cran/pubkey.gpg\nDe gedownloade pakketten zijn in de cache opgeslagen tot de volgende \nsucessvolle transactie.\nJe kan pakketten in de cache verwijderen met het uitvoeren van 'dnf \nclean packages'.\nFout: GPG-check is MISLUKT\n\nDeepl translate the bottom lines to:\nCopr repo for cran owned by iucar 3.2 kB/s | 985 B 00:00:00\nGPG key at \nhttps://download.copr.fedorainfracloud.org/results/iucar/cran/pubkey.gpg \n(0x1A3B4456) is already installed\nThe GPG keys intended for repository ?Copr repo for cran owned by iucar? \nare already installed but not correctly for this package.\nPlease check that the correct key URLs are specified for this \nrepository. Package failed: R-CRAN-kernlab-0.9.33-1.fc40.copr7906033.x86_64\n  GPG keys are configured as: \nhttps://download.copr.fedorainfracloud.org/results/iucar/cran/pubkey.gpg\nThe downloaded packages are cached until the next successful transaction.\nYou can delete cached packages by running ?dnf clean packages?.\nError: GPG check failed\n\nIvan Krylov form R-developers said that this is not a R-issue but that \nit should be reported to this SIG.\nCould you please tell me how this can be solved?\nBen Engbers\nGrietjeshof 77\n6721 VH  Bennekom\n+31 6 23634840",
+      "body_snippet": "Hi,\n\nI tried to update my Fedora installation but update fails because both \npackages R-CRAN-kernlab and R-CRAN-tseries can not be updated (older \nversions are installed).\n\nsudo dnf update R-CRAN-kern",
+      "thread_id": "thread-176533c75d28",
+      "thread_depth": 0,
+      "month": "2024-08"
+    },
+    {
+      "id": "msg-69e8ceab987d",
+      "message_id": "<CALEXWq0dcHdhs3Z-JQFnGpEvACrFkTgA_KUoKZLLe15zDS-fgQ@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2024-08-15T17:14:18+02:00",
+      "subject": "[R-sig-Fedora]  'Fedora' (only!!) -- Certificates are not trusted",
+      "subject_clean": "'Fedora' (only!!) -- Certificates are not trusted",
+      "in_reply_to": "<26302.2304.296808.582851@stat.math.ethz.ch>",
+      "references": [
+        "<37b7e0a7-1080-4a20-a60d-35910a7752fc@Be-Logical.nl>",
+        "<f74df1ce-0d97-4e9f-856e-4a310645f856@Be-Logical.nl>",
+        "<26302.2304.296808.582851@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Hi Ben,\n\nSee https://github.com/cran4linux/cran2copr/issues/63\n\nI?aki\n\nEl jue., 15 ago. 2024 15:56, Martin Maechler <maechler at stat.math.ethz.ch>\nescribi?:\n\n> >>>>> Ben Engbers\n> >>>>>     on Thu, 15 Aug 2024 15:40:37 +0200 writes:\n>\n>     > I checked the installed versions from R-CRAN-kernlab and\n> R-CRAN-tseries\n>     > R-CRAN-kernlab = 0.9.32\n>     > R-CRAN-tseries = 0.10.56\n>     > .\n>     > Updating these packages fails because of incorrect installation\n>\n> PLEASE !!!   Do not spam the R-devel mailing list with things\n> that should've gone to  R-SIG-Fedora at r-project.org\n> (which I now CC -- I will also send this to R-devel, but *not*\n>  in the same msg in the hope to get rid of this on R-devel!)\n>\n> Martin\n> (co-maintainer of the R-devel mailing list)\n>\n> --\n> Martin Maechler\n> ETH Zurich and R-Core\n>\n>     > Op 15-08-2024 om 14:57 schreef Ben Engbers:\n>     >> Hi,\n>\n>     >> The GPG keys intended for repository ?Copr repo for cran owned by\n>     >> iucar? are already installed but not correctly for this package.\n>     >> Check whether the correct key URLs are specified for thiconfigured\n> as:\n>     >>\n> https://download.copr.fedorainfracloud.org/results/iucar/cran/pubkey.gpg\n>     >> Publics repository.\n>     >> Package that failed is:\n> R-CRAN-kernlab-0.9.33-1.fc40.copr7906033.x86_64\n>\n> .............\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi Ben,\n\nSee https://github.com/cran4linux/cran2copr/issues/63\n\nI?aki\n\nEl jue., 15 ago. 2024 15:56, Martin Maechler <maechler at stat.math.ethz.ch>\nescribi?:\n\n> >>>>> Ben Engbers\n> >>>>>     on Thu, 1",
+      "thread_id": "thread-28726122d0fc",
+      "thread_depth": 1,
+      "month": "2024-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-28726122d0fc",
+      "subject": "'Fedora' (only!!) -- Certificates are not trusted",
+      "message_count": 2,
+      "participants": [
+        "Iñaki Ucar",
+        "Martin Maechler"
+      ],
+      "started": "2024-08-15T15:56:16+02:00",
+      "last_reply": "2024-08-15T17:14:18+02:00",
+      "root_message_id": "msg-28726122d0fc"
+    },
+    {
+      "id": "thread-176533c75d28",
+      "subject": "R-CRAN-kernlab, Certificiate 9D60CBB71A3B4456 invalid: certificate is not alive",
+      "message_count": 1,
+      "participants": [
+        "Ben Engbers"
+      ],
+      "started": "2024-08-15T17:09:30+02:00",
+      "last_reply": "2024-08-15T17:09:30+02:00",
+      "root_message_id": "msg-176533c75d28"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2018-07",
+  "messages": [
+    {
+      "id": "msg-ca907c0d5067",
+      "message_id": "<20180710135139.GH16908@flame.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "5cb4abc143d04c5e4b2f0db5644c15241a2c494c5d774abfd43fa630c4deb3d3",
+      "date": "2018-07-10T15:51:39+02:00",
+      "subject": "[R-sig-Fedora] Updating qvalue and xtable",
+      "subject_clean": "Updating qvalue and xtable",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Good Morning Everyone,\n\nI was going through my list of FTBFS packages today and I fixed all my R\npackages but 2: qvalue and xtable.\nqvalue requires ggplot2\nxtable requires: lsmeans, spdep, splm, sphet, plm\n\nI am not doing any R anymore these days and in fact spot has been the one\nmaintaining most of my R packages these days (thanks spot!!), so I am not really\ninterested in maintaining more R packages.\nWould someone be interested in packaging these libraries?\n\nOtherwise, I think both qvalue and xtable will get retired in a nearish future.\n\n\nThanks for your help :)\n\nPierre",
+      "body_snippet": "Good Morning Everyone,\n\nI was going through my list of FTBFS packages today and I fixed all my R\npackages but 2: qvalue and xtable.\nqvalue requires ggplot2\nxtable requires: lsmeans, spdep, splm, sphet",
+      "thread_id": "thread-ca907c0d5067",
+      "thread_depth": 0,
+      "month": "2018-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-ca907c0d5067",
+      "subject": "Updating qvalue and xtable",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2018-07-10T15:51:39+02:00",
+      "last_reply": "2018-07-10T15:51:39+02:00",
+      "root_message_id": "msg-ca907c0d5067"
+    }
+  ]
+}

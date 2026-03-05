@@ -1,0 +1,625 @@
+From |uc@r @end|ng |rom |edor@project@org  Tue Oct  6 12:13:47 2020
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Tue, 6 Oct 2020 12:13:47 +0200
+Subject: [R-sig-Fedora] Switching BLAS/LAPACK without leaving your R session
+Message-ID: <CALEXWq260xWYJHFRacFw0N_5a41SzcQcULn686uvLrws2Cf6hQ@mail.gmail.com>
+
+Hi all,
+
+We are excited to announce that this new feature is coming to Fedora
+33, which is in beta state. See [1] or [2] for more information on how
+to test it.
+
+[1] https://cran.r-project.org/bin/linux/fedora/
+[2] https://www.enchufa2.es/archives/switch-blas-lapack-without-leaving-your-r-session.html
+
+Regards,
+-- 
+I?aki ?car
+
+
+From |uc@r @end|ng |rom |edor@project@org  Tue Oct  6 13:34:46 2020
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Tue, 6 Oct 2020 13:34:46 +0200
+Subject: [R-sig-Fedora] Problems with large loops in CentOS
+In-Reply-To: <CA+=omePNR2WuGzDgbojBb6rFDHBVBDbDa7SovckCwBL+0+ASsQ@mail.gmail.com>
+References: <CA+=omePNR2WuGzDgbojBb6rFDHBVBDbDa7SovckCwBL+0+ASsQ@mail.gmail.com>
+Message-ID: <CALEXWq13TmWDVu6_V+UfLjKSXTDUurwOsjMPVSxi8b9sAewtaA@mail.gmail.com>
+
+Is this a custom build? I cannot reproduce the issue on CentOS 7 with
+stock R installed.
+
+I?aki
+
+On Tue, 6 Oct 2020 at 13:02, Jay Ver Hoef - NOAA Federal
+<jay.verhoef at noaa.gov> wrote:
+>
+> I have run into a problem when do loops with lots of elements in CentOS (I am a new user after using Ubuntu for many years).  I am attaching two scripts, one called
+> Looping_Centos_minimal_bug_OK.R
+> which runs fine.  I simply repeat a function call in it 15 times.  However, if I repeat that function call 16 times, as in this one,
+> Looping_Centos_minimal_bug_breaks.R
+> I get the error,
+> Error: unexpected '}' in:
+> "CorMod
+> }"
+>
+> I have a laptop with Ubuntu installed, and everything works fine.  This is just my minimal example.  I have many other scripts with loops, and if they have too many functions in them, they break in CentOS, while they always work in Ubuntu.  I was wondering if anyone else with CentOS or Fedora is having a similar issue, and can reproduce my problem.  Thank you.
+>
+> Jay Ver Hoef
+>
+> > sessionInfo()
+> R version 3.6.1 (2019-07-05)
+> Platform: x86_64-pc-linux-gnu (64-bit)
+> Running under: CentOS Linux 7 (Core)
+>
+> Matrix products: default
+> BLAS:   /home/xverhoef/R/R-3.6.1/lib/libRblas.so
+> LAPACK: /home/xverhoef/R/R-3.6.1/lib/libRlapack.so
+>
+> locale:
+>  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+>  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+>  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+>  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C
+>  [9] LC_ADDRESS=C               LC_TELEPHONE=C
+> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+>
+> R Version:
+>  platform = x86_64-pc-linux-gnu
+>  arch = x86_64
+>  os = linux-gnu
+>  system = x86_64, linux-gnu
+>  status =
+>  major = 3
+>  minor = 6.1
+>  year = 2019
+>  month = 07
+>  day = 05
+>  svn rev = 76782
+>  language = R
+>  version.string = R version 3.6.1 (2019-07-05)
+>  nickname = Action of the Toes
+>
+> Locale:
+>  LC_CTYPE=en_US.UTF-8;LC_NUMERIC=C;LC_TIME=en_US.UTF-
+> 8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=en_US.UTF-8;LC_MESSAGES=en_US.UTF-
+> 8;LC_PAPER=en_US.UTF-
+> 8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.UTF-
+> 8;LC_IDENTIFICATION=C
+>
+> Search Path:
+>  .GlobalEnv, package:stats, package:graphics, package:grDevices,
+>  package:utils, package:datasets, package:methods, Autoloads,
+>  package:baseR Version:
+>  platform = x86_64-pc-linux-gnu
+>  arch = x86_64
+>  os = linux-gnu
+>  system = x86_64, linux-gnu
+>  status =
+>  major = 3
+>  minor = 6.1
+>  year = 2019
+>  month = 07
+>  day = 05
+>  svn rev = 76782
+>  language = R
+>  version.string = R version 3.6.1 (2019-07-05)
+>  nickname = Action of the Toes
+>
+> Locale:
+>  LC_CTYPE=en_US.UTF-8;LC_NUMERIC=C;LC_TIME=en_US.UTF-
+> 8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=en_US.UTF-8;LC_MESSAGES=en_US.UTF-
+> 8;LC_PAPER=en_US.UTF-
+> 8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.UTF-
+> 8;LC_IDENTIFICATION=C
+>
+> Search Path:
+>  .GlobalEnv, package:stats, package:graphics, package:grDevices,
+>  package:utils, package:datasets, package:methods, Autoloads,
+>  package:base
+>
+>
+>
+> *************************************************************
+>
+> Jay M. Ver Hoef, Ph.D.
+> Senior Scientist/Statistician
+> Marine Mammal Laboratory
+> NOAA-NMFS Alaska Fisheries Science Center
+> Seattle, WA and Fairbanks, AK, USA
+> (907) 347-5552
+> jay.verhoef at noaa.gov
+> http://sites.google.com/site/jayverhoef/
+>
+> *************************************************************
+>
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+
+From ev@n@cooch @end|ng |rom gm@||@com  Sun Oct 11 19:56:22 2020
+From: ev@n@cooch @end|ng |rom gm@||@com (Evan Cooch)
+Date: Sun, 11 Oct 2020 13:56:22 -0400
+Subject: [R-sig-Fedora] Problems with large loops in CentOS
+In-Reply-To: <CA+=omePNR2WuGzDgbojBb6rFDHBVBDbDa7SovckCwBL+0+ASsQ@mail.gmail.com>
+References: <CA+=omePNR2WuGzDgbojBb6rFDHBVBDbDa7SovckCwBL+0+ASsQ@mail.gmail.com>
+Message-ID: <deefa102-9991-304e-32d9-8ba7bb92928f@gmail.com>
+
+Hi Jay --
+
+Works fine for me under CentOS 7 -- 16 GB RAM. The code doesn't seem to 
+output anything, so not sure if its running 'correctly'. But, its 
+running without error.
+
+On 12/11/2019 2:28 PM, Jay Ver Hoef - NOAA Federal wrote:
+>
+> BLAS: ? /home/xverhoef/R/R-3.6.1/lib/libRblas.so
+
+
+From j@y@verhoe| @end|ng |rom no@@@gov  Mon Oct 12 12:30:01 2020
+From: j@y@verhoe| @end|ng |rom no@@@gov (Jay Ver Hoef)
+Date: Mon, 12 Oct 2020 02:30:01 -0800
+Subject: [R-sig-Fedora] Problems with large loops in CentOS
+In-Reply-To: <deefa102-9991-304e-32d9-8ba7bb92928f@gmail.com>
+References: <CA+=omePNR2WuGzDgbojBb6rFDHBVBDbDa7SovckCwBL+0+ASsQ@mail.gmail.com>
+ <deefa102-9991-304e-32d9-8ba7bb92928f@gmail.com>
+Message-ID: <CABUJos9nArCpkDWs7sRRbevj_msExybo_K6-UwN+KC==RZFtrg@mail.gmail.com>
+
+Hi I?aki and Evan,
+
+Thank you for checking this.  My version of CentOS was installed by the
+Federal Government, and there is disk encryption.  I am able to regularly
+update CentOS.  Anyway, the problem seems to be on my end.  For me, the
+code just hangs... my R scripts never run if they are too long.  So, I
+created that script, which fails on my computer.  I have a personal
+computer with Ubuntu, and the same script runs fine.  I am able to work
+around my issues using more modular code.  Thanks again.
+
+Best Wishes,
+                      Jay
+
+
+
+
+
+
+
+
+
+
+**************************************************************Jay M. Ver
+Hoef, Ph.D.Senior Scientist/StatisticianMarine Mammal LaboratoryNOAA-NMFS
+Alaska Fisheries Science CenterSeattle, WA and Fairbanks, AK, USA(907)
+347-5552jay.verhoef at noaa.gov <jay.verhoef at noaa.gov>
+ http://sites.google.com/site/jayverhoef/
+<http://sites.google.com/site/jayverhoef/>**************************************************************
+
+
+On Sun, Oct 11, 2020 at 9:56 AM Evan Cooch <evan.cooch at gmail.com> wrote:
+
+> Hi Jay --
+>
+> Works fine for me under CentOS 7 -- 16 GB RAM. The code doesn't seem to
+> output anything, so not sure if its running 'correctly'. But, its
+> running without error.
+>
+> On 12/11/2019 2:28 PM, Jay Ver Hoef - NOAA Federal wrote:
+> >
+> > BLAS:   /home/xverhoef/R/R-3.6.1/lib/libRblas.so
+>
+>
+
+	[[alternative HTML version deleted]]
+
+
+From ev@n@cooch @end|ng |rom gm@||@com  Tue Oct 13 19:12:47 2020
+From: ev@n@cooch @end|ng |rom gm@||@com (Evan Cooch)
+Date: Tue, 13 Oct 2020 13:12:47 -0400
+Subject: [R-sig-Fedora] Problems with large loops in CentOS
+In-Reply-To: <CABUJos9nArCpkDWs7sRRbevj_msExybo_K6-UwN+KC==RZFtrg@mail.gmail.com>
+References: <CA+=omePNR2WuGzDgbojBb6rFDHBVBDbDa7SovckCwBL+0+ASsQ@mail.gmail.com>
+ <deefa102-9991-304e-32d9-8ba7bb92928f@gmail.com>
+ <CABUJos9nArCpkDWs7sRRbevj_msExybo_K6-UwN+KC==RZFtrg@mail.gmail.com>
+Message-ID: <4d6800af-3b68-33e8-09a1-bfc92c3a807e@gmail.com>
+
+sure -- playing with a 'Fed machine' is always a challenge.
+
+On 10/12/2020 6:30 AM, Jay Ver Hoef wrote:
+> Hi I?aki and Evan,
+>
+> Thank you for checking this.? My version of CentOS was installed by 
+> the Federal Government, and there is disk encryption.? I am able to 
+> regularly update CentOS.? Anyway, the problem seems to be on my end.? 
+> For me, the code just hangs... my R scripts never run if they are too 
+> long.? So, I created that script, which fails on my computer.? I have 
+> a personal computer with?Ubuntu, and the same script runs fine.? I am 
+> able to work around my issues using more modular code.? Thanks again.
+>
+> Best Wishes,
+> ? ? ? Jay
+>
+> /*************************************************************
+> Jay M. Ver Hoef, Ph.D.
+> Senior Scientist/Statistician
+> Marine Mammal Laboratory
+> NOAA-NMFS Alaska Fisheries Science Center
+> Seattle, WA and Fairbanks, AK, USA
+> (907) 347-5552
+> jay.verhoef at noaa.gov <mailto:jay.verhoef at noaa.gov>
+> http://sites.google.com/site/jayverhoef/
+> *************************************************************/
+>
+>
+> On Sun, Oct 11, 2020 at 9:56 AM Evan Cooch <evan.cooch at gmail.com 
+> <mailto:evan.cooch at gmail.com>> wrote:
+>
+>     Hi Jay --
+>
+>     Works fine for me under CentOS 7 -- 16 GB RAM. The code doesn't
+>     seem to
+>     output anything, so not sure if its running 'correctly'. But, its
+>     running without error.
+>
+>     On 12/11/2019 2:28 PM, Jay Ver Hoef - NOAA Federal wrote:
+>     >
+>     > BLAS: ? /home/xverhoef/R/R-3.6.1/lib/libRblas.so
+>
+
+
+	[[alternative HTML version deleted]]
+
+
+From @gent@ @end|ng |rom medd@t@|nc@com  Fri Oct 30 02:29:42 2020
+From: @gent@ @end|ng |rom medd@t@|nc@com (H)
+Date: Thu, 29 Oct 2020 21:29:42 -0400
+Subject: [R-sig-Fedora] R 4.0 for CentOS 7
+Message-ID: <85e47848-9372-cf80-956e-4c423775d073@meddatainc.com>
+
+I am running R 4.6 under CentOS 7 but would like to upgrade. Just found that 4.0 is available for CentOS 8 but could it be released for CentOS 7 as well?
+
+If so, that would be great!
+
+
+From |uc@r @end|ng |rom |edor@project@org  Fri Oct 30 10:02:36 2020
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Fri, 30 Oct 2020 10:02:36 +0100
+Subject: [R-sig-Fedora] R 4.0 for CentOS 7
+In-Reply-To: <85e47848-9372-cf80-956e-4c423775d073@meddatainc.com>
+References: <85e47848-9372-cf80-956e-4c423775d073@meddatainc.com>
+Message-ID: <CALEXWq05HWZf4=VrWgXmZSMhiOmea=C58u+SKs0fmH2W3GT6wQ@mail.gmail.com>
+
+Please, do not crosspost. As I said in the Bugzilla issue, R cannot be
+further updated in EPEL-7, see
+https://bugzilla.redhat.com/show_bug.cgi?id=1871685#c2.
+
+I?aki
+
+
+On Fri, 30 Oct 2020 at 02:30, H <agents at meddatainc.com> wrote:
+>
+> I am running R 4.6 under CentOS 7 but would like to upgrade. Just found that 4.0 is available for CentOS 8 but could it be released for CentOS 7 as well?
+>
+> If so, that would be great!
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+
+From @gent@ @end|ng |rom medd@t@|nc@com  Sat Oct 31 01:57:31 2020
+From: @gent@ @end|ng |rom medd@t@|nc@com (H)
+Date: Fri, 30 Oct 2020 20:57:31 -0400
+Subject: [R-sig-Fedora] R 4.0 for CentOS 7
+In-Reply-To: <CALEXWq05HWZf4=VrWgXmZSMhiOmea=C58u+SKs0fmH2W3GT6wQ@mail.gmail.com>
+References: <85e47848-9372-cf80-956e-4c423775d073@meddatainc.com>
+ <CALEXWq05HWZf4=VrWgXmZSMhiOmea=C58u+SKs0fmH2W3GT6wQ@mail.gmail.com>
+Message-ID: <35a65618-d0e0-19b8-bac8-491e70791de6@meddatainc.com>
+
+On 10/30/2020 05:02 AM, I?aki Ucar wrote:
+> Please, do not crosspost. As I said in the Bugzilla issue, R cannot be
+> further updated in EPEL-7, see
+> https://bugzilla.redhat.com/show_bug.cgi?id=1871685#c2.
+>
+> I?aki
+>
+>
+> On Fri, 30 Oct 2020 at 02:30, H <agents at meddatainc.com> wrote:
+>> I am running R 4.6 under CentOS 7 but would like to upgrade. Just found that 4.0 is available for CentOS 8 but could it be released for CentOS 7 as well?
+>>
+>> If so, that would be great!
+>>
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+I see. Is anyone running R 4.0 on CentOS 7? If so, how do you do it?
+
+
+From ev@n@cooch @end|ng |rom gm@||@com  Sat Oct 31 02:05:21 2020
+From: ev@n@cooch @end|ng |rom gm@||@com (Evan Cooch)
+Date: Fri, 30 Oct 2020 21:05:21 -0400
+Subject: [R-sig-Fedora] R 4.0 for CentOS 7
+In-Reply-To: <35a65618-d0e0-19b8-bac8-491e70791de6@meddatainc.com>
+References: <85e47848-9372-cf80-956e-4c423775d073@meddatainc.com>
+ <CALEXWq05HWZf4=VrWgXmZSMhiOmea=C58u+SKs0fmH2W3GT6wQ@mail.gmail.com>
+ <35a65618-d0e0-19b8-bac8-491e70791de6@meddatainc.com>
+Message-ID: <6af5c609-b0fb-dbbc-fd1e-103450ff57a0@gmail.com>
+
+Really? If I?aki says it can't be done (even using devtools, which I've 
+tried), then you need to move on.
+
+On 10/30/2020 8:57 PM, H wrote:
+> On 10/30/2020 05:02 AM, I?aki Ucar wrote:
+>> Please, do not crosspost. As I said in the Bugzilla issue, R cannot be
+>> further updated in EPEL-7, see
+>> https://bugzilla.redhat.com/show_bug.cgi?id=1871685#c2.
+>>
+>> I?aki
+>>
+>>
+>> On Fri, 30 Oct 2020 at 02:30, H <agents at meddatainc.com> wrote:
+>>> I am running R 4.6 under CentOS 7 but would like to upgrade. Just found that 4.0 is available for CentOS 8 but could it be released for CentOS 7 as well?
+>>>
+>>> If so, that would be great!
+>>>
+>>> _______________________________________________
+>>> R-SIG-Fedora mailing list
+>>> R-SIG-Fedora at r-project.org
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>
+> I see. Is anyone running R 4.0 on CentOS 7? If so, how do you do it?
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+From |uc@r @end|ng |rom |edor@project@org  Sat Oct 31 11:54:59 2020
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Sat, 31 Oct 2020 11:54:59 +0100
+Subject: [R-sig-Fedora] R 4.0 for CentOS 7
+In-Reply-To: <6af5c609-b0fb-dbbc-fd1e-103450ff57a0@gmail.com>
+References: <85e47848-9372-cf80-956e-4c423775d073@meddatainc.com>
+ <CALEXWq05HWZf4=VrWgXmZSMhiOmea=C58u+SKs0fmH2W3GT6wQ@mail.gmail.com>
+ <35a65618-d0e0-19b8-bac8-491e70791de6@meddatainc.com>
+ <6af5c609-b0fb-dbbc-fd1e-103450ff57a0@gmail.com>
+Message-ID: <CALEXWq27=fEz_T_LgqjK_8Ximvma9Xuy7kHcOzzgAswYypqcJg@mail.gmail.com>
+
+Please, see spot's comment in the BZ I linked in my previous comment.
+The thing is not that it can't be done (you could install a newer
+devtoolset, v8 or v9, build R and use it), the thing is that it cannot
+be distributed in EPEL, because we're allowed to build against a
+devtoolset, but not depend on it, so the distribution would be broken
+(you could not install packages unless you know that you need a
+specific devtoolset, so you install and activate it).
+
+On Sat, 31 Oct 2020 at 02:05, Evan Cooch <evan.cooch at gmail.com> wrote:
+>
+> Really? If I?aki says it can't be done (even using devtools, which I've
+> tried), then you need to move on.
+>
+> On 10/30/2020 8:57 PM, H wrote:
+> > On 10/30/2020 05:02 AM, I?aki Ucar wrote:
+> >> Please, do not crosspost. As I said in the Bugzilla issue, R cannot be
+> >> further updated in EPEL-7, see
+> >> https://bugzilla.redhat.com/show_bug.cgi?id=1871685#c2.
+> >>
+> >> I?aki
+> >>
+> >>
+> >> On Fri, 30 Oct 2020 at 02:30, H <agents at meddatainc.com> wrote:
+> >>> I am running R 4.6 under CentOS 7 but would like to upgrade. Just found that 4.0 is available for CentOS 8 but could it be released for CentOS 7 as well?
+> >>>
+> >>> If so, that would be great!
+> >>>
+> >>> _______________________________________________
+> >>> R-SIG-Fedora mailing list
+> >>> R-SIG-Fedora at r-project.org
+> >>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >>
+> > I see. Is anyone running R 4.0 on CentOS 7? If so, how do you do it?
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+
+From @gent@ @end|ng |rom medd@t@|nc@com  Sat Oct 31 20:52:04 2020
+From: @gent@ @end|ng |rom medd@t@|nc@com (H)
+Date: Sat, 31 Oct 2020 15:52:04 -0400
+Subject: [R-sig-Fedora] R 4.0 for CentOS 7
+In-Reply-To: <CALEXWq27=fEz_T_LgqjK_8Ximvma9Xuy7kHcOzzgAswYypqcJg@mail.gmail.com>
+References: <85e47848-9372-cf80-956e-4c423775d073@meddatainc.com>
+ <CALEXWq05HWZf4=VrWgXmZSMhiOmea=C58u+SKs0fmH2W3GT6wQ@mail.gmail.com>
+ <35a65618-d0e0-19b8-bac8-491e70791de6@meddatainc.com>
+ <6af5c609-b0fb-dbbc-fd1e-103450ff57a0@gmail.com>
+ <CALEXWq27=fEz_T_LgqjK_8Ximvma9Xuy7kHcOzzgAswYypqcJg@mail.gmail.com>
+Message-ID: <637540a9-31f9-c488-3a59-2404a494de4d@meddatainc.com>
+
+On 10/31/2020 06:54 AM, I?aki Ucar wrote:
+> Please, see spot's comment in the BZ I linked in my previous comment.
+> The thing is not that it can't be done (you could install a newer
+> devtoolset, v8 or v9, build R and use it), the thing is that it cannot
+> be distributed in EPEL, because we're allowed to build against a
+> devtoolset, but not depend on it, so the distribution would be broken
+> (you could not install packages unless you know that you need a
+> specific devtoolset, so you install and activate it).
+>
+> On Sat, 31 Oct 2020 at 02:05, Evan Cooch <evan.cooch at gmail.com> wrote:
+>> Really? If I?aki says it can't be done (even using devtools, which I've
+>> tried), then you need to move on.
+>>
+>> On 10/30/2020 8:57 PM, H wrote:
+>>> On 10/30/2020 05:02 AM, I?aki Ucar wrote:
+>>>> Please, do not crosspost. As I said in the Bugzilla issue, R cannot be
+>>>> further updated in EPEL-7, see
+>>>> https://bugzilla.redhat.com/show_bug.cgi?id=1871685#c2.
+>>>>
+>>>> I?aki
+>>>>
+>>>>
+>>>> On Fri, 30 Oct 2020 at 02:30, H <agents at meddatainc.com> wrote:
+>>>>> I am running R 4.6 under CentOS 7 but would like to upgrade. Just found that 4.0 is available for CentOS 8 but could it be released for CentOS 7 as well?
+>>>>>
+>>>>> If so, that would be great!
+>>>>>
+>>>>> _______________________________________________
+>>>>> R-SIG-Fedora mailing list
+>>>>> R-SIG-Fedora at r-project.org
+>>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>> I see. Is anyone running R 4.0 on CentOS 7? If so, how do you do it?
+>>>
+>>> _______________________________________________
+>>> R-SIG-Fedora mailing list
+>>> R-SIG-Fedora at r-project.org
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+Understood. Since I am running CentOS 7, I guess I could create a CentOS 8 docker container and install R in that? I am not planning to upgrade the system to CentOS 8.
+
+
+From pd@|gd @end|ng |rom gm@||@com  Sat Oct 31 22:48:32 2020
+From: pd@|gd @end|ng |rom gm@||@com (peter dalgaard)
+Date: Sat, 31 Oct 2020 22:48:32 +0100
+Subject: [R-sig-Fedora] R 4.0 for CentOS 7
+In-Reply-To: <CALEXWq27=fEz_T_LgqjK_8Ximvma9Xuy7kHcOzzgAswYypqcJg@mail.gmail.com>
+References: <85e47848-9372-cf80-956e-4c423775d073@meddatainc.com>
+ <CALEXWq05HWZf4=VrWgXmZSMhiOmea=C58u+SKs0fmH2W3GT6wQ@mail.gmail.com>
+ <35a65618-d0e0-19b8-bac8-491e70791de6@meddatainc.com>
+ <6af5c609-b0fb-dbbc-fd1e-103450ff57a0@gmail.com>
+ <CALEXWq27=fEz_T_LgqjK_8Ximvma9Xuy7kHcOzzgAswYypqcJg@mail.gmail.com>
+Message-ID: <79863869-2FAA-406C-B9F8-04F2122FA506@gmail.com>
+
+I don't know the specifics of CentOS, but it is usually possible to build and use a private version of R, and if I read the below correctly, that might even be rather easy. 
+
+The price may be that you need to build all packages from source using the same tools that you used for building R. That would probably be only mildly painful.
+
+-pd
+
+> On 31 Oct 2020, at 11:54 , I?aki Ucar <iucar at fedoraproject.org> wrote:
+> 
+> Please, see spot's comment in the BZ I linked in my previous comment.
+> The thing is not that it can't be done (you could install a newer
+> devtoolset, v8 or v9, build R and use it), the thing is that it cannot
+> be distributed in EPEL, because we're allowed to build against a
+> devtoolset, but not depend on it, so the distribution would be broken
+> (you could not install packages unless you know that you need a
+> specific devtoolset, so you install and activate it).
+> 
+> On Sat, 31 Oct 2020 at 02:05, Evan Cooch <evan.cooch at gmail.com> wrote:
+>> 
+>> Really? If I?aki says it can't be done (even using devtools, which I've
+>> tried), then you need to move on.
+>> 
+>> On 10/30/2020 8:57 PM, H wrote:
+>>> On 10/30/2020 05:02 AM, I?aki Ucar wrote:
+>>>> Please, do not crosspost. As I said in the Bugzilla issue, R cannot be
+>>>> further updated in EPEL-7, see
+>>>> https://bugzilla.redhat.com/show_bug.cgi?id=1871685#c2.
+>>>> 
+>>>> I?aki
+>>>> 
+>>>> 
+>>>> On Fri, 30 Oct 2020 at 02:30, H <agents at meddatainc.com> wrote:
+>>>>> I am running R 4.6 under CentOS 7 but would like to upgrade. Just found that 4.0 is available for CentOS 8 but could it be released for CentOS 7 as well?
+>>>>> 
+>>>>> If so, that would be great!
+>>>>> 
+>>>>> _______________________________________________
+>>>>> R-SIG-Fedora mailing list
+>>>>> R-SIG-Fedora at r-project.org
+>>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>> 
+>>> I see. Is anyone running R 4.0 on CentOS 7? If so, how do you do it?
+>>> 
+>>> _______________________________________________
+>>> R-SIG-Fedora mailing list
+>>> R-SIG-Fedora at r-project.org
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>> 
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> 
+> 
+> 
+> -- 
+> I?aki ?car
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+-- 
+Peter Dalgaard, Professor,
+Center for Statistics, Copenhagen Business School
+Solbjerg Plads 3, 2000 Frederiksberg, Denmark
+Phone: (+45)38153501
+Office: A 4.23
+Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+
+
+From |uc@r @end|ng |rom |edor@project@org  Sat Oct 31 23:05:43 2020
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Sat, 31 Oct 2020 23:05:43 +0100
+Subject: [R-sig-Fedora] R 4.0 for CentOS 7
+In-Reply-To: <637540a9-31f9-c488-3a59-2404a494de4d@meddatainc.com>
+References: <85e47848-9372-cf80-956e-4c423775d073@meddatainc.com>
+ <CALEXWq05HWZf4=VrWgXmZSMhiOmea=C58u+SKs0fmH2W3GT6wQ@mail.gmail.com>
+ <35a65618-d0e0-19b8-bac8-491e70791de6@meddatainc.com>
+ <6af5c609-b0fb-dbbc-fd1e-103450ff57a0@gmail.com>
+ <CALEXWq27=fEz_T_LgqjK_8Ximvma9Xuy7kHcOzzgAswYypqcJg@mail.gmail.com>
+ <637540a9-31f9-c488-3a59-2404a494de4d@meddatainc.com>
+Message-ID: <CALEXWq0ePx9T2SEVrg=4PTLe6taOU7DD6FBbi8MK-cCaRqe-Uw@mail.gmail.com>
+
+On Sat, 31 Oct 2020 at 20:52, H <agents at meddatainc.com> wrote:
+>
+> Understood. Since I am running CentOS 7, I guess I could create a CentOS 8 docker container and install R in that? I am not planning to upgrade the system to CentOS 8.
+
+Of course, you can do that. With podman it's even easier. But then I'd
+use Fedora as the base image instead, because you'll enjoy binary
+installations for most of CRAN via Copr [1]. You even have a docker
+image ready to go [2]. (Disclaimer: I'm the maintainer of that
+project).
+
+[1] https://copr.fedorainfracloud.org/coprs/iucar/cran/
+[2] https://hub.docker.com/r/enchufa2/cran2copr/dockerfile
+
+-- 
+I?aki ?car
+
+

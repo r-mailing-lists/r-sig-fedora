@@ -1,0 +1,238 @@
+From jeroenooms at gmail.com  Fri Aug  8 11:10:43 2014
+From: jeroenooms at gmail.com (Jeroen Ooms)
+Date: Fri, 8 Aug 2014 11:10:43 +0200
+Subject: [R-sig-Fedora] Missing make dependency in R-devel
+Message-ID: <CABFfbXv1LqjaUYXEDjFHxxMRdWOee1BvyxZoD9hXL7ZkrJqQ1g@mail.gmail.com>
+
+It seems that "make" is not declared as a dependency of R-core/R-devel
+in fedora/rhel. Therefore one some servers R CMD config does not work:
+
+R CMD config --ldflags
+/usr/lib64/R/bin/config: line 150: make: command not found
+/usr/lib64/R/bin/config: line 151: make: command not found
+/usr/lib64/R/bin/config: line 152: make: command not found
+/usr/lib64/R/bin/config: line 153: make: command not found
+R was not built as a library
+
+Especially the last line is misleading. This leads to unexpected,
+hard-to-debug behavior in configure scripts, etc.
+
+Would it make sense to add 'make' as a dependency to R-core or
+R-devel? I asked Tom Callaway but he has not responded; I am not sure
+if he is still actively maintaining these rpm packages.
+
+Jeroen
+
+
+From jeroenooms at gmail.com  Fri Aug  8 11:25:17 2014
+From: jeroenooms at gmail.com (Jeroen Ooms)
+Date: Fri, 8 Aug 2014 11:25:17 +0200
+Subject: [R-sig-Fedora] Installing locales in Fedora
+Message-ID: <CABFfbXt161b2ZwTJR3VDEWDD15Y35CT3FE5mD_zE5zOTzRCwAg@mail.gmail.com>
+
+Not specifically an R question, but hopefully some Fedora users might
+know the answer. I am creating an rpm for an R application that uses
+en_US.UTF-8:
+
+  Sys.setlocale(category='LC_ALL', 'en_US.UTF-8');
+  Sys.setenv(LANG="en_US.UTF-8")
+
+On my own Fedora installation, en_US.UTF-8 was installed by default.
+However this was an English system, so I am not sure this will be the
+case for any Fedora system. Is there an rpm package in Fedora that I
+can declare as a dependency in my rpm spec to make sure en_US.UTF-8
+will be available, even on bare-minimum Chinese Fedora installation?
+
+
+From tcallawa at redhat.com  Fri Aug  8 13:50:34 2014
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 08 Aug 2014 13:50:34 +0200
+Subject: [R-sig-Fedora] Missing make dependency in R-devel
+In-Reply-To: <CABFfbXv1LqjaUYXEDjFHxxMRdWOee1BvyxZoD9hXL7ZkrJqQ1g@mail.gmail.com>
+References: <CABFfbXv1LqjaUYXEDjFHxxMRdWOee1BvyxZoD9hXL7ZkrJqQ1g@mail.gmail.com>
+Message-ID: <53E4B98A.5060608@redhat.com>
+
+On 08/08/2014 11:10 AM, Jeroen Ooms wrote:
+> It seems that "make" is not declared as a dependency of R-core/R-devel
+> in fedora/rhel. Therefore one some servers R CMD config does not work:
+> 
+> R CMD config --ldflags
+> /usr/lib64/R/bin/config: line 150: make: command not found
+> /usr/lib64/R/bin/config: line 151: make: command not found
+> /usr/lib64/R/bin/config: line 152: make: command not found
+> /usr/lib64/R/bin/config: line 153: make: command not found
+> R was not built as a library
+> 
+> Especially the last line is misleading. This leads to unexpected,
+> hard-to-debug behavior in configure scripts, etc.
+> 
+> Would it make sense to add 'make' as a dependency to R-core or
+> R-devel? I asked Tom Callaway but he has not responded; I am not sure
+> if he is still actively maintaining these rpm packages.
+
+I am, and I just committed the fix to add Requires: make to the R-core
+packages. Sorry for the delay in responding, I've been traveling.
+
+~tom
+
+==
+?.???`?.??`?.??.???`?.?><(((?> OSAS @ Red Hat
+University Outreach || Fedora Special Projects || Fedora Legal
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: tcallawa.vcf
+Type: text/x-vcard
+Size: 4 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140808/ba1d11a2/attachment.vcf>
+
+From tcallawa at redhat.com  Fri Aug  8 14:04:43 2014
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 08 Aug 2014 14:04:43 +0200
+Subject: [R-sig-Fedora] Installing locales in Fedora
+In-Reply-To: <CABFfbXt161b2ZwTJR3VDEWDD15Y35CT3FE5mD_zE5zOTzRCwAg@mail.gmail.com>
+References: <CABFfbXt161b2ZwTJR3VDEWDD15Y35CT3FE5mD_zE5zOTzRCwAg@mail.gmail.com>
+Message-ID: <53E4BCDB.3080309@redhat.com>
+
+On 08/08/2014 11:25 AM, Jeroen Ooms wrote:
+> Not specifically an R question, but hopefully some Fedora users might
+> know the answer. I am creating an rpm for an R application that uses
+> en_US.UTF-8:
+> 
+>   Sys.setlocale(category='LC_ALL', 'en_US.UTF-8');
+>   Sys.setenv(LANG="en_US.UTF-8")
+> 
+> On my own Fedora installation, en_US.UTF-8 was installed by default.
+> However this was an English system, so I am not sure this will be the
+> case for any Fedora system. Is there an rpm package in Fedora that I
+> can declare as a dependency in my rpm spec to make sure en_US.UTF-8
+> will be available, even on bare-minimum Chinese Fedora installation?
+
+I don't think it is possible to install Fedora without en_US.UTF-8,
+unless you are deleting files manually.
+
+~tom
+
+==
+?.???`?.??`?.??.???`?.?><(((?> OSAS @ Red Hat
+University Outreach || Fedora Special Projects || Fedora Legal
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: tcallawa.vcf
+Type: text/x-vcard
+Size: 4 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140808/67dbb354/attachment.vcf>
+
+From jeroenooms at gmail.com  Fri Aug  8 14:16:21 2014
+From: jeroenooms at gmail.com (Jeroen Ooms)
+Date: Fri, 8 Aug 2014 14:16:21 +0200
+Subject: [R-sig-Fedora] Missing make dependency in R-devel
+In-Reply-To: <53E4B98A.5060608@redhat.com>
+References: <CABFfbXv1LqjaUYXEDjFHxxMRdWOee1BvyxZoD9hXL7ZkrJqQ1g@mail.gmail.com>
+	<53E4B98A.5060608@redhat.com>
+Message-ID: <CABFfbXt1gq3fKOpq+mGY+=S1p=kz-Catj0Q4H5H0qsgHfqeYwQ@mail.gmail.com>
+
+On Fri, Aug 8, 2014 at 1:50 PM, Tom Callaway <tcallawa at redhat.com> wrote:
+> I am, and I just committed the fix to add Requires: make to the R-core
+> packages. Sorry for the delay in responding, I've been traveling.
+
+Thank you, I appreciate it. Another dependency problem that I
+experienced on Fedora is unzip. It seems that getOption("unzip") is
+set to "/usr/bin/unzip" by default, however unzip is not declared as a
+dependency of R-core:
+
+> getOption("unzip")
+[1] "/usr/bin/unzip"
+> file.exists(getOption("unzip"))
+[1] FALSE
+
+This again led to some strange problems with packages trying to use
+unzip. I am not sure what the preferred solution would be. We could
+add unzip as a dependency to R-core rpm, or default to
+options(unzip="internal").
+
+
+From jeroen.ooms at stat.ucla.edu  Mon Aug 11 17:13:46 2014
+From: jeroen.ooms at stat.ucla.edu (Jeroen Ooms)
+Date: Mon, 11 Aug 2014 17:13:46 +0200
+Subject: [R-sig-Fedora] Renviron.site and Rprofile.site in Fedora
+Message-ID: <CABFfbXv3s0=zNPsr0soLDT8tOCah67cA++S18y4OrpxUcZ3t+g@mail.gmail.com>
+
+On Debian/Ubuntu, system wide environment variables and options are
+set in respectively /etc/R/Renviron.site and /etc/R/Rprofile.site.
+These files are automatically created when r-base is installed, and do
+not get overwritten during an upgrade.
+
+On Fedora, there is no /etc/R directory. What is the recommended place
+to define system wide environment variables and options on a Fedora
+system?
+
+
+From r.turner at auckland.ac.nz  Tue Aug 12 00:41:26 2014
+From: r.turner at auckland.ac.nz (Rolf Turner)
+Date: Tue, 12 Aug 2014 10:41:26 +1200
+Subject: [R-sig-Fedora] Renviron.site and Rprofile.site in Fedora
+In-Reply-To: <CABFfbXv3s0=zNPsr0soLDT8tOCah67cA++S18y4OrpxUcZ3t+g@mail.gmail.com>
+References: <CABFfbXv3s0=zNPsr0soLDT8tOCah67cA++S18y4OrpxUcZ3t+g@mail.gmail.com>
+Message-ID: <53E94696.6010904@auckland.ac.nz>
+
+On 12/08/14 03:13, Jeroen Ooms wrote:
+> On Debian/Ubuntu, system wide environment variables and options are
+> set in respectively /etc/R/Renviron.site and /etc/R/Rprofile.site.
+> These files are automatically created when r-base is installed, and do
+> not get overwritten during an upgrade.
+>
+> On Fedora, there is no /etc/R directory. What is the recommended place
+> to define system wide environment variables and options on a Fedora
+> system?
+
+Looking at ?Rprofile (from the R command line) tells me that the default 
+locations are:
+
+   R_HOME/etc/Renviron.site
+
+and
+
+   R_HOME/etc/Rprofile.site
+
+You can find out where "R_HOME" is, if you don't know, by typing
+
+   R.home()
+
+from the R command line.
+
+I guess these locations *would* get overwritten in an upgrade.  To 
+imitate the Debian/Ubuntu system you could simply create the directory 
+/etc/R and set the environment variables R_ENVIRON and R_PROFILE 
+appropriately in your .bashrc or .cshrc file.
+
+cheers,
+
+Rolf Turner
+
+-- 
+Rolf Turner
+Technical Editor ANZJS
+
+
+From jeroen.ooms at stat.ucla.edu  Tue Aug 12 22:23:39 2014
+From: jeroen.ooms at stat.ucla.edu (Jeroen Ooms)
+Date: Tue, 12 Aug 2014 22:23:39 +0200
+Subject: [R-sig-Fedora] rpmbuild generates dependency on /usr/bin/r
+Message-ID: <CABFfbXvWgMXE7CEjOpW7=La9VUD5e+dpS+_ROrk8g1F+tLqxMA@mail.gmail.com>
+
+I am trying to create an rpm package for opencpu. The rpm package
+compiles and installs a few R packages during build. When Rcpp is
+included, rpmbuild automatically generates a dependency on /usr/bin/r,
+however there is no such file. Trying to install the packages gives
+this error:
+
+  Error: Package: opencpu-lib-1.4.3.99-24.1.x86_64
+    Requires: /usr/bin/r
+
+It seems like the R-core and R-devel packages do not contain any
+/usr/bin/r file. Why does rpmbuild generate this dependency? Here is a
+build log: http://www.stat.ucla.edu/~jeroen/files/log.txt
+
+

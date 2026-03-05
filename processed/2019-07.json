@@ -1,0 +1,190 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2019-07",
+  "messages": [
+    {
+      "id": "msg-a0030d478780",
+      "message_id": "<CAJP_izcMMa4pOg_RttROjx0O63wADRBV7C6oGO_rm7psDGRotw@mail.gmail.com>",
+      "from_name": "Elliott Sales de Andrade",
+      "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
+      "date": "2019-07-04T05:35:18-04:00",
+      "subject": "[R-sig-Fedora] Fwd: Fedora 31 System-Wide change proposal: Automatic R runtime dependencies",
+      "subject_clean": "Fedora 31 System-Wide change proposal: Automatic R runtime dependencies",
+      "in_reply_to": "<CA+voJeUDSGaozCUJGN8MAORdgRB3VtV5VHweFhVo2_HiL7_zRw@mail.gmail.com>",
+      "references": [
+        "<CA+voJeUDSGaozCUJGN8MAORdgRB3VtV5VHweFhVo2_HiL7_zRw@mail.gmail.com>"
+      ],
+      "body_plain": "FYI, I plan on implementing this for F31 if no issues arise.\n\n---------- Forwarded message ---------\nFrom: Ben Cotton <bcotton at redhat.com>\nDate: Tue, 2 Jul 2019 at 10:55\nSubject: Fedora 31 System-Wide change proposal: Automatic R runtime dependencies\nTo: <devel-announce at lists.fedoraproject.org>, Development discussions\nrelated to Fedora <devel at lists.fedoraproject.org>\n\n\nhttps://fedoraproject.org/wiki/Changes/Automatic_R_runtime_dependencies\n\n== Summary ==\n\nPackages of R libraries will produce a standard\n<code>R(packageName)</code> Provides, and Requires on these standard\nnames will be added from library metadata. Standard provides will use\nthe unmodified versions from the metadata. Suggested dependencies will\nnot be automatically added, but can be opted in by the packager.\n\n\n== Owner ==\n* Name: [[User:qulogic| Elliott Sales de Andrade]]\n* Email: quantum.analyst at gmail.com\n\n== Detailed Description ==\n\nR libraries currently provide metadata indicating runtime requirements on other\nlibraries in a <code>DESCRIPTION</code> file. Using RPM's file attributes and\ndependency generator support, these requirements can be added to packages\nautomatically. These will use namespaced <code>Provides</code> of\n<code>R(packageName) = packageVersion</code> where <code>packageName</code> is\nthe importable name of the package and <code>packageVersion</code> is the\nupstream version (note: upstream versions are often sanitized for Fedora since\nRPM cannot use dashes in versions.)\n\nR library metadata includes <code>Depends</code> and <code>Imports</code> which\nwill be mapped to <code>Requires</code>. Metadata that specifies\n<code>Enhances</code> will be mapped directly to <code>Enhances</code>.\n\nMetadata that specifies <code>Suggests</code> will ''not'' be mapped to\nanything by default. Oftentimes, suggested libraries are used to indicate\ndependencies that are needed at build time only. Packagers who wish to include\nany actual runtime <code>Suggests</code> may opt in to adding them using a\n(TBD) flag or just continue to add <code>Suggests</code> manually.\n\n\n== Benefit to Fedora ==\n\nThis change provides a standard Provided name for R packages.\nThis change helps users of R packages by providing the ''original''\nversion value (as opposed to the sanitized one for RPM.)\nThis change reduces the amount of work packagers need to do keeping (R\npackage) dependencies correct.\n\n\n== Scope ==\n\n* Proposal owners: The automated dependency generator is\n[https://src.fedoraproject.org/fork/qulogic/rpms/R/blob/autodeps/f/R-deps.R\navailable], but will need to be updated to provide the opt-in\n<code>Suggests</code>. The generator and file attributes will likely\nbe housed in the RPM organization, and a new package will be created\nfor it.  R packages will need to be rebuilt after the generator is\npackaged, in order to ensure that they contain the new\n<code>Provides</code>. If the mass rebuild is not sufficient, this\nwill be carried out in a side tag.\n* Other developers: Others are welcome to rebuild their packages once\nthe generators are available, but it is not a requirement.\n* Release engineering: [https://pagure.io/releng/issue/8501 Releng issue 8501]\n* Policies and guidelines: R packaging guidelines should be updated to\nmention the new generator; this can be done after the implementation\nis done.\n* Trademark approval: N/A (not needed for this Change)\n\n\n== Upgrade/compatibility impact ==\n\nNo impact expected.\n\n\n== How To Test ==\n\n# Pick any R package in Fedora.\n# Attempt to install it.\n# Verify that automatic dependencies are correct, i.e., the package\ninstalled without missing dependencies, and the dependencies that were\npulled in are the ones specified in its <code>DESCRIPTION</code> file.\n\n\n== User Experience ==\n\nUsers interested in R may install packages based on upstream's\n''real'' version, and missing dependency annotations will be less\nlikely to occur.\n\n\n== Dependencies ==\n\nMove of code to RPM organization; it would be preferred to occur as\nearly as possible, but is not a full blocker.\n\nThese packages will need to be rebuilt:\n* COPASI\n* R-abind\n* R-acepack\n* R-affy\n* R-affydata\n* R-affyio\n* R-ALL\n* R-AnnotationDbi\n* R-ape\n* R-argon2\n* R-ascii\n* R-askpass\n* R-assertthat\n* R-AUC\n* R-backports\n* R-base64enc\n* R-Bessel\n* R-BH\n* R-biglm\n* R-bindr\n* R-bindrcpp\n* R-Biobase\n* R-BiocGenerics\n* R-BiocParallel\n* R-biomaRt\n* R-Biostrings\n* R-bit\n* R-bit64\n* R-bitops\n* R-blob\n* R-brew\n* R-BSgenome\n* R-BSgenome.Celegans.UCSC.ce2\n* R-BufferedMatrix\n* R-BufferedMatrixMethods\n* R-Cairo\n* R-callr\n* R-car\n* R-caTools\n* R-cellranger\n* R-chron\n* R-cli\n* R-cliapp\n* R-clipr\n* R-clisymbols\n* R-coda\n* R-colorspace\n* R-combinat\n* R-commonmark\n* R-corpus\n* R-crayon\n* R-curl\n* R-data.table\n* R-date\n* R-DBI\n* R-dbplyr\n* R-debugme\n* R-DelayedArray\n* R-deldir\n* R-desc\n* R-dichromat\n* R-diffobj\n* R-digest\n* R-disposables\n* R-doParallel\n* R-dplyr\n* R-dtplyr\n* R-DynDoc\n* R-ellipsis\n* R-errors\n* R-evaluate\n* R-expm\n* R-fansi\n* R-farver\n* R-fastmatch\n* R-fibroEset\n* R-filehash\n* R-FMStable\n* R-foghorn\n* R-fontBitstreamVera\n* R-fontLiberation\n* R-forcats\n* R-foreach\n* R-formatR\n* R-fortunes\n* R-fs\n* R-fts\n* R-futile.logger\n* R-futile.options\n* R-future\n* R-gamlss.dist\n* R-gapminder\n* R-gdata\n* R-gdtools\n* R-gee\n* R-geepack\n* R-generics\n* R-GenomeInfoDb\n* R-GenomeInfoDbData\n* R-GenomicAlignments\n* R-GenomicFeatures\n* R-GenomicRanges\n* R-getPass\n* R-ggplot2\n* R-ggplot2movies\n* R-gh\n* R-git2r\n* R-globals\n* R-glue\n* R-gmailr\n* R-gmp\n* R-gplots\n* R-gsl\n* R-gss\n* R-gtable\n* R-gtools\n* R-haven\n* R-here\n* R-hexbin\n* R-hgu133acdf\n* R-hgu95av2cdf\n* R-hgu95av2probe\n* R-highlight\n* R-highr\n* R-hms\n* R-htmltools\n* R-htmlwidgets\n* R-httpuv\n* R-httr\n* R-hunspell\n* R-igraph\n* R-import\n* R-ini\n* R-inline\n* R-IRanges\n* R-IRdisplay\n* R-IRkernel\n* R-iterators\n* R-itertools\n* R-jose\n* R-jpeg\n* R-jqr\n* R-jsonlite\n* R-knitr\n* R-labeling\n* R-lambda.r\n* R-later\n* R-lazyeval\n* R-lintr\n* R-listenv\n* R-littler\n* R-lmodel2\n* R-lmtest\n* R-lokern\n* R-lubridate\n* R-maanova\n* R-magrittr\n* R-mapproj\n* R-maps\n* R-mAr\n* R-markdown\n* R-matrixStats\n* R-measurements\n* R-memoise\n* R-microbenchmark\n* R-mime\n* R-miniUI\n* R-mlbench\n* R-mnormt\n* R-mockery\n* R-mockr\n* R-msm\n* R-multcomp\n* R-multtest\n* R-munsell\n* R-mvtnorm\n* R-nanotime\n* R-ncdf4\n* R-NISTunits\n* R-nws\n* R-nycflights13\n* R-openssl\n* R-orcutt\n* R-packrat\n* R-parsedate\n* R-pbdRPC\n* R-pbdZMQ\n* R-pdftools\n* R-pillar\n* R-pingr\n* R-pkgbuild\n* R-pkgconfig\n* R-pkgdown\n* R-pkgload\n* R-plogr\n* R-pls\n* R-plyr\n* R-png\n* R-poLCA\n* R-polyclip\n* R-polynom\n* R-praise\n* R-preprocessCore\n* R-prettycode\n* R-prettydoc\n* R-prettyunits\n* R-processx\n* R-progress\n* R-promises\n* R-ps\n* R-purrr\n* R-qcc\n* R-qpdf\n* R-qtl\n* R-quadprog\n* R-quantities\n* R-qvalue\n* R-R6\n* R-rappdirs\n* R-R.cache\n* R-rcmdcheck\n* R-RColorBrewer\n* R-Rcompression\n* R-Rcpp\n* R-RcppCCTZ\n* R-RCurl\n* R-R.devices\n* R-readr\n* R-readxl\n* R-rematch\n* R-rematch2\n* R-remotes\n* R-repr\n* R-reprex\n* R-reshape\n* R-reshape2\n* R-reticulate\n* R-rex\n* R-rgdal\n* R-rgeos\n* R-rhub\n* R-RInside\n* R-rlang\n* R-rlecuyer\n* R-RM2\n* R-rmarkdown\n* R-R.methodsS3\n* R-Rmpfr\n* R-ROC\n* R-RODBC\n* R-R.oo\n* R-roxygen2\n* R-rprintf\n* R-rprojroot\n* R-R.rsp\n* R-Rsamtools\n* R-rsconnect\n* R-Rsolid\n* R-RSQLite\n* R-rstudioapi\n* R-rsvg\n* R-rtracklayer\n* R-RUnit\n* R-R.utils\n* R-rversions\n* R-rvest\n* R-S4Vectors\n* R-sandwich\n* R-scales\n* R-scatterplot3d\n* R-sciplot\n* R-selectr\n* R-sessioninfo\n* R-sfsmisc\n* R-shiny\n* R-showtext\n* R-showtextdb\n* R-simmer\n* R-snow\n* R-sodium\n* R-sourcetools\n* R-sp\n* R-spelling\n* R-statmod\n* R-statnet.common\n* R-stringdist\n* R-stringi\n* R-stringr\n* R-styler\n* R-SummarizedExperiment\n* R-svglite\n* R-sys\n* R-sysfonts\n* R-systemfit\n* R-testit\n* R-testthat\n* R-tibble\n* R-tidyr\n* R-tidyselect\n* R-tikzDevice\n* R-timeDate\n* R-timeSeries\n* R-tinytest\n* R-tinytex\n* R-tkrplot\n* R-tkWidgets\n* R-tufte\n* R-tweenr\n* R-udunits2\n* R-unitizer\n* R-units\n* R-unix\n* R-usethis\n* R-utf8\n* R-uuid\n* R-V8\n* R-vctrs\n* R-viridisLite\n* R-waveslim\n* R-wavethresh\n* R-webp\n* R-webutils\n* R-whisker\n* R-whoami\n* R-widgetTools\n* R-withr\n* R-xfun\n* R-XML\n* R-xml2\n* R-xopen\n* R-xtable\n* R-XVector\n* R-yaml\n* R-zeallot\n* R-zoo\n* libsbml\n* libsedml\n* libnuml\n* shogun\n\n\n== Contingency Plan ==\n\n* Contingency mechanism: The side tag will not be merged, or if a side\ntag is deemed unnecessary, the generator will not be installed, and\nany built packages will be re-built without it.\n* Contingency deadline: Beta Freeze\n* Blocks release? No\n\n\n== Documentation ==\n\nSee [https://lists.fedoraproject.org/archives/list/devel at lists.fedoraproject.org/thread/VQ5F3S3BGKK3AOZDANNW7AGVCMS2CKM4/\nmailing list discussion].\n\n\n--\nBen Cotton\nHe / Him / His\nFedora Program Manager\nRed Hat\nTZ=America/Indiana/Indianapolis\n_______________________________________________\ndevel mailing list -- devel at lists.fedoraproject.org\nTo unsubscribe send an email to devel-leave at lists.fedoraproject.org\nFedora Code of Conduct:\nhttps://docs.fedoraproject.org/en-US/project/code-of-conduct/\nList Guidelines: https://fedoraproject.org/wiki/Mailing_list_guidelines\nList Archives: https://lists.fedoraproject.org/archives/list/devel at lists.fedoraproject.org\n\n\n-- \nElliott",
+      "body_snippet": "FYI, I plan on implementing this for F31 if no issues arise.\n\n---------- Forwarded message ---------\nFrom: Ben Cotton <bcotton at redhat.com>\nDate: Tue, 2 Jul 2019 at 10:55\nSubject: Fedora 31 System-W",
+      "thread_id": "thread-a0030d478780",
+      "thread_depth": 0,
+      "month": "2019-07"
+    },
+    {
+      "id": "msg-9b059baf36ce",
+      "message_id": "<10148999.UyBmMMDdau@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2019-07-04T11:05:04+01:00",
+      "subject": "[R-sig-Fedora] Fwd: Fedora 31 System-Wide change proposal: Automatic R runtime dependencies",
+      "subject_clean": "Fedora 31 System-Wide change proposal: Automatic R runtime dependencies",
+      "in_reply_to": "<CAJP_izcMMa4pOg_RttROjx0O63wADRBV7C6oGO_rm7psDGRotw@mail.gmail.com>",
+      "references": [
+        "<CA+voJeUDSGaozCUJGN8MAORdgRB3VtV5VHweFhVo2_HiL7_zRw@mail.gmail.com>",
+        "<CAJP_izcMMa4pOg_RttROjx0O63wADRBV7C6oGO_rm7psDGRotw@mail.gmail.com>"
+      ],
+      "body_plain": "On Thursday, 4 July 2019 10.35.18 WEST Elliott Sales de Andrade wrote:\n> FYI, I plan on implementing this for F31 if no issues arise.\n\nAre there are any R packages, other than those built in R itself, that are not \naffected by this change? :-)\n\nBecause I think that in this case the list of affected packages would be all \nthe packages with R subpackages. Or am I misunderstanding the details?\n\nBTW nice job. :-)\n\nBest regards,\n-- \nJos? Ab?lio",
+      "body_snippet": "On Thursday, 4 July 2019 10.35.18 WEST Elliott Sales de Andrade wrote:\n> FYI, I plan on implementing this for F31 if no issues arise.\n\nAre there are any R packages, other than those built in R itself,",
+      "thread_id": "thread-a0030d478780",
+      "thread_depth": 1,
+      "month": "2019-07"
+    },
+    {
+      "id": "msg-d8243d565648",
+      "message_id": "<CAJP_izcgBNYbLtaXAU5C3-AQWrMnKC=GtKG5hzTqF6pgta7L4A@mail.gmail.com>",
+      "from_name": "Elliott Sales de Andrade",
+      "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
+      "date": "2019-07-04T16:27:24-04:00",
+      "subject": "[R-sig-Fedora] Fwd: Fedora 31 System-Wide change proposal: Automatic R runtime dependencies",
+      "subject_clean": "Fedora 31 System-Wide change proposal: Automatic R runtime dependencies",
+      "in_reply_to": "<10148999.UyBmMMDdau@myth>",
+      "references": [
+        "<CA+voJeUDSGaozCUJGN8MAORdgRB3VtV5VHweFhVo2_HiL7_zRw@mail.gmail.com>",
+        "<CAJP_izcMMa4pOg_RttROjx0O63wADRBV7C6oGO_rm7psDGRotw@mail.gmail.com>",
+        "<10148999.UyBmMMDdau@myth>"
+      ],
+      "body_plain": "On Thu, 4 Jul 2019 at 06:05, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Thursday, 4 July 2019 10.35.18 WEST Elliott Sales de Andrade wrote:\n> > FYI, I plan on implementing this for F31 if no issues arise.\n>\n> Are there are any R packages, other than those built in R itself, that are not\n> affected by this change? :-)\n>\n\nOh, actually, I forgot to mention R in that list...\n\n> Because I think that in this case the list of affected packages would be all\n> the packages with R subpackages. Or am I misunderstanding the details?\n>\n\nYes, it is all packages with R subpackages. There are no required\nchanges to the specs, just a rebuild, unless FPC mandates removing\nduplicate Requires.\n\n> BTW nice job. :-)\n>\n> Best regards,\n> --\n> Jos? Ab?lio\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\n-- \nElliott",
+      "body_snippet": "On Thu, 4 Jul 2019 at 06:05, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Thursday, 4 July 2019 10.35.18 WEST Elliott Sales de Andrade wrote:\n> > FYI, I plan on implementing this for F31 if n",
+      "thread_id": "thread-a0030d478780",
+      "thread_depth": 2,
+      "month": "2019-07"
+    },
+    {
+      "id": "msg-f7df29f4fcec",
+      "message_id": "<13F453F1-4440-4C71-9FA8-5E9E46A38E0C@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "040b2d09159b27cfd2853bc2dbb476bd637811586f307d9583c9ef7f806f3692",
+      "date": "2019-07-23T13:04:55-04:00",
+      "subject": "[R-sig-Fedora] Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
+      "subject_clean": "Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nI had an issue report from a user of my WriteXLS CRAN package indicating that Compress::Raw::Zlib is apparently not installed by default with Perl on Fedora 30.\n\nSince this appears to be a new issue, I am wondering if one of the Fedora maintainers on this list can confirm this and perhaps when the change may have occurred.\n\nIf this is correct and not a Perl installation issue or other error, I may need to add this Perl module to my CRAN package moving forward.\n\nThanks,\n\nMarc Schwartz",
+      "body_snippet": "Hi,\n\nI had an issue report from a user of my WriteXLS CRAN package indicating that Compress::Raw::Zlib is apparently not installed by default with Perl on Fedora 30.\n\nSince this appears to be a new is",
+      "thread_id": "thread-f7df29f4fcec",
+      "thread_depth": 0,
+      "month": "2019-07"
+    },
+    {
+      "id": "msg-53383ea1af0b",
+      "message_id": "<41DB783F-F51E-46D0-84A4-3BB1CAE7DA39@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "040b2d09159b27cfd2853bc2dbb476bd637811586f307d9583c9ef7f806f3692",
+      "date": "2019-07-24T08:42:32-04:00",
+      "subject": "[R-sig-Fedora]  Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
+      "subject_clean": "Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
+      "in_reply_to": "<13F453F1-4440-4C71-9FA8-5E9E46A38E0C@me.com>",
+      "references": [
+        "<13F453F1-4440-4C71-9FA8-5E9E46A38E0C@me.com>"
+      ],
+      "body_plain": "> On Jul 23, 2019, at 1:04 PM, Marc Schwartz <marc_schwartz at me.com> wrote:\n> \n> Hi,\n> \n> I had an issue report from a user of my WriteXLS CRAN package indicating that Compress::Raw::Zlib is apparently not installed by default with Perl on Fedora 30.\n> \n> Since this appears to be a new issue, I am wondering if one of the Fedora maintainers on this list can confirm this and perhaps when the change may have occurred.\n> \n> If this is correct and not a Perl installation issue or other error, I may need to add this Perl module to my CRAN package moving forward.\n> \n> Thanks,\n> \n> Marc Schwartz\n\n\nHi,\n\nA quick follow up pending confirmation.\n\nIn the course of a search this morning, I found the following page:\n\n  https://fedora.pkgs.org/30/fedora-updates-x86_64/perl-5.28.2-436.fc30.x86_64.rpm.html\n\nwhich, if I read correctly, would indicate that perl-Compress-Raw-Zlib is indeed required by the Perl RPM, so should presumably be installed by default, with Perl.\n\nIt is not clear to me if there is a Fedora 30 install/upgrade scenario where perl-Compress-Raw-Zlib would not be present, but would defer to those with the relevant knowledge.\n\nThanks for any insights.\n\nMarc",
+      "body_snippet": "> On Jul 23, 2019, at 1:04 PM, Marc Schwartz <marc_schwartz at me.com> wrote:\n> \n> Hi,\n> \n> I had an issue report from a user of my WriteXLS CRAN package indicating that Compress::Raw::Zlib is apparen",
+      "thread_id": "thread-f7df29f4fcec",
+      "thread_depth": 1,
+      "month": "2019-07"
+    },
+    {
+      "id": "msg-9eb2ab5c367b",
+      "message_id": "<CANA0HMapLt45McyLQxaHh+ryXuDiemj3ASE+2Q3RBMyiuWkp9Q@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "b0864efc945ad746d5bce55bf7c4d85fa011a673c705bb017c133f1ae5ab7506",
+      "date": "2019-07-24T08:53:37-04:00",
+      "subject": "[R-sig-Fedora]  Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
+      "subject_clean": "Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
+      "in_reply_to": "<41DB783F-F51E-46D0-84A4-3BB1CAE7DA39@me.com>",
+      "references": [
+        "<13F453F1-4440-4C71-9FA8-5E9E46A38E0C@me.com>",
+        "<41DB783F-F51E-46D0-84A4-3BB1CAE7DA39@me.com>"
+      ],
+      "body_plain": "I can confirm:\n\n[spot at localhost ~]$ rpm -q perl --requires |grep Zlib\nperl-Compress-Raw-Zlib\nperl-IO-Zlib\n[spot at localhost ~]$ rpm -q perl\nperl-5.28.2-436.fc30.x86_64\n\nIt would require either notable human intervention (or a canceled\nmid-upgrade state) for a Fedora 30 system to end up with perl, but not\nperl-Compress-Raw-Zlib.\n\nThanks,\nTom\n\nOn Wed, Jul 24, 2019 at 8:42 AM Marc Schwartz <marc_schwartz at me.com> wrote:\n\n>\n> > On Jul 23, 2019, at 1:04 PM, Marc Schwartz <marc_schwartz at me.com> wrote:\n> >\n> > Hi,\n> >\n> > I had an issue report from a user of my WriteXLS CRAN package indicating\n> that Compress::Raw::Zlib is apparently not installed by default with Perl\n> on Fedora 30.\n> >\n> > Since this appears to be a new issue, I am wondering if one of the\n> Fedora maintainers on this list can confirm this and perhaps when the\n> change may have occurred.\n> >\n> > If this is correct and not a Perl installation issue or other error, I\n> may need to add this Perl module to my CRAN package moving forward.\n> >\n> > Thanks,\n> >\n> > Marc Schwartz\n>\n>\n> Hi,\n>\n> A quick follow up pending confirmation.\n>\n> In the course of a search this morning, I found the following page:\n>\n>\n> https://fedora.pkgs.org/30/fedora-updates-x86_64/perl-5.28.2-436.fc30.x86_64.rpm.html\n>\n> which, if I read correctly, would indicate that perl-Compress-Raw-Zlib is\n> indeed required by the Perl RPM, so should presumably be installed by\n> default, with Perl.\n>\n> It is not clear to me if there is a Fedora 30 install/upgrade scenario\n> where perl-Compress-Raw-Zlib would not be present, but would defer to those\n> with the relevant knowledge.\n>\n> Thanks for any insights.\n>\n> Marc\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I can confirm:\n\n[spot at localhost ~]$ rpm -q perl --requires |grep Zlib\nperl-Compress-Raw-Zlib\nperl-IO-Zlib\n[spot at localhost ~]$ rpm -q perl\nperl-5.28.2-436.fc30.x86_64\n\nIt would require either not",
+      "thread_id": "thread-f7df29f4fcec",
+      "thread_depth": 2,
+      "month": "2019-07"
+    },
+    {
+      "id": "msg-ac28abf4ddfb",
+      "message_id": "<C94248F7-B442-4829-B3AB-C6EA04D6F80E@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "040b2d09159b27cfd2853bc2dbb476bd637811586f307d9583c9ef7f806f3692",
+      "date": "2019-07-24T09:03:24-04:00",
+      "subject": "[R-sig-Fedora]  Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
+      "subject_clean": "Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
+      "in_reply_to": "<CANA0HMapLt45McyLQxaHh+ryXuDiemj3ASE+2Q3RBMyiuWkp9Q@mail.gmail.com>",
+      "references": [
+        "<13F453F1-4440-4C71-9FA8-5E9E46A38E0C@me.com>",
+        "<41DB783F-F51E-46D0-84A4-3BB1CAE7DA39@me.com>",
+        "<CANA0HMapLt45McyLQxaHh+ryXuDiemj3ASE+2Q3RBMyiuWkp9Q@mail.gmail.com>"
+      ],
+      "body_plain": "Hi Tom,\n\nThanks kindly for your reply and I hope that you are well.\n\nI appreciate your confirmation of the situation.\n\nKind Regards,\n\nMarc\n\n\n> On Jul 24, 2019, at 8:53 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n> \n> I can confirm:\n> \n> [spot at localhost ~]$ rpm -q perl --requires |grep Zlib\n> perl-Compress-Raw-Zlib\n> perl-IO-Zlib\n> [spot at localhost ~]$ rpm -q perl\n> perl-5.28.2-436.fc30.x86_64\n> \n> It would require either notable human intervention (or a canceled mid-upgrade state) for a Fedora 30 system to end up with perl, but not perl-Compress-Raw-Zlib.\n> \n> Thanks,\n> Tom\n> \n> On Wed, Jul 24, 2019 at 8:42 AM Marc Schwartz <marc_schwartz at me.com <mailto:marc_schwartz at me.com>> wrote:\n> \n> > On Jul 23, 2019, at 1:04 PM, Marc Schwartz <marc_schwartz at me.com <mailto:marc_schwartz at me.com>> wrote:\n> > \n> > Hi,\n> > \n> > I had an issue report from a user of my WriteXLS CRAN package indicating that Compress::Raw::Zlib is apparently not installed by default with Perl on Fedora 30.\n> > \n> > Since this appears to be a new issue, I am wondering if one of the Fedora maintainers on this list can confirm this and perhaps when the change may have occurred.\n> > \n> > If this is correct and not a Perl installation issue or other error, I may need to add this Perl module to my CRAN package moving forward.\n> > \n> > Thanks,\n> > \n> > Marc Schwartz\n> \n> \n> Hi,\n> \n> A quick follow up pending confirmation.\n> \n> In the course of a search this morning, I found the following page:\n> \n>   https://fedora.pkgs.org/30/fedora-updates-x86_64/perl-5.28.2-436.fc30.x86_64.rpm.html <https://fedora.pkgs.org/30/fedora-updates-x86_64/perl-5.28.2-436.fc30.x86_64.rpm.html>\n> \n> which, if I read correctly, would indicate that perl-Compress-Raw-Zlib is indeed required by the Perl RPM, so should presumably be installed by default, with Perl.\n> \n> It is not clear to me if there is a Fedora 30 install/upgrade scenario where perl-Compress-Raw-Zlib would not be present, but would defer to those with the relevant knowledge.\n> \n> Thanks for any insights.\n> \n> Marc\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org <mailto:R-SIG-Fedora at r-project.org>\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora <https://stat.ethz.ch/mailman/listinfo/r-sig-fedora>\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi Tom,\n\nThanks kindly for your reply and I hope that you are well.\n\nI appreciate your confirmation of the situation.\n\nKind Regards,\n\nMarc\n\n\n> On Jul 24, 2019, at 8:53 AM, Tom Callaway <tcallawa at re",
+      "thread_id": "thread-f7df29f4fcec",
+      "thread_depth": 3,
+      "month": "2019-07"
+    },
+    {
+      "id": "msg-90df9f043571",
+      "message_id": "<CAJP_izfNMjeyPNjfK1svLXpK3PEPbAiKzLwEc3mxzGCR0vx3nQ@mail.gmail.com>",
+      "from_name": "Elliott Sales de Andrade",
+      "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
+      "date": "2019-07-26T01:50:27-04:00",
+      "subject": "[R-sig-Fedora] Removing macros.R",
+      "subject_clean": "Removing macros.R",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\n(This message is cross-posted to the Fedora devel and R SIG Fedora\nmailing lists.)\n\nCurrently, R-core installs macros.R which defines one macro:\n%_R_make_search_index   /usr/lib/rpm/R-make-search-index.sh\n\nThis script does nothing, and there is no mention of this macro in our\nguidelines. The macro is used by one package, R-systemfit. The script\nis not used.\n\nAccording to the R %changelog, it was disabled in 2009.\n\nI would like to clean this up, and will do so in approximately a week,\nand/or whenever the mass rebuild finishes.\n\n-- \nElliott",
+      "body_snippet": "Hi,\n\n(This message is cross-posted to the Fedora devel and R SIG Fedora\nmailing lists.)\n\nCurrently, R-core installs macros.R which defines one macro:\n%_R_make_search_index   /usr/lib/rpm/R-make-search",
+      "thread_id": "thread-90df9f043571",
+      "thread_depth": 0,
+      "month": "2019-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-a0030d478780",
+      "subject": "Fedora 31 System-Wide change proposal: Automatic R runtime dependencies",
+      "message_count": 3,
+      "participants": [
+        "Elliott Sales de Andrade",
+        "José Abílio Matos"
+      ],
+      "started": "2019-07-04T05:35:18-04:00",
+      "last_reply": "2019-07-04T16:27:24-04:00",
+      "root_message_id": "msg-a0030d478780"
+    },
+    {
+      "id": "thread-f7df29f4fcec",
+      "subject": "Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
+      "message_count": 4,
+      "participants": [
+        "Marc Schwartz",
+        "Tom Callaway"
+      ],
+      "started": "2019-07-23T13:04:55-04:00",
+      "last_reply": "2019-07-24T09:03:24-04:00",
+      "root_message_id": "msg-f7df29f4fcec"
+    },
+    {
+      "id": "thread-90df9f043571",
+      "subject": "Removing macros.R",
+      "message_count": 1,
+      "participants": [
+        "Elliott Sales de Andrade"
+      ],
+      "started": "2019-07-26T01:50:27-04:00",
+      "last_reply": "2019-07-26T01:50:27-04:00",
+      "root_message_id": "msg-90df9f043571"
+    }
+  ]
+}

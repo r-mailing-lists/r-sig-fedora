@@ -1,0 +1,121 @@
+From asr at ufl.edu  Wed Mar 27 21:56:25 2013
+From: asr at ufl.edu (Allen S. Rout)
+Date: Wed, 27 Mar 2013 16:56:25 -0400
+Subject: [R-sig-Fedora] R 3.0;  want to try again?
+Message-ID: <kivmdi$9sr$1@ger.gmane.org>
+
+
+So with a major new version of R coming along, it seems like a
+reasonable point at which to try to pick up the "Let's make a CRAN repo
+for the red-hat-like folks!" task again.
+
+The last time I tried to download Pierre-Yves' package, I couldn't get
+it to run in RHEL5.8; I went down a rabbit hole trying to make changes
+for my own use.  Eventually, I simply failed.
+
+I'd love to be able to pick this up, serve my local customers, and have
+the work actually useful to the larger community...
+
+- Allen S. Rout
+
+
+From jamatos at fc.up.pt  Thu Mar 28 21:25:24 2013
+From: jamatos at fc.up.pt (=?ISO-8859-1?Q?Jos=E9?= Matos)
+Date: Thu, 28 Mar 2013 20:25:24 +0000
+Subject: [R-sig-Fedora] R 3.0;  want to try again?
+In-Reply-To: <kivmdi$9sr$1@ger.gmane.org>
+References: <kivmdi$9sr$1@ger.gmane.org>
+Message-ID: <1657439.TCBOWCmEhY@ulysses>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130328/94e8b2fa/attachment.pl>
+
+From asr at ufl.edu  Fri Mar 29 15:21:42 2013
+From: asr at ufl.edu (Allen S. Rout)
+Date: Fri, 29 Mar 2013 10:21:42 -0400
+Subject: [R-sig-Fedora] R 3.0;  want to try again?
+In-Reply-To: <1657439.TCBOWCmEhY@ulysses>
+References: <kivmdi$9sr$1@ger.gmane.org> <1657439.TCBOWCmEhY@ulysses>
+Message-ID: <kj481d$35i$1@ger.gmane.org>
+
+On 03/28/2013 04:25 PM, Jos? Matos wrote:
+> On Wednesday 27 March 2013 16:56:25 Allen S. Rout wrote:
+>>
+>> So with a major new version of R coming along, it seems like a
+>> reasonable point at which to try to pick up the "Let's make a CRAN repo
+>> for the red-hat-like folks!" task again.
+> 
+> What road map do you propose?
+> 
+> What are the tasks that need to be done?
+> 
+
+I'm kind of trying to make things look like a parade, so Pierre-Yves
+feels like leading it. :)  I've put my oar into this project several
+times, but I feel it's clearly his thing.  With that genuflection in
+place, I'll steam on.
+
+So previous conversations on this topic are visible at:
+
+http://news.gmane.org/gmane.comp.lang.r.fedora
+
+and it was about a year ago that I last got on this horse.  Threads
+under the titles
+
+"Trying to use current R2spec on RHEL"
+
+and
+
+"Planning for R-repo"
+
+are, unfortunately, almost exactly as topical now as they were then.
+*sigh*.  I should have kept up.
+
+
+What I intend to do next is to try, again, to just download and use the
+package.  I'm hoping that between my patches last year and newer RHEL,
+lots of stuff will just work.
+
+
+It's my recollection that the current code base works thus:
+
+1) Calculate a heirarchy of packages:  Level zero doesn't depend on
+anything, level one depends on level zero; and so on, with each new
+level depending on things in lower levels.
+
+2) Build successive layers of packages.
+
+3) Once all the packages have been built, it's possible to run CHECKs.
+The broad set of dependencies for CHECKs is a major pain in the
+posterior, so ignoring it to begin with seems reasonable.
+
+Ref:
+
+http://thread.gmane.org/gmane.comp.lang.r.devel/21494/focus=21496
+
+
+4) Promote packages that have been CHECKED to a repo.  Should sign, etc.
+
+
+My biggest knowledge gaps here are related to fedora-land build habits.
+ I get scolded by the elect about running RPM work as root, and I get
+that;  but I have not anywhere found something like a recipe:
+
+"
+OK, you've got a RHEL box.  In order to get it set up to build stuff
+like Fedorites prefer, do these things:
+
++ Install EPEL
++ conventional working users
++ magic mock chicken-dance
++ blah blah that I don't know about.
+"
+
+If anyone here watching knows where the primer might be found, I'd love
+to read it.
+
+
+- Allen S. Rout
+
+

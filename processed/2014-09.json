@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2014-09",
+  "messages": [
+    {
+      "id": "msg-94b11048cea9",
+      "message_id": "<CAAHES9wJso7KwRLa1BdK1pkq1wzJ4wMwEWTdhFv=Ux1a10FMgw@mail.gmail.com>",
+      "from_name": "Gavin Simpson",
+      "from_email_hash": "58add0b466097570af4fc2db149715e659937a31492dc23dbcbc4da7c2628f70",
+      "date": "2014-09-17T12:33:08-06:00",
+      "subject": "[R-sig-Fedora] Compiling R on Fedora with threaded openblas",
+      "subject_clean": "Compiling R on Fedora with threaded openblas",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear List,\n\nI am trying to build R on Fedora against a threaded openblas installed from\nFedora's yum repos, or alternatively swap out libRblas.so with a threaded\nopenblas built locally.\n\nI have installed\n\n    $ yum list installed | grep openblas\n    openblas.x86_64             0.2.11-1.fc20           @updates\n\n    openblas-devel.x86_64       0.2.11-1.fc20           @updates\n\n    openblas-openmp.x86_64      0.2.11-1.fc20           @updates\n\n    openblas-openmp64.x86_64    0.2.11-1.fc20           @updates\n\n    openblas-serial64.x86_64    0.2.11-1.fc20           @updates\n\n    openblas-threads.x86_64     0.2.11-1.fc20           @updates\n\n    openblas-threads64.x86_64   0.2.11-1.fc20           @updates\n\nThe locally built openblas returned the following information\n\n    OpenBLAS build complete. (BLAS CBLAS LAPACK LAPACKE)\n\n      OS               ... Linux\n      Architecture     ... x86_64\n      BINARY           ... 64bit\n      C compiler       ... GCC  (command line : gcc)\n      Fortran compiler ... GFORTRAN  (command line : gfortran)\n      Library Name     ... libopenblas_haswellp-r0.2.11.a (Multi threaded;\nMax num-threads is 4)\n\n    To install the library, you can run \"make\nPREFIX=/path/to/your/installation install\".\n\nwhich suggests to me I successfully built a multi threaded openblas.\n\nWhilst trying to build against Fedora's openblas I used the following\nconfigure option\n\n    BLAS_LIBS=\"-L/usr/include/openblas -lopenblas\"\n\nor\n\n    BLAS_LIBS=\"-L/usr/lib64 -lopenblas\"\n\nand\n\n    ./configure --with-blas --enable-R-shlib --enable-BLAS-shlib\n\nWhilst trying to swap out the default libRblas.so I built simply with\n\n    ./configure --enable-R-shlib --enable-BLAS-shlib\n\nthen I symlinked my locally built libopenblas.so to RHOME/lib/libRblas.so\n\nNeither approach is yielding an R that uses multiple threads when doing\nlinear algebra, e.g.\n\n    a <- matrix(4, 10000, 10000)\n    eigen(a)\n\nWhat am I doing wrong? or alternatively, how should I approach building a\nversion of R with a threaded openblas on Fedora.\n\nThanks in advance,\n\nGavin\n-- \nGavin Simpson, PhD\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear List,\n\nI am trying to build R on Fedora against a threaded openblas installed from\nFedora's yum repos, or alternatively swap out libRblas.so with a threaded\nopenblas built locally.\n\nI have instal",
+      "thread_id": "thread-94b11048cea9",
+      "thread_depth": 0,
+      "month": "2014-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-94b11048cea9",
+      "subject": "Compiling R on Fedora with threaded openblas",
+      "message_count": 1,
+      "participants": [
+        "Gavin Simpson"
+      ],
+      "started": "2014-09-17T12:33:08-06:00",
+      "last_reply": "2014-09-17T12:33:08-06:00",
+      "root_message_id": "msg-94b11048cea9"
+    }
+  ]
+}

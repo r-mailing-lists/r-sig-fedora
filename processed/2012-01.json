@@ -1,0 +1,99 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2012-01",
+  "messages": [
+    {
+      "id": "msg-889b3b9c7f19",
+      "message_id": "<4F04CC4A.8010500@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2012-01-04T17:01:46-05:00",
+      "subject": "[R-sig-Fedora] install warning on fedora 16",
+      "subject_clean": "install warning on fedora 16",
+      "in_reply_to": "<CAHz+bWaoWYjy40+i3PhCd=5=E1Eja9gXtu949=wOPc_7b1cBBQ@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWaoWYjy40+i3PhCd=5=E1Eja9gXtu949=wOPc_7b1cBBQ@mail.gmail.com>"
+      ],
+      "body_plain": "On 12/24/2011 10:39 PM, Mark Leeds wrote:\n> Does anyone know what the problem might be ? Maybe a difference with gcc ?\n> It's only a warning but it scares me a little because the variables should\n> be getting used contrary to what the warning says.\n> Thanks a lot for any hints/suggestions.\n\nWell, I can't find the source code to be sure, but the gcc in F16 is\nnewer than the ones before it, and each new gcc is usually stricter\nabout std compliance than the one before. In addition, -std=gnu99 is\nbeing passed as an optflag, which may result in these warnings when they\nwould not otherwise.\n\nI would look very closely at those variables and be sure there is not a\nlogic path where they are set but not actually used.\n\n~tom\n\n==\nFedora Project",
+      "body_snippet": "On 12/24/2011 10:39 PM, Mark Leeds wrote:\n> Does anyone know what the problem might be ? Maybe a difference with gcc ?\n> It's only a warning but it scares me a little because the variables should\n> be",
+      "thread_id": "thread-889b3b9c7f19",
+      "thread_depth": 0,
+      "month": "2012-01"
+    },
+    {
+      "id": "msg-a6b2311710e5",
+      "message_id": "<CAHz+bWada10cJc=mYF+36K0XiduBGyH-pOCdEU1ohDLBcHGtQw@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2012-01-04T17:06:40-05:00",
+      "subject": "[R-sig-Fedora] install warning on fedora 16",
+      "subject_clean": "install warning on fedora 16",
+      "in_reply_to": "<4F04CC4A.8010500@redhat.com>",
+      "references": [
+        "<CAHz+bWaoWYjy40+i3PhCd=5=E1Eja9gXtu949=wOPc_7b1cBBQ@mail.gmail.com>",
+        "<4F04CC4A.8010500@redhat.com>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120104/c3d697b9/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120104/c3d697b9/attachment.pl>",
+      "thread_id": "thread-889b3b9c7f19",
+      "thread_depth": 1,
+      "month": "2012-01"
+    },
+    {
+      "id": "msg-6f060dfdf0ae",
+      "message_id": "<4F04CEE9.1020505@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2012-01-04T17:12:57-05:00",
+      "subject": "[R-sig-Fedora] install warning on fedora 16",
+      "subject_clean": "install warning on fedora 16",
+      "in_reply_to": "<CAHz+bWada10cJc=mYF+36K0XiduBGyH-pOCdEU1ohDLBcHGtQw@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWaoWYjy40+i3PhCd=5=E1Eja9gXtu949=wOPc_7b1cBBQ@mail.gmail.com>",
+        "<4F04CC4A.8010500@redhat.com>",
+        "<CAHz+bWada10cJc=mYF+36K0XiduBGyH-pOCdEU1ohDLBcHGtQw@mail.gmail.com>"
+      ],
+      "body_plain": "On 01/04/2012 05:06 PM, Mark Leeds wrote:\n> thanks tom: I've just been letting the error happen and everything seems\n> fine. When you have a chance, could you explain what you'd like me to do\n> ? I'd love to look into\n> it further but I'm not sure what you mean by your last statement. thanks.\n> \n\nLook at the gcc invocation lines and the warnings:\n\ngcc -m32 -std=gnu99 -I/usr/include/R  -I/usr/local/include    -fpic  -O2 -g\n-pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector\n--param=ssp-buffer-size=4  -m32 -march=i686 -mtune=atom\n-fasynchronous-unwind-tables -c ar1_functions.c -o ar1_functions.o\nar1_functions.c: In function ?calc_ar1_hessian?:\nar1_functions.c:261:10: warning: variable ?phigrad? set but not used\n[-Wunused-but-set-variable]\nar1_functions.c:260:10: warning: variable ?alphagrad? set but not used\n[-Wunused-but-set-variable]\nar1_functions.c:259:10: warning: variable ?betagrad? set but not used\n[-Wunused-but-set-variable]\nar1_functions.c:258:10: warning: variable ?rhograd? set but not used\n[-Wunused-but-set-variable]\ngcc -m32 -std=gnu99 -I/usr/include/R  -I/usr/local/include    -fpic  -O2 -g\n-pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector\n--param=ssp-buffer-size=4  -m32 -march=i686 -mtune=atom\n-fasynchronous-unwind-tables -c ma1_functions.c -o ma1_functions.o\nma1_functions.c: In function ?calc_ma1_hessian?:\nma1_functions.c:246:10: warning: variable ?alphagrad? set but not used\n[-Wunused-but-set-variable]\nma1_functions.c:245:10: warning: variable ?betagrad? set but not used\n[-Wunused-but-set-variable]\nma1_functions.c:244:10: warning: variable ?rhograd? set but not used\n[-Wunused-but-set-variable]\n\nThe warnings are output in the syntax:\n\nsourcefile:line_number:row_number: warning: description of warning\n\nSo, for the first warning:\n\nar1_functions.c: In function ?calc_ar1_hessian?:\nar1_functions.c:261:10: warning: variable ?phigrad? set but not used\n[-Wunused-but-set-variable]\n\nLook inside arl_functions.c, line 261, row 10. It should be a definition\nor assignment of \"phigrad\". If you look throughout the rest of\ncalc_arl_hessian, you may discover that \"phigrad\" is not being used in\nsome workflows. This is what gcc is telling you. Now, if you don't need\nphigrad, this is harmless, but in that case, why assign a value to it?\nIn most cases, this check finds errors in code where you actually do\nwant to use phigrad.\n\nHope that helps,\n\n~tom\n\n==\nFedora Project",
+      "body_snippet": "On 01/04/2012 05:06 PM, Mark Leeds wrote:\n> thanks tom: I've just been letting the error happen and everything seems\n> fine. When you have a chance, could you explain what you'd like me to do\n> ? I'd ",
+      "thread_id": "thread-889b3b9c7f19",
+      "thread_depth": 2,
+      "month": "2012-01"
+    },
+    {
+      "id": "msg-cbe90c1c101e",
+      "message_id": "<CAHz+bWYcjZ-K+rdSF6FsnkOZDDUFAa2rZAf9tC4TPsenEeL8Zg@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2012-01-04T17:19:02-05:00",
+      "subject": "[R-sig-Fedora] install warning on fedora 16",
+      "subject_clean": "install warning on fedora 16",
+      "in_reply_to": "<4F04CEE9.1020505@redhat.com>",
+      "references": [
+        "<CAHz+bWaoWYjy40+i3PhCd=5=E1Eja9gXtu949=wOPc_7b1cBBQ@mail.gmail.com>",
+        "<4F04CC4A.8010500@redhat.com>",
+        "<CAHz+bWada10cJc=mYF+36K0XiduBGyH-pOCdEU1ohDLBcHGtQw@mail.gmail.com>",
+        "<4F04CEE9.1020505@redhat.com>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120104/fbe2eae1/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120104/fbe2eae1/attachment.pl>",
+      "thread_id": "thread-889b3b9c7f19",
+      "thread_depth": 3,
+      "month": "2012-01"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-889b3b9c7f19",
+      "subject": "install warning on fedora 16",
+      "message_count": 4,
+      "participants": [
+        "Mark Leeds",
+        "Tom Callaway"
+      ],
+      "started": "2012-01-04T17:01:46-05:00",
+      "last_reply": "2012-01-04T17:19:02-05:00",
+      "root_message_id": "msg-889b3b9c7f19"
+    }
+  ]
+}

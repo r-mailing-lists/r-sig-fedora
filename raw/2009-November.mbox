@@ -1,0 +1,1632 @@
+From christos.hatzis at nuverabio.com  Fri Nov 13 20:59:33 2009
+From: christos.hatzis at nuverabio.com (Christos Hatzis)
+Date: Fri, 13 Nov 2009 14:59:33 -0500
+Subject: [R-sig-Fedora] Installing R on RedHat EL 5
+Message-ID: <1258142373.5428.4.camel@localhost.localdomain>
+
+Hi,
+
+I am totally new to Linux and trying to install R and related tools.  I
+downloaded the rpm files for el4/x86_64 from the CRAN repository and
+tried to run rpm but it did not go through complaining about
+dependencies.
+
+Do all the listed rpm files need to be installed?  What is the order in
+which these need to be installed?
+
+I appreciate any help with this or any suggestions for alternate ways
+for installing pre-compiled versions of R and the packages in RHL.
+
+Thanks.
+-Christos Hatzis
+
+
+From christos.hatzis at nuverabio.com  Fri Nov 13 21:52:20 2009
+From: christos.hatzis at nuverabio.com (Christos Hatzis)
+Date: Fri, 13 Nov 2009 15:52:20 -0500
+Subject: [R-sig-Fedora] Installing R on RedHat EL 5
+In-Reply-To: <40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>
+References: <1258142373.5428.4.camel@localhost.localdomain>
+	<40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>
+Message-ID: <1258145540.5428.10.camel@localhost.localdomain>
+
+The installation seems to have gone through ok, but this is what I am
+getting at the end:
+
+--> Finished Dependency Resolution
+R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+  --> Missing Dependency: libX11-devel is needed by package
+R-devel-2.9.2-1.el5.x86_64 (epel)
+R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+  --> Missing Dependency: pcre-devel is needed by package
+R-devel-2.9.2-1.el5.x86_64 (epel)
+R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+  --> Missing Dependency: tk-devel is needed by package
+R-devel-2.9.2-1.el5.x86_64 (epel)
+R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+  --> Missing Dependency: tcl-devel is needed by package
+R-devel-2.9.2-1.el5.x86_64 (epel)
+Error: Missing Dependency: tcl-devel is needed by package
+R-devel-2.9.2-1.el5.x86_64 (epel)
+Error: Missing Dependency: tk-devel is needed by package
+R-devel-2.9.2-1.el5.x86_64 (epel)
+Error: Missing Dependency: pcre-devel is needed by package
+R-devel-2.9.2-1.el5.x86_64 (epel)
+Error: Missing Dependency: libX11-devel is needed by package
+R-devel-2.9.2-1.el5.x86_64 (epel)
+
+Do I need to install other tools before running
+su -c 'yum install R'? 
+
+Thanks again.
+-Christos
+
+On Fri, 2009-11-13 at 15:11 -0500, Marc Schwartz wrote:
+> On Nov 13, 2009, at 1:59 PM, Christos Hatzis wrote:
+> 
+> > Hi,
+> >
+> > I am totally new to Linux and trying to install R and related  
+> > tools.  I
+> > downloaded the rpm files for el4/x86_64 from the CRAN repository and
+> > tried to run rpm but it did not go through complaining about
+> > dependencies.
+> >
+> > Do all the listed rpm files need to be installed?  What is the order  
+> > in
+> > which these need to be installed?
+> >
+> > I appreciate any help with this or any suggestions for alternate ways
+> > for installing pre-compiled versions of R and the packages in RHL.
+> >
+> > Thanks.
+> > -Christos Hatzis
+> 
+> The easiest way is to use the EPEL, which is a yum repository for RHEL  
+> and CentOS.
+> 
+> There is more information here:
+> 
+>    http://fedoraproject.org/wiki/EPEL
+> 
+> with the key steps here in the FAQ:
+> 
+>    http://fedoraproject.org/wiki/EPEL/FAQ#howtouse
+> 
+> If you are on 64 bit RHEL, you will need to replace the 'i386' in the  
+> first command's path with 'x86_64':
+> 
+>    su -c 'rpm -Uvh
+> http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-3.noarch.
+> rpm'
+> 
+> Then replace 'foo' in the second command with 'R', which will install  
+> R and any other dependencies that you may require:
+> 
+>    su -c 'yum install R'
+> 
+> Note that the latest version available appears to be 2.9.2 and I  
+> suspect that this is due to the imminent release of Fedora 12, which  
+> is presumably consuming Tom Callaway and others at the moment.
+> 
+> HTH,
+> 
+> Marc Schwartz
+> 
+> 
+-- 
+Christos Hatzis, Ph.D.
+Nuvera Biosciences
+Woburn, MA 01801
+
+
+From christos.hatzis at nuverabio.com  Fri Nov 13 21:24:40 2009
+From: christos.hatzis at nuverabio.com (Christos Hatzis)
+Date: Fri, 13 Nov 2009 15:24:40 -0500
+Subject: [R-sig-Fedora] Installing R on RedHat EL 5
+In-Reply-To: <40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>
+References: <1258142373.5428.4.camel@localhost.localdomain>
+	<40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>
+Message-ID: <007601ca649f$5443fd40$fccbf7c0$@hatzis@nuverabio.com>
+
+Thank you Marc.
+I will try this out.
+
+-Christos
+
+-----Original Message-----
+From: Marc Schwartz [mailto:marc_schwartz at me.com] 
+Sent: Friday, November 13, 2009 3:12 PM
+To: christos.hatzis at nuverabio.com
+Cc: r-sig-fedora at r-project.org
+Subject: Re: [R-sig-Fedora] Installing R on RedHat EL 5
+
+On Nov 13, 2009, at 1:59 PM, Christos Hatzis wrote:
+
+> Hi,
+>
+> I am totally new to Linux and trying to install R and related  
+> tools.  I
+> downloaded the rpm files for el4/x86_64 from the CRAN repository and
+> tried to run rpm but it did not go through complaining about
+> dependencies.
+>
+> Do all the listed rpm files need to be installed?  What is the order  
+> in
+> which these need to be installed?
+>
+> I appreciate any help with this or any suggestions for alternate ways
+> for installing pre-compiled versions of R and the packages in RHL.
+>
+> Thanks.
+> -Christos Hatzis
+
+The easiest way is to use the EPEL, which is a yum repository for RHEL  
+and CentOS.
+
+There is more information here:
+
+   http://fedoraproject.org/wiki/EPEL
+
+with the key steps here in the FAQ:
+
+   http://fedoraproject.org/wiki/EPEL/FAQ#howtouse
+
+If you are on 64 bit RHEL, you will need to replace the 'i386' in the  
+first command's path with 'x86_64':
+
+   su -c 'rpm -Uvh
+http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-3.noarch.
+rpm'
+
+Then replace 'foo' in the second command with 'R', which will install  
+R and any other dependencies that you may require:
+
+   su -c 'yum install R'
+
+Note that the latest version available appears to be 2.9.2 and I  
+suspect that this is due to the imminent release of Fedora 12, which  
+is presumably consuming Tom Callaway and others at the moment.
+
+HTH,
+
+Marc Schwartz
+
+
+From marc_schwartz at me.com  Fri Nov 13 21:11:50 2009
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Fri, 13 Nov 2009 14:11:50 -0600
+Subject: [R-sig-Fedora] Installing R on RedHat EL 5
+In-Reply-To: <1258142373.5428.4.camel@localhost.localdomain>
+References: <1258142373.5428.4.camel@localhost.localdomain>
+Message-ID: <40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>
+
+On Nov 13, 2009, at 1:59 PM, Christos Hatzis wrote:
+
+> Hi,
+>
+> I am totally new to Linux and trying to install R and related  
+> tools.  I
+> downloaded the rpm files for el4/x86_64 from the CRAN repository and
+> tried to run rpm but it did not go through complaining about
+> dependencies.
+>
+> Do all the listed rpm files need to be installed?  What is the order  
+> in
+> which these need to be installed?
+>
+> I appreciate any help with this or any suggestions for alternate ways
+> for installing pre-compiled versions of R and the packages in RHL.
+>
+> Thanks.
+> -Christos Hatzis
+
+The easiest way is to use the EPEL, which is a yum repository for RHEL  
+and CentOS.
+
+There is more information here:
+
+   http://fedoraproject.org/wiki/EPEL
+
+with the key steps here in the FAQ:
+
+   http://fedoraproject.org/wiki/EPEL/FAQ#howtouse
+
+If you are on 64 bit RHEL, you will need to replace the 'i386' in the  
+first command's path with 'x86_64':
+
+   su -c 'rpm -Uvh http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-3.noarch.rpm'
+
+Then replace 'foo' in the second command with 'R', which will install  
+R and any other dependencies that you may require:
+
+   su -c 'yum install R'
+
+Note that the latest version available appears to be 2.9.2 and I  
+suspect that this is due to the imminent release of Fedora 12, which  
+is presumably consuming Tom Callaway and others at the moment.
+
+HTH,
+
+Marc Schwartz
+
+
+From marc_schwartz at me.com  Fri Nov 13 22:41:05 2009
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Fri, 13 Nov 2009 15:41:05 -0600
+Subject: [R-sig-Fedora] Installing R on RedHat EL 5
+In-Reply-To: <1258145540.5428.10.camel@localhost.localdomain>
+References: <1258142373.5428.4.camel@localhost.localdomain>
+	<40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>
+	<1258145540.5428.10.camel@localhost.localdomain>
+Message-ID: <922C4A72-C982-48A5-9FFD-4B812EA632ED@me.com>
+
+Hmmm....that would suggest that yum is not picking up the default RHEL  
+repos for some reason, as it would seem logical that those files would  
+be there as opposed to the EPEL. Typically, yum will get any  
+dependencies from all enabled and accessible repos.
+
+As RHEL's repos for their binary RPMs are only available to folks who  
+have paid for support, I am not sure how to best assist in getting the  
+yum repo config RPM so that you can install or re-install it to  
+confirm that the RHEL repo is configured and active.
+
+One thing that you can check is to use:
+
+   yum repolist
+
+which should show you the current list of configured repos on your  
+system and whether or not they are enabled. I suppose that it is  
+possible that either the main RHEL binary repo is not configured on  
+your system, it is not enabled or perhaps your system is being  
+prevented from accessing it. You may have to run that command as 'root'.
+
+An alternative, which has some risk, is to use the CentOS yum repos,  
+which are supposed to be binary compatible with RHEL. The risk is that  
+if you are in fact paying for RHEL support to RH, I would be hesitant  
+to mix and match, if there is any risk of complications in the support  
+contract.
+
+Not having the 'devel' versions of the various RPMs will at some point  
+cause you problems when installing source packages from CRAN.
+
+A lot of the important details here are going to be dependent upon how  
+you installed RHEL and whether or not there is a paid support contract  
+in place for your installation.  If you have a SysAdmin that installed  
+RHEL for you, he or she would be of help in resolving this.
+
+HTH,
+
+Marc
+
+On Nov 13, 2009, at 2:52 PM, Christos Hatzis wrote:
+
+> The installation seems to have gone through ok, but this is what I am
+> getting at the end:
+>
+> --> Finished Dependency Resolution
+> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>  --> Missing Dependency: libX11-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>  --> Missing Dependency: pcre-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>  --> Missing Dependency: tk-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>  --> Missing Dependency: tcl-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> Error: Missing Dependency: tcl-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> Error: Missing Dependency: tk-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> Error: Missing Dependency: pcre-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> Error: Missing Dependency: libX11-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+>
+> Do I need to install other tools before running
+> su -c 'yum install R'?
+>
+> Thanks again.
+> -Christos
+>
+> On Fri, 2009-11-13 at 15:11 -0500, Marc Schwartz wrote:
+>> On Nov 13, 2009, at 1:59 PM, Christos Hatzis wrote:
+>>
+>>> Hi,
+>>>
+>>> I am totally new to Linux and trying to install R and related
+>>> tools.  I
+>>> downloaded the rpm files for el4/x86_64 from the CRAN repository and
+>>> tried to run rpm but it did not go through complaining about
+>>> dependencies.
+>>>
+>>> Do all the listed rpm files need to be installed?  What is the order
+>>> in
+>>> which these need to be installed?
+>>>
+>>> I appreciate any help with this or any suggestions for alternate  
+>>> ways
+>>> for installing pre-compiled versions of R and the packages in RHL.
+>>>
+>>> Thanks.
+>>> -Christos Hatzis
+>>
+>> The easiest way is to use the EPEL, which is a yum repository for  
+>> RHEL
+>> and CentOS.
+>>
+>> There is more information here:
+>>
+>>   http://fedoraproject.org/wiki/EPEL
+>>
+>> with the key steps here in the FAQ:
+>>
+>>   http://fedoraproject.org/wiki/EPEL/FAQ#howtouse
+>>
+>> If you are on 64 bit RHEL, you will need to replace the 'i386' in the
+>> first command's path with 'x86_64':
+>>
+>>   su -c 'rpm -Uvh
+>> http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-3.noarch 
+>> .
+>> rpm'
+>>
+>> Then replace 'foo' in the second command with 'R', which will install
+>> R and any other dependencies that you may require:
+>>
+>>   su -c 'yum install R'
+>>
+>> Note that the latest version available appears to be 2.9.2 and I
+>> suspect that this is due to the imminent release of Fedora 12, which
+>> is presumably consuming Tom Callaway and others at the moment.
+>>
+>> HTH,
+>>
+>> Marc Schwartz
+>>
+>>
+> -- 
+> Christos Hatzis, Ph.D.
+> Nuvera Biosciences
+> Woburn, MA 01801
+>
+
+
+From herrold at owlriver.com  Fri Nov 13 22:47:26 2009
+From: herrold at owlriver.com (R P Herrold)
+Date: Fri, 13 Nov 2009 16:47:26 -0500 (EST)
+Subject: [R-sig-Fedora] Installing R on RedHat EL 5
+In-Reply-To: <40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>
+References: <1258142373.5428.4.camel@localhost.localdomain>
+	<40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>
+Message-ID: <alpine.LRH.2.00.0911131646180.5548@arj.bjyevire.pbz>
+
+On Fri, 13 Nov 2009, Marc Schwartz wrote:
+
+> Note that the latest version available appears to be 2.9.2 and I suspect that 
+> this is due to the imminent release of Fedora 12, which is presumably 
+> consuming Tom Callaway and others at the moment.
+
+no -- the package is ageing in their approvals queue -- more 
+feedback will get it released sooner
+
+-- Russ herrold
+
+
+From marc_schwartz at me.com  Fri Nov 13 23:29:10 2009
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Fri, 13 Nov 2009 16:29:10 -0600
+Subject: [R-sig-Fedora] Installing R on RedHat EL 5
+In-Reply-To: <alpine.LRH.2.00.0911131646180.5548@arj.bjyevire.pbz>
+References: <1258142373.5428.4.camel@localhost.localdomain>
+	<40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>
+	<alpine.LRH.2.00.0911131646180.5548@arj.bjyevire.pbz>
+Message-ID: <C6E2B87C-F751-469A-893E-7A8B92EA5014@me.com>
+
+On Nov 13, 2009, at 3:47 PM, R P Herrold wrote:
+
+> On Fri, 13 Nov 2009, Marc Schwartz wrote:
+>
+>> Note that the latest version available appears to be 2.9.2 and I  
+>> suspect that this is due to the imminent release of Fedora 12,  
+>> which is presumably consuming Tom Callaway and others at the moment.
+>
+> no -- the package is ageing in their approvals queue -- more  
+> feedback will get it released sooner
+>
+> -- Russ herrold
+
+
+That's new within the past week or so:
+
+   http://koji.fedoraproject.org/koji/packageinfo?packageID=1230
+
+When I last checked in response to another recent query only 2.9.2 was  
+there...
+
+Thanks for the update Russ.
+
+Marc
+
+P.S. I am going to be away for the remainder of the evening (U.S. CST)
+
+
+From christos.hatzis at nuverabio.com  Fri Nov 13 23:47:15 2009
+From: christos.hatzis at nuverabio.com (Christos Hatzis)
+Date: Fri, 13 Nov 2009 17:47:15 -0500
+Subject: [R-sig-Fedora] Installing R on RedHat EL 5
+In-Reply-To: <922C4A72-C982-48A5-9FFD-4B812EA632ED@me.com>
+References: <1258142373.5428.4.camel@localhost.localdomain>
+	<40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>
+	<1258145540.5428.10.camel@localhost.localdomain>
+	<922C4A72-C982-48A5-9FFD-4B812EA632ED@me.com>
+Message-ID: <000f01ca64b3$3f3482d0$bd9d8870$@hatzis@nuverabio.com>
+
+Marc,
+
+It seems that the RHEL is there and is active.  I'd rather stay with RHEL
+since I do have purchased support.
+I have started the process of registering the system with RHN so I will try
+to see if system updates will solve the problem.  Will report back.
+
+Thanks again.
+-Christos
+
+-----Original Message-----
+From: Marc Schwartz [mailto:marc_schwartz at me.com] 
+Sent: Friday, November 13, 2009 4:41 PM
+To: christos.hatzis at nuverabio.com
+Cc: r-sig-fedora at r-project.org
+Subject: Re: [R-sig-Fedora] Installing R on RedHat EL 5
+
+Hmmm....that would suggest that yum is not picking up the default RHEL  
+repos for some reason, as it would seem logical that those files would  
+be there as opposed to the EPEL. Typically, yum will get any  
+dependencies from all enabled and accessible repos.
+
+As RHEL's repos for their binary RPMs are only available to folks who  
+have paid for support, I am not sure how to best assist in getting the  
+yum repo config RPM so that you can install or re-install it to  
+confirm that the RHEL repo is configured and active.
+
+One thing that you can check is to use:
+
+   yum repolist
+
+which should show you the current list of configured repos on your  
+system and whether or not they are enabled. I suppose that it is  
+possible that either the main RHEL binary repo is not configured on  
+your system, it is not enabled or perhaps your system is being  
+prevented from accessing it. You may have to run that command as 'root'.
+
+An alternative, which has some risk, is to use the CentOS yum repos,  
+which are supposed to be binary compatible with RHEL. The risk is that  
+if you are in fact paying for RHEL support to RH, I would be hesitant  
+to mix and match, if there is any risk of complications in the support  
+contract.
+
+Not having the 'devel' versions of the various RPMs will at some point  
+cause you problems when installing source packages from CRAN.
+
+A lot of the important details here are going to be dependent upon how  
+you installed RHEL and whether or not there is a paid support contract  
+in place for your installation.  If you have a SysAdmin that installed  
+RHEL for you, he or she would be of help in resolving this.
+
+HTH,
+
+Marc
+
+On Nov 13, 2009, at 2:52 PM, Christos Hatzis wrote:
+
+> The installation seems to have gone through ok, but this is what I am
+> getting at the end:
+>
+> --> Finished Dependency Resolution
+> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>  --> Missing Dependency: libX11-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>  --> Missing Dependency: pcre-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>  --> Missing Dependency: tk-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>  --> Missing Dependency: tcl-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> Error: Missing Dependency: tcl-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> Error: Missing Dependency: tk-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> Error: Missing Dependency: pcre-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+> Error: Missing Dependency: libX11-devel is needed by package
+> R-devel-2.9.2-1.el5.x86_64 (epel)
+>
+> Do I need to install other tools before running
+> su -c 'yum install R'?
+>
+> Thanks again.
+> -Christos
+>
+> On Fri, 2009-11-13 at 15:11 -0500, Marc Schwartz wrote:
+>> On Nov 13, 2009, at 1:59 PM, Christos Hatzis wrote:
+>>
+>>> Hi,
+>>>
+>>> I am totally new to Linux and trying to install R and related
+>>> tools.  I
+>>> downloaded the rpm files for el4/x86_64 from the CRAN repository and
+>>> tried to run rpm but it did not go through complaining about
+>>> dependencies.
+>>>
+>>> Do all the listed rpm files need to be installed?  What is the order
+>>> in
+>>> which these need to be installed?
+>>>
+>>> I appreciate any help with this or any suggestions for alternate  
+>>> ways
+>>> for installing pre-compiled versions of R and the packages in RHL.
+>>>
+>>> Thanks.
+>>> -Christos Hatzis
+>>
+>> The easiest way is to use the EPEL, which is a yum repository for  
+>> RHEL
+>> and CentOS.
+>>
+>> There is more information here:
+>>
+>>   http://fedoraproject.org/wiki/EPEL
+>>
+>> with the key steps here in the FAQ:
+>>
+>>   http://fedoraproject.org/wiki/EPEL/FAQ#howtouse
+>>
+>> If you are on 64 bit RHEL, you will need to replace the 'i386' in the
+>> first command's path with 'x86_64':
+>>
+>>   su -c 'rpm -Uvh
+>>
+http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-3.noarch 
+>> .
+>> rpm'
+>>
+>> Then replace 'foo' in the second command with 'R', which will install
+>> R and any other dependencies that you may require:
+>>
+>>   su -c 'yum install R'
+>>
+>> Note that the latest version available appears to be 2.9.2 and I
+>> suspect that this is due to the imminent release of Fedora 12, which
+>> is presumably consuming Tom Callaway and others at the moment.
+>>
+>> HTH,
+>>
+>> Marc Schwartz
+>>
+>>
+> -- 
+> Christos Hatzis, Ph.D.
+> Nuvera Biosciences
+> Woburn, MA 01801
+>
+
+
+From marc_schwartz at me.com  Tue Nov 17 17:47:50 2009
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Tue, 17 Nov 2009 10:47:50 -0600
+Subject: [R-sig-Fedora] Installing R on RedHat EL 5
+In-Reply-To: <1258474904.5428.19.camel@localhost.localdomain>
+References: <1258142373.5428.4.camel@localhost.localdomain>
+	<40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>
+	<1258145540.5428.10.camel@localhost.localdomain>
+	<922C4A72-C982-48A5-9FFD-4B812EA632ED@me.com>
+	<000f01ca64b3$3f3482d0$bd9d8870$%hatzis@nuverabio.com>
+	<1258474904.5428.19.camel@localhost.localdomain>
+Message-ID: <4C2BEBA9-9DBB-489A-9D45-FF929942A55B@me.com>
+
+Hi Christos,
+
+The R 2.10.0 RPMs will be in the EPEL testing repo until the so-called  
+Bodhi system has sufficient positive Karma to move them to release.  
+You can see the current status here:
+
+   https://admin.fedoraproject.org/updates/EL-5/FEDORA-EPEL-2009-0809
+
+If you have the EPEL yum repo configuration set up to support the EPEL  
+testing repo, which I believe is the case by default, you just need to  
+enable that repo, as it should be disabled by default.
+
+Bear in mind that if you are in a production environment, this is a  
+testing release and may have problems as with any pre-release  
+software. Those problems at this point are more likely in the RPM  
+packaging of R, rather than in R itself. I am also presuming that the  
+EPEL package is of 2.10.0 initial release and not of a subsequent  
+patch release, if you tend to use them (I do on OSX).
+
+Thus, if you elect to proceed, you should be able to use:
+
+su -c "--enablerepo=epel-testing yum update R"
+
+You may want to use the 'yum repolist' command again just to be sure  
+of the correct name for the EPEL testing repo, which would be in the  
+output of that command.
+
+If you do decide to proceed, I would recommend that after some  
+testing, you return to Bodhi to offer your comments and a bump in  
+Karma if you do not identify any problems. Getting sufficient Karma is  
+required to move the application to a stable release repo and is part  
+of the peer review process for Fedora/RHEL-EPEL RPMs.
+
+HTH,
+
+Marc
+
+
+On Nov 17, 2009, at 10:21 AM, Christos Hatzis wrote:
+
+> After registering with the RHN, su -c 'yum install R' worked fine.
+> I now have a working version of R:
+>
+>> sessionInfo()
+> R version 2.9.2 (2009-08-24)
+> x86_64-redhat-linux-gnu
+>
+> Marc, you mentioned there is a 2.10 available at
+>
+>  http://koji.fedoraproject.org/koji/packageinfo?packageID=1230
+>
+> Is there an easy way to install that or I'll have to wait until it  
+> makes
+> it to the RHEL repos.
+>
+> Thank you again.
+> -Christos
+>
+>
+> On Fri, 2009-11-13 at 17:47 -0500, Christos Hatzis wrote:
+>> Marc,
+>>
+>> It seems that the RHEL is there and is active.  I'd rather stay  
+>> with RHEL
+>> since I do have purchased support.
+>> I have started the process of registering the system with RHN so I  
+>> will try
+>> to see if system updates will solve the problem.  Will report back.
+>>
+>> Thanks again.
+>> -Christos
+>>
+>> -----Original Message-----
+>> From: Marc Schwartz [mailto:marc_schwartz at me.com]
+>> Sent: Friday, November 13, 2009 4:41 PM
+>> To: christos.hatzis at nuverabio.com
+>> Cc: r-sig-fedora at r-project.org
+>> Subject: Re: [R-sig-Fedora] Installing R on RedHat EL 5
+>>
+>> Hmmm....that would suggest that yum is not picking up the default  
+>> RHEL
+>> repos for some reason, as it would seem logical that those files  
+>> would
+>> be there as opposed to the EPEL. Typically, yum will get any
+>> dependencies from all enabled and accessible repos.
+>>
+>> As RHEL's repos for their binary RPMs are only available to folks who
+>> have paid for support, I am not sure how to best assist in getting  
+>> the
+>> yum repo config RPM so that you can install or re-install it to
+>> confirm that the RHEL repo is configured and active.
+>>
+>> One thing that you can check is to use:
+>>
+>>   yum repolist
+>>
+>> which should show you the current list of configured repos on your
+>> system and whether or not they are enabled. I suppose that it is
+>> possible that either the main RHEL binary repo is not configured on
+>> your system, it is not enabled or perhaps your system is being
+>> prevented from accessing it. You may have to run that command as  
+>> 'root'.
+>>
+>> An alternative, which has some risk, is to use the CentOS yum repos,
+>> which are supposed to be binary compatible with RHEL. The risk is  
+>> that
+>> if you are in fact paying for RHEL support to RH, I would be hesitant
+>> to mix and match, if there is any risk of complications in the  
+>> support
+>> contract.
+>>
+>> Not having the 'devel' versions of the various RPMs will at some  
+>> point
+>> cause you problems when installing source packages from CRAN.
+>>
+>> A lot of the important details here are going to be dependent upon  
+>> how
+>> you installed RHEL and whether or not there is a paid support  
+>> contract
+>> in place for your installation.  If you have a SysAdmin that  
+>> installed
+>> RHEL for you, he or she would be of help in resolving this.
+>>
+>> HTH,
+>>
+>> Marc
+>>
+>> On Nov 13, 2009, at 2:52 PM, Christos Hatzis wrote:
+>>
+>>> The installation seems to have gone through ok, but this is what I  
+>>> am
+>>> getting at the end:
+>>>
+>>> --> Finished Dependency Resolution
+>>> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>>> --> Missing Dependency: libX11-devel is needed by package
+>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>>> --> Missing Dependency: pcre-devel is needed by package
+>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>>> --> Missing Dependency: tk-devel is needed by package
+>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>>> --> Missing Dependency: tcl-devel is needed by package
+>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>> Error: Missing Dependency: tcl-devel is needed by package
+>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>> Error: Missing Dependency: tk-devel is needed by package
+>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>> Error: Missing Dependency: pcre-devel is needed by package
+>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>> Error: Missing Dependency: libX11-devel is needed by package
+>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>
+>>> Do I need to install other tools before running
+>>> su -c 'yum install R'?
+>>>
+>>> Thanks again.
+>>> -Christos
+>>>
+>>> On Fri, 2009-11-13 at 15:11 -0500, Marc Schwartz wrote:
+>>>> On Nov 13, 2009, at 1:59 PM, Christos Hatzis wrote:
+>>>>
+>>>>> Hi,
+>>>>>
+>>>>> I am totally new to Linux and trying to install R and related
+>>>>> tools.  I
+>>>>> downloaded the rpm files for el4/x86_64 from the CRAN repository  
+>>>>> and
+>>>>> tried to run rpm but it did not go through complaining about
+>>>>> dependencies.
+>>>>>
+>>>>> Do all the listed rpm files need to be installed?  What is the  
+>>>>> order
+>>>>> in
+>>>>> which these need to be installed?
+>>>>>
+>>>>> I appreciate any help with this or any suggestions for alternate
+>>>>> ways
+>>>>> for installing pre-compiled versions of R and the packages in RHL.
+>>>>>
+>>>>> Thanks.
+>>>>> -Christos Hatzis
+>>>>
+>>>> The easiest way is to use the EPEL, which is a yum repository for
+>>>> RHEL
+>>>> and CentOS.
+>>>>
+>>>> There is more information here:
+>>>>
+>>>>  http://fedoraproject.org/wiki/EPEL
+>>>>
+>>>> with the key steps here in the FAQ:
+>>>>
+>>>>  http://fedoraproject.org/wiki/EPEL/FAQ#howtouse
+>>>>
+>>>> If you are on 64 bit RHEL, you will need to replace the 'i386' in  
+>>>> the
+>>>> first command's path with 'x86_64':
+>>>>
+>>>>  su -c 'rpm -Uvh
+>>>>
+>> http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-3.noarch
+>>>> .
+>>>> rpm'
+>>>>
+>>>> Then replace 'foo' in the second command with 'R', which will  
+>>>> install
+>>>> R and any other dependencies that you may require:
+>>>>
+>>>>  su -c 'yum install R'
+>>>>
+>>>> Note that the latest version available appears to be 2.9.2 and I
+>>>> suspect that this is due to the imminent release of Fedora 12,  
+>>>> which
+>>>> is presumably consuming Tom Callaway and others at the moment.
+>>>>
+>>>> HTH,
+>>>>
+>>>> Marc Schwartz
+>>>>
+>>>>
+>>> -- 
+>>> Christos Hatzis, Ph.D.
+>>> Nuvera Biosciences
+>>> Woburn, MA 01801
+>>>
+>>
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>
+> -- 
+> Christos Hatzis, Ph.D.
+> Nuvera Biosciences
+> Woburn, MA 01801
+>
+
+
+From chatzis-rhel at nuverabio.com  Tue Nov 17 17:21:44 2009
+From: chatzis-rhel at nuverabio.com (Christos Hatzis)
+Date: Tue, 17 Nov 2009 11:21:44 -0500
+Subject: [R-sig-Fedora] Installing R on RedHat EL 5
+In-Reply-To: <000f01ca64b3$3f3482d0$bd9d8870$@hatzis@nuverabio.com>
+References: <1258142373.5428.4.camel@localhost.localdomain>
+	<40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>
+	<1258145540.5428.10.camel@localhost.localdomain>
+	<922C4A72-C982-48A5-9FFD-4B812EA632ED@me.com>
+	<000f01ca64b3$3f3482d0$bd9d8870$@hatzis@nuverabio.com>
+Message-ID: <1258474904.5428.19.camel@localhost.localdomain>
+
+After registering with the RHN, su -c 'yum install R' worked fine.
+I now have a working version of R:
+
+> sessionInfo()
+R version 2.9.2 (2009-08-24)
+x86_64-redhat-linux-gnu
+
+Marc, you mentioned there is a 2.10 available at
+ 
+  http://koji.fedoraproject.org/koji/packageinfo?packageID=1230
+
+Is there an easy way to install that or I'll have to wait until it makes
+it to the RHEL repos.
+
+Thank you again.
+-Christos 
+
+
+On Fri, 2009-11-13 at 17:47 -0500, Christos Hatzis wrote:
+> Marc,
+> 
+> It seems that the RHEL is there and is active.  I'd rather stay with RHEL
+> since I do have purchased support.
+> I have started the process of registering the system with RHN so I will try
+> to see if system updates will solve the problem.  Will report back.
+> 
+> Thanks again.
+> -Christos
+> 
+> -----Original Message-----
+> From: Marc Schwartz [mailto:marc_schwartz at me.com] 
+> Sent: Friday, November 13, 2009 4:41 PM
+> To: christos.hatzis at nuverabio.com
+> Cc: r-sig-fedora at r-project.org
+> Subject: Re: [R-sig-Fedora] Installing R on RedHat EL 5
+> 
+> Hmmm....that would suggest that yum is not picking up the default RHEL  
+> repos for some reason, as it would seem logical that those files would  
+> be there as opposed to the EPEL. Typically, yum will get any  
+> dependencies from all enabled and accessible repos.
+> 
+> As RHEL's repos for their binary RPMs are only available to folks who  
+> have paid for support, I am not sure how to best assist in getting the  
+> yum repo config RPM so that you can install or re-install it to  
+> confirm that the RHEL repo is configured and active.
+> 
+> One thing that you can check is to use:
+> 
+>    yum repolist
+> 
+> which should show you the current list of configured repos on your  
+> system and whether or not they are enabled. I suppose that it is  
+> possible that either the main RHEL binary repo is not configured on  
+> your system, it is not enabled or perhaps your system is being  
+> prevented from accessing it. You may have to run that command as 'root'.
+> 
+> An alternative, which has some risk, is to use the CentOS yum repos,  
+> which are supposed to be binary compatible with RHEL. The risk is that  
+> if you are in fact paying for RHEL support to RH, I would be hesitant  
+> to mix and match, if there is any risk of complications in the support  
+> contract.
+> 
+> Not having the 'devel' versions of the various RPMs will at some point  
+> cause you problems when installing source packages from CRAN.
+> 
+> A lot of the important details here are going to be dependent upon how  
+> you installed RHEL and whether or not there is a paid support contract  
+> in place for your installation.  If you have a SysAdmin that installed  
+> RHEL for you, he or she would be of help in resolving this.
+> 
+> HTH,
+> 
+> Marc
+> 
+> On Nov 13, 2009, at 2:52 PM, Christos Hatzis wrote:
+> 
+> > The installation seems to have gone through ok, but this is what I am
+> > getting at the end:
+> >
+> > --> Finished Dependency Resolution
+> > R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+> >  --> Missing Dependency: libX11-devel is needed by package
+> > R-devel-2.9.2-1.el5.x86_64 (epel)
+> > R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+> >  --> Missing Dependency: pcre-devel is needed by package
+> > R-devel-2.9.2-1.el5.x86_64 (epel)
+> > R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+> >  --> Missing Dependency: tk-devel is needed by package
+> > R-devel-2.9.2-1.el5.x86_64 (epel)
+> > R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+> >  --> Missing Dependency: tcl-devel is needed by package
+> > R-devel-2.9.2-1.el5.x86_64 (epel)
+> > Error: Missing Dependency: tcl-devel is needed by package
+> > R-devel-2.9.2-1.el5.x86_64 (epel)
+> > Error: Missing Dependency: tk-devel is needed by package
+> > R-devel-2.9.2-1.el5.x86_64 (epel)
+> > Error: Missing Dependency: pcre-devel is needed by package
+> > R-devel-2.9.2-1.el5.x86_64 (epel)
+> > Error: Missing Dependency: libX11-devel is needed by package
+> > R-devel-2.9.2-1.el5.x86_64 (epel)
+> >
+> > Do I need to install other tools before running
+> > su -c 'yum install R'?
+> >
+> > Thanks again.
+> > -Christos
+> >
+> > On Fri, 2009-11-13 at 15:11 -0500, Marc Schwartz wrote:
+> >> On Nov 13, 2009, at 1:59 PM, Christos Hatzis wrote:
+> >>
+> >>> Hi,
+> >>>
+> >>> I am totally new to Linux and trying to install R and related
+> >>> tools.  I
+> >>> downloaded the rpm files for el4/x86_64 from the CRAN repository and
+> >>> tried to run rpm but it did not go through complaining about
+> >>> dependencies.
+> >>>
+> >>> Do all the listed rpm files need to be installed?  What is the order
+> >>> in
+> >>> which these need to be installed?
+> >>>
+> >>> I appreciate any help with this or any suggestions for alternate  
+> >>> ways
+> >>> for installing pre-compiled versions of R and the packages in RHL.
+> >>>
+> >>> Thanks.
+> >>> -Christos Hatzis
+> >>
+> >> The easiest way is to use the EPEL, which is a yum repository for  
+> >> RHEL
+> >> and CentOS.
+> >>
+> >> There is more information here:
+> >>
+> >>   http://fedoraproject.org/wiki/EPEL
+> >>
+> >> with the key steps here in the FAQ:
+> >>
+> >>   http://fedoraproject.org/wiki/EPEL/FAQ#howtouse
+> >>
+> >> If you are on 64 bit RHEL, you will need to replace the 'i386' in the
+> >> first command's path with 'x86_64':
+> >>
+> >>   su -c 'rpm -Uvh
+> >>
+> http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-3.noarch 
+> >> .
+> >> rpm'
+> >>
+> >> Then replace 'foo' in the second command with 'R', which will install
+> >> R and any other dependencies that you may require:
+> >>
+> >>   su -c 'yum install R'
+> >>
+> >> Note that the latest version available appears to be 2.9.2 and I
+> >> suspect that this is due to the imminent release of Fedora 12, which
+> >> is presumably consuming Tom Callaway and others at the moment.
+> >>
+> >> HTH,
+> >>
+> >> Marc Schwartz
+> >>
+> >>
+> > -- 
+> > Christos Hatzis, Ph.D.
+> > Nuvera Biosciences
+> > Woburn, MA 01801
+> >
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> 
+-- 
+Christos Hatzis, Ph.D.
+Nuvera Biosciences
+Woburn, MA 01801
+
+
+From marc_schwartz at me.com  Tue Nov 17 17:53:55 2009
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Tue, 17 Nov 2009 10:53:55 -0600
+Subject: [R-sig-Fedora] Installing R on RedHat EL 5
+In-Reply-To: <4C2BEBA9-9DBB-489A-9D45-FF929942A55B@me.com>
+References: <1258142373.5428.4.camel@localhost.localdomain>
+	<40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>
+	<1258145540.5428.10.camel@localhost.localdomain>
+	<922C4A72-C982-48A5-9FFD-4B812EA632ED@me.com>
+	<000f01ca64b3$3f3482d0$bd9d8870$%hatzis@nuverabio.com>
+	<1258474904.5428.19.camel@localhost.localdomain>
+	<4C2BEBA9-9DBB-489A-9D45-FF929942A55B@me.com>
+Message-ID: <2CA4D6DA-7C0D-40F5-AFBC-3FE0F51BE759@me.com>
+
+Sorry, correction on the command below:
+
+   su -c "yum --enablerepo=epel-testing update R"
+
+Time for more coffee...
+
+Marc
+
+On Nov 17, 2009, at 10:47 AM, Marc Schwartz wrote:
+
+> Hi Christos,
+>
+> The R 2.10.0 RPMs will be in the EPEL testing repo until the so- 
+> called Bodhi system has sufficient positive Karma to move them to  
+> release. You can see the current status here:
+>
+>  https://admin.fedoraproject.org/updates/EL-5/FEDORA-EPEL-2009-0809
+>
+> If you have the EPEL yum repo configuration set up to support the  
+> EPEL testing repo, which I believe is the case by default, you just  
+> need to enable that repo, as it should be disabled by default.
+>
+> Bear in mind that if you are in a production environment, this is a  
+> testing release and may have problems as with any pre-release  
+> software. Those problems at this point are more likely in the RPM  
+> packaging of R, rather than in R itself. I am also presuming that  
+> the EPEL package is of 2.10.0 initial release and not of a  
+> subsequent patch release, if you tend to use them (I do on OSX).
+>
+> Thus, if you elect to proceed, you should be able to use:
+>
+> su -c "--enablerepo=epel-testing yum update R"
+>
+> You may want to use the 'yum repolist' command again just to be sure  
+> of the correct name for the EPEL testing repo, which would be in the  
+> output of that command.
+>
+> If you do decide to proceed, I would recommend that after some  
+> testing, you return to Bodhi to offer your comments and a bump in  
+> Karma if you do not identify any problems. Getting sufficient Karma  
+> is required to move the application to a stable release repo and is  
+> part of the peer review process for Fedora/RHEL-EPEL RPMs.
+>
+> HTH,
+>
+> Marc
+>
+>
+> On Nov 17, 2009, at 10:21 AM, Christos Hatzis wrote:
+>
+>> After registering with the RHN, su -c 'yum install R' worked fine.
+>> I now have a working version of R:
+>>
+>>> sessionInfo()
+>> R version 2.9.2 (2009-08-24)
+>> x86_64-redhat-linux-gnu
+>>
+>> Marc, you mentioned there is a 2.10 available at
+>>
+>> http://koji.fedoraproject.org/koji/packageinfo?packageID=1230
+>>
+>> Is there an easy way to install that or I'll have to wait until it  
+>> makes
+>> it to the RHEL repos.
+>>
+>> Thank you again.
+>> -Christos
+>>
+>>
+>> On Fri, 2009-11-13 at 17:47 -0500, Christos Hatzis wrote:
+>>> Marc,
+>>>
+>>> It seems that the RHEL is there and is active.  I'd rather stay  
+>>> with RHEL
+>>> since I do have purchased support.
+>>> I have started the process of registering the system with RHN so I  
+>>> will try
+>>> to see if system updates will solve the problem.  Will report back.
+>>>
+>>> Thanks again.
+>>> -Christos
+>>>
+>>> -----Original Message-----
+>>> From: Marc Schwartz [mailto:marc_schwartz at me.com]
+>>> Sent: Friday, November 13, 2009 4:41 PM
+>>> To: christos.hatzis at nuverabio.com
+>>> Cc: r-sig-fedora at r-project.org
+>>> Subject: Re: [R-sig-Fedora] Installing R on RedHat EL 5
+>>>
+>>> Hmmm....that would suggest that yum is not picking up the default  
+>>> RHEL
+>>> repos for some reason, as it would seem logical that those files  
+>>> would
+>>> be there as opposed to the EPEL. Typically, yum will get any
+>>> dependencies from all enabled and accessible repos.
+>>>
+>>> As RHEL's repos for their binary RPMs are only available to folks  
+>>> who
+>>> have paid for support, I am not sure how to best assist in getting  
+>>> the
+>>> yum repo config RPM so that you can install or re-install it to
+>>> confirm that the RHEL repo is configured and active.
+>>>
+>>> One thing that you can check is to use:
+>>>
+>>>  yum repolist
+>>>
+>>> which should show you the current list of configured repos on your
+>>> system and whether or not they are enabled. I suppose that it is
+>>> possible that either the main RHEL binary repo is not configured on
+>>> your system, it is not enabled or perhaps your system is being
+>>> prevented from accessing it. You may have to run that command as  
+>>> 'root'.
+>>>
+>>> An alternative, which has some risk, is to use the CentOS yum repos,
+>>> which are supposed to be binary compatible with RHEL. The risk is  
+>>> that
+>>> if you are in fact paying for RHEL support to RH, I would be  
+>>> hesitant
+>>> to mix and match, if there is any risk of complications in the  
+>>> support
+>>> contract.
+>>>
+>>> Not having the 'devel' versions of the various RPMs will at some  
+>>> point
+>>> cause you problems when installing source packages from CRAN.
+>>>
+>>> A lot of the important details here are going to be dependent upon  
+>>> how
+>>> you installed RHEL and whether or not there is a paid support  
+>>> contract
+>>> in place for your installation.  If you have a SysAdmin that  
+>>> installed
+>>> RHEL for you, he or she would be of help in resolving this.
+>>>
+>>> HTH,
+>>>
+>>> Marc
+>>>
+>>> On Nov 13, 2009, at 2:52 PM, Christos Hatzis wrote:
+>>>
+>>>> The installation seems to have gone through ok, but this is what  
+>>>> I am
+>>>> getting at the end:
+>>>>
+>>>> --> Finished Dependency Resolution
+>>>> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>>>> --> Missing Dependency: libX11-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>>>> --> Missing Dependency: pcre-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>>>> --> Missing Dependency: tk-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>>>> --> Missing Dependency: tcl-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> Error: Missing Dependency: tcl-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> Error: Missing Dependency: tk-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> Error: Missing Dependency: pcre-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> Error: Missing Dependency: libX11-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>>
+>>>> Do I need to install other tools before running
+>>>> su -c 'yum install R'?
+>>>>
+>>>> Thanks again.
+>>>> -Christos
+>>>>
+>>>> On Fri, 2009-11-13 at 15:11 -0500, Marc Schwartz wrote:
+>>>>> On Nov 13, 2009, at 1:59 PM, Christos Hatzis wrote:
+>>>>>
+>>>>>> Hi,
+>>>>>>
+>>>>>> I am totally new to Linux and trying to install R and related
+>>>>>> tools.  I
+>>>>>> downloaded the rpm files for el4/x86_64 from the CRAN  
+>>>>>> repository and
+>>>>>> tried to run rpm but it did not go through complaining about
+>>>>>> dependencies.
+>>>>>>
+>>>>>> Do all the listed rpm files need to be installed?  What is the  
+>>>>>> order
+>>>>>> in
+>>>>>> which these need to be installed?
+>>>>>>
+>>>>>> I appreciate any help with this or any suggestions for alternate
+>>>>>> ways
+>>>>>> for installing pre-compiled versions of R and the packages in  
+>>>>>> RHL.
+>>>>>>
+>>>>>> Thanks.
+>>>>>> -Christos Hatzis
+>>>>>
+>>>>> The easiest way is to use the EPEL, which is a yum repository for
+>>>>> RHEL
+>>>>> and CentOS.
+>>>>>
+>>>>> There is more information here:
+>>>>>
+>>>>> http://fedoraproject.org/wiki/EPEL
+>>>>>
+>>>>> with the key steps here in the FAQ:
+>>>>>
+>>>>> http://fedoraproject.org/wiki/EPEL/FAQ#howtouse
+>>>>>
+>>>>> If you are on 64 bit RHEL, you will need to replace the 'i386'  
+>>>>> in the
+>>>>> first command's path with 'x86_64':
+>>>>>
+>>>>> su -c 'rpm -Uvh
+>>>>>
+>>> http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-3.noarch
+>>>>> .
+>>>>> rpm'
+>>>>>
+>>>>> Then replace 'foo' in the second command with 'R', which will  
+>>>>> install
+>>>>> R and any other dependencies that you may require:
+>>>>>
+>>>>> su -c 'yum install R'
+>>>>>
+>>>>> Note that the latest version available appears to be 2.9.2 and I
+>>>>> suspect that this is due to the imminent release of Fedora 12,  
+>>>>> which
+>>>>> is presumably consuming Tom Callaway and others at the moment.
+>>>>>
+>>>>> HTH,
+>>>>>
+>>>>> Marc Schwartz
+>>>>>
+>>>>>
+>>>> -- 
+>>>> Christos Hatzis, Ph.D.
+>>>> Nuvera Biosciences
+>>>> Woburn, MA 01801
+>>>>
+>>>
+>>> _______________________________________________
+>>> R-SIG-Fedora mailing list
+>>> R-SIG-Fedora at r-project.org
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>
+>> -- 
+>> Christos Hatzis, Ph.D.
+>> Nuvera Biosciences
+>> Woburn, MA 01801
+>>
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+From christos.hatzis at nuverabio.com  Tue Nov 17 20:51:43 2009
+From: christos.hatzis at nuverabio.com (Christos Hatzis)
+Date: Tue, 17 Nov 2009 14:51:43 -0500
+Subject: [R-sig-Fedora] Installing R on RedHat EL 5
+In-Reply-To: <2CA4D6DA-7C0D-40F5-AFBC-3FE0F51BE759@me.com>
+References: <1258142373.5428.4.camel@localhost.localdomain>	<40C1673E-555B-44ED-B21C-639A1667FCA6@me.com>	<1258145540.5428.10.camel@localhost.localdomain>	<922C4A72-C982-48A5-9FFD-4B812EA632ED@me.com>	<000f01ca64b3$3f3482d0$bd9d8870$%hatzis@nuverabio.com>	<1258474904.5428.19.camel@localhost.localdomain>	<4C2BEBA9-9DBB-489A-9D45-FF929942A55B@me.com>
+	<2CA4D6DA-7C0D-40F5-AFBC-3FE0F51BE759@me.com>
+Message-ID: <003f01ca67bf$638e11f0$2aaa35d0$@hatzis@nuverabio.com>
+
+Thanks for all your help, Marc.
+
+This is like a new ecosystem for me, living in the Windows world for too
+many years, but will eventually feel like home.  My memories on Unix are
+from the Apollo/Domain systems and the Cray-1 and X-MP systems back in grad
+school.  Linux is nothing like that, but then again Windows 3.0 was the name
+of the game back then. It is really amazing the sophistication and volume of
+Linux resources that are available out there. 
+
+-Christos
+
+-----Original Message-----
+From: r-sig-fedora-bounces at r-project.org
+[mailto:r-sig-fedora-bounces at r-project.org] On Behalf Of Marc Schwartz
+Sent: Tuesday, November 17, 2009 11:54 AM
+To: Marc Schwartz
+Cc: r-sig-fedora at r-project.org; chatzis-rhel at nuverabio.com
+Subject: Re: [R-sig-Fedora] Installing R on RedHat EL 5
+
+Sorry, correction on the command below:
+
+   su -c "yum --enablerepo=epel-testing update R"
+
+Time for more coffee...
+
+Marc
+
+On Nov 17, 2009, at 10:47 AM, Marc Schwartz wrote:
+
+> Hi Christos,
+>
+> The R 2.10.0 RPMs will be in the EPEL testing repo until the so- 
+> called Bodhi system has sufficient positive Karma to move them to  
+> release. You can see the current status here:
+>
+>  https://admin.fedoraproject.org/updates/EL-5/FEDORA-EPEL-2009-0809
+>
+> If you have the EPEL yum repo configuration set up to support the  
+> EPEL testing repo, which I believe is the case by default, you just  
+> need to enable that repo, as it should be disabled by default.
+>
+> Bear in mind that if you are in a production environment, this is a  
+> testing release and may have problems as with any pre-release  
+> software. Those problems at this point are more likely in the RPM  
+> packaging of R, rather than in R itself. I am also presuming that  
+> the EPEL package is of 2.10.0 initial release and not of a  
+> subsequent patch release, if you tend to use them (I do on OSX).
+>
+> Thus, if you elect to proceed, you should be able to use:
+>
+> su -c "--enablerepo=epel-testing yum update R"
+>
+> You may want to use the 'yum repolist' command again just to be sure  
+> of the correct name for the EPEL testing repo, which would be in the  
+> output of that command.
+>
+> If you do decide to proceed, I would recommend that after some  
+> testing, you return to Bodhi to offer your comments and a bump in  
+> Karma if you do not identify any problems. Getting sufficient Karma  
+> is required to move the application to a stable release repo and is  
+> part of the peer review process for Fedora/RHEL-EPEL RPMs.
+>
+> HTH,
+>
+> Marc
+>
+>
+> On Nov 17, 2009, at 10:21 AM, Christos Hatzis wrote:
+>
+>> After registering with the RHN, su -c 'yum install R' worked fine.
+>> I now have a working version of R:
+>>
+>>> sessionInfo()
+>> R version 2.9.2 (2009-08-24)
+>> x86_64-redhat-linux-gnu
+>>
+>> Marc, you mentioned there is a 2.10 available at
+>>
+>> http://koji.fedoraproject.org/koji/packageinfo?packageID=1230
+>>
+>> Is there an easy way to install that or I'll have to wait until it  
+>> makes
+>> it to the RHEL repos.
+>>
+>> Thank you again.
+>> -Christos
+>>
+>>
+>> On Fri, 2009-11-13 at 17:47 -0500, Christos Hatzis wrote:
+>>> Marc,
+>>>
+>>> It seems that the RHEL is there and is active.  I'd rather stay  
+>>> with RHEL
+>>> since I do have purchased support.
+>>> I have started the process of registering the system with RHN so I  
+>>> will try
+>>> to see if system updates will solve the problem.  Will report back.
+>>>
+>>> Thanks again.
+>>> -Christos
+>>>
+>>> -----Original Message-----
+>>> From: Marc Schwartz [mailto:marc_schwartz at me.com]
+>>> Sent: Friday, November 13, 2009 4:41 PM
+>>> To: christos.hatzis at nuverabio.com
+>>> Cc: r-sig-fedora at r-project.org
+>>> Subject: Re: [R-sig-Fedora] Installing R on RedHat EL 5
+>>>
+>>> Hmmm....that would suggest that yum is not picking up the default  
+>>> RHEL
+>>> repos for some reason, as it would seem logical that those files  
+>>> would
+>>> be there as opposed to the EPEL. Typically, yum will get any
+>>> dependencies from all enabled and accessible repos.
+>>>
+>>> As RHEL's repos for their binary RPMs are only available to folks  
+>>> who
+>>> have paid for support, I am not sure how to best assist in getting  
+>>> the
+>>> yum repo config RPM so that you can install or re-install it to
+>>> confirm that the RHEL repo is configured and active.
+>>>
+>>> One thing that you can check is to use:
+>>>
+>>>  yum repolist
+>>>
+>>> which should show you the current list of configured repos on your
+>>> system and whether or not they are enabled. I suppose that it is
+>>> possible that either the main RHEL binary repo is not configured on
+>>> your system, it is not enabled or perhaps your system is being
+>>> prevented from accessing it. You may have to run that command as  
+>>> 'root'.
+>>>
+>>> An alternative, which has some risk, is to use the CentOS yum repos,
+>>> which are supposed to be binary compatible with RHEL. The risk is  
+>>> that
+>>> if you are in fact paying for RHEL support to RH, I would be  
+>>> hesitant
+>>> to mix and match, if there is any risk of complications in the  
+>>> support
+>>> contract.
+>>>
+>>> Not having the 'devel' versions of the various RPMs will at some  
+>>> point
+>>> cause you problems when installing source packages from CRAN.
+>>>
+>>> A lot of the important details here are going to be dependent upon  
+>>> how
+>>> you installed RHEL and whether or not there is a paid support  
+>>> contract
+>>> in place for your installation.  If you have a SysAdmin that  
+>>> installed
+>>> RHEL for you, he or she would be of help in resolving this.
+>>>
+>>> HTH,
+>>>
+>>> Marc
+>>>
+>>> On Nov 13, 2009, at 2:52 PM, Christos Hatzis wrote:
+>>>
+>>>> The installation seems to have gone through ok, but this is what  
+>>>> I am
+>>>> getting at the end:
+>>>>
+>>>> --> Finished Dependency Resolution
+>>>> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>>>> --> Missing Dependency: libX11-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>>>> --> Missing Dependency: pcre-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>>>> --> Missing Dependency: tk-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> R-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems
+>>>> --> Missing Dependency: tcl-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> Error: Missing Dependency: tcl-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> Error: Missing Dependency: tk-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> Error: Missing Dependency: pcre-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>> Error: Missing Dependency: libX11-devel is needed by package
+>>>> R-devel-2.9.2-1.el5.x86_64 (epel)
+>>>>
+>>>> Do I need to install other tools before running
+>>>> su -c 'yum install R'?
+>>>>
+>>>> Thanks again.
+>>>> -Christos
+>>>>
+>>>> On Fri, 2009-11-13 at 15:11 -0500, Marc Schwartz wrote:
+>>>>> On Nov 13, 2009, at 1:59 PM, Christos Hatzis wrote:
+>>>>>
+>>>>>> Hi,
+>>>>>>
+>>>>>> I am totally new to Linux and trying to install R and related
+>>>>>> tools.  I
+>>>>>> downloaded the rpm files for el4/x86_64 from the CRAN  
+>>>>>> repository and
+>>>>>> tried to run rpm but it did not go through complaining about
+>>>>>> dependencies.
+>>>>>>
+>>>>>> Do all the listed rpm files need to be installed?  What is the  
+>>>>>> order
+>>>>>> in
+>>>>>> which these need to be installed?
+>>>>>>
+>>>>>> I appreciate any help with this or any suggestions for alternate
+>>>>>> ways
+>>>>>> for installing pre-compiled versions of R and the packages in  
+>>>>>> RHL.
+>>>>>>
+>>>>>> Thanks.
+>>>>>> -Christos Hatzis
+>>>>>
+>>>>> The easiest way is to use the EPEL, which is a yum repository for
+>>>>> RHEL
+>>>>> and CentOS.
+>>>>>
+>>>>> There is more information here:
+>>>>>
+>>>>> http://fedoraproject.org/wiki/EPEL
+>>>>>
+>>>>> with the key steps here in the FAQ:
+>>>>>
+>>>>> http://fedoraproject.org/wiki/EPEL/FAQ#howtouse
+>>>>>
+>>>>> If you are on 64 bit RHEL, you will need to replace the 'i386'  
+>>>>> in the
+>>>>> first command's path with 'x86_64':
+>>>>>
+>>>>> su -c 'rpm -Uvh
+>>>>>
+>>>
+http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-3.noarch
+>>>>> .
+>>>>> rpm'
+>>>>>
+>>>>> Then replace 'foo' in the second command with 'R', which will  
+>>>>> install
+>>>>> R and any other dependencies that you may require:
+>>>>>
+>>>>> su -c 'yum install R'
+>>>>>
+>>>>> Note that the latest version available appears to be 2.9.2 and I
+>>>>> suspect that this is due to the imminent release of Fedora 12,  
+>>>>> which
+>>>>> is presumably consuming Tom Callaway and others at the moment.
+>>>>>
+>>>>> HTH,
+>>>>>
+>>>>> Marc Schwartz
+>>>>>
+>>>>>
+>>>> -- 
+>>>> Christos Hatzis, Ph.D.
+>>>> Nuvera Biosciences
+>>>> Woburn, MA 01801
+>>>>
+>>>
+>>> _______________________________________________
+>>> R-SIG-Fedora mailing list
+>>> R-SIG-Fedora at r-project.org
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>
+>> -- 
+>> Christos Hatzis, Ph.D.
+>> Nuvera Biosciences
+>> Woburn, MA 01801
+>>
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+_______________________________________________
+R-SIG-Fedora mailing list
+R-SIG-Fedora at r-project.org
+https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+

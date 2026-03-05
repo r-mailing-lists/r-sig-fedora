@@ -1,0 +1,38 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2009-04",
+  "messages": [
+    {
+      "id": "msg-02f34b6b8893",
+      "message_id": "<cab59a750904172126p2d66033ald25d749306597915@mail.gmail.com>",
+      "from_name": "subhajit dutta",
+      "from_email_hash": "6d8ac8856c6a5fcf63937026b2b1377e928160a80570f0b638bc2e704b7a8941",
+      "date": "2009-04-18T09:56:55+05:30",
+      "subject": "[R-sig-Fedora] svmpath",
+      "subject_clean": "svmpath",
+      "in_reply_to": "<cab59a750901290536u5cabe276w17c483f10bb1bf3c@mail.gmail.com>",
+      "references": [
+        "<cab59a750901290536u5cabe276w17c483f10bb1bf3c@mail.gmail.com>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090418/016aa11d/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090418/016aa11d/attachment.pl>",
+      "thread_id": "thread-02f34b6b8893",
+      "thread_depth": 0,
+      "month": "2009-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-02f34b6b8893",
+      "subject": "svmpath",
+      "message_count": 1,
+      "participants": [
+        "subhajit dutta"
+      ],
+      "started": "2009-04-18T09:56:55+05:30",
+      "last_reply": "2009-04-18T09:56:55+05:30",
+      "root_message_id": "msg-02f34b6b8893"
+    }
+  ]
+}

@@ -1,0 +1,2092 @@
+From @potrh @end|ng |rom gm@||@com  Fri Jun  4 16:07:59 2021
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Fri, 4 Jun 2021 10:07:59 -0400
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+Message-ID: <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+
+Is there a way to know which R components provide graphics drivers? I would
+really rather not rebuild everything if we do not have to.
+
+~spot
+
+On Sun, May 23, 2021 at 6:28 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+
+> On Sat, 22 May 2021 at 22:18, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:
+> >
+> > Hi all,
+> >   what should be our plan for R 4.1 update in Fedora?
+>
+> See [1]. The plan is to wait for the next RStudio release and
+> coordinate updates.
+>
+> [1] https://stat.ethz.ch/pipermail/r-sig-fedora/2021-May/000736.html
+>
+> >   What are the pitfalls and the changes that we should be aware?
+>
+> The NEWS says: "The graphics engine version, R_GE_version, has been
+> bumped to 14 and so packages that provide graphics devices should be
+> reinstalled." But anyway, we should do the customary mass rebuild of
+> packages to avoid other possible incompatibilities and "Package was
+> built under version 4.0" messages.
+>
+> I?aki
+>
+> >   The second semester (with the corresponding induced pandemic chaos) is
+> > dimming down around here so I have at least time to breath again. :-)
+> >
+> >   FWIW I am in no hurry to have 4.1 in Fedora 34, my main interest is to
+> have
+> > it in rawhide and later if we find it suitable to backport it to F34.
+> >
+> >   FWIW since our last talk Octave (for version 7 at least) is starting by
+> > default to have the major version in the path for packages. :-)
+> >
+> > Best regards,
+> > --
+> > Jos? Ab?lio
+> >         [[alternative HTML version deleted]]
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+>
+> --
+> I?aki ?car
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+	[[alternative HTML version deleted]]
+
+
+From qu@ntum@@n@|y@t @end|ng |rom gm@||@com  Fri Jun  4 21:57:22 2021
+From: qu@ntum@@n@|y@t @end|ng |rom gm@||@com (Elliott Sales de Andrade)
+Date: Fri, 4 Jun 2021 15:57:22 -0400
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+Message-ID: <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+
+On Fri., Jun. 4, 2021, 10:08 a.m. Tom Callaway, <spotrh at gmail.com> wrote:
+
+> Is there a way to know which R components provide graphics drivers? I would
+> really rather not rebuild everything if we do not have to.
+>
+>
+Unless you mean rebuild for testing purposes, because you added the R(ABI)
+= major.minor Provides/Requires, you need to rebuild the world anyway.
+
+
+>
+> ~spot
+>
+> On Sun, May 23, 2021 at 6:28 AM I?aki Ucar <iucar at fedoraproject.org>
+> wrote:
+>
+> > On Sat, 22 May 2021 at 22:18, Jos? Ab?lio Matos <jamatos at fc.up.pt>
+> wrote:
+> > >
+> > > Hi all,
+> > >   what should be our plan for R 4.1 update in Fedora?
+> >
+> > See [1]. The plan is to wait for the next RStudio release and
+> > coordinate updates.
+> >
+> > [1] https://stat.ethz.ch/pipermail/r-sig-fedora/2021-May/000736.html
+> >
+> > >   What are the pitfalls and the changes that we should be aware?
+> >
+> > The NEWS says: "The graphics engine version, R_GE_version, has been
+> > bumped to 14 and so packages that provide graphics devices should be
+> > reinstalled." But anyway, we should do the customary mass rebuild of
+> > packages to avoid other possible incompatibilities and "Package was
+> > built under version 4.0" messages.
+> >
+> > I?aki
+> >
+> > >   The second semester (with the corresponding induced pandemic chaos)
+> is
+> > > dimming down around here so I have at least time to breath again. :-)
+> > >
+> > >   FWIW I am in no hurry to have 4.1 in Fedora 34, my main interest is
+> to
+> > have
+> > > it in rawhide and later if we find it suitable to backport it to F34.
+> > >
+> > >   FWIW since our last talk Octave (for version 7 at least) is starting
+> by
+> > > default to have the major version in the path for packages. :-)
+> > >
+> > > Best regards,
+> > > --
+> > > Jos? Ab?lio
+> > >         [[alternative HTML version deleted]]
+> > >
+> > > _______________________________________________
+> > > R-SIG-Fedora mailing list
+> > > R-SIG-Fedora at r-project.org
+> > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+> >
+> >
+> > --
+> > I?aki ?car
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+	[[alternative HTML version deleted]]
+
+
+From @potrh @end|ng |rom gm@||@com  Fri Jun  4 21:59:04 2021
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Fri, 4 Jun 2021 15:59:04 -0400
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+Message-ID: <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+
+That is a very good point. Oh well. Anyone want to help generate the build
+order? :)
+
+~spot
+
+On Fri, Jun 4, 2021, 3:57 PM Elliott Sales de Andrade <
+quantum.analyst at gmail.com> wrote:
+
+> On Fri., Jun. 4, 2021, 10:08 a.m. Tom Callaway, <spotrh at gmail.com> wrote:
+>
+>> Is there a way to know which R components provide graphics drivers? I
+>> would
+>> really rather not rebuild everything if we do not have to.
+>>
+>>
+> Unless you mean rebuild for testing purposes, because you added the R(ABI)
+> = major.minor Provides/Requires, you need to rebuild the world anyway.
+>
+>
+>>
+>> ~spot
+>>
+>> On Sun, May 23, 2021 at 6:28 AM I?aki Ucar <iucar at fedoraproject.org>
+>> wrote:
+>>
+>> > On Sat, 22 May 2021 at 22:18, Jos? Ab?lio Matos <jamatos at fc.up.pt>
+>> wrote:
+>> > >
+>> > > Hi all,
+>> > >   what should be our plan for R 4.1 update in Fedora?
+>> >
+>> > See [1]. The plan is to wait for the next RStudio release and
+>> > coordinate updates.
+>> >
+>> > [1] https://stat.ethz.ch/pipermail/r-sig-fedora/2021-May/000736.html
+>> >
+>> > >   What are the pitfalls and the changes that we should be aware?
+>> >
+>> > The NEWS says: "The graphics engine version, R_GE_version, has been
+>> > bumped to 14 and so packages that provide graphics devices should be
+>> > reinstalled." But anyway, we should do the customary mass rebuild of
+>> > packages to avoid other possible incompatibilities and "Package was
+>> > built under version 4.0" messages.
+>> >
+>> > I?aki
+>> >
+>> > >   The second semester (with the corresponding induced pandemic chaos)
+>> is
+>> > > dimming down around here so I have at least time to breath again. :-)
+>> > >
+>> > >   FWIW I am in no hurry to have 4.1 in Fedora 34, my main interest is
+>> to
+>> > have
+>> > > it in rawhide and later if we find it suitable to backport it to F34.
+>> > >
+>> > >   FWIW since our last talk Octave (for version 7 at least) is
+>> starting by
+>> > > default to have the major version in the path for packages. :-)
+>> > >
+>> > > Best regards,
+>> > > --
+>> > > Jos? Ab?lio
+>> > >         [[alternative HTML version deleted]]
+>> > >
+>> > > _______________________________________________
+>> > > R-SIG-Fedora mailing list
+>> > > R-SIG-Fedora at r-project.org
+>> > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>> >
+>> >
+>> >
+>> > --
+>> > I?aki ?car
+>> >
+>> > _______________________________________________
+>> > R-SIG-Fedora mailing list
+>> > R-SIG-Fedora at r-project.org
+>> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>> >
+>>
+>>         [[alternative HTML version deleted]]
+>>
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>
+>
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Fri Jun  4 22:08:41 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Fri, 4 Jun 2021 22:08:41 +0200
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+Message-ID: <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+
+This seems like a good opportunity to give this a go:
+https://github.com/juhp/fbrnch#parallel-building
+
+On Fri, 4 Jun 2021 at 21:59, Tom Callaway <spotrh at gmail.com> wrote:
+
+> That is a very good point. Oh well. Anyone want to help generate the build
+> order? :)
+>
+> ~spot
+>
+> On Fri, Jun 4, 2021, 3:57 PM Elliott Sales de Andrade <
+> quantum.analyst at gmail.com> wrote:
+>
+>> On Fri., Jun. 4, 2021, 10:08 a.m. Tom Callaway, <spotrh at gmail.com> wrote:
+>>
+>>> Is there a way to know which R components provide graphics drivers? I
+>>> would
+>>> really rather not rebuild everything if we do not have to.
+>>>
+>>>
+>> Unless you mean rebuild for testing purposes, because you added the
+>> R(ABI) = major.minor Provides/Requires, you need to rebuild the world
+>> anyway.
+>>
+>>
+>>>
+>>> ~spot
+>>>
+>>> On Sun, May 23, 2021 at 6:28 AM I?aki Ucar <iucar at fedoraproject.org>
+>>> wrote:
+>>>
+>>> > On Sat, 22 May 2021 at 22:18, Jos? Ab?lio Matos <jamatos at fc.up.pt>
+>>> wrote:
+>>> > >
+>>> > > Hi all,
+>>> > >   what should be our plan for R 4.1 update in Fedora?
+>>> >
+>>> > See [1]. The plan is to wait for the next RStudio release and
+>>> > coordinate updates.
+>>> >
+>>> > [1] https://stat.ethz.ch/pipermail/r-sig-fedora/2021-May/000736.html
+>>> >
+>>> > >   What are the pitfalls and the changes that we should be aware?
+>>> >
+>>> > The NEWS says: "The graphics engine version, R_GE_version, has been
+>>> > bumped to 14 and so packages that provide graphics devices should be
+>>> > reinstalled." But anyway, we should do the customary mass rebuild of
+>>> > packages to avoid other possible incompatibilities and "Package was
+>>> > built under version 4.0" messages.
+>>> >
+>>> > I?aki
+>>> >
+>>> > >   The second semester (with the corresponding induced pandemic
+>>> chaos) is
+>>> > > dimming down around here so I have at least time to breath again. :-)
+>>> > >
+>>> > >   FWIW I am in no hurry to have 4.1 in Fedora 34, my main interest
+>>> is to
+>>> > have
+>>> > > it in rawhide and later if we find it suitable to backport it to F34.
+>>> > >
+>>> > >   FWIW since our last talk Octave (for version 7 at least) is
+>>> starting by
+>>> > > default to have the major version in the path for packages. :-)
+>>> > >
+>>> > > Best regards,
+>>> > > --
+>>> > > Jos? Ab?lio
+>>> > >         [[alternative HTML version deleted]]
+>>> > >
+>>> > > _______________________________________________
+>>> > > R-SIG-Fedora mailing list
+>>> > > R-SIG-Fedora at r-project.org
+>>> > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>> >
+>>> >
+>>> >
+>>> > --
+>>> > I?aki ?car
+>>> >
+>>> > _______________________________________________
+>>> > R-SIG-Fedora mailing list
+>>> > R-SIG-Fedora at r-project.org
+>>> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>> >
+>>>
+>>>         [[alternative HTML version deleted]]
+>>>
+>>> _______________________________________________
+>>> R-SIG-Fedora mailing list
+>>> R-SIG-Fedora at r-project.org
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>
+>>
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+
+From qu@ntum@@n@|y@t @end|ng |rom gm@||@com  Fri Jun  4 22:24:57 2021
+From: qu@ntum@@n@|y@t @end|ng |rom gm@||@com (Elliott Sales de Andrade)
+Date: Fri, 4 Jun 2021 16:24:57 -0400
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+Message-ID: <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+
+On Fri, 4 Jun 2021 at 16:08, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> This seems like a good opportunity to give this a go: https://github.com/juhp/fbrnch#parallel-building
+>
+
+I did ask for some enhancements for bootstrap builds there, but I
+don't know how well it works yet. Also, I'm not too sure it
+understands our virtual Provides/BuildRequires, but if that is added,
+then it's a good choice for determining build order.
+
+> On Fri, 4 Jun 2021 at 21:59, Tom Callaway <spotrh at gmail.com> wrote:
+>>
+>> That is a very good point. Oh well. Anyone want to help generate the build order? :)
+>>
+>> ~spot
+>>
+>> On Fri, Jun 4, 2021, 3:57 PM Elliott Sales de Andrade <quantum.analyst at gmail.com> wrote:
+>>>
+>>> On Fri., Jun. 4, 2021, 10:08 a.m. Tom Callaway, <spotrh at gmail.com> wrote:
+>>>>
+>>>> Is there a way to know which R components provide graphics drivers? I would
+>>>> really rather not rebuild everything if we do not have to.
+>>>>
+>>>
+>>> Unless you mean rebuild for testing purposes, because you added the R(ABI) = major.minor Provides/Requires, you need to rebuild the world anyway.
+>>>
+>>>>
+>>>>
+>>>> ~spot
+>>>>
+>>>> On Sun, May 23, 2021 at 6:28 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>>>>
+>>>> > On Sat, 22 May 2021 at 22:18, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:
+>>>> > >
+>>>> > > Hi all,
+>>>> > >   what should be our plan for R 4.1 update in Fedora?
+>>>> >
+>>>> > See [1]. The plan is to wait for the next RStudio release and
+>>>> > coordinate updates.
+>>>> >
+>>>> > [1] https://stat.ethz.ch/pipermail/r-sig-fedora/2021-May/000736.html
+>>>> >
+>>>> > >   What are the pitfalls and the changes that we should be aware?
+>>>> >
+>>>> > The NEWS says: "The graphics engine version, R_GE_version, has been
+>>>> > bumped to 14 and so packages that provide graphics devices should be
+>>>> > reinstalled." But anyway, we should do the customary mass rebuild of
+>>>> > packages to avoid other possible incompatibilities and "Package was
+>>>> > built under version 4.0" messages.
+>>>> >
+>>>> > I?aki
+>>>> >
+>>>> > >   The second semester (with the corresponding induced pandemic chaos) is
+>>>> > > dimming down around here so I have at least time to breath again. :-)
+>>>> > >
+>>>> > >   FWIW I am in no hurry to have 4.1 in Fedora 34, my main interest is to
+>>>> > have
+>>>> > > it in rawhide and later if we find it suitable to backport it to F34.
+>>>> > >
+>>>> > >   FWIW since our last talk Octave (for version 7 at least) is starting by
+>>>> > > default to have the major version in the path for packages. :-)
+>>>> > >
+>>>> > > Best regards,
+>>>> > > --
+>>>> > > Jos? Ab?lio
+>>>> > >         [[alternative HTML version deleted]]
+>>>> > >
+>>>> > > _______________________________________________
+>>>> > > R-SIG-Fedora mailing list
+>>>> > > R-SIG-Fedora at r-project.org
+>>>> > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>> >
+>>>> >
+>>>> >
+>>>> > --
+>>>> > I?aki ?car
+>>>> >
+>>>> > _______________________________________________
+>>>> > R-SIG-Fedora mailing list
+>>>> > R-SIG-Fedora at r-project.org
+>>>> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>> >
+>>>>
+>>>>         [[alternative HTML version deleted]]
+>>>>
+>>>> _______________________________________________
+>>>> R-SIG-Fedora mailing list
+>>>> R-SIG-Fedora at r-project.org
+>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+>
+> --
+> I?aki ?car
+
+
+
+-- 
+Elliott
+
+
+From |uc@r @end|ng |rom |edor@project@org  Sat Jun  5 20:12:43 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Sat, 5 Jun 2021 20:12:43 +0200
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+Message-ID: <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+
+Find attached an ordered build list, one batch per line (Bioc packages
+are included). I've pushed the script to [1]. I believe Jos? had more
+scripts from the last mass rebuild. If you want to push them too, I
+believe (all three of) you should have commit access.
+
+I've updated RStudio to 1.4.1717, which supports R 4.1, and builds are
+underway [2, 3, 4]. This may take a while (s390x didn't even start
+yet).
+
+Also, please, let me know when there's a sidetag available with R 4.1,
+so that I can start the mass rebuild of the 17k+ packages in [5] (it
+takes less than a week, so this shouldn't delay the update).
+
+[1] https://pagure.io/R/packaging/blob/main/f/pkg-build-list.R
+[2] https://koji.fedoraproject.org/koji/taskinfo?taskID=69383481
+[3] https://koji.fedoraproject.org/koji/taskinfo?taskID=69383589
+[4] https://koji.fedoraproject.org/koji/taskinfo?taskID=69383669
+[5] https://copr.fedorainfracloud.org/coprs/iucar/cran/
+
+
+On Fri, 4 Jun 2021 at 22:25, Elliott Sales de Andrade
+<quantum.analyst at gmail.com> wrote:
+>
+> On Fri, 4 Jun 2021 at 16:08, I?aki Ucar <iucar at fedoraproject.org> wrote:
+> >
+> > This seems like a good opportunity to give this a go: https://github.com/juhp/fbrnch#parallel-building
+> >
+>
+> I did ask for some enhancements for bootstrap builds there, but I
+> don't know how well it works yet. Also, I'm not too sure it
+> understands our virtual Provides/BuildRequires, but if that is added,
+> then it's a good choice for determining build order.
+>
+> > On Fri, 4 Jun 2021 at 21:59, Tom Callaway <spotrh at gmail.com> wrote:
+> >>
+> >> That is a very good point. Oh well. Anyone want to help generate the build order? :)
+> >>
+> >> ~spot
+> >>
+> >> On Fri, Jun 4, 2021, 3:57 PM Elliott Sales de Andrade <quantum.analyst at gmail.com> wrote:
+> >>>
+> >>> On Fri., Jun. 4, 2021, 10:08 a.m. Tom Callaway, <spotrh at gmail.com> wrote:
+> >>>>
+> >>>> Is there a way to know which R components provide graphics drivers? I would
+> >>>> really rather not rebuild everything if we do not have to.
+> >>>>
+> >>>
+> >>> Unless you mean rebuild for testing purposes, because you added the R(ABI) = major.minor Provides/Requires, you need to rebuild the world anyway.
+> >>>
+> >>>>
+> >>>>
+> >>>> ~spot
+> >>>>
+> >>>> On Sun, May 23, 2021 at 6:28 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+> >>>>
+> >>>> > On Sat, 22 May 2021 at 22:18, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:
+> >>>> > >
+> >>>> > > Hi all,
+> >>>> > >   what should be our plan for R 4.1 update in Fedora?
+> >>>> >
+> >>>> > See [1]. The plan is to wait for the next RStudio release and
+> >>>> > coordinate updates.
+> >>>> >
+> >>>> > [1] https://stat.ethz.ch/pipermail/r-sig-fedora/2021-May/000736.html
+> >>>> >
+> >>>> > >   What are the pitfalls and the changes that we should be aware?
+> >>>> >
+> >>>> > The NEWS says: "The graphics engine version, R_GE_version, has been
+> >>>> > bumped to 14 and so packages that provide graphics devices should be
+> >>>> > reinstalled." But anyway, we should do the customary mass rebuild of
+> >>>> > packages to avoid other possible incompatibilities and "Package was
+> >>>> > built under version 4.0" messages.
+> >>>> >
+> >>>> > I?aki
+> >>>> >
+> >>>> > >   The second semester (with the corresponding induced pandemic chaos) is
+> >>>> > > dimming down around here so I have at least time to breath again. :-)
+> >>>> > >
+> >>>> > >   FWIW I am in no hurry to have 4.1 in Fedora 34, my main interest is to
+> >>>> > have
+> >>>> > > it in rawhide and later if we find it suitable to backport it to F34.
+> >>>> > >
+> >>>> > >   FWIW since our last talk Octave (for version 7 at least) is starting by
+> >>>> > > default to have the major version in the path for packages. :-)
+> >>>> > >
+> >>>> > > Best regards,
+> >>>> > > --
+> >>>> > > Jos? Ab?lio
+> >>>> > >         [[alternative HTML version deleted]]
+> >>>> > >
+> >>>> > > _______________________________________________
+> >>>> > > R-SIG-Fedora mailing list
+> >>>> > > R-SIG-Fedora at r-project.org
+> >>>> > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >>>> >
+> >>>> >
+> >>>> >
+> >>>> > --
+> >>>> > I?aki ?car
+> >>>> >
+> >>>> > _______________________________________________
+> >>>> > R-SIG-Fedora mailing list
+> >>>> > R-SIG-Fedora at r-project.org
+> >>>> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >>>> >
+> >>>>
+> >>>>         [[alternative HTML version deleted]]
+> >>>>
+> >>>> _______________________________________________
+> >>>> R-SIG-Fedora mailing list
+> >>>> R-SIG-Fedora at r-project.org
+> >>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+> >
+> >
+> > --
+> > I?aki ?car
+>
+>
+>
+> --
+> Elliott
+
+
+
+-- 
+I?aki ?car
+
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: pkg-build-list.txt
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20210605/54d8a9ad/attachment.txt>
+
+From |uc@r @end|ng |rom |edor@project@org  Sat Jun  5 22:11:36 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Sat, 5 Jun 2021 22:11:36 +0200
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+ <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+Message-ID: <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+
+On Sat, 5 Jun 2021 at 20:12, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> I've updated RStudio to 1.4.1717, which supports R 4.1, and builds are
+> underway [2, 3, 4]. This may take a while (s390x didn't even start
+> yet).
+
+Oh, planned outage: https://pagure.io/fedora-infrastructure/issue/9960
+
+-- 
+I?aki ?car
+
+
+From @potrh @end|ng |rom gm@||@com  Mon Jun  7 19:53:04 2021
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Mon, 7 Jun 2021 13:53:04 -0400
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+ <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+ <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+Message-ID: <CACp8ZrLdYHc2F3A-uka+JFrVAzO8M1GBLELD0WsR0JYeU4BQ7w@mail.gmail.com>
+
+I have started the R 4.1.0 build process in rawhide. The side tag is
+f35-build-side-42293.
+
+I'm tracking things using a Google Sheet, if anyone wants access, just let
+me know.
+
+~spot
+
+On Sat, Jun 5, 2021 at 4:11 PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+
+> On Sat, 5 Jun 2021 at 20:12, I?aki Ucar <iucar at fedoraproject.org> wrote:
+> >
+> > I've updated RStudio to 1.4.1717, which supports R 4.1, and builds are
+> > underway [2, 3, 4]. This may take a while (s390x didn't even start
+> > yet).
+>
+> Oh, planned outage: https://pagure.io/fedora-infrastructure/issue/9960
+>
+> --
+> I?aki ?car
+>
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Mon Jun  7 19:57:39 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Mon, 7 Jun 2021 19:57:39 +0200
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CACp8ZrLdYHc2F3A-uka+JFrVAzO8M1GBLELD0WsR0JYeU4BQ7w@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+ <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+ <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+ <CACp8ZrLdYHc2F3A-uka+JFrVAzO8M1GBLELD0WsR0JYeU4BQ7w@mail.gmail.com>
+Message-ID: <CALEXWq0CMcb7_zOx0_WfavSYR+2iYFh3oV_ciGj2vyUonjgNJg@mail.gmail.com>
+
+RStudio built and update submitted:
+https://bodhi.fedoraproject.org/updates/FEDORA-2021-7a6c7fd1c1
+
+I?aki
+
+
+On Mon, 7 Jun 2021 at 19:53, Tom Callaway <spotrh at gmail.com> wrote:
+>
+> I have started the R 4.1.0 build process in rawhide. The side tag is f35-build-side-42293.
+>
+> I'm tracking things using a Google Sheet, if anyone wants access, just let me know.
+>
+> ~spot
+>
+> On Sat, Jun 5, 2021 at 4:11 PM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>>
+>> On Sat, 5 Jun 2021 at 20:12, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>> >
+>> > I've updated RStudio to 1.4.1717, which supports R 4.1, and builds are
+>> > underway [2, 3, 4]. This may take a while (s390x didn't even start
+>> > yet).
+>>
+>> Oh, planned outage: https://pagure.io/fedora-infrastructure/issue/9960
+>>
+>> --
+>> I?aki ?car
+
+
+
+-- 
+I?aki ?car
+
+
+From @potrh @end|ng |rom gm@||@com  Wed Jun 16 15:47:55 2021
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Wed, 16 Jun 2021 09:47:55 -0400
+Subject: [R-sig-Fedora] new packages needed
+Message-ID: <CACp8ZrKiR=-RL-VjBxHxrczAXWSesEA=TMZxU6ZFAwMqx5mA8Q@mail.gmail.com>
+
+Hi friends,
+
+As the 4.1.0 rebuild progresses, I've identified one set of new
+dependencies that several packages (DT, covr) need in order to upgrade:
+
+bslib
+ \sass
+ \jquerylib
+
+If someone here wanted to package them and get them into Fedora, it would
+be helpful. I'd be happy to do the review, but I'm reluctant to own more
+packages right now. :)
+
+Thanks,
+~spot
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Wed Jun 16 15:54:12 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Wed, 16 Jun 2021 15:54:12 +0200
+Subject: [R-sig-Fedora] new packages needed
+In-Reply-To: <CACp8ZrKiR=-RL-VjBxHxrczAXWSesEA=TMZxU6ZFAwMqx5mA8Q@mail.gmail.com>
+References: <CACp8ZrKiR=-RL-VjBxHxrczAXWSesEA=TMZxU6ZFAwMqx5mA8Q@mail.gmail.com>
+Message-ID: <CALEXWq2_pJYPr0d4YFEhn6TmEBv-sXH=BHGLMM9DYu8o21fRug@mail.gmail.com>
+
+On Wed, 16 Jun 2021 at 15:48, Tom Callaway <spotrh at gmail.com> wrote:
+>
+> Hi friends,
+>
+> As the 4.1.0 rebuild progresses, I've identified one set of new
+> dependencies that several packages (DT, covr) need in order to upgrade:
+>
+> bslib
+>  \sass
+>  \jquerylib
+
+DT just suggests bslib, so it shouldn't be required. I looked at the
+code and bslib functions are not called if this package is not
+present.
+
+I?aki
+
+> If someone here wanted to package them and get them into Fedora, it would
+> be helpful. I'd be happy to do the review, but I'm reluctant to own more
+> packages right now. :)
+>
+> Thanks,
+> ~spot
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+
+From @potrh @end|ng |rom gm@||@com  Wed Jun 16 16:03:39 2021
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Wed, 16 Jun 2021 10:03:39 -0400
+Subject: [R-sig-Fedora] Fwd:  new packages needed
+In-Reply-To: <CACp8ZrKko-wbqHvim2ZsrVUd9by_jZ9iGHnhzC730O4oArPGQA@mail.gmail.com>
+References: <CACp8ZrKiR=-RL-VjBxHxrczAXWSesEA=TMZxU6ZFAwMqx5mA8Q@mail.gmail.com>
+ <CALEXWq2_pJYPr0d4YFEhn6TmEBv-sXH=BHGLMM9DYu8o21fRug@mail.gmail.com>
+ <CACp8ZrKko-wbqHvim2ZsrVUd9by_jZ9iGHnhzC730O4oArPGQA@mail.gmail.com>
+Message-ID: <CACp8ZrKGrwjjWTUrpc_tKcC+yNOLq8Uhe_1m-ndqFFA7QcYaMw@mail.gmail.com>
+
+because it is already one of those days and i didn't hit reply all. :/
+
+~spot
+
+---------- Forwarded message ---------
+From: Tom Callaway <spotrh at gmail.com>
+Date: Wed, Jun 16, 2021 at 10:02 AM
+Subject: Re: [R-sig-Fedora] new packages needed
+To: I?aki Ucar <iucar at fedoraproject.org>
+
+
+shiny (not covr, that was my brain spitting out the wrong thing) imports it
+though.
+
+~spot
+
+On Wed, Jun 16, 2021 at 9:54 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+
+> On Wed, 16 Jun 2021 at 15:48, Tom Callaway <spotrh at gmail.com> wrote:
+> >
+> > Hi friends,
+> >
+> > As the 4.1.0 rebuild progresses, I've identified one set of new
+> > dependencies that several packages (DT, covr) need in order to upgrade:
+> >
+> > bslib
+> >  \sass
+> >  \jquerylib
+>
+> DT just suggests bslib, so it shouldn't be required. I looked at the
+> code and bslib functions are not called if this package is not
+> present.
+>
+> I?aki
+>
+> > If someone here wanted to package them and get them into Fedora, it would
+> > be helpful. I'd be happy to do the review, but I'm reluctant to own more
+> > packages right now. :)
+> >
+> > Thanks,
+> > ~spot
+> >
+> >         [[alternative HTML version deleted]]
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+>
+> --
+> I?aki ?car
+>
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Wed Jun 16 16:49:15 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Wed, 16 Jun 2021 16:49:15 +0200
+Subject: [R-sig-Fedora] Fwd: new packages needed
+In-Reply-To: <CACp8ZrKGrwjjWTUrpc_tKcC+yNOLq8Uhe_1m-ndqFFA7QcYaMw@mail.gmail.com>
+References: <CACp8ZrKiR=-RL-VjBxHxrczAXWSesEA=TMZxU6ZFAwMqx5mA8Q@mail.gmail.com>
+ <CALEXWq2_pJYPr0d4YFEhn6TmEBv-sXH=BHGLMM9DYu8o21fRug@mail.gmail.com>
+ <CACp8ZrKko-wbqHvim2ZsrVUd9by_jZ9iGHnhzC730O4oArPGQA@mail.gmail.com>
+ <CACp8ZrKGrwjjWTUrpc_tKcC+yNOLq8Uhe_1m-ndqFFA7QcYaMw@mail.gmail.com>
+Message-ID: <CALEXWq2NMp5kQ9naq9W=5hYEYBry=nGS=URWgGo+npSab+LiPg@mail.gmail.com>
+
+On Wed, 16 Jun 2021 at 16:08, Tom Callaway <spotrh at gmail.com> wrote:
+>
+> because it is already one of those days and i didn't hit reply all. :/
+>
+> ~spot
+>
+> ---------- Forwarded message ---------
+> From: Tom Callaway <spotrh at gmail.com>
+> Date: Wed, Jun 16, 2021 at 10:02 AM
+> Subject: Re: [R-sig-Fedora] new packages needed
+> To: I?aki Ucar <iucar at fedoraproject.org>
+>
+>
+> shiny (not covr, that was my brain spitting out the wrong thing) imports it
+> though.
+
+Ah, true, Shiny 1.6 switched to bslib. Is this version of Shiny
+required for the current rebuild then? I'm reluctant to take more R
+packages in the official repos because the +17k I maintain in Copr
+give me enough headaches. But I'd be happy to help review them too.
+
+I?aki
+
+> ~spot
+>
+> On Wed, Jun 16, 2021 at 9:54 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> > On Wed, 16 Jun 2021 at 15:48, Tom Callaway <spotrh at gmail.com> wrote:
+> > >
+> > > Hi friends,
+> > >
+> > > As the 4.1.0 rebuild progresses, I've identified one set of new
+> > > dependencies that several packages (DT, covr) need in order to upgrade:
+> > >
+> > > bslib
+> > >  \sass
+> > >  \jquerylib
+> >
+> > DT just suggests bslib, so it shouldn't be required. I looked at the
+> > code and bslib functions are not called if this package is not
+> > present.
+> >
+> > I?aki
+> >
+> > > If someone here wanted to package them and get them into Fedora, it would
+> > > be helpful. I'd be happy to do the review, but I'm reluctant to own more
+> > > packages right now. :)
+> > >
+> > > Thanks,
+> > > ~spot
+> > >
+> > >         [[alternative HTML version deleted]]
+> > >
+> > > _______________________________________________
+> > > R-SIG-Fedora mailing list
+> > > R-SIG-Fedora at r-project.org
+> > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+> >
+> >
+> > --
+> > I?aki ?car
+> >
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+
+From @potrh @end|ng |rom gm@||@com  Wed Jun 16 17:55:50 2021
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Wed, 16 Jun 2021 11:55:50 -0400
+Subject: [R-sig-Fedora] Fwd: new packages needed
+In-Reply-To: <CALEXWq2NMp5kQ9naq9W=5hYEYBry=nGS=URWgGo+npSab+LiPg@mail.gmail.com>
+References: <CACp8ZrKiR=-RL-VjBxHxrczAXWSesEA=TMZxU6ZFAwMqx5mA8Q@mail.gmail.com>
+ <CALEXWq2_pJYPr0d4YFEhn6TmEBv-sXH=BHGLMM9DYu8o21fRug@mail.gmail.com>
+ <CACp8ZrKko-wbqHvim2ZsrVUd9by_jZ9iGHnhzC730O4oArPGQA@mail.gmail.com>
+ <CACp8ZrKGrwjjWTUrpc_tKcC+yNOLq8Uhe_1m-ndqFFA7QcYaMw@mail.gmail.com>
+ <CALEXWq2NMp5kQ9naq9W=5hYEYBry=nGS=URWgGo+npSab+LiPg@mail.gmail.com>
+Message-ID: <CACp8ZrL7PU5P2wMnC4C4SJRi+9deOErtsRfOqG+fumCeZxKbmQ@mail.gmail.com>
+
+I do not think it is required now, but it might be in the near term. Then
+again, it might be required now, and I just haven't hit it yet.
+
+~spot
+
+On Wed, Jun 16, 2021 at 10:49 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+
+> On Wed, 16 Jun 2021 at 16:08, Tom Callaway <spotrh at gmail.com> wrote:
+> >
+> > because it is already one of those days and i didn't hit reply all. :/
+> >
+> > ~spot
+> >
+> > ---------- Forwarded message ---------
+> > From: Tom Callaway <spotrh at gmail.com>
+> > Date: Wed, Jun 16, 2021 at 10:02 AM
+> > Subject: Re: [R-sig-Fedora] new packages needed
+> > To: I?aki Ucar <iucar at fedoraproject.org>
+> >
+> >
+> > shiny (not covr, that was my brain spitting out the wrong thing) imports
+> it
+> > though.
+>
+> Ah, true, Shiny 1.6 switched to bslib. Is this version of Shiny
+> required for the current rebuild then? I'm reluctant to take more R
+> packages in the official repos because the +17k I maintain in Copr
+> give me enough headaches. But I'd be happy to help review them too.
+>
+> I?aki
+>
+> > ~spot
+> >
+> > On Wed, Jun 16, 2021 at 9:54 AM I?aki Ucar <iucar at fedoraproject.org>
+> wrote:
+> >
+> > > On Wed, 16 Jun 2021 at 15:48, Tom Callaway <spotrh at gmail.com> wrote:
+> > > >
+> > > > Hi friends,
+> > > >
+> > > > As the 4.1.0 rebuild progresses, I've identified one set of new
+> > > > dependencies that several packages (DT, covr) need in order to
+> upgrade:
+> > > >
+> > > > bslib
+> > > >  \sass
+> > > >  \jquerylib
+> > >
+> > > DT just suggests bslib, so it shouldn't be required. I looked at the
+> > > code and bslib functions are not called if this package is not
+> > > present.
+> > >
+> > > I?aki
+> > >
+> > > > If someone here wanted to package them and get them into Fedora, it
+> would
+> > > > be helpful. I'd be happy to do the review, but I'm reluctant to own
+> more
+> > > > packages right now. :)
+> > > >
+> > > > Thanks,
+> > > > ~spot
+> > > >
+> > > >         [[alternative HTML version deleted]]
+> > > >
+> > > > _______________________________________________
+> > > > R-SIG-Fedora mailing list
+> > > > R-SIG-Fedora at r-project.org
+> > > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> > >
+> > >
+> > >
+> > > --
+> > > I?aki ?car
+> > >
+> >
+> >         [[alternative HTML version deleted]]
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+>
+> --
+> I?aki ?car
+>
+
+	[[alternative HTML version deleted]]
+
+
+From @potrh @end|ng |rom gm@||@com  Wed Jun 16 23:24:35 2021
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Wed, 16 Jun 2021 17:24:35 -0400
+Subject: [R-sig-Fedora] New R packages as deps for R-tracklayer
+Message-ID: <CACp8ZrKcCs7WNWDPVQhHn+Zk9PqLQu+KBfSmBrz25orqPU=T0Q@mail.gmail.com>
+
+A few new packages need reviews in order to allow me to update
+R-rtracklayer:
+
+* R-KEGGREST: https://bugzilla.redhat.com/show_bug.cgi?id=1972905
+* R-BiocIO: https://bugzilla.redhat.com/show_bug.cgi?id=1972915
+* R-rjson: https://bugzilla.redhat.com/show_bug.cgi?id=1972920
+* R-restfulr: https://bugzilla.redhat.com/show_bug.cgi?id=1972922
+
+Any help here is appreciated.
+
+~spot
+
+	[[alternative HTML version deleted]]
+
+
+From qu@ntum@@n@|y@t @end|ng |rom gm@||@com  Thu Jun 17 00:02:35 2021
+From: qu@ntum@@n@|y@t @end|ng |rom gm@||@com (Elliott Sales de Andrade)
+Date: Wed, 16 Jun 2021 18:02:35 -0400
+Subject: [R-sig-Fedora] Fwd: new packages needed
+In-Reply-To: <CACp8ZrL7PU5P2wMnC4C4SJRi+9deOErtsRfOqG+fumCeZxKbmQ@mail.gmail.com>
+References: <CACp8ZrKiR=-RL-VjBxHxrczAXWSesEA=TMZxU6ZFAwMqx5mA8Q@mail.gmail.com>
+ <CALEXWq2_pJYPr0d4YFEhn6TmEBv-sXH=BHGLMM9DYu8o21fRug@mail.gmail.com>
+ <CACp8ZrKko-wbqHvim2ZsrVUd9by_jZ9iGHnhzC730O4oArPGQA@mail.gmail.com>
+ <CACp8ZrKGrwjjWTUrpc_tKcC+yNOLq8Uhe_1m-ndqFFA7QcYaMw@mail.gmail.com>
+ <CALEXWq2NMp5kQ9naq9W=5hYEYBry=nGS=URWgGo+npSab+LiPg@mail.gmail.com>
+ <CACp8ZrL7PU5P2wMnC4C4SJRi+9deOErtsRfOqG+fumCeZxKbmQ@mail.gmail.com>
+Message-ID: <CAJP_izcX0wXifLxiXgMLp1GhxicLB5o9wUifo3tvKGT1x63DNw@mail.gmail.com>
+
+I've already packaged both of those, but haven't had a chance to
+update shiny because I couldn't figure out
+https://bugzilla.redhat.com/show_bug.cgi?id=1936222
+
+Though I don't understand why you do version bumps in a mass rebuild;
+that seems like more work than necessary.
+
+
+On Wed, 16 Jun 2021 at 11:56, Tom Callaway <spotrh at gmail.com> wrote:
+>
+> I do not think it is required now, but it might be in the near term. Then
+> again, it might be required now, and I just haven't hit it yet.
+>
+> ~spot
+>
+> On Wed, Jun 16, 2021 at 10:49 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> > On Wed, 16 Jun 2021 at 16:08, Tom Callaway <spotrh at gmail.com> wrote:
+> > >
+> > > because it is already one of those days and i didn't hit reply all. :/
+> > >
+> > > ~spot
+> > >
+> > > ---------- Forwarded message ---------
+> > > From: Tom Callaway <spotrh at gmail.com>
+> > > Date: Wed, Jun 16, 2021 at 10:02 AM
+> > > Subject: Re: [R-sig-Fedora] new packages needed
+> > > To: I?aki Ucar <iucar at fedoraproject.org>
+> > >
+> > >
+> > > shiny (not covr, that was my brain spitting out the wrong thing) imports
+> > it
+> > > though.
+> >
+> > Ah, true, Shiny 1.6 switched to bslib. Is this version of Shiny
+> > required for the current rebuild then? I'm reluctant to take more R
+> > packages in the official repos because the +17k I maintain in Copr
+> > give me enough headaches. But I'd be happy to help review them too.
+> >
+> > I?aki
+> >
+> > > ~spot
+> > >
+> > > On Wed, Jun 16, 2021 at 9:54 AM I?aki Ucar <iucar at fedoraproject.org>
+> > wrote:
+> > >
+> > > > On Wed, 16 Jun 2021 at 15:48, Tom Callaway <spotrh at gmail.com> wrote:
+> > > > >
+> > > > > Hi friends,
+> > > > >
+> > > > > As the 4.1.0 rebuild progresses, I've identified one set of new
+> > > > > dependencies that several packages (DT, covr) need in order to
+> > upgrade:
+> > > > >
+> > > > > bslib
+> > > > >  \sass
+> > > > >  \jquerylib
+> > > >
+> > > > DT just suggests bslib, so it shouldn't be required. I looked at the
+> > > > code and bslib functions are not called if this package is not
+> > > > present.
+> > > >
+> > > > I?aki
+> > > >
+> > > > > If someone here wanted to package them and get them into Fedora, it
+> > would
+> > > > > be helpful. I'd be happy to do the review, but I'm reluctant to own
+> > more
+> > > > > packages right now. :)
+> > > > >
+> > > > > Thanks,
+> > > > > ~spot
+> > > > >
+> > > > >         [[alternative HTML version deleted]]
+> > > > >
+> > > > > _______________________________________________
+> > > > > R-SIG-Fedora mailing list
+> > > > > R-SIG-Fedora at r-project.org
+> > > > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> > > >
+> > > >
+> > > >
+> > > > --
+> > > > I?aki ?car
+> > > >
+> > >
+> > >         [[alternative HTML version deleted]]
+> > >
+> > > _______________________________________________
+> > > R-SIG-Fedora mailing list
+> > > R-SIG-Fedora at r-project.org
+> > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+> >
+> >
+> > --
+> > I?aki ?car
+> >
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+--
+Elliott
+
+
+From @potrh @end|ng |rom gm@||@com  Fri Jun 18 00:45:02 2021
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Thu, 17 Jun 2021 18:45:02 -0400
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CALEXWq0CMcb7_zOx0_WfavSYR+2iYFh3oV_ciGj2vyUonjgNJg@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+ <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+ <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+ <CACp8ZrLdYHc2F3A-uka+JFrVAzO8M1GBLELD0WsR0JYeU4BQ7w@mail.gmail.com>
+ <CALEXWq0CMcb7_zOx0_WfavSYR+2iYFh3oV_ciGj2vyUonjgNJg@mail.gmail.com>
+Message-ID: <CACp8ZrKsQjxso3gDhU1ZHLpQwjHt_=Hy-NnFtPb7TDT7nZ7nvg@mail.gmail.com>
+
+The R 4.1 rawhide rebuild is complete, and waiting for bodhi to push it:
+https://bodhi.fedoraproject.org/updates/FEDORA-2021-e7a89430cd
+
+~spot
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Fri Jun 18 12:50:29 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Fri, 18 Jun 2021 12:50:29 +0200
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CACp8ZrKsQjxso3gDhU1ZHLpQwjHt_=Hy-NnFtPb7TDT7nZ7nvg@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+ <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+ <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+ <CACp8ZrLdYHc2F3A-uka+JFrVAzO8M1GBLELD0WsR0JYeU4BQ7w@mail.gmail.com>
+ <CALEXWq0CMcb7_zOx0_WfavSYR+2iYFh3oV_ciGj2vyUonjgNJg@mail.gmail.com>
+ <CACp8ZrKsQjxso3gDhU1ZHLpQwjHt_=Hy-NnFtPb7TDT7nZ7nvg@mail.gmail.com>
+Message-ID: <CALEXWq3ocm1mAfzjbu2z5V89K27WgiCcmBO+FrHwVFrZTcfxmQ@mail.gmail.com>
+
+Nice! Plans for F34? :))
+
+On Fri, 18 Jun 2021 at 00:45, Tom Callaway <spotrh at gmail.com> wrote:
+>
+> The R 4.1 rawhide rebuild is complete, and waiting for bodhi to push it:
+> https://bodhi.fedoraproject.org/updates/FEDORA-2021-e7a89430cd
+>
+> ~spot
+
+
+
+-- 
+I?aki ?car
+
+
+From @potrh @end|ng |rom gm@||@com  Fri Jun 18 14:20:47 2021
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Fri, 18 Jun 2021 08:20:47 -0400
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CALEXWq3ocm1mAfzjbu2z5V89K27WgiCcmBO+FrHwVFrZTcfxmQ@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+ <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+ <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+ <CACp8ZrLdYHc2F3A-uka+JFrVAzO8M1GBLELD0WsR0JYeU4BQ7w@mail.gmail.com>
+ <CALEXWq0CMcb7_zOx0_WfavSYR+2iYFh3oV_ciGj2vyUonjgNJg@mail.gmail.com>
+ <CACp8ZrKsQjxso3gDhU1ZHLpQwjHt_=Hy-NnFtPb7TDT7nZ7nvg@mail.gmail.com>
+ <CALEXWq3ocm1mAfzjbu2z5V89K27WgiCcmBO+FrHwVFrZTcfxmQ@mail.gmail.com>
+Message-ID: <CACp8ZrLesYDBbhUOu8zeTQdkW+H=_4HOB=GVmHU1DJno53dr4w@mail.gmail.com>
+
+I don't think so. If Fedora 34 users want R 4.1, they can install it from
+rawhide.
+
+Or someone that isn't me can spend another two weeks doing it. :)
+
+~spot
+
+On Fri, Jun 18, 2021, 6:50 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+
+> Nice! Plans for F34? :))
+>
+> On Fri, 18 Jun 2021 at 00:45, Tom Callaway <spotrh at gmail.com> wrote:
+> >
+> > The R 4.1 rawhide rebuild is complete, and waiting for bodhi to push it:
+> > https://bodhi.fedoraproject.org/updates/FEDORA-2021-e7a89430cd
+> >
+> > ~spot
+>
+>
+>
+> --
+> I?aki ?car
+>
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Tue Jun 22 15:07:44 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Tue, 22 Jun 2021 15:07:44 +0200
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CACp8ZrLesYDBbhUOu8zeTQdkW+H=_4HOB=GVmHU1DJno53dr4w@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+ <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+ <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+ <CACp8ZrLdYHc2F3A-uka+JFrVAzO8M1GBLELD0WsR0JYeU4BQ7w@mail.gmail.com>
+ <CALEXWq0CMcb7_zOx0_WfavSYR+2iYFh3oV_ciGj2vyUonjgNJg@mail.gmail.com>
+ <CACp8ZrKsQjxso3gDhU1ZHLpQwjHt_=Hy-NnFtPb7TDT7nZ7nvg@mail.gmail.com>
+ <CALEXWq3ocm1mAfzjbu2z5V89K27WgiCcmBO+FrHwVFrZTcfxmQ@mail.gmail.com>
+ <CACp8ZrLesYDBbhUOu8zeTQdkW+H=_4HOB=GVmHU1DJno53dr4w@mail.gmail.com>
+Message-ID: <CALEXWq2utxQ+naMKxz20KMcXLcNNWLp16QyWG7NcGw5ti-3PGA@mail.gmail.com>
+
+We still have a few issues:
+
+# dnf install R-*
+Last metadata expiration check: 0:00:08 ago on Tue Jun 22 13:04:20 2021.
+Error:
+Problem 1: conflicting requests
+ - nothing provides R(ABI) = 4.0 needed by R-littler-0.3.12-2.fc34.x86_64
+Problem 2: conflicting requests
+ - nothing provides R(ABI) = 4.0 needed by R-Rcompression-0.93.2-30.fc34.x86_64
+Problem 3: conflicting requests
+ - nothing provides R(ABI) = 4.0 needed by R-nws-1:1.7.0.1-24.fc34.noarch
+Problem 4: package R-littler-examples-0.3.12-2.fc34.x86_64 requires
+R-littler(x86-64) = 0.3.12-2.fc34, but none of the providers can be
+installe
+d
+ - package R-littler-examples-0.3.12-2.fc34.x86_64 requires
+/usr/bin/r, but none of the providers can be installed
+ - conflicting requests
+ - nothing provides R(ABI) = 4.0 needed by R-littler-0.3.12-2.fc34.x86_64
+Problem 5: package R-Rcpp-examples-1.0.6-3.fc35.x86_64 requires
+/usr/bin/r, but none of the providers can be installed
+ - conflicting requests
+ - nothing provides R(ABI) = 4.0 needed by R-littler-0.3.12-2.fc34.x86_64
+Problem 6: conflicting requests
+ - nothing provides R(ABI) = 4.0 needed by R-Rsolid-0.9.31-34.fc34.i686
+ - nothing provides R(ABI) = 4.0 needed by R-Rsolid-0.9.31-34.fc34.x86_64
+Problem 7: conflicting requests
+ - package R-Rsolid-devel-0.9.31-34.fc34.i686 requires
+R-Rsolid(x86-32) = 0.9.31-34.fc34, but none of the providers can be
+installed
+ - package R-Rsolid-devel-0.9.31-34.fc34.x86_64 requires
+R-Rsolid(x86-64) = 0.9.31-34.fc34, but none of the providers can be
+installed
+ - nothing provides R(ABI) = 4.0 needed by R-Rsolid-0.9.31-34.fc34.i686
+ - nothing provides R(ABI) = 4.0 needed by R-Rsolid-0.9.31-34.fc34.x86_64
+(try to add '--skip-broken' to skip uninstallable packages)
+
+At least R-littler was already rebuilt by Mattias, but it didn't
+propagate to the repos yet.
+
+On Fri, 18 Jun 2021 at 14:21, Tom Callaway <spotrh at gmail.com> wrote:
+>
+> I don't think so. If Fedora 34 users want R 4.1, they can install it from rawhide.
+>
+> Or someone that isn't me can spend another two weeks doing it. :)
+>
+> ~spot
+>
+> On Fri, Jun 18, 2021, 6:50 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>>
+>> Nice! Plans for F34? :))
+>>
+>> On Fri, 18 Jun 2021 at 00:45, Tom Callaway <spotrh at gmail.com> wrote:
+>> >
+>> > The R 4.1 rawhide rebuild is complete, and waiting for bodhi to push it:
+>> > https://bodhi.fedoraproject.org/updates/FEDORA-2021-e7a89430cd
+>> >
+>> > ~spot
+>>
+>>
+>>
+>> --
+>> I?aki ?car
+
+
+
+-- 
+I?aki ?car
+
+
+From uc|@g|@ @end|ng |rom gm@||@com  Wed Jun 23 14:49:54 2021
+From: uc|@g|@ @end|ng |rom gm@||@com (Gavin Simpson)
+Date: Wed, 23 Jun 2021 14:49:54 +0200
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CACp8ZrLesYDBbhUOu8zeTQdkW+H=_4HOB=GVmHU1DJno53dr4w@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+ <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+ <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+ <CACp8ZrLdYHc2F3A-uka+JFrVAzO8M1GBLELD0WsR0JYeU4BQ7w@mail.gmail.com>
+ <CALEXWq0CMcb7_zOx0_WfavSYR+2iYFh3oV_ciGj2vyUonjgNJg@mail.gmail.com>
+ <CACp8ZrKsQjxso3gDhU1ZHLpQwjHt_=Hy-NnFtPb7TDT7nZ7nvg@mail.gmail.com>
+ <CALEXWq3ocm1mAfzjbu2z5V89K27WgiCcmBO+FrHwVFrZTcfxmQ@mail.gmail.com>
+ <CACp8ZrLesYDBbhUOu8zeTQdkW+H=_4HOB=GVmHU1DJno53dr4w@mail.gmail.com>
+Message-ID: <CAAHES9x_sC=BUOOnzFR=3mKq5yaQPzEj3sOQRb1MenP=9BVc-g@mail.gmail.com>
+
+How would one go about installing R 4.1 from rawhide? (October is a little
+too far away to be off r-release for that long while maintaining R packages
+on CRAN that depend on tidyverse packages.)
+
+TIA
+
+Gavin
+
+On Fri, 18 Jun 2021 at 14:21, Tom Callaway <spotrh at gmail.com> wrote:
+
+> I don't think so. If Fedora 34 users want R 4.1, they can install it from
+> rawhide.
+>
+> Or someone that isn't me can spend another two weeks doing it. :)
+>
+> ~spot
+>
+> On Fri, Jun 18, 2021, 6:50 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> > Nice! Plans for F34? :))
+> >
+> > On Fri, 18 Jun 2021 at 00:45, Tom Callaway <spotrh at gmail.com> wrote:
+> > >
+> > > The R 4.1 rawhide rebuild is complete, and waiting for bodhi to push
+> it:
+> > > https://bodhi.fedoraproject.org/updates/FEDORA-2021-e7a89430cd
+> > >
+> > > ~spot
+> >
+> >
+> >
+> > --
+> > I?aki ?car
+> >
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+
+-- 
+Gavin Simpson, PhD [he/him/his]           [t] +1 306 337 8863
+? Research Scientist                      [f] +1 306 337 2410
+Institute of Environmental               [tw] @ucfagls
+  Change & Society                        [w] goo.gl/Zpkdem
+University of Regina                      [w] iecs-uregina.ca
+Regina, SK S4S 0A2, Canada               [iD] 0000-0002-9084-8413
+
+? Adjunct Professor, Department of Biology, University of Regina.
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Wed Jun 23 15:45:30 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Wed, 23 Jun 2021 15:45:30 +0200
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CAAHES9x_sC=BUOOnzFR=3mKq5yaQPzEj3sOQRb1MenP=9BVc-g@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+ <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+ <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+ <CACp8ZrLdYHc2F3A-uka+JFrVAzO8M1GBLELD0WsR0JYeU4BQ7w@mail.gmail.com>
+ <CALEXWq0CMcb7_zOx0_WfavSYR+2iYFh3oV_ciGj2vyUonjgNJg@mail.gmail.com>
+ <CACp8ZrKsQjxso3gDhU1ZHLpQwjHt_=Hy-NnFtPb7TDT7nZ7nvg@mail.gmail.com>
+ <CALEXWq3ocm1mAfzjbu2z5V89K27WgiCcmBO+FrHwVFrZTcfxmQ@mail.gmail.com>
+ <CACp8ZrLesYDBbhUOu8zeTQdkW+H=_4HOB=GVmHU1DJno53dr4w@mail.gmail.com>
+ <CAAHES9x_sC=BUOOnzFR=3mKq5yaQPzEj3sOQRb1MenP=9BVc-g@mail.gmail.com>
+Message-ID: <CALEXWq1K2OD2FdbVU-DgXzEVW87QkD5A+6WpJoox6sVmUV3W1A@mail.gmail.com>
+
+On Wed, 23 Jun 2021 at 14:50, Gavin Simpson <ucfagls at gmail.com> wrote:
+>
+> How would one go about installing R 4.1 from rawhide? (October is a little too far away to be off r-release for that long while maintaining R packages on CRAN that depend on tidyverse packages.)
+
+$ sudo dnf update R --release rawhide
+
+should do. Be aware though that this means updating other dependencies
+too. This may or may not cause problems. A safer option would be to
+use a containerized environment. Toolbox [1, 2] is perfect for this,
+especially for development purposes:
+
+$ sudo dnf install toolbox
+$ toolbox enter -r 35
+[toolbox]$ sudo dnf install R rstudio-desktop
+[toolbox]$ rstudio
+# rstudio opens
+
+or directly without entering the toolbox first:
+
+$ toolbox run -r 35 rstudio
+# rstudio opens
+
+Remember to install any additional repos and/or system dependencies
+you may need (e.g., to install R packages from source) *inside* your
+toolbox. Hope it helps.
+
+[1] https://docs.fedoraproject.org/en-US/fedora-silverblue/toolbox/
+[2] https://fedoramagazine.org/a-quick-introduction-to-toolbox-on-fedora/
+
+I?aki
+
+>
+> TIA
+>
+> Gavin
+>
+> On Fri, 18 Jun 2021 at 14:21, Tom Callaway <spotrh at gmail.com> wrote:
+>>
+>> I don't think so. If Fedora 34 users want R 4.1, they can install it from
+>> rawhide.
+>>
+>> Or someone that isn't me can spend another two weeks doing it. :)
+>>
+>> ~spot
+>>
+>> On Fri, Jun 18, 2021, 6:50 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+>>
+>> > Nice! Plans for F34? :))
+>> >
+>> > On Fri, 18 Jun 2021 at 00:45, Tom Callaway <spotrh at gmail.com> wrote:
+>> > >
+>> > > The R 4.1 rawhide rebuild is complete, and waiting for bodhi to push it:
+>> > > https://bodhi.fedoraproject.org/updates/FEDORA-2021-e7a89430cd
+>> > >
+>> > > ~spot
+>> >
+>> >
+>> >
+>> > --
+>> > I?aki ?car
+>> >
+>>
+>>         [[alternative HTML version deleted]]
+>>
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+>
+> --
+> Gavin Simpson, PhD [he/him/his]           [t] +1 306 337 8863
+> ? Research Scientist                      [f] +1 306 337 2410
+> Institute of Environmental               [tw] @ucfagls
+>   Change & Society                        [w] goo.gl/Zpkdem
+> University of Regina                      [w] iecs-uregina.ca
+> Regina, SK S4S 0A2, Canada               [iD] 0000-0002-9084-8413
+>
+> ? Adjunct Professor, Department of Biology, University of Regina.
+
+
+
+-- 
+I?aki ?car
+
+
+From uc|@g|@ @end|ng |rom gm@||@com  Wed Jun 23 18:29:26 2021
+From: uc|@g|@ @end|ng |rom gm@||@com (Gavin Simpson)
+Date: Wed, 23 Jun 2021 18:29:26 +0200
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CALEXWq1K2OD2FdbVU-DgXzEVW87QkD5A+6WpJoox6sVmUV3W1A@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+ <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+ <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+ <CACp8ZrLdYHc2F3A-uka+JFrVAzO8M1GBLELD0WsR0JYeU4BQ7w@mail.gmail.com>
+ <CALEXWq0CMcb7_zOx0_WfavSYR+2iYFh3oV_ciGj2vyUonjgNJg@mail.gmail.com>
+ <CACp8ZrKsQjxso3gDhU1ZHLpQwjHt_=Hy-NnFtPb7TDT7nZ7nvg@mail.gmail.com>
+ <CALEXWq3ocm1mAfzjbu2z5V89K27WgiCcmBO+FrHwVFrZTcfxmQ@mail.gmail.com>
+ <CACp8ZrLesYDBbhUOu8zeTQdkW+H=_4HOB=GVmHU1DJno53dr4w@mail.gmail.com>
+ <CAAHES9x_sC=BUOOnzFR=3mKq5yaQPzEj3sOQRb1MenP=9BVc-g@mail.gmail.com>
+ <CALEXWq1K2OD2FdbVU-DgXzEVW87QkD5A+6WpJoox6sVmUV3W1A@mail.gmail.com>
+Message-ID: <CAAHES9yoAqqZBoiERwyfzG=pZC32ZFtsgw5=ycYCvghDy=uDwg@mail.gmail.com>
+
+Thanks I?aki! toolbox looks really useful for my usecase.
+
+I'm hitting a related issue in that some R-* packages are not up-to-date
+with their CRAN versions (especially testthat, which won't compile on
+F35/rawhide because of a problem in catch that is bundled with testhat and
+something that has changed in the compiler versions in rawhide. So now I'm
+still stuck as I can't install the latest version of vdiffr (which I need
+for R 4.1) as it needs 3.0.3 of testthat.
+
+I'm also a little unclear why there are so many R-* packages in the repos
+now? And how these relate to your COPR-based initiative to provide fedora
+packages for all of CRAN.
+
+I suspect I'm hitting all the issues that Tom and you and others are having
+to deal with in the course of your packaging R packages for fedora, but as
+until recently I just compiled R myself I'm a little unsure what is the
+best/recommended strategy for installing R packages etc on Fedora? Use the
+main repo packages, your COPR, something else? Is there an overview, road
+map or plan somewhere that outlines this and/or what the recommended route
+is?
+
+TIA
+
+G
+
+On Wed, 23 Jun 2021 at 15:45, I?aki Ucar <iucar at fedoraproject.org> wrote:
+
+> On Wed, 23 Jun 2021 at 14:50, Gavin Simpson <ucfagls at gmail.com> wrote:
+> >
+> > How would one go about installing R 4.1 from rawhide? (October is a
+> little too far away to be off r-release for that long while maintaining R
+> packages on CRAN that depend on tidyverse packages.)
+>
+> $ sudo dnf update R --release rawhide
+>
+> should do. Be aware though that this means updating other dependencies
+> too. This may or may not cause problems. A safer option would be to
+> use a containerized environment. Toolbox [1, 2] is perfect for this,
+> especially for development purposes:
+>
+> $ sudo dnf install toolbox
+> $ toolbox enter -r 35
+> [toolbox]$ sudo dnf install R rstudio-desktop
+> [toolbox]$ rstudio
+> # rstudio opens
+>
+> or directly without entering the toolbox first:
+>
+> $ toolbox run -r 35 rstudio
+> # rstudio opens
+>
+> Remember to install any additional repos and/or system dependencies
+> you may need (e.g., to install R packages from source) *inside* your
+> toolbox. Hope it helps.
+>
+> [1] https://docs.fedoraproject.org/en-US/fedora-silverblue/toolbox/
+> [2] https://fedoramagazine.org/a-quick-introduction-to-toolbox-on-fedora/
+>
+> I?aki
+>
+> >
+> > TIA
+> >
+> > Gavin
+> >
+> > On Fri, 18 Jun 2021 at 14:21, Tom Callaway <spotrh at gmail.com> wrote:
+> >>
+> >> I don't think so. If Fedora 34 users want R 4.1, they can install it
+> from
+> >> rawhide.
+> >>
+> >> Or someone that isn't me can spend another two weeks doing it. :)
+> >>
+> >> ~spot
+> >>
+> >> On Fri, Jun 18, 2021, 6:50 AM I?aki Ucar <iucar at fedoraproject.org>
+> wrote:
+> >>
+> >> > Nice! Plans for F34? :))
+> >> >
+> >> > On Fri, 18 Jun 2021 at 00:45, Tom Callaway <spotrh at gmail.com> wrote:
+> >> > >
+> >> > > The R 4.1 rawhide rebuild is complete, and waiting for bodhi to
+> push it:
+> >> > > https://bodhi.fedoraproject.org/updates/FEDORA-2021-e7a89430cd
+> >> > >
+> >> > > ~spot
+> >> >
+> >> >
+> >> >
+> >> > --
+> >> > I?aki ?car
+> >> >
+> >>
+> >>         [[alternative HTML version deleted]]
+> >>
+> >> _______________________________________________
+> >> R-SIG-Fedora mailing list
+> >> R-SIG-Fedora at r-project.org
+> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+> >
+> >
+> > --
+> > Gavin Simpson, PhD [he/him/his]           [t] +1 306 337 8863
+> > ? Research Scientist                      [f] +1 306 337 2410
+> > Institute of Environmental               [tw] @ucfagls
+> >   Change & Society                        [w] goo.gl/Zpkdem
+> > University of Regina                      [w] iecs-uregina.ca
+> > Regina, SK S4S 0A2, Canada               [iD] 0000-0002-9084-8413
+> >
+> > ? Adjunct Professor, Department of Biology, University of Regina.
+>
+>
+>
+> --
+> I?aki ?car
+>
+
+
+-- 
+Gavin Simpson, PhD [he/him/his]           [t] +1 306 337 8863
+? Research Scientist                      [f] +1 306 337 2410
+Institute of Environmental               [tw] @ucfagls
+  Change & Society                        [w] goo.gl/Zpkdem
+University of Regina                      [w] iecs-uregina.ca
+Regina, SK S4S 0A2, Canada               [iD] 0000-0002-9084-8413
+
+? Adjunct Professor, Department of Biology, University of Regina.
+
+	[[alternative HTML version deleted]]
+
+
+From @potrh @end|ng |rom gm@||@com  Wed Jun 23 18:56:24 2021
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Wed, 23 Jun 2021 12:56:24 -0400
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CAAHES9yoAqqZBoiERwyfzG=pZC32ZFtsgw5=ycYCvghDy=uDwg@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+ <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+ <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+ <CACp8ZrLdYHc2F3A-uka+JFrVAzO8M1GBLELD0WsR0JYeU4BQ7w@mail.gmail.com>
+ <CALEXWq0CMcb7_zOx0_WfavSYR+2iYFh3oV_ciGj2vyUonjgNJg@mail.gmail.com>
+ <CACp8ZrKsQjxso3gDhU1ZHLpQwjHt_=Hy-NnFtPb7TDT7nZ7nvg@mail.gmail.com>
+ <CALEXWq3ocm1mAfzjbu2z5V89K27WgiCcmBO+FrHwVFrZTcfxmQ@mail.gmail.com>
+ <CACp8ZrLesYDBbhUOu8zeTQdkW+H=_4HOB=GVmHU1DJno53dr4w@mail.gmail.com>
+ <CAAHES9x_sC=BUOOnzFR=3mKq5yaQPzEj3sOQRb1MenP=9BVc-g@mail.gmail.com>
+ <CALEXWq1K2OD2FdbVU-DgXzEVW87QkD5A+6WpJoox6sVmUV3W1A@mail.gmail.com>
+ <CAAHES9yoAqqZBoiERwyfzG=pZC32ZFtsgw5=ycYCvghDy=uDwg@mail.gmail.com>
+Message-ID: <CACp8ZrKec9zsM5EEZxzVnyh2mxzkWJbB0bjcRAcs8aG5h9GRvA@mail.gmail.com>
+
+FWIW, I just built R-testthat-3.0.3 in rawhide.
+
+As far as the R-* packages in the repos, they are either an R package that
+someone wanted in Fedora at some point (10%), a package that needed some
+love to build in Fedora, either because it is old or Fedora is too new
+(5%), BioConductor bits (10%), or dependencies (75%). I am kidding a bit on
+that last number, but dependency creep in R is a real thing.
+
+Since Fedora's R-testthat has a patch for the bundled catch, there is value
+in having it in Fedora rather than just having people try (and fail) to
+build from CRAN. The good news is that if testthat upstream pulls a newer
+copy of catch into it, it should pickup the fix, and this issue will
+hopefully go away over time.
+
+~spot
+
+
+On Wed, Jun 23, 2021 at 12:29 PM Gavin Simpson <ucfagls at gmail.com> wrote:
+
+> Thanks I?aki! toolbox looks really useful for my usecase.
+>
+> I'm hitting a related issue in that some R-* packages are not up-to-date
+> with their CRAN versions (especially testthat, which won't compile on
+> F35/rawhide because of a problem in catch that is bundled with testhat and
+> something that has changed in the compiler versions in rawhide. So now I'm
+> still stuck as I can't install the latest version of vdiffr (which I need
+> for R 4.1) as it needs 3.0.3 of testthat.
+>
+> I'm also a little unclear why there are so many R-* packages in the repos
+> now? And how these relate to your COPR-based initiative to provide fedora
+> packages for all of CRAN.
+>
+> I suspect I'm hitting all the issues that Tom and you and others are
+> having to deal with in the course of your packaging R packages for fedora,
+> but as until recently I just compiled R myself I'm a little unsure what is
+> the best/recommended strategy for installing R packages etc on Fedora? Use
+> the main repo packages, your COPR, something else? Is there an overview,
+> road map or plan somewhere that outlines this and/or what the recommended
+> route is?
+>
+> TIA
+>
+> G
+>
+> On Wed, 23 Jun 2021 at 15:45, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+>> On Wed, 23 Jun 2021 at 14:50, Gavin Simpson <ucfagls at gmail.com> wrote:
+>> >
+>> > How would one go about installing R 4.1 from rawhide? (October is a
+>> little too far away to be off r-release for that long while maintaining R
+>> packages on CRAN that depend on tidyverse packages.)
+>>
+>> $ sudo dnf update R --release rawhide
+>>
+>> should do. Be aware though that this means updating other dependencies
+>> too. This may or may not cause problems. A safer option would be to
+>> use a containerized environment. Toolbox [1, 2] is perfect for this,
+>> especially for development purposes:
+>>
+>> $ sudo dnf install toolbox
+>> $ toolbox enter -r 35
+>> [toolbox]$ sudo dnf install R rstudio-desktop
+>> [toolbox]$ rstudio
+>> # rstudio opens
+>>
+>> or directly without entering the toolbox first:
+>>
+>> $ toolbox run -r 35 rstudio
+>> # rstudio opens
+>>
+>> Remember to install any additional repos and/or system dependencies
+>> you may need (e.g., to install R packages from source) *inside* your
+>> toolbox. Hope it helps.
+>>
+>> [1] https://docs.fedoraproject.org/en-US/fedora-silverblue/toolbox/
+>> [2] https://fedoramagazine.org/a-quick-introduction-to-toolbox-on-fedora/
+>>
+>> I?aki
+>>
+>> >
+>> > TIA
+>> >
+>> > Gavin
+>> >
+>> > On Fri, 18 Jun 2021 at 14:21, Tom Callaway <spotrh at gmail.com> wrote:
+>> >>
+>> >> I don't think so. If Fedora 34 users want R 4.1, they can install it
+>> from
+>> >> rawhide.
+>> >>
+>> >> Or someone that isn't me can spend another two weeks doing it. :)
+>> >>
+>> >> ~spot
+>> >>
+>> >> On Fri, Jun 18, 2021, 6:50 AM I?aki Ucar <iucar at fedoraproject.org>
+>> wrote:
+>> >>
+>> >> > Nice! Plans for F34? :))
+>> >> >
+>> >> > On Fri, 18 Jun 2021 at 00:45, Tom Callaway <spotrh at gmail.com> wrote:
+>> >> > >
+>> >> > > The R 4.1 rawhide rebuild is complete, and waiting for bodhi to
+>> push it:
+>> >> > > https://bodhi.fedoraproject.org/updates/FEDORA-2021-e7a89430cd
+>> >> > >
+>> >> > > ~spot
+>> >> >
+>> >> >
+>> >> >
+>> >> > --
+>> >> > I?aki ?car
+>> >> >
+>> >>
+>> >>         [[alternative HTML version deleted]]
+>> >>
+>> >> _______________________________________________
+>> >> R-SIG-Fedora mailing list
+>> >> R-SIG-Fedora at r-project.org
+>> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>> >
+>> >
+>> >
+>> > --
+>> > Gavin Simpson, PhD [he/him/his]           [t] +1 306 337 8863
+>> > ? Research Scientist                      [f] +1 306 337 2410
+>> > Institute of Environmental               [tw] @ucfagls
+>> >   Change & Society                        [w] goo.gl/Zpkdem
+>> > University of Regina                      [w] iecs-uregina.ca
+>> > Regina, SK S4S 0A2, Canada               [iD] 0000-0002-9084-8413
+>> >
+>> > ? Adjunct Professor, Department of Biology, University of Regina.
+>>
+>>
+>>
+>> --
+>> I?aki ?car
+>>
+>
+>
+> --
+> Gavin Simpson, PhD [he/him/his]           [t] +1 306 337 8863
+> ? Research Scientist                      [f] +1 306 337 2410
+> Institute of Environmental               [tw] @ucfagls
+>   Change & Society                        [w] goo.gl/Zpkdem
+> University of Regina                      [w] iecs-uregina.ca
+> Regina, SK S4S 0A2, Canada               [iD] 0000-0002-9084-8413
+>
+> ? Adjunct Professor, Department of Biology, University of Regina.
+>
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Wed Jun 23 19:00:18 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Wed, 23 Jun 2021 19:00:18 +0200
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CAAHES9yoAqqZBoiERwyfzG=pZC32ZFtsgw5=ycYCvghDy=uDwg@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+ <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+ <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+ <CACp8ZrLdYHc2F3A-uka+JFrVAzO8M1GBLELD0WsR0JYeU4BQ7w@mail.gmail.com>
+ <CALEXWq0CMcb7_zOx0_WfavSYR+2iYFh3oV_ciGj2vyUonjgNJg@mail.gmail.com>
+ <CACp8ZrKsQjxso3gDhU1ZHLpQwjHt_=Hy-NnFtPb7TDT7nZ7nvg@mail.gmail.com>
+ <CALEXWq3ocm1mAfzjbu2z5V89K27WgiCcmBO+FrHwVFrZTcfxmQ@mail.gmail.com>
+ <CACp8ZrLesYDBbhUOu8zeTQdkW+H=_4HOB=GVmHU1DJno53dr4w@mail.gmail.com>
+ <CAAHES9x_sC=BUOOnzFR=3mKq5yaQPzEj3sOQRb1MenP=9BVc-g@mail.gmail.com>
+ <CALEXWq1K2OD2FdbVU-DgXzEVW87QkD5A+6WpJoox6sVmUV3W1A@mail.gmail.com>
+ <CAAHES9yoAqqZBoiERwyfzG=pZC32ZFtsgw5=ycYCvghDy=uDwg@mail.gmail.com>
+Message-ID: <CALEXWq23sWB=wf7jUS7vOtwPxLXwi4T3usF87rBwiQgxoOYMTQ@mail.gmail.com>
+
+On Wed, 23 Jun 2021 at 18:29, Gavin Simpson <ucfagls at gmail.com> wrote:
+>
+> Thanks I?aki! toolbox looks really useful for my usecase.
+
+Toolbox is *very* cool. :)
+
+> I'm hitting a related issue in that some R-* packages are not up-to-date with their CRAN versions (especially testthat, which won't compile on F35/rawhide because of a problem in catch that is bundled with testhat and something that has changed in the compiler versions in rawhide. So now I'm still stuck as I can't install the latest version of vdiffr (which I need for R 4.1) as it needs 3.0.3 of testthat.
+
+Currently, in rawhide, I recommend installing R-testthat, which comes
+from the official repos, and it's patched. Also, please make some
+noise in [1] to get it resolved upstream. ;-)
+
+[1] https://github.com/r-lib/testthat/issues/1373
+
+> I'm also a little unclear why there are so many R-* packages in the repos now? And how these relate to your COPR-based initiative to provide fedora packages for all of CRAN.
+
+All the R-* packages are in the official repos, most of them
+maintained by Elliott (@qulogic). There are a few hundred. Then, if
+you have my Copr enabled, you'll have access to R-CRAN-* packages,
+which currently are more than 17100 packages. CRAN packages in the
+official repos are also in the Copr repo (R-testthat is the official
+one; R-CRAN-testthat comes from Copr). These installations are
+compatible, because the Copr repo installs stuff into /usr/local to
+avoid any clashes with the official repos. The official repos also
+have some Bioc packages not present in my Copr repo. See [2] for
+further details.
+
+[2] https://cran.r-project.org/bin/linux/fedora/
+
+If you happen to have the same package from several sources, R will
+pick your user library as a first option, packages from Copr as the
+second option, and packages from the official repos as the third
+option.
+
+> I suspect I'm hitting all the issues that Tom and you and others are having to deal with in the course of your packaging R packages for fedora, but as until recently I just compiled R myself I'm a little unsure what is the best/recommended strategy for installing R packages etc on Fedora? Use the main repo packages, your COPR, something else? Is there an overview, road map or plan somewhere that outlines this and/or what the recommended route is?
+
+What can I say? :) The Copr repo has been working nicely for me,
+especially for stable releases. I have it enabled in all the servers I
+manage here at the university. And it's especially convenient when you
+install the R-CoprManager package, because then you just call
+install.packages() in your R console and binary packages from Copr are
+automatically installed if they are available; otherwise, they are
+pulled from CRAN, so no big deal.
+
+In rawhide, there may be some "glitches", because it's in active
+development, so I have to launch several mass rebuilds until things
+start to settle (no more system-wide changes, no more core library
+updates...). Right now I'm in the middle of a mass rebuild, so you
+won't be able to install some packages until it's finished.
+
+-- 
+I?aki ?car
+
+
+From |uc@r @end|ng |rom |edor@project@org  Thu Jun 24 11:38:40 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Thu, 24 Jun 2021 11:38:40 +0200
+Subject: [R-sig-Fedora] Plans for R 4.1 in Fedora?
+In-Reply-To: <CALEXWq23sWB=wf7jUS7vOtwPxLXwi4T3usF87rBwiQgxoOYMTQ@mail.gmail.com>
+References: <2464696.Lt9SDvczpP@griffin>
+ <CALEXWq2Qx=MPDyZ5oESFxTJb30remF=gWtt9pHg6TP18zS2Ong@mail.gmail.com>
+ <CACp8Zr+EB7rZ6UCkVmzhC6NQ+4xVwa9kfhVpP5kvj9gEce59vw@mail.gmail.com>
+ <CAJP_izcZSHQNnca2+3S+rOspXa_a0M3zJrL8cga9vhHRYotGXA@mail.gmail.com>
+ <CACp8ZrJGq3NxC7KwX-v7+4nS1bw511euRW6jmi2miYnFj-0k4w@mail.gmail.com>
+ <CALEXWq3zgw2jGTJxnn5Pq_f7XzEPqnguKL8riAFj9voKXBarZw@mail.gmail.com>
+ <CAJP_izc4OJe_p2OkjAhtfAWvordA1ifTSXmK6EVhG4=uWNd9og@mail.gmail.com>
+ <CALEXWq2Xn2SKnGg+_m6U=DMFwWB2pL8tStVhpg8J+8O3q-Ztkw@mail.gmail.com>
+ <CALEXWq38bpjFsoC7Amw32dEQqWgp7989Y2DrcQ7HMeXe8SsG4g@mail.gmail.com>
+ <CACp8ZrLdYHc2F3A-uka+JFrVAzO8M1GBLELD0WsR0JYeU4BQ7w@mail.gmail.com>
+ <CALEXWq0CMcb7_zOx0_WfavSYR+2iYFh3oV_ciGj2vyUonjgNJg@mail.gmail.com>
+ <CACp8ZrKsQjxso3gDhU1ZHLpQwjHt_=Hy-NnFtPb7TDT7nZ7nvg@mail.gmail.com>
+ <CALEXWq3ocm1mAfzjbu2z5V89K27WgiCcmBO+FrHwVFrZTcfxmQ@mail.gmail.com>
+ <CACp8ZrLesYDBbhUOu8zeTQdkW+H=_4HOB=GVmHU1DJno53dr4w@mail.gmail.com>
+ <CAAHES9x_sC=BUOOnzFR=3mKq5yaQPzEj3sOQRb1MenP=9BVc-g@mail.gmail.com>
+ <CALEXWq1K2OD2FdbVU-DgXzEVW87QkD5A+6WpJoox6sVmUV3W1A@mail.gmail.com>
+ <CAAHES9yoAqqZBoiERwyfzG=pZC32ZFtsgw5=ycYCvghDy=uDwg@mail.gmail.com>
+ <CALEXWq23sWB=wf7jUS7vOtwPxLXwi4T3usF87rBwiQgxoOYMTQ@mail.gmail.com>
+Message-ID: <CALEXWq1d+m3ZHHdxVZECMKwQkGJH3WH5+zHLeysd2toHRA7egg@mail.gmail.com>
+
+On Wed, 23 Jun 2021 at 19:00, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> In rawhide, there may be some "glitches", because it's in active
+> development, so I have to launch several mass rebuilds until things
+> start to settle (no more system-wide changes, no more core library
+> updates...). Right now I'm in the middle of a mass rebuild, so you
+> won't be able to install some packages until it's finished.
+
+Mass rebuild completed in rawhide for the CRAN Copr repo. There are
+still a few dozen fails that need more careful inspection. If you
+experience issues, please report them in
+https://github.com/Enchufa2/cran2copr/issues.
+
+-- 
+I?aki ?car
+
+
+From |uc@r @end|ng |rom |edor@project@org  Fri Jun 25 10:45:46 2021
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Fri, 25 Jun 2021 10:45:46 +0200
+Subject: [R-sig-Fedora] Newest glibc split makes some packages fail to build
+Message-ID: <CALEXWq3Ht93Q6omXe6zq2x6RoQmE7J5hEnvE=J5+e4e4EdD_fg@mail.gmail.com>
+
+Hi,
+
+See [1] and [2]. We need to keep an eye on what comes out from [3],
+because if glibc-gconv-extra is not added to the buildroot, then
+R-core-devel would need to put it in Requires. Otherwise, some R
+packages fail to build due to missing converters.
+
+[1] https://lists.fedoraproject.org/archives/list/devel at lists.fedoraproject.org/thread/JQTTSNHMSFV63KIDDPW4M7WV7CI6KZYW/
+[2] https://lists.fedoraproject.org/archives/list/devel at lists.fedoraproject.org/thread/IWAOAD6XXXAPBQZ364OKVBZZXDDHG2KS/#IWAOAD6XXXAPBQZ364OKVBZZXDDHG2KS
+[3] https://pagure.io/releng/issue/10176
+
+-- 
+I?aki ?car
+
+

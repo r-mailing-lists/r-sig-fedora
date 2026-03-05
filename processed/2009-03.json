@@ -1,0 +1,71 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2009-03",
+  "messages": [
+    {
+      "id": "msg-2eeb193536c0",
+      "message_id": "<8997A5618DE60943943276858975E48906BC2641@winxbeus19.exchange.xchg>",
+      "from_name": "Haas, Kevin",
+      "from_email_hash": "c8a070cd63efd5915c43ea6ae61120954355b9ac72ba625d096adbf7ee5afa95",
+      "date": "2009-03-03T17:55:48-05:00",
+      "subject": "[R-sig-Fedora] dotplot() lattice charts return blank image (jpeg, bmp, png) file",
+      "subject_clean": "dotplot() lattice charts return blank image (jpeg, bmp, png) file",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090303/907cc499/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090303/907cc499/attachment.pl>",
+      "thread_id": "thread-2eeb193536c0",
+      "thread_depth": 0,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-b18d7523f7dd",
+      "message_id": "<49ADBB30.1040404@biostat.ku.dk>",
+      "from_name": "Peter Dalgaard",
+      "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
+      "date": "2009-03-04T00:20:16+01:00",
+      "subject": "[R-sig-Fedora] dotplot() lattice charts return blank image (jpeg, bmp, png) file",
+      "subject_clean": "dotplot() lattice charts return blank image (jpeg, bmp, png) file",
+      "in_reply_to": "<8997A5618DE60943943276858975E48906BC2641@winxbeus19.exchange.xchg>",
+      "references": [
+        "<8997A5618DE60943943276858975E48906BC2641@winxbeus19.exchange.xchg>"
+      ],
+      "body_plain": "Haas, Kevin wrote:\n> Thanks in advance for the help.  Trying to run a basic dotplot in lattice from R command line.  When the file is created, in Fedora, it is blank image (jpeg, bmp, png).  Image produces correctly in Windows environment.  Libraries lattice and latticeExtra are loaded.  Code:\n> \n> -----------------\n> jpeg(file = \"/tmp/img/temp31.jpg\", width = 768, height=768)\n> xy <- dotplot(1:10)\n> print(xy)\n> dev.off()\n> -----------------\n> \n> Using plot(1:10) instead of dotplot produces an image file. Also, I can successfully produce an image for dotplot() in pdf like this:\n> \n> -----------------\n> trellis.device(device = \"pdf\",file = \"/tmp/img/temp31.pdf\")\n> xy <- dotplot(1:10)\n> print(xy)\n> dev.off()\n> -----------------\n> \n> Thanks for any help you can provide.  Fedora version and R Session info is below.\n\nWorks for me with\n$ rpm -q R\nR-2.8.1-2.fc9.i386\n\n(An obscure bug with the Cairo device was fixed between -1 and -2, not \nsure whether that might affect jpeg. This, BTW, also showed that it \nmatters whether you install from RPM or build from source. So don't \nforget to tell.)\n\n\n> \n> Kevin\n> \n> -----------------\n> [root at domU-12-31-39-00-58-82 /]# uname -r\n> 2.6.21.7-2.fc8xen\n> \n> -----------------\n>> sessionInfo()\n> R version 2.8.0 (2008-10-20)\n> i686-redhat-linux-gnu\n> \n> locale:\n> C\n> \n> attached base packages:\n> [1] grid      stats     graphics  grDevices utils     datasets  methods\n> [8] base\n> \n> other attached packages:\n> [1] latticeExtra_0.5-4 RColorBrewer_1.0-2 lattice_0.17-20\n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n-- \n    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B\n   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K\n  (*) \\(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918\n~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907",
+      "body_snippet": "Haas, Kevin wrote:\n> Thanks in advance for the help.  Trying to run a basic dotplot in lattice from R command line.  When the file is created, in Fedora, it is blank image (jpeg, bmp, png).  Image pro",
+      "thread_id": "thread-2eeb193536c0",
+      "thread_depth": 1,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-d12cfe991d21",
+      "message_id": "<8997A5618DE60943943276858975E48906BC265E@winxbeus19.exchange.xchg>",
+      "from_name": "Haas, Kevin",
+      "from_email_hash": "c8a070cd63efd5915c43ea6ae61120954355b9ac72ba625d096adbf7ee5afa95",
+      "date": "2009-03-03T18:46:56-05:00",
+      "subject": "[R-sig-Fedora] dotplot() lattice charts return blank image (jpeg, bmp, png) file",
+      "subject_clean": "dotplot() lattice charts return blank image (jpeg, bmp, png) file",
+      "in_reply_to": "<49ADBB30.1040404@biostat.ku.dk>",
+      "references": [],
+      "body_plain": "Thanks, Peter.  Was installed from rpm:\n\nrpm -i R-2.8.0-1.fc8.i386.rpm\n\n\n-----Original Message-----\nFrom: Peter Dalgaard [mailto:p.dalgaard at biostat.ku.dk]\nSent: Tuesday, March 03, 2009 5:20 PM\nTo: Haas, Kevin\nCc: r-sig-fedora at r-project.org\nSubject: Re: [R-sig-Fedora] dotplot() lattice charts return blank image (jpeg, bmp, png) file\n\nHaas, Kevin wrote:\n> Thanks in advance for the help.  Trying to run a basic dotplot in lattice from R command line.  When the file is created, in Fedora, it is blank image (jpeg, bmp, png).  Image produces correctly in Windows environment.  Libraries lattice and latticeExtra are loaded.  Code:\n>\n> -----------------\n> jpeg(file = \"/tmp/img/temp31.jpg\", width = 768, height=768)\n> xy <- dotplot(1:10)\n> print(xy)\n> dev.off()\n> -----------------\n>\n> Using plot(1:10) instead of dotplot produces an image file. Also, I can successfully produce an image for dotplot() in pdf like this:\n>\n> -----------------\n> trellis.device(device = \"pdf\",file = \"/tmp/img/temp31.pdf\")\n> xy <- dotplot(1:10)\n> print(xy)\n> dev.off()\n> -----------------\n>\n> Thanks for any help you can provide.  Fedora version and R Session info is below.\n\nWorks for me with\n$ rpm -q R\nR-2.8.1-2.fc9.i386\n\n(An obscure bug with the Cairo device was fixed between -1 and -2, not\nsure whether that might affect jpeg. This, BTW, also showed that it\nmatters whether you install from RPM or build from source. So don't\nforget to tell.)\n\n\n>\n> Kevin\n>\n> -----------------\n> [root at domU-12-31-39-00-58-82 /]# uname -r\n> 2.6.21.7-2.fc8xen\n>\n> -----------------\n>> sessionInfo()\n> R version 2.8.0 (2008-10-20)\n> i686-redhat-linux-gnu\n>\n> locale:\n> C\n>\n> attached base packages:\n> [1] grid      stats     graphics  grDevices utils     datasets  methods\n> [8] base\n>\n> other attached packages:\n> [1] latticeExtra_0.5-4 RColorBrewer_1.0-2 lattice_0.17-20\n>\n>       [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n--\n    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B\n   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K\n  (*) \\(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918\n~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907",
+      "body_snippet": "Thanks, Peter.  Was installed from rpm:\n\nrpm -i R-2.8.0-1.fc8.i386.rpm\n\n\n-----Original Message-----\nFrom: Peter Dalgaard [mailto:p.dalgaard at biostat.ku.dk]\nSent: Tuesday, March 03, 2009 5:20 PM\nTo: ",
+      "thread_id": "thread-2eeb193536c0",
+      "thread_depth": 2,
+      "month": "2009-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-2eeb193536c0",
+      "subject": "dotplot() lattice charts return blank image (jpeg, bmp, png) file",
+      "message_count": 3,
+      "participants": [
+        "Haas, Kevin",
+        "Peter Dalgaard"
+      ],
+      "started": "2009-03-03T17:55:48-05:00",
+      "last_reply": "2009-03-03T18:46:56-05:00",
+      "root_message_id": "msg-2eeb193536c0"
+    }
+  ]
+}

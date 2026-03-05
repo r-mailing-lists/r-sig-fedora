@@ -1,0 +1,137 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2021-09",
+  "messages": [
+    {
+      "id": "msg-9e7047f7f70a",
+      "message_id": "<CA+8X3fXSQgwn5+_+Q6HGHb_r-2koGuKa-HhQKON+Fx4nVjT2PQ@mail.gmail.com>",
+      "from_name": "Jim Lemon",
+      "from_email_hash": "a481d7a83f54807159ccb5ebdf8dfd9aedd5a22401cf2632ed2c48b4c1969659",
+      "date": "2021-09-04T13:31:10+10:00",
+      "subject": "[R-sig-Fedora] updating/installing R",
+      "subject_clean": "updating/installing R",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\nI trying to submit a new version of the plotrix package to CRAN and\nwould like to build it under R-4.1.1 as per instructions. I used to b\nbuild R from source, but on this machine, configure exits with:\n\nconfigure: error: --with-x=yes (default) and X11 headers/libs are not available\n\nI have tried the usual installing lib and devel packages, all seem to\nbe already installed. I would fall back on installing a pre-built RPM,\nbut cannot connect to the links on the bin/linux/fedora page on CRAN\n(connection refused). Clearly there have been changes since I last\nbuilt R from source.\nAny hints? Thanks.\n\nJim",
+      "body_snippet": "Hi,\nI trying to submit a new version of the plotrix package to CRAN and\nwould like to build it under R-4.1.1 as per instructions. I used to b\nbuild R from source, but on this machine, configure exits ",
+      "thread_id": "thread-9e7047f7f70a",
+      "thread_depth": 0,
+      "month": "2021-09"
+    },
+    {
+      "id": "msg-5bea1e908dea",
+      "message_id": "<CALEXWq26YMSC8CSBdG3jztzSZ2oYjLizC3hjm+MHq13tCOJw=g@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-09-05T22:22:59+02:00",
+      "subject": "[R-sig-Fedora] updating/installing R",
+      "subject_clean": "updating/installing R",
+      "in_reply_to": "<CA+8X3fXSQgwn5+_+Q6HGHb_r-2koGuKa-HhQKON+Fx4nVjT2PQ@mail.gmail.com>",
+      "references": [
+        "<CA+8X3fXSQgwn5+_+Q6HGHb_r-2koGuKa-HhQKON+Fx4nVjT2PQ@mail.gmail.com>"
+      ],
+      "body_plain": "On Sat, 4 Sept 2021 at 05:31, Jim Lemon <drjimlemon at gmail.com> wrote:\n>\n> Hi,\n> I trying to submit a new version of the plotrix package to CRAN and\n> would like to build it under R-4.1.1 as per instructions. I used to b\n> build R from source, but on this machine, configure exits with:\n>\n> configure: error: --with-x=yes (default) and X11 headers/libs are not available\n>\n> I have tried the usual installing lib and devel packages, all seem to\n> be already installed. I would fall back on installing a pre-built RPM,\n> but cannot connect to the links on the bin/linux/fedora page on CRAN\n> (connection refused).\n\nWhich ones?\n\n> Clearly there have been changes since I last\n> built R from source.\n> Any hints? Thanks.\n\nWhat's your OS and version?\n\n-- \nI?aki ?car",
+      "body_snippet": "On Sat, 4 Sept 2021 at 05:31, Jim Lemon <drjimlemon at gmail.com> wrote:\n>\n> Hi,\n> I trying to submit a new version of the plotrix package to CRAN and\n> would like to build it under R-4.1.1 as per ins",
+      "thread_id": "thread-9e7047f7f70a",
+      "thread_depth": 1,
+      "month": "2021-09"
+    },
+    {
+      "id": "msg-1b9250890a99",
+      "message_id": "<CA+8X3fX2D8ft1gUp=me2XKiLiM20g2o4tZeJ_t8EQP+kVLcqyA@mail.gmail.com>",
+      "from_name": "Jim Lemon",
+      "from_email_hash": "a481d7a83f54807159ccb5ebdf8dfd9aedd5a22401cf2632ed2c48b4c1969659",
+      "date": "2021-09-06T08:02:39+10:00",
+      "subject": "[R-sig-Fedora] updating/installing R",
+      "subject_clean": "updating/installing R",
+      "in_reply_to": "<CALEXWq26YMSC8CSBdG3jztzSZ2oYjLizC3hjm+MHq13tCOJw=g@mail.gmail.com>",
+      "references": [
+        "<CA+8X3fXSQgwn5+_+Q6HGHb_r-2koGuKa-HhQKON+Fx4nVjT2PQ@mail.gmail.com>",
+        "<CALEXWq26YMSC8CSBdG3jztzSZ2oYjLizC3hjm+MHq13tCOJw=g@mail.gmail.com>"
+      ],
+      "body_plain": "Hi Inaki,\nFedora 34 KDE spin.\n\nWhen I try to install/upgrade as root using dnf:\n\n[root at jimACER packages]# dnf install R\nFedora 34 - x86_64 - Updates                       2.4 kB/s | 3.7 kB\n  00:01\nFedora Modular 34 - x86_64 - Updates               5.2 kB/s | 3.6 kB\n  00:00\nPackage R-4.0.5-1.fc34.x86_64 is already installed.\nDependencies resolved.\nNothing to do.\nComplete!\n[root at jimACER packages]# dnf upgrade R\nLast metadata expiration check: 0:00:17 ago on Mon 06 Sep 2021 07:48:38.\nDependencies resolved.\nNothing to do.\nComplete!\n\nWhen I try to connect to:\n\nhttps://pagure.io/R/fedora-r-packages\n\nI get the message:\n\npagure.io\nRefused to connect\n\nAs I used to build R from source, I tried that but couldn't get past\nthe missing \"Intrinsic.h\" in configure. I switched to using a newish\nlaptop (ACER Swift 3) some months ago, so I lost all the tools I had\nbuilt up over the years.\n\nThanks for any tips.\n\nJim\n\nOn Mon, Sep 6, 2021 at 6:23 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Sat, 4 Sept 2021 at 05:31, Jim Lemon <drjimlemon at gmail.com> wrote:\n> >\n> > Hi,\n> > I trying to submit a new version of the plotrix package to CRAN and\n> > would like to build it under R-4.1.1 as per instructions. I used to b\n> > build R from source, but on this machine, configure exits with:\n> >\n> > configure: error: --with-x=yes (default) and X11 headers/libs are not available\n> >\n> > I have tried the usual installing lib and devel packages, all seem to\n> > be already installed. I would fall back on installing a pre-built RPM,\n> > but cannot connect to the links on the bin/linux/fedora page on CRAN\n> > (connection refused).\n>\n> Which ones?\n>\n> > Clearly there have been changes since I last\n> > built R from source.\n> > Any hints? Thanks.\n>\n> What's your OS and version?\n>\n> --\n> I?aki ?car",
+      "body_snippet": "Hi Inaki,\nFedora 34 KDE spin.\n\nWhen I try to install/upgrade as root using dnf:\n\n[root at jimACER packages]# dnf install R\nFedora 34 - x86_64 - Updates                       2.4 kB/s | 3.7 kB\n  00:01\n",
+      "thread_id": "thread-9e7047f7f70a",
+      "thread_depth": 2,
+      "month": "2021-09"
+    },
+    {
+      "id": "msg-81559fe57307",
+      "message_id": "<CALEXWq0vzfXqsS4p0X15fRsuvnOgEL0AaD+KVX92gt4pX=f_gQ@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-09-07T00:43:36+02:00",
+      "subject": "[R-sig-Fedora] updating/installing R",
+      "subject_clean": "updating/installing R",
+      "in_reply_to": "<CA+8X3fX2D8ft1gUp=me2XKiLiM20g2o4tZeJ_t8EQP+kVLcqyA@mail.gmail.com>",
+      "references": [
+        "<CA+8X3fXSQgwn5+_+Q6HGHb_r-2koGuKa-HhQKON+Fx4nVjT2PQ@mail.gmail.com>",
+        "<CALEXWq26YMSC8CSBdG3jztzSZ2oYjLizC3hjm+MHq13tCOJw=g@mail.gmail.com>",
+        "<CA+8X3fX2D8ft1gUp=me2XKiLiM20g2o4tZeJ_t8EQP+kVLcqyA@mail.gmail.com>"
+      ],
+      "body_plain": "On Mon, 6 Sept 2021 at 00:02, Jim Lemon <drjimlemon at gmail.com> wrote:\n>\n> Hi Inaki,\n> Fedora 34 KDE spin.\n>\n> When I try to install/upgrade as root using dnf:\n>\n> [root at jimACER packages]# dnf install R\n> Fedora 34 - x86_64 - Updates                       2.4 kB/s | 3.7 kB\n>   00:01\n> Fedora Modular 34 - x86_64 - Updates               5.2 kB/s | 3.6 kB\n>   00:00\n> Package R-4.0.5-1.fc34.x86_64 is already installed.\n> Dependencies resolved.\n> Nothing to do.\n> Complete!\n> [root at jimACER packages]# dnf upgrade R\n> Last metadata expiration check: 0:00:17 ago on Mon 06 Sep 2021 07:48:38.\n> Dependencies resolved.\n> Nothing to do.\n> Complete!\n\nR 4.1 is not available for Fedora 34. Instead, see\nhttps://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n\n> When I try to connect to:\n>\n> https://pagure.io/R/fedora-r-packages\n>\n> I get the message:\n>\n> pagure.io\n> Refused to connect\n\nShould be a temporary issue. But that's just the source of that\ndocument, a git repository, why would you want to access this?\n\n> As I used to build R from source, I tried that but couldn't get past\n> the missing \"Intrinsic.h\" in configure. I switched to using a newish\n> laptop (ACER Swift 3) some months ago, so I lost all the tools I had\n> built up over the years.\n>\n> Thanks for any tips.\n\nAgain (see above) my suggestion is to use toolbox to install R 4.1\nfrom the official repos. No need to compile.\n\n-- \nI?aki ?car",
+      "body_snippet": "On Mon, 6 Sept 2021 at 00:02, Jim Lemon <drjimlemon at gmail.com> wrote:\n>\n> Hi Inaki,\n> Fedora 34 KDE spin.\n>\n> When I try to install/upgrade as root using dnf:\n>\n> [root at jimACER packages]# dnf in",
+      "thread_id": "thread-9e7047f7f70a",
+      "thread_depth": 3,
+      "month": "2021-09"
+    },
+    {
+      "id": "msg-4add3acf5f5a",
+      "message_id": "<CA+8X3fUBicB-O6MqrSiKmaqYBJtdMrN3vsf-H4ppCBW7-6Yiqg@mail.gmail.com>",
+      "from_name": "Jim Lemon",
+      "from_email_hash": "a481d7a83f54807159ccb5ebdf8dfd9aedd5a22401cf2632ed2c48b4c1969659",
+      "date": "2021-09-07T10:30:06+10:00",
+      "subject": "[R-sig-Fedora] updating/installing R",
+      "subject_clean": "updating/installing R",
+      "in_reply_to": "<CALEXWq0vzfXqsS4p0X15fRsuvnOgEL0AaD+KVX92gt4pX=f_gQ@mail.gmail.com>",
+      "references": [
+        "<CA+8X3fXSQgwn5+_+Q6HGHb_r-2koGuKa-HhQKON+Fx4nVjT2PQ@mail.gmail.com>",
+        "<CALEXWq26YMSC8CSBdG3jztzSZ2oYjLizC3hjm+MHq13tCOJw=g@mail.gmail.com>",
+        "<CA+8X3fX2D8ft1gUp=me2XKiLiM20g2o4tZeJ_t8EQP+kVLcqyA@mail.gmail.com>",
+        "<CALEXWq0vzfXqsS4p0X15fRsuvnOgEL0AaD+KVX92gt4pX=f_gQ@mail.gmail.com>"
+      ],
+      "body_plain": "Hi Inaki,\nYour instructions worked perfectly for installing \"toolbox\" and I\ncould start R-4.1.1-1 in my local terminal (konsole). However, I can't\nseem to build a new version of plotrix:\n\n[root at jimACER jim]# toolbox run --release 35 R CMD build\njimACER://home/jim/R/plotr\nix\nError: directory /home/jim not found in container fedora-toolbox-35\nUsing /root instead.\nDuring startup - Warning messages:\n1: Setting LC_CTYPE failed, using \"C\"\n2: Setting LC_TIME failed, using \"C\"\n3: Setting LC_MESSAGES failed, using \"C\"\n4: Setting LC_MONETARY failed, using \"C\"\n5: Setting LC_PAPER failed, using \"C\"\n6: Setting LC_MEASUREMENT failed, using \"C\"\nERROR\ncannot change to directory 'jimACER://home/jim/R/plotrix'\n\nI also tried using \"localhost\" for the loopback server, got the same result.\nI'll try building R-4.1.1 from source on my ancient DELL desktop. If I\ncan get a build I can then check it using --as-cran, cross my fingers\nand submit it. I'll get back to you if I'm still stuck. Thanks.\n\nJim\n\nOn Tue, Sep 7, 2021 at 8:43 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Mon, 6 Sept 2021 at 00:02, Jim Lemon <drjimlemon at gmail.com> wrote:\n> >\n> > Hi Inaki,\n> > Fedora 34 KDE spin.\n> >\n> > When I try to install/upgrade as root using dnf:\n> >\n> > [root at jimACER packages]# dnf install R\n> > Fedora 34 - x86_64 - Updates                       2.4 kB/s | 3.7 kB\n> >   00:01\n> > Fedora Modular 34 - x86_64 - Updates               5.2 kB/s | 3.6 kB\n> >   00:00\n> > Package R-4.0.5-1.fc34.x86_64 is already installed.\n> > Dependencies resolved.\n> > Nothing to do.\n> > Complete!\n> > [root at jimACER packages]# dnf upgrade R\n> > Last metadata expiration check: 0:00:17 ago on Mon 06 Sep 2021 07:48:38.\n> > Dependencies resolved.\n> > Nothing to do.\n> > Complete!\n>\n> R 4.1 is not available for Fedora 34. Instead, see\n> https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n>\n> > When I try to connect to:\n> >\n> > https://pagure.io/R/fedora-r-packages\n> >\n> > I get the message:\n> >\n> > pagure.io\n> > Refused to connect\n>\n> Should be a temporary issue. But that's just the source of that\n> document, a git repository, why would you want to access this?\n>\n> > As I used to build R from source, I tried that but couldn't get past\n> > the missing \"Intrinsic.h\" in configure. I switched to using a newish\n> > laptop (ACER Swift 3) some months ago, so I lost all the tools I had\n> > built up over the years.\n> >\n> > Thanks for any tips.\n>\n> Again (see above) my suggestion is to use toolbox to install R 4.1\n> from the official repos. No need to compile.\n>\n> --\n> I?aki ?car",
+      "body_snippet": "Hi Inaki,\nYour instructions worked perfectly for installing \"toolbox\" and I\ncould start R-4.1.1-1 in my local terminal (konsole). However, I can't\nseem to build a new version of plotrix:\n\n[root at jim",
+      "thread_id": "thread-9e7047f7f70a",
+      "thread_depth": 4,
+      "month": "2021-09"
+    },
+    {
+      "id": "msg-0d9e33a4bcb3",
+      "message_id": "<CALEXWq2zYjKjmNsaajwCkJkt4cL0=KTM0P-KzahjaRz22sNosQ@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2021-09-07T09:46:17+02:00",
+      "subject": "[R-sig-Fedora] updating/installing R",
+      "subject_clean": "updating/installing R",
+      "in_reply_to": "<CA+8X3fUBicB-O6MqrSiKmaqYBJtdMrN3vsf-H4ppCBW7-6Yiqg@mail.gmail.com>",
+      "references": [
+        "<CA+8X3fXSQgwn5+_+Q6HGHb_r-2koGuKa-HhQKON+Fx4nVjT2PQ@mail.gmail.com>",
+        "<CALEXWq26YMSC8CSBdG3jztzSZ2oYjLizC3hjm+MHq13tCOJw=g@mail.gmail.com>",
+        "<CA+8X3fX2D8ft1gUp=me2XKiLiM20g2o4tZeJ_t8EQP+kVLcqyA@mail.gmail.com>",
+        "<CALEXWq0vzfXqsS4p0X15fRsuvnOgEL0AaD+KVX92gt4pX=f_gQ@mail.gmail.com>",
+        "<CA+8X3fUBicB-O6MqrSiKmaqYBJtdMrN3vsf-H4ppCBW7-6Yiqg@mail.gmail.com>"
+      ],
+      "body_plain": "On Tue, 7 Sept 2021 at 02:30, Jim Lemon <drjimlemon at gmail.com> wrote:\n>\n> Hi Inaki,\n> Your instructions worked perfectly for installing \"toolbox\" and I\n> could start R-4.1.1-1 in my local terminal (konsole). However, I can't\n> seem to build a new version of plotrix:\n>\n> [root at jimACER jim]# toolbox run --release 35 R CMD build\n\nDo not run toolbox as root. As explained in the instructions, the\nwhole point of using toolbox is that it is rootless.\n\nI?aki\n\n> jimACER://home/jim/R/plotr\n> ix\n> Error: directory /home/jim not found in container fedora-toolbox-35\n> Using /root instead.\n> During startup - Warning messages:\n> 1: Setting LC_CTYPE failed, using \"C\"\n> 2: Setting LC_TIME failed, using \"C\"\n> 3: Setting LC_MESSAGES failed, using \"C\"\n> 4: Setting LC_MONETARY failed, using \"C\"\n> 5: Setting LC_PAPER failed, using \"C\"\n> 6: Setting LC_MEASUREMENT failed, using \"C\"\n> ERROR\n> cannot change to directory 'jimACER://home/jim/R/plotrix'\n>\n> I also tried using \"localhost\" for the loopback server, got the same result.\n> I'll try building R-4.1.1 from source on my ancient DELL desktop. If I\n> can get a build I can then check it using --as-cran, cross my fingers\n> and submit it. I'll get back to you if I'm still stuck. Thanks.\n>\n> Jim\n>\n> On Tue, Sep 7, 2021 at 8:43 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > On Mon, 6 Sept 2021 at 00:02, Jim Lemon <drjimlemon at gmail.com> wrote:\n> > >\n> > > Hi Inaki,\n> > > Fedora 34 KDE spin.\n> > >\n> > > When I try to install/upgrade as root using dnf:\n> > >\n> > > [root at jimACER packages]# dnf install R\n> > > Fedora 34 - x86_64 - Updates                       2.4 kB/s | 3.7 kB\n> > >   00:01\n> > > Fedora Modular 34 - x86_64 - Updates               5.2 kB/s | 3.6 kB\n> > >   00:00\n> > > Package R-4.0.5-1.fc34.x86_64 is already installed.\n> > > Dependencies resolved.\n> > > Nothing to do.\n> > > Complete!\n> > > [root at jimACER packages]# dnf upgrade R\n> > > Last metadata expiration check: 0:00:17 ago on Mon 06 Sep 2021 07:48:38.\n> > > Dependencies resolved.\n> > > Nothing to do.\n> > > Complete!\n> >\n> > R 4.1 is not available for Fedora 34. Instead, see\n> > https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n> >\n> > > When I try to connect to:\n> > >\n> > > https://pagure.io/R/fedora-r-packages\n> > >\n> > > I get the message:\n> > >\n> > > pagure.io\n> > > Refused to connect\n> >\n> > Should be a temporary issue. But that's just the source of that\n> > document, a git repository, why would you want to access this?\n> >\n> > > As I used to build R from source, I tried that but couldn't get past\n> > > the missing \"Intrinsic.h\" in configure. I switched to using a newish\n> > > laptop (ACER Swift 3) some months ago, so I lost all the tools I had\n> > > built up over the years.\n> > >\n> > > Thanks for any tips.\n> >\n> > Again (see above) my suggestion is to use toolbox to install R 4.1\n> > from the official repos. No need to compile.\n> >\n> > --\n> > I?aki ?car\n\n\n\n-- \nI?aki ?car",
+      "body_snippet": "On Tue, 7 Sept 2021 at 02:30, Jim Lemon <drjimlemon at gmail.com> wrote:\n>\n> Hi Inaki,\n> Your instructions worked perfectly for installing \"toolbox\" and I\n> could start R-4.1.1-1 in my local terminal ",
+      "thread_id": "thread-9e7047f7f70a",
+      "thread_depth": 5,
+      "month": "2021-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-9e7047f7f70a",
+      "subject": "updating/installing R",
+      "message_count": 6,
+      "participants": [
+        "Iñaki Ucar",
+        "Jim Lemon"
+      ],
+      "started": "2021-09-04T13:31:10+10:00",
+      "last_reply": "2021-09-07T09:46:17+02:00",
+      "root_message_id": "msg-9e7047f7f70a"
+    }
+  ]
+}

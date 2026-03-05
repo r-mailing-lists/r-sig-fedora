@@ -1,0 +1,127 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2015-04",
+  "messages": [
+    {
+      "id": "msg-3cac8621f9b2",
+      "message_id": "<CAHz+bWZ8DQtWzBUTx6OSLhYzJOqm2ojBc74MVhRkjkErjWFSXQ@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2015-04-14T08:30:53-04:00",
+      "subject": "[R-sig-Fedora] httpuv not installing on fedora 19",
+      "subject_clean": "httpuv not installing on fedora 19",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi: I'm on fedora 19 ( I know. I'm behind : ) and I'm trying to install the\nhttpuv library\nwhich depends on Rcpp. When I try to install it with dependencies = TRUE,\nI get the following error. ( I'm only showing the end of the install\nmessages. Things\ngo okay for a good while  ).\n\nINSTALLATION MESSAGES\n#================================================================\n\nmake[1]: Entering directory\n`/tmp/RtmpCjtWgG/R.INSTALL61c04bffaabb/httpuv/src/http-parser'\ngcc -m64 -std=gnu99 -I. -DHTTP_PARSER_STRICT=0  -O2 -g -pipe -Wall\n-Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector\n--param=ssp-buffer-size=4 -grecord-gcc-switches  -m64 -mtune=generic  -fpic\n-O3  -c http_parser.c\nmake[1]: Leaving directory\n`/tmp/RtmpCjtWgG/R.INSTALL61c04bffaabb/httpuv/src/http-parser'\n(cd sha1 && gcc -m64 -std=gnu99 -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2\n-fexceptions -fstack-protector --param=ssp-buffer-size=4\n-grecord-gcc-switches  -m64 -mtune=generic  -fpic -c sha1.c -o sha1.o)\n(cd base64 && g++ -m64 -I/usr/include/R -DNDEBUG -I./libuv/include\n-I./http-parser -I./sha1 -I./base64 -I/usr/local/include\n-I\"/home/markleeds/research/R/Rlibs/library/Rcpp/include\"   -fpic  -O2 -g\n-pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector\n--param=ssp-buffer-size=4 -grecord-gcc-switches  -m64 -mtune=generic  -c\nbase64.cpp -o base64.o)\ng++ -m64 -shared -L/usr/lib64/R/lib -Wl,-z,relro -o httpuv.so RcppExports.o\nfiledatasource-unix.o filedatasource-win.o http.o httpuv.o md5.o\nset_invalid_parameter.o uvutil.o websockets-base.o websockets-hixie76.o\nwebsockets-hybi03.o websockets-ietf.o websockets.o [1]\n\"LC_CTYPE=C;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_MONETARY=C;LC_MESSAGES=en_US.utf8;LC_PAPER=en_US.utf8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.utf8;LC_IDENTIFICATION=C\"\n./libuv/libuv.a ./http-parser/http_parser.o ./sha1/sha1.o ./base64/base64.o\n-L/usr/lib64/R/lib -lR\ng++: error: [1]: No such file or directory\ng++: error:\n\"LC_CTYPE=C;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_MONETARY=C;LC_MESSAGES=en_US.utf8;LC_PAPER=en_US.utf8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.utf8;LC_IDENTIFICATION=C\":\nNo such file or directory\nmake: *** [httpuv.so] Error 1\nERROR: compilation failed for package 'httpuv'\n* removing '/home/markleeds/research/R/Rlibs/library/httpuv'\n\nThe downloaded source packages are in\n        '/tmp/RtmpePY2mo/downloaded_packages'\nWarning message:\nIn install.packages(\"httpuv\", dependencies = TRUE) :\n  installation of package 'httpuv' had non-zero exit status\n>\n\n#===================================================================\n\nI'm not  sure but the error[1] seems to be pointing LC_TYPE etc.\nand I'm pretty cetain that line with LC_CTYPE etc comes from having\n\nSys.setlocale(locale=\"C\")\n\nin my .Rprofile file. So, somehow I think that's the root of my problem. At\nthe same time,\nif I take that line out of my .Rprofile file, then I'm not even able to\nchoose a cran mirror\nso I think I need it in there. Any help is appreciated.\n\n\n\nMark\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi: I'm on fedora 19 ( I know. I'm behind : ) and I'm trying to install the\nhttpuv library\nwhich depends on Rcpp. When I try to install it with dependencies = TRUE,\nI get the following error. ( I'm on",
+      "thread_id": "thread-3cac8621f9b2",
+      "thread_depth": 0,
+      "month": "2015-04"
+    },
+    {
+      "id": "msg-51288cc19210",
+      "message_id": "<43e1fb87-8cea-4ec0-8039-3495eda60cd5@email.android.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2015-04-14T08:39:28-04:00",
+      "subject": "[R-sig-Fedora] httpuv not installing on fedora 19",
+      "subject_clean": "httpuv not installing on fedora 19",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "No, that's not it. The error is that you don't have the g++ binary installed. Undo that change and yum install gcc-c++.\n\n\nOn Apr 14, 2015 8:31 AM, Mark Leeds <markleeds2 at gmail.com> wrote:\n>\n> Hi: I'm on fedora 19 ( I know. I'm behind : ) and I'm trying to install the \n> httpuv library \n> which depends on Rcpp. When I try to install it with dependencies = TRUE, \n> I get the following error. ( I'm only showing the end of the install \n> messages. Things \n> go okay for a good while? ). \n>\n> INSTALLATION MESSAGES \n> #================================================================ \n>\n> make[1]: Entering directory \n> `/tmp/RtmpCjtWgG/R.INSTALL61c04bffaabb/httpuv/src/http-parser' \n> gcc -m64 -std=gnu99 -I. -DHTTP_PARSER_STRICT=0? -O2 -g -pipe -Wall \n> -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector \n> --param=ssp-buffer-size=4 -grecord-gcc-switches? -m64 -mtune=generic? -fpic \n> -O3? -c http_parser.c \n> make[1]: Leaving directory \n> `/tmp/RtmpCjtWgG/R.INSTALL61c04bffaabb/httpuv/src/http-parser' \n> (cd sha1 && gcc -m64 -std=gnu99 -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 \n> -fexceptions -fstack-protector --param=ssp-buffer-size=4 \n> -grecord-gcc-switches? -m64 -mtune=generic? -fpic -c sha1.c -o sha1.o) \n> (cd base64 && g++ -m64 -I/usr/include/R -DNDEBUG -I./libuv/include \n> -I./http-parser -I./sha1 -I./base64 -I/usr/local/include \n> -I\"/home/markleeds/research/R/Rlibs/library/Rcpp/include\"?? -fpic? -O2 -g \n> -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector \n> --param=ssp-buffer-size=4 -grecord-gcc-switches? -m64 -mtune=generic? -c \n> base64.cpp -o base64.o) \n> g++ -m64 -shared -L/usr/lib64/R/lib -Wl,-z,relro -o httpuv.so RcppExports.o \n> filedatasource-unix.o filedatasource-win.o http.o httpuv.o md5.o \n> set_invalid_parameter.o uvutil.o websockets-base.o websockets-hixie76.o \n> websockets-hybi03.o websockets-ietf.o websockets.o [1] \n> \"LC_CTYPE=C;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_MONETARY=C;LC_MESSAGES=en_US.utf8;LC_PAPER=en_US.utf8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.utf8;LC_IDENTIFICATION=C\" \n> ./libuv/libuv.a ./http-parser/http_parser.o ./sha1/sha1.o ./base64/base64.o \n> -L/usr/lib64/R/lib -lR \n> g++: error: [1]: No such file or directory \n> g++: error: \n> \"LC_CTYPE=C;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_MONETARY=C;LC_MESSAGES=en_US.utf8;LC_PAPER=en_US.utf8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.utf8;LC_IDENTIFICATION=C\": \n> No such file or directory \n> make: *** [httpuv.so] Error 1 \n> ERROR: compilation failed for package 'httpuv' \n> * removing '/home/markleeds/research/R/Rlibs/library/httpuv' \n>\n> The downloaded source packages are in \n> ??????? '/tmp/RtmpePY2mo/downloaded_packages' \n> Warning message: \n> In install.packages(\"httpuv\", dependencies = TRUE) : \n> ? installation of package 'httpuv' had non-zero exit status \n> > \n>\n> #=================================================================== \n>\n> I'm not? sure but the error[1] seems to be pointing LC_TYPE etc. \n> and I'm pretty cetain that line with LC_CTYPE etc comes from having \n>\n> Sys.setlocale(locale=\"C\") \n>\n> in my .Rprofile file. So, somehow I think that's the root of my problem. At \n> the same time, \n> if I take that line out of my .Rprofile file, then I'm not even able to \n> choose a cran mirror \n> so I think I need it in there. Any help is appreciated. \n>\n>\n>\n> Mark \n>\n> [[alternative HTML version deleted]] \n>\n> _______________________________________________ \n> R-SIG-Fedora mailing list \n> R-SIG-Fedora at r-project.org \n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora",
+      "body_snippet": "No, that's not it. The error is that you don't have the g++ binary installed. Undo that change and yum install gcc-c++.\n\n\nOn Apr 14, 2015 8:31 AM, Mark Leeds <markleeds2 at gmail.com> wrote:\n>\n> Hi: I",
+      "thread_id": "thread-51288cc19210",
+      "thread_depth": 0,
+      "month": "2015-04"
+    },
+    {
+      "id": "msg-28c3c4deb3c0",
+      "message_id": "<CAHz+bWb3h48uw=bsqU0XP6qxvT7MmKKV1u_n2JFAk3WudN+Beg@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2015-04-14T08:47:29-04:00",
+      "subject": "[R-sig-Fedora] httpuv not installing on fedora 19",
+      "subject_clean": "httpuv not installing on fedora 19",
+      "in_reply_to": "<43e1fb87-8cea-4ec0-8039-3495eda60cd5@email.android.com>",
+      "references": [
+        "<43e1fb87-8cea-4ec0-8039-3495eda60cd5@email.android.com>"
+      ],
+      "body_plain": "Hi Tom: Thanks for your reply. Unfortunately, I did what you said and it\nseems to already be installed based on below.\n\n> sudo yum install gcc-c++\n[sudo] password for markleeds:\nLoaded plugins: langpacks, refresh-packagekit\nPackage gcc-c++-4.8.3-7.fc19.x86_64 already installed and latest version\nNothing to do\n:~>\n\n\n\nOn Tue, Apr 14, 2015 at 8:39 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n\n> No, that's not it. The error is that you don't have the g++ binary\n> installed. Undo that change and yum install gcc-c++.\n>\n>\n> On Apr 14, 2015 8:31 AM, Mark Leeds <markleeds2 at gmail.com> wrote:\n> >\n> > Hi: I'm on fedora 19 ( I know. I'm behind : ) and I'm trying to install\n> the\n> > httpuv library\n> > which depends on Rcpp. When I try to install it with dependencies = TRUE,\n> > I get the following error. ( I'm only showing the end of the install\n> > messages. Things\n> > go okay for a good while  ).\n> >\n> > INSTALLATION MESSAGES\n> > #================================================================\n> >\n> > make[1]: Entering directory\n> > `/tmp/RtmpCjtWgG/R.INSTALL61c04bffaabb/httpuv/src/http-parser'\n> > gcc -m64 -std=gnu99 -I. -DHTTP_PARSER_STRICT=0  -O2 -g -pipe -Wall\n> > -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector\n> > --param=ssp-buffer-size=4 -grecord-gcc-switches  -m64 -mtune=generic\n> -fpic\n> > -O3  -c http_parser.c\n> > make[1]: Leaving directory\n> > `/tmp/RtmpCjtWgG/R.INSTALL61c04bffaabb/httpuv/src/http-parser'\n> > (cd sha1 && gcc -m64 -std=gnu99 -O2 -g -pipe -Wall\n> -Wp,-D_FORTIFY_SOURCE=2\n> > -fexceptions -fstack-protector --param=ssp-buffer-size=4\n> > -grecord-gcc-switches  -m64 -mtune=generic  -fpic -c sha1.c -o sha1.o)\n> > (cd base64 && g++ -m64 -I/usr/include/R -DNDEBUG -I./libuv/include\n> > -I./http-parser -I./sha1 -I./base64 -I/usr/local/include\n> > -I\"/home/markleeds/research/R/Rlibs/library/Rcpp/include\"   -fpic  -O2 -g\n> > -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector\n> > --param=ssp-buffer-size=4 -grecord-gcc-switches  -m64 -mtune=generic  -c\n> > base64.cpp -o base64.o)\n> > g++ -m64 -shared -L/usr/lib64/R/lib -Wl,-z,relro -o httpuv.so\n> RcppExports.o\n> > filedatasource-unix.o filedatasource-win.o http.o httpuv.o md5.o\n> > set_invalid_parameter.o uvutil.o websockets-base.o websockets-hixie76.o\n> > websockets-hybi03.o websockets-ietf.o websockets.o [1]\n> >\n> \"LC_CTYPE=C;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_MONETARY=C;LC_MESSAGES=en_US.utf8;LC_PAPER=en_US.utf8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.utf8;LC_IDENTIFICATION=C\"\n> > ./libuv/libuv.a ./http-parser/http_parser.o ./sha1/sha1.o\n> ./base64/base64.o\n> > -L/usr/lib64/R/lib -lR\n> > g++: error: [1]: No such file or directory\n> > g++: error:\n> >\n> \"LC_CTYPE=C;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_MONETARY=C;LC_MESSAGES=en_US.utf8;LC_PAPER=en_US.utf8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.utf8;LC_IDENTIFICATION=C\":\n> > No such file or directory\n> > make: *** [httpuv.so] Error 1\n> > ERROR: compilation failed for package 'httpuv'\n> > * removing '/home/markleeds/research/R/Rlibs/library/httpuv'\n> >\n> > The downloaded source packages are in\n> >         '/tmp/RtmpePY2mo/downloaded_packages'\n> > Warning message:\n> > In install.packages(\"httpuv\", dependencies = TRUE) :\n> >   installation of package 'httpuv' had non-zero exit status\n> > >\n> >\n> > #===================================================================\n> >\n> > I'm not  sure but the error[1] seems to be pointing LC_TYPE etc.\n> > and I'm pretty cetain that line with LC_CTYPE etc comes from having\n> >\n> > Sys.setlocale(locale=\"C\")\n> >\n> > in my .Rprofile file. So, somehow I think that's the root of my problem.\n> At\n> > the same time,\n> > if I take that line out of my .Rprofile file, then I'm not even able to\n> > choose a cran mirror\n> > so I think I need it in there. Any help is appreciated.\n> >\n> >\n> >\n> > Mark\n> >\n> > [[alternative HTML version deleted]]\n> >\n> > _______________________________________________\n> > R-SIG-Fedora mailing list\n> > R-SIG-Fedora at r-project.org\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi Tom: Thanks for your reply. Unfortunately, I did what you said and it\nseems to already be installed based on below.\n\n> sudo yum install gcc-c++\n[sudo] password for markleeds:\nLoaded plugins: langpa",
+      "thread_id": "thread-51288cc19210",
+      "thread_depth": 1,
+      "month": "2015-04"
+    },
+    {
+      "id": "msg-3294992dd65b",
+      "message_id": "<bc78549e-f272-45f7-b146-bd4a082c89dd@email.android.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2015-04-14T08:53:02-04:00",
+      "subject": "[R-sig-Fedora] httpuv not installing on fedora 19",
+      "subject_clean": "httpuv not installing on fedora 19",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20150414/6dc064f7/attachment-0001.html>",
+      "body_snippet": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20150414/6dc064f7/attachment-0001.html>",
+      "thread_id": "thread-3294992dd65b",
+      "thread_depth": 0,
+      "month": "2015-04"
+    },
+    {
+      "id": "msg-ca44fdf65998",
+      "message_id": "<CAHz+bWa9_ALj0Rf5VPiuUMc4hY5wYYyXUpgk15qcYdU3qhmiEQ@mail.gmail.com>",
+      "from_name": "Mark Leeds",
+      "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
+      "date": "2015-04-14T17:29:27-04:00",
+      "subject": "[R-sig-Fedora] httpuv not installing on fedora 19",
+      "subject_clean": "httpuv not installing on fedora 19",
+      "in_reply_to": "<CAHz+bWZ8DQtWzBUTx6OSLhYzJOqm2ojBc74MVhRkjkErjWFSXQ@mail.gmail.com>",
+      "references": [
+        "<CAHz+bWZ8DQtWzBUTx6OSLhYzJOqm2ojBc74MVhRkjkErjWFSXQ@mail.gmail.com>"
+      ],
+      "body_plain": "just to close this thread. tom callaway kindly spent a lot of time on my\nproblem and figured out the following: ( it's easier for me to quote john ).\n\n\"QUOTE\"\n\nSo, I looked at this again when I'm not sitting in an airport on my phone,\nand the error seems to be that a \"[1]\" is being passed to the g++\ncommandline.\n\nI tested running a install.packages(\"httpuv\") on my end, and it did not\nhave this failure when running with the default .Rprofile setup. The output\nlooks like this for me (with stock profile):\n\ng++ -m64 -shared -L/usr/lib64/R/lib -Wl,-z,relro -o httpuv.so RcppExports.o\nfiledatasource-unix.o filedatasource-win.o http.o httpuv.o md5.o\nset_invalid_parameter.o uvutil.o websockets-base.o websockets-hixie76.o\nwebsockets-hybi03.o websockets-ietf.o websockets.o ./libuv/libuv.a\n./http-parser/http_parser.o ./sha1/sha1.o ./base64/base64.o\n-L/usr/lib64/R/lib -lR\n\nNow, when I look at how httpuv generates that compiler invocation, I see in\nhttpuv/src/Makevars this line:\n\nPKG_LIBS = `$(R_HOME)/bin/Rscript -e \"Rcpp:::LdFlags()\"` ./libuv/libuv.a\n./http-parser/http_parser.o ./sha1/sha1.o ./base64/base64.o $(FRAMEWORK)\n\nPKG_LIBS is where your \"[1]\" is being picked up, along with all the LC_*\nenvironment variables. This is not correct. You should be able to confirm\nthis by running:\n\nRscript -e \"Rcpp:::LdFlags()\"\n\nOn my default profile, this returns nothing. I'm betting for you, it will\nreturn:\n\n[1]\n\"LC_CTYPE=C;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_MONETARY=C;LC_MESSAGES=en_US.utf8;LC_PAPER=en_US.utf8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.utf8;LC_IDENTIFICATION=C\"\n\nEND \"QUOTE\":\n\nTom was correct in that it did return that and he recommended fixing it by\nchanging my  dotRprofile command from Sys.setlocale(locale = \"C\") to\nSys.setenv(LANG  = \"C\").\n\nI did that and then httpuv installed groovily without any glitches. The\ngreat thing is that installing httpuv ended up solving a different problem\nthat I was having for about 3 days so John was a tremendous help as he\nalways is. The morale of this story is \"DO NOT include the Sys.setlocale\ncommand in your dotRprofile file\". Thanks again to Tom.\n\n\n\n\n\nOn Tue, Apr 14, 2015 at 8:30 AM, Mark Leeds <markleeds2 at gmail.com> wrote:\n\n> Hi: I'm on fedora 19 ( I know. I'm behind : ) and I'm trying to install\n> the httpuv library\n> which depends on Rcpp. When I try to install it with dependencies = TRUE,\n> I get the following error. ( I'm only showing the end of the install\n> messages. Things\n> go okay for a good while  ).\n>\n> INSTALLATION MESSAGES\n> #================================================================\n>\n> make[1]: Entering directory\n> `/tmp/RtmpCjtWgG/R.INSTALL61c04bffaabb/httpuv/src/http-parser'\n> gcc -m64 -std=gnu99 -I. -DHTTP_PARSER_STRICT=0  -O2 -g -pipe -Wall\n> -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector\n> --param=ssp-buffer-size=4 -grecord-gcc-switches  -m64 -mtune=generic  -fpic\n> -O3  -c http_parser.c\n> make[1]: Leaving directory\n> `/tmp/RtmpCjtWgG/R.INSTALL61c04bffaabb/httpuv/src/http-parser'\n> (cd sha1 && gcc -m64 -std=gnu99 -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2\n> -fexceptions -fstack-protector --param=ssp-buffer-size=4\n> -grecord-gcc-switches  -m64 -mtune=generic  -fpic -c sha1.c -o sha1.o)\n> (cd base64 && g++ -m64 -I/usr/include/R -DNDEBUG -I./libuv/include\n> -I./http-parser -I./sha1 -I./base64 -I/usr/local/include\n> -I\"/home/markleeds/research/R/Rlibs/library/Rcpp/include\"   -fpic  -O2 -g\n> -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector\n> --param=ssp-buffer-size=4 -grecord-gcc-switches  -m64 -mtune=generic  -c\n> base64.cpp -o base64.o)\n> g++ -m64 -shared -L/usr/lib64/R/lib -Wl,-z,relro -o httpuv.so\n> RcppExports.o filedatasource-unix.o filedatasource-win.o http.o httpuv.o\n> md5.o set_invalid_parameter.o uvutil.o websockets-base.o\n> websockets-hixie76.o websockets-hybi03.o websockets-ietf.o websockets.o [1]\n> \"LC_CTYPE=C;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_MONETARY=C;LC_MESSAGES=en_US.utf8;LC_PAPER=en_US.utf8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.utf8;LC_IDENTIFICATION=C\"\n> ./libuv/libuv.a ./http-parser/http_parser.o ./sha1/sha1.o ./base64/base64.o\n> -L/usr/lib64/R/lib -lR\n> g++: error: [1]: No such file or directory\n> g++: error:\n> \"LC_CTYPE=C;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_MONETARY=C;LC_MESSAGES=en_US.utf8;LC_PAPER=en_US.utf8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.utf8;LC_IDENTIFICATION=C\":\n> No such file or directory\n> make: *** [httpuv.so] Error 1\n> ERROR: compilation failed for package 'httpuv'\n> * removing '/home/markleeds/research/R/Rlibs/library/httpuv'\n>\n> The downloaded source packages are in\n>         '/tmp/RtmpePY2mo/downloaded_packages'\n> Warning message:\n> In install.packages(\"httpuv\", dependencies = TRUE) :\n>   installation of package 'httpuv' had non-zero exit status\n> >\n>\n> #===================================================================\n>\n> I'm not  sure but the error[1] seems to be pointing LC_TYPE etc.\n> and I'm pretty cetain that line with LC_CTYPE etc comes from having\n>\n> Sys.setlocale(locale=\"C\")\n>\n> in my .Rprofile file. So, somehow I think that's the root of my problem.\n> At the same time,\n> if I take that line out of my .Rprofile file, then I'm not even able to\n> choose a cran mirror\n> so I think I need it in there. Any help is appreciated.\n>\n>\n>\n> Mark\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "just to close this thread. tom callaway kindly spent a lot of time on my\nproblem and figured out the following: ( it's easier for me to quote john ).\n\n\"QUOTE\"\n\nSo, I looked at this again when I'm not ",
+      "thread_id": "thread-3cac8621f9b2",
+      "thread_depth": 1,
+      "month": "2015-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-3cac8621f9b2",
+      "subject": "httpuv not installing on fedora 19",
+      "message_count": 2,
+      "participants": [
+        "Mark Leeds"
+      ],
+      "started": "2015-04-14T08:30:53-04:00",
+      "last_reply": "2015-04-14T17:29:27-04:00",
+      "root_message_id": "msg-3cac8621f9b2"
+    },
+    {
+      "id": "thread-51288cc19210",
+      "subject": "httpuv not installing on fedora 19",
+      "message_count": 2,
+      "participants": [
+        "Mark Leeds",
+        "Tom Callaway"
+      ],
+      "started": "2015-04-14T08:39:28-04:00",
+      "last_reply": "2015-04-14T08:47:29-04:00",
+      "root_message_id": "msg-51288cc19210"
+    },
+    {
+      "id": "thread-3294992dd65b",
+      "subject": "httpuv not installing on fedora 19",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2015-04-14T08:53:02-04:00",
+      "last_reply": "2015-04-14T08:53:02-04:00",
+      "root_message_id": "msg-3294992dd65b"
+    }
+  ]
+}

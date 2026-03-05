@@ -1,0 +1,141 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2014-04",
+  "messages": [
+    {
+      "id": "msg-00db6f25f957",
+      "message_id": "<CAP2vBum3nUdsUqrkoAPNFcU0qzC0PunaEedDPNftuNx7=RcfQA@mail.gmail.com>",
+      "from_name": "Eric Kaufmann",
+      "from_email_hash": "6d659b72c2f2f23664746a59c2bf65be37a392d0426d283a51aacee2d329eaf3",
+      "date": "2014-04-02T15:05:40-05:00",
+      "subject": "[R-sig-Fedora] RJAGS Installation Issues",
+      "subject_clean": "RJAGS Installation Issues",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140402/3890ca95/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140402/3890ca95/attachment.pl>",
+      "thread_id": "thread-00db6f25f957",
+      "thread_depth": 0,
+      "month": "2014-04"
+    },
+    {
+      "id": "msg-f3e3221dcc13",
+      "message_id": "<3F79C36C-F1E2-4DBD-A5AC-22853B58658B@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2014-04-02T15:48:47-05:00",
+      "subject": "[R-sig-Fedora] RJAGS Installation Issues",
+      "subject_clean": "RJAGS Installation Issues",
+      "in_reply_to": "<CAP2vBum3nUdsUqrkoAPNFcU0qzC0PunaEedDPNftuNx7=RcfQA@mail.gmail.com>",
+      "references": [
+        "<CAP2vBum3nUdsUqrkoAPNFcU0qzC0PunaEedDPNftuNx7=RcfQA@mail.gmail.com>"
+      ],
+      "body_plain": "On Apr 2, 2014, at 3:05 PM, Eric Kaufmann <kaufmann at slu.edu> wrote:\n\n> Hello,\n> \n> I am trying to install rjags on R 3.0.0 that is running on CentOS 6.4. Jags\n> is installed and seems to be working correctly.\n> \n> I get the following error when trying to install from source or CRAN,\n> \n> configure: error: \"Problem with header file /usr/include/JAGS/Console.h \"\n> See `config.log' for more details\n> \n> JAGS was intalled with an rpm. Does not look like the rpm included\n> Console.h The package has the following contents:\n> \n> *Content of RPM :*\n> /usr/bin/jags\n> /usr/lib64/JAGS\n> /usr/lib64/JAGS/modules-2.2.0\n> /usr/lib64/JAGS/modules-2.2.0/basemod.la\n> /usr/lib64/JAGS/modules-2.2.0/basemod.so\n> /usr/lib64/JAGS/modules-2.2.0/bugs.la\n> /usr/lib64/JAGS/modules-2.2.0/bugs.so\n> /usr/lib64/JAGS/modules-2.2.0/dic.la\n> /usr/lib64/JAGS/modules-2.2.0/dic.so\n> /usr/lib64/JAGS/modules-2.2.0/glm.la\n> /usr/lib64/JAGS/modules-2.2.0/glm.so\n> /usr/lib64/JAGS/modules-2.2.0/lecuyer.la\n> /usr/lib64/JAGS/modules-2.2.0/lecuyer.so\n> /usr/lib64/JAGS/modules-2.2.0/mix.la\n> /usr/lib64/JAGS/modules-2.2.0/mix.so\n> /usr/lib64/JAGS/modules-2.2.0/msm.la\n> /usr/lib64/JAGS/modules-2.2.0/msm.so\n> /usr/lib64/libjags.la\n> /usr/lib64/libjags.so.2\n> /usr/lib64/libjags.so.2.0.2\n> /usr/lib64/libjrmath.la\n> /usr/lib64/libjrmath.so.0\n> /usr/lib64/libjrmath.so.0.0.0\n> /usr/libexec/jags-terminal\n> /usr/share/man/man1/jags<http://rpm.pbone.net/index.php3/stat/45/idpl/21879959/numer/1/nazwa/jags>\n> .1.gz\n\n\nHi Eric,\n\nIt occurs to me, did you install the 'jags-devel' RPM along with the jags RPM?\n\nHeader and other files to facilitate local compilation would typically be installed in the 'xxx-devel' RPM for the relevant binary package RPM.\n\nIt looks like you used rpm.pbone.net and they do have the jags-devel RPM there:\n\n  http://rpm.pbone.net/index.php3/stat/4/idpl/21879958/dir/centos_6/com/jags-devel-1.0.4-7.3.x86_64.rpm.html\n\nChecking the RPM content, Console.h is listed there.\n\nRegards,\n\nMarc Schwartz",
+      "body_snippet": "On Apr 2, 2014, at 3:05 PM, Eric Kaufmann <kaufmann at slu.edu> wrote:\n\n> Hello,\n> \n> I am trying to install rjags on R 3.0.0 that is running on CentOS 6.4. Jags\n> is installed and seems to be working",
+      "thread_id": "thread-00db6f25f957",
+      "thread_depth": 1,
+      "month": "2014-04"
+    },
+    {
+      "id": "msg-2d2f0b447f8c",
+      "message_id": "<CALJKDF_bRoQ0JQ-LJ-n3ikQTrf4VrMp+BYzV=heiXmYPb_k5Gg@mail.gmail.com>",
+      "from_name": "Steve Taylor",
+      "from_email_hash": "74d3363cb6b0a45862a2be9054b7268dbbf98292304b2555e3b3d93d0373f7a9",
+      "date": "2014-04-20T09:33:41+12:00",
+      "subject": "[R-sig-Fedora] Nonexistent include directory \"/usr/lib/gfortran/modules\"",
+      "subject_clean": "Nonexistent include directory \"/usr/lib/gfortran/modules\"",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140420/a04bb049/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140420/a04bb049/attachment.pl>",
+      "thread_id": "thread-2d2f0b447f8c",
+      "thread_depth": 0,
+      "month": "2014-04"
+    },
+    {
+      "id": "msg-9c253963aa8b",
+      "message_id": "<D514B42E-69E3-4BF4-B615-2AA865F62481@gmail.com>",
+      "from_name": "peter dalgaard",
+      "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
+      "date": "2014-04-20T00:08:54+02:00",
+      "subject": "[R-sig-Fedora] Nonexistent include directory \"/usr/lib/gfortran/modules\"",
+      "subject_clean": "Nonexistent include directory \"/usr/lib/gfortran/modules\"",
+      "in_reply_to": "<CALJKDF_bRoQ0JQ-LJ-n3ikQTrf4VrMp+BYzV=heiXmYPb_k5Gg@mail.gmail.com>",
+      "references": [
+        "<CALJKDF_bRoQ0JQ-LJ-n3ikQTrf4VrMp+BYzV=heiXmYPb_k5Gg@mail.gmail.com>"
+      ],
+      "body_plain": "On 19 Apr 2014, at 23:33 , Steve Taylor <steve.taylor.nz at gmail.com> wrote:\n\n> Hi there,\n> \n> Can anyone help with this?\n> \n> I tried to install.packages('lme4') and got lots of warning and error\n> messages, starting with the one in the subject and ending with failed\n> compilation.  The same went for the 'minqa' package which is needed by lme4.\n> \n> I have R version 3.0.2 running on Fedora 20.\n> \"yum update R\" says that's the latest available.\n> \n> Is my system missing something necessary for compilation?\n\ngfortran, maybe? I'm a little out of touch with Fedora these days, but there used to be a meta-package called R-devel or so, which would bring in all tools needed for source compilation of R and most of the packages. \n\n> \n> cheers,\n>   Steve\n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n-- \nPeter Dalgaard, Professor,\nCenter for Statistics, Copenhagen Business School\nSolbjerg Plads 3, 2000 Frederiksberg, Denmark\nPhone: (+45)38153501\nEmail: pd.mes at cbs.dk  Priv: PDalgd at gmail.com",
+      "body_snippet": "On 19 Apr 2014, at 23:33 , Steve Taylor <steve.taylor.nz at gmail.com> wrote:\n\n> Hi there,\n> \n> Can anyone help with this?\n> \n> I tried to install.packages('lme4') and got lots of warning and error\n> ",
+      "thread_id": "thread-2d2f0b447f8c",
+      "thread_depth": 1,
+      "month": "2014-04"
+    },
+    {
+      "id": "msg-1e3e94ab83bd",
+      "message_id": "<CALJKDF-ipMNeh9OGwZhDHZhv1SKXksxwGuiw-2g_jT2iXpDvMA@mail.gmail.com>",
+      "from_name": "Steve Taylor",
+      "from_email_hash": "74d3363cb6b0a45862a2be9054b7268dbbf98292304b2555e3b3d93d0373f7a9",
+      "date": "2014-04-20T10:48:19+12:00",
+      "subject": "[R-sig-Fedora] Nonexistent include directory \"/usr/lib/gfortran/modules\"",
+      "subject_clean": "Nonexistent include directory \"/usr/lib/gfortran/modules\"",
+      "in_reply_to": "<D514B42E-69E3-4BF4-B615-2AA865F62481@gmail.com>",
+      "references": [
+        "<CALJKDF_bRoQ0JQ-LJ-n3ikQTrf4VrMp+BYzV=heiXmYPb_k5Gg@mail.gmail.com>",
+        "<D514B42E-69E3-4BF4-B615-2AA865F62481@gmail.com>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140420/4b9cb9eb/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140420/4b9cb9eb/attachment.pl>",
+      "thread_id": "thread-2d2f0b447f8c",
+      "thread_depth": 2,
+      "month": "2014-04"
+    },
+    {
+      "id": "msg-8e7858f04c95",
+      "message_id": "<9A05E65B-B8A4-4442-A018-8281548A3852@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2014-04-19T20:27:26-05:00",
+      "subject": "[R-sig-Fedora] Nonexistent include directory \"/usr/lib/gfortran/modules\"",
+      "subject_clean": "Nonexistent include directory \"/usr/lib/gfortran/modules\"",
+      "in_reply_to": "<CALJKDF-ipMNeh9OGwZhDHZhv1SKXksxwGuiw-2g_jT2iXpDvMA@mail.gmail.com>",
+      "references": [
+        "<CALJKDF_bRoQ0JQ-LJ-n3ikQTrf4VrMp+BYzV=heiXmYPb_k5Gg@mail.gmail.com>",
+        "<D514B42E-69E3-4BF4-B615-2AA865F62481@gmail.com>",
+        "<CALJKDF-ipMNeh9OGwZhDHZhv1SKXksxwGuiw-2g_jT2iXpDvMA@mail.gmail.com>"
+      ],
+      "body_plain": "Hi,\n\nIf you are installing to default system-wide locations, you will need to be SU/root in order to have the requisite privileges. If you try to install as a regular user, you will need to define alternative target locations for the library tree within your username tree.\n\nAs with Peter, it has been some time since I have used Fedora. Going on about 5 years at this point.\n\nThe confounding issue here may be that there are various iterations of the lme4 package in the wild and there may be some subtleties in the installation process. There is a README file here:\n\n  http://cran.r-project.org/web/packages/lme4/README.html\n\nIt is also possible that you may need to use:\n\n  install.packages('lme4', dependencies = TRUE)\n\nin order to bring in various dependencies for the package during installation.\n\nYou may also be best served posting to the R-SIG-Mixed-Models list:\n\n  https://stat.ethz.ch/mailman/listinfo/r-sig-mixed-models\n\nwhere the maintainers of lme4 tend to be located. Even though this appears to be a Fedora issue, it may be in reality an lme4 issue.\n\nRegards,\n\nMarc Schwartz\n\n\nOn Apr 19, 2014, at 5:48 PM, Steve Taylor <steve.taylor.nz at gmail.com> wrote:\n\n> Thanks for your response Peter\n> \n> Yes I have gfortran installed.  I also have R-devel-3.0.2-1.fc20.i686\n> installed already.\n> \n> It seems I can install the packages as superuser su.  However, there are\n> still many fortran warnings about variables potentially being used before\n> being initialised.  I'll ignore those for the moment.\n> \n> cheers,\n>   Steve\n> \n> \n> On 20 April 2014 10:08, peter dalgaard <pdalgd at gmail.com> wrote:\n> \n>> \n>> On 19 Apr 2014, at 23:33 , Steve Taylor <steve.taylor.nz at gmail.com> wrote:\n>> \n>>> Hi there,\n>>> \n>>> Can anyone help with this?\n>>> \n>>> I tried to install.packages('lme4') and got lots of warning and error\n>>> messages, starting with the one in the subject and ending with failed\n>>> compilation.  The same went for the 'minqa' package which is needed by\n>> lme4.\n>>> \n>>> I have R version 3.0.2 running on Fedora 20.\n>>> \"yum update R\" says that's the latest available.\n>>> \n>>> Is my system missing something necessary for compilation?\n>> \n>> gfortran, maybe? I'm a little out of touch with Fedora these days, but\n>> there used to be a meta-package called R-devel or so, which would bring in\n>> all tools needed for source compilation of R and most of the packages.\n>> \n>>> \n>>> cheers,\n>>>  Steve",
+      "body_snippet": "Hi,\n\nIf you are installing to default system-wide locations, you will need to be SU/root in order to have the requisite privileges. If you try to install as a regular user, you will need to define alt",
+      "thread_id": "thread-2d2f0b447f8c",
+      "thread_depth": 3,
+      "month": "2014-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-00db6f25f957",
+      "subject": "RJAGS Installation Issues",
+      "message_count": 2,
+      "participants": [
+        "Eric Kaufmann",
+        "Marc Schwartz"
+      ],
+      "started": "2014-04-02T15:05:40-05:00",
+      "last_reply": "2014-04-02T15:48:47-05:00",
+      "root_message_id": "msg-00db6f25f957"
+    },
+    {
+      "id": "thread-2d2f0b447f8c",
+      "subject": "Nonexistent include directory \"/usr/lib/gfortran/modules\"",
+      "message_count": 4,
+      "participants": [
+        "Marc Schwartz",
+        "Steve Taylor",
+        "peter dalgaard"
+      ],
+      "started": "2014-04-20T09:33:41+12:00",
+      "last_reply": "2014-04-19T20:27:26-05:00",
+      "root_message_id": "msg-2d2f0b447f8c"
+    }
+  ]
+}

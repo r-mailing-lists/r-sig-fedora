@@ -1,0 +1,450 @@
+From saad82 at gmail.com  Thu Sep  3 18:09:39 2009
+From: saad82 at gmail.com (Saad Saeed)
+Date: Thu, 3 Sep 2009 17:09:39 +0100
+Subject: [R-sig-Fedora] trouble installing gtools package in local directory
+Message-ID: <9d9fa1dc0909030909p363165b4o95e3667f50bba218@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090903/69057816/attachment.pl>
+
+From shanmukh_pes at yahoo.co.in  Mon Sep 14 13:54:17 2009
+From: shanmukh_pes at yahoo.co.in (shanmukha patel)
+Date: Mon, 14 Sep 2009 17:24:17 +0530 (IST)
+Subject: [R-sig-Fedora] R: error while loading shared libraries: libRblas.so:
+Message-ID: <425553.5885.qm@web94407.mail.in2.yahoo.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090914/e3b6b083/attachment.pl>
+
+From singularitaet at gmx.net  Mon Sep 14 18:21:22 2009
+From: singularitaet at gmx.net (Stefan Grosse)
+Date: Mon, 14 Sep 2009 18:21:22 +0200
+Subject: [R-sig-Fedora] R: error while loading shared libraries:
+ libRblas.so:
+In-Reply-To: <425553.5885.qm@web94407.mail.in2.yahoo.com>
+References: <425553.5885.qm@web94407.mail.in2.yahoo.com>
+Message-ID: <20090914182122.3a9c1380@gmx.net>
+
+On Mon, 14 Sep 2009 17:24:17 +0530 (IST) shanmukha patel
+<shanmukh_pes at yahoo.co.in> wrote:
+
+SP> ????? I am trying to debug R on fedora9.0. When I use gdb to debug
+
+Fedora is currently at No. 11 so your Fedora is slightly out of date
+
+SP> R-1.9.2, I am getting the error "R: error while loading shared
+
+I hope that 1.9.2 was a typo otherwise R would be terribly out of date
+since currently it is at 2.9.2
+
+SP> libraries: libRblas.so: cannot open shared object file: No such
+SP> file or directory" "Program exited with code 0177. Missing separate
+SP> debuginfos, use: debuginfo-install glibc.i686"
+
+Have you tried the latter? I mean:
+debuginfo-install glibc.i686
+
+Then why do you debug? Did R not install? Have you failed compiling
+packages? 
+
+Stefan
+
+
+From p.dalgaard at biostat.ku.dk  Mon Sep 14 19:51:14 2009
+From: p.dalgaard at biostat.ku.dk (Peter Dalgaard)
+Date: Mon, 14 Sep 2009 19:51:14 +0200
+Subject: [R-sig-Fedora] R: error while loading shared libraries:
+	libRblas.so:
+In-Reply-To: <20090914182122.3a9c1380@gmx.net>
+References: <425553.5885.qm@web94407.mail.in2.yahoo.com>
+	<20090914182122.3a9c1380@gmx.net>
+Message-ID: <4AAE8292.1040906@biostat.ku.dk>
+
+Stefan Grosse wrote:
+> On Mon, 14 Sep 2009 17:24:17 +0530 (IST) shanmukha patel
+> <shanmukh_pes at yahoo.co.in> wrote:
+> 
+> SP>       I am trying to debug R on fedora9.0. When I use gdb to debug
+> 
+> Fedora is currently at No. 11 so your Fedora is slightly out of date
+> 
+> SP> R-1.9.2, I am getting the error "R: error while loading shared
+> 
+> I hope that 1.9.2 was a typo otherwise R would be terribly out of date
+> since currently it is at 2.9.2
+
+However, stock R on Fedora 9 is 2.9.0 (end of support y'know), so it's 
+all a bit puzzling.
+
+> 
+> SP> libraries: libRblas.so: cannot open shared object file: No such
+> SP> file or directory" "Program exited with code 0177. Missing separate
+> SP> debuginfos, use: debuginfo-install glibc.i686"
+> 
+> Have you tried the latter? I mean:
+> debuginfo-install glibc.i686
+> 
+> Then why do you debug? Did R not install? Have you failed compiling
+> packages? 
+> 
+> Stefan
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+-- 
+    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B
+   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K
+  (*) \(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918
+~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907
+
+
+From shanmukh_pes at yahoo.co.in  Tue Sep 15 08:19:31 2009
+From: shanmukh_pes at yahoo.co.in (shanmukha patel)
+Date: Tue, 15 Sep 2009 11:49:31 +0530 (IST)
+Subject: [R-sig-Fedora] R: error while loading shared libraries:
+	libRblas.so:
+In-Reply-To: <4AAE8292.1040906@biostat.ku.dk>
+Message-ID: <767142.97679.qm@web94404.mail.in2.yahoo.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090915/d619f5bf/attachment.pl>
+
+From p.dalgaard at biostat.ku.dk  Tue Sep 15 09:34:15 2009
+From: p.dalgaard at biostat.ku.dk (Peter Dalgaard)
+Date: Tue, 15 Sep 2009 09:34:15 +0200
+Subject: [R-sig-Fedora] R: error while loading shared libraries:
+	libRblas.so:
+In-Reply-To: <767142.97679.qm@web94404.mail.in2.yahoo.com>
+References: <767142.97679.qm@web94404.mail.in2.yahoo.com>
+Message-ID: <4AAF4377.9060707@biostat.ku.dk>
+
+shanmukha patel wrote:
+> Hi Stefan, Peter
+>     Thanks for your reply. Yeah it was a typo. I am debugging the latest 
+> version of R i.e., R-2.9.2. Currently I have fedora-9 in my system, do I 
+> need to go for fedora-11? I hope its compatible with fedora-10 also. BTW 
+> I built R-2.9.2 on fedora -9 successfully, and able to run the 
+> executable. But the above problem I faced is at the time of debugging.
+> 
+> Thanks,
+> Shanmukh.
+
+The important point is that this is not something you got from a Fedora 
+RPM. (The set of possible complications differs.)
+
+Did you start R using $builddir/bin/R -d gdb ?
+
+F11 and F10 presumably has R-2.9.2 prebuilt by now. (I'm still on F9 too 
+due to time and disk space constraints...)
+
+-- 
+    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B
+   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K
+  (*) \(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918
+~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907
+
+
+From tcallawa at redhat.com  Tue Sep 15 16:25:50 2009
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Tue, 15 Sep 2009 10:25:50 -0400
+Subject: [R-sig-Fedora] R: error while loading shared
+	libraries:	libRblas.so:
+In-Reply-To: <4AAF4377.9060707@biostat.ku.dk>
+References: <767142.97679.qm@web94404.mail.in2.yahoo.com>
+	<4AAF4377.9060707@biostat.ku.dk>
+Message-ID: <4AAFA3EE.4030501@redhat.com>
+
+On 09/15/2009 03:34 AM, Peter Dalgaard wrote:
+> F11 and F10 presumably has R-2.9.2 prebuilt by now. (I'm still on F9 too
+> due to time and disk space constraints...)
+
+This is correct. I'm working hard to try to have the latest R on all
+active Fedora (and RHEL) releases shortly after release.
+
+~spot
+
+
+From baker.peter2009 at gmail.com  Mon Sep 21 06:06:49 2009
+From: baker.peter2009 at gmail.com (Peter Baker)
+Date: Mon, 21 Sep 2009 14:06:49 +1000
+Subject: [R-sig-Fedora] Fedora 11: Package RBGL won't install
+Message-ID: <a66ba74f0909202106x84fa0dej8e935b48cf46ee85@mail.gmail.com>
+
+Hi
+
+I've been trying to install RBGL and several other packages in gR task
+view on Fedora11 64 bit without success
+
+My guess is that it is due to boost (fedora is at boost 1.37 which is
+a few minor versions behind 1.40)  and very recent g++
+
+Has anyone managed to install the gR task view or RBGL in particular?
+
+Thanks
+
+Cheers
+Peter
+
+========
+
+[root at SPH-PH-428-04P ~]# gcc --version
+gcc (GCC) 4.4.1 20090725 (Red Hat 4.4.1-2)
+
+> version
+               _
+platform       x86_64-redhat-linux-gnu
+arch           x86_64
+os             linux-gnu
+system         x86_64, linux-gnu
+status
+major          2
+minor          9.2
+year           2009
+month          08
+day            24
+svn rev        49384
+language       R
+version.string R version 2.9.2 (2009-08-24)
+
+While trying to install RBGL it crashes with a long series of warnings
+but the puch-line appears to be
+
+boostIncl/boost/optional/optional.hpp:315: warning: dereferencing
+pointer ?<anonymous>? does break strict-aliasing rules
+boostIncl/boost/optional/optional.hpp:422: note: initialized from here
+make: *** [bbc.o] Error 1
+ERROR: compilation failed for package ?RBGL?
+* Removing ?/usr/lib64/R/library/RBGL?
+
+
+-- 
+Dr Peter Baker | Senior Lecturer/Statistician | Epidemiology & Biostatistics
+
+Room 416 | School of Population Health |The University of Queensland | Public
+Health Building | Herston Rd | Herston Qld 4006 | Australia
+
+Ph: +61 7 3346 4747 | Fax: +61 7 3365 5442 | http://www.sph.uq.edu.au/  |
+Email: p.baker1 at uq.edu.au or baker.peter2009 at gmail.com
+
+
+From mat_1 at gmx.net  Mon Sep 21 09:25:12 2009
+From: mat_1 at gmx.net (Matthias Buehlmaier)
+Date: Mon, 21 Sep 2009 09:25:12 +0200
+Subject: [R-sig-Fedora] Fedora 11: Package RBGL won't install
+In-Reply-To: <a66ba74f0909202106x84fa0dej8e935b48cf46ee85@mail.gmail.com>
+References: <a66ba74f0909202106x84fa0dej8e935b48cf46ee85@mail.gmail.com>
+Message-ID: <1253517912.6039.10.camel@localhost.localdomain>
+
+Peter, 
+
+I just installed RBGL on Fedora 10 (64 bit) without any problem. Below
+is my system information. Maybe the problem is related to the gcc
+version, as you have suspected: 
+
+$ gcc --version
+gcc (GCC) 4.3.2 20081105 (Red Hat 4.3.2-7)
+
+> version
+               _                           
+platform       x86_64-redhat-linux-gnu     
+arch           x86_64                      
+os             linux-gnu                   
+system         x86_64, linux-gnu           
+status                                     
+major          2                           
+minor          9.2                         
+year           2009                        
+month          08                          
+day            24                          
+svn rev        49384                       
+language       R                           
+version.string R version 2.9.2 (2009-08-24)
+
+
+Cheers, 
+
+Matthias 
+-- 
+Matthias Buehlmaier
+Vienna Graduate School of Finance
+www.buehlmaier.net
+
+
+
+On Mon, 2009-09-21 at 14:06 +1000, Peter Baker wrote:
+> Hi
+> 
+> I've been trying to install RBGL and several other packages in gR task
+> view on Fedora11 64 bit without success
+> 
+> My guess is that it is due to boost (fedora is at boost 1.37 which is
+> a few minor versions behind 1.40)  and very recent g++
+> 
+> Has anyone managed to install the gR task view or RBGL in particular?
+> 
+> Thanks
+> 
+> Cheers
+> Peter
+> 
+> ========
+> 
+> [root at SPH-PH-428-04P ~]# gcc --version
+> gcc (GCC) 4.4.1 20090725 (Red Hat 4.4.1-2)
+> 
+> > version
+>                _
+> platform       x86_64-redhat-linux-gnu
+> arch           x86_64
+> os             linux-gnu
+> system         x86_64, linux-gnu
+> status
+> major          2
+> minor          9.2
+> year           2009
+> month          08
+> day            24
+> svn rev        49384
+> language       R
+> version.string R version 2.9.2 (2009-08-24)
+> 
+> While trying to install RBGL it crashes with a long series of warnings
+> but the puch-line appears to be
+> 
+> boostIncl/boost/optional/optional.hpp:315: warning: dereferencing
+> pointer ?<anonymous>? does break strict-aliasing rules
+> boostIncl/boost/optional/optional.hpp:422: note: initialized from here
+> make: *** [bbc.o] Error 1
+> ERROR: compilation failed for package ?RBGL?
+> * Removing ?/usr/lib64/R/library/RBGL?
+> 
+>
+
+
+From tcallawa at redhat.com  Mon Sep 21 17:59:46 2009
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Mon, 21 Sep 2009 11:59:46 -0400
+Subject: [R-sig-Fedora] Fedora 11: Package RBGL won't install
+In-Reply-To: <1253517912.6039.10.camel@localhost.localdomain>
+References: <a66ba74f0909202106x84fa0dej8e935b48cf46ee85@mail.gmail.com>
+	<1253517912.6039.10.camel@localhost.localdomain>
+Message-ID: <4AB7A2F2.70200@redhat.com>
+
+On 09/21/2009 03:25 AM, Matthias Buehlmaier wrote:
+> Peter, 
+> 
+> I just installed RBGL on Fedora 10 (64 bit) without any problem. Below
+> is my system information. Maybe the problem is related to the gcc
+> version, as you have suspected: 
+
+So, the answer here is complicated:
+
+* The reason RBGL won't build on Fedora 11 or newer is due to a
+combination of:
+ - gcc optimization tightening
+ - RBGL bundling and using old boost headers
+
+The boost headers in Fedora's boost-devel package have been fixed up,
+and should not suffer from these issues. So, I sat down this morning and
+whipped up SRPMS for RBGL (and missing deps) which should get you over
+this particular hump (they compile against the system boost headers).
+Caveat: I only tested them on Rawhide, but they should work on all
+versions of Fedora.
+
+I also fixed a bug in RBGL where it was trying to call
+"edmunds.karp.max.flow", where that is actually a typo in boost (fixed
+in Fedora). You might need to back this patch out to build the R-RBGL
+src.rpm on older Fedora releases, I'm not sure when that fix was
+committed into boost.
+
+The SPEC files and SRPMs are here:
+
+http://www.auroralinux.org/people/spot/review/RBGL/
+
+If anyone feels inspired to pick them up and put them up for review,
+feel free to do so, otherwise, I'll get to them when I have a bit more
+time (which will be... sometime in 2049).
+
+~spot
+
+
+From baker.peter2009 at gmail.com  Tue Sep 22 07:09:48 2009
+From: baker.peter2009 at gmail.com (Peter Baker)
+Date: Tue, 22 Sep 2009 15:09:48 +1000
+Subject: [R-sig-Fedora] Fedora 11: Package RBGL won't install
+In-Reply-To: <4AB7A2F2.70200@redhat.com>
+References: <a66ba74f0909202106x84fa0dej8e935b48cf46ee85@mail.gmail.com>
+	<1253517912.6039.10.camel@localhost.localdomain>
+	<4AB7A2F2.70200@redhat.com>
+Message-ID: <a66ba74f0909212209w3db24ce7n130625180bb22616@mail.gmail.com>
+
+Dear Tom and Matthias
+
+Thanks very much for your prompt replies!!
+
+I have upgraded boost to testing on 64 bit box but not on netbook
+(586) so I'll let you know how it goes. Like Tom I feel a bit short of
+time at present but I'm hoping to get to it in next few days
+
+Cheers
+Peter
+
+On Tue, Sep 22, 2009 at 1:59 AM, Tom "spot" Callaway
+<tcallawa at redhat.com> wrote:
+> On 09/21/2009 03:25 AM, Matthias Buehlmaier wrote:
+>> Peter,
+>>
+>> I just installed RBGL on Fedora 10 (64 bit) without any problem. Below
+>> is my system information. Maybe the problem is related to the gcc
+>> version, as you have suspected:
+>
+> So, the answer here is complicated:
+>
+> * The reason RBGL won't build on Fedora 11 or newer is due to a
+> combination of:
+> ?- gcc optimization tightening
+> ?- RBGL bundling and using old boost headers
+>
+> The boost headers in Fedora's boost-devel package have been fixed up,
+> and should not suffer from these issues. So, I sat down this morning and
+> whipped up SRPMS for RBGL (and missing deps) which should get you over
+> this particular hump (they compile against the system boost headers).
+> Caveat: I only tested them on Rawhide, but they should work on all
+> versions of Fedora.
+>
+> I also fixed a bug in RBGL where it was trying to call
+> "edmunds.karp.max.flow", where that is actually a typo in boost (fixed
+> in Fedora). You might need to back this patch out to build the R-RBGL
+> src.rpm on older Fedora releases, I'm not sure when that fix was
+> committed into boost.
+>
+> The SPEC files and SRPMs are here:
+>
+> http://www.auroralinux.org/people/spot/review/RBGL/
+>
+> If anyone feels inspired to pick them up and put them up for review,
+> feel free to do so, otherwise, I'll get to them when I have a bit more
+> time (which will be... sometime in 2049).
+>
+> ~spot
+>
+
+
+
+-- 
+Dr Peter Baker | Senior Lecturer/Statistician | Epidemiology & Biostatistics
+
+Room 416 | School of Population Health |The University of Queensland | Public
+Health Building | Herston Rd | Herston Qld 4006 | Australia
+
+Ph: +61 7 3346 4747 | Fax: +61 7 3365 5442 | http://www.sph.uq.edu.au/  |
+Email: p.baker1 at uq.edu.au or baker.peter2009 at gmail.com
+
+

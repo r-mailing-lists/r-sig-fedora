@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2009-10",
+  "messages": [
+    {
+      "id": "msg-ef17a0b2e136",
+      "message_id": "<9B736790B24CE546A9C08867A2D6D8490900485A@SMTMSX01.Corp.Acxiom.net>",
+      "from_name": "Peterson Jacob - jacpet",
+      "from_email_hash": "69ef35c38ef25923027fbcfb86758a992ab13d0418e720a57df33d2af780d330",
+      "date": "2009-10-12T16:32:01-05:00",
+      "subject": "[R-sig-Fedora] Font permissions with X11-adobe",
+      "subject_clean": "Font permissions with X11-adobe",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi All, \n\n \n\nWe're trying to get R with the standard gui loaded onto CentOS 4, and\nunder certain users R will not render certain graphics. When logged in\nas root the graphics render, but under the restricted user they don't.\nThe graphics don't render with the error:\n\n \n\ntestdata <-\nrbind(c(1,2,3,4,5,6),c(3,4,5,4,6,2),c(3,6,7,2,2,1),c(5,4,9,8,9,1))\n> pairs(testdata)\nError in text.default(x, y, txt, cex = cex, font = font) : \n X11 font -adobe-helvetica-%s-%s-*-*-%d-*-*-*-*-*-*-*, face 1 at size 16\ncould not be loaded\n\n \n\nHas anyone come across this before?  I looked in the archive and\ncouldn't find anything.  Any system/install information you'd like to\nsee?\n\n \n\n-    Jake\n\n \n\nJake Peterson | Analytics Consultant\n\nAcxiom Digital Marketing Science\n\n00-1-650-372-2214 office | 00-1-650-400-0994 cell \n1051 E Hillsdale Blvd Suite 400 | Foster City, CA, 94010 | USA | \nwww.acxiom.com <http://www.acxiom.com> \n\n \n\n***************************************************************************\nThe information contained in this communication is confidential, is\nintended only for the use of the recipient named above, and may be legally\nprivileged.\n\nIf the reader of this message is not the intended recipient, you are\nhereby notified that any dissemination, distribution or copying of this\ncommunication is strictly prohibited.\n\nIf you have received this communication in error, please resend this\ncommunication to the sender and delete the original message or any copy\nof it from your computer system.\n\nThank You.\n****************************************************************************\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20091012/1defc36c/attachment.html>\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: not available\nType: image/gif\nSize: 2831 bytes\nDesc: image001.gif\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20091012/1defc36c/attachment.gif>",
+      "body_snippet": "Hi All, \n\n \n\nWe're trying to get R with the standard gui loaded onto CentOS 4, and\nunder certain users R will not render certain graphics. When logged in\nas root the graphics render, but under the res",
+      "thread_id": "thread-ef17a0b2e136",
+      "thread_depth": 0,
+      "month": "2009-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-ef17a0b2e136",
+      "subject": "Font permissions with X11-adobe",
+      "message_count": 1,
+      "participants": [
+        "Peterson Jacob - jacpet"
+      ],
+      "started": "2009-10-12T16:32:01-05:00",
+      "last_reply": "2009-10-12T16:32:01-05:00",
+      "root_message_id": "msg-ef17a0b2e136"
+    }
+  ]
+}

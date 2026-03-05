@@ -1,0 +1,122 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2014-12",
+  "messages": [
+    {
+      "id": "msg-ec758d7e36f3",
+      "message_id": "<548B0801.2020806@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2014-12-12T10:21:37-05:00",
+      "subject": "[R-sig-Fedora] RJAGS Installation Issues",
+      "subject_clean": "RJAGS Installation Issues",
+      "in_reply_to": "<CAPRP4-dqA+ev7xdbuNozmam6bL4d9CMt7_GHKdV44XoKKimNCA@mail.gmail.com>",
+      "references": [
+        "<CAPRP4-dqA+ev7xdbuNozmam6bL4d9CMt7_GHKdV44XoKKimNCA@mail.gmail.com>"
+      ],
+      "body_plain": "On 10/06/2014 10:54 AM, Martin Maechler wrote:\n> A few months ago,  Eric asked about this for CentOS 6:\n>  https://stat.ethz.ch/pipermail/r-sig-fedora/2014-April/000310.html\n> \n> and was kindly helped by Marc Schwartz.\n> OTOH, we are running Fedora 19,  currently upgrading to Fedora 20.\n> \n> The RPM find link for  'jags-devel' which Marc provided really seems\n> to cater to CentOS or RHEL 5,\n> but not directly to any newer Fedora.\n\nI've put in a review request to add jags to Fedora (and EPEL):\n\nhttps://bugzilla.redhat.com/show_bug.cgi?id=1173656\n\n~tom\n\n==\nRed Hat\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: tcallawa.vcf\nType: text/x-vcard\nSize: 4 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20141212/c279b732/attachment.vcf>",
+      "body_snippet": "On 10/06/2014 10:54 AM, Martin Maechler wrote:\n> A few months ago,  Eric asked about this for CentOS 6:\n>  https://stat.ethz.ch/pipermail/r-sig-fedora/2014-April/000310.html\n> \n> and was kindly helped",
+      "thread_id": "thread-ec758d7e36f3",
+      "thread_depth": 0,
+      "month": "2014-12"
+    },
+    {
+      "id": "msg-7dbce064991a",
+      "message_id": "<CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>",
+      "from_name": "Jeroen Ooms",
+      "from_email_hash": "a265ef4bb03c14ee9d6f00489213486310c7d7bc8d3d2467e6937626fef998e1",
+      "date": "2014-12-14T12:56:51-08:00",
+      "subject": "[R-sig-Fedora] upquote.sty in Fedora 21",
+      "subject_clean": "upquote.sty in Fedora 21",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "My CMD check server started failing after upgrading to Fedora 21:\n\nLaTeX errors when creating PDF version.\n  This typically indicates Rd problems.\n  LaTeX errors found:\n  ! LaTeX Error: File `upquote.sty' not found.\n\nThe problem was easily resolved by installing texlive-upquote. Perhaps\nthis package should be included as a dependency to the R-devel\npackage?",
+      "body_snippet": "My CMD check server started failing after upgrading to Fedora 21:\n\nLaTeX errors when creating PDF version.\n  This typically indicates Rd problems.\n  LaTeX errors found:\n  ! LaTeX Error: File `upquote.",
+      "thread_id": "thread-7dbce064991a",
+      "thread_depth": 0,
+      "month": "2014-12"
+    },
+    {
+      "id": "msg-1ab5b5182cb3",
+      "message_id": "<1418637494.15411.3.camel@iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2014-12-15T09:58:13Z",
+      "subject": "[R-sig-Fedora] upquote.sty in Fedora 21",
+      "subject_clean": "upquote.sty in Fedora 21",
+      "in_reply_to": "<CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>",
+      "references": [
+        "<CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>"
+      ],
+      "body_plain": "On Sun, 2014-12-14 at 12:56 -0800, Jeroen Ooms wrote:\n> My CMD check server started failing after upgrading to Fedora 21:\n> \n> LaTeX errors when creating PDF version.\n>   This typically indicates Rd problems.\n>   LaTeX errors found:\n>   ! LaTeX Error: File `upquote.sty' not found.\n> \n> The problem was easily resolved by installing texlive-upquote. Perhaps\n> this package should be included as a dependency to the R-devel\n> package?\n\nThis dependency was removed in R 3.1.2 (not yet available on Fedora).\nSee doc/NEWS.Rd:\n\n      \\item LaTeX package \\pkg{upquote} is no longer required for \\R's\n      use of \\pkg{inconsolata}.\n\nMartyn\n_______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n-----------------------------------------------------------------------\nThis message and its attachments are strictly confidenti...{{dropped:8}}",
+      "body_snippet": "On Sun, 2014-12-14 at 12:56 -0800, Jeroen Ooms wrote:\n> My CMD check server started failing after upgrading to Fedora 21:\n> \n> LaTeX errors when creating PDF version.\n>   This typically indicates Rd p",
+      "thread_id": "thread-7dbce064991a",
+      "thread_depth": 1,
+      "month": "2014-12"
+    },
+    {
+      "id": "msg-57fa3870c0a0",
+      "message_id": "<548EF666.1040300@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2014-12-15T09:55:34-05:00",
+      "subject": "[R-sig-Fedora] upquote.sty in Fedora 21",
+      "subject_clean": "upquote.sty in Fedora 21",
+      "in_reply_to": "<CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>",
+      "references": [
+        "<CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>"
+      ],
+      "body_plain": "On 12/14/2014 03:56 PM, Jeroen Ooms wrote:\n> My CMD check server started failing after upgrading to Fedora 21:\n> \n> LaTeX errors when creating PDF version.\n>   This typically indicates Rd problems.\n>   LaTeX errors found:\n>   ! LaTeX Error: File `upquote.sty' not found.\n> \n> The problem was easily resolved by installing texlive-upquote. Perhaps\n> this package should be included as a dependency to the R-devel\n> package?\n\nAs pointed out, this is no longer an issue in R 3.1.2, which is in all\nFedora branches (except 21, where it is landing later today, hopefully).\n\n~tom\n\n==\nRed Hat\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: tcallawa.vcf\nType: text/x-vcard\nSize: 4 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20141215/b297ccec/attachment.vcf>",
+      "body_snippet": "On 12/14/2014 03:56 PM, Jeroen Ooms wrote:\n> My CMD check server started failing after upgrading to Fedora 21:\n> \n> LaTeX errors when creating PDF version.\n>   This typically indicates Rd problems.\n> ",
+      "thread_id": "thread-7dbce064991a",
+      "thread_depth": 1,
+      "month": "2014-12"
+    },
+    {
+      "id": "msg-c769884942fa",
+      "message_id": "<CABFfbXv9icx4+k=pT1gHGVKcXuzBML+2EKbdY=Lx7qe=SmYoHQ@mail.gmail.com>",
+      "from_name": "Jeroen Ooms",
+      "from_email_hash": "a265ef4bb03c14ee9d6f00489213486310c7d7bc8d3d2467e6937626fef998e1",
+      "date": "2014-12-22T20:56:44-08:00",
+      "subject": "[R-sig-Fedora] upquote.sty in Fedora 21",
+      "subject_clean": "upquote.sty in Fedora 21",
+      "in_reply_to": "<548EF666.1040300@redhat.com>",
+      "references": [
+        "<CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>",
+        "<548EF666.1040300@redhat.com>"
+      ],
+      "body_plain": "On Mon, Dec 15, 2014 at 6:55 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n> As pointed out, this is no longer an issue in R 3.1.2, which is in all\n> Fedora branches (except 21, where it is landing later today, hopefully).\n\nThank you. Another missing dependency pops up when running CMD check:\n\n  * checking compiled code ... OK\n   WARNING\n  ?qpdf? is needed for checks on size reduction of PDFs\n\nPerhaps qpdf could be declared as a dependency for R-devel.",
+      "body_snippet": "On Mon, Dec 15, 2014 at 6:55 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n> As pointed out, this is no longer an issue in R 3.1.2, which is in all\n> Fedora branches (except 21, where it is landing",
+      "thread_id": "thread-7dbce064991a",
+      "thread_depth": 2,
+      "month": "2014-12"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-ec758d7e36f3",
+      "subject": "RJAGS Installation Issues",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2014-12-12T10:21:37-05:00",
+      "last_reply": "2014-12-12T10:21:37-05:00",
+      "root_message_id": "msg-ec758d7e36f3"
+    },
+    {
+      "id": "thread-7dbce064991a",
+      "subject": "upquote.sty in Fedora 21",
+      "message_count": 4,
+      "participants": [
+        "Jeroen Ooms",
+        "Martyn Plummer",
+        "Tom Callaway"
+      ],
+      "started": "2014-12-14T12:56:51-08:00",
+      "last_reply": "2014-12-22T20:56:44-08:00",
+      "root_message_id": "msg-7dbce064991a"
+    }
+  ]
+}

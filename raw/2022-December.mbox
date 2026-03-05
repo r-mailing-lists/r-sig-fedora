@@ -1,0 +1,177 @@
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Dec 16 17:06:10 2022
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 16 Dec 2022 17:06:10 +0100
+Subject: [R-sig-Fedora] Using ATLAS in Fedora 36, R-4.2.2 -- fails configure
+Message-ID: <25500.38770.334013.12950@stat.math.ethz.ch>
+
+The CRAN team has found some misbehavior of some of our code
+running under ATLAS (for BLAS + Lapack).
+
+I had successfully built a version of R-4.2.1 linked to ATLAS
+under Fedora 34 (last June) and that still runs in Fedora 36.
+
+However I can not install packages with C source code needing BLAS/Lapack..
+I figured that's ok, as indeed that version of R was built with
+earlier compilers and libraries under F34.
+
+So I wanted to "redo" the same thing (which worked), now with
+F36 and R 4.2.2:
+
+  inside a build directory (side by side with the unpacked
+  	                     R-4.2.2/ R sources)
+
+  ../R-4.2.2/configure -C '--with-blas=-L/usr/lib64/atlas -ltatlas'
+
+and this "worked along" about 400 lines of output starting with
+
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+loading site script '../R-4.2.2/config.site'
+checking for pwd... /usr/bin/pwd
+checking whether builddir is srcdir... no
+checking whether ln -s works... yes
+checking for ar... ar
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for sed... /usr/bin/sed
+
+.......................................
+.......................................
+.......................................
+.......................................
+.......................................
+.......................................    and ending with
+
+checking whether catan exists and is declared... yes
+checking whether ccosh exists and is declared... yes
+checking whether csinh exists and is declared... yes
+checking whether ctanh exists and is declared... yes
+checking for working ctanh... yes
+checking whether 'struct tm' includes tm_zone... yes
+checking whether 'struct tm' includes tm_gmtoff... yes
+checking for dgemm_ in -L/usr/lib64/atlas -ltatlas... no
+configure: error: BLAS was specified but not available
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+but clearly  /usr/lib64/atlas/ is there and contains the (dnf
+installed) files libtatlas.so.*
+
+$ ls -l /usr/lib64/atlas
+total 24672
+lrwxrwxrwx. 1 root root       17 Jan 19  2022 libsatlas.so.3 -> libsatlas.so.3.10
+-rwxr-xr-x. 1 root root 12581672 Jan 19  2022 libsatlas.so.3.10
+lrwxrwxrwx. 1 root root       17 Jan 19  2022 libtatlas.so.3 -> libtatlas.so.3.10
+-rwxr-xr-x. 1 root root 12679024 Jan 19  2022 libtatlas.so.3.10
+$
+
+and no, I can't use  nm to find symbols in libtatlas.so.3.10
+because it is "stripped".
+
+I'm glad for hints -- and I could send the 10000 lines long config.log
+file (just 340k) to someone interested.
+
+Thank you in advance,
+Martin
+
+Martin M?chler
+ETH Zurich   and   R Core team
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Sat Dec 17 10:46:23 2022
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Sat, 17 Dec 2022 10:46:23 +0100
+Subject: [R-sig-Fedora] 
+ Using ATLAS in Fedora 36, R-4.2.2 -- fails configure
+In-Reply-To: <CALEXWq3RcCeMZ2aCepUaSKKfWVfQti=aZ-HM3GrA03_2s5cVKg@mail.gmail.com>
+References: <25500.38770.334013.12950@stat.math.ethz.ch>
+ <CALEXWq3RcCeMZ2aCepUaSKKfWVfQti=aZ-HM3GrA03_2s5cVKg@mail.gmail.com>
+Message-ID: <25501.36847.701698.842943@stat.math.ethz.ch>
+
+>>>>> I?aki Ucar 
+>>>>>     on Fri, 16 Dec 2022 17:30:25 +0100 writes:
+
+    > On Fri, 16 Dec 2022 at 17:06, Martin Maechler
+    > <maechler at stat.math.ethz.ch> wrote:
+    >> 
+    >> The CRAN team has found some misbehavior of some of our
+    >> code running under ATLAS (for BLAS + Lapack).
+    >> 
+    >> I had successfully built a version of R-4.2.1 linked to
+    >> ATLAS under Fedora 34 (last June) and that still runs in
+    >> Fedora 36.
+    >> 
+    >> However I can not install packages with C source code
+    >> needing BLAS/Lapack..  I figured that's ok, as indeed
+    >> that version of R was built with earlier compilers and
+    >> libraries under F34.
+    >> 
+    >> So I wanted to "redo" the same thing (which worked), now
+    >> with F36 and R 4.2.2:
+    >> 
+    >> inside a build directory (side by side with the unpacked
+    >> R-4.2.2/ R sources)
+    >> 
+    >> ../R-4.2.2/configure -C '--with-blas=-L/usr/lib64/atlas
+    >> -ltatlas'
+    >> 
+    >> and this "worked along" about 400 lines of output
+    >> starting with
+    >> 
+    >> checking build system type... x86_64-pc-linux-gnu
+    >> checking host system type... x86_64-pc-linux-gnu loading
+    >> site script '../R-4.2.2/config.site' checking for
+    >> pwd... /usr/bin/pwd checking whether builddir is
+    >> srcdir... no checking whether ln -s works... yes checking
+    >> for ar... ar checking for a BSD-compatible
+    >> install... /usr/bin/install -c checking for
+    >> sed... /usr/bin/sed
+    >> 
+    >> .......................................
+    >> .......................................
+    >> .......................................
+    >> .......................................
+    >> .......................................
+    >> .......................................  and ending with
+    >> 
+    >> checking whether catan exists and is declared... yes
+    >> checking whether ccosh exists and is declared... yes
+    >> checking whether csinh exists and is declared... yes
+    >> checking whether ctanh exists and is declared... yes
+    >> checking for working ctanh... yes checking whether
+    >> 'struct tm' includes tm_zone... yes checking whether
+    >> 'struct tm' includes tm_gmtoff... yes checking for dgemm_
+    >> in -L/usr/lib64/atlas -ltatlas... no configure: error:
+    >> BLAS was specified but not available
+    >> ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    >> 
+    >> but clearly /usr/lib64/atlas/ is there and contains the
+    >> (dnf installed) files libtatlas.so.*
+    >> 
+    >> $ ls -l /usr/lib64/atlas total 24672 lrwxrwxrwx. 1 root
+    >> root 17 Jan 19 2022 libsatlas.so.3 -> libsatlas.so.3.10
+    >> -rwxr-xr-x. 1 root root 12581672 Jan 19 2022
+    >> libsatlas.so.3.10 lrwxrwxrwx. 1 root root 17 Jan 19 2022
+    >> libtatlas.so.3 -> libtatlas.so.3.10 -rwxr-xr-x. 1 root
+    >> root 12679024 Jan 19 2022 libtatlas.so.3.10 $
+
+    > The unversioned file libtatlas.so is missing here, which
+    > means that you need to install atlas-devel. Then it should
+    > work, but let me know if you find more issues.
+
+Embarrassingly, this *was* the simple solution.
+
+Thank you, I?aki!
+Martin
+
+    > I?aki
+
+    >> and no, I can't use nm to find symbols in
+    >> libtatlas.so.3.10 because it is "stripped".
+    >> 
+    >> I'm glad for hints -- and I could send the 10000 lines
+    >> long config.log file (just 340k) to someone interested.
+    >> 
+    >> Thank you in advance, Martin
+    >> 
+    >> Martin M?chler ETH Zurich and R Core team
+
+

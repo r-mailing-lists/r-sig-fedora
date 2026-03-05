@@ -1,0 +1,109 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2008-05",
+  "messages": [
+    {
+      "id": "msg-5bb0aea50a83",
+      "message_id": "<6ade6f6c0805200727p18719822m53c6c864178a652d@mail.gmail.com>",
+      "from_name": "Paul Smith",
+      "from_email_hash": "fd2c50431e2a6cb6e7be5ae41e049555b30efcd2f9185895e4465d7e61ddebf8",
+      "date": "2008-05-20T15:27:49+01:00",
+      "subject": "[R-sig-Fedora] Problems with installing the rgl package",
+      "subject_clean": "Problems with installing the rgl package",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear All,\n\nI am having the following problem while trying to install the rgl\npackage on R 2.7.0:\n\nconfigure: error: missing required header GL/glu.h\nERROR: configuration failed for package 'rgl'\n** Removing '/usr/lib/R/library/rgl'\n** Restoring previous '/usr/lib/R/library/rgl'\n\nThe downloaded packages are in\n        /tmp/RtmpRLEDta/downloaded_packages\nUpdating HTML index of packages in '.Library'\nWarning message:\nIn install.packages(update[instlib == l, \"Package\"], l, contriburl =\ncontriburl,  :\n  installation of package 'rgl' had non-zero exit status\n\nAny ideas?\n\nThanks in advnace,\n\nPaul",
+      "body_snippet": "Dear All,\n\nI am having the following problem while trying to install the rgl\npackage on R 2.7.0:\n\nconfigure: error: missing required header GL/glu.h\nERROR: configuration failed for package 'rgl'\n** Re",
+      "thread_id": "thread-5bb0aea50a83",
+      "thread_depth": 0,
+      "month": "2008-05"
+    },
+    {
+      "id": "msg-963be3fd0bf3",
+      "message_id": "<48331000.809@comcast.net>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "6b69db75158c6a64599f027a17f3ea4ee49917322d20dbb731688b8fd4f10e1f",
+      "date": "2008-05-20T12:53:04-05:00",
+      "subject": "[R-sig-Fedora] Problems with installing the rgl package",
+      "subject_clean": "Problems with installing the rgl package",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "> Dear All,\n> \n> I am having the following problem while trying to install the rgl\n> package on R 2.7.0:\n> \n> configure: error: missing required header GL/glu.h\n> ERROR: configuration failed for package 'rgl'\n> ** Removing '/usr/lib/R/library/rgl'\n> ** Restoring previous '/usr/lib/R/library/rgl'\n> \n> The downloaded packages are in\n>         /tmp/RtmpRLEDta/downloaded_packages\n> Updating HTML index of packages in '.Library'\n> Warning message:\n> In install.packages(update[instlib == l, \"Package\"], l, contriburl =\n> contriburl,  :\n>   installation of package 'rgl' had non-zero exit status\n> \n> Any ideas?\n> \n> Thanks in advnace,\n> \n> Paul\n\nPaul,\n\nYou don't indicate which version of Fedora/RH you are on, but you need \nto install the libGLU headers, which for F9 are in:\n\n   mesa-libGLU-devel-7.1-0.29.fc9.i386.rpm\n\nSo, as root, you'll likely need:\n\n   yum install mesa-libGLU-devel\n\nOnce that is installed, you should be good to go unless you are also \nmissing other dependencies as well.\n\nHTH,\n\nMarc Schwartz",
+      "body_snippet": "> Dear All,\n> \n> I am having the following problem while trying to install the rgl\n> package on R 2.7.0:\n> \n> configure: error: missing required header GL/glu.h\n> ERROR: configuration failed for packa",
+      "thread_id": "thread-963be3fd0bf3",
+      "thread_depth": 0,
+      "month": "2008-05"
+    },
+    {
+      "id": "msg-440d7cf4450d",
+      "message_id": "<6ade6f6c0805210358n6858f06yb38c940c9bf0a266@mail.gmail.com>",
+      "from_name": "Paul Smith",
+      "from_email_hash": "fd2c50431e2a6cb6e7be5ae41e049555b30efcd2f9185895e4465d7e61ddebf8",
+      "date": "2008-05-21T11:58:21+01:00",
+      "subject": "[R-sig-Fedora] Problems with installing the rgl package",
+      "subject_clean": "Problems with installing the rgl package",
+      "in_reply_to": "<48331000.809@comcast.net>",
+      "references": [
+        "<48331000.809@comcast.net>"
+      ],
+      "body_plain": "On Tue, May 20, 2008 at 6:53 PM, Marc Schwartz\n<marc_schwartz at comcast.net> wrote:\n>> I am having the following problem while trying to install the rgl\n>> package on R 2.7.0:\n>>\n>> configure: error: missing required header GL/glu.h\n>> ERROR: configuration failed for package 'rgl'\n>> ** Removing '/usr/lib/R/library/rgl'\n>> ** Restoring previous '/usr/lib/R/library/rgl'\n>>\n>> The downloaded packages are in\n>>        /tmp/RtmpRLEDta/downloaded_packages\n>> Updating HTML index of packages in '.Library'\n>> Warning message:\n>> In install.packages(update[instlib == l, \"Package\"], l, contriburl =\n>> contriburl,  :\n>>  installation of package 'rgl' had non-zero exit status\n>>\n>> Any ideas?\n>\n> You don't indicate which version of Fedora/RH you are on, but you need to\n> install the libGLU headers, which for F9 are in:\n>\n>  mesa-libGLU-devel-7.1-0.29.fc9.i386.rpm\n>\n> So, as root, you'll likely need:\n>\n>  yum install mesa-libGLU-devel\n>\n> Once that is installed, you should be good to go unless you are also missing\n> other dependencies as well.\n\nThanks, Marc. Actually, on this machine, I am running F8. However,\nyour suggestion\n\nyum install mesa-libGLU-devel\n\nhas solved the reported problem.\n\nPaul",
+      "body_snippet": "On Tue, May 20, 2008 at 6:53 PM, Marc Schwartz\n<marc_schwartz at comcast.net> wrote:\n>> I am having the following problem while trying to install the rgl\n>> package on R 2.7.0:\n>>\n>> configure: error:",
+      "thread_id": "thread-963be3fd0bf3",
+      "thread_depth": 1,
+      "month": "2008-05"
+    },
+    {
+      "id": "msg-5db2e1b7a116",
+      "message_id": "<48347434.5020909@biostat.ku.dk>",
+      "from_name": "Peter Dalgaard",
+      "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
+      "date": "2008-05-21T21:12:52+02:00",
+      "subject": "[R-sig-Fedora] No antialiasing with 2.7.0",
+      "subject_clean": "No antialiasing with 2.7.0",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Finally, the RPMs for 2.7.0 arrived, but it looks like they were not \nbuilt against the Cairo libs, at least not on F8 (based on the reports, \nI should probably wait a couple of weeks before upgrading to F9).\n\n > capabilities()\n    jpeg      png    tcltk      X11     aqua http/ftp  sockets   libxml\n    TRUE     TRUE     TRUE     TRUE    FALSE     TRUE     TRUE     TRUE\n    fifo   cledit    iconv      NLS  profmem    cairo\n    TRUE     TRUE     TRUE     TRUE    FALSE    FALSE\n\nI have the libs and my own test builds antialias just fine, so it is not \nan installation issue, rather it is probably the joy of building in \nchroot jails: If a library is not in the jail, it won't be found by \nconfigure, and it won't be in the jail unless it is put there.\n\n-- \n   O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B\n  c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K\n (*) \\(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918\n~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907",
+      "body_snippet": "Finally, the RPMs for 2.7.0 arrived, but it looks like they were not \nbuilt against the Cairo libs, at least not on F8 (based on the reports, \nI should probably wait a couple of weeks before upgrading",
+      "thread_id": "thread-5db2e1b7a116",
+      "thread_depth": 0,
+      "month": "2008-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-963be3fd0bf3",
+      "subject": "Problems with installing the rgl package",
+      "message_count": 2,
+      "participants": [
+        "Marc Schwartz",
+        "Paul Smith"
+      ],
+      "started": "2008-05-20T12:53:04-05:00",
+      "last_reply": "2008-05-21T11:58:21+01:00",
+      "root_message_id": "msg-963be3fd0bf3"
+    },
+    {
+      "id": "thread-5bb0aea50a83",
+      "subject": "Problems with installing the rgl package",
+      "message_count": 1,
+      "participants": [
+        "Paul Smith"
+      ],
+      "started": "2008-05-20T15:27:49+01:00",
+      "last_reply": "2008-05-20T15:27:49+01:00",
+      "root_message_id": "msg-5bb0aea50a83"
+    },
+    {
+      "id": "thread-5db2e1b7a116",
+      "subject": "No antialiasing with 2.7.0",
+      "message_count": 1,
+      "participants": [
+        "Peter Dalgaard"
+      ],
+      "started": "2008-05-21T21:12:52+02:00",
+      "last_reply": "2008-05-21T21:12:52+02:00",
+      "root_message_id": "msg-5db2e1b7a116"
+    }
+  ]
+}

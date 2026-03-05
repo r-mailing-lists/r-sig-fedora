@@ -1,0 +1,108 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2014-07",
+  "messages": [
+    {
+      "id": "msg-e0f5c9900ab2",
+      "message_id": "<1404735342.3142.28.camel@braque.iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2014-07-07T12:15:42Z",
+      "subject": "[R-sig-Fedora] R with external BLAS fails regression test",
+      "subject_clean": "R with external BLAS fails regression test",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear Tom,\n\nThe change in the Fedora RPM from using R's internal BLAS to external\nBLAS means the Fedora R binary now fails one of R's regression tests,\nspecifically: tests/reg-BLAS.R. You can run this code by hand to verify\nthe issue.\n\nAs noted in the R administration and Installation Manual, \"R relies on\nISO/IEC 60559 compliance of an external BLAS. This can be broken if for\nexample the code assumes that terms with a zero factor are always zero\nand do not need to be computed - whereas x*0 can be NaN. This is checked\nin the test suite.\"\n\nThe version of BLAS that comes with R contains patched versions of\nDGBMV, DGEMM, and DGEMV.  The patch has been in place since 2010.\nPresumably R blas and reference BLAS have been divergent ever since.\n\nI guess this should be reported upstream as a BLAS bug. Recalling the\nprevious thread on openblas, I note that openblas does pass the\nregression test.\n\nMartyn\n\nCC: Lejeczek, who reported the bug, and R-SIG-Fedora for information.\n-----------------------------------------------------------------------\nThis message and its attachments are strictly confidenti...{{dropped:8}}",
+      "body_snippet": "Dear Tom,\n\nThe change in the Fedora RPM from using R's internal BLAS to external\nBLAS means the Fedora R binary now fails one of R's regression tests,\nspecifically: tests/reg-BLAS.R. You can run this ",
+      "thread_id": "thread-e0f5c9900ab2",
+      "thread_depth": 0,
+      "month": "2014-07"
+    },
+    {
+      "id": "msg-d9aff2097ec7",
+      "message_id": "<53BAAA2D.3060005@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2014-07-07T10:09:49-04:00",
+      "subject": "[R-sig-Fedora] R with external BLAS fails regression test",
+      "subject_clean": "R with external BLAS fails regression test",
+      "in_reply_to": "<1404735342.3142.28.camel@braque.iarc.fr>",
+      "references": [
+        "<1404735342.3142.28.camel@braque.iarc.fr>"
+      ],
+      "body_plain": "On 07/07/2014 08:15 AM, Martyn Plummer wrote:\n> Dear Tom,\n> \n> The change in the Fedora RPM from using R's internal BLAS to external\n> BLAS means the Fedora R binary now fails one of R's regression tests,\n> specifically: tests/reg-BLAS.R. You can run this code by hand to verify\n> the issue.\n> \n> As noted in the R administration and Installation Manual, \"R relies on\n> ISO/IEC 60559 compliance of an external BLAS. This can be broken if for\n> example the code assumes that terms with a zero factor are always zero\n> and do not need to be computed - whereas x*0 can be NaN. This is checked\n> in the test suite.\"\n> \n> The version of BLAS that comes with R contains patched versions of\n> DGBMV, DGEMM, and DGEMV.  The patch has been in place since 2010.\n> Presumably R blas and reference BLAS have been divergent ever since.\n> \n> I guess this should be reported upstream as a BLAS bug. Recalling the\n> previous thread on openblas, I note that openblas does pass the\n> regression test.\n\nSeems like it. In the interim, is there a patch handy, or do I need to\ntry to untangle it from the R code?\n\n~tom\n\n==\n?.???`?.??`?.??.???`?.?><(((?> OSAS @ Red Hat\nUniversity Outreach || Fedora Special Projects || Fedora Legal\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: tcallawa.vcf\nType: text/x-vcard\nSize: 4 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140707/3d9e36f2/attachment.vcf>",
+      "body_snippet": "On 07/07/2014 08:15 AM, Martyn Plummer wrote:\n> Dear Tom,\n> \n> The change in the Fedora RPM from using R's internal BLAS to external\n> BLAS means the Fedora R binary now fails one of R's regression te",
+      "thread_id": "thread-e0f5c9900ab2",
+      "thread_depth": 1,
+      "month": "2014-07"
+    },
+    {
+      "id": "msg-4b6ad7427d9d",
+      "message_id": "<1404745881.3221.4.camel@braque.iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2014-07-07T15:11:20Z",
+      "subject": "[R-sig-Fedora] R with external BLAS fails regression test",
+      "subject_clean": "R with external BLAS fails regression test",
+      "in_reply_to": "<53BAAA2D.3060005@redhat.com>",
+      "references": [
+        "<1404735342.3142.28.camel@braque.iarc.fr>",
+        "<53BAAA2D.3060005@redhat.com>"
+      ],
+      "body_plain": "On Mon, 2014-07-07 at 10:09 -0400, Tom Callaway wrote:\n> On 07/07/2014 08:15 AM, Martyn Plummer wrote:\n> > Dear Tom,\n> > \n> > The change in the Fedora RPM from using R's internal BLAS to external\n> > BLAS means the Fedora R binary now fails one of R's regression tests,\n> > specifically: tests/reg-BLAS.R. You can run this code by hand to verify\n> > the issue.\n> > \n> > As noted in the R administration and Installation Manual, \"R relies on\n> > ISO/IEC 60559 compliance of an external BLAS. This can be broken if for\n> > example the code assumes that terms with a zero factor are always zero\n> > and do not need to be computed - whereas x*0 can be NaN. This is checked\n> > in the test suite.\"\n> > \n> > The version of BLAS that comes with R contains patched versions of\n> > DGBMV, DGEMM, and DGEMV.  The patch has been in place since 2010.\n> > Presumably R blas and reference BLAS have been divergent ever since.\n> > \n> > I guess this should be reported upstream as a BLAS bug. Recalling the\n> > previous thread on openblas, I note that openblas does pass the\n> > regression test.\n> \n> Seems like it. In the interim, is there a patch handy, or do I need to\n> try to untangle it from the R code?\n\nI have reconstructed a patch (attached) that you can apply directly to\nthe BLAS source code from Netlib.\n\nMartyn\n\n> ~tom\n> \n> ==\n> ?.???`?.??`?.??.???`?.?><(((?> OSAS @ Red Hat\n> University Outreach || Fedora Special Projects || Fedora Legal\n\n\n\n-----------------------------------------------------------------------\nThis message and its attachments are strictly confidential. If you are\nnot the intended recipient of this message, please immediately notify \nthe sender and delete it. Since its integrity cannot be guaranteed, \nits content cannot involve the sender's responsibility. Any misuse, \nany disclosure or publication of its content, either whole or partial, \nis prohibited, exception made of formally approved use\n-----------------------------------------------------------------------\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: R-blas.diff\nType: text/x-patch\nSize: 3657 bytes\nDesc: R-blas.diff\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140707/e382b60f/attachment.bin>",
+      "body_snippet": "On Mon, 2014-07-07 at 10:09 -0400, Tom Callaway wrote:\n> On 07/07/2014 08:15 AM, Martyn Plummer wrote:\n> > Dear Tom,\n> > \n> > The change in the Fedora RPM from using R's internal BLAS to external\n> > ",
+      "thread_id": "thread-e0f5c9900ab2",
+      "thread_depth": 2,
+      "month": "2014-07"
+    },
+    {
+      "id": "msg-e3d0257520ed",
+      "message_id": "<53BEE082.4060300@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2014-07-10T14:50:42-04:00",
+      "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
+      "subject_clean": "Centos / Fedora rpm - issue with openblas",
+      "in_reply_to": "<1402928186.17749.122.camel@braque.iarc.fr>",
+      "references": [
+        "<1A009D76-C6E2-4C18-8057-CD7D003705A2@smartinsightsfromdata.com>",
+        "<1402915776.17749.66.camel@braque.iarc.fr>",
+        "<8A0EFB11-9BCC-4214-AED0-9D33E56EAEC3@smartinsightsfromdata.com>",
+        "<1402925917.17749.112.camel@braque.iarc.fr>",
+        "<539EF641.7060206@redhat.com>",
+        "<1402928186.17749.122.camel@braque.iarc.fr>"
+      ],
+      "body_plain": "On 06/16/2014 10:16 AM, Martyn Plummer wrote:\n> On Mon, 2014-06-16 at 09:50 -0400, Tom Callaway wrote:\n>> On 06/16/2014 09:38 AM, Martyn Plummer wrote:\n>>> Something like the previous behaviour could be put in place by adding\n>>> the option --enable-BLAS-shlib when R is configured. Then libRblas.so\n>>> will be built as before. However, this libRblas will not contain a copy\n>>> of the reference blas that comes with R. Instead it will be just be a\n>>> stub that redirects BLAS calls to the external BLAS library. (NB You\n>>> must also use --enable-R-shlib for this to work, but this is the case\n>>> for the Fedora SRPM so not a problem).\n>>>\n>>> This option gives you the best of both worlds. However, such a change\n>>> would have to wait until the next major release of R.\n>>\n>> I think we'd enable such a change if it were supported in R.\n> \n> Sorry I'm not being clear. This option already exists. I just tested it.\n> \n> But if you push an update of the R 3.1.0 RPM you might break R packages\n> that need blas and which are already installed by users. This also\n> applies to future R 3.1.1 since it will use the same personal package\n> library (e.g. ~/R/x86_64-redhat-linux-gnu-library/3.1) . Hence my\n> suggestion to wait for the next major release of R to make the change.\n> \n> However, I might be wrong about that. You certainly can't get rid of\n> libRblas if it exists, but you might be able to add a stub libRblas\n> without affecting packages that are already installed.\n\nRevisiting this, this seems to work for libRblas, but _not_ for\nlibRlapack. When we pass:\n\n   --with-lapack --with-blas --enable-BLAS-shlib\n\nIt results in a libRlapack.so that is not a shim, but rather, built from\nthe bundled sources... which is not what we want in Fedora.\n\nThoughts?\n\n~tom\n\n==\n?.???`?.??`?.??.???`?.?><(((?> OSAS @ Red Hat\nUniversity Outreach || Fedora Special Projects || Fedora Legal\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: tcallawa.vcf\nType: text/x-vcard\nSize: 4 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140710/c8029cc1/attachment.vcf>",
+      "body_snippet": "On 06/16/2014 10:16 AM, Martyn Plummer wrote:\n> On Mon, 2014-06-16 at 09:50 -0400, Tom Callaway wrote:\n>> On 06/16/2014 09:38 AM, Martyn Plummer wrote:\n>>> Something like the previous behaviour could ",
+      "thread_id": "thread-e3d0257520ed",
+      "thread_depth": 0,
+      "month": "2014-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-e0f5c9900ab2",
+      "subject": "R with external BLAS fails regression test",
+      "message_count": 3,
+      "participants": [
+        "Martyn Plummer",
+        "Tom Callaway"
+      ],
+      "started": "2014-07-07T12:15:42+00:00",
+      "last_reply": "2014-07-07T15:11:20+00:00",
+      "root_message_id": "msg-e0f5c9900ab2"
+    },
+    {
+      "id": "thread-e3d0257520ed",
+      "subject": "Centos / Fedora rpm - issue with openblas",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2014-07-10T14:50:42-04:00",
+      "last_reply": "2014-07-10T14:50:42-04:00",
+      "root_message_id": "msg-e3d0257520ed"
+    }
+  ]
+}

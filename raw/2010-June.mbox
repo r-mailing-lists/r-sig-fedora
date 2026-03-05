@@ -1,0 +1,442 @@
+From tcallawa at redhat.com  Thu Jun  3 14:55:55 2010
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Thu, 03 Jun 2010 08:55:55 -0400
+Subject: [R-sig-Fedora] R 2.11.1 in Fedora Updates Testing
+Message-ID: <4C07A65B.9080900@redhat.com>
+
+R 2.11.1 is built now for Fedora and EPEL. It is in "updates-testing"
+(or it will be within the next 24 hours).
+
+It will likely be the last R update for Fedora 11.
+
+In accordance with the new policies on Fedora Updates, these new
+packages will not be pushed as official updates until they either
+receive positive testing from users, or sit in updates-testing for two
+weeks.
+
+You can help us test these packages, and move them forward. Here's how:
+
+1. Go to the Fedora Updates web application (its real name is "Bodhi"):
+https://admin.fedoraproject.org/updates/
+
+Once you're there, click the login blue box at the top left, and login
+with your Fedora Account. If you don't have a Fedora Account, you can
+skip this step.
+
+2. Click on the link for the Fedora R test update that matches your release:
+
+Fedora 11:
+https://admin.fedoraproject.org/updates/rpy-2.0.8-3.fc11,R-2.11.1-1.fc11
+
+Fedora 12:
+https://admin.fedoraproject.org/updates/rpy-2.0.8-3.fc12,R-2.11.1-1.fc12
+
+Fedora 13:
+https://admin.fedoraproject.org/updates/rpy-2.0.8-4.fc13,R-2.11.1-1.fc13
+
+EPEL-4 (RHEL-4):
+https://admin.fedoraproject.org/updates/R-2.11.1-1.el4
+
+EPEL-5 (RHEL-5):
+https://admin.fedoraproject.org/updates/R-2.11.1-1.el5
+
+3. Now, on your Fedora (or RHEL) system, run this command (as root, or
+with root privs) to install the test update:
+
+yum --enablerepo=updates-testing update R
+
+That should update R to the test update (if you don't want the full R
+suite, you can replace "R" in that string with "R-core").
+
+4. Test it! Make sure it does all the things you would expect it to.
+
+5. Go back to the web page for the R update (step 2), and at
+the bottom, click "Add a comment >>"
+
+(If you didn't login, it will ask you for an email address and make you
+complete a captcha to make sure you are a unique individual.)
+
+In that text box which opens up, write a little bit about the testing
+you did and if it works okay for you or not. Then (this is the important
+part), click the "Works for me" or "Does not work" radio button below
+it, and click the Add Comment button.
+
+6. That's it! If it worked, you've given that update a +1 karma vote.
+(If it didn't work, you've given it a -1 karma vote). Now, if three
+people give a +1, and the package update gets to +3, the Fedora Update
+system will automatically move the update from testing to a real update,
+and everyone will get it.
+
+Thanks in advance,
+
+~spot, Fedora/EPEL R maintainer
+
+
+From pauljohn32 at gmail.com  Thu Jun  3 18:14:13 2010
+From: pauljohn32 at gmail.com (Paul Johnson)
+Date: Thu, 3 Jun 2010 11:14:13 -0500
+Subject: [R-sig-Fedora] How to go about getting a change in the SPEC file
+	from which R is built on EPEL?
+Message-ID: <AANLkTilIymNuq8MIc8I3dGcn6GE1yV0xE8Y7VkqUrQO6@mail.gmail.com>
+
+I asked a couple of months ago in r-sig-fedora about a difference I
+noticed between Ubuntu and RedHat/Fedora.  Now I think I've figured
+out the cause is a little issue in packaging but I don't know how to
+get it fixed.
+
+On Ubuntu, the setup is like this. It i is controlled in a file called Renviron
+
+R packages built/distributed in RPM are installed to /usr/lib/R/library.
+R packages built locally with install.packages by root go to
+/usr/local/lib/R/site-library
+Ordinary users who try to install packages are prompted to create a
+folder in their HOME/~R/... and install there.
+
+In my Ubuntu Renviron file, I have this at the end:
+
+R_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/2.11'}
+
+# edd Apr 2003  Allow local install in /usr/local, also add a directory for
+#               Debian packaged CRAN packages, and finally the default dir
+# edd Jul 2007  Now use R_LIBS_SITE, not R_LIBS
+R_LIBS_SITE=${R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library'}
+
+I wondered why the RedHat/Fedora install of the R RPM don't see
+same/similar options. On Fedora/RedHat using R from RPM as distributed
+on EPEL, all the packages go into /usr/lib/R and nonroot users are out
+of luck, pretty much, unless they make some special effort.
+
+There was some debate here about what the folder in the user home dir
+should be called, but none of us realized that R, as it comes from the
+"factory", will work pretty much the way I want.
+
+The problem is that the RPM is built from a SPEC file that inserts a
+line into R's Renviron that enforces a  variable
+R_LIBS and it has some kind of super power to block the R_LIBS_SITE
+and R_LIBS_USER variables.  Specifically, I mean this line in the SPEC
+file.
+
+%build
+Add PATHS to Renviron for R_LIBS
+echo 'R_LIBS=${R_LIBS-'"'%{_libdir}/R/library:%{_datadir}/R/library'"'}'
+>> etc/Renviron.in
+
+On my systems, I comment out those lines in the spec file and then R
+works the way the authors intended.  Judging from the comments that
+Dirk Eddelbuettel inserted in the Debian packaging, sometime around
+2007 the R LIBS framework changed.
+
+pj
+
+-- 
+Paul E. Johnson
+Professor, Political Science
+1541 Lilac Lane, Room 504
+University of Kansas
+
+
+From tcallawa at redhat.com  Thu Jun  3 19:03:52 2010
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Thu, 03 Jun 2010 13:03:52 -0400
+Subject: [R-sig-Fedora] How to go about getting a change in the SPEC
+ file from which R is built on EPEL?
+In-Reply-To: <AANLkTilIymNuq8MIc8I3dGcn6GE1yV0xE8Y7VkqUrQO6@mail.gmail.com>
+References: <AANLkTilIymNuq8MIc8I3dGcn6GE1yV0xE8Y7VkqUrQO6@mail.gmail.com>
+Message-ID: <4C07E078.1090906@redhat.com>
+
+On 06/03/2010 12:14 PM, Paul Johnson wrote:
+> R_LIBS_SITE=${R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library'}
+> 
+> I wondered why the RedHat/Fedora install of the R RPM don't see
+> same/similar options. On Fedora/RedHat using R from RPM as distributed
+> on EPEL, all the packages go into /usr/lib/R and nonroot users are out
+> of luck, pretty much, unless they make some special effort.
+> 
+> There was some debate here about what the folder in the user home dir
+> should be called, but none of us realized that R, as it comes from the
+> "factory", will work pretty much the way I want.
+> 
+> The problem is that the RPM is built from a SPEC file that inserts a
+> line into R's Renviron that enforces a  variable
+> R_LIBS and it has some kind of super power to block the R_LIBS_SITE
+> and R_LIBS_USER variables.  Specifically, I mean this line in the SPEC
+> file.
+> 
+> %build
+> Add PATHS to Renviron for R_LIBS
+> echo 'R_LIBS=${R_LIBS-'"'%{_libdir}/R/library:%{_datadir}/R/library'"'}'
+>>> >> etc/Renviron.in
+> On my systems, I comment out those lines in the spec file and then R
+> works the way the authors intended.  Judging from the comments that
+> Dirk Eddelbuettel inserted in the Debian packaging, sometime around
+> 2007 the R LIBS framework changed.
+
+So, a few corrections:
+
+On Fedora:
+
+* Architecture specific R modules go into %{_libdir}/R/library
+* Architecture independent R modules go into %{_datadir}/R/library
+
+I don't believe that without making some change, R will look in
+%{_datadir}/R/library at all.
+
+It looks like we should be overloading R_LIBS_SITE as opposed to R_LIBS.
+
+Easy peasy. :)
+
+Can you try changing that line in the spec file to this and confirm that
+it resolves the issue:
+
+echo
+'R_LIBS_SITE=${R_LIBS_SITE-'"'/usr/local/lib/R/site-library:/usr/local/lib/R/library:%{_libdir}/R/library:%{_datadir}/R/library'"'}'
+>> etc/Renviron.in
+
+(Note: email client wrapped it, but it should be one long line)
+
+~spot
+
+
+From pauljohn32 at gmail.com  Fri Jun  4 22:48:39 2010
+From: pauljohn32 at gmail.com (Paul Johnson)
+Date: Fri, 4 Jun 2010 15:48:39 -0500
+Subject: [R-sig-Fedora] How to go about getting a change in the SPEC
+	file from which R is built on EPEL?
+In-Reply-To: <4C07E078.1090906@redhat.com>
+References: <AANLkTilIymNuq8MIc8I3dGcn6GE1yV0xE8Y7VkqUrQO6@mail.gmail.com>
+	<4C07E078.1090906@redhat.com>
+Message-ID: <AANLkTimyxVY15t7OOEUQTknkPTOFV3dwyKVm-mmgM4Mx@mail.gmail.com>
+
+Dear Tom
+
+Thanks for answering.
+
+Please let me check with the R Core Team on this question. Their
+documents say "do not change ?R_HOME/etc/Renviron? itself. Note that
+this is distinct from ?R_HOME/etc/Renviron.site?."
+
+That is just unclear enough to really confuse me. I hope they will
+answer me and I will test it and let you know what works.
+
+pj
+
+On Thu, Jun 3, 2010 at 12:03 PM, Tom "spot" Callaway
+<tcallawa at redhat.com> wrote:
+> On 06/03/2010 12:14 PM, Paul Johnson wrote:
+>> R_LIBS_SITE=${R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library'}
+>>
+>> I wondered why the RedHat/Fedora install of the R RPM don't see
+>> same/similar options. On Fedora/RedHat using R from RPM as distributed
+>> on EPEL, all the packages go into /usr/lib/R and nonroot users are out
+>> of luck, pretty much, unless they make some special effort.
+>>
+>> There was some debate here about what the folder in the user home dir
+>> should be called, but none of us realized that R, as it comes from the
+>> "factory", will work pretty much the way I want.
+>>
+>> The problem is that the RPM is built from a SPEC file that inserts a
+>> line into R's Renviron that enforces a ?variable
+>> R_LIBS and it has some kind of super power to block the R_LIBS_SITE
+>> and R_LIBS_USER variables. ?Specifically, I mean this line in the SPEC
+>> file.
+>>
+>> %build
+>> Add PATHS to Renviron for R_LIBS
+>> echo 'R_LIBS=${R_LIBS-'"'%{_libdir}/R/library:%{_datadir}/R/library'"'}'
+>>>> >> etc/Renviron.in
+>> On my systems, I comment out those lines in the spec file and then R
+>> works the way the authors intended. ?Judging from the comments that
+>> Dirk Eddelbuettel inserted in the Debian packaging, sometime around
+>> 2007 the R LIBS framework changed.
+>
+> So, a few corrections:
+>
+> On Fedora:
+>
+> * Architecture specific R modules go into %{_libdir}/R/library
+> * Architecture independent R modules go into %{_datadir}/R/library
+>
+> I don't believe that without making some change, R will look in
+> %{_datadir}/R/library at all.
+>
+> It looks like we should be overloading R_LIBS_SITE as opposed to R_LIBS.
+>
+> Easy peasy. :)
+>
+> Can you try changing that line in the spec file to this and confirm that
+> it resolves the issue:
+>
+> echo
+> 'R_LIBS_SITE=${R_LIBS_SITE-'"'/usr/local/lib/R/site-library:/usr/local/lib/R/library:%{_libdir}/R/library:%{_datadir}/R/library'"'}'
+>>> etc/Renviron.in
+>
+> (Note: email client wrapped it, but it should be one long line)
+>
+> ~spot
+>
+
+
+
+-- 
+Paul E. Johnson
+Professor, Political Science
+1541 Lilac Lane, Room 504
+University of Kansas
+
+
+From ranjitsisa at gmail.com  Sun Jun  6 08:57:07 2010
+From: ranjitsisa at gmail.com (Ranjit)
+Date: Sun, 6 Jun 2010 06:57:07 +0000 (UTC)
+Subject: [R-sig-Fedora] R-SIG-Fedora Digest, Vol 20, Issue 1
+References: <mailman.17.1271498407.30929.r-sig-fedora@r-project.org>
+	<OF582C1216.27A4F436-ON8625770A.004C750A-8625770A.004CD0E5@faa.gov>
+Message-ID: <loom.20100606T085556-652@post.gmane.org>
+
+
+ <Dennis.Burian at ...> writes:
+
+> 
+> Thanks Gavin and Marc, never thought to look in the Appendix.
+> 
+> Pierre, that would be simpler, wouldn't it;  thanks for the suggestion,  DB
+> 
+> Dennis Burian, Ph.D.
+> Functional Genomics Group
+> Civil Aerospace Medical Institute, AAM-610
+> 6500 S. MacArthur Blvd.
+> Oklahoma City OK  73169
+> 405-954-6087
+> dennis.burian at ...
+> 
+
+
+
+Hello Dennis,
+
+Were you able to solve it?
+I can try to help, if you could not get the solution yet.
+
+Thanks
+Ranjit
+
+
+From Dennis.Burian at faa.gov  Mon Jun  7 14:47:58 2010
+From: Dennis.Burian at faa.gov (Dennis.Burian at faa.gov)
+Date: Mon, 7 Jun 2010 07:47:58 -0500
+Subject: [R-sig-Fedora] R-SIG-Fedora Digest, Vol 21, Issue 3
+In-Reply-To: <mailman.15.1275904805.4471.r-sig-fedora@r-project.org>
+References: <mailman.15.1275904805.4471.r-sig-fedora@r-project.org>
+Message-ID: <OFF599F739.9EA39E08-ON8625773B.004551A7-8625773B.00464F65@faa.gov>
+
+Ranjit,
+
+Thanks for the follow up, the open source community is incredible.
+
+Long story short, I was able to install through the repositories.  Then
+cleaned up some other issues (tcl/tk, java and others) and did a custom
+install of 2.10.
+
+Which brings me to another question, when yum installed R2.11 as an update,
+did it use the settings from the original 2.10 repository installation or
+did it detect the changes I'd made between the repository install and my
+custom install and take advantage of those.  The custom install was placed
+in a different directory and I call it from the command line using the path
+to that directory.
+
+Dennis Burian, Ph.D.
+Functional Genomics Group
+Civil Aerospace Medical Institute, AAM-610
+6500 S. MacArthur Blvd.
+Oklahoma City OK  73169
+405-954-6087
+dennis.burian at faa.gov
+
+
+                                                                                                          
+  From:       r-sig-fedora-request at r-project.org                                                          
+                                                                                                          
+                                                                                                          
+  To:         r-sig-fedora at r-project.org                                                                  
+                                                                                                          
+  Date:       06/07/2010 05:02 AM                                                                         
+                                                                                                          
+  Subject:    R-SIG-Fedora Digest, Vol 21, Issue 3                                                        
+                                                                                                          
+  Sent by:    r-sig-fedora-bounces at r-project.org                                                          
+                                                                                                          
+
+
+
+
+
+Send R-SIG-Fedora mailing list submissions to
+             r-sig-fedora at r-project.org
+
+To subscribe or unsubscribe via the World Wide Web, visit
+             https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+or, via email, send a message with subject or body 'help' to
+             r-sig-fedora-request at r-project.org
+
+You can reach the person managing the list at
+             r-sig-fedora-owner at r-project.org
+
+When replying, please edit your Subject line so it is more specific
+than "Re: Contents of R-SIG-Fedora digest..."
+
+
+Today's Topics:
+
+   1. Re: R-SIG-Fedora Digest, Vol 20, Issue 1 (Ranjit)
+
+
+----------------------------------------------------------------------
+
+Message: 1
+Date: Sun, 6 Jun 2010 06:57:07 +0000 (UTC)
+From: Ranjit  <ranjitsisa at gmail.com>
+To: r-sig-fedora at r-project.org
+Subject: Re: [R-sig-Fedora] R-SIG-Fedora Digest, Vol 20, Issue 1
+Message-ID: <loom.20100606T085556-652 at post.gmane.org>
+Content-Type: text/plain; charset=us-ascii
+
+
+ <Dennis.Burian at ...> writes:
+
+>
+> Thanks Gavin and Marc, never thought to look in the Appendix.
+>
+> Pierre, that would be simpler, wouldn't it;  thanks for the suggestion,
+DB
+>
+> Dennis Burian, Ph.D.
+> Functional Genomics Group
+> Civil Aerospace Medical Institute, AAM-610
+> 6500 S. MacArthur Blvd.
+> Oklahoma City OK  73169
+> 405-954-6087
+> dennis.burian at ...
+>
+
+
+
+Hello Dennis,
+
+Were you able to solve it?
+I can try to help, if you could not get the solution yet.
+
+Thanks
+Ranjit
+
+
+
+------------------------------
+
+_______________________________________________
+R-SIG-Fedora mailing list
+R-SIG-Fedora at r-project.org
+https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+End of R-SIG-Fedora Digest, Vol 21, Issue 3
+
+

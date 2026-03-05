@@ -1,0 +1,531 @@
+From bruce.pennypacker at tufts.edu  Mon May 21 22:30:52 2012
+From: bruce.pennypacker at tufts.edu (Bruce Pennypacker)
+Date: Mon, 21 May 2012 16:30:52 -0400
+Subject: [R-sig-Fedora] tcktk problem with custom R 2.15.0 build on RHEL5
+Message-ID: <4FBAA5FC.4080905@tufts.edu>
+
+Hi all,
+
+Please bear with me because I'm not all that familiar with R. I manage a 
+research cluster that's running Red Hat 5.6 (64-bit), and we recently 
+installed version 2.15.0 of R for some users.  Here's how we built it:
+
+./configure --prefix=/opt/shared/R/2.15.0 --with-tcltk --with-system-zlib --with-system-bzlib --with-system-pcre --with-lapack --enable-R-shlib
+
+
+
+When we ran "make check-all" it didn't report any obvious problems, and 
+we successfully installed a number of add-on's from CRAN.  But when one 
+of our users tries to use R with tcltk he runs into a problem:
+
+R version 2.15.0 (2012-03-30)
+Copyright (C) 2012 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-unknown-linux-gnu (64-bit)
+...
+
+ > library("sqldf")
+Loading required package: DBI
+Loading required package: gsubfn
+Loading required package: proto
+Loading required namespace: tcltk
+Loading Tcl/Tk interface ... done
+Loading required package: chron
+Loading required package: RSQLite
+Loading required package: RSQLite.extfuns
+ > result<-sqldf("select data.*, meth450part.chromStart as 
+MethChromStart, meth450part.chromEnd as MethChromEnd, meth450part.strand 
+as MethStrand, meth450part.name as MethName, meth450part.score as 
+MethScore from data join meth450part where data.V1=meth450part.chrom and 
+data.V2<=meth450part.chromStart and data.V3>=meth450part.chromEnd")
+Loading required package: tcltk
+Error in structure(.External("dotTcl", ..., PACKAGE = "tcltk"), class = 
+"tclObj") :
+   [tcl] unknown math function "min".
+
+Can anybody tell me why we're getting this tcl error about the function 
+"min" not being found?  I've been unable to find anything on the web 
+that relates to this.  We're using version 8.14.3 of tcltk (the RedHat 
+supplied packages).
+
+Thanks,
+
+-Bruce
+
+
+From marc_schwartz at me.com  Mon May 21 22:54:49 2012
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Mon, 21 May 2012 15:54:49 -0500
+Subject: [R-sig-Fedora] tcktk problem with custom R 2.15.0 build on RHEL5
+In-Reply-To: <4FBAA5FC.4080905@tufts.edu>
+References: <4FBAA5FC.4080905@tufts.edu>
+Message-ID: <BF074EC4-56A2-4D89-B1DD-022DB7227463@me.com>
+
+On May 21, 2012, at 3:30 PM, Bruce Pennypacker wrote:
+
+> Hi all,
+> 
+> Please bear with me because I'm not all that familiar with R. I manage a research cluster that's running Red Hat 5.6 (64-bit), and we recently installed version 2.15.0 of R for some users.  Here's how we built it:
+> 
+> ./configure --prefix=/opt/shared/R/2.15.0 --with-tcltk --with-system-zlib --with-system-bzlib --with-system-pcre --with-lapack --enable-R-shlib
+> 
+> 
+> 
+> When we ran "make check-all" it didn't report any obvious problems, and we successfully installed a number of add-on's from CRAN.  But when one of our users tries to use R with tcltk he runs into a problem:
+> 
+> R version 2.15.0 (2012-03-30)
+> Copyright (C) 2012 The R Foundation for Statistical Computing
+> ISBN 3-900051-07-0
+> Platform: x86_64-unknown-linux-gnu (64-bit)
+> ...
+> 
+> > library("sqldf")
+> Loading required package: DBI
+> Loading required package: gsubfn
+> Loading required package: proto
+> Loading required namespace: tcltk
+> Loading Tcl/Tk interface ... done
+> Loading required package: chron
+> Loading required package: RSQLite
+> Loading required package: RSQLite.extfuns
+> > result<-sqldf("select data.*, meth450part.chromStart as MethChromStart, meth450part.chromEnd as MethChromEnd, meth450part.strand as MethStrand, meth450part.name as MethName, meth450part.score as MethScore from data join meth450part where data.V1=meth450part.chrom and data.V2<=meth450part.chromStart and data.V3>=meth450part.chromEnd")
+> Loading required package: tcltk
+> Error in structure(.External("dotTcl", ..., PACKAGE = "tcltk"), class = "tclObj") :
+>  [tcl] unknown math function "min".
+> 
+> Can anybody tell me why we're getting this tcl error about the function "min" not being found?  I've been unable to find anything on the web that relates to this.  We're using version 8.14.3 of tcltk (the RedHat supplied packages).
+> 
+> Thanks,
+> 
+> -Bruce
+
+
+What does:
+
+  capabilities("tcltk")
+
+show? 
+
+It should return TRUE if all is generally well. If it does come back TRUE, check the output of:
+
+  capabilities()
+
+to see if anything else comes back as FALSE.
+
+Since you installed from source rather than using the pre-built binary R RPM available for RHEL from the EPEL (http://fedoraproject.org/wiki/EPEL):
+
+  http://dl.fedoraproject.org/pub/epel/5/x86_64/repoview/R.html
+
+you may be missing the required '-devel' RPMs that contain the header files for tcl/tk. I would have thought that you might have gotten errors from 'config' if that were the case, but perhaps they were missed?
+
+Regards,
+
+Marc Schwartz
+
+
+From pdalgd at gmail.com  Tue May 22 08:56:11 2012
+From: pdalgd at gmail.com (peter dalgaard)
+Date: Tue, 22 May 2012 08:56:11 +0200
+Subject: [R-sig-Fedora] tcktk problem with custom R 2.15.0 build on RHEL5
+In-Reply-To: <BF074EC4-56A2-4D89-B1DD-022DB7227463@me.com>
+References: <4FBAA5FC.4080905@tufts.edu>
+	<BF074EC4-56A2-4D89-B1DD-022DB7227463@me.com>
+Message-ID: <5AB6C240-4B1E-43D7-8CCB-4872E7EA1380@gmail.com>
+
+
+On May 21, 2012, at 22:54 , Marc Schwartz wrote:
+
+> On May 21, 2012, at 3:30 PM, Bruce Pennypacker wrote:
+> 
+>> Hi all,
+>> 
+>> Please bear with me because I'm not all that familiar with R. I manage a research cluster that's running Red Hat 5.6 (64-bit), and we recently installed version 2.15.0 of R for some users.  Here's how we built it:
+>> 
+>> ./configure --prefix=/opt/shared/R/2.15.0 --with-tcltk --with-system-zlib --with-system-bzlib --with-system-pcre --with-lapack --enable-R-shlib
+>> 
+>> 
+>> 
+>> When we ran "make check-all" it didn't report any obvious problems, and we successfully installed a number of add-on's from CRAN.  But when one of our users tries to use R with tcltk he runs into a problem:
+>> 
+>> R version 2.15.0 (2012-03-30)
+>> Copyright (C) 2012 The R Foundation for Statistical Computing
+>> ISBN 3-900051-07-0
+>> Platform: x86_64-unknown-linux-gnu (64-bit)
+>> ...
+>> 
+>>> library("sqldf")
+>> Loading required package: DBI
+>> Loading required package: gsubfn
+>> Loading required package: proto
+>> Loading required namespace: tcltk
+>> Loading Tcl/Tk interface ... done
+>> Loading required package: chron
+>> Loading required package: RSQLite
+>> Loading required package: RSQLite.extfuns
+>>> result<-sqldf("select data.*, meth450part.chromStart as MethChromStart, meth450part.chromEnd as MethChromEnd, meth450part.strand as MethStrand, meth450part.name as MethName, meth450part.score as MethScore from data join meth450part where data.V1=meth450part.chrom and data.V2<=meth450part.chromStart and data.V3>=meth450part.chromEnd")
+>> Loading required package: tcltk
+>> Error in structure(.External("dotTcl", ..., PACKAGE = "tcltk"), class = "tclObj") :
+>> [tcl] unknown math function "min".
+>> 
+>> Can anybody tell me why we're getting this tcl error about the function "min" not being found?  I've been unable to find anything on the web that relates to this.  We're using version 8.14.3 of tcltk (the RedHat supplied packages).
+>> 
+>> Thanks,
+>> 
+>> -Bruce
+> 
+> 
+> What does:
+> 
+>  capabilities("tcltk")
+> 
+> show? 
+
+As I read the error message, Tcl as such is working fine. However, the min function seems to be new in Tcl 8.5, and it is unclear which version is in RH 5.6. There's certainly no Tcl 8.14.3. (library(tcltk); tcl("info", "tclversion") will tell you which one is really loaded.)
+
+Google suggests that in earlier versions, there was an add-on called "TclX" that defined min and max functions (among other things, I presume). If it is in RH5.6, I would guess that you could load it with tclRequire("TclX") (or however it might be capiTaLized) before trying to do anything with sqldf().
+
+> 
+> It should return TRUE if all is generally well. If it does come back TRUE, check the output of:
+> 
+>  capabilities()
+> 
+> to see if anything else comes back as FALSE.
+> 
+> Since you installed from source rather than using the pre-built binary R RPM available for RHEL from the EPEL (http://fedoraproject.org/wiki/EPEL):
+> 
+>  http://dl.fedoraproject.org/pub/epel/5/x86_64/repoview/R.html
+> 
+> you may be missing the required '-devel' RPMs that contain the header files for tcl/tk. I would have thought that you might have gotten errors from 'config' if that were the case, but perhaps they were missed?
+> 
+> Regards,
+> 
+> Marc Schwartz
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+-- 
+Peter Dalgaard, Professor,
+Center for Statistics, Copenhagen Business School
+Solbjerg Plads 3, 2000 Frederiksberg, Denmark
+Phone: (+45)38153501
+Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+
+
+From bruce.pennypacker at tufts.edu  Tue May 22 15:23:46 2012
+From: bruce.pennypacker at tufts.edu (Bruce Pennypacker)
+Date: Tue, 22 May 2012 09:23:46 -0400
+Subject: [R-sig-Fedora] tcktk problem with custom R 2.15.0 build on RHEL5
+In-Reply-To: <BF074EC4-56A2-4D89-B1DD-022DB7227463@me.com>
+References: <4FBAA5FC.4080905@tufts.edu>
+	<BF074EC4-56A2-4D89-B1DD-022DB7227463@me.com>
+Message-ID: <4FBB9362.4080009@tufts.edu>
+
+On 5/21/12 4:54 PM, Marc Schwartz wrote
+>
+> What does:
+>
+>    capabilities("tcltk")
+>
+> show?
+>
+> It should return TRUE if all is generally well. If it does come back TRUE, check the output of:
+>
+>    capabilities()
+>
+> to see if anything else comes back as FALSE.
+
+capabilities("tcltk") does return TRUE.  capabilities() returns TRUE for everything except for tiff, aqua, and profmem.
+
+
+> Since you installed from source rather than using the pre-built binary R RPM available for RHEL from the EPEL (http://fedoraproject.org/wiki/EPEL):
+>
+>    http://dl.fedoraproject.org/pub/epel/5/x86_64/repoview/R.html
+>
+> you may be missing the required '-devel' RPMs that contain the header files for tcl/tk. I would have thought that you might have gotten errors from 'config' if that were the case, but perhaps they were missed?
+>
+We do have the -devel RPM's for tcl/tk installed so I would have 
+expected the R config to pick them up.  I may go back and re-run it and 
+take a closer look.
+
+-Bruce
+
+
+From bruce.pennypacker at tufts.edu  Tue May 22 15:28:10 2012
+From: bruce.pennypacker at tufts.edu (Bruce Pennypacker)
+Date: Tue, 22 May 2012 09:28:10 -0400
+Subject: [R-sig-Fedora] tcktk problem with custom R 2.15.0 build on RHEL5
+In-Reply-To: <5AB6C240-4B1E-43D7-8CCB-4872E7EA1380@gmail.com>
+References: <4FBAA5FC.4080905@tufts.edu>
+	<BF074EC4-56A2-4D89-B1DD-022DB7227463@me.com>
+	<5AB6C240-4B1E-43D7-8CCB-4872E7EA1380@gmail.com>
+Message-ID: <4FBB946A.4090607@tufts.edu>
+
+On 5/22/12 2:56 AM, peter dalgaard wrote:
+> As I read the error message, Tcl as such is working fine. However, the 
+> min function seems to be new in Tcl 8.5, and it is unclear which 
+> version is in RH 5.6. There's certainly no Tcl 8.14.3. 
+> (library(tcltk); tcl("info", "tclversion") will tell you which one is 
+> really loaded.) Google suggests that in earlier versions, there was an 
+> add-on called "TclX" that defined min and max functions (among other 
+> things, I presume). If it is in RH5.6, I would guess that you could 
+> load it with tclRequire("TclX") (or however it might be capiTaLized) 
+> before trying to do anything with sqldf().
+Ahh, thanks for the pointers.  Yes, I screwed up the version number of 
+tcltk.  It's 8.4.13, not 8.14.3...  And I do see a separate tclx package 
+in the RHEL5 repo, but after installing it and it's companion -devel 
+package I'm still getting the same unknown function error.  Given that 
+this is likely new in Tcl 8.5 I may just bite the bullet and install 
+that then rebuild R.  But in any event you've given me some good 
+information to hopefully get me in the right direction.  Thanks!
+
+-Bruce
+
+
+From pdalgd at gmail.com  Tue May 22 16:33:36 2012
+From: pdalgd at gmail.com (peter dalgaard)
+Date: Tue, 22 May 2012 16:33:36 +0200
+Subject: [R-sig-Fedora] tcktk problem with custom R 2.15.0 build on RHEL5
+In-Reply-To: <4FBB946A.4090607@tufts.edu>
+References: <4FBAA5FC.4080905@tufts.edu>
+	<BF074EC4-56A2-4D89-B1DD-022DB7227463@me.com>
+	<5AB6C240-4B1E-43D7-8CCB-4872E7EA1380@gmail.com>
+	<4FBB946A.4090607@tufts.edu>
+Message-ID: <03077F67-E29E-452F-9655-1FD0100D77F8@gmail.com>
+
+
+On May 22, 2012, at 15:28 , Bruce Pennypacker wrote:
+
+> On 5/22/12 2:56 AM, peter dalgaard wrote:
+>> As I read the error message, Tcl as such is working fine. However, the min function seems to be new in Tcl 8.5, and it is unclear which version is in RH 5.6. There's certainly no Tcl 8.14.3. (library(tcltk); tcl("info", "tclversion") will tell you which one is really loaded.) Google suggests that in earlier versions, there was an add-on called "TclX" that defined min and max functions (among other things, I presume). If it is in RH5.6, I would guess that you could load it with tclRequire("TclX") (or however it might be capiTaLized) before trying to do anything with sqldf().
+> Ahh, thanks for the pointers.  Yes, I screwed up the version number of tcltk.  It's 8.4.13, not 8.14.3...  And I do see a separate tclx package in the RHEL5 repo, but after installing it and it's companion -devel package I'm still getting the same unknown function error.  
+
+Did you try the tclRequire() bit? These things are like R packages, it's not enough to install them; you also need to load them into the running Tcl interpreter.
+
+> Given that this is likely new in Tcl 8.5 I may just bite the bullet and install that then rebuild R.  But in any event you've given me some good information to hopefully get me in the right direction.  Thanks!
+> 
+> -Bruce
+> 
+
+-- 
+Peter Dalgaard, Professor
+Center for Statistics, Copenhagen Business School
+Solbjerg Plads 3, 2000 Frederiksberg, Denmark
+Phone: (+45)38153501
+Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+
+
+From marc_schwartz at me.com  Tue May 22 16:36:30 2012
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Tue, 22 May 2012 09:36:30 -0500
+Subject: [R-sig-Fedora] tcktk problem with custom R 2.15.0 build on RHEL5
+In-Reply-To: <4FBB946A.4090607@tufts.edu>
+References: <4FBAA5FC.4080905@tufts.edu>
+	<BF074EC4-56A2-4D89-B1DD-022DB7227463@me.com>
+	<5AB6C240-4B1E-43D7-8CCB-4872E7EA1380@gmail.com>
+	<4FBB946A.4090607@tufts.edu>
+Message-ID: <ABF21329-F06E-4366-A505-797B21EF71FB@me.com>
+
+
+On May 22, 2012, at 8:28 AM, Bruce Pennypacker wrote:
+
+> On 5/22/12 2:56 AM, peter dalgaard wrote:
+>> As I read the error message, Tcl as such is working fine. However, the min function seems to be new in Tcl 8.5, and it is unclear which version is in RH 5.6. There's certainly no Tcl 8.14.3. (library(tcltk); tcl("info", "tclversion") will tell you which one is really loaded.) Google suggests that in earlier versions, there was an add-on called "TclX" that defined min and max functions (among other things, I presume). If it is in RH5.6, I would guess that you could load it with tclRequire("TclX") (or however it might be capiTaLized) before trying to do anything with sqldf().
+> Ahh, thanks for the pointers.  Yes, I screwed up the version number of tcltk.  It's 8.4.13, not 8.14.3...  And I do see a separate tclx package in the RHEL5 repo, but after installing it and it's companion -devel package I'm still getting the same unknown function error.  Given that this is likely new in Tcl 8.5 I may just bite the bullet and install that then rebuild R.  But in any event you've given me some good information to hopefully get me in the right direction.  Thanks!
+
+Thanks to Peter for the clarifications. There was something about the combination of issues that was bugging me. Looking more closely now at the SQL statement being executed it becomes a bit more clear.
+
+Taking a peek at the SRPMS for RHEL 5:
+
+  http://ftp.redhat.com/pub/redhat/linux/enterprise/5Server/en/os/SRPMS/
+
+it would appear that tcl 8.4 is the latest version available. Checking RHEL 6, it would appear that tcl is 8.5 there so they did upgrade 6's tcl installation.
+
+This suggests that you will need to go upstream if you want 8.5 on RHEL 5 to satisfy the need for the 'min' function and you may need to be cautious in mixing versions/dependencies, etc.
+
+Regards,
+
+Marc
+
+
+From tcallawa at redhat.com  Tue May 22 16:48:14 2012
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 22 May 2012 10:48:14 -0400
+Subject: [R-sig-Fedora] tcktk problem with custom R 2.15.0 build on RHEL5
+In-Reply-To: <ABF21329-F06E-4366-A505-797B21EF71FB@me.com>
+References: <4FBAA5FC.4080905@tufts.edu>
+	<BF074EC4-56A2-4D89-B1DD-022DB7227463@me.com>
+	<5AB6C240-4B1E-43D7-8CCB-4872E7EA1380@gmail.com>
+	<4FBB946A.4090607@tufts.edu>
+	<ABF21329-F06E-4366-A505-797B21EF71FB@me.com>
+Message-ID: <4FBBA72E.1080002@redhat.com>
+
+On 05/22/2012 10:36 AM, Marc Schwartz wrote:
+> 
+> On May 22, 2012, at 8:28 AM, Bruce Pennypacker wrote:
+> 
+>> On 5/22/12 2:56 AM, peter dalgaard wrote:
+>>> As I read the error message, Tcl as such is working fine. However, the min function seems to be new in Tcl 8.5, and it is unclear which version is in RH 5.6. There's certainly no Tcl 8.14.3. (library(tcltk); tcl("info", "tclversion") will tell you which one is really loaded.) Google suggests that in earlier versions, there was an add-on called "TclX" that defined min and max functions (among other things, I presume). If it is in RH5.6, I would guess that you could load it with tclRequire("TclX") (or however it might be capiTaLized) before trying to do anything with sqldf().
+>> Ahh, thanks for the pointers.  Yes, I screwed up the version number of tcltk.  It's 8.4.13, not 8.14.3...  And I do see a separate tclx package in the RHEL5 repo, but after installing it and it's companion -devel package I'm still getting the same unknown function error.  Given that this is likely new in Tcl 8.5 I may just bite the bullet and install that then rebuild R.  But in any event you've given me some good information to hopefully get me in the right direction.  Thanks!
+> 
+> Thanks to Peter for the clarifications. There was something about the combination of issues that was bugging me. Looking more closely now at the SQL statement being executed it becomes a bit more clear.
+> 
+> Taking a peek at the SRPMS for RHEL 5:
+> 
+>   http://ftp.redhat.com/pub/redhat/linux/enterprise/5Server/en/os/SRPMS/
+> 
+> it would appear that tcl 8.4 is the latest version available. Checking RHEL 6, it would appear that tcl is 8.5 there so they did upgrade 6's tcl installation.
+> 
+> This suggests that you will need to go upstream if you want 8.5 on RHEL 5 to satisfy the need for the 'min' function and you may need to be cautious in mixing versions/dependencies, etc.
+
+Does R need tcl 8.5 now?
+
+~tom
+
+==
+Fedora Project
+
+
+From marc_schwartz at me.com  Tue May 22 17:09:21 2012
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Tue, 22 May 2012 10:09:21 -0500
+Subject: [R-sig-Fedora] tcktk problem with custom R 2.15.0 build on RHEL5
+In-Reply-To: <4FBBA72E.1080002@redhat.com>
+References: <4FBAA5FC.4080905@tufts.edu>
+	<BF074EC4-56A2-4D89-B1DD-022DB7227463@me.com>
+	<5AB6C240-4B1E-43D7-8CCB-4872E7EA1380@gmail.com>
+	<4FBB946A.4090607@tufts.edu>
+	<ABF21329-F06E-4366-A505-797B21EF71FB@me.com>
+	<4FBBA72E.1080002@redhat.com>
+Message-ID: <AC787CAF-6897-44E4-B25E-28DFE45B34F0@me.com>
+
+On May 22, 2012, at 9:48 AM, Tom Callaway wrote:
+
+> On 05/22/2012 10:36 AM, Marc Schwartz wrote:
+>> 
+>> On May 22, 2012, at 8:28 AM, Bruce Pennypacker wrote:
+>> 
+>>> On 5/22/12 2:56 AM, peter dalgaard wrote:
+>>>> As I read the error message, Tcl as such is working fine. However, the min function seems to be new in Tcl 8.5, and it is unclear which version is in RH 5.6. There's certainly no Tcl 8.14.3. (library(tcltk); tcl("info", "tclversion") will tell you which one is really loaded.) Google suggests that in earlier versions, there was an add-on called "TclX" that defined min and max functions (among other things, I presume). If it is in RH5.6, I would guess that you could load it with tclRequire("TclX") (or however it might be capiTaLized) before trying to do anything with sqldf().
+>>> Ahh, thanks for the pointers.  Yes, I screwed up the version number of tcltk.  It's 8.4.13, not 8.14.3...  And I do see a separate tclx package in the RHEL5 repo, but after installing it and it's companion -devel package I'm still getting the same unknown function error.  Given that this is likely new in Tcl 8.5 I may just bite the bullet and install that then rebuild R.  But in any event you've given me some good information to hopefully get me in the right direction.  Thanks!
+>> 
+>> Thanks to Peter for the clarifications. There was something about the combination of issues that was bugging me. Looking more closely now at the SQL statement being executed it becomes a bit more clear.
+>> 
+>> Taking a peek at the SRPMS for RHEL 5:
+>> 
+>>  http://ftp.redhat.com/pub/redhat/linux/enterprise/5Server/en/os/SRPMS/
+>> 
+>> it would appear that tcl 8.4 is the latest version available. Checking RHEL 6, it would appear that tcl is 8.5 there so they did upgrade 6's tcl installation.
+>> 
+>> This suggests that you will need to go upstream if you want 8.5 on RHEL 5 to satisfy the need for the 'min' function and you may need to be cautious in mixing versions/dependencies, etc.
+> 
+> Does R need tcl 8.5 now?
+> 
+> ~tom
+
+Hi Tom,
+
+Thanks for jumping in. My read, and I would ask Peter to comment as well, is that this requirement seems to be specific to the 'sqldf' package on CRAN and not to "base" R more generally. If Fedora/EPEL are including sqldf as a binary RPM for installation via yum, that might be a different scenario however.
+
+If the min function is in fact in the tclx extension package to tcl 8.4 in RHEL 5 and Bruce follows Peter's follow up note on using tclRequire(), then that might satisfy the focused need by Bruce.
+
+Additionally, reading the INSTALL file for sqldf:
+
+  http://cran.r-project.org/web/packages/sqldf/INSTALL
+
+it would seem that the tcl requirement is optional, due to its use by Gabor's gsubfn() function. There appears to be an option, which Bruce might want to try within R:
+
+  options(gsubfn.engine = "R")
+
+after loading the sqldf package. This would force the use of R code in place of tcl code. That might be a quick and dirty solution here.
+
+Regards,
+
+Marc
+
+
+From tcallawa at redhat.com  Tue May 22 17:13:38 2012
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 22 May 2012 11:13:38 -0400
+Subject: [R-sig-Fedora] tcktk problem with custom R 2.15.0 build on RHEL5
+In-Reply-To: <AC787CAF-6897-44E4-B25E-28DFE45B34F0@me.com>
+References: <4FBAA5FC.4080905@tufts.edu>
+	<BF074EC4-56A2-4D89-B1DD-022DB7227463@me.com>
+	<5AB6C240-4B1E-43D7-8CCB-4872E7EA1380@gmail.com>
+	<4FBB946A.4090607@tufts.edu>
+	<ABF21329-F06E-4366-A505-797B21EF71FB@me.com>
+	<4FBBA72E.1080002@redhat.com>
+	<AC787CAF-6897-44E4-B25E-28DFE45B34F0@me.com>
+Message-ID: <4FBBAD22.6000608@redhat.com>
+
+On 05/22/2012 11:09 AM, Marc Schwartz wrote:
+
+> Hi Tom,
+> 
+> Thanks for jumping in. My read, and I would ask Peter to comment as well, is that this requirement seems to be specific to the 'sqldf' package on CRAN and not to "base" R more generally. If Fedora/EPEL are including sqldf as a binary RPM for installation via yum, that might be a different scenario however.
+
+Ah, okay. I do not believe we're packaging sqldf right now.
+
+~tom
+
+==
+Fedora Project
+
+
+From pdalgd at gmail.com  Tue May 22 17:42:25 2012
+From: pdalgd at gmail.com (peter dalgaard)
+Date: Tue, 22 May 2012 17:42:25 +0200
+Subject: [R-sig-Fedora] tcktk problem with custom R 2.15.0 build on RHEL5
+In-Reply-To: <4FBBAD22.6000608@redhat.com>
+References: <4FBAA5FC.4080905@tufts.edu>
+	<BF074EC4-56A2-4D89-B1DD-022DB7227463@me.com>
+	<5AB6C240-4B1E-43D7-8CCB-4872E7EA1380@gmail.com>
+	<4FBB946A.4090607@tufts.edu>
+	<ABF21329-F06E-4366-A505-797B21EF71FB@me.com>
+	<4FBBA72E.1080002@redhat.com>
+	<AC787CAF-6897-44E4-B25E-28DFE45B34F0@me.com>
+	<4FBBAD22.6000608@redhat.com>
+Message-ID: <3DF2C884-9063-4979-9DB7-6B99314165E5@gmail.com>
+
+
+On May 22, 2012, at 17:13 , Tom Callaway wrote:
+
+> On 05/22/2012 11:09 AM, Marc Schwartz wrote:
+> 
+>> Hi Tom,
+>> 
+>> Thanks for jumping in. My read, and I would ask Peter to comment as well, is that this requirement seems to be specific to the 'sqldf' package on CRAN and not to "base" R more generally. If Fedora/EPEL are including sqldf as a binary RPM for installation via yum, that might be a different scenario however.
+
+Yes, I think this is the case. I don't think there are any structural requirements for Tcl 8.5. AFAIR, we use some ABI features not present in at least 8.0, but I have long forgotten what is the last version to break. However, an ABI level issue would prevent building the package at all, which is clearly not the case here. The remaining issue is whether applications/packages could be using new features. That is pretty much impossible to guard against, but I would assume that we'd be hearing about it if they do....  
+
+When Tcl 8.6 finally comes chugging along, there is a non-vanishing chance that I'd try using the new canvas features for a demo or maybe even a graphics device driver. I'll try to remember to check the Tcl version number...
+
+
+> Ah, okay. I do not believe we're packaging sqldf right now.
+> 
+> ~tom
+> 
+> ==
+> Fedora Project
+
+-- 
+Peter Dalgaard, Professor
+Center for Statistics, Copenhagen Business School
+Solbjerg Plads 3, 2000 Frederiksberg, Denmark
+Phone: (+45)38153501
+Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+
+
+From comtech.usa at gmail.com  Sun May 27 21:37:35 2012
+From: comtech.usa at gmail.com (Michael)
+Date: Sun, 27 May 2012 14:37:35 -0500
+Subject: [R-sig-Fedora] SOS! The R Console very quietly closed and exited
+ without giving any errors/warnings...after I loaded the RODBC library...
+Message-ID: <CAPNjSFYrT6CkBmQZHnJsOri0uOWOH1RsmC-kJt1GYca47B8ekw@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120527/24454423/attachment.pl>
+

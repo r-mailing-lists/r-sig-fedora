@@ -1,0 +1,264 @@
+From maechler at stat.math.ethz.ch  Mon Oct  6 16:54:22 2014
+From: maechler at stat.math.ethz.ch (Martin Maechler)
+Date: Mon, 6 Oct 2014 16:54:22 +0200
+Subject: [R-sig-Fedora] RJAGS Installation Issues
+Message-ID: <CAPRP4-dqA+ev7xdbuNozmam6bL4d9CMt7_GHKdV44XoKKimNCA@mail.gmail.com>
+
+A few months ago,  Eric asked about this for CentOS 6:
+ https://stat.ethz.ch/pipermail/r-sig-fedora/2014-April/000310.html
+
+and was kindly helped by Marc Schwartz.
+OTOH, we are running Fedora 19,  currently upgrading to Fedora 20.
+
+The RPM find link for  'jags-devel' which Marc provided really seems
+to cater to CentOS or RHEL 5,
+but not directly to any newer Fedora.
+
+Also there, I'd ideally  (tell our sys.admins to) use
+   yum install jags-devel
+ so  jags should stay updated and will also be added to the "upgrade
+procedures for next time"
+ but yum above does not find anything at least not with further hand
+holding, i.e., possibly by specifying a specific mirror.
+
+Do any of you have experience here and/or a recommendation?
+
+Thank you in advance,
+Martin
+
+--
+Martin Maechler
+ETH Zurich
+
+
+From plummerm at iarc.fr  Mon Oct  6 20:13:39 2014
+From: plummerm at iarc.fr (Martyn Plummer)
+Date: Mon, 6 Oct 2014 18:13:39 +0000
+Subject: [R-sig-Fedora] RJAGS Installation Issues
+In-Reply-To: <CAPRP4-dqA+ev7xdbuNozmam6bL4d9CMt7_GHKdV44XoKKimNCA@mail.gmail.com>
+References: <CAPRP4-dqA+ev7xdbuNozmam6bL4d9CMt7_GHKdV44XoKKimNCA@mail.gmail.com>
+Message-ID: <31E214B6DF75104E942856C2F74953CB051E4822@exchange>
+
+The primary source of RPMS for JAGS is the repository created by Lars Vilhuber:
+http://download.opensuse.org/repositories/home:/cornell_vrdc/
+
+It is true that Lars does not create RPMs for Fedora, presumably because they do not use it at Cornell. I had not thought about this before. I do use Fedora but I always install JAGS from source.
+
+I am a little concerned to realise that there is a different RPM for each major release of R (i.e. we have jags, jags2, jags3, etc.) This means that Marc unwittingly pointed to a very old version of JAGS. In addition, if you install the jags3 RPM then you will not get a yum update the day I release JAGS 4.0.0 (and the day is coming, trust me).
+
+Martyn
+
+________________________________________
+From: r-sig-fedora-bounces at r-project.org [r-sig-fedora-bounces at r-project.org] on behalf of Martin Maechler [maechler at stat.math.ethz.ch]
+Sent: 06 October 2014 16:54
+To: r-sig-fedora at r-project.org
+Subject: Re: [R-sig-Fedora] RJAGS Installation Issues
+
+A few months ago,  Eric asked about this for CentOS 6:
+ https://stat.ethz.ch/pipermail/r-sig-fedora/2014-April/000310.html
+
+and was kindly helped by Marc Schwartz.
+OTOH, we are running Fedora 19,  currently upgrading to Fedora 20.
+
+The RPM find link for  'jags-devel' which Marc provided really seems
+to cater to CentOS or RHEL 5,
+but not directly to any newer Fedora.
+
+Also there, I'd ideally  (tell our sys.admins to) use
+   yum install jags-devel
+ so  jags should stay updated and will also be added to the "upgrade
+procedures for next time"
+ but yum above does not find anything at least not with further hand
+holding, i.e., possibly by specifying a specific mirror.
+
+Do any of you have experience here and/or a recommendation?
+
+Thank you in advance,
+Martin
+
+--
+Martin Maechler
+ETH Zurich
+
+_______________________________________________
+R-SIG-Fedora mailing list
+R-SIG-Fedora at r-project.org
+https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+
+From jeroenooms at gmail.com  Mon Oct  6 21:25:47 2014
+From: jeroenooms at gmail.com (Jeroen Ooms)
+Date: Mon, 6 Oct 2014 21:25:47 +0200
+Subject: [R-sig-Fedora] RJAGS Installation Issues
+In-Reply-To: <31E214B6DF75104E942856C2F74953CB051E4822@exchange>
+References: <CAPRP4-dqA+ev7xdbuNozmam6bL4d9CMt7_GHKdV44XoKKimNCA@mail.gmail.com>
+	<31E214B6DF75104E942856C2F74953CB051E4822@exchange>
+Message-ID: <CABFfbXsXbh7azktoDLYkHK45SBgM4DMgERDi9uUqo=wv=60mcw@mail.gmail.com>
+
+On Mon, Oct 6, 2014 at 8:13 PM, Martyn Plummer <plummerm at iarc.fr> wrote:
+> The primary source of RPMS for JAGS is the repository created by Lars Vilhuber:
+> http://download.opensuse.org/repositories/home:/cornell_vrdc/
+>
+> It is true that Lars does not create RPMs for Fedora, presumably because they do not use it at Cornell. I had not thought about this before. I do use Fedora but I always install JAGS from source.
+
+It is quite easy to (re)build rpm binary packages on another platform
+using the rpm source package. Usually the rpm source package is the
+same for Fedora/CentOS/RHEL, unless you have some exotic dependencies.
+
+Suse also offers a free build service (OBS) to do the building for
+you. You upload a src rpm (or just give a hyperlink), and their
+machines will build and publish binary rpm's for various distributions
+and architectures of your choice, including Fedora. Thereby you can
+easily manage your own repository, and your admin only has to add the
+repository, and do a yum update once in a while.
+
+Just for fun, I tried grabbing some src rpms from Lars' centos6 repo
+[1] and build them for Fedora on OBS. I haven't tried installing them
+(not a Fedora user), but all builds were successful so I'm going to
+guess they will work. You can see the overview in [2] and grab
+binaries from [3,4,5] for jags version 1,2 and 3, respectively.
+
+[1] http://download.opensuse.org/repositories/home:/cornell_vrdc/CentOS_CentOS-6/src/
+[2] https://build.opensuse.org/project/show/home:jeroenooms:jags
+[3] http://software.opensuse.org/download.html?project=home%3Ajeroenooms%3Ajags&package=jags
+[4] http://software.opensuse.org/download.html?project=home%3Ajeroenooms%3Ajags&package=jags2
+[5] http://software.opensuse.org/download.html?project=home%3Ajeroenooms%3Ajags&package=jags3
+
+
+From plummerm at iarc.fr  Tue Oct  7 18:46:17 2014
+From: plummerm at iarc.fr (Martyn Plummer)
+Date: Tue, 7 Oct 2014 16:46:17 +0000
+Subject: [R-sig-Fedora] RJAGS Installation Issues
+In-Reply-To: <CABFfbXsXbh7azktoDLYkHK45SBgM4DMgERDi9uUqo=wv=60mcw@mail.gmail.com>
+References: <CAPRP4-dqA+ev7xdbuNozmam6bL4d9CMt7_GHKdV44XoKKimNCA@mail.gmail.com>
+	<31E214B6DF75104E942856C2F74953CB051E4822@exchange>
+	<CABFfbXsXbh7azktoDLYkHK45SBgM4DMgERDi9uUqo=wv=60mcw@mail.gmail.com>
+Message-ID: <1412700377.27658.24.camel@braque.iarc.fr>
+
+Thanks Jeroen. Lars uses OBS as well, so he just added Fedora to his
+list of repositories. Fedora RPMs are now available at
+
+http://download.opensuse.org/repositories/home:/cornell_vrdc/Fedora_20/
+
+Martyn
+
+On Mon, 2014-10-06 at 21:25 +0200, Jeroen Ooms wrote:
+> On Mon, Oct 6, 2014 at 8:13 PM, Martyn Plummer <plummerm at iarc.fr> wrote:
+> > The primary source of RPMS for JAGS is the repository created by Lars Vilhuber:
+> > http://download.opensuse.org/repositories/home:/cornell_vrdc/
+> >
+> > It is true that Lars does not create RPMs for Fedora, presumably because they do not use it at Cornell. I had not thought about this before. I do use Fedora but I always install JAGS from source.
+> 
+> It is quite easy to (re)build rpm binary packages on another platform
+> using the rpm source package. Usually the rpm source package is the
+> same for Fedora/CentOS/RHEL, unless you have some exotic dependencies.
+> 
+> Suse also offers a free build service (OBS) to do the building for
+> you. You upload a src rpm (or just give a hyperlink), and their
+> machines will build and publish binary rpm's for various distributions
+> and architectures of your choice, including Fedora. Thereby you can
+> easily manage your own repository, and your admin only has to add the
+> repository, and do a yum update once in a while.
+> 
+> Just for fun, I tried grabbing some src rpms from Lars' centos6 repo
+> [1] and build them for Fedora on OBS. I haven't tried installing them
+> (not a Fedora user), but all builds were successful so I'm going to
+> guess they will work. You can see the overview in [2] and grab
+> binaries from [3,4,5] for jags version 1,2 and 3, respectively.
+> 
+> [1] http://download.opensuse.org/repositories/home:/cornell_vrdc/CentOS_CentOS-6/src/
+> [2] https://build.opensuse.org/project/show/home:jeroenooms:jags
+> [3] http://software.opensuse.org/download.html?project=home%3Ajeroenooms%3Ajags&package=jags
+> [4] http://software.opensuse.org/download.html?project=home%3Ajeroenooms%3Ajags&package=jags2
+> [5] http://software.opensuse.org/download.html?project=home%3Ajeroenooms%3Ajags&package=jags3
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+
+From maechler at stat.math.ethz.ch  Wed Oct  8 10:31:56 2014
+From: maechler at stat.math.ethz.ch (Martin Maechler)
+Date: Wed, 8 Oct 2014 10:31:56 +0200
+Subject: [R-sig-Fedora] RJAGS Installation Issues
+In-Reply-To: <1412700377.27658.24.camel@braque.iarc.fr>
+References: <CAPRP4-dqA+ev7xdbuNozmam6bL4d9CMt7_GHKdV44XoKKimNCA@mail.gmail.com>
+	<31E214B6DF75104E942856C2F74953CB051E4822@exchange>
+	<CABFfbXsXbh7azktoDLYkHK45SBgM4DMgERDi9uUqo=wv=60mcw@mail.gmail.com>
+	<1412700377.27658.24.camel@braque.iarc.fr>
+Message-ID: <21556.63100.900583.287859@stat.math.ethz.ch>
+
+>>>>> Martyn Plummer <plummerm at iarc.fr>
+>>>>>     on Tue, 7 Oct 2014 16:46:17 +0000 writes:
+
+    > Thanks Jeroen. Lars uses OBS as well, so he just added
+    > Fedora to his list of repositories. Fedora RPMs are now
+    > available at
+
+      > http://download.opensuse.org/repositories/home:/cornell_vrdc/Fedora_20/
+
+    > Martyn
+
+Phantastic!
+Thank you very much, Martyn, Jeroen and Lars!
+
+Martin Maechler
+
+
+    > On Mon, 2014-10-06 at 21:25 +0200, Jeroen Ooms wrote:
+    >> On Mon, Oct 6, 2014 at 8:13 PM, Martyn Plummer
+    >> <plummerm at iarc.fr> wrote: > The primary source of RPMS
+    >> for JAGS is the repository created by Lars Vilhuber: >
+    >> http://download.opensuse.org/repositories/home:/cornell_vrdc/
+    >> >
+    >> > It is true that Lars does not create RPMs for Fedora,
+    >> presumably because they do not use it at Cornell. I had
+    >> not thought about this before. I do use Fedora but I
+    >> always install JAGS from source.
+    >> 
+    >> It is quite easy to (re)build rpm binary packages on
+    >> another platform using the rpm source package. Usually
+    >> the rpm source package is the same for
+    >> Fedora/CentOS/RHEL, unless you have some exotic
+    >> dependencies.
+    >> 
+    >> Suse also offers a free build service (OBS) to do the
+    >> building for you. You upload a src rpm (or just give a
+    >> hyperlink), and their machines will build and publish
+    >> binary rpm's for various distributions and architectures
+    >> of your choice, including Fedora. Thereby you can easily
+    >> manage your own repository, and your admin only has to
+    >> add the repository, and do a yum update once in a while.
+    >> 
+    >> Just for fun, I tried grabbing some src rpms from Lars'
+    >> centos6 repo [1] and build them for Fedora on OBS. I
+    >> haven't tried installing them (not a Fedora user), but
+    >> all builds were successful so I'm going to guess they
+    >> will work. You can see the overview in [2] and grab
+    >> binaries from [3,4,5] for jags version 1,2 and 3,
+    >> respectively.
+    >> 
+    >> [1]
+    >> http://download.opensuse.org/repositories/home:/cornell_vrdc/CentOS_CentOS-6/src/
+    >> [2]
+    >> https://build.opensuse.org/project/show/home:jeroenooms:jags
+    >> [3]
+    >> http://software.opensuse.org/download.html?project=home%3Ajeroenooms%3Ajags&package=jags
+    >> [4]
+    >> http://software.opensuse.org/download.html?project=home%3Ajeroenooms%3Ajags&package=jags2
+    >> [5]
+    >> http://software.opensuse.org/download.html?project=home%3Ajeroenooms%3Ajags&package=jags3
+
+    > -----------------------------------------------------------------------
+    > This message and its attachments are strictly
+    > confidential. If you are not the intended recipient of
+    > this message, please immediately notify the sender and
+    > delete it. Since its integrity cannot be guaranteed, its
+    > content cannot involve the sender's responsibility. Any
+    > misuse, any disclosure or publication of its content,
+    > either whole or partial, is prohibited, exception made of
+    > formally approved use
+    > -----------------------------------------------------------------------
+
+

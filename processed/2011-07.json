@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2011-07",
+  "messages": [
+    {
+      "id": "msg-33e5cf5a7d2a",
+      "message_id": "<476AB0FB4635254B9DA507930573B2EC0328FE77@SERV-MAILBOX1.igbmc.u-strasbg.fr>",
+      "from_name": "Wolfgang RAFFELSBERGER",
+      "from_email_hash": "94821f06ebed7ea8d367e92e780ce60fa1d719d49b1cbb9341a65d8a5f445fc8",
+      "date": "2011-07-18T10:23:24Z",
+      "subject": "[R-sig-Fedora] multiple installations of R (in Fedora)",
+      "subject_clean": "multiple installations of R (in Fedora)",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110718/6ad45fdd/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110718/6ad45fdd/attachment.pl>",
+      "thread_id": "thread-33e5cf5a7d2a",
+      "thread_depth": 0,
+      "month": "2011-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-33e5cf5a7d2a",
+      "subject": "multiple installations of R (in Fedora)",
+      "message_count": 1,
+      "participants": [
+        "Wolfgang RAFFELSBERGER"
+      ],
+      "started": "2011-07-18T10:23:24+00:00",
+      "last_reply": "2011-07-18T10:23:24+00:00",
+      "root_message_id": "msg-33e5cf5a7d2a"
+    }
+  ]
+}

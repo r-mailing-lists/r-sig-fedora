@@ -1,0 +1,963 @@
+From asr at ufl.edu  Mon Mar 12 21:10:06 2012
+From: asr at ufl.edu (Allen S. Rout)
+Date: Mon, 12 Mar 2012 16:10:06 -0400
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+Message-ID: <jjll6v$qck$1@dough.gmane.org>
+
+
+
+Is there somewhere a succinct guide to just how much extra crud we need 
+to install on RHEL to make use of EPEL packages?
+
+[root at troll-1 noarch]# rpm -ivh R2spec-4.1.0-1.el6.noarch.rpm
+error: Failed dependencies:
+         fedora-packager is needed by R2spec-4.1.0-1.el6.noarch
+
+
+[root at troll-1 noarch]# wget 
+http://dl.fedoraproject.org/pub/epel/6/x86_64/fedora-packager-0.5.9.4-1.el6.noarch.rpm
+[...]
+[root at troll-1 noarch]# rpm -ivh fedora-packager-0.5.9.4-1.el6.noarch.rpm
+error: Failed dependencies:
+         bodhi-client is needed by fedora-packager-0.5.9.4-1.el6.noarch
+         fedora-cert = 0.5.9.4-1.el6 is needed by 
+fedora-packager-0.5.9.4-1.el6.noarch
+         fedpkg >= 1.0 is needed by fedora-packager-0.5.9.4-1.el6.noarch
+         koji is needed by fedora-packager-0.5.9.4-1.el6.noarch
+         mock is needed by fedora-packager-0.5.9.4-1.el6.noarch
+         redhat-rpm-config is needed by fedora-packager-0.5.9.4-1.el6.noarch
+         rpmdevtools is needed by fedora-packager-0.5.9.4-1.el6.noarch
+         rpmlint is needed by fedora-packager-0.5.9.4-1.el6.noarch
+         ykpers is needed by fedora-packager-0.5.9.4-1.el6.noarch
+
+
+
+Oy.
+
+
+- Allen S. Rout
+
+
+From marc_schwartz at me.com  Mon Mar 12 21:32:36 2012
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Mon, 12 Mar 2012 15:32:36 -0500
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <jjll6v$qck$1@dough.gmane.org>
+References: <jjll6v$qck$1@dough.gmane.org>
+Message-ID: <F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+
+
+On Mar 12, 2012, at 3:10 PM, Allen S. Rout wrote:
+
+> 
+> 
+> Is there somewhere a succinct guide to just how much extra crud we need to install on RHEL to make use of EPEL packages?
+> 
+> [root at troll-1 noarch]# rpm -ivh R2spec-4.1.0-1.el6.noarch.rpm
+> error: Failed dependencies:
+>        fedora-packager is needed by R2spec-4.1.0-1.el6.noarch
+> 
+> 
+> [root at troll-1 noarch]# wget http://dl.fedoraproject.org/pub/epel/6/x86_64/fedora-packager-0.5.9.4-1.el6.noarch.rpm
+> [...]
+> [root at troll-1 noarch]# rpm -ivh fedora-packager-0.5.9.4-1.el6.noarch.rpm
+> error: Failed dependencies:
+>        bodhi-client is needed by fedora-packager-0.5.9.4-1.el6.noarch
+>        fedora-cert = 0.5.9.4-1.el6 is needed by fedora-packager-0.5.9.4-1.el6.noarch
+>        fedpkg >= 1.0 is needed by fedora-packager-0.5.9.4-1.el6.noarch
+>        koji is needed by fedora-packager-0.5.9.4-1.el6.noarch
+>        mock is needed by fedora-packager-0.5.9.4-1.el6.noarch
+>        redhat-rpm-config is needed by fedora-packager-0.5.9.4-1.el6.noarch
+>        rpmdevtools is needed by fedora-packager-0.5.9.4-1.el6.noarch
+>        rpmlint is needed by fedora-packager-0.5.9.4-1.el6.noarch
+>        ykpers is needed by fedora-packager-0.5.9.4-1.el6.noarch
+> 
+> 
+> 
+> Oy.
+
+
+Otherwise known as "RPM Hell", which is why years ago, Fedora and RH moved to 'yum' as the default package manager, since yum handles all of the dependencies... :-)
+
+Visit:
+
+  http://fedoraproject.org/wiki/EPEL
+
+for information on getting your system configured to use the EPEL.
+
+Once you do that:
+
+  yum install R2spec
+
+as root, should be all that you need...no downloading RPM files locally and dealing with circular dependencies via the CLI.
+
+Cheers,
+
+Marc Schwartz
+
+
+From pingou at pingoured.fr  Mon Mar 12 21:34:37 2012
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 12 Mar 2012 21:34:37 +0100
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <jjll6v$qck$1@dough.gmane.org>
+References: <jjll6v$qck$1@dough.gmane.org>
+Message-ID: <1331584477.13053.5.camel@ambre.pingoured.fr>
+
+On Mon, 2012-03-12 at 16:10 -0400, Allen S. Rout wrote:
+> Is there somewhere a succinct guide to just how much extra crud we
+> need to install on RHEL to make use of EPEL packages? 
+
+All the information are provided there:
+http://fedoraproject.org/wiki/EPEL
+And basically, all you have to do is install the epel-release rpm:
+http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm
+
+Regards,
+Pierre
+
+
+From asr at ufl.edu  Mon Mar 12 21:49:26 2012
+From: asr at ufl.edu (Allen S. Rout)
+Date: Mon, 12 Mar 2012 16:49:26 -0400
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+References: <jjll6v$qck$1@dough.gmane.org>
+	<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+Message-ID: <4F5E6156.4080605@ufl.edu>
+
+On 03/12/2012 04:32 PM, Marc Schwartz wrote:
+>
+>
+> Otherwise known as "RPM Hell", which is why years ago, Fedora and RH moved to 'yum' as the default package manager, since yum handles all of the dependencies... :-)
+>
+
+Yes; but   <grumble> I don't want to install EPEL wholesale; we try to 
+manage which packages we pull into our locally maintained repos.    What 
+I want to do is make a new set of CRAN-based packages.   </grumble>
+
+So, having pulled R2spec 4.1.0-1.el5 into my rhel5.5 system,
+
+
+-bash-3.2$ R2spec --help
+Traceback (most recent call last):
+   File "/usr/bin/R2spec", line 26, in ?
+     PARSER = setup_parser('R2spec')
+   File "/usr/lib/python2.4/site-packages/r2spec/r2spec_obj.py", line 
+54, in setup_parser
+     version='%(prog)s ' +VERSION)
+   File "/usr/lib/python2.4/site-packages/argparse.py", line 1264, in 
+add_argument
+     action = action_class(**kwargs)
+TypeError: __init__() got an unexpected keyword argument 'version'
+
+
+- Allen S. Rout
+
+
+From marc_schwartz at me.com  Tue Mar 13 00:28:51 2012
+From: marc_schwartz at me.com (Marc Schwartz)
+Date: Mon, 12 Mar 2012 18:28:51 -0500
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <4F5E6156.4080605@ufl.edu>
+References: <jjll6v$qck$1@dough.gmane.org>
+	<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+	<4F5E6156.4080605@ufl.edu>
+Message-ID: <2CB3A1E7-B29F-4FF3-979A-541DDAA63B90@me.com>
+
+
+On Mar 12, 2012, at 3:49 PM, Allen S. Rout wrote:
+
+> On 03/12/2012 04:32 PM, Marc Schwartz wrote:
+>> 
+>> 
+>> Otherwise known as "RPM Hell", which is why years ago, Fedora and RH moved to 'yum' as the default package manager, since yum handles all of the dependencies... :-)
+>> 
+> 
+> Yes; but   <grumble> I don't want to install EPEL wholesale; we try to manage which packages we pull into our locally maintained repos.    What I want to do is make a new set of CRAN-based packages.   </grumble>
+> 
+> So, having pulled R2spec 4.1.0-1.el5 into my rhel5.5 system,
+> 
+> 
+> -bash-3.2$ R2spec --help
+> Traceback (most recent call last):
+>  File "/usr/bin/R2spec", line 26, in ?
+>    PARSER = setup_parser('R2spec')
+>  File "/usr/lib/python2.4/site-packages/r2spec/r2spec_obj.py", line 54, in setup_parser
+>    version='%(prog)s ' +VERSION)
+>  File "/usr/lib/python2.4/site-packages/argparse.py", line 1264, in add_argument
+>    action = action_class(**kwargs)
+> TypeError: __init__() got an unexpected keyword argument 'version'
+> 
+> 
+> - Allen S. Rout
+
+Allen,
+
+You seem to have a special need which is perhaps not satisfied by the default RPM build of the package, given the additional dependencies. You might review:
+
+  https://fedorahosted.org/r2spec/
+
+for additional installation scenarios. If that is not helpful, I would suggest that you directly contact the R2spec package maintainer for specific assistance. That appears to be Pierre-Yves (pingou at pingoured.fr).
+
+Marc
+
+
+From pingou at pingoured.fr  Tue Mar 13 07:14:20 2012
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 13 Mar 2012 07:14:20 +0100
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <4F5E6156.4080605@ufl.edu>
+References: <jjll6v$qck$1@dough.gmane.org>
+	<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+	<4F5E6156.4080605@ufl.edu>
+Message-ID: <1331619260.13053.8.camel@ambre.pingoured.fr>
+
+On Mon, 2012-03-12 at 16:49 -0400, Allen S. Rout wrote:
+> 
+> So, having pulled R2spec 4.1.0-1.el5 into my rhel5.5 system,
+> 
+> -bash-3.2$ R2spec --help
+> Traceback (most recent call last):
+>    File "/usr/bin/R2spec", line 26, in ?
+>      PARSER = setup_parser('R2spec')
+>    File "/usr/lib/python2.4/site-packages/r2spec/r2spec_obj.py", line 
+> 54, in setup_parser
+>      version='%(prog)s ' +VERSION)
+>    File "/usr/lib/python2.4/site-packages/argparse.py", line 1264, in 
+> add_argument
+>      action = action_class(**kwargs)
+> TypeError: __init__() got an unexpected keyword argument 'version'
+
+hm, I am thinking of an older version of python-argparse. Do you have
+1.2.1 ? (which is available on EPEL btw).
+
+Pierre
+
+
+From torbjorn.lindahl at gmail.com  Tue Mar 13 14:29:54 2012
+From: torbjorn.lindahl at gmail.com (=?ISO-8859-1?Q?Torbj=F8rn_Lindahl?=)
+Date: Tue, 13 Mar 2012 14:29:54 +0100
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <1331619260.13053.8.camel@ambre.pingoured.fr>
+References: <jjll6v$qck$1@dough.gmane.org>
+	<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+	<4F5E6156.4080605@ufl.edu>
+	<1331619260.13053.8.camel@ambre.pingoured.fr>
+Message-ID: <CA+Dw+SOppoZ6VaJZ2ENbGGV1veHm1BHRWU2=BLya5kj7ZWRHhg@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120313/d60508ff/attachment.pl>
+
+From asr at ufl.edu  Tue Mar 13 14:23:55 2012
+From: asr at ufl.edu (Allen S. Rout)
+Date: Tue, 13 Mar 2012 09:23:55 -0400
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <1331619260.13053.8.camel@ambre.pingoured.fr>
+References: <jjll6v$qck$1@dough.gmane.org>
+	<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+	<4F5E6156.4080605@ufl.edu>
+	<1331619260.13053.8.camel@ambre.pingoured.fr>
+Message-ID: <jjnhpc$qto$1@dough.gmane.org>
+
+On 03/13/2012 02:14 AM, Pierre-Yves Chibon wrote:
+
+> hm, I am thinking of an older version of python-argparse. Do you have
+> 1.2.1 ? (which is available on EPEL btw).
+
+Was at 1.0.1; updated to 1.2.1, and got past that error.  We'll see what 
+the next hurdle looks like.
+
+Would you like a patch for the dependency?
+
+- Allen S. Rout
+
+
+From asr at ufl.edu  Tue Mar 13 14:50:24 2012
+From: asr at ufl.edu (Allen S. Rout)
+Date: Tue, 13 Mar 2012 09:50:24 -0400
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <2CB3A1E7-B29F-4FF3-979A-541DDAA63B90@me.com>
+References: <jjll6v$qck$1@dough.gmane.org>
+	<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+	<4F5E6156.4080605@ufl.edu>
+	<2CB3A1E7-B29F-4FF3-979A-541DDAA63B90@me.com>
+Message-ID: <4F5F50A0.7080502@ufl.edu>
+
+On 03/12/2012 07:28 PM, Marc Schwartz wrote:
+>  [...]
+
+So I've updated everything Python from EPEL on my RHEL 5 box.   Versions 
+included below.
+
+
+#  R2spec -p RColorBrewer
+Traceback (most recent call last):
+   File "/usr/bin/R2spec", line 29, in ?
+     R2spec().main(ARG)
+   File "/usr/lib/python2.4/site-packages/r2spec/r2spec_obj.py", line 
+235, in main
+     pack.search_package_in_repo()
+   File "/usr/lib/python2.4/site-packages/r2spec/rpackage.py", line 237, 
+in search_package_in_repo
+     self.source = '{name}_{version}.tar.gz'.format(name=self.name,
+AttributeError: 'str' object has no attribute 'format'
+
+
+This feels to me like another library drift issue.  Aaand stackoverflow 
+says yeah, that's it.
+
+Pierre-Yves, would you entertain a patch to fix this?
+
+- Allen S. Rout
+
+
+From pingou at pingoured.fr  Tue Mar 13 16:25:11 2012
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 13 Mar 2012 16:25:11 +0100
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <jjnhpc$qto$1@dough.gmane.org>
+References: <jjll6v$qck$1@dough.gmane.org>
+	<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+	<4F5E6156.4080605@ufl.edu>
+	<1331619260.13053.8.camel@ambre.pingoured.fr>
+	<jjnhpc$qto$1@dough.gmane.org>
+Message-ID: <1331652311.3403.0.camel@ambre.pingoured.fr>
+
+On Tue, 2012-03-13 at 09:23 -0400, Allen S. Rout wrote:
+> On 03/13/2012 02:14 AM, Pierre-Yves Chibon wrote:
+> 
+> > hm, I am thinking of an older version of python-argparse. Do you
+> have
+> > 1.2.1 ? (which is available on EPEL btw).
+> 
+> Was at 1.0.1; updated to 1.2.1, and got past that error.  We'll see
+> what the next hurdle looks like.
+> 
+> Would you like a patch for the dependency?
+
+Sure :)
+
+Pierre
+
+
+From pingou at pingoured.fr  Tue Mar 13 16:26:58 2012
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 13 Mar 2012 16:26:58 +0100
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <4F5F50A0.7080502@ufl.edu>
+References: <jjll6v$qck$1@dough.gmane.org>
+	<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+	<4F5E6156.4080605@ufl.edu>
+	<2CB3A1E7-B29F-4FF3-979A-541DDAA63B90@me.com>
+	<4F5F50A0.7080502@ufl.edu>
+Message-ID: <1331652418.3403.2.camel@ambre.pingoured.fr>
+
+On Tue, 2012-03-13 at 09:50 -0400, Allen S. Rout wrote:
+> On 03/12/2012 07:28 PM, Marc Schwartz wrote:
+> >  [...]
+> 
+> So I've updated everything Python from EPEL on my RHEL 5 box.
+> Versions included below.
+> 
+> 
+> #  R2spec -p RColorBrewer
+> Traceback (most recent call last):
+>    File "/usr/bin/R2spec", line 29, in ?
+>      R2spec().main(ARG)
+>    File "/usr/lib/python2.4/site-packages/r2spec/r2spec_obj.py", line 
+> 235, in main
+>      pack.search_package_in_repo()
+>    File "/usr/lib/python2.4/site-packages/r2spec/rpackage.py", line
+> 237, 
+> in search_package_in_repo
+>      self.source = '{name}_{version}.tar.gz'.format(name=self.name,
+> AttributeError: 'str' object has no attribute 'format'
+> 
+> 
+> This feels to me like another library drift issue.  Aaand
+> stackoverflow says yeah, that's it.
+
+I guess that means replacing all .format to use %
+
+> Pierre-Yves, would you entertain a patch to fix this? 
+
+That would be nice. I have to say that I do not have a python 2.4 around
+on which I can run the unit-tests.
+
+Pierre
+
+
+From jm_hannon at yahoo.com  Tue Mar 13 20:19:04 2012
+From: jm_hannon at yahoo.com (Michael Hannon)
+Date: Tue, 13 Mar 2012 12:19:04 -0700 (PDT)
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <4F5F50A0.7080502@ufl.edu>
+References: <jjll6v$qck$1@dough.gmane.org>
+	<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+	<4F5E6156.4080605@ufl.edu>
+	<2CB3A1E7-B29F-4FF3-979A-541DDAA63B90@me.com>
+	<4F5F50A0.7080502@ufl.edu>
+Message-ID: <1331666344.53558.YahooMailNeo@web161904.mail.bf1.yahoo.com>
+
+> From: Allen S. Rout <asr at ufl.edu>
+>
+>On 03/12/2012 07:28 PM, Marc Schwartz wrote:
+>>? [...]
+>
+>So I've updated everything Python from EPEL on my RHEL 5 box.?? Versions
+>included below.
+>
+>
+>#? R2spec -p RColorBrewer
+>Traceback (most recent call last):
+>? File "/usr/bin/R2spec", line 29, in ?
+>??? R2spec().main(ARG)
+>? File "/usr/lib/python2.4/site-packages/r2spec/r2spec_obj.py", line 235, in
+>? main
+>??? pack.search_package_in_repo()
+>? File "/usr/lib/python2.4/site-packages/r2spec/rpackage.py", line 237, in
+>? search_package_in_repo
+>??? self.source = '{name}_{version}.tar.gz'.format(name=self.name,
+>AttributeError: 'str' object has no attribute 'format'
+>
+>
+>This feels to me like another library drift issue.? Aaand stackoverflow says
+>yeah, that's it.
+>
+>Pierre-Yves, would you entertain a patch to fix this?
+
+I haven't been following this thread, but I'm pretty sure that the Python
+string method "format" did not appear until Python 2.6.? It appears that
+you're using Python 2.4.
+
+-- Mike
+
+
+From asr at ufl.edu  Tue Mar 13 22:02:51 2012
+From: asr at ufl.edu (Allen S. Rout)
+Date: Tue, 13 Mar 2012 17:02:51 -0400
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+References: <jjll6v$qck$1@dough.gmane.org>
+	<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+Message-ID: <4F5FB5FB.3090005@ufl.edu>
+
+
+On 03/13/2012 11:25 AM, Pierre-Yves Chibon wrote:
+ > On Tue, 2012-03-13 at 09:23 -0400, Allen S. Rout wrote:
+ >>
+ >> [... patches ...]
+ >
+ > Sure :)
+
+
+OK, here are four of them.
+
+One fixes the dependencies I happened to run into.
+
+One reverts the .format invocations to '%'
+
+Those are what I've already spoken about.   Two more are submitted for 
+your consideration.
+
+
+In one, I've added some comments to the specfile template, to make it 
+clear, as you're editing the generated spec, what the R view of the 
+dependencies is, to help you mess around with them after generation time.
+
+In the other, I've made the '-p' package name willing to accept both 
+"packagename"  and "R-packagename".     This is to help the recursive 
+build-dependencies problem, one step closer to (Good lord, I hope) 
+automating this process.
+
+
+- Allen S. Rout
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 0001-Fix-some-python-and-python-package-deps.patch
+Type: text/x-patch
+Size: 896 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120313/894ce8c0/attachment-0003.bin>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 0001-Switch-.format-invocations-to-backward-compatible.patch
+Type: text/x-patch
+Size: 1767 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120313/894ce8c0/attachment-0004.bin>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 0001-Document-the-R-perspective-and-our-gaps-in-it-for-th.patch
+Type: text/x-patch
+Size: 953 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120313/894ce8c0/attachment-0005.bin>
+
+From asr at ufl.edu  Tue Mar 13 22:04:29 2012
+From: asr at ufl.edu (Allen S. Rout)
+Date: Tue, 13 Mar 2012 17:04:29 -0400
+Subject: [R-sig-Fedora] R-repo.org ?
+Message-ID: <4F5FB65D.2050006@ufl.edu>
+
+
+
+On a totally different topic (or maybe not so different)...
+
+I noticed that r-repo.org's first release is also its last release. 
+What's blocking you?  Can I help?
+
+- Allen S. Rout
+
+
+From pingou at pingoured.fr  Tue Mar 13 22:12:52 2012
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 13 Mar 2012 22:12:52 +0100
+Subject: [R-sig-Fedora] R-repo.org ?
+In-Reply-To: <4F5FB65D.2050006@ufl.edu>
+References: <4F5FB65D.2050006@ufl.edu>
+Message-ID: <1331673172.26518.12.camel@ambre.pingoured.fr>
+
+On Tue, 2012-03-13 at 17:04 -0400, Allen S. Rout wrote:
+> 
+> On a totally different topic (or maybe not so different)...
+> 
+> I noticed that r-repo.org's first release is also its last release. 
+> What's blocking you?  Can I help?
+
+Nothing is really blocking but time. All the specs are on github and
+still a number of them needs to be finish actually (quite a number of
+empty %file section as the build didn't finish).
+
+On the script repo I have the script to find the packages that needs
+update.
+I normally also have the script to rebuild the update.
+
+What's lacking will be 
+- time
+- feedback that it works (or not)
+- cronjob on the scripts (at least part of them) :)
+
+Pierre
+
+
+From pingou at pingoured.fr  Tue Mar 13 22:21:15 2012
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 13 Mar 2012 22:21:15 +0100
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <4F5FB5FB.3090005@ufl.edu>
+References: <jjll6v$qck$1@dough.gmane.org>
+	<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+	<4F5FB5FB.3090005@ufl.edu>
+Message-ID: <1331673675.26518.17.camel@ambre.pingoured.fr>
+
+On Tue, 2012-03-13 at 17:02 -0400, Allen S. Rout wrote:
+> One fixes the dependencies I happened to run into.
+
+Applied and pushed
+
+> One reverts the .format invocations to '%'
+
+Applied and pushed
+
+> Those are what I've already spoken about.   Two more are submitted for
+> your consideration.
+> 
+> In one, I've added some comments to the specfile template, to make it 
+> clear, as you're editing the generated spec, what the R view of the 
+> dependencies is, to help you mess around with them after generation
+> time.
+
+Applied and pushed
+
+> In the other, I've made the '-p' package name willing to accept both 
+> "packagename"  and "R-packagename".     This is to help the recursive 
+> build-dependencies problem, one step closer to (Good lord, I hope) 
+> automating this process. 
+
+I think this one was missing from the email :)
+
+Pierre
+
+
+From asr at ufl.edu  Wed Mar 14 14:54:46 2012
+From: asr at ufl.edu (Allen S. Rout)
+Date: Wed, 14 Mar 2012 09:54:46 -0400
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <1331673675.26518.17.camel@ambre.pingoured.fr>
+References: <jjll6v$qck$1@dough.gmane.org>
+	<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+	<4F5FB5FB.3090005@ufl.edu>
+	<1331673675.26518.17.camel@ambre.pingoured.fr>
+Message-ID: <4F60A326.7070502@ufl.edu>
+
+On 03/13/2012 05:21 PM, Pierre-Yves Chibon wrote:
+> On Tue, 2012-03-13 at 17:02 -0400, Allen S. Rout wrote:
+>
+>> In the other, I've made the '-p' package name willing to accept both
+>> "packagename"  and "R-packagename".     This is to help the recursive
+>> build-dependencies problem, one step closer to (Good lord, I hope)
+>> automating this process.
+>
+> I think this one was missing from the email :)
+
+Duuh.
+
+Trying again.
+
+- Allen S. Rout
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 0001-Accept-package-names-with-leading-R.patch
+Type: text/x-patch
+Size: 1269 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120314/9d0aa652/attachment.bin>
+
+From pingou at pingoured.fr  Wed Mar 14 15:07:18 2012
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 14 Mar 2012 15:07:18 +0100
+Subject: [R-sig-Fedora] Trying to use current R2spec on RHEL.
+In-Reply-To: <4F60A326.7070502@ufl.edu>
+References: <jjll6v$qck$1@dough.gmane.org>
+	<F3AC112B-85F6-4B94-A730-8472E96BC694@me.com>
+	<4F5FB5FB.3090005@ufl.edu>
+	<1331673675.26518.17.camel@ambre.pingoured.fr>
+	<4F60A326.7070502@ufl.edu>
+Message-ID: <1331734038.2159.4.camel@ambre.pingoured.fr>
+
+On Wed, 2012-03-14 at 09:54 -0400, Allen S. Rout wrote:
+> On 03/13/2012 05:21 PM, Pierre-Yves Chibon wrote:
+> > On Tue, 2012-03-13 at 17:02 -0400, Allen S. Rout wrote:
+> >
+> >> In the other, I've made the '-p' package name willing to accept
+> both
+> >> "packagename"  and "R-packagename".     This is to help the
+> recursive
+> >> build-dependencies problem, one step closer to (Good lord, I hope)
+> >> automating this process.
+> >
+> > I think this one was missing from the email :)
+> 
+> Duuh.
+> 
+> Trying again.
+
+Applied and pushed
+
+Thanks for the patches :)
+
+Pierre
+
+
+From asr at ufl.edu  Wed Mar 14 15:38:14 2012
+From: asr at ufl.edu (Allen S. Rout)
+Date: Wed, 14 Mar 2012 10:38:14 -0400
+Subject: [R-sig-Fedora] Planning for R-repo...
+In-Reply-To: <1331673172.26518.12.camel@ambre.pingoured.fr>
+References: <4F5FB65D.2050006@ufl.edu>
+	<1331673172.26518.12.camel@ambre.pingoured.fr>
+Message-ID: <4F60AD56.9010308@ufl.edu>
+
+On 03/13/2012 05:12 PM, Pierre-Yves Chibon wrote:
+> All the specs are on github and
+> still a number of them needs to be finish actually (quite a number of
+> empty %file section as the build didn't finish).
+>
+> On the script repo I have the script to find the packages that needs
+> update.
+> I normally also have the script to rebuild the update.
+>
+> What's lacking will be
+> - time
+> - feedback that it works (or not)
+> - cronjob on the scripts (at least part of them) :)
+
+I've got some strong motivation to help nudge this process towards 
+automation.  I think the lack of a good R repo for redhat-like distros 
+is a horrid lack.  I do enough work to maintain our little corner of 
+packages, if I can do a bit more and help make One Repo to Rule them 
+all, that'd be great.
+
+I think it's worthwhile to chew on the structural obstacles (that *#(@ 
+dependency map) because if we can get beyond that, we can be more 
+automatic.  The long term time savings would be huge.
+
+But I really want to proceed in a way that is aligned with where you're 
+driving, Pierre-Yves:  the work I did in ca. 2009 was clearly not 
+aligned with where you're going, and I don't want to lose more such 
+effort.   So I want to start from scratch, to figure out where you want 
+to go.
+
+----
+
+I see several structural issues:   Dependency loops,  and unstated or 
+incorrectly (inconsistently?) stated system dependencies.
+
+The Debian R repo maintenance folks keep a list of metadata they need to 
+resolve issues in the builds.   We might do something similar:  A 
+human-decided list of facts like
+
+'Package GDD has a system dependency of "libgd" '
+
+and
+
+'It's safe to cut the dependency link that says RColorBrewer depends on 
+ggplot2'
+
+could eventually converge on a state where we could Just Automatically 
+Do It.
+
+
+We might also simplify our building graph if we think about a build 
+session in two phases:  One for 'what are the deps we need to build this 
+package?', and a separate phase for 'what are the deps we need to 
+_check_ this package?'
+
+This would require we have a distinction, between a package we've built, 
+and a package we've "blessed", if I may use the term.
+
+
+Am I making sense?
+
+
+
+- Allen S. Rout
+
+
+From pingou at pingoured.fr  Mon Mar 19 10:12:40 2012
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 19 Mar 2012 10:12:40 +0100
+Subject: [R-sig-Fedora] Planning for R-repo...
+In-Reply-To: <4F60AD56.9010308@ufl.edu>
+References: <4F5FB65D.2050006@ufl.edu>
+	<1331673172.26518.12.camel@ambre.pingoured.fr>
+	<4F60AD56.9010308@ufl.edu>
+Message-ID: <1332148360.28002.15.camel@ambre.pingoured.fr>
+
+On Wed, 2012-03-14 at 10:38 -0400, Allen S. Rout wrote:
+> On 03/13/2012 05:12 PM, Pierre-Yves Chibon wrote:
+> > All the specs are on github and
+> > still a number of them needs to be finish actually (quite a number of
+> > empty %file section as the build didn't finish).
+> >
+> > On the script repo I have the script to find the packages that needs
+> > update.
+> > I normally also have the script to rebuild the update.
+> >
+> > What's lacking will be
+> > - time
+> > - feedback that it works (or not)
+> > - cronjob on the scripts (at least part of them) :)
+> 
+> I've got some strong motivation to help nudge this process towards 
+> automation.  I think the lack of a good R repo for redhat-like distros 
+> is a horrid lack.  I do enough work to maintain our little corner of 
+> packages, if I can do a bit more and help make One Repo to Rule them 
+> all, that'd be great.
+> 
+> I think it's worthwhile to chew on the structural obstacles (that *#(@ 
+> dependency map) because if we can get beyond that, we can be more 
+> automatic.  The long term time savings would be huge.
+> 
+> But I really want to proceed in a way that is aligned with where you're 
+> driving, Pierre-Yves:  the work I did in ca. 2009 was clearly not 
+> aligned with where you're going, and I don't want to lose more such 
+> effort.   So I want to start from scratch, to figure out where you want 
+> to go.
+
+I think the idea of R-repo is more in line with what you have in mind.
+R2spec is a tool to generate spec file and make them as compliant as
+possible with Fedora packaging guidelines. I think it should remain this
+way.
+R-repo aims at generating and providing RPM in an automatic way. This
+has pros and cons but it will be up to the user/sysadmin to weight them
+and decide to use R-repo or not.
+
+My vision of R-repo is:
+- Generate a first layer of spec files automatically (done)
+- Build them (done)
+- Fix the one that do not build (so by hand) (started, still far from
+done)
+- Perform the updates as they are needed (I have one script but we would
+need to finish step 3 first)
+
+So hopefully we would face the dependency issues only in stage 1 and 3
+(and eventually 4). So if package X requires something outside R
+repository, you will detect it at stage 3 and fix it once and for all.
+
+I might have an idealistic vision of the reality here, so I went for a
+simple scheme.
+
+I hope that by using git/github we can gather a group of interested
+people who can just submit merge request to fix the spec files.
+From there build and pushing the updates should not be too hard for me
+(at first but in a longer time, I hope, for us).
+
+How does this sound for you?
+
+Basically, I think what you were saying makes sense and is the most
+sensible approach. First get auto-generated spec files, then review them
+by hand to fix build problems.
+For the dependencies, the two steps approach you were referring to is
+probably the best approach. First build with the minimum dependencies
+then rebuild as the other have become available. Now that we have the
+first round in place and available we can start working on the second
+run.
+
+Do I make sense? Is this sensible?
+
+Regards,
+Pierre
+
+
+From asr at ufl.edu  Tue Mar 20 00:02:35 2012
+From: asr at ufl.edu (Allen S. Rout)
+Date: Mon, 19 Mar 2012 19:02:35 -0400
+Subject: [R-sig-Fedora] Planning for R-repo...
+In-Reply-To: <1332148360.28002.15.camel@ambre.pingoured.fr>
+References: <4F5FB65D.2050006@ufl.edu>
+	<1331673172.26518.12.camel@ambre.pingoured.fr>
+	<4F60AD56.9010308@ufl.edu>
+	<1332148360.28002.15.camel@ambre.pingoured.fr>
+Message-ID: <4F67BB0B.9030301@ufl.edu>
+
+
+
+On 03/19/2012 05:12 AM, Pierre-Yves Chibon wrote:
+
+
+> I think the idea of R-repo is more in line with what you have in
+> mind.  R2spec is a tool to generate spec file and make them as
+> compliant as possible with Fedora packaging guidelines. I think it
+> should remain this way.  R-repo aims at generating and providing RPM
+> in an automatic way. This has pros and cons but it will be up to the
+> user/sysadmin to weight them and decide to use R-repo or not.
+
+I agree.  The critical piece I'd pick out of this is: We would like
+the R-repo to be close to Fedora's guidelines, but we don't
+necessarily expect to get it all the way there.
+
+
+> My vision of R-repo is:
+> - Generate a first layer of spec files automatically (done)
+> - Build them (done)
+> - Fix the one that do not build (so by hand) (started, still far from
+> done)
+> - Perform the updates as they are needed (I have one script but we would
+> need to finish step 3 first)
+
+Do you mean that R-repo is a published tree of specfiles?  I was
+envisioning that R-repo would be a live repository of RPMs, which we
+would (Hopefully, eventually) maintain not too far behind the state of
+CRAN.
+
+Then, in parallel to it, R2spec / R2rpm would be the toolset that
+we're using to maintain and automate that build process.
+
+
+
+> So hopefully we would face the dependency issues only in stage 1 and 3
+> (and eventually 4). So if package X requires something outside R
+> repository, you will detect it at stage 3 and fix it once and for all.
+
+
+"Fix it once and for all".  Here's what I think that means:
+
+1) human discovers the dependency (e.g. "Oh, GDD reqires a package
+    called 'libgd' to run, and 'libgd-devel' to build")
+
+2) Note that human discovery in a table or data file, shipped with
+    (R-repo?  cran2spec?)
+
+3) Make sure that cran2spec can read that table to supply the
+    dependency at specfile generate time.  Then, when
+    GDD-1.2.whatevers-next comes out, we don't have to rediscover it.
+
+Is that how you envision it?
+
+
+
+> I might have an idealistic vision of the reality here, so I went for a
+> simple scheme.
+
+I belive that, to be useful to the community, we have to have a
+toolset that can build "most of" CRAN and friends without "too much"
+effort.
+
+How much is most of?  How much effort is too much?  I'll make up
+numbers, you can shoot them down.
+
+R2spec is at V4.1; so let's say that for version 4.3, "Enough" is all
+the packages that pingou and asr care about installing on their
+machines (and for me that includes ggplot2, so that's a lot...).
+
+Then, "too much" means there shouldn't be any human intervention: That
+means we set it up on a brand clean fedora or RHEL machine, say "GO!"..
+
+% R2trop_plus_rpms ggplot2
+
+and however many hours later we've got our preference list of
+packages, and all their dependencies, as brand new signed RPMs, ready
+to copy into my repo at work so my stats customers can just yum
+install from them.
+
+Then, say, by version 4.5 the target is (again, I'm making this up)
+80% of all of CRAN can be built without human intervention.
+
+if we got to that stage, I think we'd have a very good understanding
+of what the rest of the problems are.  But while I'm fantasizing, I'll
+pretend that 5.0 can build every package except for 20 Problem
+Children.
+
+
+> How does this sound for you?
+
+I think we are talking about very similar things.  It remains to
+determine wether the differences are critical (mostly, to you: you're
+in charge).
+
+I think that every by-hand tweak of a generated specfile is a loss.
+This means that we need to engage the attention of one of the humans
+in charge of the repository every time that package has a revision.
+This adds up to "R-repo is always behind, because pingou has a job all
+day. :)"
+
+I do not say we must have -zero- by-hand fixes.  But I think we should
+work very very hard to avoid them.  So:
+
+
+> Basically, I think what you were saying makes sense and is the most
+> sensible approach. First get auto-generated spec files, then review
+> them by hand to fix build problems.
+
+Yes; but I suggest that the review should result in changes to R2spec,
+so that it generates the correct spec next time, and for everyone.
+
+In my imagining, R2rpm eventually becomes: A process that is smart
+enough to make the RPM correctly most of the time, plus a list of
+known exceptions and tweaks we have to drop in for things we can't
+figure out automatically.  That way anyone could build their own repo.
+
+
+
+> For the dependencies, the two steps approach you were referring to
+> is probably the best approach. First build with the minimum
+> dependencies then rebuild as the other have become available. Now
+> that we have the first round in place and available we can start
+> working on the second run.
+
+I am working on a concrete plan for this; I will do a little testing
+to make sure it can function, and then I will write it out in detail,
+submitted for your consideration.
+
+
+
+
+- Allen S. Rout
+
+

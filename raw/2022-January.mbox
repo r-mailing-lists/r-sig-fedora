@@ -1,0 +1,295 @@
+From drj|m|emon @end|ng |rom gm@||@com  Fri Jan  7 05:58:46 2022
+From: drj|m|emon @end|ng |rom gm@||@com (Jim Lemon)
+Date: Fri, 7 Jan 2022 15:58:46 +1100
+Subject: [R-sig-Fedora] dependencies for building R
+Message-ID: <CA+8X3fU04NZgQRZQMmQOnp4T8zm34kPDzuvJ58CCJooEG=W6gw@mail.gmail.com>
+
+Hi,
+I am once again trying to install the necessary dependencies for
+building R on a new installation of Fedora 35. Is there any easier way
+to do this than running ./configure many times and plugging the holes
+one by one?
+
+Jim
+
+
+From @potrh @end|ng |rom gm@||@com  Fri Jan  7 07:00:07 2022
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Fri, 7 Jan 2022 01:00:07 -0500
+Subject: [R-sig-Fedora] dependencies for building R
+In-Reply-To: <CA+8X3fU04NZgQRZQMmQOnp4T8zm34kPDzuvJ58CCJooEG=W6gw@mail.gmail.com>
+References: <CA+8X3fU04NZgQRZQMmQOnp4T8zm34kPDzuvJ58CCJooEG=W6gw@mail.gmail.com>
+Message-ID: <CACp8Zr+2XVr1QHGvhYJZ9=xwPCHkNE4qV-92tHi4-y3CS4VvLA@mail.gmail.com>
+
+sudo dnf --enablerepo="*-source" builddep R
+
+This will look at the Fedora R source package (from the Fedora source
+repositories, normally disabled) and install all the BuildRequires it
+specifies.
+
+I can't remember off hand if the "builddep" plug-in automatically enables
+the source repos these days, so that bit might be a no-op, but it's not
+harmful.
+
+~spot
+
+P.S. I assume you have a solid reason to build your own, but if you would
+like to see changes to the Fedora R package, my inbox is always open. :)
+
+On Fri, Jan 7, 2022, 12:42 AM Jim Lemon <drjimlemon at gmail.com> wrote:
+
+> Hi,
+> I am once again trying to install the necessary dependencies for
+> building R on a new installation of Fedora 35. Is there any easier way
+> to do this than running ./configure many times and plugging the holes
+> one by one?
+>
+> Jim
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+	[[alternative HTML version deleted]]
+
+
+From drj|m|emon @end|ng |rom gm@||@com  Fri Jan  7 08:30:22 2022
+From: drj|m|emon @end|ng |rom gm@||@com (Jim Lemon)
+Date: Fri, 7 Jan 2022 18:30:22 +1100
+Subject: [R-sig-Fedora] dependencies for building R
+In-Reply-To: <CACp8Zr+2XVr1QHGvhYJZ9=xwPCHkNE4qV-92tHi4-y3CS4VvLA@mail.gmail.com>
+References: <CA+8X3fU04NZgQRZQMmQOnp4T8zm34kPDzuvJ58CCJooEG=W6gw@mail.gmail.com>
+ <CACp8Zr+2XVr1QHGvhYJZ9=xwPCHkNE4qV-92tHi4-y3CS4VvLA@mail.gmail.com>
+Message-ID: <CA+8X3fX3zQwhZVntVvNcsNqwyesGwgpr8jXVF=LgX35EyirYdQ@mail.gmail.com>
+
+Hi Tom,
+As I maintain a few packages on CRAN, The Rules say I should build
+them with an up to the minute version of R. Whenever I have installed
+R from a repo, it always seems to be a few versions behind. I'll let
+you know how it goes. Thanks.
+
+Jim
+
+On Fri, Jan 7, 2022 at 5:00 PM Tom Callaway <spotrh at gmail.com> wrote:
+>
+> sudo dnf --enablerepo="*-source" builddep R
+>
+> This will look at the Fedora R source package (from the Fedora source repositories, normally disabled) and install all the BuildRequires it specifies.
+>
+> I can't remember off hand if the "builddep" plug-in automatically enables the source repos these days, so that bit might be a no-op, but it's not harmful.
+>
+> ~spot
+>
+> P.S. I assume you have a solid reason to build your own, but if you would like to see changes to the Fedora R package, my inbox is always open. :)
+>
+> On Fri, Jan 7, 2022, 12:42 AM Jim Lemon <drjimlemon at gmail.com> wrote:
+>>
+>> Hi,
+>> I am once again trying to install the necessary dependencies for
+>> building R on a new installation of Fedora 35. Is there any easier way
+>> to do this than running ./configure many times and plugging the holes
+>> one by one?
+>>
+>> Jim
+>>
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+From j@m@to@ @end|ng |rom |c@up@pt  Fri Jan  7 13:16:31 2022
+From: j@m@to@ @end|ng |rom |c@up@pt (=?ISO-8859-1?Q?Jos=E9_Ab=EDlio?= Matos)
+Date: Fri, 07 Jan 2022 12:16:31 +0000
+Subject: [R-sig-Fedora] dependencies for building R
+In-Reply-To: <CA+8X3fX3zQwhZVntVvNcsNqwyesGwgpr8jXVF=LgX35EyirYdQ@mail.gmail.com>
+References: <CA+8X3fU04NZgQRZQMmQOnp4T8zm34kPDzuvJ58CCJooEG=W6gw@mail.gmail.com>
+ <CACp8Zr+2XVr1QHGvhYJZ9=xwPCHkNE4qV-92tHi4-y3CS4VvLA@mail.gmail.com>
+ <CA+8X3fX3zQwhZVntVvNcsNqwyesGwgpr8jXVF=LgX35EyirYdQ@mail.gmail.com>
+Message-ID: <3408710.iIbC2pHGDl@griffin>
+
+On Friday, 7 January 2022 07.30.22 WET Jim Lemon wrote:
+> Hi Tom,
+> As I maintain a few packages on CRAN, The Rules say I should build
+> them with an up to the minute version of R. Whenever I have installed
+> R from a repo, it always seems to be a few versions behind. I'll let
+> you know how it goes. Thanks.
+> 
+> Jim
+
+Please take what follows as genuine curiosity, because it is. :-)
+
+Your remark seems strange because in general Tom rebuilds R in one or two 
+weeks after it is released, at least for point releases.
+
+The issue sometimes happens when a new release happens where in some cases the 
+only viable option is to rebuild all the R packages. In that case we need to 
+come with a way to automatically rebuild the packages (because order matters 
+here).
+
+Is this the problem that you are seeing?
+
+Another worthwhile mentioning project is:
+https://copr.fedorainfracloud.org/coprs/iucar/cran/
+
+Best regards,
+-- 
+Jos? Ab?lio
+	[[alternative HTML version deleted]]
+
+
+From n@||m||@n @end|ng |rom c|ub@|r  Fri Jan  7 16:02:23 2022
+From: n@||m||@n @end|ng |rom c|ub@|r (Milan Bouchet-Valat)
+Date: Fri, 07 Jan 2022 16:02:23 +0100
+Subject: [R-sig-Fedora] dependencies for building R
+In-Reply-To: <3408710.iIbC2pHGDl@griffin>
+References: <CA+8X3fU04NZgQRZQMmQOnp4T8zm34kPDzuvJ58CCJooEG=W6gw@mail.gmail.com>
+ <CACp8Zr+2XVr1QHGvhYJZ9=xwPCHkNE4qV-92tHi4-y3CS4VvLA@mail.gmail.com>
+ <CA+8X3fX3zQwhZVntVvNcsNqwyesGwgpr8jXVF=LgX35EyirYdQ@mail.gmail.com>
+ <3408710.iIbC2pHGDl@griffin>
+Message-ID: <b970c15fc28b4b1d0252cb2cd7321a256719e892.camel@club.fr>
+
+Hi,
+
+FWIW, a good solution to check packages on the latest R version (in
+particular the development version) is to upload them to Winbuilder:
+https://win-builder.r-project.org/
+
+(I even seem to remember that CRAN recommends this.)
+
+
+Best
+
+
+Le vendredi 07 janvier 2022 ? 12:16 +0000, Jos? Ab?lio Matos a ?crit?:
+> On Friday, 7 January 2022 07.30.22 WET Jim Lemon wrote:
+> > Hi Tom,
+> > As I maintain a few packages on CRAN, The Rules say I should build
+> > them with an up to the minute version of R. Whenever I have
+> > installed
+> > R from a repo, it always seems to be a few versions behind. I'll
+> > let
+> > you know how it goes. Thanks.
+> > 
+> > Jim
+> 
+> Please take what follows as genuine curiosity, because it is. :-)
+> 
+> Your remark seems strange because in general Tom rebuilds R in one or
+> two 
+> weeks after it is released, at least for point releases.
+> 
+> The issue sometimes happens when a new release happens where in some
+> cases the 
+> only viable option is to rebuild all the R packages. In that case we
+> need to 
+> come with a way to automatically rebuild the packages (because order
+> matters 
+> here).
+> 
+> Is this the problem that you are seeing?
+> 
+> Another worthwhile mentioning project is:
+> https://copr.fedorainfracloud.org/coprs/iucar/cran/
+> 
+> Best regards,
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Fri Jan  7 22:44:38 2022
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Fri, 7 Jan 2022 22:44:38 +0100
+Subject: [R-sig-Fedora] dependencies for building R
+In-Reply-To: <b970c15fc28b4b1d0252cb2cd7321a256719e892.camel@club.fr>
+References: <CA+8X3fU04NZgQRZQMmQOnp4T8zm34kPDzuvJ58CCJooEG=W6gw@mail.gmail.com>
+ <CACp8Zr+2XVr1QHGvhYJZ9=xwPCHkNE4qV-92tHi4-y3CS4VvLA@mail.gmail.com>
+ <CA+8X3fX3zQwhZVntVvNcsNqwyesGwgpr8jXVF=LgX35EyirYdQ@mail.gmail.com>
+ <3408710.iIbC2pHGDl@griffin>
+ <b970c15fc28b4b1d0252cb2cd7321a256719e892.camel@club.fr>
+Message-ID: <CALEXWq2W2B=byU4i6JE3GHABNW9Ct1w=6N5AKQHcZYAW4JKJ8Q@mail.gmail.com>
+
+And nowadays there's also R-hub [1], rocker containers [2] for local
+testing (which, combined with distrobox [3], is very convenient), and
+of course r-actions on GitHub [4] for CI testing.
+
+I?aki
+
+[1] https://r-hub.github.io/rhub/
+[2] https://github.com/rocker-org/rocker
+[3] https://fedoramagazine.org/run-distrobox-on-fedora-linux/
+[4] https://github.com/r-lib/actions/tree/v2-branch/examples
+
+
+On Fri, 7 Jan 2022 at 16:02, Milan Bouchet-Valat <nalimilan at club.fr> wrote:
+>
+> Hi,
+>
+> FWIW, a good solution to check packages on the latest R version (in
+> particular the development version) is to upload them to Winbuilder:
+> https://win-builder.r-project.org/
+>
+> (I even seem to remember that CRAN recommends this.)
+>
+>
+> Best
+>
+>
+> Le vendredi 07 janvier 2022 ? 12:16 +0000, Jos? Ab?lio Matos a ?crit :
+> > On Friday, 7 January 2022 07.30.22 WET Jim Lemon wrote:
+> > > Hi Tom,
+> > > As I maintain a few packages on CRAN, The Rules say I should build
+> > > them with an up to the minute version of R. Whenever I have
+> > > installed
+> > > R from a repo, it always seems to be a few versions behind. I'll
+> > > let
+> > > you know how it goes. Thanks.
+> > >
+> > > Jim
+> >
+> > Please take what follows as genuine curiosity, because it is. :-)
+> >
+> > Your remark seems strange because in general Tom rebuilds R in one or
+> > two
+> > weeks after it is released, at least for point releases.
+> >
+> > The issue sometimes happens when a new release happens where in some
+> > cases the
+> > only viable option is to rebuild all the R packages. In that case we
+> > need to
+> > come with a way to automatically rebuild the packages (because order
+> > matters
+> > here).
+> >
+> > Is this the problem that you are seeing?
+> >
+> > Another worthwhile mentioning project is:
+> > https://copr.fedorainfracloud.org/coprs/iucar/cran/
+> >
+> > Best regards,
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+

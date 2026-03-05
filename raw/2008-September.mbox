@@ -1,0 +1,202 @@
+From plummer at iarc.fr  Tue Sep  2 17:44:34 2008
+From: plummer at iarc.fr (Martyn Plummer)
+Date: Tue, 02 Sep 2008 17:44:34 +0200
+Subject: [R-sig-Fedora] R 2.7.2
+In-Reply-To: <1220026091.3606.44.camel@localhost.localdomain>
+References: <1220026091.3606.44.camel@localhost.localdomain>
+Message-ID: <1220370274.8909.47.camel@seurat.iarc.fr>
+
+Thanks Spot.  The updates are still languishing in pending.  I am
+wondering about ways we can speed up the availability of R on Fedora.
+
+Firstly, isn't there a good case for pushing patch releases (x.y.z with
+z>=1) directly to stable?  Minor releases only contain fixes for serious
+problems.  The developer guidelines are very explicit: 
+
+http://developer.r-project.org/devel-guidelines.txt
+
+Alternatively, can we start the peer review process earlier? The release
+procedures stipulate that binary maintainers of R should start releasing
+binary builds at code freeze (T-7), or even at grand feature freeze for
+major releases (T-28).
+
+http://developer.r-project.org/release-checklist.html
+
+Is there some way we can exploit this window of opportunity? I am happy
+to publish release candidate builds of R via CRAN, working with the
+current Fedora spec file.
+
+Martyn
+
+On Fri, 2008-08-29 at 12:08 -0400, Tom "spot" Callaway wrote:
+> R 2.7.2 is coming! Builds are going for EL-4, EL-5, F-8, F-9, and devel.
+> I'll need to rebuild rpy and push updates, so this won't happen
+> overnight, but this is your official "heads-up".
+> 
+> Thanks,
+> 
+> ~spot
+
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+
+From tcallawa at redhat.com  Tue Sep  2 17:54:07 2008
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Tue, 02 Sep 2008 11:54:07 -0400
+Subject: [R-sig-Fedora] R 2.7.2
+In-Reply-To: <1220370274.8909.47.camel@seurat.iarc.fr>
+References: <1220026091.3606.44.camel@localhost.localdomain>
+	<1220370274.8909.47.camel@seurat.iarc.fr>
+Message-ID: <1220370847.26352.44.camel@localhost.localdomain>
+
+On Tue, 2008-09-02 at 17:44 +0200, Martyn Plummer wrote:
+> Thanks Spot.  The updates are still languishing in pending.  I am
+> wondering about ways we can speed up the availability of R on Fedora.
+> 
+> Firstly, isn't there a good case for pushing patch releases (x.y.z
+> with
+> z>=1) directly to stable?  Minor releases only contain fixes for
+> serious
+> problems.  The developer guidelines are very explicit: 
+
+Yes, in fact, I went ahead and requested that 2.7.2 be pushed directly
+to stable. The hold-up here is directly related to the Fedora
+key-revocation which is in progress. As soon as that clears up, the new
+R bits should go out immediately.
+
+~spot
+
+
+From margherita.mutarelli at gmail.com  Wed Sep 10 13:01:18 2008
+From: margherita.mutarelli at gmail.com (margherita mutarelli)
+Date: Wed, 10 Sep 2008 13:01:18 +0200
+Subject: [R-sig-Fedora] gpg signature for packages
+Message-ID: <5c69690e0809100401y49122786j19e305fe6cb201fb@mail.gmail.com>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20080910/e09cb2a4/attachment.pl>
+
+From marc_schwartz at comcast.net  Wed Sep 10 14:30:00 2008
+From: marc_schwartz at comcast.net (Marc Schwartz)
+Date: Wed, 10 Sep 2008 07:30:00 -0500
+Subject: [R-sig-Fedora] gpg signature for packages
+In-Reply-To: <5c69690e0809100401y49122786j19e305fe6cb201fb@mail.gmail.com>
+References: <5c69690e0809100401y49122786j19e305fe6cb201fb@mail.gmail.com>
+Message-ID: <48C7BDC8.1020302@comcast.net>
+
+on 09/10/2008 06:01 AM margherita mutarelli wrote:
+> Hi all,
+> 
+> I am new to this mailing list and I apologize if my question is naive but I
+> couldn't find help about it on the CRAN site.
+> 
+> I have just manually set a "cran.repo" for yum but I don't know how can I
+> install the gpg key for the packages. Can you please tell me how to do it?
+> By now I just used the  --nogpgcheck and it worked fine.
+> 
+> Thank you in advance,
+> 
+> margherita
+
+There is a README file in the RPM directories for F7. It looks like the
+info there is not replicated for F8 and F9 [yet].
+
+More information here:
+
+  http://cran.r-project.org/bin/linux/redhat/fedora7/i386/ReadMe
+
+and review the 'GPG' section.
+
+HTH,
+
+Marc Schwartz
+
+P.S. to Martyn: With F7 being EOL now, you can probably drop the F7 RPMs.
+
+
+From mcepl at redhat.com  Wed Sep 10 14:08:02 2008
+From: mcepl at redhat.com (=?UTF-8?Q?Mat=C4=9Bj?= Cepl)
+Date: Wed, 10 Sep 2008 14:08:02 +0200
+Subject: [R-sig-Fedora] gpg signature for packages
+In-Reply-To: <5c69690e0809100401y49122786j19e305fe6cb201fb@mail.gmail.com>
+References: <5c69690e0809100401y49122786j19e305fe6cb201fb@mail.gmail.com>
+Message-ID: <1221048482.25211.3.camel@viklef.ceplovi.cz>
+
+margherita mutarelli p??e v St 10. 09. 2008 v 13:01 +0200:
+> I am new to this mailing list and I apologize if my question is naive but I
+> couldn't find help about it on the CRAN site.
+
+There is no such thing as a bad question -- just bad answers. And only
+God and Google know how many naive (or altogether stupid) questions we
+asked while learning about Linux (and I produce some of them even now
+when I don't have an opportunity to blame my Linux innocence). That
+said, I am not sure, that I know the answer -- I haven't used cran.repo
+myself.
+
+> I have just manually set a "cran.repo" for yum but I don't know how can I
+> install the gpg key for the packages. Can you please tell me how to do it?
+> By now I just used the  --nogpgcheck and it worked fine.
+
+grep gpgkey /etc/yum.repos.d/cran.repo
+
+???
+
+
+From plummer at iarc.fr  Wed Sep 10 18:39:09 2008
+From: plummer at iarc.fr (Martyn Plummer)
+Date: Wed, 10 Sep 2008 18:39:09 +0200
+Subject: [R-sig-Fedora] gpg signature for packages
+In-Reply-To: <48C7BDC8.1020302@comcast.net>
+References: <5c69690e0809100401y49122786j19e305fe6cb201fb@mail.gmail.com>
+	<48C7BDC8.1020302@comcast.net>
+Message-ID: <1221064749.3152.10.camel@seurat.iarc.fr>
+
+One difficulty with using the CRAN repository is that you also get R
+directly from Fedora. I am not sure how well the two repositories play
+together, although the good news is that the CRAN RPMs should now be the
+same as the Fedora ones (modulo bug fixes).
+
+On Wed, 2008-09-10 at 07:30 -0500, Marc Schwartz wrote:
+> on 09/10/2008 06:01 AM margherita mutarelli wrote:
+> > Hi all,
+> > 
+> > I am new to this mailing list and I apologize if my question is naive but I
+> > couldn't find help about it on the CRAN site.
+> > 
+> > I have just manually set a "cran.repo" for yum but I don't know how can I
+> > install the gpg key for the packages. Can you please tell me how to do it?
+> > By now I just used the  --nogpgcheck and it worked fine.
+> > 
+> > Thank you in advance,
+> > 
+> > margherita
+> 
+> There is a README file in the RPM directories for F7. It looks like the
+> info there is not replicated for F8 and F9 [yet].
+
+Hmm. OK. I should copy that.
+
+> More information here:
+> 
+>   http://cran.r-project.org/bin/linux/redhat/fedora7/i386/ReadMe
+> 
+> and review the 'GPG' section.
+> 
+> HTH,
+> 
+> Marc Schwartz
+> 
+> P.S. to Martyn: With F7 being EOL now, you can probably drop the F7 RPMs.
+
+I know. But I decided that as long as it was supported by mock, I could
+build it.
+
+M.
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+

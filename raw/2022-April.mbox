@@ -1,0 +1,109 @@
+From tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk  Mon Apr  4 10:17:25 2022
+From: tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk (tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk)
+Date: Mon, 4 Apr 2022 09:17:25 +0100 (BST)
+Subject: [R-sig-Fedora] rstudio-desktop notes
+Message-ID: <217835706.557902.1649060245073@office.mailbox.org>
+
+ I wonder whether it may potentially be worth putting a small note about running rstudio-desktop under Xorg rather than Wayland in the CRAN projects notes [1]? In Fedora 36 Beta under Wayland (and with the Nvidia driver) RStudio quickly becomes sluggish/non-responsive for me. I guess this could improve prior to release but thought I'd flag now in case useful. 
+
+ Tim 
+
+ [1] https://cran.r-project.org/bin/linux/fedora/ 
+	[[alternative HTML version deleted]]
+
+
+From |uc@r @end|ng |rom |edor@project@org  Mon Apr  4 14:43:30 2022
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Mon, 4 Apr 2022 14:43:30 +0200
+Subject: [R-sig-Fedora] rstudio-desktop notes
+In-Reply-To: <217835706.557902.1649060245073@office.mailbox.org>
+References: <217835706.557902.1649060245073@office.mailbox.org>
+Message-ID: <CALEXWq3d78t+-4pKORWYYLytza-QD-yHfp+YKfWf7_GrKH6BHQ@mail.gmail.com>
+
+On Mon, 4 Apr 2022 at 10:18, <tim.taylor at hiddenelephants.co.uk> wrote:
+>
+>  I wonder whether it may potentially be worth putting a small note about running rstudio-desktop under Xorg rather than Wayland in the CRAN projects notes [1]? In Fedora 36 Beta under Wayland (and with the Nvidia driver) RStudio quickly becomes sluggish/non-responsive for me. I guess this could improve prior to release but thought I'd flag now in case useful.
+
+Thanks for the report. Which version? Is this under GNOME or KDE?
+(Maybe other?) There seems to be some GNOME regression that is being
+discussed in the fedora-devel mailing list. It could be related, or it
+could be related to the NVIDIA driver. We ship the rstudio.desktop
+file with "Exec=env QT_QPA_PLATFORM=xcb rstudio %F". So if you launch
+RStudio from your desktop menu, that should help under Wayland, in
+theory. I'll try to test this when I find some time.
+
+I?aki
+
+>
+>  Tim
+>
+>  [1] https://cran.r-project.org/bin/linux/fedora/
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+--
+I?aki ?car
+
+
+From tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk  Mon Apr  4 14:56:28 2022
+From: tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk (tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk)
+Date: Mon, 4 Apr 2022 13:56:28 +0100 (BST)
+Subject: [R-sig-Fedora] rstudio-desktop notes
+In-Reply-To: <CALEXWq3d78t+-4pKORWYYLytza-QD-yHfp+YKfWf7_GrKH6BHQ@mail.gmail.com>
+References: <217835706.557902.1649060245073@office.mailbox.org>
+ <CALEXWq3d78t+-4pKORWYYLytza-QD-yHfp+YKfWf7_GrKH6BHQ@mail.gmail.com>
+Message-ID: <1775267870.597938.1649076988586@office.mailbox.org>
+
+Using Gnome. Details below.
+
+gnome-desktop4.x86_64   42.0-1.fc36
+rstudio.x86_64          2022.02.1+461-1.fc36
+rstudio-desktop.x86_64  2022.02.1+461-1.fc36 
+NVIDIA Driver Version:  510.60.02
+
+I'll keep checking as things update over the next few days and let you know if it resolves itself:
+
+Cheers
+
+Tim
+
+> On 04/04/2022 13:43 I?aki Ucar <iucar at fedoraproject.org> wrote:
+> 
+>  
+> On Mon, 4 Apr 2022 at 10:18, <tim.taylor at hiddenelephants.co.uk> wrote:
+> >
+> >  I wonder whether it may potentially be worth putting a small note about running rstudio-desktop under Xorg rather than Wayland in the CRAN projects notes [1]? In Fedora 36 Beta under Wayland (and with the Nvidia driver) RStudio quickly becomes sluggish/non-responsive for me. I guess this could improve prior to release but thought I'd flag now in case useful.
+> 
+> Thanks for the report. Which version? Is this under GNOME or KDE?
+> (Maybe other?) There seems to be some GNOME regression that is being
+> discussed in the fedora-devel mailing list. It could be related, or it
+> could be related to the NVIDIA driver. We ship the rstudio.desktop
+> file with "Exec=env QT_QPA_PLATFORM=xcb rstudio %F". So if you launch
+> RStudio from your desktop menu, that should help under Wayland, in
+> theory. I'll try to test this when I find some time.
+> 
+> I?aki
+> 
+> >
+> >  Tim
+> >
+> >  [1] https://cran.r-project.org/bin/linux/fedora/
+> >         [[alternative HTML version deleted]]
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> 
+> 
+> 
+> --
+> I?aki ?car
+
+

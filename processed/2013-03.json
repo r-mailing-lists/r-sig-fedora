@@ -1,0 +1,74 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2013-03",
+  "messages": [
+    {
+      "id": "msg-342ad1eb6896",
+      "message_id": "<kivmdi$9sr$1@ger.gmane.org>",
+      "from_name": "Allen S. Rout",
+      "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+      "date": "2013-03-27T16:56:25-04:00",
+      "subject": "[R-sig-Fedora] R 3.0;  want to try again?",
+      "subject_clean": "R 3.0;  want to try again?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "So with a major new version of R coming along, it seems like a\nreasonable point at which to try to pick up the \"Let's make a CRAN repo\nfor the red-hat-like folks!\" task again.\n\nThe last time I tried to download Pierre-Yves' package, I couldn't get\nit to run in RHEL5.8; I went down a rabbit hole trying to make changes\nfor my own use.  Eventually, I simply failed.\n\nI'd love to be able to pick this up, serve my local customers, and have\nthe work actually useful to the larger community...\n\n- Allen S. Rout",
+      "body_snippet": "So with a major new version of R coming along, it seems like a\nreasonable point at which to try to pick up the \"Let's make a CRAN repo\nfor the red-hat-like folks!\" task again.\n\nThe last time I tried t",
+      "thread_id": "thread-342ad1eb6896",
+      "thread_depth": 0,
+      "month": "2013-03"
+    },
+    {
+      "id": "msg-ce980407c6f8",
+      "message_id": "<1657439.TCBOWCmEhY@ulysses>",
+      "from_name": "José Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2013-03-28T20:25:24Z",
+      "subject": "[R-sig-Fedora] R 3.0;  want to try again?",
+      "subject_clean": "R 3.0;  want to try again?",
+      "in_reply_to": "<kivmdi$9sr$1@ger.gmane.org>",
+      "references": [
+        "<kivmdi$9sr$1@ger.gmane.org>"
+      ],
+      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130328/94e8b2fa/attachment.pl>",
+      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130328/94e8b2fa/attachment.pl>",
+      "thread_id": "thread-342ad1eb6896",
+      "thread_depth": 1,
+      "month": "2013-03"
+    },
+    {
+      "id": "msg-66780d62033f",
+      "message_id": "<kj481d$35i$1@ger.gmane.org>",
+      "from_name": "Allen S. Rout",
+      "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+      "date": "2013-03-29T10:21:42-04:00",
+      "subject": "[R-sig-Fedora] R 3.0;  want to try again?",
+      "subject_clean": "R 3.0;  want to try again?",
+      "in_reply_to": "<1657439.TCBOWCmEhY@ulysses>",
+      "references": [
+        "<kivmdi$9sr$1@ger.gmane.org>",
+        "<1657439.TCBOWCmEhY@ulysses>"
+      ],
+      "body_plain": "On 03/28/2013 04:25 PM, Jos? Matos wrote:\n> On Wednesday 27 March 2013 16:56:25 Allen S. Rout wrote:\n>>\n>> So with a major new version of R coming along, it seems like a\n>> reasonable point at which to try to pick up the \"Let's make a CRAN repo\n>> for the red-hat-like folks!\" task again.\n> \n> What road map do you propose?\n> \n> What are the tasks that need to be done?\n> \n\nI'm kind of trying to make things look like a parade, so Pierre-Yves\nfeels like leading it. :)  I've put my oar into this project several\ntimes, but I feel it's clearly his thing.  With that genuflection in\nplace, I'll steam on.\n\nSo previous conversations on this topic are visible at:\n\nhttp://news.gmane.org/gmane.comp.lang.r.fedora\n\nand it was about a year ago that I last got on this horse.  Threads\nunder the titles\n\n\"Trying to use current R2spec on RHEL\"\n\nand\n\n\"Planning for R-repo\"\n\nare, unfortunately, almost exactly as topical now as they were then.\n*sigh*.  I should have kept up.\n\n\nWhat I intend to do next is to try, again, to just download and use the\npackage.  I'm hoping that between my patches last year and newer RHEL,\nlots of stuff will just work.\n\n\nIt's my recollection that the current code base works thus:\n\n1) Calculate a heirarchy of packages:  Level zero doesn't depend on\nanything, level one depends on level zero; and so on, with each new\nlevel depending on things in lower levels.\n\n2) Build successive layers of packages.\n\n3) Once all the packages have been built, it's possible to run CHECKs.\nThe broad set of dependencies for CHECKs is a major pain in the\nposterior, so ignoring it to begin with seems reasonable.\n\nRef:\n\nhttp://thread.gmane.org/gmane.comp.lang.r.devel/21494/focus=21496\n\n\n4) Promote packages that have been CHECKED to a repo.  Should sign, etc.\n\n\nMy biggest knowledge gaps here are related to fedora-land build habits.\n I get scolded by the elect about running RPM work as root, and I get\nthat;  but I have not anywhere found something like a recipe:\n\n\"\nOK, you've got a RHEL box.  In order to get it set up to build stuff\nlike Fedorites prefer, do these things:\n\n+ Install EPEL\n+ conventional working users\n+ magic mock chicken-dance\n+ blah blah that I don't know about.\n\"\n\nIf anyone here watching knows where the primer might be found, I'd love\nto read it.\n\n\n- Allen S. Rout",
+      "body_snippet": "On 03/28/2013 04:25 PM, Jos? Matos wrote:\n> On Wednesday 27 March 2013 16:56:25 Allen S. Rout wrote:\n>>\n>> So with a major new version of R coming along, it seems like a\n>> reasonable point at which t",
+      "thread_id": "thread-342ad1eb6896",
+      "thread_depth": 2,
+      "month": "2013-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-342ad1eb6896",
+      "subject": "R 3.0;  want to try again?",
+      "message_count": 3,
+      "participants": [
+        "Allen S. Rout",
+        "José Matos"
+      ],
+      "started": "2013-03-27T16:56:25-04:00",
+      "last_reply": "2013-03-29T10:21:42-04:00",
+      "root_message_id": "msg-342ad1eb6896"
+    }
+  ]
+}

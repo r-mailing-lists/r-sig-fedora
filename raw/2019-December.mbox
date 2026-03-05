@@ -1,0 +1,136 @@
+From j@y@verhoe| @end|ng |rom no@@@gov  Wed Dec 11 20:29:01 2019
+From: j@y@verhoe| @end|ng |rom no@@@gov (Jay Ver Hoef - NOAA Federal)
+Date: Wed, 11 Dec 2019 19:29:01 -0000
+Subject: [R-sig-Fedora] Problems with large loops in CentOS
+Message-ID: <CA+=omePNR2WuGzDgbojBb6rFDHBVBDbDa7SovckCwBL+0+ASsQ@mail.gmail.com>
+
+I have run into a problem when do loops with lots of elements in CentOS (I
+am a new user after using Ubuntu for many years).  I am attaching two
+scripts, one called
+Looping_Centos_minimal_bug_OK.R
+which runs fine.  I simply repeat a function call in it 15 times.  However,
+if I repeat that function call 16 times, as in this one,
+Looping_Centos_minimal_bug_breaks.R
+I get the error,
+Error: unexpected '}' in:
+"CorMod
+}"
+
+I have a laptop with Ubuntu installed, and everything works fine.  This is
+just my minimal example.  I have many other scripts with loops, and if they
+have too many functions in them, they break in CentOS, while they always
+work in Ubuntu.  I was wondering if anyone else with CentOS or Fedora is
+having a similar issue, and can reproduce my problem.  Thank you.
+
+Jay Ver Hoef
+
+> sessionInfo()
+R version 3.6.1 (2019-07-05)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: CentOS Linux 7 (Core)
+
+Matrix products: default
+BLAS:   /home/xverhoef/R/R-3.6.1/lib/libRblas.so
+LAPACK: /home/xverhoef/R/R-3.6.1/lib/libRlapack.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+
+R Version:
+ platform = x86_64-pc-linux-gnu
+ arch = x86_64
+ os = linux-gnu
+ system = x86_64, linux-gnu
+ status =
+ major = 3
+ minor = 6.1
+ year = 2019
+ month = 07
+ day = 05
+ svn rev = 76782
+ language = R
+ version.string = R version 3.6.1 (2019-07-05)
+ nickname = Action of the Toes
+
+Locale:
+ LC_CTYPE=en_US.UTF-8;LC_NUMERIC=C;LC_TIME=en_US.UTF-
+8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=en_US.UTF-8;LC_MESSAGES=en_US.UTF-
+8;LC_PAPER=en_US.UTF-
+8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.UTF-
+8;LC_IDENTIFICATION=C
+
+Search Path:
+ .GlobalEnv, package:stats, package:graphics, package:grDevices,
+ package:utils, package:datasets, package:methods, Autoloads,
+ package:baseR Version:
+ platform = x86_64-pc-linux-gnu
+ arch = x86_64
+ os = linux-gnu
+ system = x86_64, linux-gnu
+ status =
+ major = 3
+ minor = 6.1
+ year = 2019
+ month = 07
+ day = 05
+ svn rev = 76782
+ language = R
+ version.string = R version 3.6.1 (2019-07-05)
+ nickname = Action of the Toes
+
+Locale:
+ LC_CTYPE=en_US.UTF-8;LC_NUMERIC=C;LC_TIME=en_US.UTF-
+8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=en_US.UTF-8;LC_MESSAGES=en_US.UTF-
+8;LC_PAPER=en_US.UTF-
+8;LC_NAME=C;LC_ADDRESS=C;LC_TELEPHONE=C;LC_MEASUREMENT=en_US.UTF-
+8;LC_IDENTIFICATION=C
+
+Search Path:
+ .GlobalEnv, package:stats, package:graphics, package:grDevices,
+ package:utils, package:datasets, package:methods, Autoloads,
+ package:base
+
+
+
+*************************************************************
+
+
+
+
+
+
+
+
+*Jay M. Ver Hoef, Ph.D.Senior Scientist/StatisticianMarine Mammal
+LaboratoryNOAA-NMFS Alaska Fisheries Science CenterSeattle, WA and
+Fairbanks, AK, USA(907) 347-5552jay.verhoef at noaa.gov <jay.verhoef at noaa.gov>
+ http://sites.google.com/site/jayverhoef/
+<http://sites.google.com/site/jayverhoef/>*
+
+*************************************************************
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20191211/b2e050a2/attachment-0001.html>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Looping_Centos_minimal_bug_OK.R
+Type: application/octet-stream
+Size: 4047 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20191211/b2e050a2/attachment-0002.obj>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Looping_Centos_minimal_bug_breaks.R
+Type: application/octet-stream
+Size: 4200 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20191211/b2e050a2/attachment-0003.obj>
+

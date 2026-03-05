@@ -1,0 +1,424 @@
+From |uc@r @end|ng |rom |edor@project@org  Mon Aug 10 14:24:25 2020
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Mon, 10 Aug 2020 14:24:25 +0200
+Subject: [R-sig-Fedora] Rebuild against FlexiBLAS
+Message-ID: <CALEXWq0MNfEfVho2or2+KY+JnraYq-Q32M13+Xk4yfS-S38ZLg@mail.gmail.com>
+
+Hi,
+
+R has been built against FlexiBLAS in rawhide [1, 2]. These are the R
+packages that need to be rebuilt:
+
+R-ape-0:5.4-2.fc33.x86_64
+R-expm-0:0.999.4-7.fc33.x86_64
+R-gee-0:4.13.20-4.fc33.x86_64
+R-gss-0:2.2.2-3.fc33.x86_64
+R-igraph-0:1.2.5-3.fc33.x86_64
+R-msm-0:1.6.8-5.fc33.x86_64
+R-preprocessCore-0:1.50.0-4.fc33.x86_64
+R-qtl-0:1.46.2-4.fc33.x86_64
+R-quadprog-0:1.5.8-5.fc33.x86_64
+
+Could somebody with provenpackager superpowers bump the release and
+rebuild them, please? Thanks in advance!
+
+[1] https://src.fedoraproject.org/rpms/R/pull-request/5
+[2] https://fedoraproject.org/wiki/Changes/FlexiBLAS_as_BLAS/LAPACK_manager
+
+-- 
+I?aki ?car
+
+
+From @potrh @end|ng |rom gm@||@com  Mon Aug 10 16:05:48 2020
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Mon, 10 Aug 2020 10:05:48 -0400
+Subject: [R-sig-Fedora] Rebuild against FlexiBLAS
+In-Reply-To: <CALEXWq0MNfEfVho2or2+KY+JnraYq-Q32M13+Xk4yfS-S38ZLg@mail.gmail.com>
+References: <CALEXWq0MNfEfVho2or2+KY+JnraYq-Q32M13+Xk4yfS-S38ZLg@mail.gmail.com>
+Message-ID: <CACp8ZrLkXXb=pNdP-KbE9_bX-XQZLFCTjfWi=n6YFpbUtdDdhg@mail.gmail.com>
+
+I'm on it.
+
+Thanks,
+Tom
+
+On Mon, Aug 10, 2020 at 8:24 AM I?aki Ucar <iucar at fedoraproject.org> wrote:
+
+> Hi,
+>
+> R has been built against FlexiBLAS in rawhide [1, 2]. These are the R
+> packages that need to be rebuilt:
+>
+> R-ape-0:5.4-2.fc33.x86_64
+> R-expm-0:0.999.4-7.fc33.x86_64
+> R-gee-0:4.13.20-4.fc33.x86_64
+> R-gss-0:2.2.2-3.fc33.x86_64
+> R-igraph-0:1.2.5-3.fc33.x86_64
+> R-msm-0:1.6.8-5.fc33.x86_64
+> R-preprocessCore-0:1.50.0-4.fc33.x86_64
+> R-qtl-0:1.46.2-4.fc33.x86_64
+> R-quadprog-0:1.5.8-5.fc33.x86_64
+>
+> Could somebody with provenpackager superpowers bump the release and
+> rebuild them, please? Thanks in advance!
+>
+> [1] https://src.fedoraproject.org/rpms/R/pull-request/5
+> [2]
+> https://fedoraproject.org/wiki/Changes/FlexiBLAS_as_BLAS/LAPACK_manager
+>
+> --
+> I?aki ?car
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+	[[alternative HTML version deleted]]
+
+
+From @potrh @end|ng |rom gm@||@com  Mon Aug 10 16:50:31 2020
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Mon, 10 Aug 2020 10:50:31 -0400
+Subject: [R-sig-Fedora] Rebuild against FlexiBLAS
+In-Reply-To: <CACp8ZrLkXXb=pNdP-KbE9_bX-XQZLFCTjfWi=n6YFpbUtdDdhg@mail.gmail.com>
+References: <CALEXWq0MNfEfVho2or2+KY+JnraYq-Q32M13+Xk4yfS-S38ZLg@mail.gmail.com>
+ <CACp8ZrLkXXb=pNdP-KbE9_bX-XQZLFCTjfWi=n6YFpbUtdDdhg@mail.gmail.com>
+Message-ID: <CACp8Zr+P7TVuNBJ1EyS02uxi32znVZXajixGpPsZAJb=UR2t9w@mail.gmail.com>
+
+These should all be finished now.
+
+Thanks,
+Tom
+
+On Mon, Aug 10, 2020 at 10:05 AM Tom Callaway <spotrh at gmail.com> wrote:
+
+> I'm on it.
+>
+> Thanks,
+> Tom
+>
+> On Mon, Aug 10, 2020 at 8:24 AM I?aki Ucar <iucar at fedoraproject.org>
+> wrote:
+>
+>> Hi,
+>>
+>> R has been built against FlexiBLAS in rawhide [1, 2]. These are the R
+>> packages that need to be rebuilt:
+>>
+>> R-ape-0:5.4-2.fc33.x86_64
+>> R-expm-0:0.999.4-7.fc33.x86_64
+>> R-gee-0:4.13.20-4.fc33.x86_64
+>> R-gss-0:2.2.2-3.fc33.x86_64
+>> R-igraph-0:1.2.5-3.fc33.x86_64
+>> R-msm-0:1.6.8-5.fc33.x86_64
+>> R-preprocessCore-0:1.50.0-4.fc33.x86_64
+>> R-qtl-0:1.46.2-4.fc33.x86_64
+>> R-quadprog-0:1.5.8-5.fc33.x86_64
+>>
+>> Could somebody with provenpackager superpowers bump the release and
+>> rebuild them, please? Thanks in advance!
+>>
+>> [1] https://src.fedoraproject.org/rpms/R/pull-request/5
+>> [2]
+>> https://fedoraproject.org/wiki/Changes/FlexiBLAS_as_BLAS/LAPACK_manager
+>>
+>> --
+>> I?aki ?car
+>>
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>
+>
+
+	[[alternative HTML version deleted]]
+
+
+From j@m@to@ @end|ng |rom |c@up@pt  Mon Aug 10 17:04:49 2020
+From: j@m@to@ @end|ng |rom |c@up@pt (=?ISO-8859-1?Q?Jos=E9_Ab=EDlio?= Matos)
+Date: Mon, 10 Aug 2020 16:04:49 +0100
+Subject: [R-sig-Fedora] R 4.0.0 rebuild status
+In-Reply-To: <CAJP_izf5Lkgin5zm_WOvwyDbCWv91axte7C8xiNHtnybmyVwNg@mail.gmail.com>
+References: <CANA0HMYbmGJUw9PYYScjeuHX7ESFESLnRUBaUMHC1iGK4CLFew@mail.gmail.com>
+ <4004305.mogB4TqSGs@myth>
+ <CAJP_izf5Lkgin5zm_WOvwyDbCWv91axte7C8xiNHtnybmyVwNg@mail.gmail.com>
+Message-ID: <2735670.e9J7NaK4W3@myth>
+
+On Monday, 27 July 2020 08.08.58 WEST Elliott Sales de Andrade wrote:
+> I'm not exactly fluent in Haskell, but Jens Petersen has a tool called
+> fbrnch [1], which is able to calculate the build order, and then
+> submit them, and even handles override for non-Rawhide builds. It does
+> need you to handle some of the bootstrap conditions yourself, but with
+> a defined workflow, it might be possible to request that it handle
+> that too.
+
+Jens gave a presentation at NEST and it seems quite interesting in what it 
+does.
+
+FWIW the package is available in copr to install:
+https://copr.fedorainfracloud.org/coprs/petersen/fbrnch/
+
+-- 
+Jos? Ab?lio
+	[[alternative HTML version deleted]]
+
+
+From j@m@to@ @end|ng |rom |c@up@pt  Mon Aug 10 17:16:49 2020
+From: j@m@to@ @end|ng |rom |c@up@pt (=?ISO-8859-1?Q?Jos=E9_Ab=EDlio?= Matos)
+Date: Mon, 10 Aug 2020 16:16:49 +0100
+Subject: [R-sig-Fedora] R2spec woes
+Message-ID: <3002016.5fSG56mABF@myth>
+
+I tried R2spec to create the spec files necessary to have Rcpparmadillo.
+
+I noticed that it has some issues, one example is that it placed some files 
+irrespectively if they were present in the tar or not.
+
+One functionality that I think it would be nice to have would to update a 
+given spec file with the updated dependencies.
+
+What do you think of this?
+
+Regards,
+-- 
+Jos? Ab?lio
+	[[alternative HTML version deleted]]
+
+
+From qu@ntum@@n@|y@t @end|ng |rom gm@||@com  Tue Aug 11 08:35:26 2020
+From: qu@ntum@@n@|y@t @end|ng |rom gm@||@com (Elliott Sales de Andrade)
+Date: Tue, 11 Aug 2020 02:35:26 -0400
+Subject: [R-sig-Fedora] R2spec woes
+In-Reply-To: <3002016.5fSG56mABF@myth>
+References: <3002016.5fSG56mABF@myth>
+Message-ID: <CAJP_ize4hbL5_YBb_FuQZvTNPdtGiZDQzDiomEOAbHS6++b=_Q@mail.gmail.com>
+
+Hi Jos?,
+
+On Mon, 10 Aug 2020 at 11:20, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:
+>
+> I tried R2spec to create the spec files necessary to have Rcpparmadillo.
+>
+> I noticed that it has some issues, one example is that it placed some files
+> irrespectively if they were present in the tar or not.
+>
+
+I would like to update this, but I'd also like to grab Jason's
+preliminary R macros, put them in R-rpm-macros, and just wholesale
+replace most of this boilerplate. I just haven't had much chance to
+really try it out.
+
+> One functionality that I think it would be nice to have would to update a
+> given spec file with the updated dependencies.
+>
+
+This is something I have started on, but it got a bit sidetracked.
+What I needed was a URL to grab previous archives, which Inaki
+provided some time ago. But then R2spec needed the ability to
+substitute macros in URLs for the version, and so I've left it at that
+for a while. I guess I can go back to working on that some time soon.
+
+> What do you think of this?
+>
+> Regards,
+> --
+> Jos? Ab?lio
+
+--
+Elliott
+
+
+From qu@ntum@@n@|y@t @end|ng |rom gm@||@com  Tue Aug 11 08:37:50 2020
+From: qu@ntum@@n@|y@t @end|ng |rom gm@||@com (Elliott Sales de Andrade)
+Date: Tue, 11 Aug 2020 02:37:50 -0400
+Subject: [R-sig-Fedora] R2spec woes
+In-Reply-To: <CAJP_ize4hbL5_YBb_FuQZvTNPdtGiZDQzDiomEOAbHS6++b=_Q@mail.gmail.com>
+References: <3002016.5fSG56mABF@myth>
+ <CAJP_ize4hbL5_YBb_FuQZvTNPdtGiZDQzDiomEOAbHS6++b=_Q@mail.gmail.com>
+Message-ID: <CAJP_izfmDMMwvWgNADqznb706Fv-WjnmFTk7jHEch8gs+YRO4A@mail.gmail.com>
+
+On Tue, 11 Aug 2020 at 02:35, Elliott Sales de Andrade
+<quantum.analyst at gmail.com> wrote:
+>
+> Hi Jos?,
+>
+> On Mon, 10 Aug 2020 at 11:20, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:
+> >
+> > I tried R2spec to create the spec files necessary to have Rcpparmadillo.
+> >
+> > I noticed that it has some issues, one example is that it placed some files
+> > irrespectively if they were present in the tar or not.
+> >
+>
+> I would like to update this, but I'd also like to grab Jason's
+> preliminary R macros, put them in R-rpm-macros, and just wholesale
+> replace most of this boilerplate. I just haven't had much chance to
+> really try it out.
+>
+
+Also, I had some plans to simplify some of the texlive dependencies,
+but I was waiting till after branching so I could do a F34 Change for
+any larger spec rewrites.
+
+> > One functionality that I think it would be nice to have would to update a
+> > given spec file with the updated dependencies.
+> >
+>
+> This is something I have started on, but it got a bit sidetracked.
+> What I needed was a URL to grab previous archives, which Inaki
+> provided some time ago. But then R2spec needed the ability to
+> substitute macros in URLs for the version, and so I've left it at that
+> for a while. I guess I can go back to working on that some time soon.
+>
+> > What do you think of this?
+> >
+> > Regards,
+> > --
+> > Jos? Ab?lio
+>
+> --
+> Elliott
+
+-- 
+Elliott
+
+
+From qu@ntum@@n@|y@t @end|ng |rom gm@||@com  Tue Aug 11 08:46:45 2020
+From: qu@ntum@@n@|y@t @end|ng |rom gm@||@com (Elliott Sales de Andrade)
+Date: Tue, 11 Aug 2020 02:46:45 -0400
+Subject: [R-sig-Fedora] Rebuild against FlexiBLAS
+In-Reply-To: <CALEXWq0MNfEfVho2or2+KY+JnraYq-Q32M13+Xk4yfS-S38ZLg@mail.gmail.com>
+References: <CALEXWq0MNfEfVho2or2+KY+JnraYq-Q32M13+Xk4yfS-S38ZLg@mail.gmail.com>
+Message-ID: <CAJP_izdrGnLNhZHNNQYyLOsv_Lk=ZdM_iSmh1BKg9x9Zvzf5Ww@mail.gmail.com>
+
+Hi I?aki,
+
+On Mon, 10 Aug 2020 at 08:24, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+> Hi,
+>
+> R has been built against FlexiBLAS in rawhide [1, 2]. These are the R
+> packages that need to be rebuilt:
+>
+> ...
+
+I noticed that R-sfsmisc is failing on koschei, and it appears to be
+related to this BLAS change:
+
+https://koschei.fedoraproject.org/build/8692462
+
+Any ideas here?
+
+>
+> Could somebody with provenpackager superpowers bump the release and
+> rebuild them, please? Thanks in advance!
+>
+> [1] https://src.fedoraproject.org/rpms/R/pull-request/5
+> [2] https://fedoraproject.org/wiki/Changes/FlexiBLAS_as_BLAS/LAPACK_manager
+>
+> --
+> I?aki ?car
+>
+
+-- 
+Elliott
+
+
+From |uc@r @end|ng |rom |edor@project@org  Tue Aug 11 11:53:41 2020
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Tue, 11 Aug 2020 11:53:41 +0200
+Subject: [R-sig-Fedora] Rebuild against FlexiBLAS
+In-Reply-To: <CAJP_izdrGnLNhZHNNQYyLOsv_Lk=ZdM_iSmh1BKg9x9Zvzf5Ww@mail.gmail.com>
+References: <CALEXWq0MNfEfVho2or2+KY+JnraYq-Q32M13+Xk4yfS-S38ZLg@mail.gmail.com>
+ <CAJP_izdrGnLNhZHNNQYyLOsv_Lk=ZdM_iSmh1BKg9x9Zvzf5Ww@mail.gmail.com>
+Message-ID: <CALEXWq03BV_128xkBWryeLnVVtVgsAg2yhCevvXAzfz=No8x7Q@mail.gmail.com>
+
+On Tue, 11 Aug 2020 at 08:47, Elliott Sales de Andrade
+<quantum.analyst at gmail.com> wrote:
+>
+> Hi I?aki,
+>
+> On Mon, 10 Aug 2020 at 08:24, I?aki Ucar <iucar at fedoraproject.org> wrote:
+> >
+> > Hi,
+> >
+> > R has been built against FlexiBLAS in rawhide [1, 2]. These are the R
+> > packages that need to be rebuilt:
+> >
+> > ...
+>
+> I noticed that R-sfsmisc is failing on koschei, and it appears to be
+> related to this BLAS change:
+>
+> https://koschei.fedoraproject.org/build/8692462
+>
+> Any ideas here?
+
+It seems like a poorly designed test to me, because it requires a
+narrow number of iterations (27:28) to pass. It appears to fail only
+in i686 (maybe other 32-bit architectures too?) with the new BLAS
+default (which FlexiBLAS sets to openblas-openmp). It would be
+interesting to see how many iterations actually took (less or more
+than 27:28?; I doubt it, but maybe there's some bug in
+openblas-openmp?).
+
+Anyway, these tests were most probably set using the reference BLAS
+implementation, so you can just
+
+export FLEXIBLAS=netlib
+
+in the %check section, which solves the issue in that platform:
+https://koji.fedoraproject.org/koji/taskinfo?taskID=49072314
+
+-- 
+I?aki ?car
+
+
+From j@m@to@ @end|ng |rom |c@up@pt  Wed Aug 12 17:34:02 2020
+From: j@m@to@ @end|ng |rom |c@up@pt (=?ISO-8859-1?Q?Jos=E9_Ab=EDlio?= Matos)
+Date: Wed, 12 Aug 2020 16:34:02 +0100
+Subject: [R-sig-Fedora] R2spec woes
+In-Reply-To: <CAJP_izfmDMMwvWgNADqznb706Fv-WjnmFTk7jHEch8gs+YRO4A@mail.gmail.com>
+References: <3002016.5fSG56mABF@myth>
+ <CAJP_ize4hbL5_YBb_FuQZvTNPdtGiZDQzDiomEOAbHS6++b=_Q@mail.gmail.com>
+ <CAJP_izfmDMMwvWgNADqznb706Fv-WjnmFTk7jHEch8gs+YRO4A@mail.gmail.com>
+Message-ID: <2429329.Lt9SDvczpP@myth>
+
+On Tuesday, 11 August 2020 07.37.50 WEST Elliott Sales de Andrade wrote:
+> Also, I had some plans to simplify some of the texlive dependencies,
+> but I was waiting till after branching so I could do a F34 Change for
+> any larger spec rewrites.
+
+Another issue that R2spec lacks and that the tool that I have developed but 
+never released (it seems) is to declare a package noarch if no compilation is 
+needed.
+
+-- 
+Jos? Ab?lio
+	[[alternative HTML version deleted]]
+
+
+From j@m@to@ @end|ng |rom |c@up@pt  Wed Aug 12 17:40:00 2020
+From: j@m@to@ @end|ng |rom |c@up@pt (=?ISO-8859-1?Q?Jos=E9_Ab=EDlio?= Matos)
+Date: Wed, 12 Aug 2020 16:40:00 +0100
+Subject: [R-sig-Fedora] R2spec woes
+In-Reply-To: <2429329.Lt9SDvczpP@myth>
+References: <3002016.5fSG56mABF@myth>
+ <CAJP_izfmDMMwvWgNADqznb706Fv-WjnmFTk7jHEch8gs+YRO4A@mail.gmail.com>
+ <2429329.Lt9SDvczpP@myth>
+Message-ID: <1734209.atdPhlSkOF@myth>
+
+On Wednesday, 12 August 2020 16.34.02 WEST Jos? Ab?lio Matos wrote:
+> Another issue that R2spec lacks and that the tool that I have developed but
+> never released (it seems) is to declare a package noarch if no compilation
+> is needed.
+
+I take this back, I think that in one case I found a bug. I will confirm it 
+and if so I will report at at the toad or frog (pagure). :-)
+-- 
+Jos? Ab?lio
+
+

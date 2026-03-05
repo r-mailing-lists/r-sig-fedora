@@ -1,0 +1,263 @@
+From tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk  Tue Oct 18 16:54:25 2022
+From: tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk (tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk)
+Date: Tue, 18 Oct 2022 15:54:25 +0100 (BST)
+Subject: [R-sig-Fedora] C diagnostics in rstudio
+In-Reply-To: <553439579.28186.1666104688532@office.mailbox.org>
+References: <553439579.28186.1666104688532@office.mailbox.org>
+Message-ID: <1577501568.28563.1666104865780@office.mailbox.org>
+
+Apologies if this is double posted as I initially sent from an account not registered.
+ 
+I've noticed that diagnostics and completions for C code do not seem to be working within rstudio on f36 (2022.02.4+500-1). Is there something additional required to enable them outside of rstudio itself? Using .rs.setClangDiagnostics(2) within rstudio gives me the following output:
+
+Attemping to load libclang for x86_64-redhat-linux-gnu 
+/usr/libexec/rstudio/bin/rsclang/libclang.so
+(Not Found)
+/usr/lib/libclang.so
+(Not Found)
+/usr/lib/llvm/libclang.so
+(Not Found)
+/usr/lib64/libclang.so
+(Not Found)
+/usr/lib64/llvm/libclang.so
+(Not Found)
+/usr/lib64/llvm13/lib/libclang.so.1
+(Not Found)
+
+For reference in /usr/lib64 I have
+clang
+libclang-cpp.so.14
+libclang.so.14.0.5
+libclang.so.14.0.5
+llvm13
+
+Cheers
+
+Tim
+
+
+From |uc@r @end|ng |rom |edor@project@org  Tue Oct 18 20:10:59 2022
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Tue, 18 Oct 2022 20:10:59 +0200
+Subject: [R-sig-Fedora] C diagnostics in rstudio
+In-Reply-To: <1577501568.28563.1666104865780@office.mailbox.org>
+References: <553439579.28186.1666104688532@office.mailbox.org>
+ <1577501568.28563.1666104865780@office.mailbox.org>
+Message-ID: <CALEXWq3Y=_5rDh9sr45KBJV-xTV+nURkKHkYpDBEOqUe=4i+CA@mail.gmail.com>
+
+On Tue, 18 Oct 2022 at 16:54, <tim.taylor at hiddenelephants.co.uk> wrote:
+>
+> Apologies if this is double posted as I initially sent from an account not registered.
+>
+> I've noticed that diagnostics and completions for C code do not seem to be working within rstudio on f36 (2022.02.4+500-1). Is there something additional required to enable them outside of rstudio itself?
+
+Yes, you need to install clang-devel, both for our build as well as
+for the official build.
+
+In general, this is how you can find which package provides a certain file:
+
+$ dnf repoquery --provides */<file>
+
+where <file>=libclang.so in our case.
+
+I?aki
+
+> Using .rs.setClangDiagnostics(2) within rstudio gives me the following output:
+>
+> Attemping to load libclang for x86_64-redhat-linux-gnu
+> /usr/libexec/rstudio/bin/rsclang/libclang.so
+> (Not Found)
+> /usr/lib/libclang.so
+> (Not Found)
+> /usr/lib/llvm/libclang.so
+> (Not Found)
+> /usr/lib64/libclang.so
+> (Not Found)
+> /usr/lib64/llvm/libclang.so
+> (Not Found)
+> /usr/lib64/llvm13/lib/libclang.so.1
+> (Not Found)
+>
+> For reference in /usr/lib64 I have
+> clang
+> libclang-cpp.so.14
+> libclang.so.14.0.5
+> libclang.so.14.0.5
+> llvm13
+>
+> Cheers
+>
+> Tim
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+
+-- 
+I?aki ?car
+
+
+From tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk  Tue Oct 18 20:24:07 2022
+From: tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk (tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk)
+Date: Tue, 18 Oct 2022 19:24:07 +0100 (BST)
+Subject: [R-sig-Fedora] C diagnostics in rstudio
+In-Reply-To: <CALEXWq3Y=_5rDh9sr45KBJV-xTV+nURkKHkYpDBEOqUe=4i+CA@mail.gmail.com>
+References: <553439579.28186.1666104688532@office.mailbox.org>
+ <1577501568.28563.1666104865780@office.mailbox.org>
+ <CALEXWq3Y=_5rDh9sr45KBJV-xTV+nURkKHkYpDBEOqUe=4i+CA@mail.gmail.com>
+Message-ID: <1973960754.43221.1666117447573@office.mailbox.org>
+
+Great - thank you. Even though it's the same with the official build do you think it's worth a small addendum within https://cran.r-project.org/bin/linux/fedora/#add-ons?
+
+Tim
+
+
+> On 18/10/2022 19:10 BST I?aki Ucar <iucar at fedoraproject.org> wrote:
+> 
+>  
+> On Tue, 18 Oct 2022 at 16:54, <tim.taylor at hiddenelephants.co.uk> wrote:
+> >
+> > Apologies if this is double posted as I initially sent from an account not registered.
+> >
+> > I've noticed that diagnostics and completions for C code do not seem to be working within rstudio on f36 (2022.02.4+500-1). Is there something additional required to enable them outside of rstudio itself?
+> 
+> Yes, you need to install clang-devel, both for our build as well as
+> for the official build.
+> 
+> In general, this is how you can find which package provides a certain file:
+> 
+> $ dnf repoquery --provides */<file>
+> 
+> where <file>=libclang.so in our case.
+> 
+> I?aki
+> 
+> > Using .rs.setClangDiagnostics(2) within rstudio gives me the following output:
+> >
+> > Attemping to load libclang for x86_64-redhat-linux-gnu
+> > /usr/libexec/rstudio/bin/rsclang/libclang.so
+> > (Not Found)
+> > /usr/lib/libclang.so
+> > (Not Found)
+> > /usr/lib/llvm/libclang.so
+> > (Not Found)
+> > /usr/lib64/libclang.so
+> > (Not Found)
+> > /usr/lib64/llvm/libclang.so
+> > (Not Found)
+> > /usr/lib64/llvm13/lib/libclang.so.1
+> > (Not Found)
+> >
+> > For reference in /usr/lib64 I have
+> > clang
+> > libclang-cpp.so.14
+> > libclang.so.14.0.5
+> > libclang.so.14.0.5
+> > llvm13
+> >
+> > Cheers
+> >
+> > Tim
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> 
+> 
+> 
+> -- 
+> I?aki ?car
+
+
+From |uc@r @end|ng |rom |edor@project@org  Tue Oct 18 20:34:30 2022
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Tue, 18 Oct 2022 20:34:30 +0200
+Subject: [R-sig-Fedora] C diagnostics in rstudio
+In-Reply-To: <1973960754.43221.1666117447573@office.mailbox.org>
+References: <553439579.28186.1666104688532@office.mailbox.org>
+ <1577501568.28563.1666104865780@office.mailbox.org>
+ <CALEXWq3Y=_5rDh9sr45KBJV-xTV+nURkKHkYpDBEOqUe=4i+CA@mail.gmail.com>
+ <1973960754.43221.1666117447573@office.mailbox.org>
+Message-ID: <CALEXWq3p8SowovcXwRA34Y8cjajiSzxw3mOMEyBbYbb4XZNu-w@mail.gmail.com>
+
+On Tue, 18 Oct 2022 at 20:24, <tim.taylor at hiddenelephants.co.uk> wrote:
+>
+> Great - thank you. Even though it's the same with the official build do you think it's worth a small addendum within https://cran.r-project.org/bin/linux/fedora/#add-ons?
+
+Or, better, we could add "Recommends: clang-devel" to our build in the
+next release, and in this way it would be pulled automatically by
+default.
+
+I?aki
+
+>
+> Tim
+>
+>
+> > On 18/10/2022 19:10 BST I?aki Ucar <iucar at fedoraproject.org> wrote:
+> >
+> >
+> > On Tue, 18 Oct 2022 at 16:54, <tim.taylor at hiddenelephants.co.uk> wrote:
+> > >
+> > > Apologies if this is double posted as I initially sent from an account not registered.
+> > >
+> > > I've noticed that diagnostics and completions for C code do not seem to be working within rstudio on f36 (2022.02.4+500-1). Is there something additional required to enable them outside of rstudio itself?
+> >
+> > Yes, you need to install clang-devel, both for our build as well as
+> > for the official build.
+> >
+> > In general, this is how you can find which package provides a certain file:
+> >
+> > $ dnf repoquery --provides */<file>
+> >
+> > where <file>=libclang.so in our case.
+> >
+> > I?aki
+> >
+> > > Using .rs.setClangDiagnostics(2) within rstudio gives me the following output:
+> > >
+> > > Attemping to load libclang for x86_64-redhat-linux-gnu
+> > > /usr/libexec/rstudio/bin/rsclang/libclang.so
+> > > (Not Found)
+> > > /usr/lib/libclang.so
+> > > (Not Found)
+> > > /usr/lib/llvm/libclang.so
+> > > (Not Found)
+> > > /usr/lib64/libclang.so
+> > > (Not Found)
+> > > /usr/lib64/llvm/libclang.so
+> > > (Not Found)
+> > > /usr/lib64/llvm13/lib/libclang.so.1
+> > > (Not Found)
+> > >
+> > > For reference in /usr/lib64 I have
+> > > clang
+> > > libclang-cpp.so.14
+> > > libclang.so.14.0.5
+> > > libclang.so.14.0.5
+> > > llvm13
+> > >
+> > > Cheers
+> > >
+> > > Tim
+> > >
+> > > _______________________________________________
+> > > R-SIG-Fedora mailing list
+> > > R-SIG-Fedora at r-project.org
+> > > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+> >
+> >
+> > --
+> > I?aki ?car
+
+
+
+-- 
+I?aki ?car
+
+

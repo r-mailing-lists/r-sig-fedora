@@ -1,0 +1,176 @@
+From kevin.haas at openbi.com  Tue Mar  3 23:55:48 2009
+From: kevin.haas at openbi.com (Haas, Kevin)
+Date: Tue, 3 Mar 2009 17:55:48 -0500
+Subject: [R-sig-Fedora] dotplot() lattice charts return blank image (jpeg,
+	bmp, png) file
+Message-ID: <8997A5618DE60943943276858975E48906BC2641@winxbeus19.exchange.xchg>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090303/907cc499/attachment.pl>
+
+From p.dalgaard at biostat.ku.dk  Wed Mar  4 00:20:16 2009
+From: p.dalgaard at biostat.ku.dk (Peter Dalgaard)
+Date: Wed, 04 Mar 2009 00:20:16 +0100
+Subject: [R-sig-Fedora] dotplot() lattice charts return blank image
+ (jpeg, bmp, png) file
+In-Reply-To: <8997A5618DE60943943276858975E48906BC2641@winxbeus19.exchange.xchg>
+References: <8997A5618DE60943943276858975E48906BC2641@winxbeus19.exchange.xchg>
+Message-ID: <49ADBB30.1040404@biostat.ku.dk>
+
+Haas, Kevin wrote:
+> Thanks in advance for the help.  Trying to run a basic dotplot in lattice from R command line.  When the file is created, in Fedora, it is blank image (jpeg, bmp, png).  Image produces correctly in Windows environment.  Libraries lattice and latticeExtra are loaded.  Code:
+> 
+> -----------------
+> jpeg(file = "/tmp/img/temp31.jpg", width = 768, height=768)
+> xy <- dotplot(1:10)
+> print(xy)
+> dev.off()
+> -----------------
+> 
+> Using plot(1:10) instead of dotplot produces an image file. Also, I can successfully produce an image for dotplot() in pdf like this:
+> 
+> -----------------
+> trellis.device(device = "pdf",file = "/tmp/img/temp31.pdf")
+> xy <- dotplot(1:10)
+> print(xy)
+> dev.off()
+> -----------------
+> 
+> Thanks for any help you can provide.  Fedora version and R Session info is below.
+
+Works for me with
+$ rpm -q R
+R-2.8.1-2.fc9.i386
+
+(An obscure bug with the Cairo device was fixed between -1 and -2, not 
+sure whether that might affect jpeg. This, BTW, also showed that it 
+matters whether you install from RPM or build from source. So don't 
+forget to tell.)
+
+
+> 
+> Kevin
+> 
+> -----------------
+> [root at domU-12-31-39-00-58-82 /]# uname -r
+> 2.6.21.7-2.fc8xen
+> 
+> -----------------
+>> sessionInfo()
+> R version 2.8.0 (2008-10-20)
+> i686-redhat-linux-gnu
+> 
+> locale:
+> C
+> 
+> attached base packages:
+> [1] grid      stats     graphics  grDevices utils     datasets  methods
+> [8] base
+> 
+> other attached packages:
+> [1] latticeExtra_0.5-4 RColorBrewer_1.0-2 lattice_0.17-20
+> 
+> 	[[alternative HTML version deleted]]
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+-- 
+    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B
+   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K
+  (*) \(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918
+~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907
+
+
+From kevin.haas at openbi.com  Wed Mar  4 00:46:56 2009
+From: kevin.haas at openbi.com (Haas, Kevin)
+Date: Tue, 3 Mar 2009 18:46:56 -0500
+Subject: [R-sig-Fedora] dotplot() lattice charts return blank image
+ (jpeg, bmp, png) file
+In-Reply-To: <49ADBB30.1040404@biostat.ku.dk>
+Message-ID: <8997A5618DE60943943276858975E48906BC265E@winxbeus19.exchange.xchg>
+
+Thanks, Peter.  Was installed from rpm:
+
+rpm -i R-2.8.0-1.fc8.i386.rpm
+
+
+-----Original Message-----
+From: Peter Dalgaard [mailto:p.dalgaard at biostat.ku.dk]
+Sent: Tuesday, March 03, 2009 5:20 PM
+To: Haas, Kevin
+Cc: r-sig-fedora at r-project.org
+Subject: Re: [R-sig-Fedora] dotplot() lattice charts return blank image (jpeg, bmp, png) file
+
+Haas, Kevin wrote:
+> Thanks in advance for the help.  Trying to run a basic dotplot in lattice from R command line.  When the file is created, in Fedora, it is blank image (jpeg, bmp, png).  Image produces correctly in Windows environment.  Libraries lattice and latticeExtra are loaded.  Code:
+>
+> -----------------
+> jpeg(file = "/tmp/img/temp31.jpg", width = 768, height=768)
+> xy <- dotplot(1:10)
+> print(xy)
+> dev.off()
+> -----------------
+>
+> Using plot(1:10) instead of dotplot produces an image file. Also, I can successfully produce an image for dotplot() in pdf like this:
+>
+> -----------------
+> trellis.device(device = "pdf",file = "/tmp/img/temp31.pdf")
+> xy <- dotplot(1:10)
+> print(xy)
+> dev.off()
+> -----------------
+>
+> Thanks for any help you can provide.  Fedora version and R Session info is below.
+
+Works for me with
+$ rpm -q R
+R-2.8.1-2.fc9.i386
+
+(An obscure bug with the Cairo device was fixed between -1 and -2, not
+sure whether that might affect jpeg. This, BTW, also showed that it
+matters whether you install from RPM or build from source. So don't
+forget to tell.)
+
+
+>
+> Kevin
+>
+> -----------------
+> [root at domU-12-31-39-00-58-82 /]# uname -r
+> 2.6.21.7-2.fc8xen
+>
+> -----------------
+>> sessionInfo()
+> R version 2.8.0 (2008-10-20)
+> i686-redhat-linux-gnu
+>
+> locale:
+> C
+>
+> attached base packages:
+> [1] grid      stats     graphics  grDevices utils     datasets  methods
+> [8] base
+>
+> other attached packages:
+> [1] latticeExtra_0.5-4 RColorBrewer_1.0-2 lattice_0.17-20
+>
+>       [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+--
+    O__  ---- Peter Dalgaard             ?ster Farimagsgade 5, Entr.B
+   c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K
+  (*) \(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918
+~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907
+
+

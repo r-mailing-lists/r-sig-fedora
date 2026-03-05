@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2025-06",
+  "messages": [
+    {
+      "id": "msg-d5fc03c0d982",
+      "message_id": "<5BF15D26-208B-4F54-AD04-810726D6F492@hiddenelephants.co.uk>",
+      "from_name": "Tim Taylor",
+      "from_email_hash": "e3071ae8257bda4085d8999a9801b324cc930f4864ac0aec1c44601958781446",
+      "date": "2025-06-19T13:13:50+01:00",
+      "subject": "[R-sig-Fedora] Copr for rdevel",
+      "subject_clean": "Copr for rdevel",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Not a request to implement but an enquiry as to feasibility. Would it be feasible to have a copr repo that tracks rdevel and updates dailyish (perhaps more frequently if appropriate)?\n\nIf so, and before I add it to my list of things I probably won?t get to, are there any particular gotchas/snags to be aware of?\n\nCheers\n\nTim",
+      "body_snippet": "Not a request to implement but an enquiry as to feasibility. Would it be feasible to have a copr repo that tracks rdevel and updates dailyish (perhaps more frequently if appropriate)?\n\nIf so, and befo",
+      "thread_id": "thread-d5fc03c0d982",
+      "thread_depth": 0,
+      "month": "2025-06"
+    },
+    {
+      "id": "msg-b32a8404668e",
+      "message_id": "<CALEXWq2oyKAcdWay0-mQCN=pC=bXmDT+RrpNKYOMU0HyD-8u1g@mail.gmail.com>",
+      "from_name": "Iñaki Ucar",
+      "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
+      "date": "2025-06-19T14:28:11+02:00",
+      "subject": "[R-sig-Fedora] Copr for rdevel",
+      "subject_clean": "Copr for rdevel",
+      "in_reply_to": "<5BF15D26-208B-4F54-AD04-810726D6F492@hiddenelephants.co.uk>",
+      "references": [
+        "<5BF15D26-208B-4F54-AD04-810726D6F492@hiddenelephants.co.uk>"
+      ],
+      "body_plain": "It should be easy, yes, because I have everything pretty much automated\nnowadays. The only issue would be to make this parallel-installable. Where\nand how to deal with name conflicts for the executables, headers and\nlibraries.\n\nI?aki\n\nOn Thu, 19 Jun 2025 at 14:14, Tim Taylor <tim.taylor at hiddenelephants.co.uk>\nwrote:\n\n> Not a request to implement but an enquiry as to feasibility. Would it be\n> feasible to have a copr repo that tracks rdevel and updates dailyish\n> (perhaps more frequently if appropriate)?\n>\n> If so, and before I add it to my list of things I probably won?t get to,\n> are there any particular gotchas/snags to be aware of?\n>\n> Cheers\n>\n> Tim\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n>\n\n-- \nI?aki ?car\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "It should be easy, yes, because I have everything pretty much automated\nnowadays. The only issue would be to make this parallel-installable. Where\nand how to deal with name conflicts for the executabl",
+      "thread_id": "thread-d5fc03c0d982",
+      "thread_depth": 1,
+      "month": "2025-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-d5fc03c0d982",
+      "subject": "Copr for rdevel",
+      "message_count": 2,
+      "participants": [
+        "Iñaki Ucar",
+        "Tim Taylor"
+      ],
+      "started": "2025-06-19T13:13:50+01:00",
+      "last_reply": "2025-06-19T14:28:11+02:00",
+      "root_message_id": "msg-d5fc03c0d982"
+    }
+  ]
+}

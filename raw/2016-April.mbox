@@ -1,0 +1,468 @@
+From cireyapmin at gmail.com  Wed Apr 20 15:56:40 2016
+From: cireyapmin at gmail.com (virgo)
+Date: Wed, 20 Apr 2016 14:56:40 +0100
+Subject: [R-sig-Fedora] Cannot Run On The Command Line
+Message-ID: <20160420145640.3017f62d@virgo>
+
+$ R
+/usr/bin/R: line 238: /usr/lib64/R/etc/ldpaths: Permission denied
+
+$ rpm -q R
+R-3.2.3-2.fc23.x86_64
+
+That /usr/bin/R#L238 is:
+. "${R_HOME}/etc${R_ARCH}/ldpaths"
+
+I noticed the error began bursting shortly after I ran dnf update.
+An excerpt from dnf's transaction logs:
+$ dnf history info <ID>
+Upgraded setroubleshoot-3.3.5-2.fc23.x86_64         @updates
+Upgrade                 3.3.5-3.fc23.x86_64         @updates
+Upgraded setroubleshoot-server-3.3.5-2.fc23.x86_64  @updates
+Upgrade                        3.3.5-3.fc23.x86_64  @updates
+
+The missing part in the above logs is about a kernel update. May
+the_"Permission denied"_ error be related to SELinux ? Here're the
+contexts for R and ldpaths:
+$ ls -lhZ /usr/bin/R /usr/lib64/R/etc/ldpaths
+system_u:object_r:bin_t:s0     8.6K /usr/bin/R
+unconfined_u:object_r:lib_t:s0  574 /usr/lib64/R/etc/ldpaths
+
+Something weird is that RStudio keeps running as it used to do earlier
+when R on the command line was still _allowed_ to run. The root's
+shell gives no error, too.
+# R --version
+R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
+
+The only R-related environment variable that is set is R_LIBS.
+
+I'd appreciate any help on this one.
+
+
+From cireyapmin at gmail.com  Thu Apr 21 08:48:41 2016
+From: cireyapmin at gmail.com (virgo)
+Date: Thu, 21 Apr 2016 07:48:41 +0100
+Subject: [R-sig-Fedora] Cannot Run On The Command Line
+In-Reply-To: <010001543570add7-7f2eeda2-4571-4cc5-bb15-a340cd5144a0-000000@email.amazonses.com>
+References: <20160420145640.3017f62d@virgo>
+	<010001543570add7-7f2eeda2-4571-4cc5-bb15-a340cd5144a0-000000@email.amazonses.com>
+Message-ID: <20160421074841.166d109c@gmail.com>
+
+On Wed, 20 Apr 2016 20:50:57 +0000
+"Ellen K" <keyes at pushyes.xyz> wrote:
+
+> From: "Ellen K" <keyes at pushyes.xyz>
+> To: cireyapmin at gmail.com
+> Subject: RE: [R-sig-Fedora] Cannot Run On The Command Line
+> Date: Wed, 20 Apr 2016 20:50:57 +0000
+> X-Mailer: iPad Mail (12H143)
+> 
+> Hi virgo,
+> 
+> Thank you for your interest in the property listed for rent. You were
+> the second to contact from the ad. The first prospective renter no
+> longer had to move because of his home situation. So we give the
+> opportunity to you.  We are now ready to rent with flexible terms and
+> just completed all new renovations. We will work with you on move in
+> date, lease security deposit and length.
+> 
+> I know you need the precise address of the property but we do want
+> not to divulge the address before you are qualified. We have had a
+> string of break-ins, squatters and thefts at our other properties. We
+> want to prevent that with this property due to the renovations that
+> have cost plenty of money. You'll be the first to move in with the
+> renovations.
+> 
+> All utilities are priced into the lease along with garage parking
+> spaces. The appliances in the kitchen and laundry room were just
+> installed. You have the option to choose your paint color and
+> flooring before your arrival
+> 
+> If you want us to schedule you for a tour, then please visit the link
+> below and get your report. We use this site since it's it gives you 3
+> scores. All you need to do is fill out the form and you get your
+> report We are not concerned with any negative report items, it's more
+> of a formality to ensure you have rental history.  You can get your
+> report byhttp://creditlink-4.info/78a69d97893d47d6423c3e687728c0ea
+> 
+> Remember, print out the report and bring it to the tour.. We'll also
+> waive your security deposit if we see that your rating is above 600+.
+> 
+> Let me know when you have an updated version of your report. Then
+> I'll schedule you for a walk through.
+> 
+> See you soon,
+> Ellen
+
+Hi Ellen,
+Yes, I may be on the wrong list, could you please give a pointer to the
+right one?
+By the way, I've looked further for the culprit and it turned
+out that SELinux had nothing to do with the error. It rather occurs
+after a Java Development Kit update followed by 
+$ sudo R CMD javareconf
+
+The JDK is the Oracle's.
+$ java -version
+java version "1.8.0_92"
+Java(TM) SE Runtime Environment (build 1.8.0_92-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.92-b14, mixed mode)
+
+Maybe I should take this to Fedora's mailing lists, but so far only R
+is having trouble and I thought here would be the right place to seek
+for some help.
+
+
+From plummerm at iarc.fr  Thu Apr 21 10:23:32 2016
+From: plummerm at iarc.fr (Martyn Plummer)
+Date: Thu, 21 Apr 2016 08:23:32 +0000
+Subject: [R-sig-Fedora] Cannot Run On The Command Line
+In-Reply-To: <20160421074841.166d109c@gmail.com>
+References: <20160420145640.3017f62d@virgo>
+	<010001543570add7-7f2eeda2-4571-4cc5-bb15-a340cd5144a0-000000@email.amazonses.com>
+	<20160421074841.166d109c@gmail.com>
+Message-ID: <1461227011.32152.150.camel@iarc.fr>
+
+Virgo,
+
+That message from "Ellen" is obviously spam and most likely a phishing
+attempt. As list administrator there is nothing I can do about it since
+they are not subscribed under that email address.
+
+Anyway, to address your question I am on FC23 and have no problem with
+the java JDK available from the Fedora repository (Current version
+1.8.0_77). I suggest you use that and not the Oracle one.
+
+Martyn
+
+On Thu, 2016-04-21 at 07:48 +0100, virgo wrote:
+> On Wed, 20 Apr 2016 20:50:57 +0000
+> "Ellen K" <keyes at pushyes.xyz> wrote:
+
+<spam deleted>
+
+> Hi Ellen,
+> Yes, I may be on the wrong list, could you please give a pointer to
+> the
+> right one?
+> By the way, I've looked further for the culprit and it turned
+> out that SELinux had nothing to do with the error. It rather occurs
+> after a Java Development Kit update followed by?
+> $ sudo R CMD javareconf
+> 
+> The JDK is the Oracle's.
+> $ java -version
+> java version "1.8.0_92"
+> Java(TM) SE Runtime Environment (build 1.8.0_92-b14)
+> Java HotSpot(TM) 64-Bit Server VM (build 25.92-b14, mixed mode)
+> 
+> Maybe I should take this to Fedora's mailing lists, but so far only R
+> is having trouble and I thought here would be the right place to seek
+> for some help.
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora-----------------------------------------------------------------------
+This message and its attachments are strictly confidenti...{{dropped:8}}
+
+
+From cireyapmin at gmail.com  Thu Apr 21 11:46:26 2016
+From: cireyapmin at gmail.com (virgo)
+Date: Thu, 21 Apr 2016 10:46:26 +0100
+Subject: [R-sig-Fedora] Cannot Run On The Command Line
+In-Reply-To: <1461227011.32152.150.camel@iarc.fr>
+References: <20160420145640.3017f62d@virgo>
+	<010001543570add7-7f2eeda2-4571-4cc5-bb15-a340cd5144a0-000000@email.amazonses.com>
+	<20160421074841.166d109c@gmail.com>
+	<1461227011.32152.150.camel@iarc.fr>
+Message-ID: <20160421104626.0dc25a2b@virgo>
+
+On Thu, 21 Apr 2016 08:23:32 +0000
+Martyn Plummer <plummerm at iarc.fr> wrote:
+
+> From: Martyn Plummer <plummerm at iarc.fr>
+> To: "cireyapmin at gmail.com" <cireyapmin at gmail.com>,
+> "r-sig-fedora at r-project.org" <r-sig-fedora at r-project.org> Subject:
+> Re: [R-sig-Fedora] Cannot Run On The Command Line Date: Thu, 21 Apr
+> 2016 08:23:32 +0000
+> 
+> Virgo,
+> 
+> That message from "Ellen" is obviously spam and most likely a phishing
+> attempt. As list administrator there is nothing I can do about it
+> since they are not subscribed under that email address.
+Thanks Martyn!
+I hesitated to ignore it in case "Ellen K" (see
+<https://en.wikipedia.org/wiki/Ellen_K>) were hilariously mocking my
+message be addressed at the wrong place.
+
+> Anyway, to address your question I am on FC23 and have no problem with
+> the java JDK available from the Fedora repository (Current version
+> 1.8.0_77). I suggest you use that and not the Oracle one.
+So, I just tried to switch back to OpenJDK for the sake of testing, at
+no avail.
+
+# alternatives --config java
+
+There are 2 programs which provide 'java'.
+
+  Selection    Command
+-----------------------------------------------
+*  1           /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.77-1.b03.fc23.x86_64/jre/bin/java
+ + 2           /usr/java/jdk1.8.0_92/jre/bin/java
+
+Enter to keep the current selection[+], or type selection number: 1
+
+
+# alternatives --config javac 
+
+There are 2 programs which provide 'javac'.
+
+  Selection    Command
+-----------------------------------------------
+ + 1           /usr/java/jdk1.8.0_92/bin/javac
+*  2           /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.77-1.b03.fc23.x86_64/bin/javac
+
+Enter to keep the current selection[+], or type selection number: 2
+
+
+# java -version
+openjdk version "1.8.0_77"
+OpenJDK Runtime Environment (build 1.8.0_77-b03)
+OpenJDK 64-Bit Server VM (build 25.77-b03, mixed mode)
+
+# printf "%s\n" "$JAVA" "$JAVA_HOME" "$JAVAC" "$JAVAH" "$JAR"
+/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.77-1.b03.fc23.x86_64/bin/java
+/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.77-1.b03.fc23.x86_64
+/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.77-1.b03.fc23.x86_64/bin/javac
+/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.77-1.b03.fc23.x86_64/bin/javah
+/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.77-1.b03.fc23.x86_64/bin/jar
+
+# R CMD javareconf
+...
+JAVA_HOME        : /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.77-1.b03.fc23.x86_64
+Java library path: $(JAVA_HOME)/jre/lib/amd64/server
+JNI cpp flags    : -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux
+JNI linker flags : -L$(JAVA_HOME)/jre/lib/amd64/server -ljvm
+Updating Java configuration in /usr/lib64/R
+Done.
+
+# R --quiet
+>
+
+$ java -version
+openjdk version "1.8.0_77"
+OpenJDK Runtime Environment (build 1.8.0_77-b03)
+OpenJDK 64-Bit Server VM (build 25.77-b03, mixed mode)
+
+$ R --quiet
+/usr/bin/R: line 238: /usr/lib64/R/etc/ldpaths: Permission denied
+
+The JDK is not the culprit here, and I'm at lost right now since I
+can't see where else to try nailing down the error. What kinf of logs
+should I provide to make the issue reproducible?
+
+
+> Martyn
+> 
+> On Thu, 2016-04-21 at 07:48 +0100, virgo wrote:
+> > On Wed, 20 Apr 2016 20:50:57 +0000
+> > "Ellen K" <keyes at pushyes.xyz> wrote:  
+> 
+> <spam deleted>
+> 
+> > Hi Ellen,
+> > Yes, I may be on the wrong list, could you please give a pointer to
+> > the
+> > right one?
+> > By the way, I've looked further for the culprit and it turned
+> > out that SELinux had nothing to do with the error. It rather occurs
+> > after a Java Development Kit update followed by?
+> > $ sudo R CMD javareconf
+> > 
+> > The JDK is the Oracle's.
+> > $ java -version
+> > java version "1.8.0_92"
+> > Java(TM) SE Runtime Environment (build 1.8.0_92-b14)
+> > Java HotSpot(TM) 64-Bit Server VM (build 25.92-b14, mixed mode)
+> > 
+> > Maybe I should take this to Fedora's mailing lists, but so far only
+> > R is having trouble and I thought here would be the right place to
+> > seek for some help.
+
+
+From cireyapmin at gmail.com  Thu Apr 21 12:17:42 2016
+From: cireyapmin at gmail.com (virgo)
+Date: Thu, 21 Apr 2016 11:17:42 +0100
+Subject: [R-sig-Fedora] Cannot Run On The Command Line
+In-Reply-To: <1461227011.32152.150.camel@iarc.fr>
+References: <20160420145640.3017f62d@virgo>
+	<010001543570add7-7f2eeda2-4571-4cc5-bb15-a340cd5144a0-000000@email.amazonses.com>
+	<20160421074841.166d109c@gmail.com>
+	<1461227011.32152.150.camel@iarc.fr>
+Message-ID: <20160421111742.57e7752a@virgo>
+
+On Thu, 21 Apr 2016 08:23:32 +0000
+Martyn Plummer <plummerm at iarc.fr> wrote:
+
+> From: Martyn Plummer <plummerm at iarc.fr>
+> To: "cireyapmin at gmail.com" <cireyapmin at gmail.com>,
+> "r-sig-fedora at r-project.org" <r-sig-fedora at r-project.org> Subject:
+> Re: [R-sig-Fedora] Cannot Run On The Command Line Date: Thu, 21 Apr
+> 2016 08:23:32 +0000
+> 
+> Anyway, to address your question I am on FC23 and have no problem with
+> the java JDK available from the Fedora repository (Current version
+> 1.8.0_77). I suggest you use that and not the Oracle one.
+> 
+> Martyn
+There isn't any issue anymore, the error was related to lack of
+permissions.
+
+# stat /usr/lib64/R/etc/ldpaths
+  File: ?/usr/lib64/R/etc/ldpaths?
+  Size: 611       	Blocks: 8          IO Block: 4096   regular
+file Device: fd00h/64768d	Inode: 13762870    Links: 1
+Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+Context: unconfined_u:object_r:lib_t:s0
+...
+
+# chmod go+r /usr/lib64/R/etc/ldpaths
+
+$ R --quiet
+>
+
+I don't know how and why the root's group and others lost read access to
+that ldpaths file after R CMD javareconf-iguring, but at least the R
+session is back and that is enough for me.
+
+Sorry for the noise, if any.
+
+
+From cireyapmin at gmail.com  Sat Apr 23 20:11:42 2016
+From: cireyapmin at gmail.com (virgo)
+Date: Sat, 23 Apr 2016 19:11:42 +0100
+Subject: [R-sig-Fedora] Cannot Run On The Command Line
+In-Reply-To: <20160421111742.57e7752a@virgo>
+References: <20160420145640.3017f62d@virgo>
+	<010001543570add7-7f2eeda2-4571-4cc5-bb15-a340cd5144a0-000000@email.amazonses.com>
+	<20160421074841.166d109c@gmail.com>
+	<1461227011.32152.150.camel@iarc.fr>
+	<20160421111742.57e7752a@virgo>
+Message-ID: <20160423191142.317b3929@virgo>
+
+On Thu, 21 Apr 2016 11:17:42 +0100
+virgo <cireyapmin at gmail.com> wrote:
+
+> On Thu, 21 Apr 2016 08:23:32 +0000
+> Martyn Plummer <plummerm at iarc.fr> wrote:
+> 
+> > From: Martyn Plummer <plummerm at iarc.fr>
+> > To: "cireyapmin at gmail.com" <cireyapmin at gmail.com>,
+> > "r-sig-fedora at r-project.org" <r-sig-fedora at r-project.org> Subject:
+> > Re: [R-sig-Fedora] Cannot Run On The Command Line Date: Thu, 21 Apr
+> > 2016 08:23:32 +0000
+> > 
+> > Anyway, to address your question I am on FC23 and have no problem
+> > with the java JDK available from the Fedora repository (Current
+> > version 1.8.0_77). I suggest you use that and not the Oracle one.
+> > 
+> > Martyn  
+> There isn't any issue anymore, the error was related to lack of
+> permissions.
+> 
+> # stat /usr/lib64/R/etc/ldpaths
+>   File: ?/usr/lib64/R/etc/ldpaths?
+>   Size: 611       	Blocks: 8          IO Block: 4096   regular
+> file Device: fd00h/64768d	Inode: 13762870    Links: 1
+> Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/
+> root) Context: unconfined_u:object_r:lib_t:s0
+> ...
+> 
+> # chmod go+r /usr/lib64/R/etc/ldpaths
+> 
+> $ R --quiet
+> >  
+> 
+> I don't know how and why the root's group and others lost read access
+> to that ldpaths file after R CMD javareconf-iguring, 
+As one could expect even without reading the sources of 'R CMD
+javareconf', the script is modifying the permissions.
+
+$ R --version
+R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+# stat /usr/lib64/R/etc/ldpaths
+...
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+...
+
+# inotifywait --monitor --timefmt '%s' --format '%w %T %e' \
+--outfile what-s_happening /usr/lib64/R/etc/ldpaths & 
+
+# R CMD javareconf
+
+# stat /usr/lib64/R/etc/ldpaths
+...
+Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+...
+
+# cat what-s_happening 
+/usr/lib64/R/etc/ldpaths 1461430370 OPEN
+/usr/lib64/R/etc/ldpaths 1461430370 ACCESS
+/usr/lib64/R/etc/ldpaths 1461430370 CLOSE_NOWRITE,CLOSE
+/usr/lib64/R/etc/ldpaths 1461430370 OPEN
+/usr/lib64/R/etc/ldpaths 1461430370 ACCESS
+/usr/lib64/R/etc/ldpaths 1461430370 CLOSE_NOWRITE,CLOSE
+/usr/lib64/R/etc/ldpaths 1461430372 OPEN
+/usr/lib64/R/etc/ldpaths 1461430372 ACCESS
+/usr/lib64/R/etc/ldpaths 1461430372 CLOSE_NOWRITE,CLOSE
+/usr/lib64/R/etc/ldpaths 1461430372 OPEN
+/usr/lib64/R/etc/ldpaths 1461430372 ACCESS
+/usr/lib64/R/etc/ldpaths 1461430372 CLOSE_NOWRITE,CLOSE
+/usr/lib64/R/etc/ldpaths 1461430372 OPEN
+/usr/lib64/R/etc/ldpaths 1461430372 ACCESS
+/usr/lib64/R/etc/ldpaths 1461430372 CLOSE_NOWRITE,CLOSE
+/usr/lib64/R/etc/ldpaths 1461430372 OPEN
+/usr/lib64/R/etc/ldpaths 1461430372 ACCESS
+/usr/lib64/R/etc/ldpaths 1461430372 CLOSE_NOWRITE,CLOSE
+/usr/lib64/R/etc/ldpaths 1461430372 ATTRIB
+/usr/lib64/R/etc/ldpaths 1461430372 DELETE_SELF
+
+?man inotifywait? describes the ?ATTRIB? and ?DELETE_SELF? events above
+this way:
+?attrib    The  metadata  of  a  watched  file  or a file within a
+watched directory was modified.  This includes timestamps, file
+permissions, extended attributes etc.?
+
+?delete_self    A watched file or directory was deleted. After this
+event the file or directory is no longer being watched.  Note that
+this  event can occur even if it is not explicitly being listened for.?
+
+So, I looked at what R-3.2.3/src/scripts/javareconf.in is doing and
+the code shows it's interfering with the umask. Indeed, between the
+lines #400 and #413, a loop is first sed-ing, and shortly after mv-ing
+on files including the above /usr/lib64/R/etc/ldpaths. The local umask
+is 0077, so that mv operation can't fail to change the access attributes
+of the targeted files, from readability for anyone to root-only
+readable. Some questions arise from that :
+
+- What if the sed looked like sed --in-place? That would not silently
+  change the users' umask as far as I can tell.
+
+- If sed-ing in-place isn't an option, wouldn't be worth of it to
+  consider other ways achieving similar goals than those of L400-L413
+  without meddling with access attributes?
+
+- If this is an issue that should be solved, is this place the right
+  place to talk/write about it?
+
+> but at least the
+> R session is back and that is enough for me.
+> 
+> Sorry for the noise, if any.
+
+

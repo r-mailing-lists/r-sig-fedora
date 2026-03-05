@@ -1,0 +1,39 @@
+From j@m@to@ @ending from fc@up@pt  Wed Aug  1 12:58:40 2018
+From: j@m@to@ @ending from fc@up@pt (=?ISO-8859-1?Q?Jos=E9_Ab=EDlio?= Matos)
+Date: Wed, 01 Aug 2018 11:58:40 +0100
+Subject: [R-sig-Fedora] Updating qvalue and xtable
+In-Reply-To: <20180710135139.GH16908@flame.pingoured.fr>
+References: <20180710135139.GH16908@flame.pingoured.fr>
+Message-ID: <1692887.kgNSaRiSsq@myth>
+
+On Tuesday, 10 July 2018 14.51.39 WEST Pierre-Yves Chibon wrote:
+> Good Morning Everyone,
+> 
+> I was going through my list of FTBFS packages today and I fixed all my R
+> packages but 2: qvalue and xtable.
+> qvalue requires ggplot2
+> xtable requires: lsmeans, spdep, splm, sphet, plm
+> 
+> I am not doing any R anymore these days and in fact spot has been the one
+> maintaining most of my R packages these days (thanks spot!!), so I am not
+> really interested in maintaining more R packages.
+> Would someone be interested in packaging these libraries?
+> 
+> Otherwise, I think both qvalue and xtable will get retired in a nearish
+> future.
+> 
+> 
+> Thanks for your help :)
+> 
+> Pierre
+
+Although I did not had the time to answer this in a reasonable time frame, Elliot Sales de 
+Andrade and Robert-Andr? Mauchin have been doing an amazing work bringing new R packages 
+to Fedora.
+
+-- 
+Jos? Ab?lio
+
+	[[alternative HTML version deleted]]
+
+

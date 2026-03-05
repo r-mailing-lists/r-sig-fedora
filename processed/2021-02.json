@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2021-02",
+  "messages": [
+    {
+      "id": "msg-5421a50bb5cb",
+      "message_id": "<3347871.iIbC2pHGDl@griffin>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
+      "date": "2021-02-04T16:14:24Z",
+      "subject": "[R-sig-Fedora] Normalize latex path",
+      "subject_clean": "Normalize latex path",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n  due to an unrelated bug report in maxima I found out that some packages \ninstall latex packages in /usr/share/texmf/tex/latex. Instead of using the \nprefix %{_datadir}/texmf we can use the canonical %_texmf defined by texlive.\n\nIs there any objection to change the location to the canonical location?\nActually if you look into the spec file we are using a symbolic link. As far \nas I can see the change is harmless.\n\nProbably the %postun and %posttrans sections can be simplified.\n\nBest regards,\n-- \nJos? Ab?lio",
+      "body_snippet": "Hi,\n  due to an unrelated bug report in maxima I found out that some packages \ninstall latex packages in /usr/share/texmf/tex/latex. Instead of using the \nprefix %{_datadir}/texmf we can use the canon",
+      "thread_id": "thread-5421a50bb5cb",
+      "thread_depth": 0,
+      "month": "2021-02"
+    },
+    {
+      "id": "msg-3147ad11fe5b",
+      "message_id": "<CACp8ZrJ7cp-ttp1dnhRpn7qPRROz-XOR-RgVfVL9i5rfMd39Ng@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "4c62ad279bd6222ba841f6ee81e7796b9d37828a7872803f2e701c687ad903ea",
+      "date": "2021-02-04T11:19:30-05:00",
+      "subject": "[R-sig-Fedora] Normalize latex path",
+      "subject_clean": "Normalize latex path",
+      "in_reply_to": "<3347871.iIbC2pHGDl@griffin>",
+      "references": [
+        "<3347871.iIbC2pHGDl@griffin>"
+      ],
+      "body_plain": "Seems reasonable.\n\n~spot\n\nOn Thu, Feb 4, 2021 at 11:15 AM Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n\n> Hi,\n>   due to an unrelated bug report in maxima I found out that some packages\n> install latex packages in /usr/share/texmf/tex/latex. Instead of using the\n> prefix %{_datadir}/texmf we can use the canonical %_texmf defined by\n> texlive.\n>\n> Is there any objection to change the location to the canonical location?\n> Actually if you look into the spec file we are using a symbolic link. As\n> far\n> as I can see the change is harmless.\n>\n> Probably the %postun and %posttrans sections can be simplified.\n>\n> Best regards,\n> --\n> Jos? Ab?lio\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Seems reasonable.\n\n~spot\n\nOn Thu, Feb 4, 2021 at 11:15 AM Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n\n> Hi,\n>   due to an unrelated bug report in maxima I found out that some packages\n> install la",
+      "thread_id": "thread-5421a50bb5cb",
+      "thread_depth": 1,
+      "month": "2021-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-5421a50bb5cb",
+      "subject": "Normalize latex path",
+      "message_count": 2,
+      "participants": [
+        "José Abílio Matos",
+        "Tom Callaway"
+      ],
+      "started": "2021-02-04T16:14:24+00:00",
+      "last_reply": "2021-02-04T11:19:30-05:00",
+      "root_message_id": "msg-5421a50bb5cb"
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2017-02",
+  "messages": [
+    {
+      "id": "msg-9a7353755c82",
+      "message_id": "<CAFKnr7ncuc1sLksh1mA6sLy+LKVD9+M8NCZX-RGZJLMvmJv2dA@mail.gmail.com>",
+      "from_name": "Shankar Pandey",
+      "from_email_hash": "d5eaca2e1ec4ff5a93bbb8fbeb9f135b037d08615cd55f037fd3bc5b532909a8",
+      "date": "2017-02-02T18:44:14+05:30",
+      "subject": "[R-sig-Fedora] Install R on Redhat EL6.5 without internet - issue",
+      "subject_clean": "Install R on Redhat EL6.5 without internet - issue",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi All,\n\nSorry if this email does not concern you, but I needed help to install R\nand R-Studio on a Redhat Linux Enterprise Server WITHOUT Internet\nconnection.\n\nI have a Mac and can scp rpm packages to the RedHat server.\nI have gone through almost all of the options that google returned but none\nhelped me.\n\nEven after installing the EPEL package, i get the following error :\n\"Cannot retrieve repository metadata (repomd.xml) for repository: HDP-2.3.\nPlease verify its path and try again \"\n\nI can see that the EPEL package did install on the server but the YUM\ncommand is not able to find the EPEL repo.\n\nCan someone please help as this is really urgent. Thanks in advance.\n\nRegards,\nShankar\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi All,\n\nSorry if this email does not concern you, but I needed help to install R\nand R-Studio on a Redhat Linux Enterprise Server WITHOUT Internet\nconnection.\n\nI have a Mac and can scp rpm packages t",
+      "thread_id": "thread-9a7353755c82",
+      "thread_depth": 0,
+      "month": "2017-02"
+    },
+    {
+      "id": "msg-7a7d4673c5a3",
+      "message_id": "<20170206112546.GD32665@dhcp200-201.gsslab.pnq.redhat.com>",
+      "from_name": "Pai",
+      "from_email_hash": "fbdef0218d374b6a5e85561616bd8d72b4b77bea51b475af705e452a1670e6f9",
+      "date": "2017-02-06T11:25:46Z",
+      "subject": "[R-sig-Fedora] Install R on Redhat EL6.5 without internet - issue",
+      "subject_clean": "Install R on Redhat EL6.5 without internet - issue",
+      "in_reply_to": "<CAFKnr7ncuc1sLksh1mA6sLy+LKVD9+M8NCZX-RGZJLMvmJv2dA@mail.gmail.com>",
+      "references": [
+        "<CAFKnr7ncuc1sLksh1mA6sLy+LKVD9+M8NCZX-RGZJLMvmJv2dA@mail.gmail.com>"
+      ],
+      "body_plain": "Hello Shankar,\n\nOn Thu, Feb 02, 2017 at 06:44:14PM +0530, Shankar Pandey wrote:\n> Hi All,\n> \n> Sorry if this email does not concern you, but I needed help to install R\n> and R-Studio on a Redhat Linux Enterprise Server WITHOUT Internet\n> connection.\n\nOk. I have done that a while back.\n\n> \n> I have a Mac and can scp rpm packages to the RedHat server.\n> I have gone through almost all of the options that google returned but none\n> helped me.\n> \n> Even after installing the EPEL package, i get the following error :\n> \"Cannot retrieve repository metadata (repomd.xml) for repository: HDP-2.3.\n> Please verify its path and try again \"\n> \n> I can see that the EPEL package did install on the server but the YUM\n> command is not able to find the EPEL repo.\n> \n\nIIRC, I needed to install R-core, R-core-devel packages\nbefore installing Rstudio. From your Mac, pls see\nhttps://dl.fedoraproject.org/pub/epel/7/x86_64/r/\n\nRegards,\n-- Saint Pai\nHero of Socialist Labour\nPeople's Commissar for Permanent Revolution\nSupreme Director of Party Enlightenment\nRootless cosmopolitan bourgeois nationalist",
+      "body_snippet": "Hello Shankar,\n\nOn Thu, Feb 02, 2017 at 06:44:14PM +0530, Shankar Pandey wrote:\n> Hi All,\n> \n> Sorry if this email does not concern you, but I needed help to install R\n> and R-Studio on a Redhat Linux",
+      "thread_id": "thread-9a7353755c82",
+      "thread_depth": 1,
+      "month": "2017-02"
+    },
+    {
+      "id": "msg-41dc71bdb665",
+      "message_id": "<A2FDAFAFEC223C4186251AE5B005648D974856@SVR5096HP380.cn1.global.ctrip.com>",
+      "from_name": "nw宁威",
+      "from_email_hash": "02ef6c614dadba0018aac194b232af32ee31151e3fec39c9db113eb1185c9b73",
+      "date": "2017-02-07T08:39:11Z",
+      "subject": "[R-sig-Fedora] how can I know the version of my zlib checked by R",
+      "subject_clean": "how can I know the version of my zlib checked by R",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi, professors\r\n\r\n         I??d like to install R-3.3.2 from .tar.gz on my linux system(CentOS 6.4). When installing, R told me that the version of zlib was too old.\r\n\r\n         So, I eager to know which version of zlib did R-3.3.2 software examine at its configure step. How could I check the version of zlib? I will appreciate a lot if you could do me a favour.\r\n\r\nBest Regards\r\n\r\nWei Ning\r\nCtrip, Shanghai\r\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi, professors\r\n\r\n         I??d like to install R-3.3.2 from .tar.gz on my linux system(CentOS 6.4). When installing, R told me that the version of zlib was too old.\r\n\r\n         So, I eager to know wh",
+      "thread_id": "thread-41dc71bdb665",
+      "thread_depth": 0,
+      "month": "2017-02"
+    },
+    {
+      "id": "msg-dea575b3aade",
+      "message_id": "<1486458986.1872.5.camel@iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2017-02-07T09:16:38Z",
+      "subject": "[R-sig-Fedora] how can I know the version of my zlib checked by R",
+      "subject_clean": "how can I know the version of my zlib checked by R",
+      "in_reply_to": "<A2FDAFAFEC223C4186251AE5B005648D974856@SVR5096HP380.cn1.global.ctrip.com>",
+      "references": [
+        "<A2FDAFAFEC223C4186251AE5B005648D974856@SVR5096HP380.cn1.global.ctrip.com>"
+      ],
+      "body_plain": "On Tue, 2017-02-07 at 08:39 +0000, nw?? wrote:\n> Hi, professors\n> \n> ?????????I'd like to install R-3.3.2 from .tar.gz on my linux\n> system(CentOS 6.4). When installing, R told me that the version of\n> zlib was too old.\n\nDo you really need to install from source? The EPEL RPMs by Tom\nCallaway from Redhat contain a bundled version of zlib for platforms\nthat do not have an up-to-date system version, and so are much easier\nto install.\n\nNote that it is not only zlib that is affected. You will have the same\nissue for bzip, xzv, pcre, and curl.\n\n> ?????????So, I eager to know which version of zlib did R-3.3.2\n> software examine at its configure step. How could I check the version\n> of zlib? I will appreciate a lot if you could do me a favour.\n\nThis information is contained in the \"R Installation and\nAdministration\" manual, also known as \"R-admin\". The minimum version\nrequired is zlib 1.2.5. ?You can also see this information in the\noutput from configure, e.g. on my system:\n\nchecking if zlib version >= 1.2.5... yes\n\nMartyn\n\n> Best Regards\n> \n> Wei Ning\n> Ctrip, Shanghai\n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora",
+      "body_snippet": "On Tue, 2017-02-07 at 08:39 +0000, nw?? wrote:\n> Hi, professors\n> \n> ?????????I'd like to install R-3.3.2 from .tar.gz on my linux\n> system(CentOS 6.4). When installing, R told me that the version of\n",
+      "thread_id": "thread-41dc71bdb665",
+      "thread_depth": 1,
+      "month": "2017-02"
+    },
+    {
+      "id": "msg-126a25d847be",
+      "message_id": "<A2FDAFAFEC223C4186251AE5B005648D97493C@SVR5096HP380.cn1.global.ctrip.com>",
+      "from_name": "nw宁威",
+      "from_email_hash": "02ef6c614dadba0018aac194b232af32ee31151e3fec39c9db113eb1185c9b73",
+      "date": "2017-02-07T10:13:28Z",
+      "subject": "[R-sig-Fedora] 答复:  how can I know the version of my zlib checked by R",
+      "subject_clean": "答复:  how can I know the version of my zlib checked by R",
+      "in_reply_to": "<1486458986.1872.5.camel@iarc.fr>",
+      "references": [
+        "<A2FDAFAFEC223C4186251AE5B005648D974856@SVR5096HP380.cn1.global.ctrip.com>",
+        "<1486458986.1872.5.camel@iarc.fr>"
+      ],
+      "body_plain": "Dear Martyn,\n\n\tThank you so much for your suggestion. Can I install R by rpm WITHOUT Internet? This Linux server cannot connect to web.\n\nBest Regards\n\nWei Ning\nCtrip, Shanghai\n-----????-----\n???: Martyn Plummer [mailto:plummerm at iarc.fr] \n????: 2017?2?7? 17:17\n???: r-sig-fedora at r-project.org; nw?? <wning at Ctrip.com>\n??: Re: [R-sig-Fedora] how can I know the version of my zlib checked by R\n\nOn Tue, 2017-02-07 at 08:39 +0000, nw?? wrote:\n> Hi, professors\n> \n> ?????????I'd like to install R-3.3.2 from .tar.gz on my linux \n> system(CentOS 6.4). When installing, R told me that the version of \n> zlib was too old.\n\nDo you really need to install from source? The EPEL RPMs by Tom Callaway from Redhat contain a bundled version of zlib for platforms that do not have an up-to-date system version, and so are much easier to install.\n\nNote that it is not only zlib that is affected. You will have the same issue for bzip, xzv, pcre, and curl.\n\n> ?????????So, I eager to know which version of zlib did R-3.3.2 \n> software examine at its configure step. How could I check the version \n> of zlib? I will appreciate a lot if you could do me a favour.\n\nThis information is contained in the \"R Installation and Administration\" manual, also known as \"R-admin\". The minimum version required is zlib 1.2.5. ?You can also see this information in the output from configure, e.g. on my system:\n\nchecking if zlib version >= 1.2.5... yes\n\nMartyn\n\n> Best Regards\n> \n> Wei Ning\n> Ctrip, Shanghai\n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora",
+      "body_snippet": "Dear Martyn,\n\n\tThank you so much for your suggestion. Can I install R by rpm WITHOUT Internet? This Linux server cannot connect to web.\n\nBest Regards\n\nWei Ning\nCtrip, Shanghai\n-----????-----\n???: Mart",
+      "thread_id": "thread-41dc71bdb665",
+      "thread_depth": 2,
+      "month": "2017-02"
+    },
+    {
+      "id": "msg-6f06b86c44f1",
+      "message_id": "<1486465333.1872.8.camel@iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2017-02-07T11:02:25Z",
+      "subject": "[R-sig-Fedora] 答复:  how can I know the version of my zlib checked by R",
+      "subject_clean": "答复:  how can I know the version of my zlib checked by R",
+      "in_reply_to": "<A2FDAFAFEC223C4186251AE5B005648D97493C@SVR5096HP380.cn1.global.ctrip.com>",
+      "references": [
+        "<A2FDAFAFEC223C4186251AE5B005648D974856@SVR5096HP380.cn1.global.ctrip.com>",
+        "<1486458986.1872.5.camel@iarc.fr>",
+        "<A2FDAFAFEC223C4186251AE5B005648D97493C@SVR5096HP380.cn1.global.ctrip.com>"
+      ],
+      "body_plain": "On Tue, 2017-02-07 at 10:13 +0000, nw?? wrote:\n> Dear Martyn,\n> \n> \tThank you so much for your suggestion. Can I install R by rpm\n> WITHOUT Internet? This Linux server cannot connect to web.\n\nThe same mechanism you used to transfer the source tarball to the\nserver can be used for the EPEL RPMs and then you can do a local\ninstall with yum.\n\nYou will have to go through a long iterative process of identifying\nmissing dependencies (yum will tell you) transferring the corresponding\nRPMs to the server and installing them. But it will still be better\nthan installing from source.\n\nMartyn\n\n> Best Regards\n> \n> Wei Ning\n> Ctrip, Shanghai\n> -----????-----\n> ???: Martyn Plummer [mailto:plummerm at iarc.fr]?\n> ????: 2017?2?7? 17:17\n> ???: r-sig-fedora at r-project.org; nw?? <wning at Ctrip.com>\n> ??: Re: [R-sig-Fedora] how can I know the version of my zlib checked\n> by R\n> \n> On Tue, 2017-02-07 at 08:39 +0000, nw?? wrote:\n> > \n> > Hi, professors\n> > \n> > ?????????I'd like to install R-3.3.2 from .tar.gz on my linux?\n> > system(CentOS 6.4). When installing, R told me that the version of?\n> > zlib was too old.\n> \n> Do you really need to install from source? The EPEL RPMs by Tom\n> Callaway from Redhat contain a bundled version of zlib for platforms\n> that do not have an up-to-date system version, and so are much easier\n> to install.\n> \n> Note that it is not only zlib that is affected. You will have the\n> same issue for bzip, xzv, pcre, and curl.\n> \n> > \n> > ?????????So, I eager to know which version of zlib did R-3.3.2?\n> > software examine at its configure step. How could I check the\n> > version?\n> > of zlib? I will appreciate a lot if you could do me a favour.\n> \n> This information is contained in the \"R Installation and\n> Administration\" manual, also known as \"R-admin\". The minimum version\n> required is zlib 1.2.5. ?You can also see this information in the\n> output from configure, e.g. on my system:\n> \n> checking if zlib version >= 1.2.5... yes\n> \n> Martyn\n> \n> > \n> > Best Regards\n> > \n> > Wei Ning\n> > Ctrip, Shanghai\n> > \n> > \t[[alternative HTML version deleted]]\n> > \n> > _______________________________________________\n> > R-SIG-Fedora mailing list\n> > R-SIG-Fedora at r-project.org\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora",
+      "body_snippet": "On Tue, 2017-02-07 at 10:13 +0000, nw?? wrote:\n> Dear Martyn,\n> \n> \tThank you so much for your suggestion. Can I install R by rpm\n> WITHOUT Internet? This Linux server cannot connect to web.\n\nThe same",
+      "thread_id": "thread-41dc71bdb665",
+      "thread_depth": 3,
+      "month": "2017-02"
+    },
+    {
+      "id": "msg-73a3bb76ef38",
+      "message_id": "<A2FDAFAFEC223C4186251AE5B005648D974990@SVR5096HP380.cn1.global.ctrip.com>",
+      "from_name": "nw宁威",
+      "from_email_hash": "02ef6c614dadba0018aac194b232af32ee31151e3fec39c9db113eb1185c9b73",
+      "date": "2017-02-07T11:30:23Z",
+      "subject": "[R-sig-Fedora] 答复: 答复:  how can I know the version of my zlib checked by R",
+      "subject_clean": "答复: 答复:  how can I know the version of my zlib checked by R",
+      "in_reply_to": "<1486465333.1872.8.camel@iarc.fr>",
+      "references": [
+        "<A2FDAFAFEC223C4186251AE5B005648D974856@SVR5096HP380.cn1.global.ctrip.com>",
+        "<1486458986.1872.5.camel@iarc.fr>",
+        "<A2FDAFAFEC223C4186251AE5B005648D97493C@SVR5096HP380.cn1.global.ctrip.com>",
+        "<1486465333.1872.8.camel@iarc.fr>"
+      ],
+      "body_plain": "Dear Martyn,\n\n\tI'm really grateful to you and your useful suggestions! I will try and tell you a good news once I accomplish the installation.\n\nBest Regards\n\nWei Ning\nCtrip, Shanghai\n\n-----????-----\n???: Martyn Plummer [mailto:plummerm at iarc.fr] \n????: 2017?2?7? 19:02\n???: r-sig-fedora at r-project.org; nw?? <wning at Ctrip.com>\n??: Re: ??: [R-sig-Fedora] how can I know the version of my zlib checked by R\n\nOn Tue, 2017-02-07 at 10:13 +0000, nw?? wrote:\n> Dear Martyn,\n> \n> \tThank you so much for your suggestion. Can I install R by rpm WITHOUT \n> Internet? This Linux server cannot connect to web.\n\nThe same mechanism you used to transfer the source tarball to the server can be used for the EPEL RPMs and then you can do a local install with yum.\n\nYou will have to go through a long iterative process of identifying missing dependencies (yum will tell you) transferring the corresponding RPMs to the server and installing them. But it will still be better than installing from source.\n\nMartyn\n\n> Best Regards\n> \n> Wei Ning\n> Ctrip, Shanghai\n> -----????-----\n> ???: Martyn Plummer [mailto:plummerm at iarc.fr]\n> ????: 2017?2?7? 17:17\n> ???: r-sig-fedora at r-project.org; nw?? <wning at Ctrip.com>\n> ??: Re: [R-sig-Fedora] how can I know the version of my zlib checked \n> by R\n> \n> On Tue, 2017-02-07 at 08:39 +0000, nw?? wrote:\n> > \n> > Hi, professors\n> > \n> > ?????????I'd like to install R-3.3.2 from .tar.gz on my linux \n> > system(CentOS 6.4). When installing, R told me that the version of \n> > zlib was too old.\n> \n> Do you really need to install from source? The EPEL RPMs by Tom \n> Callaway from Redhat contain a bundled version of zlib for platforms \n> that do not have an up-to-date system version, and so are much easier \n> to install.\n> \n> Note that it is not only zlib that is affected. You will have the same \n> issue for bzip, xzv, pcre, and curl.\n> \n> > \n> > ?????????So, I eager to know which version of zlib did R-3.3.2 \n> > software examine at its configure step. How could I check the \n> > version of zlib? I will appreciate a lot if you could do me a \n> > favour.\n> \n> This information is contained in the \"R Installation and \n> Administration\" manual, also known as \"R-admin\". The minimum version \n> required is zlib 1.2.5. ?You can also see this information in the \n> output from configure, e.g. on my system:\n> \n> checking if zlib version >= 1.2.5... yes\n> \n> Martyn\n> \n> > \n> > Best Regards\n> > \n> > Wei Ning\n> > Ctrip, Shanghai\n> > \n> > \t[[alternative HTML version deleted]]\n> > \n> > _______________________________________________\n> > R-SIG-Fedora mailing list\n> > R-SIG-Fedora at r-project.org\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora",
+      "body_snippet": "Dear Martyn,\n\n\tI'm really grateful to you and your useful suggestions! I will try and tell you a good news once I accomplish the installation.\n\nBest Regards\n\nWei Ning\nCtrip, Shanghai\n\n-----????-----\n?",
+      "thread_id": "thread-41dc71bdb665",
+      "thread_depth": 4,
+      "month": "2017-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-9a7353755c82",
+      "subject": "Install R on Redhat EL6.5 without internet - issue",
+      "message_count": 2,
+      "participants": [
+        "Pai",
+        "Shankar Pandey"
+      ],
+      "started": "2017-02-02T18:44:14+05:30",
+      "last_reply": "2017-02-06T11:25:46+00:00",
+      "root_message_id": "msg-9a7353755c82"
+    },
+    {
+      "id": "thread-41dc71bdb665",
+      "subject": "how can I know the version of my zlib checked by R",
+      "message_count": 5,
+      "participants": [
+        "Martyn Plummer",
+        "nw宁威"
+      ],
+      "started": "2017-02-07T08:39:11+00:00",
+      "last_reply": "2017-02-07T11:30:23+00:00",
+      "root_message_id": "msg-41dc71bdb665"
+    }
+  ]
+}

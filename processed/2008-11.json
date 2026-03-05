@@ -1,0 +1,122 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2008-11",
+  "messages": [
+    {
+      "id": "msg-d0f176beca47",
+      "message_id": "<1227636717.3551.119.camel@localhost.localdomain>",
+      "from_name": "Tom \"spot\" Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-11-25T13:11:57-05:00",
+      "subject": "[R-sig-Fedora] Problem running R from within a script",
+      "subject_clean": "Problem running R from within a script",
+      "in_reply_to": "<alpine.LFD.2.00.0811251304290.11212@localhost.localdomain>",
+      "references": [
+        "<alpine.LFD.2.00.0811251304290.11212@localhost.localdomain>"
+      ],
+      "body_plain": "On Tue, 2008-11-25 at 13:13 -0500, Joshua Kramer wrote:\n> Howdy Folks,\n> \n> I am running R version 2.7.2 (2008-08-25) on CentOS 5.2 - the standard RPM \n> distribution.\n> \n> I am having a curious occurance trying to run a R script from within a \n> shell script.  Basically, I have a small R script that processes a file. \n> It takes two parameters - the input file, and the output file.  I then \n> have a shell script that runs the R script for each file matching a glob.\n> \n> R is not picking up the correct parameters *when run from the script*. \n> When I run the command line by itself, it runs fine.\n> \n> The command line is this:\n> \n> /usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.log\n\nI'm just guessing here, but those ' ' single quotes don't seem to make\nsense. Try dropping them (or moving them to just be around '$taxFile\n$taxFile.taxonomy').\n\n~spot",
+      "body_snippet": "On Tue, 2008-11-25 at 13:13 -0500, Joshua Kramer wrote:\n> Howdy Folks,\n> \n> I am running R version 2.7.2 (2008-08-25) on CentOS 5.2 - the standard RPM \n> distribution.\n> \n> I am having a curious occur",
+      "thread_id": "thread-568433c45cdf",
+      "thread_depth": 1,
+      "month": "2008-11"
+    },
+    {
+      "id": "msg-568433c45cdf",
+      "message_id": "<alpine.LFD.2.00.0811251304290.11212@localhost.localdomain>",
+      "from_name": "Joshua Kramer",
+      "from_email_hash": "209a3c79910be83d5e02b2131b66cae921aa41cfee2d50c5928450099e93e71f",
+      "date": "2008-11-25T13:13:59-05:00",
+      "subject": "[R-sig-Fedora] Problem running R from within a script",
+      "subject_clean": "Problem running R from within a script",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Howdy Folks,\n\nI am running R version 2.7.2 (2008-08-25) on CentOS 5.2 - the standard RPM \ndistribution.\n\nI am having a curious occurance trying to run a R script from within a \nshell script.  Basically, I have a small R script that processes a file. \nIt takes two parameters - the input file, and the output file.  I then \nhave a shell script that runs the R script for each file matching a glob.\n\nR is not picking up the correct parameters *when run from the script*. \nWhen I run the command line by itself, it runs fine.\n\nThe command line is this:\n\n/usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.log\n\nHere's the output of the script:\nProcessing /usr/bin/R CMD BATCH --no-restore --no-save '--args Call0103.xpt Call0103.xpt.taxonomy' batchMakeTax.R batchMakeTax.log\n/usr/lib/R/bin/BATCH: line 55: Call0103.xpt: Permission denied\n\nI do not know why it's trying to write to the input file... any ideas?\n\nHere's the shellscript:\n\n[josh at localhost cr]$ cat batchMakeTax.sh\n#!/bin/sh\n\nFILES=\"*.xpt\"\n\necho MakeCommand is $makeCommand\n\nfor taxFile in $FILES\ndo\n         makeCommand=\"/usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.log\"\n         echo \"Processing $makeCommand\"\n         $makeCommand\ndone\n\n...and, the R script.  Note that R never gets as far as running the \nscript, however - the error occurs in the CMD shell script that is under \n/usr/bin/R/CMD.\n\n[josh at localhost cr]$ cat batchMakeTax.R\nlibrary(foreign)\nscratchOne <- commandArgs()\ninFileArg <- scratchOne[10]\ntaxFileArg <- scratchOne[11]\nsink(\"debugout.txt\", FALSE, \"output\", FALSE)\nprint (inFileArg)\nprint (taxFileArg)\nbankData <- read.xport(inFileArg)\nsink(NULL)\nsink(taxFileArg, FALSE, \"output\", FALSE)\n\nbdNames <- names(bankData)\n\nnumCol <- ncol(bankData)\ni=1\nwhile (i <= numCol) {\n         myVar <- paste(bdNames[i], typeof(bankData[[bdNames[i]]]), \nsep=\":\")\n         print(myVar)\n         i=i+1\n}\nq()\n\nThanks!\n-josh\n\n-- \n\n-----\nhttp://www.globalherald.net/jb01\nGlobalHerald.NET, the Smarter Social Network! (tm)",
+      "body_snippet": "Howdy Folks,\n\nI am running R version 2.7.2 (2008-08-25) on CentOS 5.2 - the standard RPM \ndistribution.\n\nI am having a curious occurance trying to run a R script from within a \nshell script.  Basicall",
+      "thread_id": "thread-568433c45cdf",
+      "thread_depth": 0,
+      "month": "2008-11"
+    },
+    {
+      "id": "msg-872aaadae90e",
+      "message_id": "<alpine.LFD.2.00.0811251410070.12193@localhost.localdomain>",
+      "from_name": "Joshua Kramer",
+      "from_email_hash": "209a3c79910be83d5e02b2131b66cae921aa41cfee2d50c5928450099e93e71f",
+      "date": "2008-11-25T14:12:16-05:00",
+      "subject": "[R-sig-Fedora] Problem running R from within a script",
+      "subject_clean": "Problem running R from within a script",
+      "in_reply_to": "<1227636717.3551.119.camel@localhost.localdomain>",
+      "references": [
+        "<alpine.LFD.2.00.0811251304290.11212@localhost.localdomain>",
+        "<1227636717.3551.119.camel@localhost.localdomain>"
+      ],
+      "body_plain": "Thanks for the help Tom!\n\n>> /usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.log\n>\n> I'm just guessing here, but those ' ' single quotes don't seem to make\n> sense. Try dropping them (or moving them to just be around '$taxFile\n> $taxFile.taxonomy').\n\nThe problem is this.  When I drop the quotes alltogether, R considers the \n$taxFile to be the R input file, not a parameter.  When I put quotes \naround the '$taxFile $taxFile.taxonomy', it picks them up correctly but \ntakes them literally, IE expects the $taxFile to have a quote as the first \ncharacter of its filename.\n\nThanks,\n-Josh\n\n-- \n\n-----\nhttp://www.globalherald.net/jb01\nGlobalHerald.NET, the Smarter Social Network! (tm)",
+      "body_snippet": "Thanks for the help Tom!\n\n>> /usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.log\n>\n> I'm just guessing here, but those ' ' single quotes don",
+      "thread_id": "thread-568433c45cdf",
+      "thread_depth": 2,
+      "month": "2008-11"
+    },
+    {
+      "id": "msg-8c2c177956ed",
+      "message_id": "<492CD612.3040000@comcast.net>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "6b69db75158c6a64599f027a17f3ea4ee49917322d20dbb731688b8fd4f10e1f",
+      "date": "2008-11-25T22:52:34-06:00",
+      "subject": "[R-sig-Fedora] Fedora 10, R and yes...help.start()...deja vu all over again...",
+      "subject_clean": "Fedora 10, R and yes...help.start()...deja vu all over again...",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi all,\n\nI installed F10 Final today. This was a clean install, not an upgrade\nfrom F9.\n\nKudos the the Fedora team as the level of maturity noted in the install\nprocess, including using encrypted partitions, keeps getting better with\neach release. I'd still like to see easier options in the GUI with\nrespect to selecting entire groups of applications, rather than having\nto go through individual check-boxes. That part of the process took\nalmost as long as the installation itself.\n\nNice also to see the RPMFusion repo fully in place, to centralize the\nuse of multiple former repos (Livna, FreshRPMS, etc.).\n\nI built R version 2.8.0 Patched (2008-11-24 r47019) from SVN and have a\nfew observations:\n\n1. F10 is using gcc (GCC) 4.3.2 20081105 (Red Hat 4.3.2-7)\n\n2. R passed 'make check-all' without issue\n\n3. When using the help.start() search engine, the \"Applet started.\"\nmessages appears in the Firefox status line. However, when searching on\nany term (eg. \"plot\") the Search Results page shows:\n\n  No matches for \"plot\" have been found!\n\nThus, it would appear that the Java-Javascript bridge is still\nnon-functional in the OpenJDK (formerly IcedTea) plugin. The following\nerror messages appear in the R Console when using the search applet with\nOpenJDK:\n\n  > ICEDTEAPLUGIN_DEBUG = (null)\n  Initializing JVM...\n  NOT IMPLEMENTED: virtual nsresult IcedTeaPluginInstance::Start()\n  JNLPRuntime already initialized\n  NOT IMPLEMENTED: virtual nsresult IcedTeaPluginInstance::Stop()\n\n\nThe instructions available here:\n\n  http://www.mjmwired.net/resources/mjm-fedora-f10.html#java\n\nprovide a step by step process to get the Sun JRE installed on F10, with\none additional step not noted there, required due to SELinux. So follow\nthe steps on the above page. After which, using the search applet you\nmay still see:\n\n  No matches for \"plot\" have been found!\n\nIf you are running SELinux in Enforcing Mode, you may see an AVC error\npop-up in the SELinux Troubleshooting Panel Applet. Use the following\ncommand:\n\n  sudo restorecon -v /opt/jre1.6/plugin/i386/ns7/libjavaplugin_oji.so\n\nwhich will re-set the SELinux context for the newly installed Java\nplug-in file.\n\nAt that point, if all is well, you should subsequently get proper\nresults from the search applet. You may need to exit from Firefox and\nuse help.start() again just to be sure that any residual issues are not\npresent.\n\nIf there are any problems, be sure that the 'alternatives' command is\nconfigured to use the Sun JRE. This is a two step process:\n\n1. Use:\n\n  sudo /usr/sbin/alternatives --config java\n\nand be sure that /opt/jre1.6/bin/java is selected as designated by the '+':\n\nThere are 3 programs which provide 'java'.\n\n  Selection    Command\n-----------------------------------------------\n + 1           /usr/lib/jvm/jre-1.6.0-openjdk/bin/java\n   2           /usr/lib/jvm/jre-1.5.0-gcj/bin/java\n*  3           /opt/jre1.6/bin/java\n\nEnter to keep the current selection[+], or type selection number: 3\n\n\n2. Use:\n\n  sudo /usr/sbin/alternatives --config libjavaplugin.so\n\nand be sure that '/opt/jre1.6/plugin/i386/ns7/libjavaplugin_oji.so' is\nselected as designated by the '+':\n\nThere are 2 programs which provide 'libjavaplugin.so'.\n\n  Selection    Command\n-----------------------------------------------\n + 1           /usr/lib/jvm/jre-1.6.0-openjdk/lib/i386/IcedTeaPlugin.so\n*  2           /opt/jre1.6/plugin/i386/ns7/libjavaplugin_oji.so\n\nEnter to keep the current selection[+], or type selection number: 2\n\n\nAll in all, everything else is going well so far (save of course my\nongoing frustration with nVidia, but that's another story for another\nthread....).\n\nHope that the above is helpful. Off to bed...\n\nRegards,\n\nMarc Schwartz",
+      "body_snippet": "Hi all,\n\nI installed F10 Final today. This was a clean install, not an upgrade\nfrom F9.\n\nKudos the the Fedora team as the level of maturity noted in the install\nprocess, including using encrypted part",
+      "thread_id": "thread-8c2c177956ed",
+      "thread_depth": 0,
+      "month": "2008-11"
+    },
+    {
+      "id": "msg-182637b15234",
+      "message_id": "<1227696114.30817.60.camel@seurat.iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "a172213f54d02d8c46cd36ac95c2aaea4439b79c8fce553fb5a7295ac50db5d7",
+      "date": "2008-11-26T11:41:54+01:00",
+      "subject": "[R-sig-Fedora] Problem running R from within a script",
+      "subject_clean": "Problem running R from within a script",
+      "in_reply_to": "<alpine.LFD.2.00.0811251410070.12193@localhost.localdomain>",
+      "references": [
+        "<alpine.LFD.2.00.0811251304290.11212@localhost.localdomain>",
+        "<1227636717.3551.119.camel@localhost.localdomain>",
+        "<alpine.LFD.2.00.0811251410070.12193@localhost.localdomain>"
+      ],
+      "body_plain": "On Tue, 2008-11-25 at 14:12 -0500, Joshua Kramer wrote:\n> Thanks for the help Tom!\n> \n> >> /usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.log\n> >\n> > I'm just guessing here, but those ' ' single quotes don't seem to make\n> > sense. Try dropping them (or moving them to just be around '$taxFile\n> > $taxFile.taxonomy').\n> \n> The problem is this.  When I drop the quotes alltogether, R considers the \n> $taxFile to be the R input file, not a parameter.  When I put quotes \n> around the '$taxFile $taxFile.taxonomy', it picks them up correctly but \n> takes them literally, IE expects the $taxFile to have a quote as the first \n> character of its filename.\n> \n> Thanks,\n> -Josh\n\nThis looks like a shell problem rather than an R problem. On the command\nline, your invocation of R works correctly.  Try changing your script to\ninvoke R directly, instead of defining and then expanding the shell\nvariable \"makeCommand\":\n\nfor taxFile in $FILES\ndo\n\techo \"Processing $taxFile\"\n\t/usr/bin/R CMD BATCH --no-restore --no-save \"--args $taxFile $taxFile.taxonomy\" batchMakeTax.R batchMakeTax.log\ndone\n\nMartyn\n-- \nMartyn Plummer <martyn.plummer at r-project.org>\n\n-----------------------------------------------------------------------\nThis message and its attachments are strictly confidenti...{{dropped:8}}",
+      "body_snippet": "On Tue, 2008-11-25 at 14:12 -0500, Joshua Kramer wrote:\n> Thanks for the help Tom!\n> \n> >> /usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.l",
+      "thread_id": "thread-568433c45cdf",
+      "thread_depth": 3,
+      "month": "2008-11"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-568433c45cdf",
+      "subject": "Problem running R from within a script",
+      "message_count": 4,
+      "participants": [
+        "Joshua Kramer",
+        "Martyn Plummer",
+        "Tom \"spot\" Callaway"
+      ],
+      "started": "2008-11-25T13:13:59-05:00",
+      "last_reply": "2008-11-26T11:41:54+01:00",
+      "root_message_id": "msg-568433c45cdf"
+    },
+    {
+      "id": "thread-8c2c177956ed",
+      "subject": "Fedora 10, R and yes...help.start()...deja vu all over again...",
+      "message_count": 1,
+      "participants": [
+        "Marc Schwartz"
+      ],
+      "started": "2008-11-25T22:52:34-06:00",
+      "last_reply": "2008-11-25T22:52:34-06:00",
+      "root_message_id": "msg-8c2c177956ed"
+    }
+  ]
+}

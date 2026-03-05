@@ -1,0 +1,128 @@
+From |uc@r @end|ng |rom |edor@project@org  Tue Sep 24 13:51:23 2024
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Tue, 24 Sep 2024 13:51:23 +0200
+Subject: [R-sig-Fedora] RStudio package maintenance moved to Copr
+Message-ID: <CALEXWq25rxRTQC+D3istNQusmhQuePLnAoe_tXx_iTqiYyFp+g@mail.gmail.com>
+
+Dear all,
+
+With the latest release of RStudio last week (v2024.09.0+375), support for
+Qt builds has been removed. This means that we can no longer maintain
+RStudio packages in the official Fedora repositories, because the necessary
+Electron component is missing. RStudio is supported in the official
+repositories up to v2024.04.2+764 and F40, and has been retired from newer
+branches.
+
+Consequently, I moved maintenance to Fedora Copr, where I have more
+flexibility. You can find an up-to-date Electron build in the iucar/rstudio
+Copr repository [1], available for F39 and later, for x86_64 and aarch64.
+Installation instructions are provided there. Upgrading from the official
+repos to this new one should work without issue.
+
+[1] https://copr.fedorainfracloud.org/coprs/iucar/rstudio/
+
+Best,
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+
+From t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk  Tue Sep 24 14:50:58 2024
+From: t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk (Tim Taylor)
+Date: Tue, 24 Sep 2024 13:50:58 +0100
+Subject: [R-sig-Fedora] RStudio package maintenance moved to Copr
+In-Reply-To: <CALEXWq25rxRTQC+D3istNQusmhQuePLnAoe_tXx_iTqiYyFp+g@mail.gmail.com>
+References: <CALEXWq25rxRTQC+D3istNQusmhQuePLnAoe_tXx_iTqiYyFp+g@mail.gmail.com>
+Message-ID: <6c9373ad-04a5-433c-b442-1ace236a5f42@hiddenelephants.co.uk>
+
+Many thanks I?aki.
+
+Will Quarto get pulled in from your COPR automatically as well or do we 
+need to specifically install it before/after?
+
+Also is it worth updating the "add ons" section at 
+https://cran.r-project.org/bin/linux/fedora/ as well?
+
+Tim
+
+
+
+On 24/09/2024 12:51, I?aki Ucar wrote:
+> Dear all,
+>
+> With the latest release of RStudio last week (v2024.09.0+375), support for
+> Qt builds has been removed. This means that we can no longer maintain
+> RStudio packages in the official Fedora repositories, because the necessary
+> Electron component is missing. RStudio is supported in the official
+> repositories up to v2024.04.2+764 and F40, and has been retired from newer
+> branches.
+>
+> Consequently, I moved maintenance to Fedora Copr, where I have more
+> flexibility. You can find an up-to-date Electron build in the iucar/rstudio
+> Copr repository [1], available for F39 and later, for x86_64 and aarch64.
+> Installation instructions are provided there. Upgrading from the official
+> repos to this new one should work without issue.
+>
+> [1] https://copr.fedorainfracloud.org/coprs/iucar/rstudio/
+>
+> Best,
+
+
+From |uc@r @end|ng |rom |edor@project@org  Tue Sep 24 14:57:30 2024
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Tue, 24 Sep 2024 14:57:30 +0200
+Subject: [R-sig-Fedora] RStudio package maintenance moved to Copr
+In-Reply-To: <6c9373ad-04a5-433c-b442-1ace236a5f42@hiddenelephants.co.uk>
+References: <CALEXWq25rxRTQC+D3istNQusmhQuePLnAoe_tXx_iTqiYyFp+g@mail.gmail.com>
+ <6c9373ad-04a5-433c-b442-1ace236a5f42@hiddenelephants.co.uk>
+Message-ID: <CALEXWq0iFi3KF1wLJnocG_tAdTfAEq+Fn6mvSOyEA5VB0vkrow@mail.gmail.com>
+
+On Tue, 24 Sept 2024 at 14:51, Tim Taylor
+<tim.taylor at hiddenelephants.co.uk> wrote:
+>
+> Many thanks I?aki.
+>
+> Will Quarto get pulled in from your COPR automatically as well or do we
+> need to specifically install it before/after?
+
+Quarto is pulled automatically from there as a dependency.
+
+> Also is it worth updating the "add ons" section at
+> https://cran.r-project.org/bin/linux/fedora/ as well?
+
+I sent an update to CRAN. Will appear soon.
+
+I?aki
+
+>
+> Tim
+>
+>
+>
+> On 24/09/2024 12:51, I?aki Ucar wrote:
+> > Dear all,
+> >
+> > With the latest release of RStudio last week (v2024.09.0+375), support for
+> > Qt builds has been removed. This means that we can no longer maintain
+> > RStudio packages in the official Fedora repositories, because the necessary
+> > Electron component is missing. RStudio is supported in the official
+> > repositories up to v2024.04.2+764 and F40, and has been retired from newer
+> > branches.
+> >
+> > Consequently, I moved maintenance to Fedora Copr, where I have more
+> > flexibility. You can find an up-to-date Electron build in the iucar/rstudio
+> > Copr repository [1], available for F39 and later, for x86_64 and aarch64.
+> > Installation instructions are provided there. Upgrading from the official
+> > repos to this new one should work without issue.
+> >
+> > [1] https://copr.fedorainfracloud.org/coprs/iucar/rstudio/
+> >
+> > Best,
+>
+
+
+-- 
+I?aki ?car
+
+

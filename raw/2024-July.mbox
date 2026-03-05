@@ -1,0 +1,498 @@
+From t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk  Thu Jul  4 08:42:11 2024
+From: t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk (Tim Taylor)
+Date: Thu, 4 Jul 2024 07:42:11 +0100
+Subject: [R-sig-Fedora] libdeflate
+Message-ID: <5fea70a3-8b28-4af9-998b-1b1086d51899@hiddenelephants.co.uk>
+
+Since the 4.4.0 release, R can make use of libdeflate. From the release 
+notes:
+
+ > memCompress() and memDecompress() will use the libdeflate library 
+(https://github.com/ebiggers/libdeflate) if installed. This uses the 
+same type of compression for type = "gzip" but is 1.5-2x faster than the 
+system libz library on some common platforms: the speed-up may depend on 
+the library version.
+
+ >? If the libdeflate library and headers are available, libdeflate 
+rather than libz is used to (de)compress R objects in lazy-load 
+databases. Typically tasks spend up to 5% of their time on such 
+operations, although creating lazy-data databases is one of the exceptions.
+ > This can be suppressed if the library is available by the configure 
+option --without-libdeflate-compression.
+
+Would it be worth taking advantage of this in the Fedora build?
+
+Tim
+
+
+From |uc@r @end|ng |rom |edor@project@org  Thu Jul  4 20:33:13 2024
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Thu, 4 Jul 2024 20:33:13 +0200
+Subject: [R-sig-Fedora] libdeflate
+In-Reply-To: <5fea70a3-8b28-4af9-998b-1b1086d51899@hiddenelephants.co.uk>
+References: <5fea70a3-8b28-4af9-998b-1b1086d51899@hiddenelephants.co.uk>
+Message-ID: <CALEXWq1qFJ_-cyBZfQ_6xX_cB_AK-BDjOm7jbzv+6w-s7JWuXQ@mail.gmail.com>
+
+Thanks, good catch. R has been rebuilt with support for libdeflate and will
+be available soon as an update.
+
+I?aki
+
+On Thu, 4 Jul 2024 at 08:43, Tim Taylor <tim.taylor at hiddenelephants.co.uk>
+wrote:
+
+> Since the 4.4.0 release, R can make use of libdeflate. From the release
+> notes:
+>
+>  > memCompress() and memDecompress() will use the libdeflate library
+> (https://github.com/ebiggers/libdeflate) if installed. This uses the
+> same type of compression for type = "gzip" but is 1.5-2x faster than the
+> system libz library on some common platforms: the speed-up may depend on
+> the library version.
+>
+>  >  If the libdeflate library and headers are available, libdeflate
+> rather than libz is used to (de)compress R objects in lazy-load
+> databases. Typically tasks spend up to 5% of their time on such
+> operations, although creating lazy-data databases is one of the exceptions.
+>  > This can be suppressed if the library is available by the configure
+> option --without-libdeflate-compression.
+>
+> Would it be worth taking advantage of this in the Fedora build?
+>
+> Tim
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+
+From |bm@|one @end|ng |rom gm@||@com  Wed Jul 17 11:31:29 2024
+From: |bm@|one @end|ng |rom gm@||@com (Ian Malone)
+Date: Wed, 17 Jul 2024 10:31:29 +0100
+Subject: [R-sig-Fedora] default pager is more
+Message-ID: <CAL3-7Mqqz0VTxM_FwcLp=7oXNKZFNPOq0f=aVNMJSWDA6_sgaQ@mail.gmail.com>
+
+Was wondering why R help in recent Fedora only provided --More--
+prompt for viewing, rather than allowing arrow key navigation as on
+RHEL. It turns out it uses a system command for paging and the current
+default pager is more:
+grep PAGER /usr/lib64/R/etc/Renviron
+PAGER=${PAGER-'/usr/bin/more'}
+
+rpm -qf /usr/lib64/R/etc/Renviron
+R-core-4.4.1-3.fc41.x86_64
+
+This primarily affects function help, where less is much more capable
+for navigation and searching.
+
+Back in 2011 there was some discussion on this list, it it seems the
+intention is the default should be less:
+https://stat.ethz.ch/pipermail/r-sig-fedora/2011-August/000194.html
+
+I hadn't noticed an issue until recently upgrading to fc41 testing,
+however it appears to be the case in FC39 and EL9, while the EL8
+package is still less:
+
+For R-core-4.3.3-2.fc39.x86_64:
+PAGER=${PAGER-'/usr/bin/more'}
+
+R-core-4.4.1-3.el9.x86_64:
+PAGER=${PAGER-'/usr/bin/more'}
+
+R-core-4.4.1-3.el8.x86_64
+PAGER=${PAGER-'/usr/bin/less'}
+
+configure for R still prefers less if available:
+$ grep "ac_prog.*PAGER" /tmp/R-4.4.1-3.fc41.src/R-4.4.1/configure
+for ac_prog in ${PAGER} less more page pg
+
+I suspect this was fixed (certainly don't remember it from Fedora <39,
+but I'd have to hunt down packages to check) and has regressed
+relatively recently.
+
+-- 
+imalone
+
+
+From |uc@r @end|ng |rom |edor@project@org  Thu Jul 18 11:12:40 2024
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Thu, 18 Jul 2024 11:12:40 +0200
+Subject: [R-sig-Fedora] default pager is more
+In-Reply-To: <CAL3-7Mqqz0VTxM_FwcLp=7oXNKZFNPOq0f=aVNMJSWDA6_sgaQ@mail.gmail.com>
+References: <CAL3-7Mqqz0VTxM_FwcLp=7oXNKZFNPOq0f=aVNMJSWDA6_sgaQ@mail.gmail.com>
+Message-ID: <CALEXWq3JC82NWDraOh+R2t4yFSLcZ7kz8viTV_-4mxD=SmZ6jg@mail.gmail.com>
+
+On Wed, 17 Jul 2024 at 11:33, Ian Malone <ibmalone at gmail.com> wrote:
+
+> Was wondering why R help in recent Fedora only provided --More--
+> prompt for viewing, rather than allowing arrow key navigation as on
+> RHEL. It turns out it uses a system command for paging and the current
+> default pager is more:
+> grep PAGER /usr/lib64/R/etc/Renviron
+> PAGER=${PAGER-'/usr/bin/more'}
+>
+> rpm -qf /usr/lib64/R/etc/Renviron
+> R-core-4.4.1-3.fc41.x86_64
+>
+
+This was dropped as part of an effort to minimize dependencies of R-core,
+with e.g. containers in mind.
+
+
+> This primarily affects function help, where less is much more capable
+> for navigation and searching.
+>
+> Back in 2011 there was some discussion on this list, it it seems the
+> intention is the default should be less:
+> https://stat.ethz.ch/pipermail/r-sig-fedora/2011-August/000194.html
+
+
+These days there are other utilities more capable than less. Also these
+days most people don't read R docs in the console.
+If you do and do have a preferred pager, then you can do e.g.
+
+$ echo "PAGER=less" >> ~/.Renviron
+
+and you're good to go.
+
+
+> I hadn't noticed an issue until recently upgrading to fc41 testing,
+> however it appears to be the case in FC39 and EL9, while the EL8
+> package is still less:
+>
+> For R-core-4.3.3-2.fc39.x86_64:
+> PAGER=${PAGER-'/usr/bin/more'}
+>
+> R-core-4.4.1-3.el9.x86_64:
+> PAGER=${PAGER-'/usr/bin/more'}
+>
+> R-core-4.4.1-3.el8.x86_64
+> PAGER=${PAGER-'/usr/bin/less'}
+>
+
+This is probably because "less" still is part of the default image in
+EPEL8, but the spec is exactly the same.
+
+
+> configure for R still prefers less if available:
+> $ grep "ac_prog.*PAGER" /tmp/R-4.4.1-3.fc41.src/R-4.4.1/configure
+> for ac_prog in ${PAGER} less more page pg
+>
+> I suspect this was fixed (certainly don't remember it from Fedora <39,
+> but I'd have to hunt down packages to check) and has regressed
+> relatively recently.
+>
+
+As said, it is not a regression, but a conscious decision.
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+
+From |bm@|one @end|ng |rom gm@||@com  Thu Jul 18 18:58:03 2024
+From: |bm@|one @end|ng |rom gm@||@com (Ian Malone)
+Date: Thu, 18 Jul 2024 17:58:03 +0100
+Subject: [R-sig-Fedora] default pager is more
+In-Reply-To: <CALEXWq3JC82NWDraOh+R2t4yFSLcZ7kz8viTV_-4mxD=SmZ6jg@mail.gmail.com>
+References: <CAL3-7Mqqz0VTxM_FwcLp=7oXNKZFNPOq0f=aVNMJSWDA6_sgaQ@mail.gmail.com>
+ <CALEXWq3JC82NWDraOh+R2t4yFSLcZ7kz8viTV_-4mxD=SmZ6jg@mail.gmail.com>
+Message-ID: <CAL3-7Mpq1dOr8XuyqJrPJeqqyDX22ef_7ZPn18mVNtmknKoz3g@mail.gmail.com>
+
+On Thu, 18 Jul 2024 at 10:12, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>
+>
+> On Wed, 17 Jul 2024 at 11:33, Ian Malone <ibmalone at gmail.com> wrote:
+>>
+>> Was wondering why R help in recent Fedora only provided --More--
+>> prompt for viewing, rather than allowing arrow key navigation as on
+>> RHEL. It turns out it uses a system command for paging and the current
+>> default pager is more:
+>> grep PAGER /usr/lib64/R/etc/Renviron
+>> PAGER=${PAGER-'/usr/bin/more'}
+>>
+>> rpm -qf /usr/lib64/R/etc/Renviron
+>> R-core-4.4.1-3.fc41.x86_64
+>
+>
+> This was dropped as part of an effort to minimize dependencies of R-core, with e.g. containers in mind.
+>
+
+R-core is > 100MB not including dependencies.
+"R" additionally pulls R-devel and another 167MB of installed dependencies.
+less is ~370kB (and incidentally a dependency of git)
+
+>>
+>> This primarily affects function help, where less is much more capable
+>> for navigation and searching.
+>>
+>> Back in 2011 there was some discussion on this list, it it seems the
+>> intention is the default should be less:
+>> https://stat.ethz.ch/pipermail/r-sig-fedora/2011-August/000194.html
+>
+>
+> These days there are other utilities more capable than less.
+
+This is not really the issue, although if there are any that can be
+expected to be well supported and are in fact included in Fedora then
+please do consider making one the default. "most" installs at about
+130kB, although R will not autoconfigure to use it. Maybe suggest it
+to upstream?
+
+> Also these days most people don't read R docs in the console.
+
+Ah, I'm "holding it wrong".
+Installing Rstudio to read documentation is 580MB and only useful
+locally. Additionally these are R docs, not R Studio docs.
+
+> If you do and do have a preferred pager, then you can do e.g.
+>
+> $ echo "PAGER=less" >> ~/.Renviron
+
+Yes, I can set an environment variable.
+
+>
+> and you're good to go.
+
+I was aware of that before writing. However this represents a lot of
+wasted effort for every person who encounters this; it is not obvious
+where in the documentation to look,
+https://www.r-project.org/help.html or help(help) do not make any
+mention of file.show().
+
+<snip>
+>>
+>> I suspect this was fixed (certainly don't remember it from Fedora <39,
+>> but I'd have to hunt down packages to check) and has regressed
+>> relatively recently.
+>
+>
+> As said, it is not a regression, but a conscious decision.
+>
+This is certainly a point of view.
+
+
+--
+imalone
+
+
+From |uc@r @end|ng |rom |edor@project@org  Mon Jul 22 17:46:29 2024
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Mon, 22 Jul 2024 17:46:29 +0200
+Subject: [R-sig-Fedora] default pager is more
+In-Reply-To: <CAL3-7Mpq1dOr8XuyqJrPJeqqyDX22ef_7ZPn18mVNtmknKoz3g@mail.gmail.com>
+References: <CAL3-7Mqqz0VTxM_FwcLp=7oXNKZFNPOq0f=aVNMJSWDA6_sgaQ@mail.gmail.com>
+ <CALEXWq3JC82NWDraOh+R2t4yFSLcZ7kz8viTV_-4mxD=SmZ6jg@mail.gmail.com>
+ <CAL3-7Mpq1dOr8XuyqJrPJeqqyDX22ef_7ZPn18mVNtmknKoz3g@mail.gmail.com>
+Message-ID: <CALEXWq2zRMimDon=BjYvpzXRByjN8+vW2tBZNj+6oc6DY-JyKw@mail.gmail.com>
+
+FYI I added less back to the buildroot. Updates will be published soon.
+
+I?aki
+
+On Thu, 18 Jul 2024 at 18:59, Ian Malone <ibmalone at gmail.com> wrote:
+
+> On Thu, 18 Jul 2024 at 10:12, I?aki Ucar <iucar at fedoraproject.org> wrote:
+> >
+> >
+> > On Wed, 17 Jul 2024 at 11:33, Ian Malone <ibmalone at gmail.com> wrote:
+> >>
+> >> Was wondering why R help in recent Fedora only provided --More--
+> >> prompt for viewing, rather than allowing arrow key navigation as on
+> >> RHEL. It turns out it uses a system command for paging and the current
+> >> default pager is more:
+> >> grep PAGER /usr/lib64/R/etc/Renviron
+> >> PAGER=${PAGER-'/usr/bin/more'}
+> >>
+> >> rpm -qf /usr/lib64/R/etc/Renviron
+> >> R-core-4.4.1-3.fc41.x86_64
+> >
+> >
+> > This was dropped as part of an effort to minimize dependencies of
+> R-core, with e.g. containers in mind.
+> >
+>
+> R-core is > 100MB not including dependencies.
+> "R" additionally pulls R-devel and another 167MB of installed dependencies.
+> less is ~370kB (and incidentally a dependency of git)
+>
+> >>
+> >> This primarily affects function help, where less is much more capable
+> >> for navigation and searching.
+> >>
+> >> Back in 2011 there was some discussion on this list, it it seems the
+> >> intention is the default should be less:
+> >> https://stat.ethz.ch/pipermail/r-sig-fedora/2011-August/000194.html
+> >
+> >
+> > These days there are other utilities more capable than less.
+>
+> This is not really the issue, although if there are any that can be
+> expected to be well supported and are in fact included in Fedora then
+> please do consider making one the default. "most" installs at about
+> 130kB, although R will not autoconfigure to use it. Maybe suggest it
+> to upstream?
+>
+> > Also these days most people don't read R docs in the console.
+>
+> Ah, I'm "holding it wrong".
+> Installing Rstudio to read documentation is 580MB and only useful
+> locally. Additionally these are R docs, not R Studio docs.
+>
+> > If you do and do have a preferred pager, then you can do e.g.
+> >
+> > $ echo "PAGER=less" >> ~/.Renviron
+>
+> Yes, I can set an environment variable.
+>
+> >
+> > and you're good to go.
+>
+> I was aware of that before writing. However this represents a lot of
+> wasted effort for every person who encounters this; it is not obvious
+> where in the documentation to look,
+> https://www.r-project.org/help.html or help(help) do not make any
+> mention of file.show().
+>
+> <snip>
+> >>
+> >> I suspect this was fixed (certainly don't remember it from Fedora <39,
+> >> but I'd have to hunt down packages to check) and has regressed
+> >> relatively recently.
+> >
+> >
+> > As said, it is not a regression, but a conscious decision.
+> >
+> This is certainly a point of view.
+>
+>
+> --
+> imalone
+>
+
+
+-- 
+I?aki ?car
+
+	[[alternative HTML version deleted]]
+
+
+From |bm@|one @end|ng |rom gm@||@com  Mon Jul 22 18:59:45 2024
+From: |bm@|one @end|ng |rom gm@||@com (Ian Malone)
+Date: Mon, 22 Jul 2024 17:59:45 +0100
+Subject: [R-sig-Fedora] default pager is more
+In-Reply-To: <CALEXWq2zRMimDon=BjYvpzXRByjN8+vW2tBZNj+6oc6DY-JyKw@mail.gmail.com>
+References: <CAL3-7Mqqz0VTxM_FwcLp=7oXNKZFNPOq0f=aVNMJSWDA6_sgaQ@mail.gmail.com>
+ <CALEXWq3JC82NWDraOh+R2t4yFSLcZ7kz8viTV_-4mxD=SmZ6jg@mail.gmail.com>
+ <CAL3-7Mpq1dOr8XuyqJrPJeqqyDX22ef_7ZPn18mVNtmknKoz3g@mail.gmail.com>
+ <CALEXWq2zRMimDon=BjYvpzXRByjN8+vW2tBZNj+6oc6DY-JyKw@mail.gmail.com>
+Message-ID: <CAL3-7MogSrNYpzAJzizUm2NdbQvrXkCM86mn=Dzuu+tD7g_QYg@mail.gmail.com>
+
+On Mon, 22 Jul 2024, 16:46 I?aki Ucar, <iucar at fedoraproject.org> wrote:
+
+> FYI I added less back to the buildroot. Updates will be published soon.
+>
+> I?aki
+>
+
+Much appreciated, thank you.
+
+
+> On Thu, 18 Jul 2024 at 18:59, Ian Malone <ibmalone at gmail.com> wrote:
+>
+>> On Thu, 18 Jul 2024 at 10:12, I?aki Ucar <iucar at fedoraproject.org> wrote:
+>> >
+>> >
+>> > On Wed, 17 Jul 2024 at 11:33, Ian Malone <ibmalone at gmail.com> wrote:
+>> >>
+>> >> Was wondering why R help in recent Fedora only provided --More--
+>> >> prompt for viewing, rather than allowing arrow key navigation as on
+>> >> RHEL. It turns out it uses a system command for paging and the current
+>> >> default pager is more:
+>> >> grep PAGER /usr/lib64/R/etc/Renviron
+>> >> PAGER=${PAGER-'/usr/bin/more'}
+>> >>
+>> >> rpm -qf /usr/lib64/R/etc/Renviron
+>> >> R-core-4.4.1-3.fc41.x86_64
+>> >
+>> >
+>> > This was dropped as part of an effort to minimize dependencies of
+>> R-core, with e.g. containers in mind.
+>> >
+>>
+>> R-core is > 100MB not including dependencies.
+>> "R" additionally pulls R-devel and another 167MB of installed
+>> dependencies.
+>> less is ~370kB (and incidentally a dependency of git)
+>>
+>> >>
+>> >> This primarily affects function help, where less is much more capable
+>> >> for navigation and searching.
+>> >>
+>> >> Back in 2011 there was some discussion on this list, it it seems the
+>> >> intention is the default should be less:
+>> >> https://stat.ethz.ch/pipermail/r-sig-fedora/2011-August/000194.html
+>> >
+>> >
+>> > These days there are other utilities more capable than less.
+>>
+>> This is not really the issue, although if there are any that can be
+>> expected to be well supported and are in fact included in Fedora then
+>> please do consider making one the default. "most" installs at about
+>> 130kB, although R will not autoconfigure to use it. Maybe suggest it
+>> to upstream?
+>>
+>> > Also these days most people don't read R docs in the console.
+>>
+>> Ah, I'm "holding it wrong".
+>> Installing Rstudio to read documentation is 580MB and only useful
+>> locally. Additionally these are R docs, not R Studio docs.
+>>
+>> > If you do and do have a preferred pager, then you can do e.g.
+>> >
+>> > $ echo "PAGER=less" >> ~/.Renviron
+>>
+>> Yes, I can set an environment variable.
+>>
+>> >
+>> > and you're good to go.
+>>
+>> I was aware of that before writing. However this represents a lot of
+>> wasted effort for every person who encounters this; it is not obvious
+>> where in the documentation to look,
+>> https://www.r-project.org/help.html or help(help) do not make any
+>> mention of file.show().
+>>
+>> <snip>
+>> >>
+>> >> I suspect this was fixed (certainly don't remember it from Fedora <39,
+>> >> but I'd have to hunt down packages to check) and has regressed
+>> >> relatively recently.
+>> >
+>> >
+>> > As said, it is not a regression, but a conscious decision.
+>> >
+>> This is certainly a point of view.
+>>
+>>
+>> --
+>> imalone
+>>
+>
+>
+> --
+> I?aki ?car
+>
+
+	[[alternative HTML version deleted]]
+
+

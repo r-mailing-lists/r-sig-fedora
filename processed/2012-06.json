@@ -1,0 +1,71 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2012-06",
+  "messages": [
+    {
+      "id": "msg-f611366d144f",
+      "message_id": "<XFMail.20120630192520.Ted.Harding@wlandres.net>",
+      "from_name": "(Ted Harding)",
+      "from_email_hash": "c2b12abb50f4ed7c4dd2a8ea848b0a533bc9629df81922cde0a2345330d41bc4",
+      "date": "2012-06-30T19:25:20+01:00",
+      "subject": "[R-sig-Fedora] Scientific Linux",
+      "subject_clean": "Scientific Linux",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Greetings!\n\nI have just signed up to r-sig-fedora because I have\ninstalled Scientific Linux 6.2 (my first Red Hat based\nLinux since over 10 years ago ... ). I'm trying this for\nbasically 2 reasons: first, I expect CERN and FermiLab\nshould do a good job of maintaining their distribution,\nand in particular to take care of its compatibility with\nscientific software; second, because it still has Gnome 2 ...\n\nI installed it off the Live DVD from the Scientific Linux\nwebsite, and this went very smoothly. However, it does not\nof course come in the first instance with any special\nscientific software (in in particular not with R).\n\nFor extra packages it has been suggested to me to use EPEL\n(Extra Packages for Enterprise Linux, not specifically for\nScientific Linux). And there are the CRAN repositories, of\ncourse.\n\nI am now wondering -- and somewhat puzzled -- as to how best\nto move forward. At some stage in exploring my installation\n(and I cannot now recall how I got there) an information\npanel came up which said that it was not possible to add\nfurther package sources to the list of software sources!\n\nSo, for instance, it would seem not to be possible to\nadd a CRAN mirror.\n\nSo it looks as though one may be stuck with downloading\nwhat one wants, package by package, and installing it by\nhand (and not getting automatic updates etc.)\n\nAny comments, please? Red Hat has changed a lot since I\nlast installed it (RH 7.1 in 2001; I have more recently\nbeen installing Debian), and I'm not familiar with the\ncurrent way of running things (and, in particular, with\nthe intermingling of Gnome and KDE things).\n\nWith thanks,\nTed.\n\n-------------------------------------------------\nE-Mail: (Ted Harding) <Ted.Harding at wlandres.net>\nDate: 30-Jun-2012  Time: 19:25:13\nThis message was sent by XFMail",
+      "body_snippet": "Greetings!\n\nI have just signed up to r-sig-fedora because I have\ninstalled Scientific Linux 6.2 (my first Red Hat based\nLinux since over 10 years ago ... ). I'm trying this for\nbasically 2 reasons: fi",
+      "thread_id": "thread-f611366d144f",
+      "thread_depth": 0,
+      "month": "2012-06"
+    },
+    {
+      "id": "msg-3bf61bfad18e",
+      "message_id": "<ABDED362-5CC2-4560-AC7E-286257A34FDB@me.com>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
+      "date": "2012-06-30T14:50:15-05:00",
+      "subject": "[R-sig-Fedora] Scientific Linux",
+      "subject_clean": "Scientific Linux",
+      "in_reply_to": "<XFMail.20120630192520.Ted.Harding@wlandres.net>",
+      "references": [
+        "<XFMail.20120630192520.Ted.Harding@wlandres.net>"
+      ],
+      "body_plain": "On Jun 30, 2012, at 1:25 PM, Ted Harding wrote:\n\n> Greetings!\n> \n> I have just signed up to r-sig-fedora because I have\n> installed Scientific Linux 6.2 (my first Red Hat based\n> Linux since over 10 years ago ... ). I'm trying this for\n> basically 2 reasons: first, I expect CERN and FermiLab\n> should do a good job of maintaining their distribution,\n> and in particular to take care of its compatibility with\n> scientific software; second, because it still has Gnome 2 ...\n> \n> I installed it off the Live DVD from the Scientific Linux\n> website, and this went very smoothly. However, it does not\n> of course come in the first instance with any special\n> scientific software (in in particular not with R).\n> \n> For extra packages it has been suggested to me to use EPEL\n> (Extra Packages for Enterprise Linux, not specifically for\n> Scientific Linux). And there are the CRAN repositories, of\n> course.\n> \n> I am now wondering -- and somewhat puzzled -- as to how best\n> to move forward. At some stage in exploring my installation\n> (and I cannot now recall how I got there) an information\n> panel came up which said that it was not possible to add\n> further package sources to the list of software sources!\n> \n> So, for instance, it would seem not to be possible to\n> add a CRAN mirror.\n> \n> So it looks as though one may be stuck with downloading\n> what one wants, package by package, and installing it by\n> hand (and not getting automatic updates etc.)\n> \n> Any comments, please? Red Hat has changed a lot since I\n> last installed it (RH 7.1 in 2001; I have more recently\n> been installing Debian), and I'm not familiar with the\n> current way of running things (and, in particular, with\n> the intermingling of Gnome and KDE things).\n> \n> With thanks,\n> Ted.\n\nHi Ted,\n\nSince SL 6 is based upon RHEL 6, you can use the EPEL to install R once you have added the EPEL repos to your \"yum\" configuration. 'yum' in the means for installing, upgrading and removing default Linux packages. It is the parallel in a sense for 'apt' on Debian based distros.\n\nIf you have not yet done so, there are instructions here:\n\n  http://fedoraproject.org/wiki/EPEL\n\nfor installing the EPEL yum repo configurations for 6 series distros. Once you have done that, you can use:\n\n  yum install R\n\nas root or via sudo from the CLI. That will install R with base and recommended packages.\n\nYou do want to use yum to install SL/EPEL based RPMs, as it will resolve package dependencies as you install things, much like install.packages(..., dependencies = TRUE). So you should not have to download individual RPMs and use 'rpm' from the CLI.\n\nYou will not be able to add CRAN mirrors to the yum based installation process and unlike Debian distros, largely thanks to Dirk I believe, the EPEL/Fedora based repos will not have a large selection of R CRAN packages to install from binaries. So you will need to continue to use install.packages() from within R as a root user.\n\nI have not used Fedora since F10 a little over 3 years ago, since moving to OSX. I was using GNOME at the time and not KDE, so had little need for KDE based apps. That being said, my recollection is that they could co-exist, provided that you had the requisite libraries for both DEs installed. I don't know what the current state of affairs is with GNOME 3, though have taken note of the infighting in the community relative to developments with GNOME, Unity, etc.\n\nI hope that this is helpful to get you going.\n\nRegards,\n\nMarc Schwartz",
+      "body_snippet": "On Jun 30, 2012, at 1:25 PM, Ted Harding wrote:\n\n> Greetings!\n> \n> I have just signed up to r-sig-fedora because I have\n> installed Scientific Linux 6.2 (my first Red Hat based\n> Linux since over 10 y",
+      "thread_id": "thread-f611366d144f",
+      "thread_depth": 1,
+      "month": "2012-06"
+    },
+    {
+      "id": "msg-6dde0e7b75b7",
+      "message_id": "<XFMail.20120630210847.Ted.Harding@wlandres.net>",
+      "from_name": "(Ted Harding)",
+      "from_email_hash": "c2b12abb50f4ed7c4dd2a8ea848b0a533bc9629df81922cde0a2345330d41bc4",
+      "date": "2012-06-30T21:08:47+01:00",
+      "subject": "[R-sig-Fedora] Scientific Linux",
+      "subject_clean": "Scientific Linux",
+      "in_reply_to": "<ABDED362-5CC2-4560-AC7E-286257A34FDB@me.com>",
+      "references": [],
+      "body_plain": "On 30-Jun-2012 19:50:15 Marc Schwartz wrote:\n> On Jun 30, 2012, at 1:25 PM, Ted Harding wrote:\n>> Greetings!\n>> \n>> I have just signed up to r-sig-fedora because I have\n>> installed Scientific Linux 6.2 (my first Red Hat based\n>> Linux since over 10 years ago ... ). I'm trying this for\n>> basically 2 reasons: first, I expect CERN and FermiLab\n>> should do a good job of maintaining their distribution,\n>> and in particular to take care of its compatibility with\n>> scientific software; second, because it still has Gnome 2 ...\n>> \n>> I installed it off the Live DVD from the Scientific Linux\n>> website, and this went very smoothly. However, it does not\n>> of course come in the first instance with any special\n>> scientific software (in in particular not with R).\n>> \n>> For extra packages it has been suggested to me to use EPEL\n>> (Extra Packages for Enterprise Linux, not specifically for\n>> Scientific Linux). And there are the CRAN repositories, of\n>> course.\n>> \n>> I am now wondering -- and somewhat puzzled -- as to how best\n>> to move forward. At some stage in exploring my installation\n>> (and I cannot now recall how I got there) an information\n>> panel came up which said that it was not possible to add\n>> further package sources to the list of software sources!\n>> \n>> So, for instance, it would seem not to be possible to\n>> add a CRAN mirror.\n>> \n>> So it looks as though one may be stuck with downloading\n>> what one wants, package by package, and installing it by\n>> hand (and not getting automatic updates etc.)\n>> \n>> Any comments, please? Red Hat has changed a lot since I\n>> last installed it (RH 7.1 in 2001; I have more recently\n>> been installing Debian), and I'm not familiar with the\n>> current way of running things (and, in particular, with\n>> the intermingling of Gnome and KDE things).\n>> \n>> With thanks,\n>> Ted.\n> \n> Hi Ted,\n> \n> Since SL 6 is based upon RHEL 6, you can use the EPEL to install\n> R once you have added the EPEL repos to your \"yum\" configuration.\n> 'yum' in the means for installing, upgrading and removing default\n> Linux packages. It is the parallel in a sense for 'apt' on Debian\n> based distros.\n> \n> If you have not yet done so, there are instructions here:\n> \n>   http://fedoraproject.org/wiki/EPEL\n> \n> for installing the EPEL yum repo configurations for 6 series distros.\n> Once you have done that, you can use:\n> \n>   yum install R\n> \n> as root or via sudo from the CLI. That will install R with base\n> and recommended packages.\n> \n> You do want to use yum to install SL/EPEL based RPMs, as it will\n> resolve package dependencies as you install things, much like\n> install.packages(..., dependencies = TRUE). So you should not\n> have to download individual RPMs and use 'rpm' from the CLI.\n> \n> You will not be able to add CRAN mirrors to the yum based installation\n> process and unlike Debian distros, largely thanks to Dirk I believe,\n> the EPEL/Fedora based repos will not have a large selection of R CRAN\n> packages to install from binaries. So you will need to continue to\n> use install.packages() from within R as a root user.\n> \n> I have not used Fedora since F10 a little over 3 years ago, since\n> moving to OSX. I was using GNOME at the time and not KDE, so had\n> little need for KDE based apps. That being said, my recollection is\n> that they could co-exist, provided that you had the requisite\n> libraries for both DEs installed. I don't know what the current\n> state of affairs is with GNOME 3, though have taken note of the\n> infighting in the community relative to developments with GNOME,\n> Unity, etc.\n> \n> I hope that this is helpful to get you going.\n> \n> Regards,\n> Marc Schwartz\n\nVery many thanks, Marc! That is extremely helpful, in that it seems\nto point to solutions for all thethings I was puzzled about!\n\nNow to see how I get on ... (and, by the way, one reason for\nScientific Linux it that it has stuck with Gnome 2; and I have\nstrong reasons for avoiding Gnome 3 and the like).\n\nAll best wishes,\nTed.\n\n-------------------------------------------------\nE-Mail: (Ted Harding) <Ted.Harding at wlandres.net>\nDate: 30-Jun-2012  Time: 21:08:43\nThis message was sent by XFMail",
+      "body_snippet": "On 30-Jun-2012 19:50:15 Marc Schwartz wrote:\n> On Jun 30, 2012, at 1:25 PM, Ted Harding wrote:\n>> Greetings!\n>> \n>> I have just signed up to r-sig-fedora because I have\n>> installed Scientific Linux 6",
+      "thread_id": "thread-f611366d144f",
+      "thread_depth": 2,
+      "month": "2012-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-f611366d144f",
+      "subject": "Scientific Linux",
+      "message_count": 3,
+      "participants": [
+        "(Ted Harding)",
+        "Marc Schwartz"
+      ],
+      "started": "2012-06-30T19:25:20+01:00",
+      "last_reply": "2012-06-30T21:08:47+01:00",
+      "root_message_id": "msg-f611366d144f"
+    }
+  ]
+}

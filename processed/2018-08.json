@@ -1,0 +1,38 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2018-08",
+  "messages": [
+    {
+      "id": "msg-ba92ecc089ad",
+      "message_id": "<1692887.kgNSaRiSsq@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "666ef61961940803d8c016eadb7d70414833ee9f13d61182718fe70e70ad4ebd",
+      "date": "2018-08-01T11:58:40+01:00",
+      "subject": "[R-sig-Fedora] Updating qvalue and xtable",
+      "subject_clean": "Updating qvalue and xtable",
+      "in_reply_to": "<20180710135139.GH16908@flame.pingoured.fr>",
+      "references": [
+        "<20180710135139.GH16908@flame.pingoured.fr>"
+      ],
+      "body_plain": "On Tuesday, 10 July 2018 14.51.39 WEST Pierre-Yves Chibon wrote:\n> Good Morning Everyone,\n> \n> I was going through my list of FTBFS packages today and I fixed all my R\n> packages but 2: qvalue and xtable.\n> qvalue requires ggplot2\n> xtable requires: lsmeans, spdep, splm, sphet, plm\n> \n> I am not doing any R anymore these days and in fact spot has been the one\n> maintaining most of my R packages these days (thanks spot!!), so I am not\n> really interested in maintaining more R packages.\n> Would someone be interested in packaging these libraries?\n> \n> Otherwise, I think both qvalue and xtable will get retired in a nearish\n> future.\n> \n> \n> Thanks for your help :)\n> \n> Pierre\n\nAlthough I did not had the time to answer this in a reasonable time frame, Elliot Sales de \nAndrade and Robert-Andr? Mauchin have been doing an amazing work bringing new R packages \nto Fedora.\n\n-- \nJos? Ab?lio\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On Tuesday, 10 July 2018 14.51.39 WEST Pierre-Yves Chibon wrote:\n> Good Morning Everyone,\n> \n> I was going through my list of FTBFS packages today and I fixed all my R\n> packages but 2: qvalue and xta",
+      "thread_id": "thread-ba92ecc089ad",
+      "thread_depth": 0,
+      "month": "2018-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-ba92ecc089ad",
+      "subject": "Updating qvalue and xtable",
+      "message_count": 1,
+      "participants": [
+        "José Abílio Matos"
+      ],
+      "started": "2018-08-01T11:58:40+01:00",
+      "last_reply": "2018-08-01T11:58:40+01:00",
+      "root_message_id": "msg-ba92ecc089ad"
+    }
+  ]
+}

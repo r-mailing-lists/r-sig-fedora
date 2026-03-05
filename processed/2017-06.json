@@ -1,0 +1,139 @@
+{
+  "list": "r-sig-fedora",
+  "description": "",
+  "month": "2017-06",
+  "messages": [
+    {
+      "id": "msg-3155a252920c",
+      "message_id": "<61B9F56A-D35E-473C-81F6-397A923A461A@musc.edu>",
+      "from_name": "Hamidi, Bashir",
+      "from_email_hash": "c3b8b7c1c4466dc65c529fe3dfbba8df803c374e42198f484f38a2389c1d82f1",
+      "date": "2017-06-23T14:41:51Z",
+      "subject": "[R-sig-Fedora] RHEL6.5 cluster system library and home library",
+      "subject_clean": "RHEL6.5 cluster system library and home library",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "System: Red Hat Enterprise Linux Server release 6.5 (Santiago)\n\nI?m working on a RHEL6.5 cluster with no EPEL or root access to install EPEL.\n\nI have installed zlib 1.2.11 (and other necessary libraries) in my home directory.\nProblem is the cluster has an older zlib library (1.2.4) and R does not accept that. How can I force configure to look in my home/[username]/packages/lib for zlib?\n\n\n[username at hpcc3 R-3.4.0]$ ./configure --prefix=/home/[username]/packages --with-x=no --with-readline=no --includedir=/home/[username]/packages/include ?libdir=/home/[username]/packages/lib\n\n\n\nchecking for inflateInit2_ in -lz... yes\n\nchecking zlib.h usability... yes\n\nchecking zlib.h presence... yes\n\nchecking for zlib.h... yes\n\nchecking if zlib version >= 1.2.5... no\n\nchecking whether zlib support suffices... configure: error: zlib library and headers are required\n\n\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "System: Red Hat Enterprise Linux Server release 6.5 (Santiago)\n\nI?m working on a RHEL6.5 cluster with no EPEL or root access to install EPEL.\n\nI have installed zlib 1.2.11 (and other necessary librari",
+      "thread_id": "thread-3155a252920c",
+      "thread_depth": 0,
+      "month": "2017-06"
+    },
+    {
+      "id": "msg-f42ea4860511",
+      "message_id": "<1498232035.32432.52.camel@iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "2e099cb1222e34e2ab5938e6ef440a822400d8f04f0d3ca6299b8e1740ceeacb",
+      "date": "2017-06-23T15:33:56Z",
+      "subject": "[R-sig-Fedora] RHEL6.5 cluster system library and home library",
+      "subject_clean": "RHEL6.5 cluster system library and home library",
+      "in_reply_to": "<61B9F56A-D35E-473C-81F6-397A923A461A@musc.edu>",
+      "references": [
+        "<61B9F56A-D35E-473C-81F6-397A923A461A@musc.edu>"
+      ],
+      "body_plain": "On Fri, 2017-06-23 at 14:41 +0000, Hamidi, Bashir wrote:\n> System: Red Hat Enterprise Linux Server release 6.5 (Santiago)\n> \n> I?m working on a RHEL6.5 cluster with no EPEL or root access to\n> install EPEL.\n\nCan't you talk to your system administrator?\n\n> I have installed zlib 1.2.11 (and other necessary libraries) in my\n> home directory.\n> Problem is the cluster has an older zlib library (1.2.4) and R does\n> not accept that. How can I force configure to look in my\n> home/[username]/packages/lib for zlib?\n> \n> \n> [username at hpcc3 R-3.4.0]$ ./configure --\n> prefix=/home/[username]/packages --with-x=no --with-readline=no --\n> includedir=/home/[username]/packages/include\n> ?libdir=/home/[username]/packages/lib\n\nSet environment variables:\n\nCPPFLAGS=-I<includedir> \\\nLDFLAGS=-L<libdir> \\\n./configure\n\nMartyn\n\n> \n> \n> checking for inflateInit2_ in -lz... yes\n> \n> checking zlib.h usability... yes\n> \n> checking zlib.h presence... yes\n> \n> checking for zlib.h... yes\n> \n> checking if zlib version >= 1.2.5... no\n> \n> checking whether zlib support suffices... configure: error: zlib\n> library and headers are required\n> \n> \n> \n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora",
+      "body_snippet": "On Fri, 2017-06-23 at 14:41 +0000, Hamidi, Bashir wrote:\n> System: Red Hat Enterprise Linux Server release 6.5 (Santiago)\n> \n> I?m working on a RHEL6.5 cluster with no EPEL or root access to\n> install",
+      "thread_id": "thread-3155a252920c",
+      "thread_depth": 1,
+      "month": "2017-06"
+    },
+    {
+      "id": "msg-1ec6dd11b9c8",
+      "message_id": "<EC1BB072-5F67-488C-8F22-35765A3BC8A4@musc.edu>",
+      "from_name": "Hamidi, Bashir",
+      "from_email_hash": "c3b8b7c1c4466dc65c529fe3dfbba8df803c374e42198f484f38a2389c1d82f1",
+      "date": "2017-06-23T16:06:55Z",
+      "subject": "[R-sig-Fedora] RHEL6.5 cluster system library and home library",
+      "subject_clean": "RHEL6.5 cluster system library and home library",
+      "in_reply_to": "<1498232035.32432.52.camel@iarc.fr>",
+      "references": [
+        "<61B9F56A-D35E-473C-81F6-397A923A461A@musc.edu>",
+        "<1498232035.32432.52.camel@iarc.fr>"
+      ],
+      "body_plain": "Much thanks to Martyn. Setting CPPFLAGS and LDFLAGS resolved my issue. \n\nSystem admin was messaged last week and this week and kindly asked for assistance and cooperation. I have yet to hear back or see any changes. \n\n\nOn 6/23/17, 11:33 AM, \"Martyn Plummer\" <plummerm at iarc.fr> wrote:\n\n    \n    \n    On Fri, 2017-06-23 at 14:41 +0000, Hamidi, Bashir wrote:\n    > System: Red Hat Enterprise Linux Server release 6.5 (Santiago)\n    >\n    > I?m working on a RHEL6.5 cluster with no EPEL or root access to\n    > install EPEL.\n    \n    Can't you talk to your system administrator?\n    \n    > I have installed zlib 1.2.11 (and other necessary libraries) in my\n    > home directory.\n    > Problem is the cluster has an older zlib library (1.2.4) and R does\n    > not accept that. How can I force configure to look in my\n    > home/[username]/packages/lib for zlib?\n    >\n    >\n    > [username at hpcc3 R-3.4.0]$ ./configure --\n    > prefix=/home/[username]/packages --with-x=no --with-readline=no --\n    > includedir=/home/[username]/packages/include\n    > ?libdir=/home/[username]/packages/lib\n    \n    Set environment variables:\n    \n    CPPFLAGS=-I<includedir> \\\n    LDFLAGS=-L<libdir> \\\n    ./configure\n    \n    Martyn\n    \n    >\n    >\n    > checking for inflateInit2_ in -lz... yes\n    >\n    > checking zlib.h usability... yes\n    >\n    > checking zlib.h presence... yes\n    >\n    > checking for zlib.h... yes\n    >\n    > checking if zlib version >= 1.2.5... no\n    >\n    > checking whether zlib support suffices... configure: error: zlib\n    > library and headers are required\n    >\n    >\n    >\n    >\n    >       [[alternative HTML version deleted]]\n    >\n    > _______________________________________________\n    > R-SIG-Fedora mailing list\n    > R-SIG-Fedora at r-project.org\n    > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora",
+      "body_snippet": "Much thanks to Martyn. Setting CPPFLAGS and LDFLAGS resolved my issue. \n\nSystem admin was messaged last week and this week and kindly asked for assistance and cooperation. I have yet to hear back or s",
+      "thread_id": "thread-3155a252920c",
+      "thread_depth": 2,
+      "month": "2017-06"
+    },
+    {
+      "id": "msg-d8111c825e9e",
+      "message_id": "<CALS=5mp9y4cbwaTo=X9m4CYTVAnxgrgiUTvQkrDPz_0rK-FfpQ@mail.gmail.com>",
+      "from_name": "Paul Smith",
+      "from_email_hash": "fd2c50431e2a6cb6e7be5ae41e049555b30efcd2f9185895e4465d7e61ddebf8",
+      "date": "2017-06-29T11:04:17+01:00",
+      "subject": "[R-sig-Fedora] Cannot install knitr",
+      "subject_clean": "Cannot install knitr",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear All,\n\nI am trying to install the package\n\nknitr\n\nbut getting the following error:\n\n----------------------\nError in dyn.load(file, DLLpath = DLLpath, ...) :\n  unable to load shared object '/usr/lib64/R/library/stringi/libs/stringi.so':\n  libicui18n.so.56: cannot open shared object file: No such file or directory\nError : unable to load R code in package ?knitr?\nERROR: lazy loading failed for package ?knitr?\n* removing ?/usr/lib64/R/library/knitr?\n* restoring previous ?/usr/lib64/R/library/knitr?\n----------------------\n\nI suppose that the problem is that knitr expects\n\nlibicu-56\n\ninstalled, but it is\n\nlibicu-57\n\nthat is installed.\n\nAny help?\n\nThanks in advance,\n\nPaul",
+      "body_snippet": "Dear All,\n\nI am trying to install the package\n\nknitr\n\nbut getting the following error:\n\n----------------------\nError in dyn.load(file, DLLpath = DLLpath, ...) :\n  unable to load shared object '/usr/li",
+      "thread_id": "thread-d8111c825e9e",
+      "thread_depth": 0,
+      "month": "2017-06"
+    },
+    {
+      "id": "msg-c3bbc5f00c18",
+      "message_id": "<CANA0HMa-jbokVH4-NPGD5iLrch_G2UELk8rUR+wLS=1ZgVSLPg@mail.gmail.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2017-06-29T10:15:17-04:00",
+      "subject": "[R-sig-Fedora] Cannot install knitr",
+      "subject_clean": "Cannot install knitr",
+      "in_reply_to": "<CALS=5mp9y4cbwaTo=X9m4CYTVAnxgrgiUTvQkrDPz_0rK-FfpQ@mail.gmail.com>",
+      "references": [
+        "<CALS=5mp9y4cbwaTo=X9m4CYTVAnxgrgiUTvQkrDPz_0rK-FfpQ@mail.gmail.com>"
+      ],
+      "body_plain": "On 06/29/2017 06:04 AM, Paul Smith wrote:\n> Dear All,\n>\n> I am trying to install the package\n>\n> knitr\n>\n> but getting the following error:\n>\n> ----------------------\n> Error in dyn.load(file, DLLpath = DLLpath, ...) :\n>   unable to load shared object '/usr/lib64/R/library/stringi/libs/stringi.so':\n>   libicui18n.so.56: cannot open shared object file: No such file or directory\n> Error : unable to load R code in package ?knitr?\n> ERROR: lazy loading failed for package ?knitr?\n> * removing ?/usr/lib64/R/library/knitr?\n> * restoring previous ?/usr/lib64/R/library/knitr?\n> ----------------------\n>\n> I suppose that the problem is that knitr expects\n>\n> libicu-56\n>\n> installed, but it is\n>\n> libicu-57\n>\n> that is installed.\n\nClose, but this isn't knitr complaining.\n/usr/lib64/R/library/stringi/libs/stringi.so comes from the \"stringi\"\nCRAN module:\n\nhttps://cran.r-project.org/package=stringi\n\nYou might have installed that from source, before updating libicu? You\nmight not have done this manually, it could have been pulled in as a\ndependency of something else. \"stringi\" does not come with the core R\nsoftware, so it wasn't built wrong for Fedora/EPEL. :)\n\nTo reinstall it, just invoke (again):\n\ninstall.packages(\"stringi\")\n\nThat should succeed, and then the \"stringi\" shared object should be able\nto load.\n\n~tom",
+      "body_snippet": "On 06/29/2017 06:04 AM, Paul Smith wrote:\n> Dear All,\n>\n> I am trying to install the package\n>\n> knitr\n>\n> but getting the following error:\n>\n> ----------------------\n> Error in dyn.load(file, DLLpath",
+      "thread_id": "thread-d8111c825e9e",
+      "thread_depth": 1,
+      "month": "2017-06"
+    },
+    {
+      "id": "msg-9534ca8f0f3f",
+      "message_id": "<CALS=5mrtHNgjBX-08KHfaSSJv0BNwdPz_Jooc5FsA4MOvvMSww@mail.gmail.com>",
+      "from_name": "Paul Smith",
+      "from_email_hash": "fd2c50431e2a6cb6e7be5ae41e049555b30efcd2f9185895e4465d7e61ddebf8",
+      "date": "2017-06-30T07:37:45+01:00",
+      "subject": "[R-sig-Fedora] Cannot install knitr",
+      "subject_clean": "Cannot install knitr",
+      "in_reply_to": "<CANA0HMa-jbokVH4-NPGD5iLrch_G2UELk8rUR+wLS=1ZgVSLPg@mail.gmail.com>",
+      "references": [
+        "<CALS=5mp9y4cbwaTo=X9m4CYTVAnxgrgiUTvQkrDPz_0rK-FfpQ@mail.gmail.com>",
+        "<CANA0HMa-jbokVH4-NPGD5iLrch_G2UELk8rUR+wLS=1ZgVSLPg@mail.gmail.com>"
+      ],
+      "body_plain": "On Thu, Jun 29, 2017 at 3:15 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n>> Dear All,\n>>\n>> I am trying to install the package\n>>\n>> knitr\n>>\n>> but getting the following error:\n>>\n>> ----------------------\n>> Error in dyn.load(file, DLLpath = DLLpath, ...) :\n>>   unable to load shared object '/usr/lib64/R/library/stringi/libs/stringi.so':\n>>   libicui18n.so.56: cannot open shared object file: No such file or directory\n>> Error : unable to load R code in package ?knitr?\n>> ERROR: lazy loading failed for package ?knitr?\n>> * removing ?/usr/lib64/R/library/knitr?\n>> * restoring previous ?/usr/lib64/R/library/knitr?\n>> ----------------------\n>>\n>> I suppose that the problem is that knitr expects\n>>\n>> libicu-56\n>>\n>> installed, but it is\n>>\n>> libicu-57\n>>\n>> that is installed.\n>\n> Close, but this isn't knitr complaining.\n> /usr/lib64/R/library/stringi/libs/stringi.so comes from the \"stringi\"\n> CRAN module:\n>\n> https://cran.r-project.org/package=stringi\n>\n> You might have installed that from source, before updating libicu? You\n> might not have done this manually, it could have been pulled in as a\n> dependency of something else. \"stringi\" does not come with the core R\n> software, so it wasn't built wrong for Fedora/EPEL. :)\n>\n> To reinstall it, just invoke (again):\n>\n> install.packages(\"stringi\")\n>\n> That should succeed, and then the \"stringi\" shared object should be able\n> to load.\n\nThanks, Tom. That did the trick!\n\nPaul",
+      "body_snippet": "On Thu, Jun 29, 2017 at 3:15 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n>> Dear All,\n>>\n>> I am trying to install the package\n>>\n>> knitr\n>>\n>> but getting the following error:\n>>\n>> -----------",
+      "thread_id": "thread-d8111c825e9e",
+      "thread_depth": 2,
+      "month": "2017-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-3155a252920c",
+      "subject": "RHEL6.5 cluster system library and home library",
+      "message_count": 3,
+      "participants": [
+        "Hamidi, Bashir",
+        "Martyn Plummer"
+      ],
+      "started": "2017-06-23T14:41:51+00:00",
+      "last_reply": "2017-06-23T16:06:55+00:00",
+      "root_message_id": "msg-3155a252920c"
+    },
+    {
+      "id": "thread-d8111c825e9e",
+      "subject": "Cannot install knitr",
+      "message_count": 3,
+      "participants": [
+        "Paul Smith",
+        "Tom Callaway"
+      ],
+      "started": "2017-06-29T11:04:17+01:00",
+      "last_reply": "2017-06-30T07:37:45+01:00",
+      "root_message_id": "msg-d8111c825e9e"
+    }
+  ]
+}
