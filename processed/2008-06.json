@@ -55,6 +55,27 @@
       "thread_id": "thread-738080dd21f1",
       "thread_depth": 2,
       "month": "2008-06"
+    },
+    {
+      "id": "msg-c1288de2c75d",
+      "message_id": "<48697527.40700@comcast.net>",
+      "from_name": "Marc Schwartz",
+      "from_email_hash": "6b69db75158c6a64599f027a17f3ea4ee49917322d20dbb731688b8fd4f10e1f",
+      "date": "2008-06-30T19:07:03-05:00",
+      "subject": "[R-sig-Fedora] Pango/cairo and symbol fonts",
+      "subject_clean": "Pango/cairo and symbol fonts",
+      "in_reply_to": "<Pine.LNX.4.64.0807010016180.12805@reclus.nhh.no>",
+      "references": [
+        "<Pine.LNX.4.64.0806301119230.11397@reclus.nhh.no>",
+        "<4868D347.7030009@comcast.net>",
+        "<4868F24A.5080309@biostat.ku.dk>",
+        "<Pine.LNX.4.64.0807010016180.12805@reclus.nhh.no>"
+      ],
+      "body_plain": "on 06/30/2008 05:26 PM Roger Bivand wrote:\n> On Mon, 30 Jun 2008, Peter Dalgaard wrote:\n> \n>> Marc Schwartz wrote:\n>>> on 06/30/2008 04:26 AM Roger Bivand wrote:\n>>>> Excuse my asking here than on R-help, but it may be a Fedora\n>>>> question. On Fedora 7, I'm running a fresh R 2.7.1 built from source,\n>>>> usually in en_GB, but also tried in en_GB.UTF8. Running\n>>>> example(plotmath) generates lots of:\n>>>>\n>>>> Pango-WARNING **: shape engine failure, expect ugly output. the\n>>>> offending font is 'Symbol Not-Rotated ...'\n>>>>\n>>>> Setting:\n>>>>\n>>>> x11(type=\"Xlib\")\n>>>>\n>>>> relieves the problem, but I'd like to use cairo if possible. I have\n>>>> both urw-fonts and liberation-fonts installed. I'm pretty sure it is\n>>>> my F7, not R, and would be grateful for any advice. It's the same\n>>>> story with the png device.\n>>>>\n>>>> Roger\n>>>\n>>> Roger,\n>>>\n>>> Check capabilities() to be sure that 'cairo' shows as TRUE.\n>>>\n>>> If it shows FALSE, be sure to install the cairo and cairo-devel RPMs\n>>> and re-build R so that cairo support is available. You may just need\n>>> the 'cairo-devel' RPM if the 'cairo' RPM is already present.\n>>>\n>>> Also, as an aside, F7 went EOL on June 13.\n>>>\n>>> If that is not helpful, post back.\n>> I suspect that is isn't helpful. If cairo is not there, you'd just get\n>> Xlib and no warnings (and no features either).  So my suspicion is that\n>> something needs to be upgraded beyond the F7 level, which could get a\n>> little sticky.\n> \n> Right, cairo is TRUE, so it is most likely a fonts issue. I'm mostly \n> RHEL 4/5, but also F7, and looked at F9 to upgrade, but have a \n> production project on F7. This means that upgrading is not an option in \n> the short term, while working cairo with a symbols font would be \n> desirable. For the time being I can hold on old PDF/PNG if there is no \n> known alternative.\n\nRoger, based upon ?x11, try setting the following environment variable:\n\n   Sys.setenv(FC_DEBUG=1)\n\nwhich may provide some tracing/insight into the font selection process \nwhen running code and perhaps offer some indications as to what font is \nbeing looked for and not found.\n\nHTH,\n\nMarc",
+      "body_snippet": "on 06/30/2008 05:26 PM Roger Bivand wrote:\n> On Mon, 30 Jun 2008, Peter Dalgaard wrote:\n> \n>> Marc Schwartz wrote:\n>>> on 06/30/2008 04:26 AM Roger Bivand wrote:\n>>>> Excuse my asking here than on R-h",
+      "thread_id": "thread-c1288de2c75d",
+      "thread_depth": 0,
+      "month": "2008-06"
     }
   ],
   "threads": [
@@ -70,6 +91,17 @@
       "started": "2008-06-30T11:26:50+02:00",
       "last_reply": "2008-06-30T16:48:42+02:00",
       "root_message_id": "msg-738080dd21f1"
+    },
+    {
+      "id": "thread-c1288de2c75d",
+      "subject": "Pango/cairo and symbol fonts",
+      "message_count": 1,
+      "participants": [
+        "Marc Schwartz"
+      ],
+      "started": "2008-06-30T19:07:03-05:00",
+      "last_reply": "2008-06-30T19:07:03-05:00",
+      "root_message_id": "msg-c1288de2c75d"
     }
   ]
 }
