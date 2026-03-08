@@ -254,30 +254,6 @@
       "thread_id": "thread-7a8d545399cf",
       "thread_depth": 6,
       "month": "2020-10"
-    },
-    {
-      "id": "msg-d77100c0fe94",
-      "message_id": "<70ba58ab-107d-69b4-900f-eab489f39ade@meddatainc.com>",
-      "from_name": "H",
-      "from_email_hash": "8cbdfa83b02d85ff36f6b2665b40553515f80e52952feb3049602432921c1caf",
-      "date": "2020-10-31T19:11:31-04:00",
-      "subject": "[R-sig-Fedora] R 4.0 for CentOS 7",
-      "subject_clean": "R 4.0 for CentOS 7",
-      "in_reply_to": "<CALEXWq0ePx9T2SEVrg=4PTLe6taOU7DD6FBbi8MK-cCaRqe-Uw@mail.gmail.com>",
-      "references": [
-        "<85e47848-9372-cf80-956e-4c423775d073@meddatainc.com>",
-        "<CALEXWq05HWZf4=VrWgXmZSMhiOmea=C58u+SKs0fmH2W3GT6wQ@mail.gmail.com>",
-        "<35a65618-d0e0-19b8-bac8-491e70791de6@meddatainc.com>",
-        "<6af5c609-b0fb-dbbc-fd1e-103450ff57a0@gmail.com>",
-        "<CALEXWq27=fEz_T_LgqjK_8Ximvma9Xuy7kHcOzzgAswYypqcJg@mail.gmail.com>",
-        "<637540a9-31f9-c488-3a59-2404a494de4d@meddatainc.com>",
-        "<CALEXWq0ePx9T2SEVrg=4PTLe6taOU7DD6FBbi8MK-cCaRqe-Uw@mail.gmail.com>"
-      ],
-      "body_plain": "On 10/31/2020 06:05 PM, I?aki Ucar wrote:\n> On Sat, 31 Oct 2020 at 20:52, H <agents at meddatainc.com> wrote:\n>> Understood. Since I am running CentOS 7, I guess I could create a CentOS 8 docker container and install R in that? I am not planning to upgrade the system to CentOS 8.\n> Of course, you can do that. With podman it's even easier. But then I'd\n> use Fedora as the base image instead, because you'll enjoy binary\n> installations for most of CRAN via Copr [1]. You even have a docker\n> image ready to go [2]. (Disclaimer: I'm the maintainer of that\n> project).\n>\n> [1] https://copr.fedorainfracloud.org/coprs/iucar/cran/\n> [2] https://hub.docker.com/r/enchufa2/cran2copr/dockerfile\n>\nOK, since I am already running CentOS, I may still stick with CentOS but your point is well-taken. I also prefer to define my containers myself so I have full control - and understand - how they are set up...\n\nI have come across COPR but it is not among my repos, I need to learn more.\n\nThank you!",
-      "body_snippet": "On 10/31/2020 06:05 PM, I?aki Ucar wrote:\n> On Sat, 31 Oct 2020 at 20:52, H <agents at meddatainc.com> wrote:\n>> Understood. Since I am running CentOS 7, I guess I could create a CentOS 8 docker conta",
-      "thread_id": "thread-7a8d545399cf",
-      "thread_depth": 7,
-      "month": "2020-10"
     }
   ],
   "threads": [
@@ -318,7 +294,7 @@
     {
       "id": "thread-7a8d545399cf",
       "subject": "R 4.0 for CentOS 7",
-      "message_count": 9,
+      "message_count": 8,
       "participants": [
         "Evan Cooch",
         "H",
@@ -326,7 +302,7 @@
         "peter dalgaard"
       ],
       "started": "2020-10-29T21:29:42-04:00",
-      "last_reply": "2020-10-31T19:11:31-04:00",
+      "last_reply": "2020-10-31T23:05:43+01:00",
       "root_message_id": "msg-7a8d545399cf"
     }
   ]

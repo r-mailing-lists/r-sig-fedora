@@ -1,0 +1,1486 @@
+[
+  {
+    "name": "Iñaki Ucar",
+    "slug": "i-aki-ucar",
+    "messageCount": 128,
+    "firstDate": "2018-11-10T17:26:20+01:00",
+    "lastDate": "2025-09-23T12:07:09+02:00",
+    "yearlyActivity": {
+      "2018": 2,
+      "2019": 2,
+      "2020": 51,
+      "2021": 33,
+      "2022": 14,
+      "2023": 6,
+      "2024": 15,
+      "2025": 5
+    }
+  },
+  {
+    "name": "Tom Callaway",
+    "slug": "tom-callaway",
+    "messageCount": 110,
+    "firstDate": "2010-12-20T12:57:38-05:00",
+    "lastDate": "2023-06-12T10:48:16-04:00",
+    "yearlyActivity": {
+      "2010": 1,
+      "2011": 6,
+      "2012": 4,
+      "2013": 1,
+      "2014": 9,
+      "2015": 9,
+      "2016": 28,
+      "2017": 13,
+      "2018": 2,
+      "2019": 1,
+      "2020": 15,
+      "2021": 12,
+      "2022": 5,
+      "2023": 4
+    }
+  },
+  {
+    "name": "José Abílio Matos",
+    "slug": "jos-ab-lio-matos",
+    "messageCount": 46,
+    "firstDate": "2017-05-12T16:24:41+01:00",
+    "lastDate": "2022-01-07T12:16:31+00:00",
+    "yearlyActivity": {
+      "2017": 1,
+      "2018": 1,
+      "2019": 1,
+      "2020": 40,
+      "2021": 2,
+      "2022": 1
+    }
+  },
+  {
+    "name": "Marc Schwartz",
+    "slug": "marc-schwartz",
+    "messageCount": 44,
+    "firstDate": "2008-05-20T12:53:04-05:00",
+    "lastDate": "2020-05-04T10:27:25-04:00",
+    "yearlyActivity": {
+      "2008": 8,
+      "2009": 8,
+      "2010": 5,
+      "2011": 6,
+      "2012": 9,
+      "2013": 2,
+      "2014": 2,
+      "2019": 3,
+      "2020": 1
+    }
+  },
+  {
+    "name": "Martyn Plummer",
+    "slug": "martyn-plummer",
+    "messageCount": 35,
+    "firstDate": "2008-09-02T17:44:34+02:00",
+    "lastDate": "2025-04-17T15:02:12+01:00",
+    "yearlyActivity": {
+      "2008": 7,
+      "2009": 1,
+      "2014": 9,
+      "2015": 2,
+      "2016": 5,
+      "2017": 9,
+      "2018": 1,
+      "2025": 1
+    }
+  },
+  {
+    "name": "Tom \"spot\" Callaway",
+    "slug": "tom-spot-callaway",
+    "messageCount": 31,
+    "firstDate": "2008-08-29T12:08:11-04:00",
+    "lastDate": "2010-11-15T12:45:12-05:00",
+    "yearlyActivity": {
+      "2008": 12,
+      "2009": 6,
+      "2010": 13
+    }
+  },
+  {
+    "name": "Paul Smith",
+    "slug": "paul-smith",
+    "messageCount": 21,
+    "firstDate": "2008-05-20T15:27:49+01:00",
+    "lastDate": "2024-11-03T21:16:36+00:00",
+    "yearlyActivity": {
+      "2008": 4,
+      "2017": 5,
+      "2018": 1,
+      "2021": 5,
+      "2022": 1,
+      "2024": 5
+    }
+  },
+  {
+    "name": "Jeroen Ooms",
+    "slug": "jeroen-ooms",
+    "messageCount": 19,
+    "firstDate": "2014-08-08T11:10:43+02:00",
+    "lastDate": "2025-09-23T11:12:53+02:00",
+    "yearlyActivity": {
+      "2014": 8,
+      "2016": 4,
+      "2019": 1,
+      "2021": 4,
+      "2025": 2
+    }
+  },
+  {
+    "name": "Roger Bivand",
+    "slug": "roger-bivand",
+    "messageCount": 19,
+    "firstDate": "2008-06-30T11:26:50+02:00",
+    "lastDate": "2025-04-16T17:52:20+02:00",
+    "yearlyActivity": {
+      "2008": 3,
+      "2009": 1,
+      "2010": 2,
+      "2015": 2,
+      "2016": 1,
+      "2018": 4,
+      "2020": 2,
+      "2025": 4
+    }
+  },
+  {
+    "name": "Mark Leeds",
+    "slug": "mark-leeds",
+    "messageCount": 18,
+    "firstDate": "2011-11-05T15:08:42+00:00",
+    "lastDate": "2015-04-14T17:29:27-04:00",
+    "yearlyActivity": {
+      "2011": 11,
+      "2012": 2,
+      "2013": 2,
+      "2015": 3
+    }
+  },
+  {
+    "name": "Rolf Turner",
+    "slug": "rolf-turner",
+    "messageCount": 17,
+    "firstDate": "2013-01-13T11:23:06+13:00",
+    "lastDate": "2016-01-21T10:24:15+13:00",
+    "yearlyActivity": {
+      "2013": 6,
+      "2014": 1,
+      "2015": 3,
+      "2016": 7
+    }
+  },
+  {
+    "name": "Elliott Sales de Andrade",
+    "slug": "elliott-sales-de-andrade",
+    "messageCount": 17,
+    "firstDate": "2019-07-04T05:35:18-04:00",
+    "lastDate": "2021-06-16T18:02:35-04:00",
+    "yearlyActivity": {
+      "2019": 3,
+      "2020": 11,
+      "2021": 3
+    }
+  },
+  {
+    "name": "peter dalgaard",
+    "slug": "peter-dalgaard",
+    "messageCount": 16,
+    "firstDate": "2010-11-08T11:02:19+01:00",
+    "lastDate": "2025-04-17T20:52:12+02:00",
+    "yearlyActivity": {
+      "2010": 1,
+      "2011": 3,
+      "2012": 3,
+      "2013": 2,
+      "2014": 1,
+      "2016": 1,
+      "2020": 1,
+      "2025": 4
+    }
+  },
+  {
+    "name": "Gavin Simpson",
+    "slug": "gavin-simpson",
+    "messageCount": 15,
+    "firstDate": "2010-04-17T00:15:23+01:00",
+    "lastDate": "2022-09-16T12:09:16+02:00",
+    "yearlyActivity": {
+      "2010": 2,
+      "2011": 6,
+      "2014": 1,
+      "2020": 3,
+      "2021": 2,
+      "2022": 1
+    }
+  },
+  {
+    "name": "Tim Taylor",
+    "slug": "tim-taylor",
+    "messageCount": 13,
+    "firstDate": "2020-07-15T09:46:54+01:00",
+    "lastDate": "2025-06-19T13:13:50+01:00",
+    "yearlyActivity": {
+      "2020": 2,
+      "2021": 3,
+      "2023": 1,
+      "2024": 6,
+      "2025": 1
+    }
+  },
+  {
+    "name": "Peter Dalgaard",
+    "slug": "peter-dalgaard",
+    "messageCount": 13,
+    "firstDate": "2008-05-21T21:12:52+02:00",
+    "lastDate": "2010-11-06T08:55:04+01:00",
+    "yearlyActivity": {
+      "2008": 4,
+      "2009": 7,
+      "2010": 2
+    }
+  },
+  {
+    "name": "Pierre-Yves Chibon",
+    "slug": "pierre-yves-chibon",
+    "messageCount": 12,
+    "firstDate": "2011-08-08T20:23:15+02:00",
+    "lastDate": "2018-07-10T15:51:39+02:00",
+    "yearlyActivity": {
+      "2011": 3,
+      "2012": 8,
+      "2018": 1
+    }
+  },
+  {
+    "name": "Christos Hatzis",
+    "slug": "christos-hatzis",
+    "messageCount": 11,
+    "firstDate": "2009-11-13T14:59:33-05:00",
+    "lastDate": "2012-12-19T11:35:34-05:00",
+    "yearlyActivity": {
+      "2009": 8,
+      "2012": 3
+    }
+  },
+  {
+    "name": "Allen S. Rout",
+    "slug": "allen-s-rout",
+    "messageCount": 11,
+    "firstDate": "2012-03-12T16:10:06-04:00",
+    "lastDate": "2013-03-29T10:21:42-04:00",
+    "yearlyActivity": {
+      "2012": 9,
+      "2013": 2
+    }
+  },
+  {
+    "name": "Martin Maechler",
+    "slug": "martin-maechler",
+    "messageCount": 10,
+    "firstDate": "2014-10-06T16:54:22+02:00",
+    "lastDate": "2024-08-15T15:56:16+02:00",
+    "yearlyActivity": {
+      "2014": 2,
+      "2022": 4,
+      "2024": 4
+    }
+  },
+  {
+    "name": "Paul Johnson",
+    "slug": "paul-johnson",
+    "messageCount": 10,
+    "firstDate": "2010-02-03T20:12:11-06:00",
+    "lastDate": "2013-08-11T11:27:36-05:00",
+    "yearlyActivity": {
+      "2010": 7,
+      "2011": 1,
+      "2013": 2
+    }
+  },
+  {
+    "name": "José Matos",
+    "slug": "jos-matos",
+    "messageCount": 9,
+    "firstDate": "2008-10-23T19:41:41+01:00",
+    "lastDate": "2015-05-11T10:08:31+01:00",
+    "yearlyActivity": {
+      "2008": 2,
+      "2011": 3,
+      "2013": 2,
+      "2014": 1,
+      "2015": 1
+    }
+  },
+  {
+    "name": "Peter Baker",
+    "slug": "peter-baker",
+    "messageCount": 9,
+    "firstDate": "2009-09-21T14:06:49+10:00",
+    "lastDate": "2014-05-23T08:28:25+10:00",
+    "yearlyActivity": {
+      "2009": 2,
+      "2011": 1,
+      "2012": 4,
+      "2014": 2
+    }
+  },
+  {
+    "name": "Carlo Tambuatco",
+    "slug": "carlo-tambuatco",
+    "messageCount": 9,
+    "firstDate": "2010-07-01T14:01:15-04:00",
+    "lastDate": "2010-07-06T15:56:59-04:00",
+    "yearlyActivity": {
+      "2010": 9
+    }
+  },
+  {
+    "name": "Evan Cooch",
+    "slug": "evan-cooch",
+    "messageCount": 9,
+    "firstDate": "2009-06-26T07:52:10-04:00",
+    "lastDate": "2020-10-30T21:05:21-04:00",
+    "yearlyActivity": {
+      "2009": 1,
+      "2016": 5,
+      "2020": 3
+    }
+  },
+  {
+    "name": "tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk",
+    "slug": "tim-t-yior-m-iii-g-oii-hidde-eieph-ts-co-uk",
+    "messageCount": 8,
+    "firstDate": "2022-04-04T09:17:25+01:00",
+    "lastDate": "2022-10-18T19:24:07+01:00",
+    "yearlyActivity": {
+      "2022": 8
+    }
+  },
+  {
+    "name": "Patrick, Larry B [CSSM]",
+    "slug": "patrick-larry-b-cssm",
+    "messageCount": 8,
+    "firstDate": "2016-01-27T18:12:48+00:00",
+    "lastDate": "2016-02-05T20:31:12+00:00",
+    "yearlyActivity": {
+      "2016": 8
+    }
+  },
+  {
+    "name": "Pierre-Yves",
+    "slug": "pierre-yves",
+    "messageCount": 7,
+    "firstDate": "2008-10-23T16:46:09+02:00",
+    "lastDate": "2010-04-24T00:15:56+02:00",
+    "yearlyActivity": {
+      "2008": 4,
+      "2009": 2,
+      "2010": 1
+    }
+  },
+  {
+    "name": "Petar Milin",
+    "slug": "petar-milin",
+    "messageCount": 7,
+    "firstDate": "2012-04-18T17:54:51+02:00",
+    "lastDate": "2012-04-28T10:52:15+02:00",
+    "yearlyActivity": {
+      "2012": 7
+    }
+  },
+  {
+    "name": "Alexandre Courtiol",
+    "slug": "alexandre-courtiol",
+    "messageCount": 7,
+    "firstDate": "2023-06-12T12:53:01+02:00",
+    "lastDate": "2023-06-15T16:14:30+02:00",
+    "yearlyActivity": {
+      "2023": 7
+    }
+  },
+  {
+    "name": "Weiner, Michael",
+    "slug": "weiner-michael",
+    "messageCount": 6,
+    "firstDate": "2017-01-11T19:49:42+00:00",
+    "lastDate": "2017-01-12T13:37:04+00:00",
+    "yearlyActivity": {
+      "2017": 6
+    }
+  },
+  {
+    "name": "Ed Avis",
+    "slug": "ed-avis",
+    "messageCount": 6,
+    "firstDate": "2010-10-13T15:57:09+00:00",
+    "lastDate": "2013-10-18T16:37:05+00:00",
+    "yearlyActivity": {
+      "2010": 2,
+      "2011": 3,
+      "2013": 1
+    }
+  },
+  {
+    "name": "R P Herrold",
+    "slug": "r-p-herrold",
+    "messageCount": 6,
+    "firstDate": "2009-06-10T15:21:50-04:00",
+    "lastDate": "2020-02-17T15:39:50-05:00",
+    "yearlyActivity": {
+      "2009": 2,
+      "2012": 1,
+      "2018": 1,
+      "2020": 2
+    }
+  },
+  {
+    "name": "Wittner, Ben, Ph.D.",
+    "slug": "wittner-ben-ph-d",
+    "messageCount": 6,
+    "firstDate": "2016-01-11T15:55:41+00:00",
+    "lastDate": "2016-01-13T21:27:05+00:00",
+    "yearlyActivity": {
+      "2016": 6
+    }
+  },
+  {
+    "name": "Dirk Eddelbuettel",
+    "slug": "dirk-eddelbuettel",
+    "messageCount": 5,
+    "firstDate": "2018-05-29T15:17:18-05:00",
+    "lastDate": "2018-06-14T13:33:34-05:00",
+    "yearlyActivity": {
+      "2018": 5
+    }
+  },
+  {
+    "name": "virgo",
+    "slug": "virgo",
+    "messageCount": 5,
+    "firstDate": "2016-04-20T14:56:40+01:00",
+    "lastDate": "2016-04-23T19:11:42+01:00",
+    "yearlyActivity": {
+      "2016": 5
+    }
+  },
+  {
+    "name": "arnaud gaboury",
+    "slug": "arnaud-gaboury",
+    "messageCount": 5,
+    "firstDate": "2015-08-31T09:20:08+02:00",
+    "lastDate": "2015-10-11T18:52:04+02:00",
+    "yearlyActivity": {
+      "2015": 5
+    }
+  },
+  {
+    "name": "Jim Lemon",
+    "slug": "jim-lemon",
+    "messageCount": 5,
+    "firstDate": "2021-09-04T13:31:10+10:00",
+    "lastDate": "2022-01-07T18:30:22+11:00",
+    "yearlyActivity": {
+      "2021": 3,
+      "2022": 2
+    }
+  },
+  {
+    "name": "Roger Bos",
+    "slug": "roger-bos",
+    "messageCount": 5,
+    "firstDate": "2021-05-24T21:05:48-04:00",
+    "lastDate": "2021-05-25T16:48:20-04:00",
+    "yearlyActivity": {
+      "2021": 5
+    }
+  },
+  {
+    "name": "Steve Taylor",
+    "slug": "steve-taylor",
+    "messageCount": 5,
+    "firstDate": "2011-11-06T10:36:07+13:00",
+    "lastDate": "2015-05-14T08:03:13+12:00",
+    "yearlyActivity": {
+      "2011": 2,
+      "2014": 2,
+      "2015": 1
+    }
+  },
+  {
+    "name": "Brian Fallik",
+    "slug": "brian-fallik",
+    "messageCount": 5,
+    "firstDate": "2016-06-06T17:04:33-04:00",
+    "lastDate": "2016-06-10T13:54:41-04:00",
+    "yearlyActivity": {
+      "2016": 5
+    }
+  },
+  {
+    "name": "enzo at smartinsightsfromdata.com",
+    "slug": "enzo-at-smartinsightsfromdata-com",
+    "messageCount": 4,
+    "firstDate": "2014-06-16T09:53:12+01:00",
+    "lastDate": "2014-06-16T21:45:54+01:00",
+    "yearlyActivity": {
+      "2014": 4
+    }
+  },
+  {
+    "name": "Ali Erdinc Koroglu",
+    "slug": "ali-erdinc-koroglu",
+    "messageCount": 4,
+    "firstDate": "2022-07-21T16:17:28+03:00",
+    "lastDate": "2022-07-28T21:31:16+03:00",
+    "yearlyActivity": {
+      "2022": 4
+    }
+  },
+  {
+    "name": "Pai",
+    "slug": "pai",
+    "messageCount": 4,
+    "firstDate": "2011-03-16T12:33:19+05:30",
+    "lastDate": "2017-10-11T11:33:08+00:00",
+    "yearlyActivity": {
+      "2011": 2,
+      "2017": 2
+    }
+  },
+  {
+    "name": "Larry Martell",
+    "slug": "larry-martell",
+    "messageCount": 4,
+    "firstDate": "2017-07-21T11:18:09-04:00",
+    "lastDate": "2017-10-29T15:31:16+00:00",
+    "yearlyActivity": {
+      "2017": 4
+    }
+  },
+  {
+    "name": "H",
+    "slug": "h",
+    "messageCount": 4,
+    "firstDate": "2020-10-29T21:29:42-04:00",
+    "lastDate": "2020-10-31T19:11:31-04:00",
+    "yearlyActivity": {
+      "2020": 4
+    }
+  },
+  {
+    "name": "Michael Smith",
+    "slug": "michael-smith",
+    "messageCount": 4,
+    "firstDate": "2011-08-05T22:40:52+08:00",
+    "lastDate": "2016-01-15T21:45:21+08:00",
+    "yearlyActivity": {
+      "2011": 2,
+      "2014": 1,
+      "2016": 1
+    }
+  },
+  {
+    "name": "Michael Hannon",
+    "slug": "michael-hannon",
+    "messageCount": 4,
+    "firstDate": "2010-11-08T01:23:39-08:00",
+    "lastDate": "2016-06-30T01:57:15+00:00",
+    "yearlyActivity": {
+      "2010": 1,
+      "2012": 1,
+      "2014": 1,
+      "2016": 1
+    }
+  },
+  {
+    "name": "Jaime Alvarez Benayas",
+    "slug": "jaime-alvarez-benayas",
+    "messageCount": 4,
+    "firstDate": "2017-08-18T18:12:04+01:00",
+    "lastDate": "2017-08-24T00:53:00+01:00",
+    "yearlyActivity": {
+      "2017": 4
+    }
+  },
+  {
+    "name": "jules hernandez",
+    "slug": "jules-hernandez",
+    "messageCount": 3,
+    "firstDate": "2011-03-07T14:05:48+01:00",
+    "lastDate": "2011-03-09T14:09:38+01:00",
+    "yearlyActivity": {
+      "2011": 3
+    }
+  },
+  {
+    "name": "Jules Bashizi",
+    "slug": "jules-bashizi",
+    "messageCount": 3,
+    "firstDate": "2016-02-13T03:23:35+00:00",
+    "lastDate": "2016-06-30T02:14:21+01:00",
+    "yearlyActivity": {
+      "2016": 3
+    }
+  },
+  {
+    "name": "Milan Bouchet-Valat",
+    "slug": "milan-bouchet-valat",
+    "messageCount": 3,
+    "firstDate": "2014-06-16T16:19:39+02:00",
+    "lastDate": "2022-01-07T16:02:23+01:00",
+    "yearlyActivity": {
+      "2014": 1,
+      "2016": 1,
+      "2022": 1
+    }
+  },
+  {
+    "name": "subhajit dutta",
+    "slug": "subhajit-dutta",
+    "messageCount": 3,
+    "firstDate": "2009-01-29T19:06:35+05:30",
+    "lastDate": "2009-12-09T13:03:55+05:30",
+    "yearlyActivity": {
+      "2009": 3
+    }
+  },
+  {
+    "name": "Steven Backus",
+    "slug": "steven-backus",
+    "messageCount": 3,
+    "firstDate": "2015-07-31T17:15:17-06:00",
+    "lastDate": "2016-02-17T08:45:55-07:00",
+    "yearlyActivity": {
+      "2015": 2,
+      "2016": 1
+    }
+  },
+  {
+    "name": "andreas betz",
+    "slug": "andreas-betz",
+    "messageCount": 3,
+    "firstDate": "2016-08-12T01:34:06-07:00",
+    "lastDate": "2017-10-13T09:22:31-07:00",
+    "yearlyActivity": {
+      "2016": 1,
+      "2017": 2
+    }
+  },
+  {
+    "name": "M. Edward (Ed) Borasky",
+    "slug": "m-edward-ed-borasky",
+    "messageCount": 3,
+    "firstDate": "2015-05-10T17:06:41-07:00",
+    "lastDate": "2016-06-30T00:40:21+00:00",
+    "yearlyActivity": {
+      "2015": 1,
+      "2016": 2
+    }
+  },
+  {
+    "name": "Barris, Wes",
+    "slug": "barris-wes",
+    "messageCount": 3,
+    "firstDate": "2020-02-14T19:50:27+00:00",
+    "lastDate": "2020-02-17T21:27:45+00:00",
+    "yearlyActivity": {
+      "2020": 3
+    }
+  },
+  {
+    "name": "Ian Malone",
+    "slug": "ian-malone",
+    "messageCount": 3,
+    "firstDate": "2024-07-17T10:31:29+01:00",
+    "lastDate": "2024-07-22T17:59:45+01:00",
+    "yearlyActivity": {
+      "2024": 3
+    }
+  },
+  {
+    "name": "nw宁威",
+    "slug": "nw",
+    "messageCount": 3,
+    "firstDate": "2017-02-07T08:39:11+00:00",
+    "lastDate": "2017-02-07T11:30:23+00:00",
+    "yearlyActivity": {
+      "2017": 3
+    }
+  },
+  {
+    "name": "Sangalli Cristiano Giovanni (Ext. - UniCredit Business Integrated Solutions)",
+    "slug": "sangalli-cristiano-giovanni-ext-unicredit-business-integrated-solutions",
+    "messageCount": 3,
+    "firstDate": "2016-07-05T14:34:39+00:00",
+    "lastDate": "2016-07-11T14:10:07+00:00",
+    "yearlyActivity": {
+      "2016": 3
+    }
+  },
+  {
+    "name": "Bruce Pennypacker",
+    "slug": "bruce-pennypacker",
+    "messageCount": 3,
+    "firstDate": "2012-05-21T16:30:52-04:00",
+    "lastDate": "2012-05-22T09:28:10-04:00",
+    "yearlyActivity": {
+      "2012": 3
+    }
+  },
+  {
+    "name": "Dennis.Burian at faa.gov",
+    "slug": "dennis-burian-at-faa-gov",
+    "messageCount": 3,
+    "firstDate": "2010-04-16T17:59:40-05:00",
+    "lastDate": "2010-06-07T07:47:58-05:00",
+    "yearlyActivity": {
+      "2010": 3
+    }
+  },
+  {
+    "name": "Manuel Pizarro Gavilán",
+    "slug": "manuel-pizarro-gavil-n",
+    "messageCount": 3,
+    "firstDate": "2015-01-15T11:09:36+01:00",
+    "lastDate": "2015-01-16T11:19:41+01:00",
+    "yearlyActivity": {
+      "2015": 3
+    }
+  },
+  {
+    "name": "joe cypherpunk",
+    "slug": "joe-cypherpunk",
+    "messageCount": 2,
+    "firstDate": "2016-01-21T10:38:47-05:00",
+    "lastDate": "2016-01-27T11:34:17-05:00",
+    "yearlyActivity": {
+      "2016": 2
+    }
+  },
+  {
+    "name": "Ashley Ford",
+    "slug": "ashley-ford",
+    "messageCount": 2,
+    "firstDate": "2015-09-15T13:12:57+00:00",
+    "lastDate": "2015-09-16T11:53:53+00:00",
+    "yearlyActivity": {
+      "2015": 2
+    }
+  },
+  {
+    "name": "Johannes Lips",
+    "slug": "johannes-lips",
+    "messageCount": 2,
+    "firstDate": "2013-08-02T13:06:27+02:00",
+    "lastDate": "2017-08-23T13:12:44+02:00",
+    "yearlyActivity": {
+      "2013": 1,
+      "2017": 1
+    }
+  },
+  {
+    "name": "Haas, Kevin",
+    "slug": "haas-kevin",
+    "messageCount": 2,
+    "firstDate": "2009-03-03T17:55:48-05:00",
+    "lastDate": "2009-03-03T18:46:56-05:00",
+    "yearlyActivity": {
+      "2009": 2
+    }
+  },
+  {
+    "name": "Andreas",
+    "slug": "andreas",
+    "messageCount": 2,
+    "firstDate": "2010-11-27T23:00:34-08:00",
+    "lastDate": "2010-11-27T23:21:01-08:00",
+    "yearlyActivity": {
+      "2010": 2
+    }
+  },
+  {
+    "name": "James Antill",
+    "slug": "james-antill",
+    "messageCount": 2,
+    "firstDate": "2008-10-23T14:22:07-04:00",
+    "lastDate": "2008-10-23T17:10:12-04:00",
+    "yearlyActivity": {
+      "2008": 2
+    }
+  },
+  {
+    "name": "Haithem Khelfa",
+    "slug": "haithem-khelfa",
+    "messageCount": 2,
+    "firstDate": "2025-09-22T19:51:50+00:00",
+    "lastDate": "2025-09-22T20:20:02+00:00",
+    "yearlyActivity": {
+      "2025": 2
+    }
+  },
+  {
+    "name": "Jeff Trefftzs",
+    "slug": "jeff-trefftzs",
+    "messageCount": 2,
+    "firstDate": "2017-08-02T12:09:38-07:00",
+    "lastDate": "2017-08-02T14:08:06-07:00",
+    "yearlyActivity": {
+      "2017": 2
+    }
+  },
+  {
+    "name": "Joshua Kramer",
+    "slug": "joshua-kramer",
+    "messageCount": 2,
+    "firstDate": "2008-11-25T13:13:59-05:00",
+    "lastDate": "2008-11-25T14:12:16-05:00",
+    "yearlyActivity": {
+      "2008": 2
+    }
+  },
+  {
+    "name": "Andreas Storvik Strauman",
+    "slug": "andreas-storvik-strauman",
+    "messageCount": 2,
+    "firstDate": "2018-11-10T17:56:56+00:00",
+    "lastDate": "2018-11-10T20:04:31+00:00",
+    "yearlyActivity": {
+      "2018": 2
+    }
+  },
+  {
+    "name": "pstiis m@iii@g oii gm@ii@com",
+    "slug": "pstiis-m-iii-g-oii-gm-ii-com",
+    "messageCount": 2,
+    "firstDate": "2024-03-11T15:31:07+01:00",
+    "lastDate": "2024-03-12T17:50:46+01:00",
+    "yearlyActivity": {
+      "2024": 2
+    }
+  },
+  {
+    "name": "Matthew Miller",
+    "slug": "matthew-miller",
+    "messageCount": 2,
+    "firstDate": "2008-10-23T10:27:50-04:00",
+    "lastDate": "2008-10-23T15:28:02-04:00",
+    "yearlyActivity": {
+      "2008": 2
+    }
+  },
+  {
+    "name": "(Ted Harding)",
+    "slug": "ted-harding",
+    "messageCount": 2,
+    "firstDate": "2012-06-30T19:25:20+01:00",
+    "lastDate": "2012-06-30T21:08:47+01:00",
+    "yearlyActivity": {
+      "2012": 2
+    }
+  },
+  {
+    "name": "Hamidi, Bashir",
+    "slug": "hamidi-bashir",
+    "messageCount": 2,
+    "firstDate": "2017-06-23T14:41:51+00:00",
+    "lastDate": "2017-06-23T16:06:55+00:00",
+    "yearlyActivity": {
+      "2017": 2
+    }
+  },
+  {
+    "name": "shanmukha patel",
+    "slug": "shanmukha-patel",
+    "messageCount": 2,
+    "firstDate": "2009-09-14T17:24:17+05:30",
+    "lastDate": "2009-09-15T11:49:31+05:30",
+    "yearlyActivity": {
+      "2009": 2
+    }
+  },
+  {
+    "name": "George N. White III",
+    "slug": "george-n-white-iii",
+    "messageCount": 2,
+    "firstDate": "2008-10-23T19:08:53-03:00",
+    "lastDate": "2008-10-24T07:13:35-03:00",
+    "yearlyActivity": {
+      "2008": 2
+    }
+  },
+  {
+    "name": "Jason L Tibbitts III",
+    "slug": "jason-l-tibbitts-iii",
+    "messageCount": 2,
+    "firstDate": "2008-10-23T09:34:56-05:00",
+    "lastDate": "2008-10-23T20:39:32-05:00",
+    "yearlyActivity": {
+      "2008": 2
+    }
+  },
+  {
+    "name": "ashutosh srivastava",
+    "slug": "ashutosh-srivastava",
+    "messageCount": 2,
+    "firstDate": "2016-02-17T11:24:51+09:00",
+    "lastDate": "2016-02-18T09:28:32+09:00",
+    "yearlyActivity": {
+      "2016": 2
+    }
+  },
+  {
+    "name": "Stefano Leonardi",
+    "slug": "stefano-leonardi",
+    "messageCount": 2,
+    "firstDate": "2025-04-26T10:20:44+02:00",
+    "lastDate": "2025-04-27T09:19:05+02:00",
+    "yearlyActivity": {
+      "2025": 2
+    }
+  },
+  {
+    "name": "Syagin, Fedor",
+    "slug": "syagin-fedor",
+    "messageCount": 2,
+    "firstDate": "2016-07-05T16:52:49+00:00",
+    "lastDate": "2016-07-05T17:12:47+00:00",
+    "yearlyActivity": {
+      "2016": 2
+    }
+  },
+  {
+    "name": "Stefan Grosse",
+    "slug": "stefan-grosse",
+    "messageCount": 2,
+    "firstDate": "2009-09-14T18:21:22+02:00",
+    "lastDate": "2010-11-06T13:47:50+01:00",
+    "yearlyActivity": {
+      "2009": 1,
+      "2010": 1
+    }
+  },
+  {
+    "name": "Rob Steele",
+    "slug": "rob-steele",
+    "messageCount": 2,
+    "firstDate": "2016-06-10T12:28:33-04:00",
+    "lastDate": "2016-06-10T18:36:35-04:00",
+    "yearlyActivity": {
+      "2016": 2
+    }
+  },
+  {
+    "name": "Orlando Ramirez",
+    "slug": "orlando-ramirez",
+    "messageCount": 2,
+    "firstDate": "2020-02-06T23:30:01+00:00",
+    "lastDate": "2020-02-26T08:10:53+00:00",
+    "yearlyActivity": {
+      "2020": 2
+    }
+  },
+  {
+    "name": "René Genz",
+    "slug": "ren-genz",
+    "messageCount": 2,
+    "firstDate": "2021-11-04T18:23:58+01:00",
+    "lastDate": "2021-11-05T13:10:10+01:00",
+    "yearlyActivity": {
+      "2021": 2
+    }
+  },
+  {
+    "name": "Fu, Jie Ning",
+    "slug": "fu-jie-ning",
+    "messageCount": 1,
+    "firstDate": "2011-03-15T15:08:19-04:00",
+    "lastDate": "2011-03-15T15:08:19-04:00",
+    "yearlyActivity": {
+      "2011": 1
+    }
+  },
+  {
+    "name": "Corwin Joy",
+    "slug": "corwin-joy",
+    "messageCount": 1,
+    "firstDate": "2013-06-18T15:36:50-07:00",
+    "lastDate": "2013-06-18T15:36:50-07:00",
+    "yearlyActivity": {
+      "2013": 1
+    }
+  },
+  {
+    "name": "Torbjørn Lindahl",
+    "slug": "torbj-rn-lindahl",
+    "messageCount": 1,
+    "firstDate": "2012-03-13T14:29:54+01:00",
+    "lastDate": "2012-03-13T14:29:54+01:00",
+    "yearlyActivity": {
+      "2012": 1
+    }
+  },
+  {
+    "name": "Badoo",
+    "slug": "badoo",
+    "messageCount": 1,
+    "firstDate": "2012-04-21T01:47:19+00:00",
+    "lastDate": "2012-04-21T01:47:19+00:00",
+    "yearlyActivity": {
+      "2012": 1
+    }
+  },
+  {
+    "name": "Yifan Liu",
+    "slug": "yifan-liu",
+    "messageCount": 1,
+    "firstDate": "2021-07-12T00:01:13-05:00",
+    "lastDate": "2021-07-12T00:01:13-05:00",
+    "yearlyActivity": {
+      "2021": 1
+    }
+  },
+  {
+    "name": "Tim F Liao",
+    "slug": "tim-f-liao",
+    "messageCount": 1,
+    "firstDate": "2008-12-28T15:47:56-06:00",
+    "lastDate": "2008-12-28T15:47:56-06:00",
+    "yearlyActivity": {
+      "2008": 1
+    }
+  },
+  {
+    "name": "Imane al jaouhari",
+    "slug": "imane-al-jaouhari",
+    "messageCount": 1,
+    "firstDate": "2016-06-23T09:41:44+02:00",
+    "lastDate": "2016-06-23T09:41:44+02:00",
+    "yearlyActivity": {
+      "2016": 1
+    }
+  },
+  {
+    "name": "Gray Calhoun",
+    "slug": "gray-calhoun",
+    "messageCount": 1,
+    "firstDate": "2009-12-09T04:14:05-08:00",
+    "lastDate": "2009-12-09T04:14:05-08:00",
+    "yearlyActivity": {
+      "2009": 1
+    }
+  },
+  {
+    "name": "margherita mutarelli",
+    "slug": "margherita-mutarelli",
+    "messageCount": 1,
+    "firstDate": "2008-09-10T13:01:18+02:00",
+    "lastDate": "2008-09-10T13:01:18+02:00",
+    "yearlyActivity": {
+      "2008": 1
+    }
+  },
+  {
+    "name": "Sean O'Keeffe",
+    "slug": "sean-o-keeffe",
+    "messageCount": 1,
+    "firstDate": "2011-03-02T10:46:46-05:00",
+    "lastDate": "2011-03-02T10:46:46-05:00",
+    "yearlyActivity": {
+      "2011": 1
+    }
+  },
+  {
+    "name": "xbr17 at posteo.de",
+    "slug": "xbr17-at-posteo-de",
+    "messageCount": 1,
+    "firstDate": "2018-03-22T22:11:28+01:00",
+    "lastDate": "2018-03-22T22:11:28+01:00",
+    "yearlyActivity": {
+      "2018": 1
+    }
+  },
+  {
+    "name": "Jay Ver Hoef",
+    "slug": "jay-ver-hoef",
+    "messageCount": 1,
+    "firstDate": "2020-10-12T02:30:01-08:00",
+    "lastDate": "2020-10-12T02:30:01-08:00",
+    "yearlyActivity": {
+      "2020": 1
+    }
+  },
+  {
+    "name": "Hans de Goede",
+    "slug": "hans-de-goede",
+    "messageCount": 1,
+    "firstDate": "2008-10-23T16:50:19+02:00",
+    "lastDate": "2008-10-23T16:50:19+02:00",
+    "yearlyActivity": {
+      "2008": 1
+    }
+  },
+  {
+    "name": "Matthias Buehlmaier",
+    "slug": "matthias-buehlmaier",
+    "messageCount": 1,
+    "firstDate": "2009-09-21T09:25:12+02:00",
+    "lastDate": "2009-09-21T09:25:12+02:00",
+    "yearlyActivity": {
+      "2009": 1
+    }
+  },
+  {
+    "name": "Bilal Abd",
+    "slug": "bilal-abd",
+    "messageCount": 1,
+    "firstDate": "2021-04-20T10:02:44+00:00",
+    "lastDate": "2021-04-20T10:02:44+00:00",
+    "yearlyActivity": {
+      "2021": 1
+    }
+  },
+  {
+    "name": "Jay Ver Hoef - NOAA Federal",
+    "slug": "jay-ver-hoef-noaa-federal",
+    "messageCount": 1,
+    "firstDate": "2019-12-11T19:29:01+00:00",
+    "lastDate": "2019-12-11T19:29:01+00:00",
+    "yearlyActivity": {
+      "2019": 1
+    }
+  },
+  {
+    "name": "akshay kulkarni",
+    "slug": "akshay-kulkarni",
+    "messageCount": 1,
+    "firstDate": "2022-07-25T21:05:08+00:00",
+    "lastDate": "2022-07-25T21:05:08+00:00",
+    "yearlyActivity": {
+      "2022": 1
+    }
+  },
+  {
+    "name": "sasidhar M",
+    "slug": "sasidhar-m",
+    "messageCount": 1,
+    "firstDate": "2012-11-30T16:08:34+05:30",
+    "lastDate": "2012-11-30T16:08:34+05:30",
+    "yearlyActivity": {
+      "2012": 1
+    }
+  },
+  {
+    "name": "Bintao Cui",
+    "slug": "bintao-cui",
+    "messageCount": 1,
+    "firstDate": "2021-07-28T09:57:29+00:00",
+    "lastDate": "2021-07-28T09:57:29+00:00",
+    "yearlyActivity": {
+      "2021": 1
+    }
+  },
+  {
+    "name": "pingou at pingoured.fr",
+    "slug": "pingou-at-pingoured-fr",
+    "messageCount": 1,
+    "firstDate": "2010-04-17T04:40:43+02:00",
+    "lastDate": "2010-04-17T04:40:43+02:00",
+    "yearlyActivity": {
+      "2010": 1
+    }
+  },
+  {
+    "name": "Vries, Han de",
+    "slug": "vries-han-de",
+    "messageCount": 1,
+    "firstDate": "2008-10-17T09:12:00-07:00",
+    "lastDate": "2008-10-17T09:12:00-07:00",
+    "yearlyActivity": {
+      "2008": 1
+    }
+  },
+  {
+    "name": "Hodgess, Erin",
+    "slug": "hodgess-erin",
+    "messageCount": 1,
+    "firstDate": "2013-06-18T22:18:48+00:00",
+    "lastDate": "2013-06-18T22:18:48+00:00",
+    "yearlyActivity": {
+      "2013": 1
+    }
+  },
+  {
+    "name": "vn198006 at yahoo.com",
+    "slug": "vn198006-at-yahoo-com",
+    "messageCount": 1,
+    "firstDate": "2016-07-25T23:20:03+00:00",
+    "lastDate": "2016-07-25T23:20:03+00:00",
+    "yearlyActivity": {
+      "2016": 1
+    }
+  },
+  {
+    "name": "Saad Saeed",
+    "slug": "saad-saeed",
+    "messageCount": 1,
+    "firstDate": "2009-09-03T17:09:39+01:00",
+    "lastDate": "2009-09-03T17:09:39+01:00",
+    "yearlyActivity": {
+      "2009": 1
+    }
+  },
+  {
+    "name": "Eric J. Van der Velden",
+    "slug": "eric-j-van-der-velden",
+    "messageCount": 1,
+    "firstDate": "2016-09-07T09:15:38+02:00",
+    "lastDate": "2016-09-07T09:15:38+02:00",
+    "yearlyActivity": {
+      "2016": 1
+    }
+  },
+  {
+    "name": "egc",
+    "slug": "egc",
+    "messageCount": 1,
+    "firstDate": "2009-06-26T11:40:02-04:00",
+    "lastDate": "2009-06-26T11:40:02-04:00",
+    "yearlyActivity": {
+      "2009": 1
+    }
+  },
+  {
+    "name": "Gordon Ball",
+    "slug": "gordon-ball",
+    "messageCount": 1,
+    "firstDate": "2016-06-09T12:06:38+00:00",
+    "lastDate": "2016-06-09T12:06:38+00:00",
+    "yearlyActivity": {
+      "2016": 1
+    }
+  },
+  {
+    "name": "Wolfgang RAFFELSBERGER",
+    "slug": "wolfgang-raffelsberger",
+    "messageCount": 1,
+    "firstDate": "2011-07-18T10:23:24+00:00",
+    "lastDate": "2011-07-18T10:23:24+00:00",
+    "yearlyActivity": {
+      "2011": 1
+    }
+  },
+  {
+    "name": "Nara Rama",
+    "slug": "nara-rama",
+    "messageCount": 1,
+    "firstDate": "2010-03-26T12:48:30-07:00",
+    "lastDate": "2010-03-26T12:48:30-07:00",
+    "yearlyActivity": {
+      "2010": 1
+    }
+  },
+  {
+    "name": "Matěj Cepl",
+    "slug": "mat-j-cepl",
+    "messageCount": 1,
+    "firstDate": "2008-09-10T14:08:02+02:00",
+    "lastDate": "2008-09-10T14:08:02+02:00",
+    "yearlyActivity": {
+      "2008": 1
+    }
+  },
+  {
+    "name": "ONKELINX, Thierry",
+    "slug": "onkelinx-thierry",
+    "messageCount": 1,
+    "firstDate": "2015-01-16T10:40:08+00:00",
+    "lastDate": "2015-01-16T10:40:08+00:00",
+    "yearlyActivity": {
+      "2015": 1
+    }
+  },
+  {
+    "name": "John Williams",
+    "slug": "john-williams",
+    "messageCount": 1,
+    "firstDate": "2021-11-14T20:08:42+00:00",
+    "lastDate": "2021-11-14T20:08:42+00:00",
+    "yearlyActivity": {
+      "2021": 1
+    }
+  },
+  {
+    "name": "Braun, Stefan",
+    "slug": "braun-stefan",
+    "messageCount": 1,
+    "firstDate": "2017-08-23T10:02:45+00:00",
+    "lastDate": "2017-08-23T10:02:45+00:00",
+    "yearlyActivity": {
+      "2017": 1
+    }
+  },
+  {
+    "name": "Ranjit",
+    "slug": "ranjit",
+    "messageCount": 1,
+    "firstDate": "2010-06-06T06:57:07+00:00",
+    "lastDate": "2010-06-06T06:57:07+00:00",
+    "yearlyActivity": {
+      "2010": 1
+    }
+  },
+  {
+    "name": "Sakda Chaiworawitkul",
+    "slug": "sakda-chaiworawitkul",
+    "messageCount": 1,
+    "firstDate": "2008-12-06T15:00:35-08:00",
+    "lastDate": "2008-12-06T15:00:35-08:00",
+    "yearlyActivity": {
+      "2008": 1
+    }
+  },
+  {
+    "name": "Paul Murrell",
+    "slug": "paul-murrell",
+    "messageCount": 1,
+    "firstDate": "2024-03-13T10:10:15+13:00",
+    "lastDate": "2024-03-13T10:10:15+13:00",
+    "yearlyActivity": {
+      "2024": 1
+    }
+  },
+  {
+    "name": "Ben Engbers",
+    "slug": "ben-engbers",
+    "messageCount": 1,
+    "firstDate": "2024-08-15T17:09:30+02:00",
+    "lastDate": "2024-08-15T17:09:30+02:00",
+    "yearlyActivity": {
+      "2024": 1
+    }
+  },
+  {
+    "name": "Matthew Bascom",
+    "slug": "matthew-bascom",
+    "messageCount": 1,
+    "firstDate": "2011-01-28T12:29:58-08:00",
+    "lastDate": "2011-01-28T12:29:58-08:00",
+    "yearlyActivity": {
+      "2011": 1
+    }
+  },
+  {
+    "name": "TRISTAN J PAUTSCH",
+    "slug": "tristan-j-pautsch",
+    "messageCount": 1,
+    "firstDate": "2016-06-08T16:47:51+00:00",
+    "lastDate": "2016-06-08T16:47:51+00:00",
+    "yearlyActivity": {
+      "2016": 1
+    }
+  },
+  {
+    "name": "Matthew Saltzman",
+    "slug": "matthew-saltzman",
+    "messageCount": 1,
+    "firstDate": "2008-10-23T21:37:26-04:00",
+    "lastDate": "2008-10-23T21:37:26-04:00",
+    "yearlyActivity": {
+      "2008": 1
+    }
+  },
+  {
+    "name": "Shu-Ju Tu",
+    "slug": "shu-ju-tu",
+    "messageCount": 1,
+    "firstDate": "2017-05-16T10:31:49+08:00",
+    "lastDate": "2017-05-16T10:31:49+08:00",
+    "yearlyActivity": {
+      "2017": 1
+    }
+  },
+  {
+    "name": "Shankar Pandey",
+    "slug": "shankar-pandey",
+    "messageCount": 1,
+    "firstDate": "2017-02-02T18:44:14+05:30",
+    "lastDate": "2017-02-02T18:44:14+05:30",
+    "yearlyActivity": {
+      "2017": 1
+    }
+  },
+  {
+    "name": "Eric Kaufmann",
+    "slug": "eric-kaufmann",
+    "messageCount": 1,
+    "firstDate": "2014-04-02T15:05:40-05:00",
+    "lastDate": "2014-04-02T15:05:40-05:00",
+    "yearlyActivity": {
+      "2014": 1
+    }
+  },
+  {
+    "name": "Peterson Jacob - jacpet",
+    "slug": "peterson-jacob-jacpet",
+    "messageCount": 1,
+    "firstDate": "2009-10-12T16:32:01-05:00",
+    "lastDate": "2009-10-12T16:32:01-05:00",
+    "yearlyActivity": {
+      "2009": 1
+    }
+  },
+  {
+    "name": "plummer at iarc.fr",
+    "slug": "plummer-at-iarc-fr",
+    "messageCount": 1,
+    "firstDate": "2008-10-26T20:59:27+01:00",
+    "lastDate": "2008-10-26T20:59:27+01:00",
+    "yearlyActivity": {
+      "2008": 1
+    }
+  },
+  {
+    "name": "Ryan Womack",
+    "slug": "ryan-womack",
+    "messageCount": 1,
+    "firstDate": "2013-10-18T14:39:34-04:00",
+    "lastDate": "2013-10-18T14:39:34-04:00",
+    "yearlyActivity": {
+      "2013": 1
+    }
+  },
+  {
+    "name": "Michael",
+    "slug": "michael",
+    "messageCount": 1,
+    "firstDate": "2012-05-27T14:37:35-05:00",
+    "lastDate": "2012-05-27T14:37:35-05:00",
+    "yearlyActivity": {
+      "2012": 1
+    }
+  },
+  {
+    "name": "Brown, Simon",
+    "slug": "brown-simon",
+    "messageCount": 1,
+    "firstDate": "2015-09-17T14:03:12+00:00",
+    "lastDate": "2015-09-17T14:03:12+00:00",
+    "yearlyActivity": {
+      "2015": 1
+    }
+  },
+  {
+    "name": "Mike Landis",
+    "slug": "mike-landis",
+    "messageCount": 1,
+    "firstDate": "2013-09-14T22:56:02-07:00",
+    "lastDate": "2013-09-14T22:56:02-07:00",
+    "yearlyActivity": {
+      "2013": 1
+    }
+  }
+]
