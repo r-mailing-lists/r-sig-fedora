@@ -8,7 +8,7 @@
       "message_id": "<CAP2vBum3nUdsUqrkoAPNFcU0qzC0PunaEedDPNftuNx7=RcfQA@mail.gmail.com>",
       "from_name": "Eric Kaufmann",
       "from_email_hash": "6d659b72c2f2f23664746a59c2bf65be37a392d0426d283a51aacee2d329eaf3",
-      "date": "2014-04-02T15:05:40-05:00",
+      "date": "2014-04-02T20:05:40Z",
       "subject": "[R-sig-Fedora] RJAGS Installation Issues",
       "subject_clean": "RJAGS Installation Issues",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<3F79C36C-F1E2-4DBD-A5AC-22853B58658B@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
-      "date": "2014-04-02T15:48:47-05:00",
+      "date": "2014-04-02T20:48:47Z",
       "subject": "[R-sig-Fedora] RJAGS Installation Issues",
       "subject_clean": "RJAGS Installation Issues",
       "in_reply_to": "<CAP2vBum3nUdsUqrkoAPNFcU0qzC0PunaEedDPNftuNx7=RcfQA@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<CALJKDF_bRoQ0JQ-LJ-n3ikQTrf4VrMp+BYzV=heiXmYPb_k5Gg@mail.gmail.com>",
       "from_name": "Steve Taylor",
       "from_email_hash": "74d3363cb6b0a45862a2be9054b7268dbbf98292304b2555e3b3d93d0373f7a9",
-      "date": "2014-04-20T09:33:41+12:00",
+      "date": "2014-04-19T21:33:41Z",
       "subject": "[R-sig-Fedora] Nonexistent include directory \"/usr/lib/gfortran/modules\"",
       "subject_clean": "Nonexistent include directory \"/usr/lib/gfortran/modules\"",
       "in_reply_to": null,
@@ -58,7 +58,7 @@
       "message_id": "<D514B42E-69E3-4BF4-B615-2AA865F62481@gmail.com>",
       "from_name": "peter dalgaard",
       "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
-      "date": "2014-04-20T00:08:54+02:00",
+      "date": "2014-04-19T22:08:54Z",
       "subject": "[R-sig-Fedora] Nonexistent include directory \"/usr/lib/gfortran/modules\"",
       "subject_clean": "Nonexistent include directory \"/usr/lib/gfortran/modules\"",
       "in_reply_to": "<CALJKDF_bRoQ0JQ-LJ-n3ikQTrf4VrMp+BYzV=heiXmYPb_k5Gg@mail.gmail.com>",
@@ -76,7 +76,7 @@
       "message_id": "<CALJKDF-ipMNeh9OGwZhDHZhv1SKXksxwGuiw-2g_jT2iXpDvMA@mail.gmail.com>",
       "from_name": "Steve Taylor",
       "from_email_hash": "74d3363cb6b0a45862a2be9054b7268dbbf98292304b2555e3b3d93d0373f7a9",
-      "date": "2014-04-20T10:48:19+12:00",
+      "date": "2014-04-19T22:48:19Z",
       "subject": "[R-sig-Fedora] Nonexistent include directory \"/usr/lib/gfortran/modules\"",
       "subject_clean": "Nonexistent include directory \"/usr/lib/gfortran/modules\"",
       "in_reply_to": "<D514B42E-69E3-4BF4-B615-2AA865F62481@gmail.com>",
@@ -95,7 +95,7 @@
       "message_id": "<9A05E65B-B8A4-4442-A018-8281548A3852@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
-      "date": "2014-04-19T20:27:26-05:00",
+      "date": "2014-04-20T01:27:26Z",
       "subject": "[R-sig-Fedora] Nonexistent include directory \"/usr/lib/gfortran/modules\"",
       "subject_clean": "Nonexistent include directory \"/usr/lib/gfortran/modules\"",
       "in_reply_to": "<CALJKDF-ipMNeh9OGwZhDHZhv1SKXksxwGuiw-2g_jT2iXpDvMA@mail.gmail.com>",
@@ -120,8 +120,8 @@
         "Eric Kaufmann",
         "Marc Schwartz"
       ],
-      "started": "2014-04-02T15:05:40-05:00",
-      "last_reply": "2014-04-02T15:48:47-05:00",
+      "started": "2014-04-02T20:05:40Z",
+      "last_reply": "2014-04-02T20:48:47Z",
       "root_message_id": "msg-00db6f25f957"
     },
     {
@@ -133,8 +133,8 @@
         "Steve Taylor",
         "peter dalgaard"
       ],
-      "started": "2014-04-20T09:33:41+12:00",
-      "last_reply": "2014-04-19T20:27:26-05:00",
+      "started": "2014-04-19T21:33:41Z",
+      "last_reply": "2014-04-20T01:27:26Z",
       "root_message_id": "msg-2d2f0b447f8c"
     }
   ]

@@ -24,7 +24,7 @@
       "message_id": "<52618066.2070302@rutgers.edu>",
       "from_name": "Ryan Womack",
       "from_email_hash": "557843ce8ef11e0e6d9690c750d658d5b8e38d3cdc663f99331c9a780c8aed3b",
-      "date": "2013-10-18T14:39:34-04:00",
+      "date": "2013-10-18T18:39:34Z",
       "subject": "[R-sig-Fedora] R packages in Fedora 18 and 19",
       "subject_clean": "R packages in Fedora 18 and 19",
       "in_reply_to": "<7E039918541B4C4183BFDB8F015C743046C4EB@WCL-EXCH02.wcl.local>",
@@ -47,8 +47,8 @@
         "Ed Avis",
         "Ryan Womack"
       ],
-      "started": "2013-10-18T16:37:05+00:00",
-      "last_reply": "2013-10-18T14:39:34-04:00",
+      "started": "2013-10-18T16:37:05Z",
+      "last_reply": "2013-10-18T18:39:34Z",
       "root_message_id": "msg-e230b6b32be5"
     }
   ]

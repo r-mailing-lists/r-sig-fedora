@@ -8,7 +8,7 @@
       "message_id": "<CAPRP4-dqA+ev7xdbuNozmam6bL4d9CMt7_GHKdV44XoKKimNCA@mail.gmail.com>",
       "from_name": "Martin Maechler",
       "from_email_hash": "c2c86f22f78a4ecfe6d0e6b4e2be505a3f5beb0470ea88c903688ac536018a98",
-      "date": "2014-10-06T16:54:22+02:00",
+      "date": "2014-10-06T14:54:22Z",
       "subject": "[R-sig-Fedora] RJAGS Installation Issues",
       "subject_clean": "RJAGS Installation Issues",
       "in_reply_to": null,
@@ -42,7 +42,7 @@
       "message_id": "<CABFfbXsXbh7azktoDLYkHK45SBgM4DMgERDi9uUqo=wv=60mcw@mail.gmail.com>",
       "from_name": "Jeroen Ooms",
       "from_email_hash": "a265ef4bb03c14ee9d6f00489213486310c7d7bc8d3d2467e6937626fef998e1",
-      "date": "2014-10-06T21:25:47+02:00",
+      "date": "2014-10-06T19:25:47Z",
       "subject": "[R-sig-Fedora] RJAGS Installation Issues",
       "subject_clean": "RJAGS Installation Issues",
       "in_reply_to": "<31E214B6DF75104E942856C2F74953CB051E4822@exchange>",
@@ -81,7 +81,7 @@
       "message_id": "<21556.63100.900583.287859@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "c2c86f22f78a4ecfe6d0e6b4e2be505a3f5beb0470ea88c903688ac536018a98",
-      "date": "2014-10-08T10:31:56+02:00",
+      "date": "2014-10-08T08:31:56Z",
       "subject": "[R-sig-Fedora] RJAGS Installation Issues",
       "subject_clean": "RJAGS Installation Issues",
       "in_reply_to": "<1412700377.27658.24.camel@braque.iarc.fr>",
@@ -108,8 +108,8 @@
         "Martin Maechler",
         "Martyn Plummer"
       ],
-      "started": "2014-10-06T16:54:22+02:00",
-      "last_reply": "2014-10-08T10:31:56+02:00",
+      "started": "2014-10-06T14:54:22Z",
+      "last_reply": "2014-10-08T08:31:56Z",
       "root_message_id": "msg-b70bf4636dac"
     }
   ]

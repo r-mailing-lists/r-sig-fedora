@@ -8,7 +8,7 @@
       "message_id": "<51FB8373.1060906@xtra.co.nz>",
       "from_name": "Rolf Turner",
       "from_email_hash": "d072e940bc78bafa3715f1e248fd84a53d2f004a6db70ef168bf2ff6b3a080a0",
-      "date": "2013-08-02T22:01:23+12:00",
+      "date": "2013-08-02T10:01:23Z",
       "subject": "[R-sig-Fedora] R binaries for Fedora 17.",
       "subject_clean": "R binaries for Fedora 17.",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<CAEp0rCaGSyd+9LHzhiHUx28hKe4z4emK+znPRmH=k3TYKZkgMQ@mail.gmail.com>",
       "from_name": "Johannes Lips",
       "from_email_hash": "a43f4befce3c14fbc65c92ef4e81dbb3441faa1a906c3cb076eeae920bffd275",
-      "date": "2013-08-02T13:06:27+02:00",
+      "date": "2013-08-02T11:06:27Z",
       "subject": "[R-sig-Fedora] R binaries for Fedora 17.",
       "subject_clean": "R binaries for Fedora 17.",
       "in_reply_to": "<51FB8373.1060906@xtra.co.nz>",
@@ -42,7 +42,7 @@
       "message_id": "<D96BE770-63B6-4D2D-9385-166968B20217@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
-      "date": "2013-08-02T06:35:29-05:00",
+      "date": "2013-08-02T11:35:29Z",
       "subject": "[R-sig-Fedora] R binaries for Fedora 17.",
       "subject_clean": "R binaries for Fedora 17.",
       "in_reply_to": "<51FB8373.1060906@xtra.co.nz>",
@@ -60,7 +60,7 @@
       "message_id": "<51FBBF52.6090901@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2013-08-02T10:16:50-04:00",
+      "date": "2013-08-02T14:16:50Z",
       "subject": "[R-sig-Fedora] R binaries for Fedora 17.",
       "subject_clean": "R binaries for Fedora 17.",
       "in_reply_to": "<51FB8373.1060906@xtra.co.nz>",
@@ -78,7 +78,7 @@
       "message_id": "<51FC3045.9070502@xtra.co.nz>",
       "from_name": "Rolf Turner",
       "from_email_hash": "d072e940bc78bafa3715f1e248fd84a53d2f004a6db70ef168bf2ff6b3a080a0",
-      "date": "2013-08-03T10:18:45+12:00",
+      "date": "2013-08-02T22:18:45Z",
       "subject": "[R-sig-Fedora] R binaries for Fedora 17 --- thanks.",
       "subject_clean": "R binaries for Fedora 17 --- thanks.",
       "in_reply_to": "<CAEp0rCaGSyd+9LHzhiHUx28hKe4z4emK+znPRmH=k3TYKZkgMQ@mail.gmail.com>",
@@ -97,7 +97,7 @@
       "message_id": "<CAErODj_AuQo0MsfO+rD_zEhKgk=Yvb=9mFn1PE7wiJD9gGzMcA@mail.gmail.com>",
       "from_name": "Paul Johnson",
       "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
-      "date": "2013-08-06T18:13:09-05:00",
+      "date": "2013-08-06T23:13:09Z",
       "subject": "[R-sig-Fedora] R binaries for Fedora 17 --- thanks.",
       "subject_clean": "R binaries for Fedora 17 --- thanks.",
       "in_reply_to": "<51FC3045.9070502@xtra.co.nz>",
@@ -117,7 +117,7 @@
       "message_id": "<CAErODj_H+3QSq7BD5ONSpnMADxccc74dL6vUVhX3zmmkV-VhzA@mail.gmail.com>",
       "from_name": "Paul Johnson",
       "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
-      "date": "2013-08-11T11:27:36-05:00",
+      "date": "2013-08-11T16:27:36Z",
       "subject": "[R-sig-Fedora] R binaries for Fedora 17.",
       "subject_clean": "R binaries for Fedora 17.",
       "in_reply_to": "<51FBBF52.6090901@redhat.com>",
@@ -136,7 +136,7 @@
       "message_id": "<CAHz+bWb68MNEiznJOtcmSO6uoxXXA=rt+_74=ci3N0v5zrL2-Q@mail.gmail.com>",
       "from_name": "Mark Leeds",
       "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
-      "date": "2013-08-15T17:09:32-04:00",
+      "date": "2013-08-15T21:09:32Z",
       "subject": "[R-sig-Fedora] building R from source on fedora using shared library option",
       "subject_clean": "building R from source on fedora using shared library option",
       "in_reply_to": null,
@@ -152,7 +152,7 @@
       "message_id": "<CAHz+bWY8-WYot+VhTUChXKyMiWd0_0oQgy1x7Q2t1YaAnkjHQQ@mail.gmail.com>",
       "from_name": "Mark Leeds",
       "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
-      "date": "2013-08-16T20:00:18-04:00",
+      "date": "2013-08-17T00:00:18Z",
       "subject": "[R-sig-Fedora] make clean fixed it",
       "subject_clean": "make clean fixed it",
       "in_reply_to": null,
@@ -176,8 +176,8 @@
         "Rolf Turner",
         "Tom Callaway"
       ],
-      "started": "2013-08-02T22:01:23+12:00",
-      "last_reply": "2013-08-11T11:27:36-05:00",
+      "started": "2013-08-02T10:01:23Z",
+      "last_reply": "2013-08-11T16:27:36Z",
       "root_message_id": "msg-4dde7f641353"
     },
     {
@@ -187,8 +187,8 @@
       "participants": [
         "Mark Leeds"
       ],
-      "started": "2013-08-15T17:09:32-04:00",
-      "last_reply": "2013-08-15T17:09:32-04:00",
+      "started": "2013-08-15T21:09:32Z",
+      "last_reply": "2013-08-15T21:09:32Z",
       "root_message_id": "msg-dca94c798ac8"
     },
     {
@@ -198,8 +198,8 @@
       "participants": [
         "Mark Leeds"
       ],
-      "started": "2013-08-16T20:00:18-04:00",
-      "last_reply": "2013-08-16T20:00:18-04:00",
+      "started": "2013-08-17T00:00:18Z",
+      "last_reply": "2013-08-17T00:00:18Z",
       "root_message_id": "msg-1e8c8ad69426"
     }
   ]

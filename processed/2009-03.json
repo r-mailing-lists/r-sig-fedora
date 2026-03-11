@@ -8,7 +8,7 @@
       "message_id": "<8997A5618DE60943943276858975E48906BC2641@winxbeus19.exchange.xchg>",
       "from_name": "Haas, Kevin",
       "from_email_hash": "c8a070cd63efd5915c43ea6ae61120954355b9ac72ba625d096adbf7ee5afa95",
-      "date": "2009-03-03T17:55:48-05:00",
+      "date": "2009-03-03T22:55:48Z",
       "subject": "[R-sig-Fedora] dotplot() lattice charts return blank image (jpeg, bmp, png) file",
       "subject_clean": "dotplot() lattice charts return blank image (jpeg, bmp, png) file",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<49ADBB30.1040404@biostat.ku.dk>",
       "from_name": "Peter Dalgaard",
       "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
-      "date": "2009-03-04T00:20:16+01:00",
+      "date": "2009-03-03T23:20:16Z",
       "subject": "[R-sig-Fedora] dotplot() lattice charts return blank image (jpeg, bmp, png) file",
       "subject_clean": "dotplot() lattice charts return blank image (jpeg, bmp, png) file",
       "in_reply_to": "<8997A5618DE60943943276858975E48906BC2641@winxbeus19.exchange.xchg>",
@@ -42,7 +42,7 @@
       "message_id": "<8997A5618DE60943943276858975E48906BC265E@winxbeus19.exchange.xchg>",
       "from_name": "Haas, Kevin",
       "from_email_hash": "c8a070cd63efd5915c43ea6ae61120954355b9ac72ba625d096adbf7ee5afa95",
-      "date": "2009-03-03T18:46:56-05:00",
+      "date": "2009-03-03T23:46:56Z",
       "subject": "[R-sig-Fedora] dotplot() lattice charts return blank image (jpeg, bmp, png) file",
       "subject_clean": "dotplot() lattice charts return blank image (jpeg, bmp, png) file",
       "in_reply_to": "<49ADBB30.1040404@biostat.ku.dk>",
@@ -63,8 +63,8 @@
         "Haas, Kevin",
         "Peter Dalgaard"
       ],
-      "started": "2009-03-03T17:55:48-05:00",
-      "last_reply": "2009-03-03T18:46:56-05:00",
+      "started": "2009-03-03T22:55:48Z",
+      "last_reply": "2009-03-03T23:46:56Z",
       "root_message_id": "msg-2eeb193536c0"
     }
   ]

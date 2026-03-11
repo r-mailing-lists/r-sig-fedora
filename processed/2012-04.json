@@ -8,7 +8,7 @@
       "message_id": "<1334764491.2370.8.camel@pm>",
       "from_name": "Petar Milin",
       "from_email_hash": "97be71c5c0d797ec6d445c4be6689e912357e971a6641cb143e5736421f767a0",
-      "date": "2012-04-18T17:54:51+02:00",
+      "date": "2012-04-18T15:54:51Z",
       "subject": "[R-sig-Fedora] Installing texlive dependencies",
       "subject_clean": "Installing texlive dependencies",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<1334765496.2370.11.camel@pm>",
       "from_name": "Petar Milin",
       "from_email_hash": "97be71c5c0d797ec6d445c4be6689e912357e971a6641cb143e5736421f767a0",
-      "date": "2012-04-18T18:11:36+02:00",
+      "date": "2012-04-18T16:11:36Z",
       "subject": "[R-sig-Fedora] Installing texlive dependencies",
       "subject_clean": "Installing texlive dependencies",
       "in_reply_to": "<CAEp0rCYtaxMV_G8g=Aq=n4_wjRktv=2QCnchTC=vOrd5Pq0aGQ@mail.gmail.com>",
@@ -43,7 +43,7 @@
       "message_id": "<1334769339.2370.16.camel@pm>",
       "from_name": "Petar Milin",
       "from_email_hash": "97be71c5c0d797ec6d445c4be6689e912357e971a6641cb143e5736421f767a0",
-      "date": "2012-04-18T19:15:39+02:00",
+      "date": "2012-04-18T17:15:39Z",
       "subject": "[R-sig-Fedora] Installing texlive dependencies",
       "subject_clean": "Installing texlive dependencies",
       "in_reply_to": "<CAEp0rCb=_TwGU6G-tVkuvsV5RyZnOZ2JfdS1v=1mDQk+ZbOMrg@mail.gmail.com>",
@@ -64,7 +64,7 @@
       "message_id": "<alpine.LRH.1.00.1204181336580.26534@oebafba.bjyevire.pbz>",
       "from_name": "R P Herrold",
       "from_email_hash": "fbd00a6d807b904d02f38ce043653aaf614702440f15acf5b7c9fda8b7279c59",
-      "date": "2012-04-18T14:02:52-04:00",
+      "date": "2012-04-18T18:02:52Z",
       "subject": "[R-sig-Fedora] Installing texlive dependencies",
       "subject_clean": "Installing texlive dependencies",
       "in_reply_to": "<1334764491.2370.8.camel@pm>",
@@ -98,7 +98,7 @@
       "message_id": "<CADsJW9GMV-U_gw9hhhK4B96QBbscSqaCSwp6JE5aj2c_t83xvg@mail.gmail.com>",
       "from_name": "Peter Baker",
       "from_email_hash": "54d4450331c143f502978ebc74bd31ae61abbce5d642c14fe1656ef28cb1d5c2",
-      "date": "2012-04-25T23:03:22+10:00",
+      "date": "2012-04-25T13:03:22Z",
       "subject": "[R-sig-Fedora] Installing texlive dependencies",
       "subject_clean": "Installing texlive dependencies",
       "in_reply_to": "<alpine.LRH.1.00.1204181336580.26534@oebafba.bjyevire.pbz>",
@@ -117,7 +117,7 @@
       "message_id": "<1335364786.2550.5.camel@pm>",
       "from_name": "Petar Milin",
       "from_email_hash": "97be71c5c0d797ec6d445c4be6689e912357e971a6641cb143e5736421f767a0",
-      "date": "2012-04-25T16:39:46+02:00",
+      "date": "2012-04-25T14:39:46Z",
       "subject": "[R-sig-Fedora] Installing texlive dependencies",
       "subject_clean": "Installing texlive dependencies",
       "in_reply_to": "<CADsJW9GMV-U_gw9hhhK4B96QBbscSqaCSwp6JE5aj2c_t83xvg@mail.gmail.com>",
@@ -137,7 +137,7 @@
       "message_id": "<CADsJW9Hhm4Pgbz+ARFxQ5REDuoHmPR4eUQL1zJEQQDApk2dTQA@mail.gmail.com>",
       "from_name": "Peter Baker",
       "from_email_hash": "54d4450331c143f502978ebc74bd31ae61abbce5d642c14fe1656ef28cb1d5c2",
-      "date": "2012-04-26T16:15:14+10:00",
+      "date": "2012-04-26T06:15:14Z",
       "subject": "[R-sig-Fedora] Installing texlive dependencies",
       "subject_clean": "Installing texlive dependencies",
       "in_reply_to": "<1335364786.2550.5.camel@pm>",
@@ -158,7 +158,7 @@
       "message_id": "<1335427285.2204.2.camel@pm>",
       "from_name": "Petar Milin",
       "from_email_hash": "97be71c5c0d797ec6d445c4be6689e912357e971a6641cb143e5736421f767a0",
-      "date": "2012-04-26T10:01:25+02:00",
+      "date": "2012-04-26T08:01:25Z",
       "subject": "[R-sig-Fedora] Installing texlive dependencies",
       "subject_clean": "Installing texlive dependencies",
       "in_reply_to": "<CADsJW9Hhm4Pgbz+ARFxQ5REDuoHmPR4eUQL1zJEQQDApk2dTQA@mail.gmail.com>",
@@ -180,7 +180,7 @@
       "message_id": "<CADsJW9Ga7jY0qjBAf53PiATcj_o7L2EPag2Kjyw+LboARjdoSA@mail.gmail.com>",
       "from_name": "Peter Baker",
       "from_email_hash": "54d4450331c143f502978ebc74bd31ae61abbce5d642c14fe1656ef28cb1d5c2",
-      "date": "2012-04-27T00:04:34+10:00",
+      "date": "2012-04-26T14:04:34Z",
       "subject": "[R-sig-Fedora] Installing texlive dependencies",
       "subject_clean": "Installing texlive dependencies",
       "in_reply_to": "<1335427285.2204.2.camel@pm>",
@@ -203,7 +203,7 @@
       "message_id": "<1335526744.2243.19.camel@pm>",
       "from_name": "Petar Milin",
       "from_email_hash": "97be71c5c0d797ec6d445c4be6689e912357e971a6641cb143e5736421f767a0",
-      "date": "2012-04-27T13:39:04+02:00",
+      "date": "2012-04-27T11:39:04Z",
       "subject": "[R-sig-Fedora] Installing texlive dependencies",
       "subject_clean": "Installing texlive dependencies",
       "in_reply_to": "<CADsJW9Ga7jY0qjBAf53PiATcj_o7L2EPag2Kjyw+LboARjdoSA@mail.gmail.com>",
@@ -227,7 +227,7 @@
       "message_id": "<CADsJW9G04DAdA-2U8oUubC7uvg9tSOiCEwsUCN_2nyqgNjTXpA@mail.gmail.com>",
       "from_name": "Peter Baker",
       "from_email_hash": "54d4450331c143f502978ebc74bd31ae61abbce5d642c14fe1656ef28cb1d5c2",
-      "date": "2012-04-28T11:24:20+10:00",
+      "date": "2012-04-28T01:24:20Z",
       "subject": "[R-sig-Fedora] Installing texlive dependencies",
       "subject_clean": "Installing texlive dependencies",
       "in_reply_to": "<1335526744.2243.19.camel@pm>",
@@ -252,7 +252,7 @@
       "message_id": "<1335603135.2002.5.camel@pm>",
       "from_name": "Petar Milin",
       "from_email_hash": "97be71c5c0d797ec6d445c4be6689e912357e971a6641cb143e5736421f767a0",
-      "date": "2012-04-28T10:52:15+02:00",
+      "date": "2012-04-28T08:52:15Z",
       "subject": "[R-sig-Fedora] Installing texlive dependencies",
       "subject_clean": "Installing texlive dependencies",
       "in_reply_to": "<CADsJW9G04DAdA-2U8oUubC7uvg9tSOiCEwsUCN_2nyqgNjTXpA@mail.gmail.com>",
@@ -284,8 +284,8 @@
         "Peter Baker",
         "R P Herrold"
       ],
-      "started": "2012-04-18T17:54:51+02:00",
-      "last_reply": "2012-04-28T10:52:15+02:00",
+      "started": "2012-04-18T15:54:51Z",
+      "last_reply": "2012-04-28T08:52:15Z",
       "root_message_id": "msg-52fe21ee5449"
     },
     {
@@ -295,8 +295,8 @@
       "participants": [
         "Petar Milin"
       ],
-      "started": "2012-04-18T18:11:36+02:00",
-      "last_reply": "2012-04-18T18:11:36+02:00",
+      "started": "2012-04-18T16:11:36Z",
+      "last_reply": "2012-04-18T16:11:36Z",
       "root_message_id": "msg-e3d68f88978b"
     },
     {
@@ -306,8 +306,8 @@
       "participants": [
         "Petar Milin"
       ],
-      "started": "2012-04-18T19:15:39+02:00",
-      "last_reply": "2012-04-18T19:15:39+02:00",
+      "started": "2012-04-18T17:15:39Z",
+      "last_reply": "2012-04-18T17:15:39Z",
       "root_message_id": "msg-edb0716561a1"
     },
     {
@@ -317,8 +317,8 @@
       "participants": [
         "Badoo"
       ],
-      "started": "2012-04-21T01:47:19+00:00",
-      "last_reply": "2012-04-21T01:47:19+00:00",
+      "started": "2012-04-21T01:47:19Z",
+      "last_reply": "2012-04-21T01:47:19Z",
       "root_message_id": "msg-348d4adb6c0e"
     }
   ]

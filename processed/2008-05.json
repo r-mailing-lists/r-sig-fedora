@@ -8,7 +8,7 @@
       "message_id": "<6ade6f6c0805200727p18719822m53c6c864178a652d@mail.gmail.com>",
       "from_name": "Paul Smith",
       "from_email_hash": "fd2c50431e2a6cb6e7be5ae41e049555b30efcd2f9185895e4465d7e61ddebf8",
-      "date": "2008-05-20T15:27:49+01:00",
+      "date": "2008-05-20T14:27:49Z",
       "subject": "[R-sig-Fedora] Problems with installing the rgl package",
       "subject_clean": "Problems with installing the rgl package",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<48331000.809@comcast.net>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "6b69db75158c6a64599f027a17f3ea4ee49917322d20dbb731688b8fd4f10e1f",
-      "date": "2008-05-20T12:53:04-05:00",
+      "date": "2008-05-20T17:53:04Z",
       "subject": "[R-sig-Fedora] Problems with installing the rgl package",
       "subject_clean": "Problems with installing the rgl package",
       "in_reply_to": null,
@@ -40,7 +40,7 @@
       "message_id": "<6ade6f6c0805210358n6858f06yb38c940c9bf0a266@mail.gmail.com>",
       "from_name": "Paul Smith",
       "from_email_hash": "fd2c50431e2a6cb6e7be5ae41e049555b30efcd2f9185895e4465d7e61ddebf8",
-      "date": "2008-05-21T11:58:21+01:00",
+      "date": "2008-05-21T10:58:21Z",
       "subject": "[R-sig-Fedora] Problems with installing the rgl package",
       "subject_clean": "Problems with installing the rgl package",
       "in_reply_to": "<48331000.809@comcast.net>",
@@ -58,7 +58,7 @@
       "message_id": "<48347434.5020909@biostat.ku.dk>",
       "from_name": "Peter Dalgaard",
       "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
-      "date": "2008-05-21T21:12:52+02:00",
+      "date": "2008-05-21T19:12:52Z",
       "subject": "[R-sig-Fedora] No antialiasing with 2.7.0",
       "subject_clean": "No antialiasing with 2.7.0",
       "in_reply_to": null,
@@ -72,6 +72,17 @@
   ],
   "threads": [
     {
+      "id": "thread-5bb0aea50a83",
+      "subject": "Problems with installing the rgl package",
+      "message_count": 1,
+      "participants": [
+        "Paul Smith"
+      ],
+      "started": "2008-05-20T14:27:49Z",
+      "last_reply": "2008-05-20T14:27:49Z",
+      "root_message_id": "msg-5bb0aea50a83"
+    },
+    {
       "id": "thread-963be3fd0bf3",
       "subject": "Problems with installing the rgl package",
       "message_count": 2,
@@ -79,20 +90,9 @@
         "Marc Schwartz",
         "Paul Smith"
       ],
-      "started": "2008-05-20T12:53:04-05:00",
-      "last_reply": "2008-05-21T11:58:21+01:00",
+      "started": "2008-05-20T17:53:04Z",
+      "last_reply": "2008-05-21T10:58:21Z",
       "root_message_id": "msg-963be3fd0bf3"
-    },
-    {
-      "id": "thread-5bb0aea50a83",
-      "subject": "Problems with installing the rgl package",
-      "message_count": 1,
-      "participants": [
-        "Paul Smith"
-      ],
-      "started": "2008-05-20T15:27:49+01:00",
-      "last_reply": "2008-05-20T15:27:49+01:00",
-      "root_message_id": "msg-5bb0aea50a83"
     },
     {
       "id": "thread-5db2e1b7a116",
@@ -101,8 +101,8 @@
       "participants": [
         "Peter Dalgaard"
       ],
-      "started": "2008-05-21T21:12:52+02:00",
-      "last_reply": "2008-05-21T21:12:52+02:00",
+      "started": "2008-05-21T19:12:52Z",
+      "last_reply": "2008-05-21T19:12:52Z",
       "root_message_id": "msg-5db2e1b7a116"
     }
   ]

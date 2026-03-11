@@ -24,7 +24,7 @@
       "message_id": "<53BAAA2D.3060005@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2014-07-07T10:09:49-04:00",
+      "date": "2014-07-07T14:09:49Z",
       "subject": "[R-sig-Fedora] R with external BLAS fails regression test",
       "subject_clean": "R with external BLAS fails regression test",
       "in_reply_to": "<1404735342.3142.28.camel@braque.iarc.fr>",
@@ -61,7 +61,7 @@
       "message_id": "<53BEE082.4060300@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2014-07-10T14:50:42-04:00",
+      "date": "2014-07-10T18:50:42Z",
       "subject": "[R-sig-Fedora] Centos / Fedora rpm - issue with openblas",
       "subject_clean": "Centos / Fedora rpm - issue with openblas",
       "in_reply_to": "<1402928186.17749.122.camel@braque.iarc.fr>",
@@ -89,8 +89,8 @@
         "Martyn Plummer",
         "Tom Callaway"
       ],
-      "started": "2014-07-07T12:15:42+00:00",
-      "last_reply": "2014-07-07T15:11:20+00:00",
+      "started": "2014-07-07T12:15:42Z",
+      "last_reply": "2014-07-07T15:11:20Z",
       "root_message_id": "msg-e0f5c9900ab2"
     },
     {
@@ -100,8 +100,8 @@
       "participants": [
         "Tom Callaway"
       ],
-      "started": "2014-07-10T14:50:42-04:00",
-      "last_reply": "2014-07-10T14:50:42-04:00",
+      "started": "2014-07-10T18:50:42Z",
+      "last_reply": "2014-07-10T18:50:42Z",
       "root_message_id": "msg-e3d0257520ed"
     }
   ]

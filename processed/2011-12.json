@@ -8,7 +8,7 @@
       "message_id": "<CADsJW9HDh+DS-7fQn-j=jUNVWtkxs8-D3KQFg91Zv3KCdgw2Wg@mail.gmail.com>",
       "from_name": "Peter Baker",
       "from_email_hash": "54d4450331c143f502978ebc74bd31ae61abbce5d642c14fe1656ef28cb1d5c2",
-      "date": "2011-12-14T18:08:16+10:00",
+      "date": "2011-12-14T08:08:16Z",
       "subject": "[R-sig-Fedora] error installing geepack on 64bit fedora 16",
       "subject_clean": "error installing geepack on 64bit fedora 16",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<1323851371.25774.6.camel@pingouambre.dyndns.org>",
       "from_name": "Pierre-Yves Chibon",
       "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
-      "date": "2011-12-14T09:29:31+01:00",
+      "date": "2011-12-14T08:29:31Z",
       "subject": "[R-sig-Fedora] error installing geepack on 64bit fedora 16",
       "subject_clean": "error installing geepack on 64bit fedora 16",
       "in_reply_to": "<CADsJW9HDh+DS-7fQn-j=jUNVWtkxs8-D3KQFg91Zv3KCdgw2Wg@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<DA93457C-1946-46BC-8A60-F46CECB47B0C@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
-      "date": "2011-12-14T08:02:05-06:00",
+      "date": "2011-12-14T14:02:05Z",
       "subject": "[R-sig-Fedora] error installing geepack on 64bit fedora 16",
       "subject_clean": "error installing geepack on 64bit fedora 16",
       "in_reply_to": "<CADsJW9HDh+DS-7fQn-j=jUNVWtkxs8-D3KQFg91Zv3KCdgw2Wg@mail.gmail.com>",
@@ -60,7 +60,7 @@
       "message_id": "<CAHz+bWaoWYjy40+i3PhCd=5=E1Eja9gXtu949=wOPc_7b1cBBQ@mail.gmail.com>",
       "from_name": "Mark Leeds",
       "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
-      "date": "2011-12-24T22:39:39-05:00",
+      "date": "2011-12-25T03:39:39Z",
       "subject": "[R-sig-Fedora] install warning on fedora 16",
       "subject_clean": "install warning on fedora 16",
       "in_reply_to": null,
@@ -82,8 +82,8 @@
         "Peter Baker",
         "Pierre-Yves Chibon"
       ],
-      "started": "2011-12-14T18:08:16+10:00",
-      "last_reply": "2011-12-14T08:02:05-06:00",
+      "started": "2011-12-14T08:08:16Z",
+      "last_reply": "2011-12-14T14:02:05Z",
       "root_message_id": "msg-f4294b124b2f"
     },
     {
@@ -93,8 +93,8 @@
       "participants": [
         "Mark Leeds"
       ],
-      "started": "2011-12-24T22:39:39-05:00",
-      "last_reply": "2011-12-24T22:39:39-05:00",
+      "started": "2011-12-25T03:39:39Z",
+      "last_reply": "2011-12-25T03:39:39Z",
       "root_message_id": "msg-01c5af7eaa6e"
     }
   ]

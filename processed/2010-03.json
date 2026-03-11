@@ -8,7 +8,7 @@
       "message_id": "<f95f4e331003261248x1c0cc5b4n51c6c78afc37caf9@mail.gmail.com>",
       "from_name": "Nara Rama",
       "from_email_hash": "21673bc5c1f9923fb46822965b9ab4a65c68aa745c2f0ee8313f5e868b3a2432",
-      "date": "2010-03-26T12:48:30-07:00",
+      "date": "2010-03-26T19:48:30Z",
       "subject": "[R-sig-Fedora] R Scatter plot partially generated in Fedora",
       "subject_clean": "R Scatter plot partially generated in Fedora",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<13e802631003271126w470f8a3al9b8cbc1c347303f4@mail.gmail.com>",
       "from_name": "Paul Johnson",
       "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
-      "date": "2010-03-27T13:26:36-05:00",
+      "date": "2010-03-27T18:26:36Z",
       "subject": "[R-sig-Fedora] R Scatter plot partially generated in Fedora",
       "subject_clean": "R Scatter plot partially generated in Fedora",
       "in_reply_to": "<f95f4e331003261248x1c0cc5b4n51c6c78afc37caf9@mail.gmail.com>",
@@ -47,8 +47,8 @@
         "Nara Rama",
         "Paul Johnson"
       ],
-      "started": "2010-03-26T12:48:30-07:00",
-      "last_reply": "2010-03-27T13:26:36-05:00",
+      "started": "2010-03-26T19:48:30Z",
+      "last_reply": "2010-03-27T18:26:36Z",
       "root_message_id": "msg-afa091d03094"
     }
   ]

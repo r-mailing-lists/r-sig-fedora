@@ -8,7 +8,7 @@
       "message_id": "<cab59a750912082333i1d700d1eqc7d9709cf886087@mail.gmail.com>",
       "from_name": "subhajit dutta",
       "from_email_hash": "6d8ac8856c6a5fcf63937026b2b1377e928160a80570f0b638bc2e704b7a8941",
-      "date": "2009-12-09T13:03:55+05:30",
+      "date": "2009-12-09T07:33:55Z",
       "subject": "[R-sig-Fedora] Running a C program in R",
       "subject_clean": "Running a C program in R",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<ff1904540912090414l5c19e306m76c71e4f7516d7b7@mail.gmail.com>",
       "from_name": "Gray Calhoun",
       "from_email_hash": "0d5f2a2f429200098176a942628c07da7a1e3f8dbaac622a82c416557445f269",
-      "date": "2009-12-09T04:14:05-08:00",
+      "date": "2009-12-09T12:14:05Z",
       "subject": "[R-sig-Fedora] Running a C program in R",
       "subject_clean": "Running a C program in R",
       "in_reply_to": "<cab59a750912082333i1d700d1eqc7d9709cf886087@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<1261606193.9982.6.camel@localhost.localdomain>",
       "from_name": "Christos Hatzis",
       "from_email_hash": "4273e12e6654616fbe248daecf63ecd3c7897a6ec64e8d6a3229fe97233b6070",
-      "date": "2009-12-23T17:09:53-05:00",
+      "date": "2009-12-23T22:09:53Z",
       "subject": "[R-sig-Fedora] installing RKWard on RHEL",
       "subject_clean": "installing RKWard on RHEL",
       "in_reply_to": null,
@@ -58,7 +58,7 @@
       "message_id": "<C8E0EC82-63EC-492B-8293-C598BB7F1C1D@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
-      "date": "2009-12-23T16:31:24-06:00",
+      "date": "2009-12-23T22:31:24Z",
       "subject": "[R-sig-Fedora] installing RKWard on RHEL",
       "subject_clean": "installing RKWard on RHEL",
       "in_reply_to": "<1261606193.9982.6.camel@localhost.localdomain>",
@@ -76,7 +76,7 @@
       "message_id": "<1261608091.9982.19.camel@localhost.localdomain>",
       "from_name": "Christos Hatzis",
       "from_email_hash": "4273e12e6654616fbe248daecf63ecd3c7897a6ec64e8d6a3229fe97233b6070",
-      "date": "2009-12-23T17:41:31-05:00",
+      "date": "2009-12-23T22:41:31Z",
       "subject": "[R-sig-Fedora] installing RKWard on RHEL",
       "subject_clean": "installing RKWard on RHEL",
       "in_reply_to": "<C8E0EC82-63EC-492B-8293-C598BB7F1C1D@me.com>",
@@ -95,7 +95,7 @@
       "message_id": "<0732D810-76EB-4AAF-AC77-76257173FD3B@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
-      "date": "2009-12-23T17:15:11-06:00",
+      "date": "2009-12-23T23:15:11Z",
       "subject": "[R-sig-Fedora] installing RKWard on RHEL",
       "subject_clean": "installing RKWard on RHEL",
       "in_reply_to": "<1261608091.9982.19.camel@localhost.localdomain>",
@@ -120,8 +120,8 @@
         "Gray Calhoun",
         "subhajit dutta"
       ],
-      "started": "2009-12-09T13:03:55+05:30",
-      "last_reply": "2009-12-09T04:14:05-08:00",
+      "started": "2009-12-09T07:33:55Z",
+      "last_reply": "2009-12-09T12:14:05Z",
       "root_message_id": "msg-917bffedc9c2"
     },
     {
@@ -132,8 +132,8 @@
         "Christos Hatzis",
         "Marc Schwartz"
       ],
-      "started": "2009-12-23T17:09:53-05:00",
-      "last_reply": "2009-12-23T17:15:11-06:00",
+      "started": "2009-12-23T22:09:53Z",
+      "last_reply": "2009-12-23T23:15:11Z",
       "root_message_id": "msg-af72505767ce"
     }
   ]

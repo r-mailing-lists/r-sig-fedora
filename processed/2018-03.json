@@ -8,7 +8,7 @@
       "message_id": "<fa7281447a29d5f86390c3181d595991@posteo.de>",
       "from_name": "xbr17 at posteo.de",
       "from_email_hash": "4900c5b50f5a2b04411398eeed97e79a3014178ff8934f21481d8aed46b28925",
-      "date": "2018-03-22T22:11:28+01:00",
+      "date": "2018-03-22T21:11:28Z",
       "subject": "[R-sig-Fedora] Cannot install broom package",
       "subject_clean": "Cannot install broom package",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<1f21ad42-2dcd-41b0-948b-3e5a630432a3@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2018-03-28T11:48:49-04:00",
+      "date": "2018-03-28T15:48:49Z",
       "subject": "[R-sig-Fedora] Cannot install broom package",
       "subject_clean": "Cannot install broom package",
       "in_reply_to": "<fa7281447a29d5f86390c3181d595991@posteo.de>",
@@ -47,8 +47,8 @@
         "Tom Callaway",
         "xbr17 at posteo.de"
       ],
-      "started": "2018-03-22T22:11:28+01:00",
-      "last_reply": "2018-03-28T11:48:49-04:00",
+      "started": "2018-03-22T21:11:28Z",
+      "last_reply": "2018-03-28T15:48:49Z",
       "root_message_id": "msg-57d8ae30e863"
     }
   ]

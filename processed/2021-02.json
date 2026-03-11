@@ -24,7 +24,7 @@
       "message_id": "<CACp8ZrJ7cp-ttp1dnhRpn7qPRROz-XOR-RgVfVL9i5rfMd39Ng@mail.gmail.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "4c62ad279bd6222ba841f6ee81e7796b9d37828a7872803f2e701c687ad903ea",
-      "date": "2021-02-04T11:19:30-05:00",
+      "date": "2021-02-04T16:19:30Z",
       "subject": "[R-sig-Fedora] Normalize latex path",
       "subject_clean": "Normalize latex path",
       "in_reply_to": "<3347871.iIbC2pHGDl@griffin>",
@@ -47,8 +47,8 @@
         "José Abílio Matos",
         "Tom Callaway"
       ],
-      "started": "2021-02-04T16:14:24+00:00",
-      "last_reply": "2021-02-04T11:19:30-05:00",
+      "started": "2021-02-04T16:14:24Z",
+      "last_reply": "2021-02-04T16:19:30Z",
       "root_message_id": "msg-5421a50bb5cb"
     }
   ]

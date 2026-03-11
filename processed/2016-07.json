@@ -24,7 +24,7 @@
       "message_id": "<8249e67d-9437-9219-660c-581f419e065b@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2016-07-05T11:34:33-04:00",
+      "date": "2016-07-05T15:34:33Z",
       "subject": "[R-sig-Fedora] R-3.3.1 RPM release",
       "subject_clean": "R-3.3.1 RPM release",
       "in_reply_to": "<703384B6C7985C4DBDC3C92ABE98F66C015F63B552@USEXCPWD01A.mc01.unicreditgroup.eu>",
@@ -58,7 +58,7 @@
       "message_id": "<36f7d7d3-0a87-ec56-4cd7-8ae554082933@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2016-07-05T13:10:25-04:00",
+      "date": "2016-07-05T17:10:25Z",
       "subject": "[R-sig-Fedora] Compiling R-3.3.0 and/or R-3.3.1 with custom location for dependencies like zlib",
       "subject_clean": "Compiling R-3.3.0 and/or R-3.3.1 with custom location for dependencies like zlib",
       "in_reply_to": "<E7D04B0B19283649946BC246B2F1B9130893C5F3@SGWAEXM001.mc.cumc.columbia.edu>",
@@ -114,7 +114,7 @@
       "message_id": "<9ebb1040-ba59-dc6c-d0ab-26469bbdb477@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2016-07-06T10:34:23-04:00",
+      "date": "2016-07-06T14:34:23Z",
       "subject": "[R-sig-Fedora] R-3.3.1 RPM release",
       "subject_clean": "R-3.3.1 RPM release",
       "in_reply_to": "<CAOuULM6H1YgsYmM-1gyxkYpvfvtsiWtmdMvOMzDv-wybQHYxmQ@mail.gmail.com>",
@@ -178,8 +178,8 @@
         "Sangalli Cristiano Giovanni (Ext. - UniCredit Business Integrated Solutions)",
         "Tom Callaway"
       ],
-      "started": "2016-07-05T14:34:39+00:00",
-      "last_reply": "2016-07-06T06:19:30+00:00",
+      "started": "2016-07-05T14:34:39Z",
+      "last_reply": "2016-07-06T06:19:30Z",
       "root_message_id": "msg-3125734fbcc1"
     },
     {
@@ -190,8 +190,8 @@
         "Syagin, Fedor",
         "Tom Callaway"
       ],
-      "started": "2016-07-05T16:52:49+00:00",
-      "last_reply": "2016-07-05T17:12:47+00:00",
+      "started": "2016-07-05T16:52:49Z",
+      "last_reply": "2016-07-05T17:12:47Z",
       "root_message_id": "msg-0f8266a3f354"
     },
     {
@@ -202,8 +202,8 @@
         "Sangalli Cristiano Giovanni (Ext. - UniCredit Business Integrated Solutions)",
         "Tom Callaway"
       ],
-      "started": "2016-07-06T10:34:23-04:00",
-      "last_reply": "2016-07-11T14:10:07+00:00",
+      "started": "2016-07-06T14:34:23Z",
+      "last_reply": "2016-07-11T14:10:07Z",
       "root_message_id": "msg-6828898807c3"
     },
     {
@@ -213,8 +213,8 @@
       "participants": [
         "vn198006 at yahoo.com"
       ],
-      "started": "2016-07-25T23:20:03+00:00",
-      "last_reply": "2016-07-25T23:20:03+00:00",
+      "started": "2016-07-25T23:20:03Z",
+      "last_reply": "2016-07-25T23:20:03Z",
       "root_message_id": "msg-6e4bd5c35e44"
     }
   ]

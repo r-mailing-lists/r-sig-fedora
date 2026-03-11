@@ -8,7 +8,7 @@
       "message_id": "<CALEXWq25rxRTQC+D3istNQusmhQuePLnAoe_tXx_iTqiYyFp+g@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2024-09-24T13:51:23+02:00",
+      "date": "2024-09-24T11:51:23Z",
       "subject": "[R-sig-Fedora] RStudio package maintenance moved to Copr",
       "subject_clean": "RStudio package maintenance moved to Copr",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<6c9373ad-04a5-433c-b442-1ace236a5f42@hiddenelephants.co.uk>",
       "from_name": "Tim Taylor",
       "from_email_hash": "e3071ae8257bda4085d8999a9801b324cc930f4864ac0aec1c44601958781446",
-      "date": "2024-09-24T13:50:58+01:00",
+      "date": "2024-09-24T12:50:58Z",
       "subject": "[R-sig-Fedora] RStudio package maintenance moved to Copr",
       "subject_clean": "RStudio package maintenance moved to Copr",
       "in_reply_to": "<CALEXWq25rxRTQC+D3istNQusmhQuePLnAoe_tXx_iTqiYyFp+g@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<CALEXWq0iFi3KF1wLJnocG_tAdTfAEq+Fn6mvSOyEA5VB0vkrow@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2024-09-24T14:57:30+02:00",
+      "date": "2024-09-24T12:57:30Z",
       "subject": "[R-sig-Fedora] RStudio package maintenance moved to Copr",
       "subject_clean": "RStudio package maintenance moved to Copr",
       "in_reply_to": "<6c9373ad-04a5-433c-b442-1ace236a5f42@hiddenelephants.co.uk>",
@@ -66,8 +66,8 @@
         "Iñaki Ucar",
         "Tim Taylor"
       ],
-      "started": "2024-09-24T13:51:23+02:00",
-      "last_reply": "2024-09-24T14:57:30+02:00",
+      "started": "2024-09-24T11:51:23Z",
+      "last_reply": "2024-09-24T12:57:30Z",
       "root_message_id": "msg-08ec55bb33fe"
     }
   ]

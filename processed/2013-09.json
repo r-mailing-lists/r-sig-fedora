@@ -8,7 +8,7 @@
       "message_id": "<52354BF2.8030602@3c58.net>",
       "from_name": "Mike Landis",
       "from_email_hash": "0846a1435a371757f6932f9bfe0bd4302b0f4a3b0a509749d4bd8ad97f365f02",
-      "date": "2013-09-14T22:56:02-07:00",
+      "date": "2013-09-15T05:56:02Z",
       "subject": "[R-sig-Fedora] building R, rJava, & Rserve on Centos without admin privileges (or support)",
       "subject_clean": "building R, rJava, & Rserve on Centos without admin privileges (or support)",
       "in_reply_to": null,
@@ -28,8 +28,8 @@
       "participants": [
         "Mike Landis"
       ],
-      "started": "2013-09-14T22:56:02-07:00",
-      "last_reply": "2013-09-14T22:56:02-07:00",
+      "started": "2013-09-15T05:56:02Z",
+      "last_reply": "2013-09-15T05:56:02Z",
       "root_message_id": "msg-a0d36f068b94"
     }
   ]

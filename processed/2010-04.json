@@ -8,7 +8,7 @@
       "message_id": "<OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>",
       "from_name": "Dennis.Burian at faa.gov",
       "from_email_hash": "4b2a2434a28b5ada8586b04cf5d2279ab08cdc6d3c00e12dcb34b869b2494378",
-      "date": "2010-04-16T17:59:40-05:00",
+      "date": "2010-04-16T22:59:40Z",
       "subject": "[R-sig-Fedora] R installation on Fedora 12",
       "subject_clean": "R installation on Fedora 12",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<1271459723.2115.8.camel@localhost>",
       "from_name": "Gavin Simpson",
       "from_email_hash": "de29578fbbb79e6883c8203a1faebef3fddd10c08cc122f35e5ad109dc250099",
-      "date": "2010-04-17T00:15:23+01:00",
+      "date": "2010-04-16T23:15:23Z",
       "subject": "[R-sig-Fedora] R installation on Fedora 12",
       "subject_clean": "R installation on Fedora 12",
       "in_reply_to": "<OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>",
@@ -42,7 +42,7 @@
       "message_id": "<8FE1AB09-3CF1-4798-954F-F743685B4C29@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
-      "date": "2010-04-16T18:37:13-05:00",
+      "date": "2010-04-16T23:37:13Z",
       "subject": "[R-sig-Fedora] R installation on Fedora 12",
       "subject_clean": "R installation on Fedora 12",
       "in_reply_to": "<1271459723.2115.8.camel@localhost>",
@@ -61,7 +61,7 @@
       "message_id": "<20100417024042.GA20207@planetpingou.org>",
       "from_name": "pingou at pingoured.fr",
       "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
-      "date": "2010-04-17T04:40:43+02:00",
+      "date": "2010-04-17T02:40:43Z",
       "subject": "[R-sig-Fedora] R installation on Fedora 12",
       "subject_clean": "R installation on Fedora 12",
       "in_reply_to": "<OF360A4271.FF055E99-ON86257707.007D1AD5-86257707.007E4FF1@faa.gov>",
@@ -79,7 +79,7 @@
       "message_id": "<OF582C1216.27A4F436-ON8625770A.004C750A-8625770A.004CD0E5@faa.gov>",
       "from_name": "Dennis.Burian at faa.gov",
       "from_email_hash": "4b2a2434a28b5ada8586b04cf5d2279ab08cdc6d3c00e12dcb34b869b2494378",
-      "date": "2010-04-19T08:59:02-05:00",
+      "date": "2010-04-19T13:59:02Z",
       "subject": "[R-sig-Fedora] R-SIG-Fedora Digest, Vol 20, Issue 1",
       "subject_clean": "R-SIG-Fedora Digest, Vol 20, Issue 1",
       "in_reply_to": "<mailman.17.1271498407.30929.r-sig-fedora@r-project.org>",
@@ -97,7 +97,7 @@
       "message_id": "<4BD1D719.8000907@redhat.com>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2010-04-23T13:21:29-04:00",
+      "date": "2010-04-23T17:21:29Z",
       "subject": "[R-sig-Fedora] R 2.11.0 in Fedora Updates Testing",
       "subject_clean": "R 2.11.0 in Fedora Updates Testing",
       "in_reply_to": null,
@@ -113,7 +113,7 @@
       "message_id": "<1272060956.20881.38.camel@localhost.localdomain>",
       "from_name": "Pierre-Yves",
       "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
-      "date": "2010-04-24T00:15:56+02:00",
+      "date": "2010-04-23T22:15:56Z",
       "subject": "[R-sig-Fedora] R-repo",
       "subject_clean": "R-repo",
       "in_reply_to": null,
@@ -136,8 +136,8 @@
         "Marc Schwartz",
         "pingou at pingoured.fr"
       ],
-      "started": "2010-04-16T17:59:40-05:00",
-      "last_reply": "2010-04-17T04:40:43+02:00",
+      "started": "2010-04-16T22:59:40Z",
+      "last_reply": "2010-04-17T02:40:43Z",
       "root_message_id": "msg-f6da66dae8d8"
     },
     {
@@ -147,8 +147,8 @@
       "participants": [
         "Dennis.Burian at faa.gov"
       ],
-      "started": "2010-04-19T08:59:02-05:00",
-      "last_reply": "2010-04-19T08:59:02-05:00",
+      "started": "2010-04-19T13:59:02Z",
+      "last_reply": "2010-04-19T13:59:02Z",
       "root_message_id": "msg-9868cff4abe1"
     },
     {
@@ -158,8 +158,8 @@
       "participants": [
         "Tom \"spot\" Callaway"
       ],
-      "started": "2010-04-23T13:21:29-04:00",
-      "last_reply": "2010-04-23T13:21:29-04:00",
+      "started": "2010-04-23T17:21:29Z",
+      "last_reply": "2010-04-23T17:21:29Z",
       "root_message_id": "msg-e23781cc3435"
     },
     {
@@ -169,8 +169,8 @@
       "participants": [
         "Pierre-Yves"
       ],
-      "started": "2010-04-24T00:15:56+02:00",
-      "last_reply": "2010-04-24T00:15:56+02:00",
+      "started": "2010-04-23T22:15:56Z",
+      "last_reply": "2010-04-23T22:15:56Z",
       "root_message_id": "msg-ad75ccddb008"
     }
   ]

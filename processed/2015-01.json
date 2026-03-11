@@ -8,7 +8,7 @@
       "message_id": "<54A70E08.5030900@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2015-01-02T16:30:48-05:00",
+      "date": "2015-01-02T21:30:48Z",
       "subject": "[R-sig-Fedora] upquote.sty in Fedora 21",
       "subject_clean": "upquote.sty in Fedora 21",
       "in_reply_to": "<CABFfbXv9icx4+k=pT1gHGVKcXuzBML+2EKbdY=Lx7qe=SmYoHQ@mail.gmail.com>",
@@ -28,7 +28,7 @@
       "message_id": "<20150115110936.Horde.fdQ4_fy03bfSZq6QlC8oaw6@webmail.csic.es>",
       "from_name": "Manuel Pizarro Gavilán",
       "from_email_hash": "f85f50f2df3539302a09e11545135f53a1421162fd48192594d4d906bdb359d3",
-      "date": "2015-01-15T11:09:36+01:00",
+      "date": "2015-01-15T10:09:36Z",
       "subject": "[R-sig-Fedora] Error installing 'rgdal' on Centos 7",
       "subject_clean": "Error installing 'rgdal' on Centos 7",
       "in_reply_to": null,
@@ -44,7 +44,7 @@
       "message_id": "<alpine.LRH.2.03.1501151218170.24971@reclus.nhh.no>",
       "from_name": "Roger Bivand",
       "from_email_hash": "a0c87926e9477aa221755cc93bdef47227c3563fd707e66ae49044467663d168",
-      "date": "2015-01-15T12:29:16+01:00",
+      "date": "2015-01-15T11:29:16Z",
       "subject": "[R-sig-Fedora] [R-sig-Geo] Error installing 'rgdal' on Centos 7",
       "subject_clean": "Error installing 'rgdal' on Centos 7",
       "in_reply_to": "<20150115110936.Horde.fdQ4_fy03bfSZq6QlC8oaw6@webmail.csic.es>",
@@ -80,7 +80,7 @@
       "message_id": "<20150116111828.Horde.7sM5uwwtfTDlTcJH3_UJ4A4@webmail.csic.es>",
       "from_name": "Manuel Pizarro Gavilán",
       "from_email_hash": "f85f50f2df3539302a09e11545135f53a1421162fd48192594d4d906bdb359d3",
-      "date": "2015-01-16T11:18:28+01:00",
+      "date": "2015-01-16T10:18:28Z",
       "subject": "[R-sig-Fedora] Error installing 'rgdal' on Centos 7",
       "subject_clean": "Error installing 'rgdal' on Centos 7",
       "in_reply_to": "<1421321393.3943.66.camel@iarc.fr>",
@@ -99,7 +99,7 @@
       "message_id": "<20150116111941.Horde.3EihRh5Lku2eIOX65WKU9A8@webmail.csic.es>",
       "from_name": "Manuel Pizarro Gavilán",
       "from_email_hash": "f85f50f2df3539302a09e11545135f53a1421162fd48192594d4d906bdb359d3",
-      "date": "2015-01-16T11:19:41+01:00",
+      "date": "2015-01-16T10:19:41Z",
       "subject": "[R-sig-Fedora] [R-sig-Geo] Error installing 'rgdal' on Centos 7",
       "subject_clean": "Error installing 'rgdal' on Centos 7",
       "in_reply_to": "<alpine.LRH.2.03.1501151218170.24971@reclus.nhh.no>",
@@ -138,7 +138,7 @@
       "message_id": "<alpine.LRH.2.03.1501161131120.10479@reclus.nhh.no>",
       "from_name": "Roger Bivand",
       "from_email_hash": "a0c87926e9477aa221755cc93bdef47227c3563fd707e66ae49044467663d168",
-      "date": "2015-01-16T11:38:57+01:00",
+      "date": "2015-01-16T10:38:57Z",
       "subject": "[R-sig-Fedora] [R-sig-Geo] Error installing 'rgdal' on Centos 7",
       "subject_clean": "Error installing 'rgdal' on Centos 7",
       "in_reply_to": "<20150116111941.Horde.3EihRh5Lku2eIOX65WKU9A8@webmail.csic.es>",
@@ -182,8 +182,8 @@
       "participants": [
         "Tom Callaway"
       ],
-      "started": "2015-01-02T16:30:48-05:00",
-      "last_reply": "2015-01-02T16:30:48-05:00",
+      "started": "2015-01-02T21:30:48Z",
+      "last_reply": "2015-01-02T21:30:48Z",
       "root_message_id": "msg-d47511fc7b45"
     },
     {
@@ -196,8 +196,8 @@
         "ONKELINX, Thierry",
         "Roger Bivand"
       ],
-      "started": "2015-01-15T11:09:36+01:00",
-      "last_reply": "2015-01-16T10:40:08+00:00",
+      "started": "2015-01-15T10:09:36Z",
+      "last_reply": "2015-01-16T10:40:08Z",
       "root_message_id": "msg-87d2f50d6e57"
     }
   ]

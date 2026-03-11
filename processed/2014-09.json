@@ -8,7 +8,7 @@
       "message_id": "<CAAHES9wJso7KwRLa1BdK1pkq1wzJ4wMwEWTdhFv=Ux1a10FMgw@mail.gmail.com>",
       "from_name": "Gavin Simpson",
       "from_email_hash": "58add0b466097570af4fc2db149715e659937a31492dc23dbcbc4da7c2628f70",
-      "date": "2014-09-17T12:33:08-06:00",
+      "date": "2014-09-17T18:33:08Z",
       "subject": "[R-sig-Fedora] Compiling R on Fedora with threaded openblas",
       "subject_clean": "Compiling R on Fedora with threaded openblas",
       "in_reply_to": null,
@@ -28,8 +28,8 @@
       "participants": [
         "Gavin Simpson"
       ],
-      "started": "2014-09-17T12:33:08-06:00",
-      "last_reply": "2014-09-17T12:33:08-06:00",
+      "started": "2014-09-17T18:33:08Z",
+      "last_reply": "2014-09-17T18:33:08Z",
       "root_message_id": "msg-94b11048cea9"
     }
   ]

@@ -61,7 +61,7 @@
       "message_id": "<CALS=5mp9y4cbwaTo=X9m4CYTVAnxgrgiUTvQkrDPz_0rK-FfpQ@mail.gmail.com>",
       "from_name": "Paul Smith",
       "from_email_hash": "fd2c50431e2a6cb6e7be5ae41e049555b30efcd2f9185895e4465d7e61ddebf8",
-      "date": "2017-06-29T11:04:17+01:00",
+      "date": "2017-06-29T10:04:17Z",
       "subject": "[R-sig-Fedora] Cannot install knitr",
       "subject_clean": "Cannot install knitr",
       "in_reply_to": null,
@@ -77,7 +77,7 @@
       "message_id": "<CANA0HMa-jbokVH4-NPGD5iLrch_G2UELk8rUR+wLS=1ZgVSLPg@mail.gmail.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2017-06-29T10:15:17-04:00",
+      "date": "2017-06-29T14:15:17Z",
       "subject": "[R-sig-Fedora] Cannot install knitr",
       "subject_clean": "Cannot install knitr",
       "in_reply_to": "<CALS=5mp9y4cbwaTo=X9m4CYTVAnxgrgiUTvQkrDPz_0rK-FfpQ@mail.gmail.com>",
@@ -95,7 +95,7 @@
       "message_id": "<CALS=5mrtHNgjBX-08KHfaSSJv0BNwdPz_Jooc5FsA4MOvvMSww@mail.gmail.com>",
       "from_name": "Paul Smith",
       "from_email_hash": "fd2c50431e2a6cb6e7be5ae41e049555b30efcd2f9185895e4465d7e61ddebf8",
-      "date": "2017-06-30T07:37:45+01:00",
+      "date": "2017-06-30T06:37:45Z",
       "subject": "[R-sig-Fedora] Cannot install knitr",
       "subject_clean": "Cannot install knitr",
       "in_reply_to": "<CANA0HMa-jbokVH4-NPGD5iLrch_G2UELk8rUR+wLS=1ZgVSLPg@mail.gmail.com>",
@@ -119,8 +119,8 @@
         "Hamidi, Bashir",
         "Martyn Plummer"
       ],
-      "started": "2017-06-23T14:41:51+00:00",
-      "last_reply": "2017-06-23T16:06:55+00:00",
+      "started": "2017-06-23T14:41:51Z",
+      "last_reply": "2017-06-23T16:06:55Z",
       "root_message_id": "msg-3155a252920c"
     },
     {
@@ -131,8 +131,8 @@
         "Paul Smith",
         "Tom Callaway"
       ],
-      "started": "2017-06-29T11:04:17+01:00",
-      "last_reply": "2017-06-30T07:37:45+01:00",
+      "started": "2017-06-29T10:04:17Z",
+      "last_reply": "2017-06-30T06:37:45Z",
       "root_message_id": "msg-d8111c825e9e"
     }
   ]

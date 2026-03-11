@@ -8,7 +8,7 @@
       "message_id": "<CACp8ZrKnuGR=DihLa6tB4vJxtwtxCh9xmf9z7SdK11w_O5A7BA@mail.gmail.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "4c62ad279bd6222ba841f6ee81e7796b9d37828a7872803f2e701c687ad903ea",
-      "date": "2023-03-07T09:57:44-05:00",
+      "date": "2023-03-07T14:57:44Z",
       "subject": "[R-sig-Fedora] New deps for R-gh",
       "subject_clean": "New deps for R-gh",
       "in_reply_to": null,
@@ -28,8 +28,8 @@
       "participants": [
         "Tom Callaway"
       ],
-      "started": "2023-03-07T09:57:44-05:00",
-      "last_reply": "2023-03-07T09:57:44-05:00",
+      "started": "2023-03-07T14:57:44Z",
+      "last_reply": "2023-03-07T14:57:44Z",
       "root_message_id": "msg-d850c0411409"
     }
   ]

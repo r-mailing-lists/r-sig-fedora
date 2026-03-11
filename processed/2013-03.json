@@ -8,7 +8,7 @@
       "message_id": "<kivmdi$9sr$1@ger.gmane.org>",
       "from_name": "Allen S. Rout",
       "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
-      "date": "2013-03-27T16:56:25-04:00",
+      "date": "2013-03-27T20:56:25Z",
       "subject": "[R-sig-Fedora] R 3.0;  want to try again?",
       "subject_clean": "R 3.0;  want to try again?",
       "in_reply_to": null,
@@ -42,7 +42,7 @@
       "message_id": "<kj481d$35i$1@ger.gmane.org>",
       "from_name": "Allen S. Rout",
       "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
-      "date": "2013-03-29T10:21:42-04:00",
+      "date": "2013-03-29T14:21:42Z",
       "subject": "[R-sig-Fedora] R 3.0;  want to try again?",
       "subject_clean": "R 3.0;  want to try again?",
       "in_reply_to": "<1657439.TCBOWCmEhY@ulysses>",
@@ -66,8 +66,8 @@
         "Allen S. Rout",
         "José Matos"
       ],
-      "started": "2013-03-27T16:56:25-04:00",
-      "last_reply": "2013-03-29T10:21:42-04:00",
+      "started": "2013-03-27T20:56:25Z",
+      "last_reply": "2013-03-29T14:21:42Z",
       "root_message_id": "msg-342ad1eb6896"
     }
   ]

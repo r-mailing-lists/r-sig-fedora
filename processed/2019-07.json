@@ -8,7 +8,7 @@
       "message_id": "<CAJP_izcMMa4pOg_RttROjx0O63wADRBV7C6oGO_rm7psDGRotw@mail.gmail.com>",
       "from_name": "Elliott Sales de Andrade",
       "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
-      "date": "2019-07-04T05:35:18-04:00",
+      "date": "2019-07-04T09:35:18Z",
       "subject": "[R-sig-Fedora] Fwd: Fedora 31 System-Wide change proposal: Automatic R runtime dependencies",
       "subject_clean": "Fedora 31 System-Wide change proposal: Automatic R runtime dependencies",
       "in_reply_to": "<CA+voJeUDSGaozCUJGN8MAORdgRB3VtV5VHweFhVo2_HiL7_zRw@mail.gmail.com>",
@@ -26,7 +26,7 @@
       "message_id": "<10148999.UyBmMMDdau@myth>",
       "from_name": "José Abílio Matos",
       "from_email_hash": "8774caba6ab47a91267a30d2fd18131dd048c0bcfa29663a2a9fa10e48ce1e62",
-      "date": "2019-07-04T11:05:04+01:00",
+      "date": "2019-07-04T10:05:04Z",
       "subject": "[R-sig-Fedora] Fwd: Fedora 31 System-Wide change proposal: Automatic R runtime dependencies",
       "subject_clean": "Fedora 31 System-Wide change proposal: Automatic R runtime dependencies",
       "in_reply_to": "<CAJP_izcMMa4pOg_RttROjx0O63wADRBV7C6oGO_rm7psDGRotw@mail.gmail.com>",
@@ -45,7 +45,7 @@
       "message_id": "<CAJP_izcgBNYbLtaXAU5C3-AQWrMnKC=GtKG5hzTqF6pgta7L4A@mail.gmail.com>",
       "from_name": "Elliott Sales de Andrade",
       "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
-      "date": "2019-07-04T16:27:24-04:00",
+      "date": "2019-07-04T20:27:24Z",
       "subject": "[R-sig-Fedora] Fwd: Fedora 31 System-Wide change proposal: Automatic R runtime dependencies",
       "subject_clean": "Fedora 31 System-Wide change proposal: Automatic R runtime dependencies",
       "in_reply_to": "<10148999.UyBmMMDdau@myth>",
@@ -65,7 +65,7 @@
       "message_id": "<13F453F1-4440-4C71-9FA8-5E9E46A38E0C@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "040b2d09159b27cfd2853bc2dbb476bd637811586f307d9583c9ef7f806f3692",
-      "date": "2019-07-23T13:04:55-04:00",
+      "date": "2019-07-23T17:04:55Z",
       "subject": "[R-sig-Fedora] Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
       "subject_clean": "Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
       "in_reply_to": null,
@@ -81,7 +81,7 @@
       "message_id": "<41DB783F-F51E-46D0-84A4-3BB1CAE7DA39@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "040b2d09159b27cfd2853bc2dbb476bd637811586f307d9583c9ef7f806f3692",
-      "date": "2019-07-24T08:42:32-04:00",
+      "date": "2019-07-24T12:42:32Z",
       "subject": "[R-sig-Fedora]  Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
       "subject_clean": "Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
       "in_reply_to": "<13F453F1-4440-4C71-9FA8-5E9E46A38E0C@me.com>",
@@ -99,7 +99,7 @@
       "message_id": "<CANA0HMapLt45McyLQxaHh+ryXuDiemj3ASE+2Q3RBMyiuWkp9Q@mail.gmail.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "b0864efc945ad746d5bce55bf7c4d85fa011a673c705bb017c133f1ae5ab7506",
-      "date": "2019-07-24T08:53:37-04:00",
+      "date": "2019-07-24T12:53:37Z",
       "subject": "[R-sig-Fedora]  Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
       "subject_clean": "Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
       "in_reply_to": "<41DB783F-F51E-46D0-84A4-3BB1CAE7DA39@me.com>",
@@ -118,7 +118,7 @@
       "message_id": "<C94248F7-B442-4829-B3AB-C6EA04D6F80E@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "040b2d09159b27cfd2853bc2dbb476bd637811586f307d9583c9ef7f806f3692",
-      "date": "2019-07-24T09:03:24-04:00",
+      "date": "2019-07-24T13:03:24Z",
       "subject": "[R-sig-Fedora]  Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
       "subject_clean": "Compress::Raw::Zlib no longer installed with Perl on Fedora 30?",
       "in_reply_to": "<CANA0HMapLt45McyLQxaHh+ryXuDiemj3ASE+2Q3RBMyiuWkp9Q@mail.gmail.com>",
@@ -138,7 +138,7 @@
       "message_id": "<CAJP_izfNMjeyPNjfK1svLXpK3PEPbAiKzLwEc3mxzGCR0vx3nQ@mail.gmail.com>",
       "from_name": "Elliott Sales de Andrade",
       "from_email_hash": "bb381b03fc778b177ec2170c56cac99f52ba2084bbf708dfd9032dc6d4c8365e",
-      "date": "2019-07-26T01:50:27-04:00",
+      "date": "2019-07-26T05:50:27Z",
       "subject": "[R-sig-Fedora] Removing macros.R",
       "subject_clean": "Removing macros.R",
       "in_reply_to": null,
@@ -159,8 +159,8 @@
         "Elliott Sales de Andrade",
         "José Abílio Matos"
       ],
-      "started": "2019-07-04T05:35:18-04:00",
-      "last_reply": "2019-07-04T16:27:24-04:00",
+      "started": "2019-07-04T09:35:18Z",
+      "last_reply": "2019-07-04T20:27:24Z",
       "root_message_id": "msg-a0030d478780"
     },
     {
@@ -171,8 +171,8 @@
         "Marc Schwartz",
         "Tom Callaway"
       ],
-      "started": "2019-07-23T13:04:55-04:00",
-      "last_reply": "2019-07-24T09:03:24-04:00",
+      "started": "2019-07-23T17:04:55Z",
+      "last_reply": "2019-07-24T13:03:24Z",
       "root_message_id": "msg-f7df29f4fcec"
     },
     {
@@ -182,8 +182,8 @@
       "participants": [
         "Elliott Sales de Andrade"
       ],
-      "started": "2019-07-26T01:50:27-04:00",
-      "last_reply": "2019-07-26T01:50:27-04:00",
+      "started": "2019-07-26T05:50:27Z",
+      "last_reply": "2019-07-26T05:50:27Z",
       "root_message_id": "msg-90df9f043571"
     }
   ]

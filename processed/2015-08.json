@@ -8,7 +8,7 @@
       "message_id": "<CAK1hC9vBvqfL4CUaX+rgeUgnZf3B0J0os1mEuBWJe7rtayYEug@mail.gmail.com>",
       "from_name": "arnaud gaboury",
       "from_email_hash": "3fd1ca79c7c6068e196062a46bb8918874de6d5ebc4e1c82dbd5d8787c97a20d",
-      "date": "2015-08-31T09:20:08+02:00",
+      "date": "2015-08-31T07:20:08Z",
       "subject": "[R-sig-Fedora] Build R with Intel MKL and compiler",
       "subject_clean": "Build R with Intel MKL and compiler",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<55E4769A.9060809@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2015-08-31T11:45:30-04:00",
+      "date": "2015-08-31T15:45:30Z",
       "subject": "[R-sig-Fedora] Build R with Intel MKL and compiler",
       "subject_clean": "Build R with Intel MKL and compiler",
       "in_reply_to": "<CAK1hC9vBvqfL4CUaX+rgeUgnZf3B0J0os1mEuBWJe7rtayYEug@mail.gmail.com>",
@@ -47,8 +47,8 @@
         "Tom Callaway",
         "arnaud gaboury"
       ],
-      "started": "2015-08-31T09:20:08+02:00",
-      "last_reply": "2015-08-31T11:45:30-04:00",
+      "started": "2015-08-31T07:20:08Z",
+      "last_reply": "2015-08-31T15:45:30Z",
       "root_message_id": "msg-97116ff8a597"
     }
   ]

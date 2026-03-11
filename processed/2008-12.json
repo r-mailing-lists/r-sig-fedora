@@ -8,7 +8,7 @@
       "message_id": "<33992.812.qm@web62208.mail.re1.yahoo.com>",
       "from_name": "Sakda Chaiworawitkul",
       "from_email_hash": "b01eeb96f7c37f8eafc85852f5911d9d4181bc3686e9166a252dcd6b7107a58e",
-      "date": "2008-12-06T15:00:35-08:00",
+      "date": "2008-12-06T23:00:35Z",
       "subject": "[R-sig-Fedora] libgfortran.so.3 is needed by libblas",
       "subject_clean": "libgfortran.so.3 is needed by libblas",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<493BF8A5.2050200@comcast.net>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "6b69db75158c6a64599f027a17f3ea4ee49917322d20dbb731688b8fd4f10e1f",
-      "date": "2008-12-07T10:24:05-06:00",
+      "date": "2008-12-07T16:24:05Z",
       "subject": "[R-sig-Fedora] libgfortran.so.3 is needed by libblas",
       "subject_clean": "libgfortran.so.3 is needed by libblas",
       "in_reply_to": "<33992.812.qm@web62208.mail.re1.yahoo.com>",
@@ -42,7 +42,7 @@
       "message_id": "<1229980888.4528.53.camel@localhost.localdomain>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2008-12-22T16:21:28-05:00",
+      "date": "2008-12-22T21:21:28Z",
       "subject": "[R-sig-Fedora] R 2.8.1",
       "subject_clean": "R 2.8.1",
       "in_reply_to": null,
@@ -58,7 +58,7 @@
       "message_id": "<49500BA6.6010200@biostat.ku.dk>",
       "from_name": "Peter Dalgaard",
       "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
-      "date": "2008-12-22T22:50:30+01:00",
+      "date": "2008-12-22T21:50:30Z",
       "subject": "[R-sig-Fedora] R 2.8.1",
       "subject_clean": "R 2.8.1",
       "in_reply_to": "<1229980888.4528.53.camel@localhost.localdomain>",
@@ -76,7 +76,7 @@
       "message_id": "<1229983083.4528.58.camel@localhost.localdomain>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2008-12-22T16:58:03-05:00",
+      "date": "2008-12-22T21:58:03Z",
       "subject": "[R-sig-Fedora] R 2.8.1",
       "subject_clean": "R 2.8.1",
       "in_reply_to": "<49500BA6.6010200@biostat.ku.dk>",
@@ -95,7 +95,7 @@
       "message_id": "<20081228154756.BMR42505@expms6.cites.uiuc.edu>",
       "from_name": "Tim F Liao",
       "from_email_hash": "9da8514e93536e2fcb80da6cecd9c0921ae5ab111ec00c9a47ace6df8aaad9f3",
-      "date": "2008-12-28T15:47:56-06:00",
+      "date": "2008-12-28T21:47:56Z",
       "subject": "[R-sig-Fedora] R and Linpus Linux Lite",
       "subject_clean": "R and Linpus Linux Lite",
       "in_reply_to": null,
@@ -116,8 +116,8 @@
         "Marc Schwartz",
         "Sakda Chaiworawitkul"
       ],
-      "started": "2008-12-06T15:00:35-08:00",
-      "last_reply": "2008-12-07T10:24:05-06:00",
+      "started": "2008-12-06T23:00:35Z",
+      "last_reply": "2008-12-07T16:24:05Z",
       "root_message_id": "msg-153e4fbf885e"
     },
     {
@@ -128,8 +128,8 @@
         "Peter Dalgaard",
         "Tom \"spot\" Callaway"
       ],
-      "started": "2008-12-22T16:21:28-05:00",
-      "last_reply": "2008-12-22T16:58:03-05:00",
+      "started": "2008-12-22T21:21:28Z",
+      "last_reply": "2008-12-22T21:58:03Z",
       "root_message_id": "msg-4e8f276c9238"
     },
     {
@@ -139,8 +139,8 @@
       "participants": [
         "Tim F Liao"
       ],
-      "started": "2008-12-28T15:47:56-06:00",
-      "last_reply": "2008-12-28T15:47:56-06:00",
+      "started": "2008-12-28T21:47:56Z",
+      "last_reply": "2008-12-28T21:47:56Z",
       "root_message_id": "msg-d44be141b2b9"
     }
   ]

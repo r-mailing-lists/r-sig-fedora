@@ -8,7 +8,7 @@
       "message_id": "<49609EA6.5010006@biostat.ku.dk>",
       "from_name": "Peter Dalgaard",
       "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
-      "date": "2009-01-04T12:33:58+01:00",
+      "date": "2009-01-04T11:33:58Z",
       "subject": "[R-sig-Fedora] R 2.8.1",
       "subject_clean": "R 2.8.1",
       "in_reply_to": "<1229983083.4528.58.camel@localhost.localdomain>",
@@ -28,7 +28,7 @@
       "message_id": "<1231079857.3132.27.camel@localhost.localdomain>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2009-01-04T09:37:37-05:00",
+      "date": "2009-01-04T14:37:37Z",
       "subject": "[R-sig-Fedora] R 2.8.1",
       "subject_clean": "R 2.8.1",
       "in_reply_to": "<49609EA6.5010006@biostat.ku.dk>",
@@ -49,7 +49,7 @@
       "message_id": "<4960CCFE.8010704@biostat.ku.dk>",
       "from_name": "Peter Dalgaard",
       "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
-      "date": "2009-01-04T15:51:42+01:00",
+      "date": "2009-01-04T14:51:42Z",
       "subject": "[R-sig-Fedora] R 2.8.1",
       "subject_clean": "R 2.8.1",
       "in_reply_to": "<1231079857.3132.27.camel@localhost.localdomain>",
@@ -71,7 +71,7 @@
       "message_id": "<4960DEA0.4050304@pingoured.fr>",
       "from_name": "Pierre-Yves",
       "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
-      "date": "2009-01-04T17:06:56+01:00",
+      "date": "2009-01-04T16:06:56Z",
       "subject": "[R-sig-Fedora] How to predict the files installed ?",
       "subject_clean": "How to predict the files installed ?",
       "in_reply_to": null,
@@ -87,7 +87,7 @@
       "message_id": "<1231155085.2945.16.camel@localhost.localdomain>",
       "from_name": "Martyn Plummer",
       "from_email_hash": "bad7df6428e60802a46077187eab20a1a370b32627a90006d8a8b1573c1a099d",
-      "date": "2009-01-05T12:31:25+01:00",
+      "date": "2009-01-05T11:31:25Z",
       "subject": "[R-sig-Fedora] R 2.8.1",
       "subject_clean": "R 2.8.1",
       "in_reply_to": "<4960CCFE.8010704@biostat.ku.dk>",
@@ -110,7 +110,7 @@
       "message_id": "<1231168169.18570.24.camel@localhost.localdomain>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2009-01-05T10:09:29-05:00",
+      "date": "2009-01-05T15:09:29Z",
       "subject": "[R-sig-Fedora] R 2.8.1",
       "subject_clean": "R 2.8.1",
       "in_reply_to": "<1231155085.2945.16.camel@localhost.localdomain>",
@@ -134,7 +134,7 @@
       "message_id": "<1231182282.3428.2.camel@localhost.localdomain>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2009-01-05T14:04:42-05:00",
+      "date": "2009-01-05T19:04:42Z",
       "subject": "[R-sig-Fedora] R 2.8.1",
       "subject_clean": "R 2.8.1",
       "in_reply_to": "<1231168169.18570.24.camel@localhost.localdomain>",
@@ -159,7 +159,7 @@
       "message_id": "<49627545.1040908@biostat.ku.dk>",
       "from_name": "Peter Dalgaard",
       "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
-      "date": "2009-01-05T22:01:57+01:00",
+      "date": "2009-01-05T21:01:57Z",
       "subject": "[R-sig-Fedora] R 2.8.1",
       "subject_clean": "R 2.8.1",
       "in_reply_to": "<1231182282.3428.2.camel@localhost.localdomain>",
@@ -185,7 +185,7 @@
       "message_id": "<49627BE9.9060009@biostat.ku.dk>",
       "from_name": "Peter Dalgaard",
       "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
-      "date": "2009-01-05T22:30:17+01:00",
+      "date": "2009-01-05T21:30:17Z",
       "subject": "[R-sig-Fedora] R 2.8.1",
       "subject_clean": "R 2.8.1",
       "in_reply_to": "<4962765F.8090109@pingoured.fr>",
@@ -213,7 +213,7 @@
       "message_id": "<1231191133.3428.8.camel@localhost.localdomain>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2009-01-05T16:32:13-05:00",
+      "date": "2009-01-05T21:32:13Z",
       "subject": "[R-sig-Fedora] R 2.8.1",
       "subject_clean": "R 2.8.1",
       "in_reply_to": "<49627545.1040908@biostat.ku.dk>",
@@ -240,7 +240,7 @@
       "message_id": "<cab59a750901290536u5cabe276w17c483f10bb1bf3c@mail.gmail.com>",
       "from_name": "subhajit dutta",
       "from_email_hash": "6d8ac8856c6a5fcf63937026b2b1377e928160a80570f0b638bc2e704b7a8941",
-      "date": "2009-01-29T19:06:35+05:30",
+      "date": "2009-01-29T13:36:35Z",
       "subject": "[R-sig-Fedora] svmpath",
       "subject_clean": "svmpath",
       "in_reply_to": null,
@@ -256,7 +256,7 @@
       "message_id": "<4981B495.6070905@comcast.net>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "6b69db75158c6a64599f027a17f3ea4ee49917322d20dbb731688b8fd4f10e1f",
-      "date": "2009-01-29T07:52:21-06:00",
+      "date": "2009-01-29T13:52:21Z",
       "subject": "[R-sig-Fedora] svmpath",
       "subject_clean": "svmpath",
       "in_reply_to": "<cab59a750901290536u5cabe276w17c483f10bb1bf3c@mail.gmail.com>",
@@ -280,8 +280,8 @@
         "Peter Dalgaard",
         "Tom \"spot\" Callaway"
       ],
-      "started": "2009-01-04T12:33:58+01:00",
-      "last_reply": "2009-01-05T16:32:13-05:00",
+      "started": "2009-01-04T11:33:58Z",
+      "last_reply": "2009-01-05T21:32:13Z",
       "root_message_id": "msg-442416df897f"
     },
     {
@@ -291,8 +291,8 @@
       "participants": [
         "Pierre-Yves"
       ],
-      "started": "2009-01-04T17:06:56+01:00",
-      "last_reply": "2009-01-04T17:06:56+01:00",
+      "started": "2009-01-04T16:06:56Z",
+      "last_reply": "2009-01-04T16:06:56Z",
       "root_message_id": "msg-0f1a0e400da2"
     },
     {
@@ -302,8 +302,8 @@
       "participants": [
         "Peter Dalgaard"
       ],
-      "started": "2009-01-05T22:30:17+01:00",
-      "last_reply": "2009-01-05T22:30:17+01:00",
+      "started": "2009-01-05T21:30:17Z",
+      "last_reply": "2009-01-05T21:30:17Z",
       "root_message_id": "msg-d4201d8c59fc"
     },
     {
@@ -314,8 +314,8 @@
         "Marc Schwartz",
         "subhajit dutta"
       ],
-      "started": "2009-01-29T19:06:35+05:30",
-      "last_reply": "2009-01-29T07:52:21-06:00",
+      "started": "2009-01-29T13:36:35Z",
+      "last_reply": "2009-01-29T13:52:21Z",
       "root_message_id": "msg-21867876d8d5"
     }
   ]

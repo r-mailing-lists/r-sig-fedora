@@ -8,7 +8,7 @@
       "message_id": "<CABFfbXv1LqjaUYXEDjFHxxMRdWOee1BvyxZoD9hXL7ZkrJqQ1g@mail.gmail.com>",
       "from_name": "Jeroen Ooms",
       "from_email_hash": "a265ef4bb03c14ee9d6f00489213486310c7d7bc8d3d2467e6937626fef998e1",
-      "date": "2014-08-08T11:10:43+02:00",
+      "date": "2014-08-08T09:10:43Z",
       "subject": "[R-sig-Fedora] Missing make dependency in R-devel",
       "subject_clean": "Missing make dependency in R-devel",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<CABFfbXt161b2ZwTJR3VDEWDD15Y35CT3FE5mD_zE5zOTzRCwAg@mail.gmail.com>",
       "from_name": "Jeroen Ooms",
       "from_email_hash": "a265ef4bb03c14ee9d6f00489213486310c7d7bc8d3d2467e6937626fef998e1",
-      "date": "2014-08-08T11:25:17+02:00",
+      "date": "2014-08-08T09:25:17Z",
       "subject": "[R-sig-Fedora] Installing locales in Fedora",
       "subject_clean": "Installing locales in Fedora",
       "in_reply_to": null,
@@ -40,7 +40,7 @@
       "message_id": "<53E4B98A.5060608@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2014-08-08T13:50:34+02:00",
+      "date": "2014-08-08T11:50:34Z",
       "subject": "[R-sig-Fedora] Missing make dependency in R-devel",
       "subject_clean": "Missing make dependency in R-devel",
       "in_reply_to": "<CABFfbXv1LqjaUYXEDjFHxxMRdWOee1BvyxZoD9hXL7ZkrJqQ1g@mail.gmail.com>",
@@ -58,7 +58,7 @@
       "message_id": "<53E4BCDB.3080309@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2014-08-08T14:04:43+02:00",
+      "date": "2014-08-08T12:04:43Z",
       "subject": "[R-sig-Fedora] Installing locales in Fedora",
       "subject_clean": "Installing locales in Fedora",
       "in_reply_to": "<CABFfbXt161b2ZwTJR3VDEWDD15Y35CT3FE5mD_zE5zOTzRCwAg@mail.gmail.com>",
@@ -76,7 +76,7 @@
       "message_id": "<CABFfbXt1gq3fKOpq+mGY+=S1p=kz-Catj0Q4H5H0qsgHfqeYwQ@mail.gmail.com>",
       "from_name": "Jeroen Ooms",
       "from_email_hash": "a265ef4bb03c14ee9d6f00489213486310c7d7bc8d3d2467e6937626fef998e1",
-      "date": "2014-08-08T14:16:21+02:00",
+      "date": "2014-08-08T12:16:21Z",
       "subject": "[R-sig-Fedora] Missing make dependency in R-devel",
       "subject_clean": "Missing make dependency in R-devel",
       "in_reply_to": "<53E4B98A.5060608@redhat.com>",
@@ -95,7 +95,7 @@
       "message_id": "<CABFfbXv3s0=zNPsr0soLDT8tOCah67cA++S18y4OrpxUcZ3t+g@mail.gmail.com>",
       "from_name": "Jeroen Ooms",
       "from_email_hash": "8cec1f7bf29300b425ea1be687fbb6d3fccf3de57737bb017534932e9e18a5f3",
-      "date": "2014-08-11T17:13:46+02:00",
+      "date": "2014-08-11T15:13:46Z",
       "subject": "[R-sig-Fedora] Renviron.site and Rprofile.site in Fedora",
       "subject_clean": "Renviron.site and Rprofile.site in Fedora",
       "in_reply_to": null,
@@ -111,7 +111,7 @@
       "message_id": "<53E94696.6010904@auckland.ac.nz>",
       "from_name": "Rolf Turner",
       "from_email_hash": "904c134d5ad39093183253270ee481b35c208cc4297e137e579e32e8115e7dff",
-      "date": "2014-08-12T10:41:26+12:00",
+      "date": "2014-08-11T22:41:26Z",
       "subject": "[R-sig-Fedora] Renviron.site and Rprofile.site in Fedora",
       "subject_clean": "Renviron.site and Rprofile.site in Fedora",
       "in_reply_to": "<CABFfbXv3s0=zNPsr0soLDT8tOCah67cA++S18y4OrpxUcZ3t+g@mail.gmail.com>",
@@ -129,7 +129,7 @@
       "message_id": "<CABFfbXvWgMXE7CEjOpW7=La9VUD5e+dpS+_ROrk8g1F+tLqxMA@mail.gmail.com>",
       "from_name": "Jeroen Ooms",
       "from_email_hash": "8cec1f7bf29300b425ea1be687fbb6d3fccf3de57737bb017534932e9e18a5f3",
-      "date": "2014-08-12T22:23:39+02:00",
+      "date": "2014-08-12T20:23:39Z",
       "subject": "[R-sig-Fedora] rpmbuild generates dependency on /usr/bin/r",
       "subject_clean": "rpmbuild generates dependency on /usr/bin/r",
       "in_reply_to": null,
@@ -150,8 +150,8 @@
         "Jeroen Ooms",
         "Tom Callaway"
       ],
-      "started": "2014-08-08T11:10:43+02:00",
-      "last_reply": "2014-08-08T14:16:21+02:00",
+      "started": "2014-08-08T09:10:43Z",
+      "last_reply": "2014-08-08T12:16:21Z",
       "root_message_id": "msg-461bbf9effae"
     },
     {
@@ -162,8 +162,8 @@
         "Jeroen Ooms",
         "Tom Callaway"
       ],
-      "started": "2014-08-08T11:25:17+02:00",
-      "last_reply": "2014-08-08T14:04:43+02:00",
+      "started": "2014-08-08T09:25:17Z",
+      "last_reply": "2014-08-08T12:04:43Z",
       "root_message_id": "msg-35641bec0250"
     },
     {
@@ -174,8 +174,8 @@
         "Jeroen Ooms",
         "Rolf Turner"
       ],
-      "started": "2014-08-11T17:13:46+02:00",
-      "last_reply": "2014-08-12T10:41:26+12:00",
+      "started": "2014-08-11T15:13:46Z",
+      "last_reply": "2014-08-11T22:41:26Z",
       "root_message_id": "msg-947ba5c829e9"
     },
     {
@@ -185,8 +185,8 @@
       "participants": [
         "Jeroen Ooms"
       ],
-      "started": "2014-08-12T22:23:39+02:00",
-      "last_reply": "2014-08-12T22:23:39+02:00",
+      "started": "2014-08-12T20:23:39Z",
+      "last_reply": "2014-08-12T20:23:39Z",
       "root_message_id": "msg-e10cba532a91"
     }
   ]

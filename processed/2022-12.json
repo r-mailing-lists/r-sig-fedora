@@ -8,7 +8,7 @@
       "message_id": "<25500.38770.334013.12950@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2022-12-16T17:06:10+01:00",
+      "date": "2022-12-16T16:06:10Z",
       "subject": "[R-sig-Fedora] Using ATLAS in Fedora 36, R-4.2.2 -- fails configure",
       "subject_clean": "Using ATLAS in Fedora 36, R-4.2.2 -- fails configure",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<25501.36847.701698.842943@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2022-12-17T10:46:23+01:00",
+      "date": "2022-12-17T09:46:23Z",
       "subject": "[R-sig-Fedora]  Using ATLAS in Fedora 36, R-4.2.2 -- fails configure",
       "subject_clean": "Using ATLAS in Fedora 36, R-4.2.2 -- fails configure",
       "in_reply_to": "<CALEXWq3RcCeMZ2aCepUaSKKfWVfQti=aZ-HM3GrA03_2s5cVKg@mail.gmail.com>",
@@ -47,8 +47,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2022-12-16T17:06:10+01:00",
-      "last_reply": "2022-12-16T17:06:10+01:00",
+      "started": "2022-12-16T16:06:10Z",
+      "last_reply": "2022-12-16T16:06:10Z",
       "root_message_id": "msg-62d1ac1292bc"
     },
     {
@@ -58,8 +58,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2022-12-17T10:46:23+01:00",
-      "last_reply": "2022-12-17T10:46:23+01:00",
+      "started": "2022-12-17T09:46:23Z",
+      "last_reply": "2022-12-17T09:46:23Z",
       "root_message_id": "msg-c6e34e3eb353"
     }
   ]

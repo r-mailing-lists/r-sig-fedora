@@ -8,7 +8,7 @@
       "message_id": "<26302.2304.296808.582851@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2024-08-15T15:56:16+02:00",
+      "date": "2024-08-15T13:56:16Z",
       "subject": "[R-sig-Fedora]  'Fedora' (only!!) -- Certificates are not trusted",
       "subject_clean": "'Fedora' (only!!) -- Certificates are not trusted",
       "in_reply_to": "<f74df1ce-0d97-4e9f-856e-4a310645f856@Be-Logical.nl>",
@@ -27,7 +27,7 @@
       "message_id": "<6538b5ce-c97f-4008-815e-832e01e13841@Be-Logical.nl>",
       "from_name": "Ben Engbers",
       "from_email_hash": "4587db87c8d0692f19e627b43e551702c7a09bd4c9f09664cc2f86d331cf12e5",
-      "date": "2024-08-15T17:09:30+02:00",
+      "date": "2024-08-15T15:09:30Z",
       "subject": "[R-sig-Fedora] R-CRAN-kernlab, Certificiate 9D60CBB71A3B4456 invalid: certificate is not alive",
       "subject_clean": "R-CRAN-kernlab, Certificiate 9D60CBB71A3B4456 invalid: certificate is not alive",
       "in_reply_to": null,
@@ -43,7 +43,7 @@
       "message_id": "<CALEXWq0dcHdhs3Z-JQFnGpEvACrFkTgA_KUoKZLLe15zDS-fgQ@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2024-08-15T17:14:18+02:00",
+      "date": "2024-08-15T15:14:18Z",
       "subject": "[R-sig-Fedora]  'Fedora' (only!!) -- Certificates are not trusted",
       "subject_clean": "'Fedora' (only!!) -- Certificates are not trusted",
       "in_reply_to": "<26302.2304.296808.582851@stat.math.ethz.ch>",
@@ -68,8 +68,8 @@
         "Iñaki Ucar",
         "Martin Maechler"
       ],
-      "started": "2024-08-15T15:56:16+02:00",
-      "last_reply": "2024-08-15T17:14:18+02:00",
+      "started": "2024-08-15T13:56:16Z",
+      "last_reply": "2024-08-15T15:14:18Z",
       "root_message_id": "msg-28726122d0fc"
     },
     {
@@ -79,8 +79,8 @@
       "participants": [
         "Ben Engbers"
       ],
-      "started": "2024-08-15T17:09:30+02:00",
-      "last_reply": "2024-08-15T17:09:30+02:00",
+      "started": "2024-08-15T15:09:30Z",
+      "last_reply": "2024-08-15T15:09:30Z",
       "root_message_id": "msg-176533c75d28"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<CAK1hC9uBMHS7oDhQKKyHgGHUekydR5iBhdn=r6Lw4DxGA0H38A@mail.gmail.com>",
       "from_name": "arnaud gaboury",
       "from_email_hash": "3fd1ca79c7c6068e196062a46bb8918874de6d5ebc4e1c82dbd5d8787c97a20d",
-      "date": "2015-10-11T18:52:04+02:00",
+      "date": "2015-10-11T16:52:04Z",
       "subject": "[R-sig-Fedora] Build rpm package for R-MKL",
       "subject_clean": "Build rpm package for R-MKL",
       "in_reply_to": "<CAK1hC9siAA-SU=HiZ6w6TBfkDTHbsRF8QJycC2eMwR20iYjdMA@mail.gmail.com>",
@@ -34,8 +34,8 @@
       "participants": [
         "arnaud gaboury"
       ],
-      "started": "2015-10-11T18:52:04+02:00",
-      "last_reply": "2015-10-11T18:52:04+02:00",
+      "started": "2015-10-11T16:52:04Z",
+      "last_reply": "2015-10-11T16:52:04Z",
       "root_message_id": "msg-a8504417a120"
     }
   ]

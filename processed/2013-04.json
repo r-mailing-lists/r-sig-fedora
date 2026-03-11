@@ -8,7 +8,7 @@
       "message_id": "<10265424.rKMUckcdx1@ulysses>",
       "from_name": "José Matos",
       "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
-      "date": "2013-04-04T22:20:25+01:00",
+      "date": "2013-04-04T21:20:25Z",
       "subject": "[R-sig-Fedora] R 3.0;  want to try again?",
       "subject_clean": "R 3.0;  want to try again?",
       "in_reply_to": "<kj481d$35i$1@ger.gmane.org>",
@@ -32,8 +32,8 @@
       "participants": [
         "José Matos"
       ],
-      "started": "2013-04-04T22:20:25+01:00",
-      "last_reply": "2013-04-04T22:20:25+01:00",
+      "started": "2013-04-04T21:20:25Z",
+      "last_reply": "2013-04-04T21:20:25Z",
       "root_message_id": "msg-16ced766cf1f"
     }
   ]

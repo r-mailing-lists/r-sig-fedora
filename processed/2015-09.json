@@ -8,7 +8,7 @@
       "message_id": "<CAK1hC9vyw8p1xugFfrGL7eC2nn2AkZkeLohkfBia3ko6bktJ=g@mail.gmail.com>",
       "from_name": "arnaud gaboury",
       "from_email_hash": "3fd1ca79c7c6068e196062a46bb8918874de6d5ebc4e1c82dbd5d8787c97a20d",
-      "date": "2015-09-07T12:16:00+02:00",
+      "date": "2015-09-07T10:16:00Z",
       "subject": "[R-sig-Fedora] Build rpm package for R-MKL",
       "subject_clean": "Build rpm package for R-MKL",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<55EF1C93.3010809@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2015-09-08T13:36:19-04:00",
+      "date": "2015-09-08T17:36:19Z",
       "subject": "[R-sig-Fedora] Build rpm package for R-MKL",
       "subject_clean": "Build rpm package for R-MKL",
       "in_reply_to": "<CAK1hC9vyw8p1xugFfrGL7eC2nn2AkZkeLohkfBia3ko6bktJ=g@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<CAK1hC9vZMf-g7+kGKRoFU7vR_haQ3WnZZvSFYgUbJOyJqPg-aA@mail.gmail.com>",
       "from_name": "arnaud gaboury",
       "from_email_hash": "3fd1ca79c7c6068e196062a46bb8918874de6d5ebc4e1c82dbd5d8787c97a20d",
-      "date": "2015-09-08T19:51:29+02:00",
+      "date": "2015-09-08T17:51:29Z",
       "subject": "[R-sig-Fedora] Build rpm package for R-MKL",
       "subject_clean": "Build rpm package for R-MKL",
       "in_reply_to": "<55EF1C93.3010809@redhat.com>",
@@ -61,7 +61,7 @@
       "message_id": "<55EF21D5.9040401@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2015-09-08T13:58:45-04:00",
+      "date": "2015-09-08T17:58:45Z",
       "subject": "[R-sig-Fedora] Build rpm package for R-MKL",
       "subject_clean": "Build rpm package for R-MKL",
       "in_reply_to": "<CAK1hC9vZMf-g7+kGKRoFU7vR_haQ3WnZZvSFYgUbJOyJqPg-aA@mail.gmail.com>",
@@ -81,7 +81,7 @@
       "message_id": "<CAK1hC9siAA-SU=HiZ6w6TBfkDTHbsRF8QJycC2eMwR20iYjdMA@mail.gmail.com>",
       "from_name": "arnaud gaboury",
       "from_email_hash": "3fd1ca79c7c6068e196062a46bb8918874de6d5ebc4e1c82dbd5d8787c97a20d",
-      "date": "2015-09-08T21:30:16+02:00",
+      "date": "2015-09-08T19:30:16Z",
       "subject": "[R-sig-Fedora] Build rpm package for R-MKL",
       "subject_clean": "Build rpm package for R-MKL",
       "in_reply_to": "<55EF21D5.9040401@redhat.com>",
@@ -120,7 +120,7 @@
       "message_id": "<55F833E9.7090306@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2015-09-15T11:06:17-04:00",
+      "date": "2015-09-15T15:06:17Z",
       "subject": "[R-sig-Fedora] x11() hangs in R 3.2.1",
       "subject_clean": "x11() hangs in R 3.2.1",
       "in_reply_to": "<loom.20150915T140315-621@post.gmane.org>",
@@ -139,7 +139,7 @@
       "message_id": "<201509151548.t8FFmHsO024983@whimsy.med.utah.edu>",
       "from_name": "Steven Backus",
       "from_email_hash": "3202cf163dbb5179acdba081f54ef30fea58a13691187b1b22ed085f04cffbb0",
-      "date": "2015-09-15T09:48:17-06:00",
+      "date": "2015-09-15T15:48:17Z",
       "subject": "[R-sig-Fedora] x11() hangs in R 3.2.1",
       "subject_clean": "x11() hangs in R 3.2.1",
       "in_reply_to": "<55F833E9.7090306@redhat.com>",
@@ -198,8 +198,8 @@
         "Tom Callaway",
         "arnaud gaboury"
       ],
-      "started": "2015-09-07T12:16:00+02:00",
-      "last_reply": "2015-09-08T21:30:16+02:00",
+      "started": "2015-09-07T10:16:00Z",
+      "last_reply": "2015-09-08T19:30:16Z",
       "root_message_id": "msg-bfdb8919b1e4"
     },
     {
@@ -211,8 +211,8 @@
         "Steven Backus",
         "Tom Callaway"
       ],
-      "started": "2015-09-15T13:12:57+00:00",
-      "last_reply": "2015-09-15T09:48:17-06:00",
+      "started": "2015-09-15T13:12:57Z",
+      "last_reply": "2015-09-15T15:48:17Z",
       "root_message_id": "msg-b7a1f42e9438"
     },
     {
@@ -222,8 +222,8 @@
       "participants": [
         "Ashley Ford"
       ],
-      "started": "2015-09-16T11:53:53+00:00",
-      "last_reply": "2015-09-16T11:53:53+00:00",
+      "started": "2015-09-16T11:53:53Z",
+      "last_reply": "2015-09-16T11:53:53Z",
       "root_message_id": "msg-e95c8b52bd36"
     },
     {
@@ -233,8 +233,8 @@
       "participants": [
         "Brown, Simon"
       ],
-      "started": "2015-09-17T14:03:12+00:00",
-      "last_reply": "2015-09-17T14:03:12+00:00",
+      "started": "2015-09-17T14:03:12Z",
+      "last_reply": "2015-09-17T14:03:12Z",
       "root_message_id": "msg-205b5d6dc571"
     }
   ]

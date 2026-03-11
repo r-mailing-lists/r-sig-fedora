@@ -24,7 +24,7 @@
       "message_id": "<4177975.MF5k9LdnlB@myth>",
       "from_name": "José Abílio Matos",
       "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
-      "date": "2017-05-12T16:24:41+01:00",
+      "date": "2017-05-12T15:24:41Z",
       "subject": "[R-sig-Fedora] R 3.4.0 RPMS",
       "subject_clean": "R 3.4.0 RPMS",
       "in_reply_to": "<1494520648.10161.5.camel@iarc.fr>",
@@ -42,7 +42,7 @@
       "message_id": "<CANA0HMbij7A6QXtSyKZF1WP8E4EZ9DppLULgMKDrKe0aGCSdcQ@mail.gmail.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2017-05-12T11:44:22-04:00",
+      "date": "2017-05-12T15:44:22Z",
       "subject": "[R-sig-Fedora] R 3.4.0 RPMS",
       "subject_clean": "R 3.4.0 RPMS",
       "in_reply_to": "<4177975.MF5k9LdnlB@myth>",
@@ -61,7 +61,7 @@
       "message_id": "<CABaQXBtHdRPoicNFTpvcmC2CQs2GSEtQGS9Jt=0Rxpx_fNhVqw@mail.gmail.com>",
       "from_name": "Shu-Ju Tu",
       "from_email_hash": "dd1d3d797ab65a4bc730792d4d7660bdf422c0209a9b3add03c99b04f4cda10a",
-      "date": "2017-05-16T10:31:49+08:00",
+      "date": "2017-05-16T02:31:49Z",
       "subject": "[R-sig-Fedora] Fail to install xgboost",
       "subject_clean": "Fail to install xgboost",
       "in_reply_to": null,
@@ -77,7 +77,7 @@
       "message_id": "<a14f8f11-2c6f-8b20-4c97-73532ad496a9@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2017-05-16T11:34:33-04:00",
+      "date": "2017-05-16T15:34:33Z",
       "subject": "[R-sig-Fedora] Fail to install xgboost",
       "subject_clean": "Fail to install xgboost",
       "in_reply_to": "<CABaQXBtHdRPoicNFTpvcmC2CQs2GSEtQGS9Jt=0Rxpx_fNhVqw@mail.gmail.com>",
@@ -101,8 +101,8 @@
         "Martyn Plummer",
         "Tom Callaway"
       ],
-      "started": "2017-05-11T16:37:41+00:00",
-      "last_reply": "2017-05-12T11:44:22-04:00",
+      "started": "2017-05-11T16:37:41Z",
+      "last_reply": "2017-05-12T15:44:22Z",
       "root_message_id": "msg-454477b33bf6"
     },
     {
@@ -113,8 +113,8 @@
         "Shu-Ju Tu",
         "Tom Callaway"
       ],
-      "started": "2017-05-16T10:31:49+08:00",
-      "last_reply": "2017-05-16T11:34:33-04:00",
+      "started": "2017-05-16T02:31:49Z",
+      "last_reply": "2017-05-16T15:34:33Z",
       "root_message_id": "msg-6f7acc87b0b9"
     }
   ]

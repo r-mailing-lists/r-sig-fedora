@@ -8,7 +8,7 @@
       "message_id": "<548B0801.2020806@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2014-12-12T10:21:37-05:00",
+      "date": "2014-12-12T15:21:37Z",
       "subject": "[R-sig-Fedora] RJAGS Installation Issues",
       "subject_clean": "RJAGS Installation Issues",
       "in_reply_to": "<CAPRP4-dqA+ev7xdbuNozmam6bL4d9CMt7_GHKdV44XoKKimNCA@mail.gmail.com>",
@@ -26,7 +26,7 @@
       "message_id": "<CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>",
       "from_name": "Jeroen Ooms",
       "from_email_hash": "a265ef4bb03c14ee9d6f00489213486310c7d7bc8d3d2467e6937626fef998e1",
-      "date": "2014-12-14T12:56:51-08:00",
+      "date": "2014-12-14T20:56:51Z",
       "subject": "[R-sig-Fedora] upquote.sty in Fedora 21",
       "subject_clean": "upquote.sty in Fedora 21",
       "in_reply_to": null,
@@ -60,7 +60,7 @@
       "message_id": "<548EF666.1040300@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2014-12-15T09:55:34-05:00",
+      "date": "2014-12-15T14:55:34Z",
       "subject": "[R-sig-Fedora] upquote.sty in Fedora 21",
       "subject_clean": "upquote.sty in Fedora 21",
       "in_reply_to": "<CABFfbXsdSBZL2r81=0X6e7Ymf+YTVYpfKMYNcVb9_1+GWDKsVw@mail.gmail.com>",
@@ -78,7 +78,7 @@
       "message_id": "<CABFfbXv9icx4+k=pT1gHGVKcXuzBML+2EKbdY=Lx7qe=SmYoHQ@mail.gmail.com>",
       "from_name": "Jeroen Ooms",
       "from_email_hash": "a265ef4bb03c14ee9d6f00489213486310c7d7bc8d3d2467e6937626fef998e1",
-      "date": "2014-12-22T20:56:44-08:00",
+      "date": "2014-12-23T04:56:44Z",
       "subject": "[R-sig-Fedora] upquote.sty in Fedora 21",
       "subject_clean": "upquote.sty in Fedora 21",
       "in_reply_to": "<548EF666.1040300@redhat.com>",
@@ -101,8 +101,8 @@
       "participants": [
         "Tom Callaway"
       ],
-      "started": "2014-12-12T10:21:37-05:00",
-      "last_reply": "2014-12-12T10:21:37-05:00",
+      "started": "2014-12-12T15:21:37Z",
+      "last_reply": "2014-12-12T15:21:37Z",
       "root_message_id": "msg-ec758d7e36f3"
     },
     {
@@ -114,8 +114,8 @@
         "Martyn Plummer",
         "Tom Callaway"
       ],
-      "started": "2014-12-14T12:56:51-08:00",
-      "last_reply": "2014-12-22T20:56:44-08:00",
+      "started": "2014-12-14T20:56:51Z",
+      "last_reply": "2014-12-23T04:56:44Z",
       "root_message_id": "msg-7dbce064991a"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<CAHz+bWZ8DQtWzBUTx6OSLhYzJOqm2ojBc74MVhRkjkErjWFSXQ@mail.gmail.com>",
       "from_name": "Mark Leeds",
       "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
-      "date": "2015-04-14T08:30:53-04:00",
+      "date": "2015-04-14T12:30:53Z",
       "subject": "[R-sig-Fedora] httpuv not installing on fedora 19",
       "subject_clean": "httpuv not installing on fedora 19",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<43e1fb87-8cea-4ec0-8039-3495eda60cd5@email.android.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2015-04-14T08:39:28-04:00",
+      "date": "2015-04-14T12:39:28Z",
       "subject": "[R-sig-Fedora] httpuv not installing on fedora 19",
       "subject_clean": "httpuv not installing on fedora 19",
       "in_reply_to": null,
@@ -40,7 +40,7 @@
       "message_id": "<CAHz+bWb3h48uw=bsqU0XP6qxvT7MmKKV1u_n2JFAk3WudN+Beg@mail.gmail.com>",
       "from_name": "Mark Leeds",
       "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
-      "date": "2015-04-14T08:47:29-04:00",
+      "date": "2015-04-14T12:47:29Z",
       "subject": "[R-sig-Fedora] httpuv not installing on fedora 19",
       "subject_clean": "httpuv not installing on fedora 19",
       "in_reply_to": "<43e1fb87-8cea-4ec0-8039-3495eda60cd5@email.android.com>",
@@ -58,7 +58,7 @@
       "message_id": "<bc78549e-f272-45f7-b146-bd4a082c89dd@email.android.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2015-04-14T08:53:02-04:00",
+      "date": "2015-04-14T12:53:02Z",
       "subject": "[R-sig-Fedora] httpuv not installing on fedora 19",
       "subject_clean": "httpuv not installing on fedora 19",
       "in_reply_to": null,
@@ -74,7 +74,7 @@
       "message_id": "<CAHz+bWa9_ALj0Rf5VPiuUMc4hY5wYYyXUpgk15qcYdU3qhmiEQ@mail.gmail.com>",
       "from_name": "Mark Leeds",
       "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
-      "date": "2015-04-14T17:29:27-04:00",
+      "date": "2015-04-14T21:29:27Z",
       "subject": "[R-sig-Fedora] httpuv not installing on fedora 19",
       "subject_clean": "httpuv not installing on fedora 19",
       "in_reply_to": "<CAHz+bWZ8DQtWzBUTx6OSLhYzJOqm2ojBc74MVhRkjkErjWFSXQ@mail.gmail.com>",
@@ -96,8 +96,8 @@
       "participants": [
         "Mark Leeds"
       ],
-      "started": "2015-04-14T08:30:53-04:00",
-      "last_reply": "2015-04-14T17:29:27-04:00",
+      "started": "2015-04-14T12:30:53Z",
+      "last_reply": "2015-04-14T21:29:27Z",
       "root_message_id": "msg-3cac8621f9b2"
     },
     {
@@ -108,8 +108,8 @@
         "Mark Leeds",
         "Tom Callaway"
       ],
-      "started": "2015-04-14T08:39:28-04:00",
-      "last_reply": "2015-04-14T08:47:29-04:00",
+      "started": "2015-04-14T12:39:28Z",
+      "last_reply": "2015-04-14T12:47:29Z",
       "root_message_id": "msg-51288cc19210"
     },
     {
@@ -119,8 +119,8 @@
       "participants": [
         "Tom Callaway"
       ],
-      "started": "2015-04-14T08:53:02-04:00",
-      "last_reply": "2015-04-14T08:53:02-04:00",
+      "started": "2015-04-14T12:53:02Z",
+      "last_reply": "2015-04-14T12:53:02Z",
       "root_message_id": "msg-3294992dd65b"
     }
   ]

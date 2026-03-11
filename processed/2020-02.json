@@ -26,7 +26,7 @@
       "message_id": "<CALEXWq1QmOHywSdqjmOmZ0_DOok4b7fPw2moDd-mVejtTzqPFw@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2020-02-07T10:14:50+01:00",
+      "date": "2020-02-07T09:14:50Z",
       "subject": "[R-sig-Fedora] R (language) + install.packages(\"DMwR\") :",
       "subject_clean": "R (language) + install.packages(\"DMwR\") :",
       "in_reply_to": "<1577883358.628874.1581031801005@mail.yahoo.com>",
@@ -45,7 +45,7 @@
       "message_id": "<CALEXWq2MzizyzkAr_rFwxGuOV_uG=KHzfiE7K1nOcM4=n8JKGQ@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2020-02-09T01:19:27+01:00",
+      "date": "2020-02-09T00:19:27Z",
       "subject": "[R-sig-Fedora] CRAN RPM repositories available",
       "subject_clean": "CRAN RPM repositories available",
       "in_reply_to": null,
@@ -77,7 +77,7 @@
       "message_id": "<alpine.LRH.2.03.2002171138470.18188@bjyevire.pbz>",
       "from_name": "R P Herrold",
       "from_email_hash": "8f819f1ffefcd7f91b6d674101d9301a6c8f051205d3e030166b710a4ab433c7",
-      "date": "2020-02-17T11:40:45-05:00",
+      "date": "2020-02-17T16:40:45Z",
       "subject": "[R-sig-Fedora] R-3.6.2 make check fails",
       "subject_clean": "R-3.6.2 make check fails",
       "in_reply_to": "<SN6PR17MB2125659DEAF7F35D23517761D8150@SN6PR17MB2125.namprd17.prod.outlook.com>",
@@ -95,7 +95,7 @@
       "message_id": "<CANA0HMZ8pLRDcSjqQEeCU9KHA_3yE8d48ANnxha1CJ4WoFwGOg@mail.gmail.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "b0864efc945ad746d5bce55bf7c4d85fa011a673c705bb017c133f1ae5ab7506",
-      "date": "2020-02-17T13:10:17-05:00",
+      "date": "2020-02-17T18:10:17Z",
       "subject": "[R-sig-Fedora] R-3.6.2 make check fails",
       "subject_clean": "R-3.6.2 make check fails",
       "in_reply_to": "<alpine.LRH.2.03.2002171138470.18188@bjyevire.pbz>",
@@ -133,7 +133,7 @@
       "message_id": "<alpine.LRH.2.03.2002171538330.10247@bjyevire.pbz>",
       "from_name": "R P Herrold",
       "from_email_hash": "8f819f1ffefcd7f91b6d674101d9301a6c8f051205d3e030166b710a4ab433c7",
-      "date": "2020-02-17T15:39:50-05:00",
+      "date": "2020-02-17T20:39:50Z",
       "subject": "[R-sig-Fedora] R-3.6.2 make check fails",
       "subject_clean": "R-3.6.2 make check fails",
       "in_reply_to": "<SN6PR17MB212562F3ECD56590FD62C5C8D8160@SN6PR17MB2125.namprd17.prod.outlook.com>",
@@ -191,7 +191,7 @@
       "message_id": "<CALEXWq3OKoCtQ6_=Vam_2WnmtEyek_ykDCSTWfiRF=3=aAWFeQ@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2020-02-26T09:17:48+01:00",
+      "date": "2020-02-26T08:17:48Z",
       "subject": "[R-sig-Fedora] library ( vctrs ) + library ( ggplot2 )",
       "subject_clean": "library ( vctrs ) + library ( ggplot2 )",
       "in_reply_to": "<566922654.462620.1582704653738@mail.yahoo.com>",
@@ -215,8 +215,8 @@
         "Iñaki Ucar",
         "Orlando Ramirez"
       ],
-      "started": "2020-02-06T23:30:01+00:00",
-      "last_reply": "2020-02-07T10:14:50+01:00",
+      "started": "2020-02-06T23:30:01Z",
+      "last_reply": "2020-02-07T09:14:50Z",
       "root_message_id": "msg-7d0893a3fecf"
     },
     {
@@ -226,8 +226,8 @@
       "participants": [
         "Iñaki Ucar"
       ],
-      "started": "2020-02-09T01:19:27+01:00",
-      "last_reply": "2020-02-09T01:19:27+01:00",
+      "started": "2020-02-09T00:19:27Z",
+      "last_reply": "2020-02-09T00:19:27Z",
       "root_message_id": "msg-a261814823e6"
     },
     {
@@ -239,8 +239,8 @@
         "R P Herrold",
         "Tom Callaway"
       ],
-      "started": "2020-02-14T19:50:27+00:00",
-      "last_reply": "2020-02-17T21:27:45+00:00",
+      "started": "2020-02-14T19:50:27Z",
+      "last_reply": "2020-02-17T21:27:45Z",
       "root_message_id": "msg-7a31ff1a96c6"
     },
     {
@@ -251,8 +251,8 @@
         "Iñaki Ucar",
         "Orlando Ramirez"
       ],
-      "started": "2020-02-26T08:10:53+00:00",
-      "last_reply": "2020-02-26T09:17:48+01:00",
+      "started": "2020-02-26T08:10:53Z",
+      "last_reply": "2020-02-26T08:17:48Z",
       "root_message_id": "msg-cd04cd331e6d"
     }
   ]

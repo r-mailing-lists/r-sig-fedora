@@ -8,7 +8,7 @@
       "message_id": "<1220370274.8909.47.camel@seurat.iarc.fr>",
       "from_name": "Martyn Plummer",
       "from_email_hash": "bad7df6428e60802a46077187eab20a1a370b32627a90006d8a8b1573c1a099d",
-      "date": "2008-09-02T17:44:34+02:00",
+      "date": "2008-09-02T15:44:34Z",
       "subject": "[R-sig-Fedora] R 2.7.2",
       "subject_clean": "R 2.7.2",
       "in_reply_to": "<1220026091.3606.44.camel@localhost.localdomain>",
@@ -26,7 +26,7 @@
       "message_id": "<1220370847.26352.44.camel@localhost.localdomain>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2008-09-02T11:54:07-04:00",
+      "date": "2008-09-02T15:54:07Z",
       "subject": "[R-sig-Fedora] R 2.7.2",
       "subject_clean": "R 2.7.2",
       "in_reply_to": "<1220370274.8909.47.camel@seurat.iarc.fr>",
@@ -45,7 +45,7 @@
       "message_id": "<5c69690e0809100401y49122786j19e305fe6cb201fb@mail.gmail.com>",
       "from_name": "margherita mutarelli",
       "from_email_hash": "8c4d9ba5137f8cb67a064e28987dc0c87bce3310352301459a87d2815fd444b3",
-      "date": "2008-09-10T13:01:18+02:00",
+      "date": "2008-09-10T11:01:18Z",
       "subject": "[R-sig-Fedora] gpg signature for packages",
       "subject_clean": "gpg signature for packages",
       "in_reply_to": null,
@@ -61,7 +61,7 @@
       "message_id": "<1221048482.25211.3.camel@viklef.ceplovi.cz>",
       "from_name": "Matěj Cepl",
       "from_email_hash": "76644d2af09232622bda929bb09276e24514ff5f1a9afa5e8c862896dd78f19e",
-      "date": "2008-09-10T14:08:02+02:00",
+      "date": "2008-09-10T12:08:02Z",
       "subject": "[R-sig-Fedora] gpg signature for packages",
       "subject_clean": "gpg signature for packages",
       "in_reply_to": "<5c69690e0809100401y49122786j19e305fe6cb201fb@mail.gmail.com>",
@@ -79,7 +79,7 @@
       "message_id": "<48C7BDC8.1020302@comcast.net>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "6b69db75158c6a64599f027a17f3ea4ee49917322d20dbb731688b8fd4f10e1f",
-      "date": "2008-09-10T07:30:00-05:00",
+      "date": "2008-09-10T12:30:00Z",
       "subject": "[R-sig-Fedora] gpg signature for packages",
       "subject_clean": "gpg signature for packages",
       "in_reply_to": "<5c69690e0809100401y49122786j19e305fe6cb201fb@mail.gmail.com>",
@@ -97,7 +97,7 @@
       "message_id": "<1221064749.3152.10.camel@seurat.iarc.fr>",
       "from_name": "Martyn Plummer",
       "from_email_hash": "bad7df6428e60802a46077187eab20a1a370b32627a90006d8a8b1573c1a099d",
-      "date": "2008-09-10T18:39:09+02:00",
+      "date": "2008-09-10T16:39:09Z",
       "subject": "[R-sig-Fedora] gpg signature for packages",
       "subject_clean": "gpg signature for packages",
       "in_reply_to": "<48C7BDC8.1020302@comcast.net>",
@@ -121,8 +121,8 @@
         "Martyn Plummer",
         "Tom \"spot\" Callaway"
       ],
-      "started": "2008-09-02T17:44:34+02:00",
-      "last_reply": "2008-09-02T11:54:07-04:00",
+      "started": "2008-09-02T15:44:34Z",
+      "last_reply": "2008-09-02T15:54:07Z",
       "root_message_id": "msg-5b0b5ff3e859"
     },
     {
@@ -135,8 +135,8 @@
         "Matěj Cepl",
         "margherita mutarelli"
       ],
-      "started": "2008-09-10T13:01:18+02:00",
-      "last_reply": "2008-09-10T18:39:09+02:00",
+      "started": "2008-09-10T11:01:18Z",
+      "last_reply": "2008-09-10T16:39:09Z",
       "root_message_id": "msg-a86a59f07fa6"
     }
   ]

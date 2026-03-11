@@ -8,7 +8,7 @@
       "message_id": "<CALS=5mrV7Y_QHuWhjk0ueV99JetreouW19EUNy7sxBsT7mYz4Q@mail.gmail.com>",
       "from_name": "Paul Smith",
       "from_email_hash": "aba4091620d86fabfa3ea687f6147db00bface60d76eeb219c367cf3848b252a",
-      "date": "2022-06-12T14:42:25+01:00",
+      "date": "2022-06-12T13:42:25Z",
       "subject": "[R-sig-Fedora] When will quarto be available?",
       "subject_clean": "When will quarto be available?",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<1781300216.20655.1655217107907@office.mailbox.org>",
       "from_name": "tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk",
       "from_email_hash": "46f7c5e79299983b806b65a66f502227438fa8315befcfdb1647eac40f0785d4",
-      "date": "2022-06-14T15:31:47+01:00",
+      "date": "2022-06-14T14:31:47Z",
       "subject": "[R-sig-Fedora] rstudio-server toolbox instructions",
       "subject_clean": "rstudio-server toolbox instructions",
       "in_reply_to": null,
@@ -40,7 +40,7 @@
       "message_id": "<CALEXWq25zNSKSm45W3t+ePg=Rq0NG0LNb5mLQ2Kgy3b1Rfxe5A@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2022-06-14T18:44:19+02:00",
+      "date": "2022-06-14T16:44:19Z",
       "subject": "[R-sig-Fedora] rstudio-server toolbox instructions",
       "subject_clean": "rstudio-server toolbox instructions",
       "in_reply_to": "<1781300216.20655.1655217107907@office.mailbox.org>",
@@ -58,7 +58,7 @@
       "message_id": "<CALEXWq3SRFFY0RjxfsEj0aZ4csrAyo34gaK6AzDEtiO0d8e8ag@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2022-06-14T20:40:29+02:00",
+      "date": "2022-06-14T18:40:29Z",
       "subject": "[R-sig-Fedora] rstudio-server toolbox instructions",
       "subject_clean": "rstudio-server toolbox instructions",
       "in_reply_to": "<CALEXWq25zNSKSm45W3t+ePg=Rq0NG0LNb5mLQ2Kgy3b1Rfxe5A@mail.gmail.com>",
@@ -77,7 +77,7 @@
       "message_id": "<1575005483.45351.1655236434605@office.mailbox.org>",
       "from_name": "tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk",
       "from_email_hash": "46f7c5e79299983b806b65a66f502227438fa8315befcfdb1647eac40f0785d4",
-      "date": "2022-06-14T20:53:54+01:00",
+      "date": "2022-06-14T19:53:54Z",
       "subject": "[R-sig-Fedora] rstudio-server toolbox instructions",
       "subject_clean": "rstudio-server toolbox instructions",
       "in_reply_to": "<CALEXWq3SRFFY0RjxfsEj0aZ4csrAyo34gaK6AzDEtiO0d8e8ag@mail.gmail.com>",
@@ -101,8 +101,8 @@
       "participants": [
         "Paul Smith"
       ],
-      "started": "2022-06-12T14:42:25+01:00",
-      "last_reply": "2022-06-12T14:42:25+01:00",
+      "started": "2022-06-12T13:42:25Z",
+      "last_reply": "2022-06-12T13:42:25Z",
       "root_message_id": "msg-e1c83e0dcf38"
     },
     {
@@ -113,8 +113,8 @@
         "Iñaki Ucar",
         "tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk"
       ],
-      "started": "2022-06-14T15:31:47+01:00",
-      "last_reply": "2022-06-14T20:53:54+01:00",
+      "started": "2022-06-14T14:31:47Z",
+      "last_reply": "2022-06-14T19:53:54Z",
       "root_message_id": "msg-0afdc1d63270"
     }
   ]

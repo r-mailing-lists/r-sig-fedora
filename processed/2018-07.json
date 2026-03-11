@@ -8,7 +8,7 @@
       "message_id": "<20180710135139.GH16908@flame.pingoured.fr>",
       "from_name": "Pierre-Yves Chibon",
       "from_email_hash": "5cb4abc143d04c5e4b2f0db5644c15241a2c494c5d774abfd43fa630c4deb3d3",
-      "date": "2018-07-10T15:51:39+02:00",
+      "date": "2018-07-10T13:51:39Z",
       "subject": "[R-sig-Fedora] Updating qvalue and xtable",
       "subject_clean": "Updating qvalue and xtable",
       "in_reply_to": null,
@@ -28,8 +28,8 @@
       "participants": [
         "Pierre-Yves Chibon"
       ],
-      "started": "2018-07-10T15:51:39+02:00",
-      "last_reply": "2018-07-10T15:51:39+02:00",
+      "started": "2018-07-10T13:51:39Z",
+      "last_reply": "2018-07-10T13:51:39Z",
       "root_message_id": "msg-ca907c0d5067"
     }
   ]

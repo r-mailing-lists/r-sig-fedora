@@ -8,7 +8,7 @@
       "message_id": "<CAAHES9wLHpgkfp_-zSfcEkBcjetnAoUOh9bU3DPx8fQCj2Zhuw@mail.gmail.com>",
       "from_name": "Gavin Simpson",
       "from_email_hash": "d4b6f008c4c5158667bb80a145897e16b1335189ecc5759b14ee7c011dcddcd9",
-      "date": "2022-09-16T12:09:16+02:00",
+      "date": "2022-09-16T10:09:16Z",
       "subject": "[R-sig-Fedora] dependencies for building R",
       "subject_clean": "dependencies for building R",
       "in_reply_to": "<3408710.iIbC2pHGDl@griffin>",
@@ -29,7 +29,7 @@
       "message_id": "<CACp8ZrLVLbA12BRoAAP0xi9vwQj+XF2SrJp29W_bw9WM+jMesw@mail.gmail.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "4c62ad279bd6222ba841f6ee81e7796b9d37828a7872803f2e701c687ad903ea",
-      "date": "2022-09-16T11:36:09+01:00",
+      "date": "2022-09-16T10:36:09Z",
       "subject": "[R-sig-Fedora] dependencies for building R",
       "subject_clean": "dependencies for building R",
       "in_reply_to": "<CAAHES9wLHpgkfp_-zSfcEkBcjetnAoUOh9bU3DPx8fQCj2Zhuw@mail.gmail.com>",
@@ -56,8 +56,8 @@
         "Gavin Simpson",
         "Tom Callaway"
       ],
-      "started": "2022-09-16T12:09:16+02:00",
-      "last_reply": "2022-09-16T11:36:09+01:00",
+      "started": "2022-09-16T10:09:16Z",
+      "last_reply": "2022-09-16T10:36:09Z",
       "root_message_id": "msg-7dcad307cd0e"
     }
   ]

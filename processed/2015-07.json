@@ -8,7 +8,7 @@
       "message_id": "<201507312315.t6VNFHPw016262@genepi.med.utah.edu>",
       "from_name": "Steven Backus",
       "from_email_hash": "e453f5502a5b2b8a27ade4738c9620104fcc5bdfc2f76a2ac5fcf1191864e655",
-      "date": "2015-07-31T17:15:17-06:00",
+      "date": "2015-07-31T23:15:17Z",
       "subject": "[R-sig-Fedora] x11() hangs in R 3.2.1",
       "subject_clean": "x11() hangs in R 3.2.1",
       "in_reply_to": null,
@@ -28,8 +28,8 @@
       "participants": [
         "Steven Backus"
       ],
-      "started": "2015-07-31T17:15:17-06:00",
-      "last_reply": "2015-07-31T17:15:17-06:00",
+      "started": "2015-07-31T23:15:17Z",
+      "last_reply": "2015-07-31T23:15:17Z",
       "root_message_id": "msg-3a021a54ffdc"
     }
   ]

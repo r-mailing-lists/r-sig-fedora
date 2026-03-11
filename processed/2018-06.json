@@ -8,7 +8,7 @@
       "message_id": "<23330.46334.723686.839921@rob.eddelbuettel.com>",
       "from_name": "Dirk Eddelbuettel",
       "from_email_hash": "41afaefcb8db6ed02b73dc17f00c860596be87f14445fbbc0a5f7ccb3093af22",
-      "date": "2018-06-14T13:33:34-05:00",
+      "date": "2018-06-14T18:33:34Z",
       "subject": "[R-sig-Fedora] CentOS 7 issues with pdf manual / tex conversion",
       "subject_clean": "CentOS 7 issues with pdf manual / tex conversion",
       "in_reply_to": "<23311.1834.610610.249346@rob.eddelbuettel.com>",
@@ -35,8 +35,8 @@
       "participants": [
         "Dirk Eddelbuettel"
       ],
-      "started": "2018-06-14T13:33:34-05:00",
-      "last_reply": "2018-06-14T13:33:34-05:00",
+      "started": "2018-06-14T18:33:34Z",
+      "last_reply": "2018-06-14T18:33:34Z",
       "root_message_id": "msg-992fd1cb28a2"
     }
   ]

@@ -145,7 +145,7 @@
       "message_id": "<84172d20-278a-e82b-cb9d-d8e64105af78@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2017-01-12T08:24:53-05:00",
+      "date": "2017-01-12T13:24:53Z",
       "subject": "[R-sig-Fedora] rgl",
       "subject_clean": "rgl",
       "in_reply_to": "<DC6306FFE044A644A9BEAE5A43DEA9250F7604DB@CC-CLEXMB53.cc.ad.cchs.net>",
@@ -190,7 +190,7 @@
       "message_id": "<cf694dd0-967d-b5b6-43de-5a9e2b5d4a8f@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2017-01-12T08:30:15-05:00",
+      "date": "2017-01-12T13:30:15Z",
       "subject": "[R-sig-Fedora] rgl",
       "subject_clean": "rgl",
       "in_reply_to": "<DC6306FFE044A644A9BEAE5A43DEA9250F7605DD@CC-CLEXMB53.cc.ad.cchs.net>",
@@ -245,8 +245,8 @@
         "Tom Callaway",
         "Weiner, Michael"
       ],
-      "started": "2017-01-11T19:49:42+00:00",
-      "last_reply": "2017-01-12T13:37:04+00:00",
+      "started": "2017-01-11T19:49:42Z",
+      "last_reply": "2017-01-12T13:37:04Z",
       "root_message_id": "msg-b1916a13dbf3"
     }
   ]

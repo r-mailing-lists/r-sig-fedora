@@ -8,7 +8,7 @@
       "message_id": "<CABFfbXvi+w_vovvL58MpE_ZgAdO9wcVwjTk9uomwcboJE=LzAg@mail.gmail.com>",
       "from_name": "Jeroen Ooms",
       "from_email_hash": "6d6b57f7dfdacdb11068763c49af518a12f1ee23bc379f749098f057c1d6df69",
-      "date": "2025-08-28T13:48:17+02:00",
+      "date": "2025-08-28T11:48:17Z",
       "subject": "[R-sig-Fedora] Updating some rpm R packages",
       "subject_clean": "Updating some rpm R packages",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<CALEXWq3kPeCQE81tsGxYfG2betX+gXpP93BJnJUwz9P0bN6TSQ@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2025-08-28T17:04:35+02:00",
+      "date": "2025-08-28T15:04:35Z",
       "subject": "[R-sig-Fedora] Updating some rpm R packages",
       "subject_clean": "Updating some rpm R packages",
       "in_reply_to": "<CABFfbXvi+w_vovvL58MpE_ZgAdO9wcVwjTk9uomwcboJE=LzAg@mail.gmail.com>",
@@ -47,8 +47,8 @@
         "Iñaki Ucar",
         "Jeroen Ooms"
       ],
-      "started": "2025-08-28T13:48:17+02:00",
-      "last_reply": "2025-08-28T17:04:35+02:00",
+      "started": "2025-08-28T11:48:17Z",
+      "last_reply": "2025-08-28T15:04:35Z",
       "root_message_id": "msg-1f77157d9f20"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<217835706.557902.1649060245073@office.mailbox.org>",
       "from_name": "tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk",
       "from_email_hash": "46f7c5e79299983b806b65a66f502227438fa8315befcfdb1647eac40f0785d4",
-      "date": "2022-04-04T09:17:25+01:00",
+      "date": "2022-04-04T08:17:25Z",
       "subject": "[R-sig-Fedora] rstudio-desktop notes",
       "subject_clean": "rstudio-desktop notes",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<CALEXWq3d78t+-4pKORWYYLytza-QD-yHfp+YKfWf7_GrKH6BHQ@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2022-04-04T14:43:30+02:00",
+      "date": "2022-04-04T12:43:30Z",
       "subject": "[R-sig-Fedora] rstudio-desktop notes",
       "subject_clean": "rstudio-desktop notes",
       "in_reply_to": "<217835706.557902.1649060245073@office.mailbox.org>",
@@ -42,7 +42,7 @@
       "message_id": "<1775267870.597938.1649076988586@office.mailbox.org>",
       "from_name": "tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk",
       "from_email_hash": "46f7c5e79299983b806b65a66f502227438fa8315befcfdb1647eac40f0785d4",
-      "date": "2022-04-04T13:56:28+01:00",
+      "date": "2022-04-04T12:56:28Z",
       "subject": "[R-sig-Fedora] rstudio-desktop notes",
       "subject_clean": "rstudio-desktop notes",
       "in_reply_to": "<CALEXWq3d78t+-4pKORWYYLytza-QD-yHfp+YKfWf7_GrKH6BHQ@mail.gmail.com>",
@@ -66,8 +66,8 @@
         "Iñaki Ucar",
         "tim@t@yior m@iii@g oii hidde@eieph@@ts@co@uk"
       ],
-      "started": "2022-04-04T09:17:25+01:00",
-      "last_reply": "2022-04-04T13:56:28+01:00",
+      "started": "2022-04-04T08:17:25Z",
+      "last_reply": "2022-04-04T12:56:28Z",
       "root_message_id": "msg-749387171aea"
     }
   ]

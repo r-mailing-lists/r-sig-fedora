@@ -8,7 +8,7 @@
       "message_id": "<4C07A65B.9080900@redhat.com>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2010-06-03T08:55:55-04:00",
+      "date": "2010-06-03T12:55:55Z",
       "subject": "[R-sig-Fedora] R 2.11.1 in Fedora Updates Testing",
       "subject_clean": "R 2.11.1 in Fedora Updates Testing",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<AANLkTilIymNuq8MIc8I3dGcn6GE1yV0xE8Y7VkqUrQO6@mail.gmail.com>",
       "from_name": "Paul Johnson",
       "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
-      "date": "2010-06-03T11:14:13-05:00",
+      "date": "2010-06-03T16:14:13Z",
       "subject": "[R-sig-Fedora] How to go about getting a change in the SPEC file from which R is built on EPEL?",
       "subject_clean": "How to go about getting a change in the SPEC file from which R is built on EPEL?",
       "in_reply_to": null,
@@ -40,7 +40,7 @@
       "message_id": "<4C07E078.1090906@redhat.com>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2010-06-03T13:03:52-04:00",
+      "date": "2010-06-03T17:03:52Z",
       "subject": "[R-sig-Fedora] How to go about getting a change in the SPEC file from which R is built on EPEL?",
       "subject_clean": "How to go about getting a change in the SPEC file from which R is built on EPEL?",
       "in_reply_to": "<AANLkTilIymNuq8MIc8I3dGcn6GE1yV0xE8Y7VkqUrQO6@mail.gmail.com>",
@@ -58,7 +58,7 @@
       "message_id": "<AANLkTimyxVY15t7OOEUQTknkPTOFV3dwyKVm-mmgM4Mx@mail.gmail.com>",
       "from_name": "Paul Johnson",
       "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
-      "date": "2010-06-04T15:48:39-05:00",
+      "date": "2010-06-04T20:48:39Z",
       "subject": "[R-sig-Fedora] How to go about getting a change in the SPEC file from which R is built on EPEL?",
       "subject_clean": "How to go about getting a change in the SPEC file from which R is built on EPEL?",
       "in_reply_to": "<4C07E078.1090906@redhat.com>",
@@ -96,7 +96,7 @@
       "message_id": "<OFF599F739.9EA39E08-ON8625773B.004551A7-8625773B.00464F65@faa.gov>",
       "from_name": "Dennis.Burian at faa.gov",
       "from_email_hash": "4b2a2434a28b5ada8586b04cf5d2279ab08cdc6d3c00e12dcb34b869b2494378",
-      "date": "2010-06-07T07:47:58-05:00",
+      "date": "2010-06-07T12:47:58Z",
       "subject": "[R-sig-Fedora] R-SIG-Fedora Digest, Vol 21, Issue 3",
       "subject_clean": "R-SIG-Fedora Digest, Vol 21, Issue 3",
       "in_reply_to": "<mailman.15.1275904805.4471.r-sig-fedora@r-project.org>",
@@ -118,8 +118,8 @@
       "participants": [
         "Tom \"spot\" Callaway"
       ],
-      "started": "2010-06-03T08:55:55-04:00",
-      "last_reply": "2010-06-03T08:55:55-04:00",
+      "started": "2010-06-03T12:55:55Z",
+      "last_reply": "2010-06-03T12:55:55Z",
       "root_message_id": "msg-36245841f422"
     },
     {
@@ -130,8 +130,8 @@
         "Paul Johnson",
         "Tom \"spot\" Callaway"
       ],
-      "started": "2010-06-03T11:14:13-05:00",
-      "last_reply": "2010-06-04T15:48:39-05:00",
+      "started": "2010-06-03T16:14:13Z",
+      "last_reply": "2010-06-04T20:48:39Z",
       "root_message_id": "msg-e9c4bde1ceff"
     },
     {
@@ -141,8 +141,8 @@
       "participants": [
         "Ranjit"
       ],
-      "started": "2010-06-06T06:57:07+00:00",
-      "last_reply": "2010-06-06T06:57:07+00:00",
+      "started": "2010-06-06T06:57:07Z",
+      "last_reply": "2010-06-06T06:57:07Z",
       "root_message_id": "msg-9522fa5cfea7"
     },
     {
@@ -152,8 +152,8 @@
       "participants": [
         "Dennis.Burian at faa.gov"
       ],
-      "started": "2010-06-07T07:47:58-05:00",
-      "last_reply": "2010-06-07T07:47:58-05:00",
+      "started": "2010-06-07T12:47:58Z",
+      "last_reply": "2010-06-07T12:47:58Z",
       "root_message_id": "msg-6f486e2507e5"
     }
   ]

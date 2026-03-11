@@ -8,7 +8,7 @@
       "message_id": "<Pine.LNX.4.64.0806301119230.11397@reclus.nhh.no>",
       "from_name": "Roger Bivand",
       "from_email_hash": "a0c87926e9477aa221755cc93bdef47227c3563fd707e66ae49044467663d168",
-      "date": "2008-06-30T11:26:50+02:00",
+      "date": "2008-06-30T09:26:50Z",
       "subject": "[R-sig-Fedora] Pango/cairo and symbol fonts",
       "subject_clean": "Pango/cairo and symbol fonts",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<4868D347.7030009@comcast.net>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "6b69db75158c6a64599f027a17f3ea4ee49917322d20dbb731688b8fd4f10e1f",
-      "date": "2008-06-30T07:36:23-05:00",
+      "date": "2008-06-30T12:36:23Z",
       "subject": "[R-sig-Fedora] Pango/cairo and symbol fonts",
       "subject_clean": "Pango/cairo and symbol fonts",
       "in_reply_to": "<Pine.LNX.4.64.0806301119230.11397@reclus.nhh.no>",
@@ -42,7 +42,7 @@
       "message_id": "<4868F24A.5080309@biostat.ku.dk>",
       "from_name": "Peter Dalgaard",
       "from_email_hash": "6970d38b63c93ff8b781d9787948d92fe2e7b4240149faca590409068c44b75c",
-      "date": "2008-06-30T16:48:42+02:00",
+      "date": "2008-06-30T14:48:42Z",
       "subject": "[R-sig-Fedora] Pango/cairo and symbol fonts",
       "subject_clean": "Pango/cairo and symbol fonts",
       "in_reply_to": "<4868D347.7030009@comcast.net>",
@@ -61,7 +61,7 @@
       "message_id": "<48697527.40700@comcast.net>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "6b69db75158c6a64599f027a17f3ea4ee49917322d20dbb731688b8fd4f10e1f",
-      "date": "2008-06-30T19:07:03-05:00",
+      "date": "2008-07-01T00:07:03Z",
       "subject": "[R-sig-Fedora] Pango/cairo and symbol fonts",
       "subject_clean": "Pango/cairo and symbol fonts",
       "in_reply_to": "<Pine.LNX.4.64.0807010016180.12805@reclus.nhh.no>",
@@ -88,8 +88,8 @@
         "Peter Dalgaard",
         "Roger Bivand"
       ],
-      "started": "2008-06-30T11:26:50+02:00",
-      "last_reply": "2008-06-30T16:48:42+02:00",
+      "started": "2008-06-30T09:26:50Z",
+      "last_reply": "2008-06-30T14:48:42Z",
       "root_message_id": "msg-738080dd21f1"
     },
     {
@@ -99,8 +99,8 @@
       "participants": [
         "Marc Schwartz"
       ],
-      "started": "2008-06-30T19:07:03-05:00",
-      "last_reply": "2008-06-30T19:07:03-05:00",
+      "started": "2008-07-01T00:07:03Z",
+      "last_reply": "2008-07-01T00:07:03Z",
       "root_message_id": "msg-c1288de2c75d"
     }
   ]

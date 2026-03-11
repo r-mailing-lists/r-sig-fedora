@@ -8,7 +8,7 @@
       "message_id": "<1227636717.3551.119.camel@localhost.localdomain>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2008-11-25T13:11:57-05:00",
+      "date": "2008-11-25T18:11:57Z",
       "subject": "[R-sig-Fedora] Problem running R from within a script",
       "subject_clean": "Problem running R from within a script",
       "in_reply_to": "<alpine.LFD.2.00.0811251304290.11212@localhost.localdomain>",
@@ -26,7 +26,7 @@
       "message_id": "<alpine.LFD.2.00.0811251304290.11212@localhost.localdomain>",
       "from_name": "Joshua Kramer",
       "from_email_hash": "209a3c79910be83d5e02b2131b66cae921aa41cfee2d50c5928450099e93e71f",
-      "date": "2008-11-25T13:13:59-05:00",
+      "date": "2008-11-25T18:13:59Z",
       "subject": "[R-sig-Fedora] Problem running R from within a script",
       "subject_clean": "Problem running R from within a script",
       "in_reply_to": null,
@@ -42,7 +42,7 @@
       "message_id": "<alpine.LFD.2.00.0811251410070.12193@localhost.localdomain>",
       "from_name": "Joshua Kramer",
       "from_email_hash": "209a3c79910be83d5e02b2131b66cae921aa41cfee2d50c5928450099e93e71f",
-      "date": "2008-11-25T14:12:16-05:00",
+      "date": "2008-11-25T19:12:16Z",
       "subject": "[R-sig-Fedora] Problem running R from within a script",
       "subject_clean": "Problem running R from within a script",
       "in_reply_to": "<1227636717.3551.119.camel@localhost.localdomain>",
@@ -61,7 +61,7 @@
       "message_id": "<492CD612.3040000@comcast.net>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "6b69db75158c6a64599f027a17f3ea4ee49917322d20dbb731688b8fd4f10e1f",
-      "date": "2008-11-25T22:52:34-06:00",
+      "date": "2008-11-26T04:52:34Z",
       "subject": "[R-sig-Fedora] Fedora 10, R and yes...help.start()...deja vu all over again...",
       "subject_clean": "Fedora 10, R and yes...help.start()...deja vu all over again...",
       "in_reply_to": null,
@@ -77,7 +77,7 @@
       "message_id": "<1227696114.30817.60.camel@seurat.iarc.fr>",
       "from_name": "Martyn Plummer",
       "from_email_hash": "a172213f54d02d8c46cd36ac95c2aaea4439b79c8fce553fb5a7295ac50db5d7",
-      "date": "2008-11-26T11:41:54+01:00",
+      "date": "2008-11-26T10:41:54Z",
       "subject": "[R-sig-Fedora] Problem running R from within a script",
       "subject_clean": "Problem running R from within a script",
       "in_reply_to": "<alpine.LFD.2.00.0811251410070.12193@localhost.localdomain>",
@@ -103,8 +103,8 @@
         "Martyn Plummer",
         "Tom \"spot\" Callaway"
       ],
-      "started": "2008-11-25T13:13:59-05:00",
-      "last_reply": "2008-11-26T11:41:54+01:00",
+      "started": "2008-11-25T18:13:59Z",
+      "last_reply": "2008-11-26T10:41:54Z",
       "root_message_id": "msg-568433c45cdf"
     },
     {
@@ -114,8 +114,8 @@
       "participants": [
         "Marc Schwartz"
       ],
-      "started": "2008-11-25T22:52:34-06:00",
-      "last_reply": "2008-11-25T22:52:34-06:00",
+      "started": "2008-11-26T04:52:34Z",
+      "last_reply": "2008-11-26T04:52:34Z",
       "root_message_id": "msg-8c2c177956ed"
     }
   ]

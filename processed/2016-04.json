@@ -8,7 +8,7 @@
       "message_id": "<20160420145640.3017f62d@virgo>",
       "from_name": "virgo",
       "from_email_hash": "7f8f9bea5aadf7f578060feee5b7e2bd6e613436be46e15308ac9bfd432e5791",
-      "date": "2016-04-20T14:56:40+01:00",
+      "date": "2016-04-20T13:56:40Z",
       "subject": "[R-sig-Fedora] Cannot Run On The Command Line",
       "subject_clean": "Cannot Run On The Command Line",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<20160421074841.166d109c@gmail.com>",
       "from_name": "virgo",
       "from_email_hash": "7f8f9bea5aadf7f578060feee5b7e2bd6e613436be46e15308ac9bfd432e5791",
-      "date": "2016-04-21T07:48:41+01:00",
+      "date": "2016-04-21T06:48:41Z",
       "subject": "[R-sig-Fedora] Cannot Run On The Command Line",
       "subject_clean": "Cannot Run On The Command Line",
       "in_reply_to": "<010001543570add7-7f2eeda2-4571-4cc5-bb15-a340cd5144a0-000000@email.amazonses.com>",
@@ -63,7 +63,7 @@
       "message_id": "<20160421104626.0dc25a2b@virgo>",
       "from_name": "virgo",
       "from_email_hash": "7f8f9bea5aadf7f578060feee5b7e2bd6e613436be46e15308ac9bfd432e5791",
-      "date": "2016-04-21T10:46:26+01:00",
+      "date": "2016-04-21T09:46:26Z",
       "subject": "[R-sig-Fedora] Cannot Run On The Command Line",
       "subject_clean": "Cannot Run On The Command Line",
       "in_reply_to": "<1461227011.32152.150.camel@iarc.fr>",
@@ -84,7 +84,7 @@
       "message_id": "<20160421111742.57e7752a@virgo>",
       "from_name": "virgo",
       "from_email_hash": "7f8f9bea5aadf7f578060feee5b7e2bd6e613436be46e15308ac9bfd432e5791",
-      "date": "2016-04-21T11:17:42+01:00",
+      "date": "2016-04-21T10:17:42Z",
       "subject": "[R-sig-Fedora] Cannot Run On The Command Line",
       "subject_clean": "Cannot Run On The Command Line",
       "in_reply_to": "<1461227011.32152.150.camel@iarc.fr>",
@@ -105,7 +105,7 @@
       "message_id": "<20160423191142.317b3929@virgo>",
       "from_name": "virgo",
       "from_email_hash": "7f8f9bea5aadf7f578060feee5b7e2bd6e613436be46e15308ac9bfd432e5791",
-      "date": "2016-04-23T19:11:42+01:00",
+      "date": "2016-04-23T18:11:42Z",
       "subject": "[R-sig-Fedora] Cannot Run On The Command Line",
       "subject_clean": "Cannot Run On The Command Line",
       "in_reply_to": "<20160421111742.57e7752a@virgo>",
@@ -131,8 +131,8 @@
       "participants": [
         "virgo"
       ],
-      "started": "2016-04-20T14:56:40+01:00",
-      "last_reply": "2016-04-20T14:56:40+01:00",
+      "started": "2016-04-20T13:56:40Z",
+      "last_reply": "2016-04-20T13:56:40Z",
       "root_message_id": "msg-dd3ab55f4c61"
     },
     {
@@ -143,8 +143,8 @@
         "Martyn Plummer",
         "virgo"
       ],
-      "started": "2016-04-21T07:48:41+01:00",
-      "last_reply": "2016-04-23T19:11:42+01:00",
+      "started": "2016-04-21T06:48:41Z",
+      "last_reply": "2016-04-23T18:11:42Z",
       "root_message_id": "msg-4ccaa2ad0d88"
     }
   ]

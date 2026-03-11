@@ -8,7 +8,7 @@
       "message_id": "<CADdpgawrBwtdGq3pVd1Y4cpCXOcpekq3bAQdZdiOrL3a4CRpMQ@mail.gmail.com>",
       "from_name": "Yifan Liu",
       "from_email_hash": "c55216003e8ed40372fe29f327e8406fd29a01add76d11133ef8fd5c080670b6",
-      "date": "2021-07-12T00:01:13-05:00",
+      "date": "2021-07-12T05:01:13Z",
       "subject": "[R-sig-Fedora] RStudio discounts with R when restarting R",
       "subject_clean": "RStudio discounts with R when restarting R",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<CALEXWq3oWKOLOMhkox+0OiJ3Dsg-R6FWpNVgC3CAx87Ns_pESQ@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2021-07-12T13:24:34+02:00",
+      "date": "2021-07-12T11:24:34Z",
       "subject": "[R-sig-Fedora] RStudio discounts with R when restarting R",
       "subject_clean": "RStudio discounts with R when restarting R",
       "in_reply_to": "<CADdpgawrBwtdGq3pVd1Y4cpCXOcpekq3bAQdZdiOrL3a4CRpMQ@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<CALEXWq1xqwdDOn9TU1o29MdmMB8UZWS09g8xM_r4h4Jif8GOxQ@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2021-07-12T23:43:33+02:00",
+      "date": "2021-07-12T21:43:33Z",
       "subject": "[R-sig-Fedora] RStudio discounts with R when restarting R",
       "subject_clean": "RStudio discounts with R when restarting R",
       "in_reply_to": "<CADdpgayxRX9x_HO-fvo1=P-_np6DXBW8s6FKj91gc6FWJ5kfeQ@mail.gmail.com>",
@@ -80,7 +80,7 @@
       "message_id": "<CALEXWq2g_P8Qv3st-f_ChtVK5fxryrC9OJ2iLvU76ksEPsH_Yg@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2021-07-29T15:08:23+02:00",
+      "date": "2021-07-29T13:08:23Z",
       "subject": "[R-sig-Fedora] Makefile error",
       "subject_clean": "Makefile error",
       "in_reply_to": "<627170618.417505.1627466249658@mail.yahoo.com>",
@@ -104,8 +104,8 @@
         "Iñaki Ucar",
         "Yifan Liu"
       ],
-      "started": "2021-07-12T00:01:13-05:00",
-      "last_reply": "2021-07-12T13:24:34+02:00",
+      "started": "2021-07-12T05:01:13Z",
+      "last_reply": "2021-07-12T11:24:34Z",
       "root_message_id": "msg-4a365e3c193a"
     },
     {
@@ -115,8 +115,8 @@
       "participants": [
         "Iñaki Ucar"
       ],
-      "started": "2021-07-12T23:43:33+02:00",
-      "last_reply": "2021-07-12T23:43:33+02:00",
+      "started": "2021-07-12T21:43:33Z",
+      "last_reply": "2021-07-12T21:43:33Z",
       "root_message_id": "msg-cadebacfa75d"
     },
     {
@@ -127,8 +127,8 @@
         "Bintao Cui",
         "Iñaki Ucar"
       ],
-      "started": "2021-07-28T09:57:29+00:00",
-      "last_reply": "2021-07-29T15:08:23+02:00",
+      "started": "2021-07-28T09:57:29Z",
+      "last_reply": "2021-07-29T13:08:23Z",
       "root_message_id": "msg-f8cd7c3dbc1d"
     }
   ]

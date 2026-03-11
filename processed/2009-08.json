@@ -8,7 +8,7 @@
       "message_id": "<1249243934.2573.23.camel@red.localdomain>",
       "from_name": "Pierre-Yves",
       "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
-      "date": "2009-08-02T22:12:14+02:00",
+      "date": "2009-08-02T20:12:14Z",
       "subject": "[R-sig-Fedora] R2spec v2.5.3",
       "subject_clean": "R2spec v2.5.3",
       "in_reply_to": null,
@@ -28,8 +28,8 @@
       "participants": [
         "Pierre-Yves"
       ],
-      "started": "2009-08-02T22:12:14+02:00",
-      "last_reply": "2009-08-02T22:12:14+02:00",
+      "started": "2009-08-02T20:12:14Z",
+      "last_reply": "2009-08-02T20:12:14Z",
       "root_message_id": "msg-bd0498cd8d7c"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<CAFKnr7ncuc1sLksh1mA6sLy+LKVD9+M8NCZX-RGZJLMvmJv2dA@mail.gmail.com>",
       "from_name": "Shankar Pandey",
       "from_email_hash": "d5eaca2e1ec4ff5a93bbb8fbeb9f135b037d08615cd55f037fd3bc5b532909a8",
-      "date": "2017-02-02T18:44:14+05:30",
+      "date": "2017-02-02T13:14:14Z",
       "subject": "[R-sig-Fedora] Install R on Redhat EL6.5 without internet - issue",
       "subject_clean": "Install R on Redhat EL6.5 without internet - issue",
       "in_reply_to": null,
@@ -141,8 +141,8 @@
         "Pai",
         "Shankar Pandey"
       ],
-      "started": "2017-02-02T18:44:14+05:30",
-      "last_reply": "2017-02-06T11:25:46+00:00",
+      "started": "2017-02-02T13:14:14Z",
+      "last_reply": "2017-02-06T11:25:46Z",
       "root_message_id": "msg-9a7353755c82"
     },
     {
@@ -153,8 +153,8 @@
         "Martyn Plummer",
         "nw宁威"
       ],
-      "started": "2017-02-07T08:39:11+00:00",
-      "last_reply": "2017-02-07T11:30:23+00:00",
+      "started": "2017-02-07T08:39:11Z",
+      "last_reply": "2017-02-07T11:30:23Z",
       "root_message_id": "msg-41dc71bdb665"
     }
   ]

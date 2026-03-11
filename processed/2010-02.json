@@ -8,7 +8,7 @@
       "message_id": "<13e802631002031812r46e489f6ve8d14ae29f25a8fb@mail.gmail.com>",
       "from_name": "Paul Johnson",
       "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
-      "date": "2010-02-03T20:12:11-06:00",
+      "date": "2010-02-04T02:12:11Z",
       "subject": "[R-sig-Fedora] Improving RPM packaging for R; ideas gathered from the Debian folks",
       "subject_clean": "Improving RPM packaging for R; ideas gathered from the Debian folks",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<4B707439.9000809@redhat.com>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2010-02-08T15:29:45-05:00",
+      "date": "2010-02-08T20:29:45Z",
       "subject": "[R-sig-Fedora] Improving RPM packaging for R; ideas gathered from the Debian folks",
       "subject_clean": "Improving RPM packaging for R; ideas gathered from the Debian folks",
       "in_reply_to": "<13e802631002031812r46e489f6ve8d14ae29f25a8fb@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<4B707D0A.7020202@biostat.ku.dk>",
       "from_name": "Peter Dalgaard",
       "from_email_hash": "409845b1de856be3139032f02f06e223e8f42c55644c877caf44ca15af9ebff1",
-      "date": "2010-02-08T22:07:22+01:00",
+      "date": "2010-02-08T21:07:22Z",
       "subject": "[R-sig-Fedora] Improving RPM packaging for R; ideas gathered from the Debian folks",
       "subject_clean": "Improving RPM packaging for R; ideas gathered from the Debian folks",
       "in_reply_to": "<4B707439.9000809@redhat.com>",
@@ -61,7 +61,7 @@
       "message_id": "<4B708060.7000305@redhat.com>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2010-02-08T16:21:36-05:00",
+      "date": "2010-02-08T21:21:36Z",
       "subject": "[R-sig-Fedora] Improving RPM packaging for R; ideas gathered from the Debian folks",
       "subject_clean": "Improving RPM packaging for R; ideas gathered from the Debian folks",
       "in_reply_to": "<4B707D0A.7020202@biostat.ku.dk>",
@@ -87,8 +87,8 @@
         "Peter Dalgaard",
         "Tom \"spot\" Callaway"
       ],
-      "started": "2010-02-03T20:12:11-06:00",
-      "last_reply": "2010-02-08T16:21:36-05:00",
+      "started": "2010-02-04T02:12:11Z",
+      "last_reply": "2010-02-08T21:21:36Z",
       "root_message_id": "msg-266541d0477b"
     }
   ]

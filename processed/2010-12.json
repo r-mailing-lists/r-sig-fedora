@@ -8,7 +8,7 @@
       "message_id": "<4D0F9912.3040301@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2010-12-20T12:57:38-05:00",
+      "date": "2010-12-20T17:57:38Z",
       "subject": "[R-sig-Fedora] R 2.12.1 in Fedora Updates Testing",
       "subject_clean": "R 2.12.1 in Fedora Updates Testing",
       "in_reply_to": null,
@@ -28,8 +28,8 @@
       "participants": [
         "Tom Callaway"
       ],
-      "started": "2010-12-20T12:57:38-05:00",
-      "last_reply": "2010-12-20T12:57:38-05:00",
+      "started": "2010-12-20T17:57:38Z",
+      "last_reply": "2010-12-20T17:57:38Z",
       "root_message_id": "msg-63d05b585bd4"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<AANLkTi=bSgfs-i0jOSdDjsSN2Ds=VduQm1jTbnJ9V0a9@mail.gmail.com>",
       "from_name": "Matthew Bascom",
       "from_email_hash": "da6da503e3b4ef7bd04e9ad339484c504c0c99b7801134a000e4b85bb53ff73e",
-      "date": "2011-01-28T12:29:58-08:00",
+      "date": "2011-01-28T20:29:58Z",
       "subject": "[R-sig-Fedora] Ubuntu?",
       "subject_clean": "Ubuntu?",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<93F72A24-1B33-432C-BE41-4EAF306F6EF7@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
-      "date": "2011-01-28T14:38:42-06:00",
+      "date": "2011-01-28T20:38:42Z",
       "subject": "[R-sig-Fedora] Ubuntu?",
       "subject_clean": "Ubuntu?",
       "in_reply_to": "<AANLkTi=bSgfs-i0jOSdDjsSN2Ds=VduQm1jTbnJ9V0a9@mail.gmail.com>",
@@ -47,8 +47,8 @@
         "Marc Schwartz",
         "Matthew Bascom"
       ],
-      "started": "2011-01-28T12:29:58-08:00",
-      "last_reply": "2011-01-28T14:38:42-06:00",
+      "started": "2011-01-28T20:29:58Z",
+      "last_reply": "2011-01-28T20:38:42Z",
       "root_message_id": "msg-7a2494c7946b"
     }
   ]

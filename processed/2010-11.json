@@ -8,7 +8,7 @@
       "message_id": "<4CD0796F.8010908@redhat.com>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2010-11-02T16:49:51-04:00",
+      "date": "2010-11-02T20:49:51Z",
       "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
       "subject_clean": "R 2.12.0 in Fedora Updates Testing",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<4CD509D8.8080100@gmail.com>",
       "from_name": "Peter Dalgaard",
       "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
-      "date": "2010-11-06T08:55:04+01:00",
+      "date": "2010-11-06T07:55:04Z",
       "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
       "subject_clean": "R 2.12.0 in Fedora Updates Testing",
       "in_reply_to": "<4CD0796F.8010908@redhat.com>",
@@ -42,7 +42,7 @@
       "message_id": "<20101106134750.3419bc36@earth>",
       "from_name": "Stefan Grosse",
       "from_email_hash": "f1a361b570385e056309a1ef4f8e1307cd8cc223904fbbee1cfe52001c687662",
-      "date": "2010-11-06T13:47:50+01:00",
+      "date": "2010-11-06T12:47:50Z",
       "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
       "subject_clean": "R 2.12.0 in Fedora Updates Testing",
       "in_reply_to": "<4CD509D8.8080100@gmail.com>",
@@ -61,7 +61,7 @@
       "message_id": "<4CD569D1.10900@redhat.com>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2010-11-06T10:44:33-04:00",
+      "date": "2010-11-06T14:44:33Z",
       "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
       "subject_clean": "R 2.12.0 in Fedora Updates Testing",
       "in_reply_to": "<20101106134750.3419bc36@earth>",
@@ -81,7 +81,7 @@
       "message_id": "<AANLkTima_WBFO40YztYAZyy2ctBi6WGUeUyA6LM7XoM_@mail.gmail.com>",
       "from_name": "Paul Johnson",
       "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
-      "date": "2010-11-07T22:33:02-06:00",
+      "date": "2010-11-08T04:33:02Z",
       "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
       "subject_clean": "R 2.12.0 in Fedora Updates Testing",
       "in_reply_to": "<4CD569D1.10900@redhat.com>",
@@ -102,7 +102,7 @@
       "message_id": "<alpine.LRH.2.00.1011080843090.8766@reclus.nhh.no>",
       "from_name": "Roger Bivand",
       "from_email_hash": "a0c87926e9477aa221755cc93bdef47227c3563fd707e66ae49044467663d168",
-      "date": "2010-11-08T08:54:00+01:00",
+      "date": "2010-11-08T07:54:00Z",
       "subject": "[R-sig-Fedora] Heads up - symlinked GotoBLAS in F14",
       "subject_clean": "Heads up - symlinked GotoBLAS in F14",
       "in_reply_to": null,
@@ -136,7 +136,7 @@
       "message_id": "<alpine.LRH.2.00.1011080910450.8766@reclus.nhh.no>",
       "from_name": "Roger Bivand",
       "from_email_hash": "a0c87926e9477aa221755cc93bdef47227c3563fd707e66ae49044467663d168",
-      "date": "2010-11-08T09:14:29+01:00",
+      "date": "2010-11-08T08:14:29Z",
       "subject": "[R-sig-Fedora] Heads up - symlinked GotoBLAS in F14",
       "subject_clean": "Heads up - symlinked GotoBLAS in F14",
       "in_reply_to": "<1289203659.2729.6.camel@desktop.localdomain>",
@@ -155,7 +155,7 @@
       "message_id": "<201485.69627.qm@web55004.mail.re4.yahoo.com>",
       "from_name": "Michael Hannon",
       "from_email_hash": "01860cded8fa4662e18931d40108a5d9cac89987b46747b9193585604d12bf43",
-      "date": "2010-11-08T01:23:39-08:00",
+      "date": "2010-11-08T09:23:39Z",
       "subject": "[R-sig-Fedora] R 2.12?",
       "subject_clean": "R 2.12?",
       "in_reply_to": null,
@@ -171,7 +171,7 @@
       "message_id": "<0899D2DE-DC32-4735-971D-0298DDCF3588@gmail.com>",
       "from_name": "peter dalgaard",
       "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
-      "date": "2010-11-08T11:02:19+01:00",
+      "date": "2010-11-08T10:02:19Z",
       "subject": "[R-sig-Fedora] R 2.12?",
       "subject_clean": "R 2.12?",
       "in_reply_to": "<201485.69627.qm@web55004.mail.re4.yahoo.com>",
@@ -189,7 +189,7 @@
       "message_id": "<4CE171A8.30606@redhat.com>",
       "from_name": "Tom \"spot\" Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2010-11-15T12:45:12-05:00",
+      "date": "2010-11-15T17:45:12Z",
       "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
       "subject_clean": "R 2.12.0 in Fedora Updates Testing",
       "in_reply_to": "<AANLkTima_WBFO40YztYAZyy2ctBi6WGUeUyA6LM7XoM_@mail.gmail.com>",
@@ -211,7 +211,7 @@
       "message_id": "<AANLkTik=gT6fRhZsUUV+mq7hSLBaSmJNum3=5rAkx_EZ@mail.gmail.com>",
       "from_name": "Paul Johnson",
       "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
-      "date": "2010-11-15T11:59:30-06:00",
+      "date": "2010-11-15T17:59:30Z",
       "subject": "[R-sig-Fedora] R 2.12.0 in Fedora Updates Testing",
       "subject_clean": "R 2.12.0 in Fedora Updates Testing",
       "in_reply_to": "<4CE171A8.30606@redhat.com>",
@@ -234,7 +234,7 @@
       "message_id": "<25122532.1290927634178.JavaMail.root@elwamui-royal.atl.sa.earthlink.net>",
       "from_name": "Andreas",
       "from_email_hash": "c1725ee735cfb1b8f933c0410e19a590ffcf4fb886e91d1b58d4c0e4bd8360b1",
-      "date": "2010-11-27T23:00:34-08:00",
+      "date": "2010-11-28T07:00:34Z",
       "subject": "[R-sig-Fedora] problems with rpubchem package on fedora",
       "subject_clean": "problems with rpubchem package on fedora",
       "in_reply_to": null,
@@ -250,7 +250,7 @@
       "message_id": "<22020434.1290928861673.JavaMail.root@elwamui-royal.atl.sa.earthlink.net>",
       "from_name": "Andreas",
       "from_email_hash": "c1725ee735cfb1b8f933c0410e19a590ffcf4fb886e91d1b58d4c0e4bd8360b1",
-      "date": "2010-11-27T23:21:01-08:00",
+      "date": "2010-11-28T07:21:01Z",
       "subject": "[R-sig-Fedora] problems with rpubchem package on fedora",
       "subject_clean": "problems with rpubchem package on fedora",
       "in_reply_to": null,
@@ -273,21 +273,9 @@
         "Stefan Grosse",
         "Tom \"spot\" Callaway"
       ],
-      "started": "2010-11-02T16:49:51-04:00",
-      "last_reply": "2010-11-15T11:59:30-06:00",
+      "started": "2010-11-02T20:49:51Z",
+      "last_reply": "2010-11-15T17:59:30Z",
       "root_message_id": "msg-24f2bac60128"
-    },
-    {
-      "id": "thread-15e33ec3f3c2",
-      "subject": "R 2.12?",
-      "message_count": 2,
-      "participants": [
-        "Michael Hannon",
-        "peter dalgaard"
-      ],
-      "started": "2010-11-08T01:23:39-08:00",
-      "last_reply": "2010-11-08T11:02:19+01:00",
-      "root_message_id": "msg-15e33ec3f3c2"
     },
     {
       "id": "thread-004b29a307e8",
@@ -297,9 +285,21 @@
         "Gavin Simpson",
         "Roger Bivand"
       ],
-      "started": "2010-11-08T08:54:00+01:00",
-      "last_reply": "2010-11-08T09:14:29+01:00",
+      "started": "2010-11-08T07:54:00Z",
+      "last_reply": "2010-11-08T08:14:29Z",
       "root_message_id": "msg-004b29a307e8"
+    },
+    {
+      "id": "thread-15e33ec3f3c2",
+      "subject": "R 2.12?",
+      "message_count": 2,
+      "participants": [
+        "Michael Hannon",
+        "peter dalgaard"
+      ],
+      "started": "2010-11-08T09:23:39Z",
+      "last_reply": "2010-11-08T10:02:19Z",
+      "root_message_id": "msg-15e33ec3f3c2"
     },
     {
       "id": "thread-ad12ac409032",
@@ -308,8 +308,8 @@
       "participants": [
         "Andreas"
       ],
-      "started": "2010-11-27T23:00:34-08:00",
-      "last_reply": "2010-11-27T23:00:34-08:00",
+      "started": "2010-11-28T07:00:34Z",
+      "last_reply": "2010-11-28T07:00:34Z",
       "root_message_id": "msg-ad12ac409032"
     },
     {
@@ -319,8 +319,8 @@
       "participants": [
         "Andreas"
       ],
-      "started": "2010-11-27T23:21:01-08:00",
-      "last_reply": "2010-11-27T23:21:01-08:00",
+      "started": "2010-11-28T07:21:01Z",
+      "last_reply": "2010-11-28T07:21:01Z",
       "root_message_id": "msg-cce9064353ea"
     }
   ]

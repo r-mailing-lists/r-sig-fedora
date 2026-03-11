@@ -8,7 +8,7 @@
       "message_id": "<75166815-6671-1e13-cc56-9b7f716ea2cc@hiddenelephants.co.uk>",
       "from_name": "Tim Taylor",
       "from_email_hash": "e3071ae8257bda4085d8999a9801b324cc930f4864ac0aec1c44601958781446",
-      "date": "2023-07-20T23:43:07+01:00",
+      "date": "2023-07-20T22:43:07Z",
       "subject": "[R-sig-Fedora] tzdata requirement",
       "subject_clean": "tzdata requirement",
       "in_reply_to": null,
@@ -28,8 +28,8 @@
       "participants": [
         "Tim Taylor"
       ],
-      "started": "2023-07-20T23:43:07+01:00",
-      "last_reply": "2023-07-20T23:43:07+01:00",
+      "started": "2023-07-20T22:43:07Z",
+      "last_reply": "2023-07-20T22:43:07Z",
       "root_message_id": "msg-3ce6c896d8bf"
     }
   ]

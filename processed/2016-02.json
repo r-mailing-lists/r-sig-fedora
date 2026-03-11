@@ -31,7 +31,7 @@
       "message_id": "<56B0DABE.1090603@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2016-02-02T11:35:10-05:00",
+      "date": "2016-02-02T16:35:10Z",
       "subject": "[R-sig-Fedora] rstan warning messages",
       "subject_clean": "rstan warning messages",
       "in_reply_to": "<BY2PR0401MB17671F14BDA18E561B347225D1DE0@BY2PR0401MB1767.namprd04.prod.outlook.com>",
@@ -80,7 +80,7 @@
       "message_id": "<56B21438.9030408@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2016-02-03T09:52:40-05:00",
+      "date": "2016-02-03T14:52:40Z",
       "subject": "[R-sig-Fedora] rstan warning messages",
       "subject_clean": "rstan warning messages",
       "in_reply_to": "<SN1PR0401MB1774E3222782AF29445EE552D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>",
@@ -106,7 +106,7 @@
       "message_id": "<56B21682.6010707@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2016-02-03T10:02:26-05:00",
+      "date": "2016-02-03T15:02:26Z",
       "subject": "[R-sig-Fedora] rstan warning messages",
       "subject_clean": "rstan warning messages",
       "in_reply_to": "<56B21438.9030408@redhat.com>",
@@ -161,7 +161,7 @@
       "message_id": "<AE398078-73ED-4252-BE26-7F89000214F1@gmail.com>",
       "from_name": "peter dalgaard",
       "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
-      "date": "2016-02-03T16:29:17+01:00",
+      "date": "2016-02-03T15:29:17Z",
       "subject": "[R-sig-Fedora] rstan warning messages",
       "subject_clean": "rstan warning messages",
       "in_reply_to": "<SN1PR0401MB177469CFA70C406CF12DE118D1D00@SN1PR0401MB1774.namprd04.prod.outlook.com>",
@@ -219,7 +219,7 @@
       "message_id": "<56B4BC50.80509@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2016-02-05T10:14:24-05:00",
+      "date": "2016-02-05T15:14:24Z",
       "subject": "[R-sig-Fedora] rstan warning messages",
       "subject_clean": "rstan warning messages",
       "in_reply_to": "<SN1PR0401MB177489839D9C30286703A6CBD1D20@SN1PR0401MB1774.namprd04.prod.outlook.com>",
@@ -332,7 +332,7 @@
       "message_id": "<CAN6ydJxH7ZnwBJHTTDbffF2BNThn4Xfa=AQisr3xJ-sMZfn4RQ@mail.gmail.com>",
       "from_name": "ashutosh srivastava",
       "from_email_hash": "27aac95ff73b6a348182b8316cb1ad04ec63087f71fe364410816e99b53ca170",
-      "date": "2016-02-17T11:24:51+09:00",
+      "date": "2016-02-17T02:24:51Z",
       "subject": "[R-sig-Fedora] R hangs when plot() is used",
       "subject_clean": "R hangs when plot() is used",
       "in_reply_to": null,
@@ -366,7 +366,7 @@
       "message_id": "<201602171545.u1HFjtx8016944@genepi.med.utah.edu>",
       "from_name": "Steven Backus",
       "from_email_hash": "e453f5502a5b2b8a27ade4738c9620104fcc5bdfc2f76a2ac5fcf1191864e655",
-      "date": "2016-02-17T08:45:55-07:00",
+      "date": "2016-02-17T15:45:55Z",
       "subject": "[R-sig-Fedora] R hangs when plot() is used",
       "subject_clean": "R hangs when plot() is used",
       "in_reply_to": "<1455700615.406.50.camel@iarc.fr>",
@@ -405,7 +405,7 @@
       "message_id": "<CAN6ydJwmLyMcvjvrks2HJHaQ7_ZM+YPzh-B3LBGO7GKN2aQjgw@mail.gmail.com>",
       "from_name": "ashutosh srivastava",
       "from_email_hash": "27aac95ff73b6a348182b8316cb1ad04ec63087f71fe364410816e99b53ca170",
-      "date": "2016-02-18T09:28:32+09:00",
+      "date": "2016-02-18T00:28:32Z",
       "subject": "[R-sig-Fedora] R hangs when plot() is used",
       "subject_clean": "R hangs when plot() is used",
       "in_reply_to": "<1455728162.406.66.camel@iarc.fr>",
@@ -432,8 +432,8 @@
         "Tom Callaway",
         "peter dalgaard"
       ],
-      "started": "2016-02-01T20:45:23+00:00",
-      "last_reply": "2016-02-05T20:31:12+00:00",
+      "started": "2016-02-01T20:45:23Z",
+      "last_reply": "2016-02-05T20:31:12Z",
       "root_message_id": "msg-41a991bd8a46"
     },
     {
@@ -445,8 +445,8 @@
         "M. Edward (Ed) Borasky",
         "Roger Bivand"
       ],
-      "started": "2016-02-13T03:23:35+00:00",
-      "last_reply": "2016-02-13T11:42:53+00:00",
+      "started": "2016-02-13T03:23:35Z",
+      "last_reply": "2016-02-13T11:42:53Z",
       "root_message_id": "msg-e9637cf5b144"
     },
     {
@@ -458,8 +458,8 @@
         "Steven Backus",
         "ashutosh srivastava"
       ],
-      "started": "2016-02-17T11:24:51+09:00",
-      "last_reply": "2016-02-18T09:28:32+09:00",
+      "started": "2016-02-17T02:24:51Z",
+      "last_reply": "2016-02-18T00:28:32Z",
       "root_message_id": "msg-3f6c967b67e4"
     }
   ]

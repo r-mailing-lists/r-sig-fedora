@@ -8,7 +8,7 @@
       "message_id": "<Pine.LNX.4.64.0807010016180.12805@reclus.nhh.no>",
       "from_name": "Roger Bivand",
       "from_email_hash": "a0c87926e9477aa221755cc93bdef47227c3563fd707e66ae49044467663d168",
-      "date": "2008-07-01T00:26:00+02:00",
+      "date": "2008-06-30T22:26:00Z",
       "subject": "[R-sig-Fedora] Pango/cairo and symbol fonts",
       "subject_clean": "Pango/cairo and symbol fonts",
       "in_reply_to": "<4868F24A.5080309@biostat.ku.dk>",
@@ -32,8 +32,8 @@
       "participants": [
         "Roger Bivand"
       ],
-      "started": "2008-07-01T00:26:00+02:00",
-      "last_reply": "2008-07-01T00:26:00+02:00",
+      "started": "2008-06-30T22:26:00Z",
+      "last_reply": "2008-06-30T22:26:00Z",
       "root_message_id": "msg-b652ef19d555"
     }
   ]

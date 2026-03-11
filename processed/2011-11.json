@@ -24,7 +24,7 @@
       "message_id": "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>",
       "from_name": "Steve Taylor",
       "from_email_hash": "74d3363cb6b0a45862a2be9054b7268dbbf98292304b2555e3b3d93d0373f7a9",
-      "date": "2011-11-06T10:36:07+13:00",
+      "date": "2011-11-05T21:36:07Z",
       "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
       "subject_clean": "installing 2.14.0 on fedora",
       "in_reply_to": "<CAHz+bWYdjAsLkBxx7PkrutUOE6u+ybqCtmOnjfPuf=D96rR6fg@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<1320533748.3327.45.camel@ambre.pingoured.fr>",
       "from_name": "Pierre-Yves Chibon",
       "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
-      "date": "2011-11-05T23:55:48+01:00",
+      "date": "2011-11-05T22:55:48Z",
       "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
       "subject_clean": "installing 2.14.0 on fedora",
       "in_reply_to": "<CALJKDF_7nn3XtnGSLbBuEN7_VxRbQz9Lq9-E2=DR6xopJOcHGw@mail.gmail.com>",
@@ -80,7 +80,7 @@
       "message_id": "<CAHz+bWYU=H+3g_0=TeFYMJi5Furi3Mf9NwdUprxTK-hURkFL-Q@mail.gmail.com>",
       "from_name": "Mark Leeds",
       "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
-      "date": "2011-11-05T21:07:10-04:00",
+      "date": "2011-11-06T01:07:10Z",
       "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
       "subject_clean": "installing 2.14.0 on fedora",
       "in_reply_to": "<1320535237.3057.11.camel@chrysothemis.geog.ucl.ac.uk>",
@@ -121,7 +121,7 @@
       "message_id": "<CAHz+bWaKrj_AY6Y=XwLfq7tOEQahw-7DNA=qSUHO=SUV+eix3Q@mail.gmail.com>",
       "from_name": "Mark Leeds",
       "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
-      "date": "2011-11-06T18:43:30-05:00",
+      "date": "2011-11-06T23:43:30Z",
       "subject": "[R-sig-Fedora] still working on building R from source",
       "subject_clean": "still working on building R from source",
       "in_reply_to": null,
@@ -137,7 +137,7 @@
       "message_id": "<CAHz+bWZdzs1+GYCMTCJwN1zVtLQi0CGK+vEHYVp15BL7wukQhA@mail.gmail.com>",
       "from_name": "Mark Leeds",
       "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
-      "date": "2011-11-06T19:02:54-05:00",
+      "date": "2011-11-07T00:02:54Z",
       "subject": "[R-sig-Fedora] still working on building R from source",
       "subject_clean": "still working on building R from source",
       "in_reply_to": "<CAHz+bWaKrj_AY6Y=XwLfq7tOEQahw-7DNA=qSUHO=SUV+eix3Q@mail.gmail.com>",
@@ -194,7 +194,7 @@
       "message_id": "<CAHz+bWb=yUFpp+okkieijzeEg1_2yrPMA6SO5wN3HYOjPmJe_Q@mail.gmail.com>",
       "from_name": "Mark Leeds",
       "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
-      "date": "2011-11-07T10:00:34-05:00",
+      "date": "2011-11-07T15:00:34Z",
       "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
       "subject_clean": "installing 2.14.0 on fedora",
       "in_reply_to": "<4EB7EC5E.30106@fc.up.pt>",
@@ -218,7 +218,7 @@
       "message_id": "<91DB9669-86CC-40E3-9F22-0C85D8D324D1@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
-      "date": "2011-11-07T09:14:07-06:00",
+      "date": "2011-11-07T15:14:07Z",
       "subject": "[R-sig-Fedora] installing 2.14.0 on fedora",
       "subject_clean": "installing 2.14.0 on fedora",
       "in_reply_to": "<CAHz+bWb=yUFpp+okkieijzeEg1_2yrPMA6SO5wN3HYOjPmJe_Q@mail.gmail.com>",
@@ -310,7 +310,7 @@
       "message_id": "<CAHz+bWZdrdktroEHKUJmrt-k+CP5Pomk_RqV8nuQiXB5_06NNA@mail.gmail.com>",
       "from_name": "Mark Leeds",
       "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
-      "date": "2011-11-07T15:39:59-05:00",
+      "date": "2011-11-07T20:39:59Z",
       "subject": "[R-sig-Fedora] close but no cigar",
       "subject_clean": "close but no cigar",
       "in_reply_to": null,
@@ -344,7 +344,7 @@
       "message_id": "<CAHz+bWZ2zf=JwATsHEZy_cnJarJoT2E9G24_MpBxH+0-Wi+SGA@mail.gmail.com>",
       "from_name": "Mark Leeds",
       "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
-      "date": "2011-11-08T23:47:13-05:00",
+      "date": "2011-11-09T04:47:13Z",
       "subject": "[R-sig-Fedora] installing R from source on fedora",
       "subject_clean": "installing R from source on fedora",
       "in_reply_to": null,
@@ -360,7 +360,7 @@
       "message_id": "<CALJKDF882S_n3Tw8J0xDiN_d0MkS2tfXacPmmVwSs7Bi+qaFrA@mail.gmail.com>",
       "from_name": "Steve Taylor",
       "from_email_hash": "74d3363cb6b0a45862a2be9054b7268dbbf98292304b2555e3b3d93d0373f7a9",
-      "date": "2011-11-09T20:27:13+13:00",
+      "date": "2011-11-09T07:27:13Z",
       "subject": "[R-sig-Fedora] installing R from source on fedora",
       "subject_clean": "installing R from source on fedora",
       "in_reply_to": "<CAHz+bWZ2zf=JwATsHEZy_cnJarJoT2E9G24_MpBxH+0-Wi+SGA@mail.gmail.com>",
@@ -378,7 +378,7 @@
       "message_id": "<4EBA90A2.9040705@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2011-11-09T09:39:30-05:00",
+      "date": "2011-11-09T14:39:30Z",
       "subject": "[R-sig-Fedora] installing R from source on fedora",
       "subject_clean": "installing R from source on fedora",
       "in_reply_to": "<CALJKDF882S_n3Tw8J0xDiN_d0MkS2tfXacPmmVwSs7Bi+qaFrA@mail.gmail.com>",
@@ -397,7 +397,7 @@
       "message_id": "<DF21019D-5A2E-41C4-882F-8E3AACF95E80@gmail.com>",
       "from_name": "peter dalgaard",
       "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
-      "date": "2011-11-09T16:54:24+01:00",
+      "date": "2011-11-09T15:54:24Z",
       "subject": "[R-sig-Fedora] installing R from source on fedora",
       "subject_clean": "installing R from source on fedora",
       "in_reply_to": "<CALJKDF882S_n3Tw8J0xDiN_d0MkS2tfXacPmmVwSs7Bi+qaFrA@mail.gmail.com>",
@@ -416,7 +416,7 @@
       "message_id": "<CAHz+bWZa=tf+DPzzkfFoPOCDL7TOTh37Te9jpdeWL3KoQZFphA@mail.gmail.com>",
       "from_name": "Mark Leeds",
       "from_email_hash": "d1da32a389e2e07170d1d98116fc6c867519c23835668ff15d52be4687d1b14e",
-      "date": "2011-11-09T11:39:54-05:00",
+      "date": "2011-11-09T16:39:54Z",
       "subject": "[R-sig-Fedora] installing R from source on fedora",
       "subject_clean": "installing R from source on fedora",
       "in_reply_to": "<DF21019D-5A2E-41C4-882F-8E3AACF95E80@gmail.com>",
@@ -456,7 +456,7 @@
       "message_id": "<3F3E0C51-89DE-4E8C-AEF0-36B0C73B9AC2@gmail.com>",
       "from_name": "peter dalgaard",
       "from_email_hash": "d2573f0c0a474184a9d96c815fc6bf37ff7c6392082069d810139c562d5a6f71",
-      "date": "2011-11-10T21:28:41+01:00",
+      "date": "2011-11-10T20:28:41Z",
       "subject": "[R-sig-Fedora] installing R from source on fedora",
       "subject_clean": "installing R from source on fedora",
       "in_reply_to": "<1320944918.14417.12.camel@prometheus.geog.ucl.ac.uk>",
@@ -485,8 +485,8 @@
         "Pierre-Yves Chibon",
         "Steve Taylor"
       ],
-      "started": "2011-11-05T15:08:42+00:00",
-      "last_reply": "2011-11-07T14:10:18+00:00",
+      "started": "2011-11-05T15:08:42Z",
+      "last_reply": "2011-11-07T14:10:18Z",
       "root_message_id": "msg-a76812d5a58c"
     },
     {
@@ -497,8 +497,8 @@
         "Gavin Simpson",
         "Mark Leeds"
       ],
-      "started": "2011-11-06T18:43:30-05:00",
-      "last_reply": "2011-11-07T09:35:00+00:00",
+      "started": "2011-11-06T23:43:30Z",
+      "last_reply": "2011-11-07T09:35:00Z",
       "root_message_id": "msg-a2676b1a35da"
     },
     {
@@ -510,9 +510,20 @@
         "Marc Schwartz",
         "Mark Leeds"
       ],
-      "started": "2011-11-07T10:00:34-05:00",
-      "last_reply": "2011-11-07T15:19:57+00:00",
+      "started": "2011-11-07T15:00:34Z",
+      "last_reply": "2011-11-07T15:19:57Z",
       "root_message_id": "msg-95bb1ad29dc6"
+    },
+    {
+      "id": "thread-170b3042c3c9",
+      "subject": "SUCCESS",
+      "message_count": 1,
+      "participants": [
+        "Mark Leeds"
+      ],
+      "started": "2011-11-07T16:18:31Z",
+      "last_reply": "2011-11-07T16:18:31Z",
+      "root_message_id": "msg-170b3042c3c9"
     },
     {
       "id": "thread-4f4cce6fb046",
@@ -522,20 +533,9 @@
         "Gavin Simpson",
         "Mark Leeds"
       ],
-      "started": "2011-11-07T15:39:59-05:00",
-      "last_reply": "2011-11-07T20:48:14+00:00",
+      "started": "2011-11-07T20:39:59Z",
+      "last_reply": "2011-11-07T20:48:14Z",
       "root_message_id": "msg-4f4cce6fb046"
-    },
-    {
-      "id": "thread-170b3042c3c9",
-      "subject": "SUCCESS",
-      "message_count": 1,
-      "participants": [
-        "Mark Leeds"
-      ],
-      "started": "2011-11-07T16:18:31+00:00",
-      "last_reply": "2011-11-07T16:18:31+00:00",
-      "root_message_id": "msg-170b3042c3c9"
     },
     {
       "id": "thread-43b219c351de",
@@ -548,8 +548,8 @@
         "Tom Callaway",
         "peter dalgaard"
       ],
-      "started": "2011-11-08T23:47:13-05:00",
-      "last_reply": "2011-11-10T21:28:41+01:00",
+      "started": "2011-11-09T04:47:13Z",
+      "last_reply": "2011-11-10T20:28:41Z",
       "root_message_id": "msg-43b219c351de"
     }
   ]

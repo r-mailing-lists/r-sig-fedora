@@ -8,7 +8,7 @@
       "message_id": "<25449.11350.810594.615594@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2022-11-07T17:03:34+01:00",
+      "date": "2022-11-07T16:03:34Z",
       "subject": "[R-sig-Fedora] Installing R from source in Fedora -- \"minimal package list\"",
       "subject_clean": "Installing R from source in Fedora -- \"minimal package list\"",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<CACp8ZrJ83Qdb2gNeRGUpQw+3xLaEf58p130ytLtBPGgW++G2ng@mail.gmail.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "4c62ad279bd6222ba841f6ee81e7796b9d37828a7872803f2e701c687ad903ea",
-      "date": "2022-11-07T08:35:20-08:00",
+      "date": "2022-11-07T16:35:20Z",
       "subject": "[R-sig-Fedora] Installing R from source in Fedora -- \"minimal package list\"",
       "subject_clean": "Installing R from source in Fedora -- \"minimal package list\"",
       "in_reply_to": "<25449.11350.810594.615594@stat.math.ethz.ch>",
@@ -42,7 +42,7 @@
       "message_id": "<CALEXWq0vttJd7Nz6pNzk8=d20bH687BgE+KwB=PsyGTHA+9N3Q@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2022-11-07T19:37:14+01:00",
+      "date": "2022-11-07T18:37:14Z",
       "subject": "[R-sig-Fedora] Installing R from source in Fedora -- \"minimal package list\"",
       "subject_clean": "Installing R from source in Fedora -- \"minimal package list\"",
       "in_reply_to": "<CACp8ZrJ83Qdb2gNeRGUpQw+3xLaEf58p130ytLtBPGgW++G2ng@mail.gmail.com>",
@@ -61,7 +61,7 @@
       "message_id": "<25450.33582.758900.349278@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2022-11-08T17:26:22+01:00",
+      "date": "2022-11-08T16:26:22Z",
       "subject": "[R-sig-Fedora] Installing R from source in Fedora -- \"minimal package list\"",
       "subject_clean": "Installing R from source in Fedora -- \"minimal package list\"",
       "in_reply_to": "<CALEXWq0vttJd7Nz6pNzk8=d20bH687BgE+KwB=PsyGTHA+9N3Q@mail.gmail.com>",
@@ -87,8 +87,8 @@
         "Martin Maechler",
         "Tom Callaway"
       ],
-      "started": "2022-11-07T17:03:34+01:00",
-      "last_reply": "2022-11-08T17:26:22+01:00",
+      "started": "2022-11-07T16:03:34Z",
+      "last_reply": "2022-11-08T16:26:22Z",
       "root_message_id": "msg-b1e27711df08"
     }
   ]

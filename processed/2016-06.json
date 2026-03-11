@@ -8,7 +8,7 @@
       "message_id": "<80ffd9c2-7c38-d996-2b91-91bd3e1ab641@gmail.com>",
       "from_name": "Evan Cooch",
       "from_email_hash": "64626d184b0b1882b9b5a5a55e68643e7582304bda8a7591046f0c72fc6d5a56",
-      "date": "2016-06-04T12:10:16-04:00",
+      "date": "2016-06-04T16:10:16Z",
       "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
       "subject_clean": "problems compiling packages | 3.3.0 | Linux",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<0d7f26ab-58a8-e686-b06c-f700887261f0@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2016-06-06T09:55:09-04:00",
+      "date": "2016-06-06T13:55:09Z",
       "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
       "subject_clean": "problems compiling packages | 3.3.0 | Linux",
       "in_reply_to": "<80ffd9c2-7c38-d996-2b91-91bd3e1ab641@gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<02ff4d0e-fe90-1ed5-f090-9f33fef33d5e@gmail.com>",
       "from_name": "Evan Cooch",
       "from_email_hash": "64626d184b0b1882b9b5a5a55e68643e7582304bda8a7591046f0c72fc6d5a56",
-      "date": "2016-06-06T10:00:20-04:00",
+      "date": "2016-06-06T14:00:20Z",
       "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
       "subject_clean": "problems compiling packages | 3.3.0 | Linux",
       "in_reply_to": "<0d7f26ab-58a8-e686-b06c-f700887261f0@redhat.com>",
@@ -61,7 +61,7 @@
       "message_id": "<cdc5a67c-0dc2-78e6-f2df-7398bd59d72e@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2016-06-06T10:04:41-04:00",
+      "date": "2016-06-06T14:04:41Z",
       "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
       "subject_clean": "problems compiling packages | 3.3.0 | Linux",
       "in_reply_to": "<02ff4d0e-fe90-1ed5-f090-9f33fef33d5e@gmail.com>",
@@ -81,7 +81,7 @@
       "message_id": "<544c6edf-8390-34ba-2fca-069363d2ab48@gmail.com>",
       "from_name": "Evan Cooch",
       "from_email_hash": "64626d184b0b1882b9b5a5a55e68643e7582304bda8a7591046f0c72fc6d5a56",
-      "date": "2016-06-06T13:17:03-04:00",
+      "date": "2016-06-06T17:17:03Z",
       "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
       "subject_clean": "problems compiling packages | 3.3.0 | Linux",
       "in_reply_to": "<cdc5a67c-0dc2-78e6-f2df-7398bd59d72e@redhat.com>",
@@ -102,7 +102,7 @@
       "message_id": "<CAAfzxsDXPtkrVG_A4KFWEoEu15u1p8WVJH7v5CgpxqzRSEvR8Q@mail.gmail.com>",
       "from_name": "Brian Fallik",
       "from_email_hash": "deb11119e67a220d928c38ca2f4e5379f7444569a3e69e24e7a6280d716e77cf",
-      "date": "2016-06-06T17:04:33-04:00",
+      "date": "2016-06-06T21:04:33Z",
       "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
       "subject_clean": "problems compiling packages | 3.3.0 | Linux",
       "in_reply_to": null,
@@ -118,7 +118,7 @@
       "message_id": "<3861e83b-b13a-81e6-0110-ee0428c4f2bb@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2016-06-07T11:46:21-04:00",
+      "date": "2016-06-07T15:46:21Z",
       "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
       "subject_clean": "problems compiling packages | 3.3.0 | Linux",
       "in_reply_to": "<CAAfzxsDXPtkrVG_A4KFWEoEu15u1p8WVJH7v5CgpxqzRSEvR8Q@mail.gmail.com>",
@@ -136,7 +136,7 @@
       "message_id": "<CAAfzxsAiBfnZyx5-i90YhBf1mfidLeENPi=KFL11OLLX9wbO0A@mail.gmail.com>",
       "from_name": "Brian Fallik",
       "from_email_hash": "deb11119e67a220d928c38ca2f4e5379f7444569a3e69e24e7a6280d716e77cf",
-      "date": "2016-06-07T11:59:17-04:00",
+      "date": "2016-06-07T15:59:17Z",
       "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
       "subject_clean": "problems compiling packages | 3.3.0 | Linux",
       "in_reply_to": "<3861e83b-b13a-81e6-0110-ee0428c4f2bb@redhat.com>",
@@ -155,7 +155,7 @@
       "message_id": "<dc96f391-2664-12ea-3c8f-fd960af48e92@gmail.com>",
       "from_name": "Evan Cooch",
       "from_email_hash": "64626d184b0b1882b9b5a5a55e68643e7582304bda8a7591046f0c72fc6d5a56",
-      "date": "2016-06-07T12:24:40-04:00",
+      "date": "2016-06-07T16:24:40Z",
       "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
       "subject_clean": "problems compiling packages | 3.3.0 | Linux",
       "in_reply_to": "<3861e83b-b13a-81e6-0110-ee0428c4f2bb@redhat.com>",
@@ -190,7 +190,7 @@
       "message_id": "<CAAfzxsCu+KMnQZNRuDGJaLhVVGHDkFQbnytX1o2YQAz-cOCoLg@mail.gmail.com>",
       "from_name": "Brian Fallik",
       "from_email_hash": "deb11119e67a220d928c38ca2f4e5379f7444569a3e69e24e7a6280d716e77cf",
-      "date": "2016-06-08T14:21:11-04:00",
+      "date": "2016-06-08T18:21:11Z",
       "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
       "subject_clean": "problems compiling packages | 3.3.0 | Linux",
       "in_reply_to": "<CAAfzxsAiBfnZyx5-i90YhBf1mfidLeENPi=KFL11OLLX9wbO0A@mail.gmail.com>",
@@ -210,7 +210,7 @@
       "message_id": "<63496a12-4f23-94ad-3d9b-80afc0283576@gmail.com>",
       "from_name": "Evan Cooch",
       "from_email_hash": "64626d184b0b1882b9b5a5a55e68643e7582304bda8a7591046f0c72fc6d5a56",
-      "date": "2016-06-08T14:41:38-04:00",
+      "date": "2016-06-08T18:41:38Z",
       "subject": "[R-sig-Fedora] problems compiling packages in R | 3.3.0-5 | EL6",
       "subject_clean": "problems compiling packages in R | 3.3.0-5 | EL6",
       "in_reply_to": "<CY1PR0601MB15645DD4C4D8407136CC5F60B25E0@CY1PR0601MB1564.namprd06.prod.outlook.com>",
@@ -249,7 +249,7 @@
       "message_id": "<760010ad-9c9e-48d5-806f-384968dd35e2@email.android.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2016-06-09T08:20:58-04:00",
+      "date": "2016-06-09T12:20:58Z",
       "subject": "[R-sig-Fedora] problems compiling packages | 3.3.0 | Linux",
       "subject_clean": "problems compiling packages | 3.3.0 | Linux",
       "in_reply_to": null,
@@ -265,7 +265,7 @@
       "message_id": "<26f063d9-f6fd-a8dc-348a-2765b5ecdaf5@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2016-06-09T12:05:17-04:00",
+      "date": "2016-06-09T16:05:17Z",
       "subject": "[R-sig-Fedora] Fixed updates for EL5 / EL6",
       "subject_clean": "Fixed updates for EL5 / EL6",
       "in_reply_to": null,
@@ -281,7 +281,7 @@
       "message_id": "<CAAfzxsAsF0gdRGddUq5fF8Y9-UzoCiRoBwGCThpstEqSky_MBQ@mail.gmail.com>",
       "from_name": "Brian Fallik",
       "from_email_hash": "deb11119e67a220d928c38ca2f4e5379f7444569a3e69e24e7a6280d716e77cf",
-      "date": "2016-06-09T12:17:38-04:00",
+      "date": "2016-06-09T16:17:38Z",
       "subject": "[R-sig-Fedora] Fixed updates for EL5 / EL6",
       "subject_clean": "Fixed updates for EL5 / EL6",
       "in_reply_to": "<26f063d9-f6fd-a8dc-348a-2765b5ecdaf5@redhat.com>",
@@ -299,7 +299,7 @@
       "message_id": "<D54A386C-0A0E-4C60-B75B-5F43B8C036B8@yahoo.com>",
       "from_name": "Rob Steele",
       "from_email_hash": "823d9876f1c2ce56cb5252cd7b887ddf4cbf626bd4f84dedb7bc79393081081e",
-      "date": "2016-06-10T12:28:33-04:00",
+      "date": "2016-06-10T16:28:33Z",
       "subject": "[R-sig-Fedora] Fixed updates for EL5 / EL6",
       "subject_clean": "Fixed updates for EL5 / EL6",
       "in_reply_to": null,
@@ -315,7 +315,7 @@
       "message_id": "<CAAfzxsC3gmsbQFyNPfoO32pK4EXzucea4yAMN9Sc3=3Do9xPEA@mail.gmail.com>",
       "from_name": "Brian Fallik",
       "from_email_hash": "93619e244fc3cfc7bacc54c02a6f42adcbf4c91baa6786a482a260ca340318cc",
-      "date": "2016-06-10T13:54:41-04:00",
+      "date": "2016-06-10T17:54:41Z",
       "subject": "[R-sig-Fedora] Fixed updates for EL5 / EL6",
       "subject_clean": "Fixed updates for EL5 / EL6",
       "in_reply_to": "<D54A386C-0A0E-4C60-B75B-5F43B8C036B8@yahoo.com>",
@@ -333,7 +333,7 @@
       "message_id": "<628E1B93-C187-42AA-B7C9-1B418104DCA1@yahoo.com>",
       "from_name": "Rob Steele",
       "from_email_hash": "823d9876f1c2ce56cb5252cd7b887ddf4cbf626bd4f84dedb7bc79393081081e",
-      "date": "2016-06-10T18:36:35-04:00",
+      "date": "2016-06-10T22:36:35Z",
       "subject": "[R-sig-Fedora] Fixed updates for EL5 / EL6",
       "subject_clean": "Fixed updates for EL5 / EL6",
       "in_reply_to": "<CAAfzxsC3gmsbQFyNPfoO32pK4EXzucea4yAMN9Sc3=3Do9xPEA@mail.gmail.com>",
@@ -352,7 +352,7 @@
       "message_id": "<CAMYeDnHYS6JJDHv7yH1y1=8_MVF1pXKcm1FD7raUAAycP=FuQA@mail.gmail.com>",
       "from_name": "Imane al jaouhari",
       "from_email_hash": "8cea79d89380ee24f931a87ff7afd07cafb4cbe6101297c09767a398ee618635",
-      "date": "2016-06-23T09:41:44+02:00",
+      "date": "2016-06-23T07:41:44Z",
       "subject": "[R-sig-Fedora] Unable to locate R binary by scanning standard locations",
       "subject_clean": "Unable to locate R binary by scanning standard locations",
       "in_reply_to": null,
@@ -368,7 +368,7 @@
       "message_id": "<CAOuULM4K-ne73mno6WBQdtq-KC9knVOJWqkKE1dPfRoqFPEEFw@mail.gmail.com>",
       "from_name": "Jules Bashizi",
       "from_email_hash": "bd56a1d8a3cdbbd9fcae8b7c6013d2bd8bf1d78d9e0cdc4922e287222a4965e3",
-      "date": "2016-06-30T01:24:52+01:00",
+      "date": "2016-06-30T00:24:52Z",
       "subject": "[R-sig-Fedora] integration of R and php in Fedora 24",
       "subject_clean": "integration of R and php in Fedora 24",
       "in_reply_to": null,
@@ -402,7 +402,7 @@
       "message_id": "<CAOuULM6ZH2dz80xZR2ZAUFcDf2PBzjKaygBUJxDG-G2JxMf-TQ@mail.gmail.com>",
       "from_name": "Jules Bashizi",
       "from_email_hash": "bd56a1d8a3cdbbd9fcae8b7c6013d2bd8bf1d78d9e0cdc4922e287222a4965e3",
-      "date": "2016-06-30T02:14:21+01:00",
+      "date": "2016-06-30T01:14:21Z",
       "subject": "[R-sig-Fedora] Fwd:  integration of R and php in Fedora 24",
       "subject_clean": "integration of R and php in Fedora 24",
       "in_reply_to": "<CAOuULM5d6tf-kjsmMwE0ZNCkDAUzkO5P2gGR4Pe9ungXo6rCuA@mail.gmail.com>",
@@ -448,8 +448,8 @@
         "Evan Cooch",
         "Tom Callaway"
       ],
-      "started": "2016-06-04T12:10:16-04:00",
-      "last_reply": "2016-06-06T13:17:03-04:00",
+      "started": "2016-06-04T16:10:16Z",
+      "last_reply": "2016-06-06T17:17:03Z",
       "root_message_id": "msg-67c81a64cdeb"
     },
     {
@@ -462,8 +462,8 @@
         "Gordon Ball",
         "Tom Callaway"
       ],
-      "started": "2016-06-06T17:04:33-04:00",
-      "last_reply": "2016-06-09T12:06:38+00:00",
+      "started": "2016-06-06T21:04:33Z",
+      "last_reply": "2016-06-09T12:06:38Z",
       "root_message_id": "msg-a9ed0f7133f3"
     },
     {
@@ -474,8 +474,8 @@
         "Evan Cooch",
         "TRISTAN J PAUTSCH"
       ],
-      "started": "2016-06-08T16:47:51+00:00",
-      "last_reply": "2016-06-08T14:41:38-04:00",
+      "started": "2016-06-08T16:47:51Z",
+      "last_reply": "2016-06-08T18:41:38Z",
       "root_message_id": "msg-337debcb4371"
     },
     {
@@ -485,8 +485,8 @@
       "participants": [
         "Tom Callaway"
       ],
-      "started": "2016-06-09T08:20:58-04:00",
-      "last_reply": "2016-06-09T08:20:58-04:00",
+      "started": "2016-06-09T12:20:58Z",
+      "last_reply": "2016-06-09T12:20:58Z",
       "root_message_id": "msg-138f05c15bd4"
     },
     {
@@ -497,8 +497,8 @@
         "Brian Fallik",
         "Tom Callaway"
       ],
-      "started": "2016-06-09T12:05:17-04:00",
-      "last_reply": "2016-06-09T12:17:38-04:00",
+      "started": "2016-06-09T16:05:17Z",
+      "last_reply": "2016-06-09T16:17:38Z",
       "root_message_id": "msg-9081a8c741ee"
     },
     {
@@ -509,8 +509,8 @@
         "Brian Fallik",
         "Rob Steele"
       ],
-      "started": "2016-06-10T12:28:33-04:00",
-      "last_reply": "2016-06-10T18:36:35-04:00",
+      "started": "2016-06-10T16:28:33Z",
+      "last_reply": "2016-06-10T22:36:35Z",
       "root_message_id": "msg-455b8c00b38b"
     },
     {
@@ -520,8 +520,8 @@
       "participants": [
         "Imane al jaouhari"
       ],
-      "started": "2016-06-23T09:41:44+02:00",
-      "last_reply": "2016-06-23T09:41:44+02:00",
+      "started": "2016-06-23T07:41:44Z",
+      "last_reply": "2016-06-23T07:41:44Z",
       "root_message_id": "msg-9254c193f567"
     },
     {
@@ -532,8 +532,8 @@
         "Jules Bashizi",
         "M. Edward (Ed) Borasky"
       ],
-      "started": "2016-06-30T01:24:52+01:00",
-      "last_reply": "2016-06-30T00:40:21+00:00",
+      "started": "2016-06-30T00:24:52Z",
+      "last_reply": "2016-06-30T00:40:21Z",
       "root_message_id": "msg-e43153b6d762"
     },
     {
@@ -544,8 +544,8 @@
         "Jules Bashizi",
         "Michael Hannon"
       ],
-      "started": "2016-06-30T02:14:21+01:00",
-      "last_reply": "2016-06-30T01:57:15+00:00",
+      "started": "2016-06-30T01:14:21Z",
+      "last_reply": "2016-06-30T01:57:15Z",
       "root_message_id": "msg-d4801620dd64"
     }
   ]

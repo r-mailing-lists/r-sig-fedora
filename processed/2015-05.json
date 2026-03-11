@@ -8,7 +8,7 @@
       "message_id": "<554FD336.1030604@auckland.ac.nz>",
       "from_name": "Rolf Turner",
       "from_email_hash": "904c134d5ad39093183253270ee481b35c208cc4297e137e579e32e8115e7dff",
-      "date": "2015-05-11T09:52:54+12:00",
+      "date": "2015-05-10T21:52:54Z",
       "subject": "[R-sig-Fedora] [R] Building R-3.2.0 from source.",
       "subject_clean": "Building R-3.2.0 from source.",
       "in_reply_to": "<425F1A4A-454E-4CF0-A9D5-766DAA301A86@gmail.com>",
@@ -27,7 +27,7 @@
       "message_id": "<CAHkRx6FVxw_nVC9HqRPYh6Ay23frAQ0e5wOHvO15mRRTvOTjcQ@mail.gmail.com>",
       "from_name": "M. Edward (Ed) Borasky",
       "from_email_hash": "ef6e49c1dc23b41e55bee428092d31c3661e716db693e4cc11966cc2632cb2b6",
-      "date": "2015-05-10T17:06:41-07:00",
+      "date": "2015-05-11T00:06:41Z",
       "subject": "[R-sig-Fedora] [R] Building R-3.2.0 from source.",
       "subject_clean": "Building R-3.2.0 from source.",
       "in_reply_to": "<554FD336.1030604@auckland.ac.nz>",
@@ -47,7 +47,7 @@
       "message_id": "<55500165.2070004@auckland.ac.nz>",
       "from_name": "Rolf Turner",
       "from_email_hash": "904c134d5ad39093183253270ee481b35c208cc4297e137e579e32e8115e7dff",
-      "date": "2015-05-11T13:09:57+12:00",
+      "date": "2015-05-11T01:09:57Z",
       "subject": "[R-sig-Fedora] [R] Building R-3.2.0 from source.",
       "subject_clean": "Building R-3.2.0 from source.",
       "in_reply_to": "<CAHkRx6FVxw_nVC9HqRPYh6Ay23frAQ0e5wOHvO15mRRTvOTjcQ@mail.gmail.com>",
@@ -68,7 +68,7 @@
       "message_id": "<0d598c13-e2ec-4a01-8d1f-6c4f323302a5@email.android.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2015-05-11T00:19:16-04:00",
+      "date": "2015-05-11T04:19:16Z",
       "subject": "[R-sig-Fedora] [R] Building R-3.2.0 from source.",
       "subject_clean": "Building R-3.2.0 from source.",
       "in_reply_to": null,
@@ -84,7 +84,7 @@
       "message_id": "<55505D7D.5080005@auckland.ac.nz>",
       "from_name": "Rolf Turner",
       "from_email_hash": "904c134d5ad39093183253270ee481b35c208cc4297e137e579e32e8115e7dff",
-      "date": "2015-05-11T19:42:53+12:00",
+      "date": "2015-05-11T07:42:53Z",
       "subject": "[R-sig-Fedora] [R] Building R-3.2.0 from source.",
       "subject_clean": "Building R-3.2.0 from source.",
       "in_reply_to": "<0d598c13-e2ec-4a01-8d1f-6c4f323302a5@email.android.com>",
@@ -102,7 +102,7 @@
       "message_id": "<2160580.mBB7BbbJ27@ulysses>",
       "from_name": "José Matos",
       "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
-      "date": "2015-05-11T10:08:31+01:00",
+      "date": "2015-05-11T09:08:31Z",
       "subject": "[R-sig-Fedora] [R] Building R-3.2.0 from source.",
       "subject_clean": "Building R-3.2.0 from source.",
       "in_reply_to": "<55505D7D.5080005@auckland.ac.nz>",
@@ -121,7 +121,7 @@
       "message_id": "<555075CF.9030902@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2015-05-11T11:26:39+02:00",
+      "date": "2015-05-11T09:26:39Z",
       "subject": "[R-sig-Fedora] [R] Building R-3.2.0 from source.",
       "subject_clean": "Building R-3.2.0 from source.",
       "in_reply_to": "<55505D7D.5080005@auckland.ac.nz>",
@@ -140,7 +140,7 @@
       "message_id": "<CALJKDF9_ry2_gFqc6m0jsB2BPwA_3RcnwS8nPDynZqJrsJzSWQ@mail.gmail.com>",
       "from_name": "Steve Taylor",
       "from_email_hash": "74d3363cb6b0a45862a2be9054b7268dbbf98292304b2555e3b3d93d0373f7a9",
-      "date": "2015-05-14T08:03:13+12:00",
+      "date": "2015-05-13T20:03:13Z",
       "subject": "[R-sig-Fedora] [R] Building R-3.2.0 from source.",
       "subject_clean": "Building R-3.2.0 from source.",
       "in_reply_to": "<55500165.2070004@auckland.ac.nz>",
@@ -160,19 +160,6 @@
   ],
   "threads": [
     {
-      "id": "thread-c5dd218aa33b",
-      "subject": "Building R-3.2.0 from source.",
-      "message_count": 4,
-      "participants": [
-        "José Matos",
-        "Rolf Turner",
-        "Tom Callaway"
-      ],
-      "started": "2015-05-11T00:19:16-04:00",
-      "last_reply": "2015-05-11T11:26:39+02:00",
-      "root_message_id": "msg-c5dd218aa33b"
-    },
-    {
       "id": "thread-36616601fd8c",
       "subject": "Building R-3.2.0 from source.",
       "message_count": 4,
@@ -181,9 +168,22 @@
         "Rolf Turner",
         "Steve Taylor"
       ],
-      "started": "2015-05-11T09:52:54+12:00",
-      "last_reply": "2015-05-14T08:03:13+12:00",
+      "started": "2015-05-10T21:52:54Z",
+      "last_reply": "2015-05-13T20:03:13Z",
       "root_message_id": "msg-36616601fd8c"
+    },
+    {
+      "id": "thread-c5dd218aa33b",
+      "subject": "Building R-3.2.0 from source.",
+      "message_count": 4,
+      "participants": [
+        "José Matos",
+        "Rolf Turner",
+        "Tom Callaway"
+      ],
+      "started": "2015-05-11T04:19:16Z",
+      "last_reply": "2015-05-11T09:26:39Z",
+      "root_message_id": "msg-c5dd218aa33b"
     }
   ]
 }

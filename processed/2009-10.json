@@ -8,7 +8,7 @@
       "message_id": "<9B736790B24CE546A9C08867A2D6D8490900485A@SMTMSX01.Corp.Acxiom.net>",
       "from_name": "Peterson Jacob - jacpet",
       "from_email_hash": "69ef35c38ef25923027fbcfb86758a992ab13d0418e720a57df33d2af780d330",
-      "date": "2009-10-12T16:32:01-05:00",
+      "date": "2009-10-12T21:32:01Z",
       "subject": "[R-sig-Fedora] Font permissions with X11-adobe",
       "subject_clean": "Font permissions with X11-adobe",
       "in_reply_to": null,
@@ -28,8 +28,8 @@
       "participants": [
         "Peterson Jacob - jacpet"
       ],
-      "started": "2009-10-12T16:32:01-05:00",
-      "last_reply": "2009-10-12T16:32:01-05:00",
+      "started": "2009-10-12T21:32:01Z",
+      "last_reply": "2009-10-12T21:32:01Z",
       "root_message_id": "msg-ef17a0b2e136"
     }
   ]

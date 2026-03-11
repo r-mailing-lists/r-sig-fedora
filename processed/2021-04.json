@@ -24,7 +24,7 @@
       "message_id": "<CALEXWq2d56NpSrg2VEWyC0VwPzepKikz2WRNKoNuWL7J=Eu0BA@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2021-04-20T14:34:30+02:00",
+      "date": "2021-04-20T12:34:30Z",
       "subject": "[R-sig-Fedora] (Error?) in a command of your tutorial, \"fedora-source\"",
       "subject_clean": "(Error?) in a command of your tutorial, \"fedora-source\"",
       "in_reply_to": "<PA4PR10MB449453435335FDF03E0BB993A4489@PA4PR10MB4494.EURPRD10.PROD.OUTLOOK.COM>",
@@ -47,8 +47,8 @@
         "Bilal Abd",
         "Iñaki Ucar"
       ],
-      "started": "2021-04-20T10:02:44+00:00",
-      "last_reply": "2021-04-20T14:34:30+02:00",
+      "started": "2021-04-20T10:02:44Z",
+      "last_reply": "2021-04-20T12:34:30Z",
       "root_message_id": "msg-23e19c1ade64"
     }
   ]

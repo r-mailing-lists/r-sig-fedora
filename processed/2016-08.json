@@ -8,7 +8,7 @@
       "message_id": "<CAMBc2W4gUZfsEjvaqOoUzTXvVJbVkbmHLT3vGF-123E8MdTx1Q@mail.gmail.com>",
       "from_name": "andreas betz",
       "from_email_hash": "fe9bd0d95c613ec7ac9ccc2daaf9f4c4d9e4cae068fd2681da7e9d65bec0a51a",
-      "date": "2016-08-12T01:34:06-07:00",
+      "date": "2016-08-12T08:34:06Z",
       "subject": "[R-sig-Fedora] installing R on Fedora 24 without Fedora texlive",
       "subject_clean": "installing R on Fedora 24 without Fedora texlive",
       "in_reply_to": null,
@@ -28,8 +28,8 @@
       "participants": [
         "andreas betz"
       ],
-      "started": "2016-08-12T01:34:06-07:00",
-      "last_reply": "2016-08-12T01:34:06-07:00",
+      "started": "2016-08-12T08:34:06Z",
+      "last_reply": "2016-08-12T08:34:06Z",
       "root_message_id": "msg-d6e2c25c2070"
     }
   ]

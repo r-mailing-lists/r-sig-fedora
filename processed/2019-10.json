@@ -8,7 +8,7 @@
       "message_id": "<CABFfbXtF-oJFVwsanu3KP+iYSjM7EeuKKD_M0zG=4KWtCfirJQ@mail.gmail.com>",
       "from_name": "Jeroen Ooms",
       "from_email_hash": "6d6b57f7dfdacdb11068763c49af518a12f1ee23bc379f749098f057c1d6df69",
-      "date": "2019-10-07T11:12:53+02:00",
+      "date": "2019-10-07T09:12:53Z",
       "subject": "[R-sig-Fedora] R from EPEL 8 missing dependency on glibc-langpack",
       "subject_clean": "R from EPEL 8 missing dependency on glibc-langpack",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<CALEXWq1rLQuMEU+13RN4N_=+RFF9+FBxzU07BouZ+L6rQ4h7Sw@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2019-10-07T14:52:35+02:00",
+      "date": "2019-10-07T12:52:35Z",
       "subject": "[R-sig-Fedora]  R from EPEL 8 missing dependency on glibc-langpack",
       "subject_clean": "R from EPEL 8 missing dependency on glibc-langpack",
       "in_reply_to": "<CABFfbXtF-oJFVwsanu3KP+iYSjM7EeuKKD_M0zG=4KWtCfirJQ@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<CALEXWq3Qm12DndH5sgLOTF0gcHFMseR+NPS+cHEDU8jgjTu+pA@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2019-10-07T15:45:01+02:00",
+      "date": "2019-10-07T13:45:01Z",
       "subject": "[R-sig-Fedora]  R from EPEL 8 missing dependency on glibc-langpack",
       "subject_clean": "R from EPEL 8 missing dependency on glibc-langpack",
       "in_reply_to": "<CALEXWq1rLQuMEU+13RN4N_=+RFF9+FBxzU07BouZ+L6rQ4h7Sw@mail.gmail.com>",
@@ -66,8 +66,8 @@
         "Iñaki Ucar",
         "Jeroen Ooms"
       ],
-      "started": "2019-10-07T11:12:53+02:00",
-      "last_reply": "2019-10-07T15:45:01+02:00",
+      "started": "2019-10-07T09:12:53Z",
+      "last_reply": "2019-10-07T13:45:01Z",
       "root_message_id": "msg-04d11a376eac"
     }
   ]

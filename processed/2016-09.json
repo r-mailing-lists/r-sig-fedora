@@ -8,7 +8,7 @@
       "message_id": "<CAFxAhE98LPJr1gP8ez99XBn1nOv1kaEa+v7GnwRofNYc79R63A@mail.gmail.com>",
       "from_name": "Eric J. Van der Velden",
       "from_email_hash": "8a3ce1b80cb364aa5f60829423f5b5b40434353d27af3339371ed38c3e4ede40",
-      "date": "2016-09-07T09:15:38+02:00",
+      "date": "2016-09-07T07:15:38Z",
       "subject": "[R-sig-Fedora] How to install gmp in R on fedora",
       "subject_clean": "How to install gmp in R on fedora",
       "in_reply_to": null,
@@ -42,7 +42,7 @@
       "message_id": "<CABFfbXuz6_sp0ANDJ2ayMf3=9je7-hhpHq=WO24eQV0A5LFMRg@mail.gmail.com>",
       "from_name": "Jeroen Ooms",
       "from_email_hash": "8cec1f7bf29300b425ea1be687fbb6d3fccf3de57737bb017534932e9e18a5f3",
-      "date": "2016-09-16T16:28:30+02:00",
+      "date": "2016-09-16T14:28:30Z",
       "subject": "[R-sig-Fedora] R_DOC_DIR on EL6",
       "subject_clean": "R_DOC_DIR on EL6",
       "in_reply_to": null,
@@ -58,7 +58,7 @@
       "message_id": "<ddbd408e-3d57-d50e-1738-b476de97bd05@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2016-09-21T13:39:07-04:00",
+      "date": "2016-09-21T17:39:07Z",
       "subject": "[R-sig-Fedora] R_DOC_DIR on EL6",
       "subject_clean": "R_DOC_DIR on EL6",
       "in_reply_to": "<CABFfbXuz6_sp0ANDJ2ayMf3=9je7-hhpHq=WO24eQV0A5LFMRg@mail.gmail.com>",
@@ -76,7 +76,7 @@
       "message_id": "<CABFfbXsPtEaDR8uGCxEZEtxtebPd1p4kNrKehmUZQEz=nPtcFw@mail.gmail.com>",
       "from_name": "Jeroen Ooms",
       "from_email_hash": "8cec1f7bf29300b425ea1be687fbb6d3fccf3de57737bb017534932e9e18a5f3",
-      "date": "2016-09-22T17:55:12+02:00",
+      "date": "2016-09-22T15:55:12Z",
       "subject": "[R-sig-Fedora] R_DOC_DIR on EL6",
       "subject_clean": "R_DOC_DIR on EL6",
       "in_reply_to": "<ddbd408e-3d57-d50e-1738-b476de97bd05@redhat.com>",
@@ -120,8 +120,8 @@
         "Eric J. Van der Velden",
         "Martyn Plummer"
       ],
-      "started": "2016-09-07T09:15:38+02:00",
-      "last_reply": "2016-09-07T08:10:17+00:00",
+      "started": "2016-09-07T07:15:38Z",
+      "last_reply": "2016-09-07T08:10:17Z",
       "root_message_id": "msg-082465ff772e"
     },
     {
@@ -133,8 +133,8 @@
         "Martyn Plummer",
         "Tom Callaway"
       ],
-      "started": "2016-09-16T16:28:30+02:00",
-      "last_reply": "2016-09-22T16:31:21+00:00",
+      "started": "2016-09-16T14:28:30Z",
+      "last_reply": "2016-09-22T16:31:21Z",
       "root_message_id": "msg-428298fe28f9"
     }
   ]

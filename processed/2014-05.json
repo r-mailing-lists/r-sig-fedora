@@ -8,7 +8,7 @@
       "message_id": "<CADsJW9GXM5oH-c0kYRq4=O6v7mQfAVZwEwqnqC_S=8ZyQeuqcQ@mail.gmail.com>",
       "from_name": "Peter Baker",
       "from_email_hash": "54d4450331c143f502978ebc74bd31ae61abbce5d642c14fe1656ef28cb1d5c2",
-      "date": "2014-05-23T01:19:35+10:00",
+      "date": "2014-05-22T15:19:35Z",
       "subject": "[R-sig-Fedora] R 3.1 breaks RStudio in Fedora 20?",
       "subject_clean": "R 3.1 breaks RStudio in Fedora 20?",
       "in_reply_to": null,
@@ -42,7 +42,7 @@
       "message_id": "<1627109.rB9hE4A4nb@ulysses>",
       "from_name": "José Matos",
       "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
-      "date": "2014-05-22T18:19:25+01:00",
+      "date": "2014-05-22T17:19:25Z",
       "subject": "[R-sig-Fedora] R 3.1 breaks RStudio in Fedora 20?",
       "subject_clean": "R 3.1 breaks RStudio in Fedora 20?",
       "in_reply_to": "<1400776744.3163.67.camel@braque.iarc.fr>",
@@ -61,7 +61,7 @@
       "message_id": "<1400788986.82781.YahooMailNeo@web124906.mail.ne1.yahoo.com>",
       "from_name": "Michael Hannon",
       "from_email_hash": "01860cded8fa4662e18931d40108a5d9cac89987b46747b9193585604d12bf43",
-      "date": "2014-05-22T13:03:06-07:00",
+      "date": "2014-05-22T20:03:06Z",
       "subject": "[R-sig-Fedora] R 3.1 breaks RStudio in Fedora 20?",
       "subject_clean": "R 3.1 breaks RStudio in Fedora 20?",
       "in_reply_to": "<1627109.rB9hE4A4nb@ulysses>",
@@ -81,7 +81,7 @@
       "message_id": "<CADsJW9EPXrtv6DpnsZ9MXmWF904j+EzFwB-HLYf1Obwh-vRvjg@mail.gmail.com>",
       "from_name": "Peter Baker",
       "from_email_hash": "54d4450331c143f502978ebc74bd31ae61abbce5d642c14fe1656ef28cb1d5c2",
-      "date": "2014-05-23T08:28:25+10:00",
+      "date": "2014-05-22T22:28:25Z",
       "subject": "[R-sig-Fedora] R 3.1 breaks RStudio in Fedora 20?",
       "subject_clean": "R 3.1 breaks RStudio in Fedora 20?",
       "in_reply_to": "<1627109.rB9hE4A4nb@ulysses>",
@@ -108,8 +108,8 @@
         "Michael Hannon",
         "Peter Baker"
       ],
-      "started": "2014-05-23T01:19:35+10:00",
-      "last_reply": "2014-05-23T08:28:25+10:00",
+      "started": "2014-05-22T15:19:35Z",
+      "last_reply": "2014-05-22T22:28:25Z",
       "root_message_id": "msg-93d7a4f60bcc"
     }
   ]

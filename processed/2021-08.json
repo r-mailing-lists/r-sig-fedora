@@ -8,7 +8,7 @@
       "message_id": "<CALS=5mqCUii26Sz++nK2VUMhcJYngRDytUSmMk3b8LzJd=00fQ@mail.gmail.com>",
       "from_name": "Paul Smith",
       "from_email_hash": "aba4091620d86fabfa3ea687f6147db00bface60d76eeb219c367cf3848b252a",
-      "date": "2021-08-12T22:18:11+01:00",
+      "date": "2021-08-12T21:18:11Z",
       "subject": "[R-sig-Fedora] RStudio does not open completly",
       "subject_clean": "RStudio does not open completly",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<CALEXWq0c9JWXx0__4+BhpVrzPHJT1T5aneWz7tvVTCkVDjmRzw@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2021-08-13T09:29:38+02:00",
+      "date": "2021-08-13T07:29:38Z",
       "subject": "[R-sig-Fedora] RStudio does not open completly",
       "subject_clean": "RStudio does not open completly",
       "in_reply_to": "<CALS=5mqCUii26Sz++nK2VUMhcJYngRDytUSmMk3b8LzJd=00fQ@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<CALS=5mqVi-gAQmnex=g4qHaKTqYXD3txDjeMCode4FU=xo7x7Q@mail.gmail.com>",
       "from_name": "Paul Smith",
       "from_email_hash": "aba4091620d86fabfa3ea687f6147db00bface60d76eeb219c367cf3848b252a",
-      "date": "2021-08-13T11:39:40+01:00",
+      "date": "2021-08-13T10:39:40Z",
       "subject": "[R-sig-Fedora] RStudio does not open completly",
       "subject_clean": "RStudio does not open completly",
       "in_reply_to": "<CALEXWq0c9JWXx0__4+BhpVrzPHJT1T5aneWz7tvVTCkVDjmRzw@mail.gmail.com>",
@@ -61,7 +61,7 @@
       "message_id": "<CALS=5moU5nZaLr2p=0cDncYECA2+2v-Q9pW0-0++F80_vKb=_g@mail.gmail.com>",
       "from_name": "Paul Smith",
       "from_email_hash": "aba4091620d86fabfa3ea687f6147db00bface60d76eeb219c367cf3848b252a",
-      "date": "2021-08-13T11:44:11+01:00",
+      "date": "2021-08-13T10:44:11Z",
       "subject": "[R-sig-Fedora] Installing R 4.1 on F34",
       "subject_clean": "Installing R 4.1 on F34",
       "in_reply_to": null,
@@ -95,7 +95,7 @@
       "message_id": "<CALS=5mqBWKdE_AtzUtKbRsK0ZN7djvjgTyB_fS6ik6FO6g8Xow@mail.gmail.com>",
       "from_name": "Paul Smith",
       "from_email_hash": "aba4091620d86fabfa3ea687f6147db00bface60d76eeb219c367cf3848b252a",
-      "date": "2021-08-13T17:22:27+01:00",
+      "date": "2021-08-13T16:22:27Z",
       "subject": "[R-sig-Fedora] Installing R 4.1 on F34",
       "subject_clean": "Installing R 4.1 on F34",
       "in_reply_to": "<d17a96ac-fa28-ce40-650e-9e9e677c9b44@hiddenelephants.co.uk>",
@@ -114,7 +114,7 @@
       "message_id": "<CALEXWq0FwJEs0tVFPoKfQOHWgc62NFCAtHRps9POXqBh+6fcpw@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2021-08-16T01:19:44+02:00",
+      "date": "2021-08-15T23:19:44Z",
       "subject": "[R-sig-Fedora] RStudio does not open completly",
       "subject_clean": "RStudio does not open completly",
       "in_reply_to": "<CALS=5mqVi-gAQmnex=g4qHaKTqYXD3txDjeMCode4FU=xo7x7Q@mail.gmail.com>",
@@ -134,7 +134,7 @@
       "message_id": "<CALS=5moZaFn9CH0z16MmZ_NNp0wHaNU77DeVZJLxjxj+YbEFyQ@mail.gmail.com>",
       "from_name": "Paul Smith",
       "from_email_hash": "aba4091620d86fabfa3ea687f6147db00bface60d76eeb219c367cf3848b252a",
-      "date": "2021-08-16T01:25:52+01:00",
+      "date": "2021-08-16T00:25:52Z",
       "subject": "[R-sig-Fedora] RStudio does not open completly",
       "subject_clean": "RStudio does not open completly",
       "in_reply_to": "<CALEXWq0FwJEs0tVFPoKfQOHWgc62NFCAtHRps9POXqBh+6fcpw@mail.gmail.com>",
@@ -155,7 +155,7 @@
       "message_id": "<CALEXWq16vRBY7RcXZX9oXAxxVWT8-Ff8RacSb3wbxZw2Xn6z5Q@mail.gmail.com>",
       "from_name": "Iñaki Ucar",
       "from_email_hash": "0faf0f82f2ae7a03780f35561a3913efe7fa8a6118b8feae1bd8f2f6c8ab74c8",
-      "date": "2021-08-16T19:51:34+02:00",
+      "date": "2021-08-16T17:51:34Z",
       "subject": "[R-sig-Fedora] New section about containerized environments",
       "subject_clean": "New section about containerized environments",
       "in_reply_to": null,
@@ -176,8 +176,8 @@
         "Iñaki Ucar",
         "Paul Smith"
       ],
-      "started": "2021-08-12T22:18:11+01:00",
-      "last_reply": "2021-08-16T01:25:52+01:00",
+      "started": "2021-08-12T21:18:11Z",
+      "last_reply": "2021-08-16T00:25:52Z",
       "root_message_id": "msg-1da0172f7d24"
     },
     {
@@ -188,8 +188,8 @@
         "Paul Smith",
         "Tim Taylor"
       ],
-      "started": "2021-08-13T11:44:11+01:00",
-      "last_reply": "2021-08-13T17:22:27+01:00",
+      "started": "2021-08-13T10:44:11Z",
+      "last_reply": "2021-08-13T16:22:27Z",
       "root_message_id": "msg-7ba2a750826e"
     },
     {
@@ -199,8 +199,8 @@
       "participants": [
         "Iñaki Ucar"
       ],
-      "started": "2021-08-16T19:51:34+02:00",
-      "last_reply": "2021-08-16T19:51:34+02:00",
+      "started": "2021-08-16T17:51:34Z",
+      "last_reply": "2021-08-16T17:51:34Z",
       "root_message_id": "msg-0035f230ca54"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<AANLkTi=PCk2=nyD6f53nJPQfCLtZU5YJoBUbuVZMwahH@mail.gmail.com>",
       "from_name": "Sean O'Keeffe",
       "from_email_hash": "400ad549b4f2f958219a6f2ee9bf8d3dd6c5fd76d29a38566603b08ba1dc7579",
-      "date": "2011-03-02T10:46:46-05:00",
+      "date": "2011-03-02T15:46:46Z",
       "subject": "[R-sig-Fedora] CentOS 5 install won't make with shared libs enabled",
       "subject_clean": "CentOS 5 install won't make with shared libs enabled",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<4D6E6771.4000306@redhat.com>",
       "from_name": "Tom Callaway",
       "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
-      "date": "2011-03-02T10:51:13-05:00",
+      "date": "2011-03-02T15:51:13Z",
       "subject": "[R-sig-Fedora] CentOS 5 install won't make with shared libs enabled",
       "subject_clean": "CentOS 5 install won't make with shared libs enabled",
       "in_reply_to": "<AANLkTi=PCk2=nyD6f53nJPQfCLtZU5YJoBUbuVZMwahH@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<45A73850-C204-4D1C-B85F-FF5ACC3F4AB8@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
-      "date": "2011-03-02T10:14:08-06:00",
+      "date": "2011-03-02T16:14:08Z",
       "subject": "[R-sig-Fedora] CentOS 5 install won't make with shared libs enabled",
       "subject_clean": "CentOS 5 install won't make with shared libs enabled",
       "in_reply_to": "<AANLkTi=PCk2=nyD6f53nJPQfCLtZU5YJoBUbuVZMwahH@mail.gmail.com>",
@@ -60,7 +60,7 @@
       "message_id": "<AANLkTikAO6-Au+1-60eiiaka5QkxAvrWiU7xkbTi15bE@mail.gmail.com>",
       "from_name": "Paul Johnson",
       "from_email_hash": "b96b8a38c7fef12892ac8cae395028a3b39f3acce423d9c564ab27dc864c47b3",
-      "date": "2011-03-03T18:13:44-06:00",
+      "date": "2011-03-04T00:13:44Z",
       "subject": "[R-sig-Fedora] CentOS 5 install won't make with shared libs enabled",
       "subject_clean": "CentOS 5 install won't make with shared libs enabled",
       "in_reply_to": "<AANLkTi=PCk2=nyD6f53nJPQfCLtZU5YJoBUbuVZMwahH@mail.gmail.com>",
@@ -78,7 +78,7 @@
       "message_id": "<AANLkTi=BbTJdbvEBS2YGv=YeUodmj1xtrQS=DDjYbep0@mail.gmail.com>",
       "from_name": "jules hernandez",
       "from_email_hash": "b835f8e3e4ca383d7aced38fe268c89179bcb024e231a60e57da23fab2ee6f77",
-      "date": "2011-03-07T14:05:48+01:00",
+      "date": "2011-03-07T13:05:48Z",
       "subject": "[R-sig-Fedora] installing R in Fedora14 with yum",
       "subject_clean": "installing R in Fedora14 with yum",
       "in_reply_to": null,
@@ -112,7 +112,7 @@
       "message_id": "<AANLkTikoO36786koMn=ci8XyRrH8qZMBW-qSQ7KLKBk8@mail.gmail.com>",
       "from_name": "jules hernandez",
       "from_email_hash": "b835f8e3e4ca383d7aced38fe268c89179bcb024e231a60e57da23fab2ee6f77",
-      "date": "2011-03-09T13:34:40+01:00",
+      "date": "2011-03-09T12:34:40Z",
       "subject": "[R-sig-Fedora] installing R in Fedora14 with yum",
       "subject_clean": "installing R in Fedora14 with yum",
       "in_reply_to": "<07CC43C25304A546B995A31E70BF56B5044500@wcl-exc.wcl.local>",
@@ -151,7 +151,7 @@
       "message_id": "<AANLkTi=aEKzZmxRMbA4Y97shsXehbKEuwa+S03ysP=+L@mail.gmail.com>",
       "from_name": "jules hernandez",
       "from_email_hash": "b835f8e3e4ca383d7aced38fe268c89179bcb024e231a60e57da23fab2ee6f77",
-      "date": "2011-03-09T14:09:38+01:00",
+      "date": "2011-03-09T13:09:38Z",
       "subject": "[R-sig-Fedora] installing R in Fedora14 with yum",
       "subject_clean": "installing R in Fedora14 with yum",
       "in_reply_to": "<AANLkTikoO36786koMn=ci8XyRrH8qZMBW-qSQ7KLKBk8@mail.gmail.com>",
@@ -171,7 +171,7 @@
       "message_id": "<33BD2DC119D43D40AA204A9ED97432C3CB8691F4@EX7T2-SV05.TDBFG.COM>",
       "from_name": "Fu, Jie Ning",
       "from_email_hash": "a655efdb1bd79e9359ecc08edebcb7ef7f86420e8702c712e1a4f98e715b9d87",
-      "date": "2011-03-15T15:08:19-04:00",
+      "date": "2011-03-15T19:08:19Z",
       "subject": "[R-sig-Fedora] Latest version RPM for RHEL5",
       "subject_clean": "Latest version RPM for RHEL5",
       "in_reply_to": null,
@@ -187,7 +187,7 @@
       "message_id": "<CB9FEFF9-A573-4F93-A61C-2C7FD07C5E96@me.com>",
       "from_name": "Marc Schwartz",
       "from_email_hash": "1c0c26ffdc63f8bcd27163d1af93be76a2c5ad37789d7759468aa44285929e74",
-      "date": "2011-03-15T14:22:29-05:00",
+      "date": "2011-03-15T19:22:29Z",
       "subject": "[R-sig-Fedora] Latest version RPM for RHEL5",
       "subject_clean": "Latest version RPM for RHEL5",
       "in_reply_to": "<33BD2DC119D43D40AA204A9ED97432C3CB8691F4@EX7T2-SV05.TDBFG.COM>",
@@ -205,7 +205,7 @@
       "message_id": "<20110316070319.GA3373@mkpai.csb>",
       "from_name": "Pai",
       "from_email_hash": "fbdef0218d374b6a5e85561616bd8d72b4b77bea51b475af705e452a1670e6f9",
-      "date": "2011-03-16T12:33:19+05:30",
+      "date": "2011-03-16T07:03:19Z",
       "subject": "[R-sig-Fedora] License of the nutshell package",
       "subject_clean": "License of the nutshell package",
       "in_reply_to": null,
@@ -239,7 +239,7 @@
       "message_id": "<20110316073125.GB3373@mkpai.csb>",
       "from_name": "Pai",
       "from_email_hash": "fbdef0218d374b6a5e85561616bd8d72b4b77bea51b475af705e452a1670e6f9",
-      "date": "2011-03-16T13:01:25+05:30",
+      "date": "2011-03-16T07:31:25Z",
       "subject": "[R-sig-Fedora] License of the nutshell package",
       "subject_clean": "License of the nutshell package",
       "in_reply_to": "<07CC43C25304A546B995A31E70BF56B50445D0@wcl-exc.wcl.local>",
@@ -285,8 +285,8 @@
         "Sean O'Keeffe",
         "Tom Callaway"
       ],
-      "started": "2011-03-02T10:46:46-05:00",
-      "last_reply": "2011-03-03T18:13:44-06:00",
+      "started": "2011-03-02T15:46:46Z",
+      "last_reply": "2011-03-04T00:13:44Z",
       "root_message_id": "msg-8f19aacea0a0"
     },
     {
@@ -297,8 +297,8 @@
         "Ed Avis",
         "jules hernandez"
       ],
-      "started": "2011-03-07T14:05:48+01:00",
-      "last_reply": "2011-03-09T14:09:38+01:00",
+      "started": "2011-03-07T13:05:48Z",
+      "last_reply": "2011-03-09T13:09:38Z",
       "root_message_id": "msg-9e1fbb04fc57"
     },
     {
@@ -309,8 +309,8 @@
         "Fu, Jie Ning",
         "Marc Schwartz"
       ],
-      "started": "2011-03-15T15:08:19-04:00",
-      "last_reply": "2011-03-15T14:22:29-05:00",
+      "started": "2011-03-15T19:08:19Z",
+      "last_reply": "2011-03-15T19:22:29Z",
       "root_message_id": "msg-f988e9840663"
     },
     {
@@ -322,8 +322,8 @@
         "José Matos",
         "Pai"
       ],
-      "started": "2011-03-16T12:33:19+05:30",
-      "last_reply": "2011-03-16T11:50:27+00:00",
+      "started": "2011-03-16T07:03:19Z",
+      "last_reply": "2011-03-16T11:50:27Z",
       "root_message_id": "msg-78a46095d973"
     }
   ]
