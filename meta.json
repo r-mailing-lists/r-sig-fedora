@@ -2,10 +2,10 @@
   "list": "r-sig-fedora",
   "description": "",
   "source_url": "",
-  "total_messages": 919,
+  "total_messages": 922,
   "first_message": "2008-05-20T14:27:49Z",
-  "last_message": "2025-09-23T10:07:09Z",
-  "total_threads": 249,
+  "last_message": "2026-04-02T20:12:55Z",
+  "total_threads": 250,
   "months_available": [
     "2008-05",
     "2008-06",
@@ -126,6 +126,7 @@
     "2025-04",
     "2025-06",
     "2025-08",
-    "2025-09"
+    "2025-09",
+    "2026-04"
   ]
 }

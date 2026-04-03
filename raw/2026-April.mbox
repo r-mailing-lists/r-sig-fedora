@@ -1,0 +1,197 @@
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Thu Apr  2 17:39:51 2026
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Thu, 2 Apr 2026 17:39:51 +0200
+Subject: [R-sig-Fedora] Installing LLVM compilers via "coprs" ?
+Message-ID: <27086.36295.139863.643547@stat.math.ethz.ch>
+
+Dear all,
+as CRAN has recently started to use the LLVM 22 compiler suite
+i.e., clang for C and C++  and  flang ('flang-new' typically in
+Fedora) for Fortran.
+
+Interestingly there has been problem insofar that the new
+fortran compiler produced code which entails quite a bit of
+changes in some stl() (base R  'stats' package).
+
+In order to investigate these (as R core member), working with
+Fedora 42 (mostly) and Fedora 43 (on some machines I have easy
+access to),
+I've found  that for Fedora 43 there are 'copr' snapshots
+for LLVM 22 
+
+    https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/
+
+Would anybody have experience with those or copr in general?
+As these are "snapshots" would they automatically update,
+
+Can I use these *in addition* to the regular compiler suite
+(LLVM 21 on Fedora 43)?
+
+Thank you for some hints and pointers,
+
+Happy Easter  and best regards,
+Martin
+
+Martin Maechler
+ETH Zurich  and  R Core team
+
+
+From jeroenoom@ @end|ng |rom gm@||@com  Thu Apr  2 20:11:50 2026
+From: jeroenoom@ @end|ng |rom gm@||@com (Jeroen Ooms)
+Date: Thu, 2 Apr 2026 20:11:50 +0200
+Subject: [R-sig-Fedora] Installing LLVM compilers via "coprs" ?
+In-Reply-To: <27086.36295.139863.643547@stat.math.ethz.ch>
+References: <27086.36295.139863.643547@stat.math.ethz.ch>
+Message-ID: <CABFfbXsSFYRgz3BT7kz4TajhQ_=JFnOfs=y_gfc36ghm+EgL8Q@mail.gmail.com>
+
+I have no experience with copr, but note that Fedora 44 and 45 include
+llvm-22 <https://src.fedoraproject.org/rpms/llvm> so it may be easier
+to test in a container with these distros?
+On any Linux machine you can run:
+
+   docker run -it fedora:44
+
+And that will give you a shell in a fedora 44 container, where you can run:
+
+   dnf install llvm R-devel
+
+And off you go...
+
+
+
+On Thu, Apr 2, 2026 at 5:39?PM Martin Maechler
+<maechler at stat.math.ethz.ch> wrote:
+>
+> Dear all,
+> as CRAN has recently started to use the LLVM 22 compiler suite
+> i.e., clang for C and C++  and  flang ('flang-new' typically in
+> Fedora) for Fortran.
+>
+> Interestingly there has been problem insofar that the new
+> fortran compiler produced code which entails quite a bit of
+> changes in some stl() (base R  'stats' package).
+>
+> In order to investigate these (as R core member), working with
+> Fedora 42 (mostly) and Fedora 43 (on some machines I have easy
+> access to),
+> I've found  that for Fedora 43 there are 'copr' snapshots
+> for LLVM 22
+>
+>     https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/
+>
+> Would anybody have experience with those or copr in general?
+> As these are "snapshots" would they automatically update,
+>
+> Can I use these *in addition* to the regular compiler suite
+> (LLVM 21 on Fedora 43)?
+>
+> Thank you for some hints and pointers,
+>
+> Happy Easter  and best regards,
+> Martin
+>
+> Martin Maechler
+> ETH Zurich  and  R Core team
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+From |uc@r @end|ng |rom |edor@project@org  Thu Apr  2 22:12:55 2026
+From: |uc@r @end|ng |rom |edor@project@org (=?UTF-8?Q?I=C3=B1aki_Ucar?=)
+Date: Thu, 2 Apr 2026 22:12:55 +0200
+Subject: [R-sig-Fedora] Installing LLVM compilers via "coprs" ?
+In-Reply-To: <CABFfbXsSFYRgz3BT7kz4TajhQ_=JFnOfs=y_gfc36ghm+EgL8Q@mail.gmail.com>
+References: <27086.36295.139863.643547@stat.math.ethz.ch>
+ <CABFfbXsSFYRgz3BT7kz4TajhQ_=JFnOfs=y_gfc36ghm+EgL8Q@mail.gmail.com>
+Message-ID: <CALEXWq1gehUUg967zq=z9-jQFNJmtkga4sEQpEKxeYr_t7mhOw@mail.gmail.com>
+
+Dear Martin,
+
+Typically these Copr repositories use the same spec, and therefore it
+is meant to replace the default version, not to be installed along
+with it. I would go with Jeroen's suggestion and use containers. I
+would use podman instead (same commands as docker, same experience,
+but it's rootless). Or, better yet, for the smoothest experience, use
+toolbox: https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development.
+
+Then you have two options: you can work with the default version in
+your Fedora installation and then enter a toolbox with a release that
+has the version you want, or the other way around, you may have always
+the latest snapshot from the Copr you suggested, and then use toolbox
+to access particular default versions for particular Fedora releases.
+Whatever is more convenient for your workflow.
+
+Best,
+I?aki
+
+
+On Thu, 2 Apr 2026 at 20:12, Jeroen Ooms <jeroenooms at gmail.com> wrote:
+>
+> I have no experience with copr, but note that Fedora 44 and 45 include
+> llvm-22 <https://src.fedoraproject.org/rpms/llvm> so it may be easier
+> to test in a container with these distros?
+> On any Linux machine you can run:
+>
+>    docker run -it fedora:44
+>
+> And that will give you a shell in a fedora 44 container, where you can run:
+>
+>    dnf install llvm R-devel
+>
+> And off you go...
+>
+>
+>
+> On Thu, Apr 2, 2026 at 5:39?PM Martin Maechler
+> <maechler at stat.math.ethz.ch> wrote:
+> >
+> > Dear all,
+> > as CRAN has recently started to use the LLVM 22 compiler suite
+> > i.e., clang for C and C++  and  flang ('flang-new' typically in
+> > Fedora) for Fortran.
+> >
+> > Interestingly there has been problem insofar that the new
+> > fortran compiler produced code which entails quite a bit of
+> > changes in some stl() (base R  'stats' package).
+> >
+> > In order to investigate these (as R core member), working with
+> > Fedora 42 (mostly) and Fedora 43 (on some machines I have easy
+> > access to),
+> > I've found  that for Fedora 43 there are 'copr' snapshots
+> > for LLVM 22
+> >
+> >     https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/
+> >
+> > Would anybody have experience with those or copr in general?
+> > As these are "snapshots" would they automatically update,
+> >
+> > Can I use these *in addition* to the regular compiler suite
+> > (LLVM 21 on Fedora 43)?
+> >
+> > Thank you for some hints and pointers,
+> >
+> > Happy Easter  and best regards,
+> > Martin
+> >
+> > Martin Maechler
+> > ETH Zurich  and  R Core team
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+
+-- 
+I?aki ?car
+
+
