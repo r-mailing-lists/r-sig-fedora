@@ -55,20 +55,40 @@
       "thread_id": "thread-600e970b171b",
       "thread_depth": 2,
       "month": "2026-04"
+    },
+    {
+      "id": "msg-c7789439186b",
+      "message_id": "<27088.9338.232244.485820@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2026-04-03T20:35:06Z",
+      "subject": "[R-sig-Fedora] Installing LLVM compilers via \"coprs\" ?",
+      "subject_clean": "Installing LLVM compilers via \"coprs\" ?",
+      "in_reply_to": "<fake-VM-id.8a2111cff138f303a491eacc25141940@talos.iv>",
+      "references": [
+        "<27086.36295.139863.643547@stat.math.ethz.ch>",
+        "<CABFfbXsSFYRgz3BT7kz4TajhQ_=JFnOfs=y_gfc36ghm+EgL8Q@mail.gmail.com>",
+        "<CALEXWq1gehUUg967zq=z9-jQFNJmtkga4sEQpEKxeYr_t7mhOw@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> I?aki Ucar \n>>>>>     on Thu, 2 Apr 2026 22:12:55 +0200 writes:\n\n    > Dear Martin, Typically these Copr repositories use the\n    > same spec, and therefore it is meant to replace the\n    > default version, not to be installed along with it. I\n    > would go with Jeroen's suggestion and use containers. I\n    > would use podman instead (same commands as docker, same\n    > experience, but it's rootless). Or, better yet, for the\n    > smoothest experience, use toolbox:\n    > https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development.\n\n    > Then you have two options: you can work with the default\n    > version in your Fedora installation and then enter a\n    > toolbox with a release that has the version you want, or\n    > the other way around, you may have always the latest\n    > snapshot from the Copr you suggested, and then use toolbox\n    > to access particular default versions for particular\n    > Fedora releases.  Whatever is more convenient for your\n    > workflow.\n\n    > Best, I?aki\n\nThank you,  both Jeroen and I?aki, for your swift replies.\nIndeed, I have decided to use  podman  (it seems I do that every\n2-3 years or so, and have to re-learn each time ... but I can\nwork pretty quickly now, and indeed, this is the first time I\nuse podman to run a \"future\" version of Fedora in Fedora.\n\nThank you once more  ... and happy Easter!\nMartin\n\n    > On Thu, 2 Apr 2026 at 20:12, Jeroen Ooms\n    > <jeroenooms at gmail.com> wrote:\n    >> \n    >> I have no experience with copr, but note that Fedora 44\n    >> and 45 include llvm-22\n    >> <https://src.fedoraproject.org/rpms/llvm> so it may be\n    >> easier to test in a container with these distros?  On any\n    >> Linux machine you can run:\n    >> \n    >> docker run -it fedora:44\n    >> \n    >> And that will give you a shell in a fedora 44 container,\n    >> where you can run:\n    >> \n    >> dnf install llvm R-devel\n    >> \n    >> And off you go...\n    >> \n    >> \n    >> \n    >> On Thu, Apr 2, 2026 at 5:39?PM Martin Maechler\n    >> <maechler at stat.math.ethz.ch> wrote:\n    >> >\n    >> > Dear all, > as CRAN has recently started to use the\n    >> LLVM 22 compiler suite > i.e., clang for C and C++ and\n    >> flang ('flang-new' typically in > Fedora) for Fortran.\n    >> >\n    >> > Interestingly there has been problem insofar that the\n    >> new > fortran compiler produced code which entails quite\n    >> a bit of > changes in some stl() (base R 'stats'\n    >> package).\n    >> >\n    >> > In order to investigate these (as R core member),\n    >> working with > Fedora 42 (mostly) and Fedora 43 (on some\n    >> machines I have easy > access to), > I've found that for\n    >> Fedora 43 there are 'copr' snapshots > for LLVM 22\n    >> >\n    >> >\n    >> https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/\n    >> >\n    >> > Would anybody have experience with those or copr in\n    >> general?  > As these are \"snapshots\" would they\n    >> automatically update,\n    >> >\n    >> > Can I use these *in addition* to the regular compiler\n    >> suite > (LLVM 21 on Fedora 43)?\n    >> >\n    >> > Thank you for some hints and pointers,\n    >> >\n    >> > Happy Easter and best regards, > Martin\n    >> >\n    >> > Martin Maechler > ETH Zurich and R Core team\n    >> >\n    >> > _______________________________________________ >\n    >> R-SIG-Fedora mailing list > R-SIG-Fedora at r-project.org >\n    >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n    >> \n    >> _______________________________________________\n    >> R-SIG-Fedora mailing list R-SIG-Fedora at r-project.org\n    >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n    >> \n\n\n    > -- \n    > I?aki ?car",
+      "body_snippet": ">>>>> I?aki Ucar \n>>>>>     on Thu, 2 Apr 2026 22:12:55 +0200 writes:\n\n    > Dear Martin, Typically these Copr repositories use the\n    > same spec, and therefore it is meant to replace the\n    > defa",
+      "thread_id": "thread-600e970b171b",
+      "thread_depth": 3,
+      "month": "2026-04"
     }
   ],
   "threads": [
     {
       "id": "thread-600e970b171b",
       "subject": "Installing LLVM compilers via \"coprs\" ?",
-      "message_count": 3,
+      "message_count": 4,
       "participants": [
         "Iñaki Ucar",
         "Jeroen Ooms",
         "Martin Maechler"
       ],
       "started": "2026-04-02T15:39:51Z",
-      "last_reply": "2026-04-02T20:12:55Z",
+      "last_reply": "2026-04-03T20:35:06Z",
       "root_message_id": "msg-600e970b171b"
     }
   ]
