@@ -304,3 +304,586 @@ Martin
     > I?aki ?car
 
 
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Apr 17 17:24:51 2026
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 17 Apr 2026 17:24:51 +0200
+Subject: [R-sig-Fedora] R-devel Fedora package not enough for R-core
+ checking: fonts
+Message-ID: <27106.20675.126225.154257@stat.math.ethz.ch>
+
+I have been grateful for your advise to use podman in order to
+use Fedora 44 *and* clang/flang compilers 22.
+
+see e.g.,  https://stat.ethz.ch/pipermail/r-sig-fedora/2026-April/000921.html
+
+I'm again using it  ... and as R core developer, I do want run
+    make check-devel
+after install R from the sources.
+For that the advice
+
+    > dnf install llvm R-devel
+    > 
+    > And off you go...
+
+has not been complete reall, I also needed a few more packages,
+partly because I'm Martin (e.g. 'emacs') but also to really get
+an almost complete build of R ---- ok, I'm happy going with --with-x=no
+to save space and time, and I do like pdf graphics when needed.
+
+Hence, my 'dfn install ..' now is
+
+     dnf install llvm flang clang R-devel emacs subversion readline-devel lapack-devel curl-devel lsb_release procs less
+
+But a
+    make check-devel
+    make manuals
+etc still ends in 100000's of error message lines about missing / substituting
+fonts ... when pdflatex'ing.
+
+and indeed, checking packages does also check if the manuals can
+be built... and again checks give ERRORs and even more WARNINGs, e.g.
+
+  * checking PDF version of manual ... WARNING
+  LaTeX errors when creating PDF version.
+  This typically indicates Rd problems.
+  LaTeX errors found:
+  ! Font T1/ptm/m/n/10=ptmr8t at 10.0pt not loadable: Metric (TFM) file not found
+  .
+  <to be read again> 
+		     relax 
+  l.8 \begin{document}
+  ! Font T1/ptm/m/n/24.88=ptmr8t at 24.88pt not loadable: Metric (TFM) file not found.
+  <to be read again> 
+ 
+Also some of the checks Rd2*()  do not run successfully, as they
+also don't find fonts or similar.
+
+Currently (still building) I see inside R's build directory ./tests/,
+searching for \*Rout.fail :
+
+  ./utils.Rcheck/tests/Sweave-tst.Rout.fail
+  ./tools.Rcheck/tests/Rd2pdf.Rout.fail
+  ./grDevices.Rcheck/tests/saved-recordPlot.Rout.fail
+  ./reg-plot-latin1.Rout.fail
+
+--------------------------------------
+
+Long wailing made short:
+I'd really like a meta package  e.g. called   R-devel-docs
+which includes R-devel but also includes everything need to
+build R completely... in the above sense.
+
+For now, of course, I'd be happy to get hints about fedora
+packages that I can just   dnf <pkg>  and which provide the few
+missing things
+(Yes, I saw a  latex*extras package of  3 GB size ... which I
+ rather *not* want).
+
+Martin
+
+
+>>>>> Martin Maechler 
+>>>>>     on Fri, 3 Apr 2026 22:35:06 +0200 writes:
+
+>>>>> I?aki Ucar 
+>>>>>     on Thu, 2 Apr 2026 22:12:55 +0200 writes:
+
+    >> Dear Martin, Typically these Copr repositories use the
+    >> same spec, and therefore it is meant to replace the
+    >> default version, not to be installed along with it. I
+    >> would go with Jeroen's suggestion and use containers. I
+    >> would use podman instead (same commands as docker, same
+    >> experience, but it's rootless). Or, better yet, for the
+    >> smoothest experience, use toolbox:
+    >> https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development.
+
+    >> Then you have two options: you can work with the default
+    >> version in your Fedora installation and then enter a
+    >> toolbox with a release that has the version you want, or
+    >> the other way around, you may have always the latest
+    >> snapshot from the Copr you suggested, and then use toolbox
+    >> to access particular default versions for particular
+    >> Fedora releases.  Whatever is more convenient for your
+    >> workflow.
+
+    >> Best, I?aki
+
+    > Thank you,  both Jeroen and I?aki, for your swift replies.
+    > Indeed, I have decided to use  podman  (it seems I do that every
+    > 2-3 years or so, and have to re-learn each time ... but I can
+    > work pretty quickly now, and indeed, this is the first time I
+    > use podman to run a "future" version of Fedora in Fedora.
+
+    > Thank you once more  ... and happy Easter!
+    > Martin
+
+    >> On Thu, 2 Apr 2026 at 20:12, Jeroen Ooms
+    >> <jeroenooms at gmail.com> wrote:
+    >>> 
+    >>> I have no experience with copr, but note that Fedora 44
+    >>> and 45 include llvm-22
+    >>> <https://src.fedoraproject.org/rpms/llvm> so it may be
+    >>> easier to test in a container with these distros?  On any
+    >>> Linux machine you can run:
+    >>> 
+    >>> docker run -it fedora:44
+    >>> 
+    >>> And that will give you a shell in a fedora 44 container,
+    >>> where you can run:
+    >>> 
+    >>> dnf install llvm R-devel
+    >>> 
+    >>> And off you go...
+    >>> 
+    >>> 
+    >>> 
+    >>> On Thu, Apr 2, 2026 at 5:39?PM Martin Maechler
+    >>> <maechler at stat.math.ethz.ch> wrote:
+    >>> >
+    >>> > Dear all, > as CRAN has recently started to use the
+    >>> LLVM 22 compiler suite > i.e., clang for C and C++ and
+    >>> flang ('flang-new' typically in > Fedora) for Fortran.
+    >>> >
+    >>> > Interestingly there has been problem insofar that the
+    >>> new > fortran compiler produced code which entails quite
+    >>> a bit of > changes in some stl() (base R 'stats'
+    >>> package).
+    >>> >
+    >>> > In order to investigate these (as R core member),
+    >>> working with > Fedora 42 (mostly) and Fedora 43 (on some
+    >>> machines I have easy > access to), > I've found that for
+    >>> Fedora 43 there are 'copr' snapshots > for LLVM 22
+    >>> >
+    >>> >
+    >>> https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/
+    >>> >
+    >>> > Would anybody have experience with those or copr in
+    >>> general?  > As these are "snapshots" would they
+    >>> automatically update,
+    >>> >
+    >>> > Can I use these *in addition* to the regular compiler
+    >>> suite > (LLVM 21 on Fedora 43)?
+    >>> >
+    >>> > Thank you for some hints and pointers,
+    >>> >
+    >>> > Happy Easter and best regards, > Martin
+    >>> >
+    >>> > Martin Maechler > ETH Zurich and R Core team
+    >>> >
+    >>> > _______________________________________________ >
+    >>> R-SIG-Fedora mailing list > R-SIG-Fedora at r-project.org >
+    >>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+    >>> 
+    >>> _______________________________________________
+    >>> R-SIG-Fedora mailing list R-SIG-Fedora at r-project.org
+    >>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+    >>> 
+
+
+    >> -- 
+    >> I?aki ?car
+
+
+From t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk  Fri Apr 17 21:52:28 2026
+From: t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk (Tim Taylor)
+Date: Fri, 17 Apr 2026 20:52:28 +0100
+Subject: [R-sig-Fedora] R-devel Fedora package not enough for R-core
+ checking: fonts
+In-Reply-To: <27106.20675.126225.154257@stat.math.ethz.ch>
+References: <27106.20675.126225.154257@stat.math.ethz.ch>
+Message-ID: <50404ED4-8150-4D57-96C9-3C9F41213698@hiddenelephants.co.uk>
+
+Hi Martin
+
+My normal approach is to pull in the build deps for R with:
+
+sudo dnf build-dep R
+
+Tim
+> On 17 Apr 2026, at 16:25, Martin Maechler <maechler at stat.math.ethz.ch> wrote:
+> 
+> ?I have been grateful for your advise to use podman in order to
+> use Fedora 44 *and* clang/flang compilers 22.
+> 
+> see e.g.,  https://stat.ethz.ch/pipermail/r-sig-fedora/2026-April/000921.html
+> 
+> I'm again using it  ... and as R core developer, I do want run
+>    make check-devel
+> after install R from the sources.
+> For that the advice
+> 
+>> dnf install llvm R-devel
+>> 
+>> And off you go...
+> 
+> has not been complete reall, I also needed a few more packages,
+> partly because I'm Martin (e.g. 'emacs') but also to really get
+> an almost complete build of R ---- ok, I'm happy going with --with-x=no
+> to save space and time, and I do like pdf graphics when needed.
+> 
+> Hence, my 'dfn install ..' now is
+> 
+>     dnf install llvm flang clang R-devel emacs subversion readline-devel lapack-devel curl-devel lsb_release procs less
+> 
+> But a
+>    make check-devel
+>    make manuals
+> etc still ends in 100000's of error message lines about missing / substituting
+> fonts ... when pdflatex'ing.
+> 
+> and indeed, checking packages does also check if the manuals can
+> be built... and again checks give ERRORs and even more WARNINGs, e.g.
+> 
+>  * checking PDF version of manual ... WARNING
+>  LaTeX errors when creating PDF version.
+>  This typically indicates Rd problems.
+>  LaTeX errors found:
+>  ! Font T1/ptm/m/n/10=ptmr8t at 10.0pt not loadable: Metric (TFM) file not found
+>  .
+>  <to be read again>
+>             relax
+>  l.8 \begin{document}
+>  ! Font T1/ptm/m/n/24.88=ptmr8t at 24.88pt not loadable: Metric (TFM) file not found.
+>  <to be read again>
+> 
+> Also some of the checks Rd2*()  do not run successfully, as they
+> also don't find fonts or similar.
+> 
+> Currently (still building) I see inside R's build directory ./tests/,
+> searching for \*Rout.fail :
+> 
+>  ./utils.Rcheck/tests/Sweave-tst.Rout.fail
+>  ./tools.Rcheck/tests/Rd2pdf.Rout.fail
+>  ./grDevices.Rcheck/tests/saved-recordPlot.Rout.fail
+>  ./reg-plot-latin1.Rout.fail
+> 
+> --------------------------------------
+> 
+> Long wailing made short:
+> I'd really like a meta package  e.g. called   R-devel-docs
+> which includes R-devel but also includes everything need to
+> build R completely... in the above sense.
+> 
+> For now, of course, I'd be happy to get hints about fedora
+> packages that I can just   dnf <pkg>  and which provide the few
+> missing things
+> (Yes, I saw a  latex*extras package of  3 GB size ... which I
+> rather *not* want).
+> 
+> Martin
+> 
+> 
+>>>>>> Martin Maechler
+>>>>>>    on Fri, 3 Apr 2026 22:35:06 +0200 writes:
+> 
+>>>>>> I?aki Ucar
+>>>>>>    on Thu, 2 Apr 2026 22:12:55 +0200 writes:
+> 
+>>> Dear Martin, Typically these Copr repositories use the
+>>> same spec, and therefore it is meant to replace the
+>>> default version, not to be installed along with it. I
+>>> would go with Jeroen's suggestion and use containers. I
+>>> would use podman instead (same commands as docker, same
+>>> experience, but it's rootless). Or, better yet, for the
+>>> smoothest experience, use toolbox:
+>>> https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development.
+> 
+>>> Then you have two options: you can work with the default
+>>> version in your Fedora installation and then enter a
+>>> toolbox with a release that has the version you want, or
+>>> the other way around, you may have always the latest
+>>> snapshot from the Copr you suggested, and then use toolbox
+>>> to access particular default versions for particular
+>>> Fedora releases.  Whatever is more convenient for your
+>>> workflow.
+> 
+>>> Best, I?aki
+> 
+>> Thank you,  both Jeroen and I?aki, for your swift replies.
+>> Indeed, I have decided to use  podman  (it seems I do that every
+>> 2-3 years or so, and have to re-learn each time ... but I can
+>> work pretty quickly now, and indeed, this is the first time I
+>> use podman to run a "future" version of Fedora in Fedora.
+> 
+>> Thank you once more  ... and happy Easter!
+>> Martin
+> 
+>>> On Thu, 2 Apr 2026 at 20:12, Jeroen Ooms
+>>> <jeroenooms at gmail.com> wrote:
+>>>> 
+>>>> I have no experience with copr, but note that Fedora 44
+>>>> and 45 include llvm-22
+>>>> <https://src.fedoraproject.org/rpms/llvm> so it may be
+>>>> easier to test in a container with these distros?  On any
+>>>> Linux machine you can run:
+>>>> 
+>>>> docker run -it fedora:44
+>>>> 
+>>>> And that will give you a shell in a fedora 44 container,
+>>>> where you can run:
+>>>> 
+>>>> dnf install llvm R-devel
+>>>> 
+>>>> And off you go...
+>>>> 
+>>>> 
+>>>> 
+>>>> On Thu, Apr 2, 2026 at 5:39?PM Martin Maechler
+>>>> <maechler at stat.math.ethz.ch> wrote:
+>>>>> 
+>>>>> Dear all, > as CRAN has recently started to use the
+>>>> LLVM 22 compiler suite > i.e., clang for C and C++ and
+>>>> flang ('flang-new' typically in > Fedora) for Fortran.
+>>>>> 
+>>>>> Interestingly there has been problem insofar that the
+>>>> new > fortran compiler produced code which entails quite
+>>>> a bit of > changes in some stl() (base R 'stats'
+>>>> package).
+>>>>> 
+>>>>> In order to investigate these (as R core member),
+>>>> working with > Fedora 42 (mostly) and Fedora 43 (on some
+>>>> machines I have easy > access to), > I've found that for
+>>>> Fedora 43 there are 'copr' snapshots > for LLVM 22
+>>>>> 
+>>>>> 
+>>>> https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/
+>>>>> 
+>>>>> Would anybody have experience with those or copr in
+>>>> general?  > As these are "snapshots" would they
+>>>> automatically update,
+>>>>> 
+>>>>> Can I use these *in addition* to the regular compiler
+>>>> suite > (LLVM 21 on Fedora 43)?
+>>>>> 
+>>>>> Thank you for some hints and pointers,
+>>>>> 
+>>>>> Happy Easter and best regards, > Martin
+>>>>> 
+>>>>> Martin Maechler > ETH Zurich and R Core team
+>>>>> 
+>>>>> _______________________________________________ >
+>>>> R-SIG-Fedora mailing list > R-SIG-Fedora at r-project.org >
+>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>> 
+>>>> _______________________________________________
+>>>> R-SIG-Fedora mailing list R-SIG-Fedora at r-project.org
+>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>> 
+> 
+> 
+>>> --
+>>> I?aki ?car
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
+From t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk  Fri Apr 17 21:54:51 2026
+From: t|m@t@y|or @end|ng |rom h|ddene|eph@nt@@co@uk (Tim Taylor)
+Date: Fri, 17 Apr 2026 20:54:51 +0100
+Subject: [R-sig-Fedora] R-devel Fedora package not enough for R-core
+ checking: fonts
+In-Reply-To: <50404ED4-8150-4D57-96C9-3C9F41213698@hiddenelephants.co.uk>
+References: <50404ED4-8150-4D57-96C9-3C9F41213698@hiddenelephants.co.uk>
+Message-ID: <3B4A5E31-5251-4550-9BD1-A1E853C4CE6A@hiddenelephants.co.uk>
+
+Apologies for the noise and unhelpful answer. I should have read your message more carefully. 
+
+Tim
+
+> On 17 Apr 2026, at 20:53, Tim Taylor <tim.taylor at hiddenelephants.co.uk> wrote:
+> 
+> ?Hi Martin
+> 
+> My normal approach is to pull in the build deps for R with:
+> 
+> sudo dnf build-dep R
+> 
+> Tim
+>> On 17 Apr 2026, at 16:25, Martin Maechler <maechler at stat.math.ethz.ch> wrote:
+>> 
+>> ?I have been grateful for your advise to use podman in order to
+>> use Fedora 44 *and* clang/flang compilers 22.
+>> 
+>> see e.g.,  https://stat.ethz.ch/pipermail/r-sig-fedora/2026-April/000921.html
+>> 
+>> I'm again using it  ... and as R core developer, I do want run
+>>   make check-devel
+>> after install R from the sources.
+>> For that the advice
+>> 
+>>> dnf install llvm R-devel
+>>> 
+>>> And off you go...
+>> 
+>> has not been complete reall, I also needed a few more packages,
+>> partly because I'm Martin (e.g. 'emacs') but also to really get
+>> an almost complete build of R ---- ok, I'm happy going with --with-x=no
+>> to save space and time, and I do like pdf graphics when needed.
+>> 
+>> Hence, my 'dfn install ..' now is
+>> 
+>>    dnf install llvm flang clang R-devel emacs subversion readline-devel lapack-devel curl-devel lsb_release procs less
+>> 
+>> But a
+>>   make check-devel
+>>   make manuals
+>> etc still ends in 100000's of error message lines about missing / substituting
+>> fonts ... when pdflatex'ing.
+>> 
+>> and indeed, checking packages does also check if the manuals can
+>> be built... and again checks give ERRORs and even more WARNINGs, e.g.
+>> 
+>> * checking PDF version of manual ... WARNING
+>> LaTeX errors when creating PDF version.
+>> This typically indicates Rd problems.
+>> LaTeX errors found:
+>> ! Font T1/ptm/m/n/10=ptmr8t at 10.0pt not loadable: Metric (TFM) file not found
+>> .
+>> <to be read again>
+>>            relax
+>> l.8 \begin{document}
+>> ! Font T1/ptm/m/n/24.88=ptmr8t at 24.88pt not loadable: Metric (TFM) file not found.
+>> <to be read again>
+>> 
+>> Also some of the checks Rd2*()  do not run successfully, as they
+>> also don't find fonts or similar.
+>> 
+>> Currently (still building) I see inside R's build directory ./tests/,
+>> searching for \*Rout.fail :
+>> 
+>> ./utils.Rcheck/tests/Sweave-tst.Rout.fail
+>> ./tools.Rcheck/tests/Rd2pdf.Rout.fail
+>> ./grDevices.Rcheck/tests/saved-recordPlot.Rout.fail
+>> ./reg-plot-latin1.Rout.fail
+>> 
+>> --------------------------------------
+>> 
+>> Long wailing made short:
+>> I'd really like a meta package  e.g. called   R-devel-docs
+>> which includes R-devel but also includes everything need to
+>> build R completely... in the above sense.
+>> 
+>> For now, of course, I'd be happy to get hints about fedora
+>> packages that I can just   dnf <pkg>  and which provide the few
+>> missing things
+>> (Yes, I saw a  latex*extras package of  3 GB size ... which I
+>> rather *not* want).
+>> 
+>> Martin
+>> 
+>> 
+>>>>>>> Martin Maechler
+>>>>>>>   on Fri, 3 Apr 2026 22:35:06 +0200 writes:
+>> 
+>>>>>>> I?aki Ucar
+>>>>>>>   on Thu, 2 Apr 2026 22:12:55 +0200 writes:
+>> 
+>>>> Dear Martin, Typically these Copr repositories use the
+>>>> same spec, and therefore it is meant to replace the
+>>>> default version, not to be installed along with it. I
+>>>> would go with Jeroen's suggestion and use containers. I
+>>>> would use podman instead (same commands as docker, same
+>>>> experience, but it's rootless). Or, better yet, for the
+>>>> smoothest experience, use toolbox:
+>>>> https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development.
+>> 
+>>>> Then you have two options: you can work with the default
+>>>> version in your Fedora installation and then enter a
+>>>> toolbox with a release that has the version you want, or
+>>>> the other way around, you may have always the latest
+>>>> snapshot from the Copr you suggested, and then use toolbox
+>>>> to access particular default versions for particular
+>>>> Fedora releases.  Whatever is more convenient for your
+>>>> workflow.
+>> 
+>>>> Best, I?aki
+>> 
+>>> Thank you,  both Jeroen and I?aki, for your swift replies.
+>>> Indeed, I have decided to use  podman  (it seems I do that every
+>>> 2-3 years or so, and have to re-learn each time ... but I can
+>>> work pretty quickly now, and indeed, this is the first time I
+>>> use podman to run a "future" version of Fedora in Fedora.
+>> 
+>>> Thank you once more  ... and happy Easter!
+>>> Martin
+>> 
+>>>> On Thu, 2 Apr 2026 at 20:12, Jeroen Ooms
+>>>> <jeroenooms at gmail.com> wrote:
+>>>>> 
+>>>>> I have no experience with copr, but note that Fedora 44
+>>>>> and 45 include llvm-22
+>>>>> <https://src.fedoraproject.org/rpms/llvm> so it may be
+>>>>> easier to test in a container with these distros?  On any
+>>>>> Linux machine you can run:
+>>>>> 
+>>>>> docker run -it fedora:44
+>>>>> 
+>>>>> And that will give you a shell in a fedora 44 container,
+>>>>> where you can run:
+>>>>> 
+>>>>> dnf install llvm R-devel
+>>>>> 
+>>>>> And off you go...
+>>>>> 
+>>>>> 
+>>>>> 
+>>>>> On Thu, Apr 2, 2026 at 5:39?PM Martin Maechler
+>>>>> <maechler at stat.math.ethz.ch> wrote:
+>>>>>> 
+>>>>>> Dear all, > as CRAN has recently started to use the
+>>>>> LLVM 22 compiler suite > i.e., clang for C and C++ and
+>>>>> flang ('flang-new' typically in > Fedora) for Fortran.
+>>>>>> 
+>>>>>> Interestingly there has been problem insofar that the
+>>>>> new > fortran compiler produced code which entails quite
+>>>>> a bit of > changes in some stl() (base R 'stats'
+>>>>> package).
+>>>>>> 
+>>>>>> In order to investigate these (as R core member),
+>>>>> working with > Fedora 42 (mostly) and Fedora 43 (on some
+>>>>> machines I have easy > access to), > I've found that for
+>>>>> Fedora 43 there are 'copr' snapshots > for LLVM 22
+>>>>>> 
+>>>>>> 
+>>>>> https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/
+>>>>>> 
+>>>>>> Would anybody have experience with those or copr in
+>>>>> general?  > As these are "snapshots" would they
+>>>>> automatically update,
+>>>>>> 
+>>>>>> Can I use these *in addition* to the regular compiler
+>>>>> suite > (LLVM 21 on Fedora 43)?
+>>>>>> 
+>>>>>> Thank you for some hints and pointers,
+>>>>>> 
+>>>>>> Happy Easter and best regards, > Martin
+>>>>>> 
+>>>>>> Martin Maechler > ETH Zurich and R Core team
+>>>>>> 
+>>>>>> _______________________________________________ >
+>>>>> R-SIG-Fedora mailing list > R-SIG-Fedora at r-project.org >
+>>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>>> 
+>>>>> _______________________________________________
+>>>>> R-SIG-Fedora mailing list R-SIG-Fedora at r-project.org
+>>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>>>>> 
+>> 
+>> 
+>>>> --
+>>>> I?aki ?car
+>> 
+>> _______________________________________________
+>> R-SIG-Fedora mailing list
+>> R-SIG-Fedora at r-project.org
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> 
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+
+
