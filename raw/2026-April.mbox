@@ -887,3 +887,929 @@ Tim
 > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
 
 
+From @potrh @end|ng |rom gm@||@com  Sat Apr 18 11:04:23 2026
+From: @potrh @end|ng |rom gm@||@com (Tom Callaway)
+Date: Sat, 18 Apr 2026 05:04:23 -0400
+Subject: [R-sig-Fedora] R-devel Fedora package not enough for R-core
+ checking: fonts
+In-Reply-To: <3B4A5E31-5251-4550-9BD1-A1E853C4CE6A@hiddenelephants.co.uk>
+References: <50404ED4-8150-4D57-96C9-3C9F41213698@hiddenelephants.co.uk>
+ <3B4A5E31-5251-4550-9BD1-A1E853C4CE6A@hiddenelephants.co.uk>
+Message-ID: <CACp8ZrKAD1XizoyBZ0m79mTam0AVOUhk27wiVjwvqZVZDwyNOw@mail.gmail.com>
+
+> Long wailing made short:
+> I'd really like a meta package e.g. called R-devel-docs
+> which includes R-devel but also includes everything need to
+> build R completely... in the above sense.
+
+While I think I understand your need here, this is counter to the
+philosophy that Linux distributions traditionally have. The idea behind
+packaging software is that the binary packages are to enable a user to
+quickly consume, and optionally, develop against that software. A "-devel"
+package is intended to pull in the files and dependencies you need present
+to develop software for a particular component, not the component itself.
+
+The package spec file from the source package (SRPM) contains the list of
+"BuildRequires" that the package maintainer has determined are necessary to
+be present in order to build the source code of that software for
+distribution. This is a lot closer to what you want, but still may not be
+exactly the same choices, depending on which options the package maintainer
+has selected for the distribution build. Fedora has had yum/dnf
+repositories with all our source packages (the src.rpm s and their
+corresponding metadata) for a number of years now, which means if you want
+to install the all the specified BuildRequires for the R source package on
+a running Fedora system, you can just run:
+
+sudo dnf --enablerepo=fedora-source,updates-source builddep R
+
+(The builddep source command might automatically enable source repos, but
+better to be safe than sorry here. You can also point dnf at a spec file
+directly if you have one.)
+
+It's worth noting that this is the same advice that Tim sent earlier, but
+with more context.
+
+Linux distributions could make a lot of metapackages to cover this case
+(packages that just contain Requires and no actual files), but if done at
+scale, this would significantly increase the size of the metadata users
+would have to search/download for all package transactions. Plus, I suspect
+that the package maintainers would likely feel that the source package
+serves this purpose adequately enough.
+
+I don't do as much maintenance on Fedora's R package these days as I used
+to (it's in better hands!) but if you think we're missing BuildRequires in
+how we build it and would like us to add some, please let us know here.
+
+Thanks,
+Tom "spot" Callaway
+
+
+On Fri, Apr 17, 2026, 4:03?PM Tim Taylor <tim.taylor at hiddenelephants.co.uk>
+wrote:
+
+> Apologies for the noise and unhelpful answer. I should have read your
+> message more carefully.
+>
+> Tim
+>
+> > On 17 Apr 2026, at 20:53, Tim Taylor <tim.taylor at hiddenelephants.co.uk>
+> wrote:
+> >
+> > ?Hi Martin
+> >
+> > My normal approach is to pull in the build deps for R with:
+> >
+> > sudo dnf build-dep R
+> >
+> > Tim
+> >> On 17 Apr 2026, at 16:25, Martin Maechler <maechler at stat.math.ethz.ch>
+> wrote:
+> >>
+> >> ?I have been grateful for your advise to use podman in order to
+> >> use Fedora 44 *and* clang/flang compilers 22.
+> >>
+> >> see e.g.,
+> https://stat.ethz.ch/pipermail/r-sig-fedora/2026-April/000921.html
+> >>
+> >> I'm again using it  ... and as R core developer, I do want run
+> >>   make check-devel
+> >> after install R from the sources.
+> >> For that the advice
+> >>
+> >>> dnf install llvm R-devel
+> >>>
+> >>> And off you go...
+> >>
+> >> has not been complete reall, I also needed a few more packages,
+> >> partly because I'm Martin (e.g. 'emacs') but also to really get
+> >> an almost complete build of R ---- ok, I'm happy going with --with-x=no
+> >> to save space and time, and I do like pdf graphics when needed.
+> >>
+> >> Hence, my 'dfn install ..' now is
+> >>
+> >>    dnf install llvm flang clang R-devel emacs subversion readline-devel
+> lapack-devel curl-devel lsb_release procs less
+> >>
+> >> But a
+> >>   make check-devel
+> >>   make manuals
+> >> etc still ends in 100000's of error message lines about missing /
+> substituting
+> >> fonts ... when pdflatex'ing.
+> >>
+> >> and indeed, checking packages does also check if the manuals can
+> >> be built... and again checks give ERRORs and even more WARNINGs, e.g.
+> >>
+> >> * checking PDF version of manual ... WARNING
+> >> LaTeX errors when creating PDF version.
+> >> This typically indicates Rd problems.
+> >> LaTeX errors found:
+> >> ! Font T1/ptm/m/n/10=ptmr8t at 10.0pt not loadable: Metric (TFM) file
+> not found
+> >> .
+> >> <to be read again>
+> >>            relax
+> >> l.8 \begin{document}
+> >> ! Font T1/ptm/m/n/24.88=ptmr8t at 24.88pt not loadable: Metric (TFM)
+> file not found.
+> >> <to be read again>
+> >>
+> >> Also some of the checks Rd2*()  do not run successfully, as they
+> >> also don't find fonts or similar.
+> >>
+> >> Currently (still building) I see inside R's build directory ./tests/,
+> >> searching for \*Rout.fail :
+> >>
+> >> ./utils.Rcheck/tests/Sweave-tst.Rout.fail
+> >> ./tools.Rcheck/tests/Rd2pdf.Rout.fail
+> >> ./grDevices.Rcheck/tests/saved-recordPlot.Rout.fail
+> >> ./reg-plot-latin1.Rout.fail
+> >>
+> >> --------------------------------------
+> >>
+> >> Long wailing made short:
+> >> I'd really like a meta package  e.g. called   R-devel-docs
+> >> which includes R-devel but also includes everything need to
+> >> build R completely... in the above sense.
+> >>
+> >> For now, of course, I'd be happy to get hints about fedora
+> >> packages that I can just   dnf <pkg>  and which provide the few
+> >> missing things
+> >> (Yes, I saw a  latex*extras package of  3 GB size ... which I
+> >> rather *not* want).
+> >>
+> >> Martin
+> >>
+> >>
+> >>>>>>> Martin Maechler
+> >>>>>>>   on Fri, 3 Apr 2026 22:35:06 +0200 writes:
+> >>
+> >>>>>>> I?aki Ucar
+> >>>>>>>   on Thu, 2 Apr 2026 22:12:55 +0200 writes:
+> >>
+> >>>> Dear Martin, Typically these Copr repositories use the
+> >>>> same spec, and therefore it is meant to replace the
+> >>>> default version, not to be installed along with it. I
+> >>>> would go with Jeroen's suggestion and use containers. I
+> >>>> would use podman instead (same commands as docker, same
+> >>>> experience, but it's rootless). Or, better yet, for the
+> >>>> smoothest experience, use toolbox:
+> >>>>
+> https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development
+> .
+> >>
+> >>>> Then you have two options: you can work with the default
+> >>>> version in your Fedora installation and then enter a
+> >>>> toolbox with a release that has the version you want, or
+> >>>> the other way around, you may have always the latest
+> >>>> snapshot from the Copr you suggested, and then use toolbox
+> >>>> to access particular default versions for particular
+> >>>> Fedora releases.  Whatever is more convenient for your
+> >>>> workflow.
+> >>
+> >>>> Best, I?aki
+> >>
+> >>> Thank you,  both Jeroen and I?aki, for your swift replies.
+> >>> Indeed, I have decided to use  podman  (it seems I do that every
+> >>> 2-3 years or so, and have to re-learn each time ... but I can
+> >>> work pretty quickly now, and indeed, this is the first time I
+> >>> use podman to run a "future" version of Fedora in Fedora.
+> >>
+> >>> Thank you once more  ... and happy Easter!
+> >>> Martin
+> >>
+> >>>> On Thu, 2 Apr 2026 at 20:12, Jeroen Ooms
+> >>>> <jeroenooms at gmail.com> wrote:
+> >>>>>
+> >>>>> I have no experience with copr, but note that Fedora 44
+> >>>>> and 45 include llvm-22
+> >>>>> <https://src.fedoraproject.org/rpms/llvm> so it may be
+> >>>>> easier to test in a container with these distros?  On any
+> >>>>> Linux machine you can run:
+> >>>>>
+> >>>>> docker run -it fedora:44
+> >>>>>
+> >>>>> And that will give you a shell in a fedora 44 container,
+> >>>>> where you can run:
+> >>>>>
+> >>>>> dnf install llvm R-devel
+> >>>>>
+> >>>>> And off you go...
+> >>>>>
+> >>>>>
+> >>>>>
+> >>>>> On Thu, Apr 2, 2026 at 5:39?PM Martin Maechler
+> >>>>> <maechler at stat.math.ethz.ch> wrote:
+> >>>>>>
+> >>>>>> Dear all, > as CRAN has recently started to use the
+> >>>>> LLVM 22 compiler suite > i.e., clang for C and C++ and
+> >>>>> flang ('flang-new' typically in > Fedora) for Fortran.
+> >>>>>>
+> >>>>>> Interestingly there has been problem insofar that the
+> >>>>> new > fortran compiler produced code which entails quite
+> >>>>> a bit of > changes in some stl() (base R 'stats'
+> >>>>> package).
+> >>>>>>
+> >>>>>> In order to investigate these (as R core member),
+> >>>>> working with > Fedora 42 (mostly) and Fedora 43 (on some
+> >>>>> machines I have easy > access to), > I've found that for
+> >>>>> Fedora 43 there are 'copr' snapshots > for LLVM 22
+> >>>>>>
+> >>>>>>
+> >>>>>
+> https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/
+> >>>>>>
+> >>>>>> Would anybody have experience with those or copr in
+> >>>>> general?  > As these are "snapshots" would they
+> >>>>> automatically update,
+> >>>>>>
+> >>>>>> Can I use these *in addition* to the regular compiler
+> >>>>> suite > (LLVM 21 on Fedora 43)?
+> >>>>>>
+> >>>>>> Thank you for some hints and pointers,
+> >>>>>>
+> >>>>>> Happy Easter and best regards, > Martin
+> >>>>>>
+> >>>>>> Martin Maechler > ETH Zurich and R Core team
+> >>>>>>
+> >>>>>> _______________________________________________ >
+> >>>>> R-SIG-Fedora mailing list > R-SIG-Fedora at r-project.org >
+> >>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >>>>>
+> >>>>> _______________________________________________
+> >>>>> R-SIG-Fedora mailing list R-SIG-Fedora at r-project.org
+> >>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >>>>>
+> >>
+> >>
+> >>>> --
+> >>>> I?aki ?car
+> >>
+> >> _______________________________________________
+> >> R-SIG-Fedora mailing list
+> >> R-SIG-Fedora at r-project.org
+> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+> >
+> > _______________________________________________
+> > R-SIG-Fedora mailing list
+> > R-SIG-Fedora at r-project.org
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+> _______________________________________________
+> R-SIG-Fedora mailing list
+> R-SIG-Fedora at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+>
+
+	[[alternative HTML version deleted]]
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Sat Apr 18 16:26:29 2026
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Sat, 18 Apr 2026 16:26:29 +0200
+Subject: [R-sig-Fedora] R-devel Fedora package not enough for R-core
+ checking: fonts
+In-Reply-To: <fake-VM-id.157c79e0356cc19b20d1704f84add2c2@talos.iv>
+References: <50404ED4-8150-4D57-96C9-3C9F41213698@hiddenelephants.co.uk>
+ <3B4A5E31-5251-4550-9BD1-A1E853C4CE6A@hiddenelephants.co.uk>
+ <CACp8ZrKAD1XizoyBZ0m79mTam0AVOUhk27wiVjwvqZVZDwyNOw@mail.gmail.com>
+Message-ID: <27107.38037.154146.121306@stat.math.ethz.ch>
+
+>>>>> Tom Callaway 
+>>>>>     on Sat, 18 Apr 2026 05:04:23 -0400 writes:
+
+    >> Long wailing made short:
+    >> I'd really like a meta package e.g. called R-devel-docs
+    >> which includes R-devel but also includes everything need to
+    >> build R completely... in the above sense.
+
+    > While I think I understand your need here, this is counter to the
+    > philosophy that Linux distributions traditionally have. The idea behind
+    > packaging software is that the binary packages are to enable a user to
+    > quickly consume, and optionally, develop against that software. A "-devel"
+    > package is intended to pull in the files and dependencies you need present
+    > to develop software for a particular component, not the component itself.
+
+Indeed, I "used to know this" ca. 10 years ago .. ;-)
+Thank you for explaining this,
+and also the following paragraph about SRPMs about which I only
+knew vaguely.
+
+    > The package spec file from the source package (SRPM) contains the list of
+    > "BuildRequires" that the package maintainer has determined are necessary to
+    > be present in order to build the source code of that software for
+    > distribution. This is a lot closer to what you want, but still may not be
+    > exactly the same choices, depending on which options the package maintainer
+    > has selected for the distribution build. Fedora has had yum/dnf
+    > repositories with all our source packages (the src.rpm s and their
+    > corresponding metadata) for a number of years now, which means if you want
+    > to install the all the specified BuildRequires for the R source package on
+    > a running Fedora system, you can just run:
+
+    > sudo dnf --enablerepo=fedora-source,updates-source builddep R
+
+    > (The builddep source command might automatically enable source repos, but
+    > better to be safe than sorry here. You can also point dnf at a spec file
+    > directly if you have one.)
+
+    > It's worth noting that this is the same advice that Tim sent earlier, but
+    > with more context.
+
+Indeed, already yesterday, I used Tom's suggestion (inside my
+fedora:44 container), i.e.,
+
+  dnf build-dep R
+
+which to my positive surprise *did* install another dozen (or 2
+dozen?) packages.
+
+Now, the above
+
+   dnf --enablerepo=fedora-source,updates-source builddep R
+
+looked at ~ 36 packages  for each of which it confirmed
+
+   Package "............." is already installed.
+
+So far so good.
+
+    > Linux distributions could make a lot of metapackages to cover this case
+    > (packages that just contain Requires and no actual files), but if done at
+    > scale, this would significantly increase the size of the metadata users
+    > would have to search/download for all package transactions. Plus, I suspect
+    > that the package maintainers would likely feel that the source package
+    > serves this purpose adequately enough.
+
+Indeed, I think having the           ` dnf builddep <pkg> `
+power (and not forgetting about it!)
+is sufficient, not only for me.
+
+    > I don't do as much maintenance on Fedora's R package these days as I used
+    > to (it's in better hands!) but if you think we're missing BuildRequires in
+    > how we build it and would like us to add some, please let us know here.
+
+Thank you, I hope I will get to do so.
+.. coming back to the above "so far so good":
+After installing the  builddep R // build-dep R
+packages, I reran  configure  and my several 'make' (not just
+'make R') on the R sources,
+and the "destasterous" problem I had sean earlier .. many many
+warnings about non present fonts (TM font metrics) was *still*
+present.
+However, this time, I saved stdout+stderr output into two files,
+one for configure,      file name `configure.out`,
+2nd for my 'Rmakemore'  (bash script running different 'make ...')
+which produced a `Rmakemore.out` file with the following `ls -l`:
+
+  -rw-r--r--  1 maechler <group> 219634112 17. Apr 23:17 Rmakemore.out
+or (MM at v-lynne:inst-podman-f44_sys_lapack$ )
+   wc Rmakemore.out 
+   4307787  38715447 219634112 Rmakemore.out
+
+i.e., 4.3 million lines of output.
+
+On my regular Fedora 42 "full desktop" environment, an analogous
+Rmakemore.out gives
+
+v-lynne:inst$ wc Rmakemore.out 
+ 1374  7534 80990 Rmakemore.out
+v-lynne:inst$ 
+
+Investigating the huge problematic Rmakemore.out :
+$ wc -l Rmakemore.out
+4307787 Rmakemore.out
+$ grep '^Missing character: There is no . in font nullfont!' Rmakemore.out | wc -l
+4295266
+$
+i.e., 99.7% of the output lines are like the above
+on missing one character (the '.' in the grep pattern) in
+"nullfont" ...
+
+Ok, it may all be from  (in the R build directory)
+
+    cd doc/manual
+    make pdf
+
+I see in the outputs that  Metafont is called there trying to
+create missing fonts -- *BUT* seeming to fail.
+There is a  missfont.log  file  in there, with
+
+  $ wc missfont.log
+   61 122 990 missfont.log
+
+i.e., 61 lines, *but* many of them repeating :
+
+  MM at v-lynne:manual$ sort missfont.log | uniq -c
+       10 mktextfm phvr8t
+       12 mktextfm ptmb8t
+	2 mktextfm ptmbc8t
+	3 mktextfm ptmbi8t
+	3 mktextfm ptmr8c
+       22 mktextfm ptmr8t
+	3 mktextfm ptmrc8t
+	3 mktextfm ptmri8t
+	3 mktextfm ptmro8t
+  MM at v-lynne:manual$ 
+
+i.e., it (metafont) tries 22 times to build the ptmr8t  font
+
+What package could this be missing?
+
+Martin
+
+
+    > Thanks,
+    > Tom "spot" Callaway
+
+
+    > On Fri, Apr 17, 2026, 4:03?PM Tim Taylor <tim.taylor at hiddenelephants.co.uk>
+    > wrote:
+
+    >> Apologies for the noise and unhelpful answer. I should have read your
+    >> message more carefully.
+    >> 
+    >> Tim
+    >> 
+    >> > On 17 Apr 2026, at 20:53, Tim Taylor <tim.taylor at hiddenelephants.co.uk>
+    >> wrote:
+    >> >
+    >> > ?Hi Martin
+    >> >
+    >> > My normal approach is to pull in the build deps for R with:
+    >> >
+    >> > sudo dnf build-dep R
+    >> >
+    >> > Tim
+    >> >> On 17 Apr 2026, at 16:25, Martin Maechler <maechler at stat.math.ethz.ch>
+    >> wrote:
+    >> >>
+    >> >> ?I have been grateful for your advise to use podman in order to
+    >> >> use Fedora 44 *and* clang/flang compilers 22.
+    >> >>
+    >> >> see e.g.,
+    >> https://stat.ethz.ch/pipermail/r-sig-fedora/2026-April/000921.html
+    >> >>
+    >> >> I'm again using it  ... and as R core developer, I do want run
+    >> >>   make check-devel
+    >> >> after install R from the sources.
+    >> >> For that the advice
+    >> >>
+    >> >>> dnf install llvm R-devel
+    >> >>>
+    >> >>> And off you go...
+    >> >>
+    >> >> has not been complete reall, I also needed a few more packages,
+    >> >> partly because I'm Martin (e.g. 'emacs') but also to really get
+    >> >> an almost complete build of R ---- ok, I'm happy going with --with-x=no
+    >> >> to save space and time, and I do like pdf graphics when needed.
+    >> >>
+    >> >> Hence, my 'dfn install ..' now is
+    >> >>
+    >> >>    dnf install llvm flang clang R-devel emacs subversion readline-devel
+    >> lapack-devel curl-devel lsb_release procs less
+    >> >>
+    >> >> But a
+    >> >>   make check-devel
+    >> >>   make manuals
+    >> >> etc still ends in 100000's of error message lines about missing /
+    >> substituting
+    >> >> fonts ... when pdflatex'ing.
+    >> >>
+    >> >> and indeed, checking packages does also check if the manuals can
+    >> >> be built... and again checks give ERRORs and even more WARNINGs, e.g.
+    >> >>
+    >> >> * checking PDF version of manual ... WARNING
+    >> >> LaTeX errors when creating PDF version.
+    >> >> This typically indicates Rd problems.
+    >> >> LaTeX errors found:
+    >> >> ! Font T1/ptm/m/n/10=ptmr8t at 10.0pt not loadable: Metric (TFM) file
+    >> not found
+    >> >> .
+    >> >> <to be read again>
+    >> >>            relax
+    >> >> l.8 \begin{document}
+    >> >> ! Font T1/ptm/m/n/24.88=ptmr8t at 24.88pt not loadable: Metric (TFM)
+    >> file not found.
+    >> >> <to be read again>
+    >> >>
+    >> >> Also some of the checks Rd2*()  do not run successfully, as they
+    >> >> also don't find fonts or similar.
+    >> >>
+    >> >> Currently (still building) I see inside R's build directory ./tests/,
+    >> >> searching for \*Rout.fail :
+    >> >>
+    >> >> ./utils.Rcheck/tests/Sweave-tst.Rout.fail
+    >> >> ./tools.Rcheck/tests/Rd2pdf.Rout.fail
+    >> >> ./grDevices.Rcheck/tests/saved-recordPlot.Rout.fail
+    >> >> ./reg-plot-latin1.Rout.fail
+    >> >>
+    >> >> --------------------------------------
+    >> >>
+    >> >> Long wailing made short:
+    >> >> I'd really like a meta package  e.g. called   R-devel-docs
+    >> >> which includes R-devel but also includes everything need to
+    >> >> build R completely... in the above sense.
+    >> >>
+    >> >> For now, of course, I'd be happy to get hints about fedora
+    >> >> packages that I can just   dnf <pkg>  and which provide the few
+    >> >> missing things
+    >> >> (Yes, I saw a  latex*extras package of  3 GB size ... which I
+    >> >> rather *not* want).
+    >> >>
+    >> >> Martin
+    >> >>
+    >> >>
+    >> >>>>>>> Martin Maechler
+    >> >>>>>>>   on Fri, 3 Apr 2026 22:35:06 +0200 writes:
+    >> >>
+    >> >>>>>>> I?aki Ucar
+    >> >>>>>>>   on Thu, 2 Apr 2026 22:12:55 +0200 writes:
+    >> >>
+    >> >>>> Dear Martin, Typically these Copr repositories use the
+    >> >>>> same spec, and therefore it is meant to replace the
+    >> >>>> default version, not to be installed along with it. I
+    >> >>>> would go with Jeroen's suggestion and use containers. I
+    >> >>>> would use podman instead (same commands as docker, same
+    >> >>>> experience, but it's rootless). Or, better yet, for the
+    >> >>>> smoothest experience, use toolbox:
+    >> >>>>
+    >> https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development
+    >> .
+    >> >>
+    >> >>>> Then you have two options: you can work with the default
+    >> >>>> version in your Fedora installation and then enter a
+    >> >>>> toolbox with a release that has the version you want, or
+    >> >>>> the other way around, you may have always the latest
+    >> >>>> snapshot from the Copr you suggested, and then use toolbox
+    >> >>>> to access particular default versions for particular
+    >> >>>> Fedora releases.  Whatever is more convenient for your
+    >> >>>> workflow.
+    >> >>
+    >> >>>> Best, I?aki
+    >> >>
+    >> >>> Thank you,  both Jeroen and I?aki, for your swift replies.
+    >> >>> Indeed, I have decided to use  podman  (it seems I do that every
+    >> >>> 2-3 years or so, and have to re-learn each time ... but I can
+    >> >>> work pretty quickly now, and indeed, this is the first time I
+    >> >>> use podman to run a "future" version of Fedora in Fedora.
+    >> >>
+    >> >>> Thank you once more  ... and happy Easter!
+    >> >>> Martin
+    >> >>
+    >> >>>> On Thu, 2 Apr 2026 at 20:12, Jeroen Ooms
+    >> >>>> <jeroenooms at gmail.com> wrote:
+    >> >>>>>
+    >> >>>>> I have no experience with copr, but note that Fedora 44
+    >> >>>>> and 45 include llvm-22
+    >> >>>>> <https://src.fedoraproject.org/rpms/llvm> so it may be
+    >> >>>>> easier to test in a container with these distros?  On any
+    >> >>>>> Linux machine you can run:
+    >> >>>>>
+    >> >>>>> docker run -it fedora:44
+    >> >>>>>
+    >> >>>>> And that will give you a shell in a fedora 44 container,
+    >> >>>>> where you can run:
+    >> >>>>>
+    >> >>>>> dnf install llvm R-devel
+    >> >>>>>
+    >> >>>>> And off you go...
+    >> >>>>>
+    >> >>>>>
+    >> >>>>>
+    >> >>>>> On Thu, Apr 2, 2026 at 5:39?PM Martin Maechler
+    >> >>>>> <maechler at stat.math.ethz.ch> wrote:
+    >> >>>>>>
+    >> >>>>>> Dear all, > as CRAN has recently started to use the
+    >> >>>>> LLVM 22 compiler suite > i.e., clang for C and C++ and
+    >> >>>>> flang ('flang-new' typically in > Fedora) for Fortran.
+    >> >>>>>>
+    >> >>>>>> Interestingly there has been problem insofar that the
+    >> >>>>> new > fortran compiler produced code which entails quite
+    >> >>>>> a bit of > changes in some stl() (base R 'stats'
+    >> >>>>> package).
+    >> >>>>>>
+    >> >>>>>> In order to investigate these (as R core member),
+    >> >>>>> working with > Fedora 42 (mostly) and Fedora 43 (on some
+    >> >>>>> machines I have easy > access to), > I've found that for
+    >> >>>>> Fedora 43 there are 'copr' snapshots > for LLVM 22
+    >> >>>>>>
+    >> >>>>>>
+    >> >>>>>
+    >> https://copr.fedorainfracloud.org/coprs/g/fedora-llvm-team/llvm-snapshots/
+    >> >>>>>>
+    >> >>>>>> Would anybody have experience with those or copr in
+    >> >>>>> general?  > As these are "snapshots" would they
+    >> >>>>> automatically update,
+    >> >>>>>>
+    >> >>>>>> Can I use these *in addition* to the regular compiler
+    >> >>>>> suite > (LLVM 21 on Fedora 43)?
+    >> >>>>>>
+    >> >>>>>> Thank you for some hints and pointers,
+    >> >>>>>>
+    >> >>>>>> Happy Easter and best regards, > Martin
+    >> >>>>>>
+    >> >>>>>> Martin Maechler > ETH Zurich and R Core team
+    >> >>>>>>
+    >> >>>>>> _______________________________________________ >
+    >> >>>>> R-SIG-Fedora mailing list > R-SIG-Fedora at r-project.org >
+    >> >>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+    >> >>>>>
+    >> >>>>> _______________________________________________
+    >> >>>>> R-SIG-Fedora mailing list R-SIG-Fedora at r-project.org
+    >> >>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+    >> >>>>>
+    >> >>
+    >> >>
+    >> >>>> --
+    >> >>>> I?aki ?car
+    >> >>
+    >> >> _______________________________________________
+    >> >> R-SIG-Fedora mailing list
+    >> >> R-SIG-Fedora at r-project.org
+    >> >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+    >> >
+    >> > _______________________________________________
+    >> > R-SIG-Fedora mailing list
+    >> > R-SIG-Fedora at r-project.org
+    >> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+    >> 
+    >> _______________________________________________
+    >> R-SIG-Fedora mailing list
+    >> R-SIG-Fedora at r-project.org
+    >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+    >> 
+
+    > [[alternative HTML version deleted]]
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Sat Apr 18 17:18:05 2026
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Sat, 18 Apr 2026 17:18:05 +0200
+Subject: [R-sig-Fedora] R-devel Fedora package not enough for R-core
+ checking: fonts
+In-Reply-To: <fake-VM-id.d5abe563d789376ee38513ef94aa7a15@talos.iv>
+References: <50404ED4-8150-4D57-96C9-3C9F41213698@hiddenelephants.co.uk>
+ <3B4A5E31-5251-4550-9BD1-A1E853C4CE6A@hiddenelephants.co.uk>
+ <CACp8ZrKAD1XizoyBZ0m79mTam0AVOUhk27wiVjwvqZVZDwyNOw@mail.gmail.com>
+ <27107.38037.154146.121306@stat.math.ethz.ch>
+Message-ID: <27107.41133.253434.859829@stat.math.ethz.ch>
+
+>>>>> Martin Maechler 
+>>>>>     on Sat, 18 Apr 2026 16:26:29 +0200 writes:
+
+  >>>>> Tom Callaway 
+  >>>>>     on Sat, 18 Apr 2026 05:04:23 -0400 writes:
+
+  [ .................. ]
+
+    > Indeed, already yesterday, I used Tom's suggestion (inside my
+    > fedora:44 container), i.e.,
+
+    > dnf build-dep R
+
+    > which to my positive surprise *did* install another dozen (or 2
+    > dozen?) packages.
+
+    > Now, the above
+
+    > dnf --enablerepo=fedora-source,updates-source builddep R
+
+    > looked at ~ 36 packages  for each of which it confirmed
+
+    > Package "............." is already installed.
+
+    > So far so good.
+
+
+    > Indeed, I think having the           ` dnf builddep <pkg> `
+    > power (and not forgetting about it!)
+    > is sufficient, not only for me.
+
+    >> I don't do as much maintenance on Fedora's R package these days as I used
+    >> to (it's in better hands!) but if you think we're missing BuildRequires in
+    >> how we build it and would like us to add some, please let us know here.
+
+    > Thank you, I hope I will get to do so.
+    > .. coming back to the above "so far so good":
+    > After installing the  builddep R // build-dep R
+    > packages, I reran  configure  and my several 'make' (not just
+    > 'make R') on the R sources,
+    > and the "destasterous" problem I had sean earlier .. many many
+    > warnings about non present fonts (TM font metrics) was *still*
+    > present.
+    > However, this time, I saved stdout+stderr output into two files,
+    > one for configure,      file name `configure.out`,
+    > 2nd for my 'Rmakemore'  (bash script running different 'make ...')
+    > which produced a `Rmakemore.out` file with the following `ls -l`:
+
+    > -rw-r--r--  1 maechler <group> 219634112 17. Apr 23:17 Rmakemore.out
+    > or (MM at v-lynne:inst-podman-f44_sys_lapack$ )
+    > wc Rmakemore.out 
+    > 4307787  38715447 219634112 Rmakemore.out
+
+    > i.e., 4.3 million lines of output.
+
+    > On my regular Fedora 42 "full desktop" environment, an analogous
+    > Rmakemore.out gives
+
+    > v-lynne:inst$ wc Rmakemore.out 
+    > 1374  7534 80990 Rmakemore.out
+    > v-lynne:inst$ 
+
+    > Investigating the huge problematic Rmakemore.out :
+    > $ wc -l Rmakemore.out
+    > 4307787 Rmakemore.out
+    > $ grep '^Missing character: There is no . in font nullfont!' Rmakemore.out | wc -l
+    > 4295266
+    > $
+    > i.e., 99.7% of the output lines are like the above
+    > on missing one character (the '.' in the grep pattern) in
+    > "nullfont" ...
+
+    > Ok, it may all be from  (in the R build directory)
+
+    > cd doc/manual
+    > make pdf
+
+    > I see in the outputs that  Metafont is called there trying to
+    > create missing fonts -- *BUT* seeming to fail.
+    > There is a  missfont.log  file  in there, with
+
+    > $ wc missfont.log
+    > 61 122 990 missfont.log
+
+    > i.e., 61 lines, *but* many of them repeating :
+
+    > MM at v-lynne:manual$ sort missfont.log | uniq -c
+    > 10 mktextfm phvr8t
+    > 12 mktextfm ptmb8t
+    > 2 mktextfm ptmbc8t
+    > 3 mktextfm ptmbi8t
+    > 3 mktextfm ptmr8c
+    > 22 mktextfm ptmr8t
+    > 3 mktextfm ptmrc8t
+    > 3 mktextfm ptmri8t
+    > 3 mktextfm ptmro8t
+    > MM at v-lynne:manual$ 
+
+    > i.e., it (metafont) tries 22 times to build the ptmr8t  font
+
+    > What package could this be missing?
+
+    > Martin
+
+Further info:
+
+the above metafont calls etc are really "only" from
+
+	cd doc/manual
+	make pdf
+
+*However*, already the "simple"
+
+	make check-devel
+
+runs (among quite a few other checks) also (the analogue of) 
+'R CMD check <pkg>'  for all base packages,
+and this already gives an ERROR for all them due to latex / font / ... problems.
+
+Being able to run   `make check-devel`
+is considered a minimum for an R developer setup of R.
+
+Martin
+
+I append the "R CMD check base" part from the output of
+  make check-devel :
+
+-------------------------
+checking package 'base'
+* using log directory '/u/maechler/R/D/devel-ver/rd-clean-clang22/inst-podman-f44_sys_lapack/tests/base.Rcheck'
+* using R Under development (unstable) (2026-04-16 r89906)
+* using platform: x86_64-pc-linux-gnu
+* R was compiled by
+    clang version 22.1.1 (Fedora 22.1.1-2.fc44)
+    flang version 22.1.1 (Fedora 22.1.1-2.fc44)
+* running under: Fedora Linux 44 (Container Image)
+* using session charset: ASCII
+* current time: 2026-04-18 14:42:47 UTC
+* using option '--no-build-vignettes'
+* looks like 'base' is a base package
+* skipping installation test
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd cross-references ... INFO
+Packages unavailable to check Rd xrefs: 'round', 'date', 'chron'
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking examples ... SKIPPED
+* checking PDF version of manual ... WARNING
+LaTeX errors when creating PDF version.
+This typically indicates Rd problems.
+LaTeX errors found:
+! Font T1/ptm/m/n/10=ptmr8t at 10.0pt not loadable: Metric (TFM) file not found
+.
+<to be read again> 
+                   relax 
+l.6 \begin{document}
+! Font T1/ptm/m/n/24.88=ptmr8t at 24.88pt not loadable: Metric (TFM) file not f
+ound.
+<to be read again> 
+                   relax 
+l.7 \chapter*{}
+! Font T1/ptm/b/n/24.88=ptmb8t at 24.88pt not loadable: Metric (TFM) file not f
+ound.
+<to be read again> 
+                   relax 
+l.7 \chapter*{}
+! Font T1/ptm/b/n/10=ptmb8t at 10.0pt not loadable: Metric (TFM) file not found
+.
+<to be read again> 
+                   relax 
+l.9 {\textbf{\huge Package `base'}
+! Font T1/ptm/b/n/20.74=ptmb8t at 20.74pt not loadable: Metric (TFM) file not f
+ound.
+<to be read again> 
+                   relax 
+l.9 {\textbf{\huge Package `base'}
+! Font T1/ptm/m/n/12=ptmr8t at 12.0pt not loadable: Metric (TFM) file not found
+.
+<to be read again> 
+                   relax 
+l.10 \par\bigskip{\large
+! Font T1/ptm/m/n/14.4=ptmr8t at 14.4pt not loadable: Metric (TFM) file not fou
+nd.
+<to be read again> 
+                   relax 
+l.1 ...sline {subsection}{base-package}{1}{page.1}
+! Font T1/ptm/b/n/14.4=ptmb8t at 14.4pt not loadable: Metric (TFM) file not fou
+nd.
+<to be read again> 
+                   relax 
+l.1 ...sline {subsection}{base-package}{1}{page.1}
+! Font T1/ptm/m/sl/10=ptmro8t at 10.0pt not loadable: Metric (TFM) file not fou
+nd.
+<to be read again> 
+                   relax 
+l.80 ...entsline {subsection}{cumsum}{96}{page.96}
+! Font T1/ptm/m/it/10=ptmri8t at 10.0pt not loadable: Metric (TFM) file not fou
+nd.
+<to be read again> 
+                   relax 
+l.28 ...e}{The R Base Package}{base.Rdash.package}
+! Font T1/phv/m/n/10=phvr8t at 10.0pt not loadable: Metric (TFM) file not found
+.
+<to be read again> 
+                   relax 
+l.37 ... contains the basic functions which let \R
+! Font T1/ptm/m/n/9=ptmr8t at 9.0pt not loadable: Metric (TFM) file not found.
+<to be read again> 
+                   relax 
+l.95 \begin{ExampleCode}
+                        
+! Font TS1/ptm/m/n/10=ptmr8c at 10.0pt not loadable: Metric (TFM) file not foun
+d.
+<to be read again> 
+                   relax 
+l.387 \item{
+! Font T1/ptm/b/it/10=ptmbi8t at 10.0pt not loadable: Metric (TFM) file not fou
+nd.
+<to be read again> 
+                   relax 
+l.3555 ...of-range \emph{vs} ``Balanced'' POSIXlt}
+! Font T1/ptm/m/sc/10=ptmrc8t at 10.0pt not loadable: Metric (TFM) file not fou
+nd.
+<to be read again> 
+                   relax 
+l.5018 ...iteration of the debugger \acronym{REPL}
+! Font T1/ptm/m/n/7=ptmr8t at 7.0pt not loadable: Metric (TFM) file not found.
+<to be read again> 
+                   relax 
+l.39695     \frac{\Gamma'(x)}{\Gamma(x)}}{}
+                                           
+! Font T1/ptm/m/n/5=ptmr8t at 5.0pt not loadable: Metric (TFM) file not found.
+<to be read again> 
+                   relax 
+l.39695     \frac{\Gamma'(x)}{\Gamma(x)}}{}
+                                           
+* checking PDF version of manual without index ... ERROR
+* DONE
+
+Status: 1 ERROR, 1 WARNING
+See
+  '/u/maechler/R/D/devel-ver/rd-clean-clang22/inst-podman-f44_sys_lapack/tests/base.Rcheck/00check.log'
+for details.
+
+
