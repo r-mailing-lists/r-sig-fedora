@@ -2131,3 +2131,259 @@ wrote:
 	[[alternative HTML version deleted]]
 
 
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Tue Apr 21 15:21:21 2026
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Tue, 21 Apr 2026 15:21:21 +0200
+Subject: [R-sig-Fedora] R-devel Fedora package not enough for R-core
+ checking: fonts
+In-Reply-To: <CACp8ZrLao-GgWYUS4gwJSPmknE-JEhJx7E2FOH5Ov16VchKqmQ@mail.gmail.com>
+References: <50404ED4-8150-4D57-96C9-3C9F41213698@hiddenelephants.co.uk>
+ <3B4A5E31-5251-4550-9BD1-A1E853C4CE6A@hiddenelephants.co.uk>
+ <CACp8ZrKAD1XizoyBZ0m79mTam0AVOUhk27wiVjwvqZVZDwyNOw@mail.gmail.com>
+ <27107.38037.154146.121306@stat.math.ethz.ch>
+ <fake-VM-id.d5abe563d789376ee38513ef94aa7a15@talos.iv>
+ <27107.41133.253434.859829@stat.math.ethz.ch>
+ <CACp8ZrLao-GgWYUS4gwJSPmknE-JEhJx7E2FOH5Ov16VchKqmQ@mail.gmail.com>
+Message-ID: <27111.31185.339159.946670@stat.math.ethz.ch>
+
+>>>>> Tom Callaway 
+>>>>>     on Mon, 20 Apr 2026 10:05:28 -0400 writes:
+
+    > Good catch. I've added these tex font BuildRequires in
+    > R-4.5.3-2 (in Rawhide).
+
+    > For your immediate needs, this will install the missing
+    > fonts:
+
+    > dnf install texlive-times texlive-helvetica
+
+    > Thanks, ~spot
+
+Excellent, thanks a lot, Tom !
+
+(Note that the 2nd package must be  texlive-helvetic ,
+ i.e., without a trailing "a" (which would be the correct font
+ name, but is not the correct fedora/RH pkg name).
+
+Martin
+
+
+
+    > On Sat, Apr 18, 2026 at 11:18?AM Martin Maechler
+    > <maechler at stat.math.ethz.ch> wrote:
+
+    >> >>>>> Martin Maechler >>>>> on Sat, 18 Apr 2026 16:26:29
+    >> +0200 writes:
+    >> 
+    >> >>>>> Tom Callaway >>>>> on Sat, 18 Apr 2026 05:04:23
+    >> -0400 writes:
+    >> 
+    >> [ .................. ]
+    >> 
+    >> > Indeed, already yesterday, I used Tom's suggestion
+    >> (inside my > fedora:44 container), i.e.,
+    >> 
+    >> > dnf build-dep R
+    >> 
+    >> > which to my positive surprise *did* install another
+    >> dozen (or 2 > dozen?) packages.
+    >> 
+    >> > Now, the above
+    >> 
+    >> > dnf --enablerepo=fedora-source,updates-source builddep
+    >> R
+    >> 
+    >> > looked at ~ 36 packages for each of which it confirmed
+    >> 
+    >> > Package "............." is already installed.
+    >> 
+    >> > So far so good.
+    >> 
+    >> 
+    >> > Indeed, I think having the ` dnf builddep <pkg> ` >
+    >> power (and not forgetting about it!)  > is sufficient,
+    >> not only for me.
+    >> 
+    >> >> I don't do as much maintenance on Fedora's R package
+    >> these days as I used >> to (it's in better hands!) but if
+    >> you think we're missing BuildRequires in >> how we build
+    >> it and would like us to add some, please let us know
+    >> here.
+    >> 
+    >> > Thank you, I hope I will get to do so.  > .. coming
+    >> back to the above "so far so good": > After installing
+    >> the builddep R // build-dep R > packages, I reran
+    >> configure and my several 'make' (not just > 'make R') on
+    >> the R sources, > and the "destasterous" problem I had
+    >> sean earlier .. many many > warnings about non present
+    >> fonts (TM font metrics) was *still* > present.  >
+    >> However, this time, I saved stdout+stderr output into two
+    >> files, > one for configure, file name `configure.out`, >
+    >> 2nd for my 'Rmakemore' (bash script running different
+    >> 'make ...')  > which produced a `Rmakemore.out` file with
+    >> the following `ls -l`:
+    >> 
+    >> > -rw-r--r-- 1 maechler <group> 219634112 17. Apr 23:17
+    >> Rmakemore.out > or
+    >> (MM at v-lynne:inst-podman-f44_sys_lapack$ ) > wc
+    >> Rmakemore.out > 4307787 38715447 219634112 Rmakemore.out
+    >> 
+    >> > i.e., 4.3 million lines of output.
+    >> 
+    >> > On my regular Fedora 42 "full desktop" environment, an
+    >> analogous > Rmakemore.out gives
+    >> 
+    >> > v-lynne:inst$ wc Rmakemore.out > 1374 7534 80990
+    >> Rmakemore.out > v-lynne:inst$
+    >> 
+    >> > Investigating the huge problematic Rmakemore.out : > $
+    >> wc -l Rmakemore.out > 4307787 Rmakemore.out > $ grep
+    >> '^Missing character: There is no . in font nullfont!'
+    >> Rmakemore.out | wc -l > 4295266 > $ > i.e., 99.7% of the
+    >> output lines are like the above > on missing one
+    >> character (the '.' in the grep pattern) in > "nullfont"
+    >> ...
+    >> 
+    >> > Ok, it may all be from (in the R build directory)
+    >> 
+    >> > cd doc/manual > make pdf
+    >> 
+    >> > I see in the outputs that Metafont is called there
+    >> trying to > create missing fonts -- *BUT* seeming to
+    >> fail.  > There is a missfont.log file in there, with
+    >> 
+    >> > $ wc missfont.log > 61 122 990 missfont.log
+    >> 
+    >> > i.e., 61 lines, *but* many of them repeating :
+    >> 
+    >> > MM at v-lynne:manual$ sort missfont.log | uniq -c > 10
+    >> mktextfm phvr8t > 12 mktextfm ptmb8t > 2 mktextfm ptmbc8t
+    >> > 3 mktextfm ptmbi8t > 3 mktextfm ptmr8c > 22 mktextfm
+    >> ptmr8t > 3 mktextfm ptmrc8t > 3 mktextfm ptmri8t > 3
+    >> mktextfm ptmro8t > MM at v-lynne:manual$
+    >> 
+    >> > i.e., it (metafont) tries 22 times to build the ptmr8t
+    >> font
+    >> 
+    >> > What package could this be missing?
+    >> 
+    >> > Martin
+    >> 
+    >> Further info:
+    >> 
+    >> the above metafont calls etc are really "only" from
+    >> 
+    >> cd doc/manual make pdf
+    >> 
+    >> *However*, already the "simple"
+    >> 
+    >> make check-devel
+    >> 
+    >> runs (among quite a few other checks) also (the analogue
+    >> of) 'R CMD check <pkg>' for all base packages, and this
+    >> already gives an ERROR for all them due to latex / font /
+    >> ...  problems.
+    >> 
+    >> Being able to run `make check-devel` is considered a
+    >> minimum for an R developer setup of R.
+    >> 
+    >> Martin
+    >> 
+    >> I append the "R CMD check base" part from the output of
+    >> make check-devel :
+    >> 
+    >> -------------------------
+    >> checking package 'base' * using log directory
+    >> '/u/maechler/R/D/devel-ver/rd-clean-clang22/inst-podman-f44_sys_lapack/tests/base.Rcheck'
+    >> * using R Under development (unstable) (2026-04-16
+    >> r89906) * using platform: x86_64-pc-linux-gnu * R was
+    >> compiled by clang version 22.1.1 (Fedora 22.1.1-2.fc44)
+    >> flang version 22.1.1 (Fedora 22.1.1-2.fc44) * running
+    >> under: Fedora Linux 44 (Container Image) * using session
+    >> charset: ASCII * current time: 2026-04-18 14:42:47 UTC *
+    >> using option '--no-build-vignettes' * looks like 'base'
+    >> is a base package * skipping installation test * checking
+    >> package directory ... OK * checking DESCRIPTION
+    >> meta-information ... OK * checking top-level files ... OK
+    >> * checking for left-over files ... OK * checking index
+    >> information ... OK * checking package subdirectories
+    >> ... OK * checking dependencies in R code ... OK *
+    >> checking S3 generic/method consistency ... OK * checking
+    >> replacement functions ... OK * checking foreign function
+    >> calls ... OK * checking R code for possible problems
+    >> ... OK * checking Rd files ... OK * checking Rd metadata
+    >> ... OK * checking Rd cross-references ... INFO Packages
+    >> unavailable to check Rd xrefs: 'round', 'date', 'chron' *
+    >> checking for missing documentation entries ... OK *
+    >> checking for code/documentation mismatches ... OK *
+    >> checking Rd \usage sections ... OK * checking Rd contents
+    >> ... OK * checking examples ... SKIPPED * checking PDF
+    >> version of manual ... WARNING LaTeX errors when creating
+    >> PDF version.  This typically indicates Rd problems.
+    >> LaTeX errors found: ! Font T1/ptm/m/n/10=ptmr8t at 10.0pt
+    >> not loadable: Metric (TFM) file not found .  <to be read
+    >> again> relax l.6 \begin{document} ! Font
+    >> T1/ptm/m/n/24.88=ptmr8t at 24.88pt not loadable: Metric
+    >> (TFM) file not f ound.  <to be read again> relax l.7
+    >> \chapter*{} ! Font T1/ptm/b/n/24.88=ptmb8t at 24.88pt not
+    >> loadable: Metric (TFM) file not f ound.  <to be read
+    >> again> relax l.7 \chapter*{} ! Font T1/ptm/b/n/10=ptmb8t
+    >> at 10.0pt not loadable: Metric (TFM) file not found .
+    >> <to be read again> relax l.9 {\textbf{\huge Package
+    >> `base'} ! Font T1/ptm/b/n/20.74=ptmb8t at 20.74pt not
+    >> loadable: Metric (TFM) file not f ound.  <to be read
+    >> again> relax l.9 {\textbf{\huge Package `base'} ! Font
+    >> T1/ptm/m/n/12=ptmr8t at 12.0pt not loadable: Metric (TFM)
+    >> file not found .  <to be read again> relax l.10
+    >> \par\bigskip{\large ! Font T1/ptm/m/n/14.4=ptmr8t at
+    >> 14.4pt not loadable: Metric (TFM) file not fou nd.  <to
+    >> be read again> relax l.1 ...sline
+    >> {subsection}{base-package}{1}{page.1} ! Font
+    >> T1/ptm/b/n/14.4=ptmb8t at 14.4pt not loadable: Metric
+    >> (TFM) file not fou nd.  <to be read again> relax l.1
+    >> ...sline {subsection}{base-package}{1}{page.1} ! Font
+    >> T1/ptm/m/sl/10=ptmro8t at 10.0pt not loadable: Metric
+    >> (TFM) file not fou nd.  <to be read again> relax l.80
+    >> ...entsline {subsection}{cumsum}{96}{page.96} ! Font
+    >> T1/ptm/m/it/10=ptmri8t at 10.0pt not loadable: Metric
+    >> (TFM) file not fou nd.  <to be read again> relax l.28
+    >> ...e}{The R Base Package}{base.Rdash.package} ! Font
+    >> T1/phv/m/n/10=phvr8t at 10.0pt not loadable: Metric (TFM)
+    >> file not found .  <to be read again> relax l.37
+    >> ... contains the basic functions which let \R ! Font
+    >> T1/ptm/m/n/9=ptmr8t at 9.0pt not loadable: Metric (TFM)
+    >> file not found.  <to be read again> relax l.95
+    >> \begin{ExampleCode}
+    >> 
+    >> ! Font TS1/ptm/m/n/10=ptmr8c at 10.0pt not loadable:
+    >> Metric (TFM) file not foun d.  <to be read again> relax
+    >> l.387 \item{ ! Font T1/ptm/b/it/10=ptmbi8t at 10.0pt not
+    >> loadable: Metric (TFM) file not fou nd.  <to be read
+    >> again> relax l.3555 ...of-range \emph{vs} ``Balanced''
+    >> POSIXlt} ! Font T1/ptm/m/sc/10=ptmrc8t at 10.0pt not
+    >> loadable: Metric (TFM) file not fou nd.  <to be read
+    >> again> relax l.5018 ...iteration of the debugger
+    >> \acronym{REPL} ! Font T1/ptm/m/n/7=ptmr8t at 7.0pt not
+    >> loadable: Metric (TFM) file not found.  <to be read
+    >> again> relax l.39695 \frac{\Gamma'(x)}{\Gamma(x)}}{}
+    >> 
+    >> ! Font T1/ptm/m/n/5=ptmr8t at 5.0pt not loadable: Metric
+    >> (TFM) file not found.  <to be read again> relax l.39695
+    >> \frac{\Gamma'(x)}{\Gamma(x)}}{}
+    >> 
+    >> * checking PDF version of manual without index ... ERROR
+    >> * DONE
+    >> 
+    >> Status: 1 ERROR, 1 WARNING See
+    >> 
+    >> '/u/maechler/R/D/devel-ver/rd-clean-clang22/inst-podman-f44_sys_lapack/tests/base.Rcheck/00check.log'
+    >> for details.
+    >> 
+    >> _______________________________________________
+    >> R-SIG-Fedora mailing list R-SIG-Fedora at r-project.org
+    >> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora
+    >> 
+
+    > 	[[alternative HTML version deleted]]
+
+
