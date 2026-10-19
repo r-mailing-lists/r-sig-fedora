@@ -13,11 +13,14 @@
       "subject_clean": "Centos / Fedora rpm - issue with openblas",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140616/63724677/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140616/63724677/attachment.pl>",
+      "body_plain": "I’ve installed R 3.1 with the latest Fedora rpm (R-3.1.0-5.el6.x86_64.rpm) and I run into some issues with openblas.\n\nI’ve documented this with an open question on stack overflow here:\nhttp://stackoverflow.com/questions/24158372/openblas-r-3-1-and-fedora-centos-dist\n\nBasically before 3.1 I had 3.02 and I was able to install and use openblas following the instruction from official CRAN documentation, symlinking the openblas library instead of the “official” one, with a significant improvement in performance.\n\nNow I do not know how to dynamic-link the openblas libraries anymore, as it seems that either the address of the standard libs is changed, or the working of the libraries has changed.\n\nCould somebody be so kind to shed some light?\n\nMany thanks in advance!\n\nEnzo Martoglio\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I’ve installed R 3.1 with the latest Fedora rpm (R-3.1.0-5.el6.x86_64.rpm) and I run into some issues with openblas.\n\nI’ve documented this with an open question on stack overflow here:\nhttp://stackove",
       "thread_id": "thread-a6555504462a",
       "thread_depth": 0,
-      "month": "2014-06"
+      "month": "2014-06",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140616/63724677/attachment.pl"
+      ]
     },
     {
       "id": "msg-4d4ff30afc5d",

@@ -13,11 +13,14 @@
       "subject_clean": "trouble installing gtools package in local directory",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090903/69057816/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090903/69057816/attachment.pl>",
+      "body_plain": "Hello,\nI've recently transitioned to using R in Linux. My OS/installation versions\nare:\n$ Red Hat Enterprise Linux AS release 4 (Nahant Update 6)\n$ Linux lx-chgmqsd05 2.6.9-67.0.1.ELsmp #1 SMP Fri Nov 30 11:57:43 EST 2007\nx86_64 x86_64 x86_64 GNU/Linux\n\nI am trying to create a repository of packages under ~/R/library which I've\ncreated since I do not have admin access on my system. From my research on\nthe web, this is the standard way of installing and using packages from CRAN\nin linux. I am ultimately trying to install the package \"gplots\" which\ndepends on \"gtools\". I have tried to install gtools using both of the 2 ways\nI know:\n\ni) Download gtools_2.6.1.tar.gz from CRAN and then running \"R CMD INSTALL\ngtools_2.6.1.tar.gz\"\nii) install.packages(\"gtools\",lib=\"~/R/library\") directly at the R prompt\n\nI get the same result with both and not sure what I'm missing here. I have a\nslight suspicion that I don't have R_LIBS or R_HOME set correctly but I've\nmessed around with those, to no avail. I'm including the result of\nattempting the install below. Any help?\n\n$ R CMD INSTALL gtools_2.6.1.tar.gz\nWARNING: ignoring environment value of R_HOME\n* Installing to library '/home/ssaeed/R/library/'\n* Installing *source* package 'gtools' ...\n** libs\ngcc -std=gnu99 -I/tp64/r-project/2.9.0/lib64/R/include  -I/usr/local/include\n   -fpic  -O2 -m64 -march=nocona -mmmx -msse -msse2 -msse3 -c\nsetTCPNoDelay.c -o setTCPNoDelay.o\ngcc -std=gnu99 -shared -L/usr/local/lib64 -o gtools.so setTCPNoDelay.o\n-L/tp64/r-project/2.9.0/lib64/R/lib -lR\n** R\n** data\n** inst\n** preparing package for lazy loading\n** help\n*** installing help indices\n >>> Building/Updating help pages for package 'gtools'\n     Formats: text html latex example\nCan't use an undefined value as filehandle reference at\n/tp64/r-project/2.9.0/lib64/R/share/perl/R/Rdconv.pm line 81.\nERROR: building help failed for package 'gtools'\n* Removing '/home/ssaeed/R/library//gtools'\n\nI'm returning to this group after a long time so please let me know if I'm\nposting at the wrong place.\n\nThanks,\nSaad\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello,\nI've recently transitioned to using R in Linux. My OS/installation versions\nare:\n$ Red Hat Enterprise Linux AS release 4 (Nahant Update 6)\n$ Linux lx-chgmqsd05 2.6.9-67.0.1.ELsmp #1 SMP Fri Nov",
       "thread_id": "thread-b04629300a93",
       "thread_depth": 0,
-      "month": "2009-09"
+      "month": "2009-09",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090903/69057816/attachment.pl"
+      ]
     },
     {
       "id": "msg-53dd1a9f8087",
@@ -29,11 +32,14 @@
       "subject_clean": "R: error while loading shared libraries: libRblas.so:",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090914/e3b6b083/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090914/e3b6b083/attachment.pl>",
+      "body_plain": "Hi, \n      I am trying to debug R on fedora9.0. When I use gdb to debug R-1.9.2, I am getting the error \"R: error while loading shared libraries: libRblas.so: cannot open shared object file: No such file or directory\"\n\"Program exited with code 0177.\nMissing separate debuginfos, use: debuginfo-install glibc.i686\"\n\nI have libRblas.so shared library in two paths, \n1) ../../src/extra/blas/libRblas.so\n2) ../../lib/libRblas.so\nI set the LD_LIBRARY_PATH to ../../lib/libRblas.so.\n\nAny help would help me a lot!!!\n\nThanks, \nPatel\n\n\n\n\n      See the Web&#39;s breaking stories, chosen by people like you. Check out Yahoo! Buzz. http://in.buzz.yahoo.com/\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi, \n      I am trying to debug R on fedora9.0. When I use gdb to debug R-1.9.2, I am getting the error \"R: error while loading shared libraries: libRblas.so: cannot open shared object file: No such f",
       "thread_id": "thread-53dd1a9f8087",
       "thread_depth": 0,
-      "month": "2009-09"
+      "month": "2009-09",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090914/e3b6b083/attachment.pl"
+      ]
     },
     {
       "id": "msg-1ca8c500503c",
@@ -82,11 +88,14 @@
       "subject_clean": "R: error while loading shared libraries: libRblas.so:",
       "in_reply_to": "<4AAE8292.1040906@biostat.ku.dk>",
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090915/d619f5bf/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090915/d619f5bf/attachment.pl>",
+      "body_plain": "Hi Stefan,  Peter\n    Thanks for your reply. Yeah it was a typo. I am debugging the latest version of R i.e., R-2.9.2. Currently I have fedora-9 in my system, do I need to go for fedora-11? I hope its compatible with fedora-10 also. BTW I built R-2.9.2 on fedora -9 successfully, and able to run the executable. But the above problem I faced is at the time of debugging. \n\nThanks, \nShanmukh.\n\n--- On Mon, 14/9/09, Peter Dalgaard <p.dalgaard at biostat.ku.dk> wrote:\n\nFrom: Peter Dalgaard <p.dalgaard at biostat.ku.dk>\nSubject: Re: [R-sig-Fedora] R: error while loading shared libraries: libRblas.so:\nTo: \"Stefan Grosse\" <singularitaet at gmx.net>\nCc: \"shanmukha patel\" <shanmukh_pes at yahoo.co.in>, r-sig-fedora at r-project.org\nDate: Monday, 14 September, 2009, 11:21 PM\n\nStefan Grosse wrote:\n> On Mon, 14 Sep 2009 17:24:17 +0530 (IST) shanmukha patel\n> <shanmukh_pes at yahoo.co.in> wrote:\n> \n> SP>       I am trying to debug R on fedora9.0. When I use gdb to debug\n> \n> Fedora is currently at No. 11 so your Fedora is slightly out of date\n> \n> SP> R-1.9.2, I am getting the error \"R: error while loading shared\n> \n> I hope that 1.9.2 was a typo otherwise R would be terribly out of date\n> since currently it is at 2.9.2\n\nHowever, stock R on Fedora 9 is 2.9.0 (end of support y'know), so it's all a bit puzzling.\n\n> \n> SP> libraries: libRblas.so: cannot open shared object file: No such\n> SP> file or directory\" \"Program exited with code 0177. Missing separate\n> SP> debuginfos, use: debuginfo-install glibc.i686\"\n> \n> Have you tried the latter? I mean:\n> debuginfo-install glibc.i686\n> \n> Then why do you debug? Did R not install? Have you failed compiling\n> packages? \n> Stefan\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n--    O__  ---- Peter Dalgaard             Øster Farimagsgade 5, Entr.B\n  c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K\n (*) \\(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918\n~~~~~~~~~~ - (p.dalgaard at biostat.ku.dk)              FAX: (+45) 35327907\n\n\n\n      Love Cricket? Check out live scores, photos, video highlights and more. Click here http://cricket.yahoo.com\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi Stefan,  Peter\n    Thanks for your reply. Yeah it was a typo. I am debugging the latest version of R i.e., R-2.9.2. Currently I have fedora-9 in my system, do I need to go for fedora-11? I hope its",
       "thread_id": "thread-53dd1a9f8087",
       "thread_depth": 3,
-      "month": "2009-09"
+      "month": "2009-09",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090915/d619f5bf/attachment.pl"
+      ]
     },
     {
       "id": "msg-1cc4f7355571",

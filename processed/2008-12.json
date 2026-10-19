@@ -13,11 +13,14 @@
       "subject_clean": "libgfortran.so.3 is needed by libblas",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20081206/3ac42a80/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20081206/3ac42a80/attachment.pl>",
+      "body_plain": "Hi,\n\nI can't find any forum that's directly applicable to opensuse. My apology if I post on a wrong mailing list. But I really like R and want to use it on linux. The problem is I'm new to linux. I have opensuse 11.0. I download the x86_64 installer from opensuse repo. I run the installer and got error saying that libgfortran.so.3 is needed by libblas. I found libgfortran.so.3 in my /usr/lib folder (not /user/lib64). I guess it's not on lib64 that's why it's complaining. \n\nSo I create a symbolic link to libgfortran.so.3 from lib to lib64. It still doesn't work. I try to install libgfortran from opensuse dvd it still says that it needs libblas needs libgfortran.so.3 which doesn't make sense to me. \n\nWould anyone kindly advise? It's surprisingly tedious to get a simple thing up and running. Thank you.\n\n- sch\n\n\n\n      \n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi,\n\nI can't find any forum that's directly applicable to opensuse. My apology if I post on a wrong mailing list. But I really like R and want to use it on linux. The problem is I'm new to linux. I ha",
       "thread_id": "thread-153e4fbf885e",
       "thread_depth": 0,
-      "month": "2008-12"
+      "month": "2008-12",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20081206/3ac42a80/attachment.pl"
+      ]
     },
     {
       "id": "msg-869512b26137",

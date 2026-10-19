@@ -13,11 +13,14 @@
       "subject_clean": "Bad interpreter problem",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130618/be60b1c9/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130618/be60b1c9/attachment.pl>",
+      "body_plain": "Hello R Fedora People:\n\nI am trying to install FastRWeb, Rserve and Cairo on a Centos 5 machine with R-3.0.1.\n\nHowever,  I keep getting the following message:\nsh: ./configure: /bin/sh: bad interpreter: Permission denied\n\nI changed the permissions on the directory /tmp, so that should be okay.\n\nDo you have any suggestions, please?\n\nThank you,\nSincerely,\nErin\n\n\n\nErin M. Hodgess, Ph.D.\nAssociate Professor\nDepartment of Computer and Mathematical Sciences\nUniversity of Houston - Downtown\nmailto: hodgesse at uhd.edu<mailto:hodgesse at uhd.edu>\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello R Fedora People:\n\nI am trying to install FastRWeb, Rserve and Cairo on a Centos 5 machine with R-3.0.1.\n\nHowever,  I keep getting the following message:\nsh: ./configure: /bin/sh: bad interpreter",
       "thread_id": "thread-e882cfef0b7d",
       "thread_depth": 0,
-      "month": "2013-06"
+      "month": "2013-06",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130618/be60b1c9/attachment.pl"
+      ]
     },
     {
       "id": "msg-be3d3832b6bd",

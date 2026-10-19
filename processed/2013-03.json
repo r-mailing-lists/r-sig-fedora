@@ -31,11 +31,14 @@
       "references": [
         "<kivmdi$9sr$1@ger.gmane.org>"
       ],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130328/94e8b2fa/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130328/94e8b2fa/attachment.pl>",
+      "body_plain": "On Wednesday 27 March 2013 16:56:25 Allen S. Rout wrote:\n> \n> So with a major new version of R coming along, it seems like a\n> reasonable point at which to try to pick up the \"Let's make a CRAN repo\n> for the red-hat-like folks!\" task again.\n> \n> The last time I tried to download Pierre-Yves' package, I couldn't get\n> it to run in RHEL5.8; I went down a rabbit hole trying to make changes\n> for my own use.  Eventually, I simply failed.\n> \n> I'd love to be able to pick this up, serve my local customers, and have\n> the work actually useful to the larger community...\n> \n> - Allen S. Rout\n\nWhat road map do you propose?\n\nWhat are the tasks that need to be done?\n\nI would like to help.\n\nRegards,\n\n-- \nJosé Abílio\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On Wednesday 27 March 2013 16:56:25 Allen S. Rout wrote:\n> \n> So with a major new version of R coming along, it seems like a\n> reasonable point at which to try to pick up the \"Let's make a CRAN repo\n>",
       "thread_id": "thread-342ad1eb6896",
       "thread_depth": 1,
-      "month": "2013-03"
+      "month": "2013-03",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130328/94e8b2fa/attachment.pl"
+      ]
     },
     {
       "id": "msg-66780d62033f",

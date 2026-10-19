@@ -245,11 +245,14 @@
       "subject_clean": "svmpath",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090129/8bba291b/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090129/8bba291b/attachment.pl>",
+      "body_plain": "Hi everyone,\n             I cannot install package \"svmpath\" on R 2.8.1 on Redhat Linux\n.In fact I cannot install package externally.I am new to Linux so it would\nbe of great help if you all can help me out.\n\nRegards,\nSubhajit.\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi everyone,\n             I cannot install package \"svmpath\" on R 2.8.1 on Redhat Linux\n.In fact I cannot install package externally.I am new to Linux so it would\nbe of great help if you all can help ",
       "thread_id": "thread-21867876d8d5",
       "thread_depth": 0,
-      "month": "2009-01"
+      "month": "2009-01",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090129/8bba291b/attachment.pl"
+      ]
     },
     {
       "id": "msg-87f4ec1d40a7",

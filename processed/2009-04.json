@@ -15,11 +15,14 @@
       "references": [
         "<cab59a750901290536u5cabe276w17c483f10bb1bf3c@mail.gmail.com>"
       ],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090418/016aa11d/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090418/016aa11d/attachment.pl>",
+      "body_plain": "Hi ,\n    I would like to enquire on integrating programs one in R & the other two\nin C . What I do is as follows,\n\nrun p1.c\nget o1.txt\nuse o1.txt + run p2.r\nget o2.txt\nuse o2.txt + run p3.c\nget o3.txt\n\np1.c , p3.c are c codes\np2.r is an r code\no1.txt , o2.txt , o3.txt are output files in txt format\n\nPresently I run the programs manually , is there way I can integrate them ??\nI work on Windows as well as Redhat Linux.\nIt would be of great help if you all can help me out.\n\nRegards,\nSubhajit.\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi ,\n    I would like to enquire on integrating programs one in R & the other two\nin C . What I do is as follows,\n\nrun p1.c\nget o1.txt\nuse o1.txt + run p2.r\nget o2.txt\nuse o2.txt + run p3.c\nget o3.txt",
       "thread_id": "thread-02f34b6b8893",
       "thread_depth": 0,
-      "month": "2009-04"
+      "month": "2009-04",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090418/016aa11d/attachment.pl"
+      ]
     }
   ],
   "threads": [

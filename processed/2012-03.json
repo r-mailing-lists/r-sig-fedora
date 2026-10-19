@@ -150,11 +150,14 @@
         "<4F5E6156.4080605@ufl.edu>",
         "<1331619260.13053.8.camel@ambre.pingoured.fr>"
       ],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120313/d60508ff/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120313/d60508ff/attachment.pl>",
+      "body_plain": "would yum-builddep be of interest or am I missing the point?\n\nT.\n\nOn Tue, Mar 13, 2012 at 7:14 AM, Pierre-Yves Chibon <pingou at pingoured.fr>wrote:\n\n> On Mon, 2012-03-12 at 16:49 -0400, Allen S. Rout wrote:\n> >\n> > So, having pulled R2spec 4.1.0-1.el5 into my rhel5.5 system,\n> >\n> > -bash-3.2$ R2spec --help\n> > Traceback (most recent call last):\n> >    File \"/usr/bin/R2spec\", line 26, in ?\n> >      PARSER = setup_parser('R2spec')\n> >    File \"/usr/lib/python2.4/site-packages/r2spec/r2spec_obj.py\", line\n> > 54, in setup_parser\n> >      version='%(prog)s ' +VERSION)\n> >    File \"/usr/lib/python2.4/site-packages/argparse.py\", line 1264, in\n> > add_argument\n> >      action = action_class(**kwargs)\n> > TypeError: __init__() got an unexpected keyword argument 'version'\n>\n> hm, I am thinking of an older version of python-argparse. Do you have\n> 1.2.1 ? (which is available on EPEL btw).\n>\n> Pierre\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\n\n-- \nmvh\nTorbjørn Lindahl\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "would yum-builddep be of interest or am I missing the point?\n\nT.\n\nOn Tue, Mar 13, 2012 at 7:14 AM, Pierre-Yves Chibon <pingou at pingoured.fr>wrote:\n\n> On Mon, 2012-03-12 at 16:49 -0400, Allen S. Rout",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 4,
-      "month": "2012-03"
+      "month": "2012-03",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120313/d60508ff/attachment.pl"
+      ]
     },
     {
       "id": "msg-bb9535ca9a3b",

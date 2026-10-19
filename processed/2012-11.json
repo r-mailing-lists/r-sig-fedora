@@ -13,11 +13,14 @@
       "subject_clean": "oracle db connection From R in Linux",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20121130/fac258c3/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20121130/fac258c3/attachment.pl>",
+      "body_plain": "Hi,\n\nThis is sasi.\nI installed R 64 bit and oracle client 64 bit in fedora 17. After R is\nworking fine. Oracle database also working fine. but problem is, If i try\nto connect oracle from R its not connecting.\nSo, pls guide me how to connect from R to oracle.\n\n\nhow, i tried:--\n\nodbcinst.ini file code is\n\n[ORACLE2]\nDescription = oracle driver\nDriver = /ibexis/app/oracle/product/11.2.0/db_1/lib/libsqora.so.11.1\nDontDLClose = 1\nFileUsage = 1\nUsageCount = 1\n\n\nI tried in R ...\n>library(RODBC)\n>con <- odbcConnect(\"data source name\", uid=\"username\", pwd=\"password\")\n\nafter this line i got error,\n\n> odbcConnect(\"india\", uid=\"data_quality\", pwd=\"data_quality\")\n[1] -1\nWarning messages:\n1: In odbcDriverConnect(\"DSN=india;UID=data_quality;PWD=data_quality\") :\n  [RODBC] ERROR: state 01000, code 0, message [unixODBC][Driver\nManager]Can't open lib '/ibexis/app/oracle/product/\n11.2.0/db_1/lib/libsqora.so.11.1' : file not found\n2: In odbcDriverConnect(\"DSN=india;UID=data_quality;PWD=data_quality\") :\n  ODBC connection failed\n\nPlease help me .\nIam eagerly waiting for reply\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi,\n\nThis is sasi.\nI installed R 64 bit and oracle client 64 bit in fedora 17. After R is\nworking fine. Oracle database also working fine. but problem is, If i try\nto connect oracle from R its not con",
       "thread_id": "thread-bdd36a03a055",
       "thread_depth": 0,
-      "month": "2012-11"
+      "month": "2012-11",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20121130/fac258c3/attachment.pl"
+      ]
     }
   ],
   "threads": [

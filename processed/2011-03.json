@@ -13,11 +13,14 @@
       "subject_clean": "CentOS 5 install won't make with shared libs enabled",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110302/ad359f16/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110302/ad359f16/attachment.pl>",
+      "body_plain": "Hi,\nI've been trying to get a shared library version of the R package(version\n2.12.1) installed on a CentOS 5 system. (It installs fine without but other\npackages demand shared libs - namely Rapache).\nI've tried this with yum but don't know of any flags to set to tell it to\ninstalll with shared libs enabled. I then tried a local R install as\nnon-root with source packages:\n\nafter downloading the latest tarball and unzipping:\n./configure --prefix=/opt --enable-R-shlib\nmake\n\nmake[3]: Entering directory\n`/ifs/data/columbia/tm_lab/so2346/R-2.12.1/src/main'\ngcc -std=gnu99 -shared -L/usr/local/lib64  -o libR.so CConverters.o\nCommandLineArgs.o Rdynload.o Renviron.o RNG.o agrep.o apply.o arithmetic.o\narray.o attrib.o base.o bind.o builtin.o character.o coerce.o colors.o\ncomplex.o connections.o context.o cov.o cum.o dcf.o datetime.o debug.o\ndeparse.o deriv.o devices.o dotcode.o dounzip.o dstruct.o duplicate.o\nengine.o envir.o errors.o eval.o format.o fourier.o gevents.o gram.o\ngram-ex.o gramLatex.o gramRd.o graphics.o grep.o identical.o inlined.o\ninspect.o internet.o iosupport.o lapack.o list.o localecharset.o logic.o\nmain.o mapply.o match.o memory.o model.o names.o objects.o optim.o\noptimize.o options.o par.o paste.o platform.o plot.o plot3d.o plotmath.o\nprint.o printarray.o printvector.o printutils.o qsort.o random.o raw.o\nregistration.o relop.o rlocale.o saveload.o scan.o seq.o serialize.o size.o\nsort.o source.o split.o sprintf.o startup.o subassign.o subscript.o subset.o\nsummary.o sysutils.o unique.o util.o version.o vfonts.o xxxpr.o\n../unix/Rembedded.o ../unix/libunix.a ../appl/libappl.a ../nmath/libnmath.a\n../extra/zlib/libz.a ../extra/bzip2/libbz2.a ../extra/pcre/libpcre.a\n../extra/tre/libtre.a  ../extra/xz/liblzma.a  -L../../lib -lRblas -lgfortran\n-lm   -lreadline -lncurses  -ldl -lm\n/usr/bin/ld: CConverters.o: relocation R_X86_64_32S against `R_FunTab' can\nnot be used when making a shared object; recompile with -fPIC\nCConverters.o: could not read symbols: Bad value\ncollect2: ld returned 1 exit status\nmake[3]: *** [libR.so] Error 1\nmake[3]: Leaving directory\n`/ifs/data/columbia/tm_lab/so2346/R-2.12.1/src/main'\nmake[2]: *** [R] Error 2\nmake[2]: Leaving directory\n`/ifs/data/columbia/tm_lab/so2346/R-2.12.1/src/main'\nmake[1]: *** [R] Error 1\nmake[1]: Leaving directory `/ifs/data/columbia/tm_lab/so2346/R-2.12.1/src'\nmake: *** [R] Error 1\n\n\nI then added the -fPIC to the CC line in Makeconf and did a new make but no\njoy:\n\nmake[3]: Entering directory\n`/ifs/data/columbia/tm_lab/so2346/R-2.12.1/src/main'\ngcc -std=gnu99 -fPIC -shared -L/usr/local/lib64  -o libR.so CConverters.o\nCommandLineArgs.o Rdynload.o Renviron.o RNG.o agrep.o apply.o arithmetic.o\narray.o attrib.o base.o bind.o builtin.o character.o coerce.o colors.o\ncomplex.o connections.o context.o cov.o cum.o dcf.o datetime.o debug.o\ndeparse.o deriv.o devices.o dotcode.o dounzip.o dstruct.o duplicate.o\nengine.o envir.o errors.o eval.o format.o fourier.o gevents.o gram.o\ngram-ex.o gramLatex.o gramRd.o graphics.o grep.o identical.o inlined.o\ninspect.o internet.o iosupport.o lapack.o list.o localecharset.o logic.o\nmain.o mapply.o match.o memory.o model.o names.o objects.o optim.o\noptimize.o options.o par.o paste.o platform.o plot.o plot3d.o plotmath.o\nprint.o printarray.o printvector.o printutils.o qsort.o random.o raw.o\nregistration.o relop.o rlocale.o saveload.o scan.o seq.o serialize.o size.o\nsort.o source.o split.o sprintf.o startup.o subassign.o subscript.o subset.o\nsummary.o sysutils.o unique.o util.o version.o vfonts.o xxxpr.o\n../unix/Rembedded.o ../unix/libunix.a ../appl/libappl.a ../nmath/libnmath.a\n../extra/zlib/libz.a ../extra/bzip2/libbz2.a ../extra/pcre/libpcre.a\n../extra/tre/libtre.a  ../extra/xz/liblzma.a  -L../../lib -lRblas -lgfortran\n-lm   -lreadline -lncurses  -ldl -lm\n/usr/bin/ld: CConverters.o: relocation R_X86_64_32S against `R_FunTab' can\nnot be used when making a shared object; recompile with -fPIC\nCConverters.o: could not read symbols: Bad value\ncollect2: ld returned 1 exit status\nmake[3]: *** [libR.so] Error 1\n\nI've checked all the faq's and been googling this with no joy.\nI'd be grateful for any help on installing this dependency to get Rapache\ninstalled\n\nThanks,\nSean.\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi,\nI've been trying to get a shared library version of the R package(version\n2.12.1) installed on a CentOS 5 system. (It installs fine without but other\npackages demand shared libs - namely Rapache).",
       "thread_id": "thread-8f19aacea0a0",
       "thread_depth": 0,
-      "month": "2011-03"
+      "month": "2011-03",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110302/ad359f16/attachment.pl"
+      ]
     },
     {
       "id": "msg-74e29fa9b5ff",
@@ -83,11 +86,14 @@
       "subject_clean": "installing R in Fedora14 with yum",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110307/1df434f8/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110307/1df434f8/attachment.pl>",
+      "body_plain": "Hi,\nI want to install R with yum.\nI did\nyum info R\nand got the following\n*Error: Cannot retrieve repository metadata (repomd.xml) for repository:\nfedora. Please verify its path and try again\n\n*Then googled help an followed the instructions in\nhttp://digitizor.com/2009/06/17/how-to-fix-the-cannot-retrieve-repository-metadata-repomd-xml-error-in-fedora-11/\n\nbut still don't know how to install R in fedora14 using yum. Any help will\nbe very welcome\njules\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi,\nI want to install R with yum.\nI did\nyum info R\nand got the following\n*Error: Cannot retrieve repository metadata (repomd.xml) for repository:\nfedora. Please verify its path and try again\n\n*Then go",
       "thread_id": "thread-9e1fbb04fc57",
       "thread_depth": 0,
-      "month": "2011-03"
+      "month": "2011-03",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110307/1df434f8/attachment.pl"
+      ]
     },
     {
       "id": "msg-66c1a5fda330",
@@ -120,11 +126,14 @@
         "<AANLkTi=BbTJdbvEBS2YGv=YeUodmj1xtrQS=DDjYbep0@mail.gmail.com>",
         "<07CC43C25304A546B995A31E70BF56B5044500@wcl-exc.wcl.local>"
       ],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/ec77fec2/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/ec77fec2/attachment.pl>",
+      "body_plain": "Dear Ed,\nI cannot update. For example, \"sudo yum update\" gave me the following error:\n\nhttp://fedora.mirrors.tds.net/pub/fedora/releases/14/Everything/x86_64/os/repodata/repomd.xml:\n[Errno 14] Peer cert cannot be verified or peer cert invalid\nTrying other mirror.\nError: Cannot retrieve repository metadata (repomd.xml) for repository:\nfedora. Please verify its path and try again\n\nAdmitedly, I obtained that http adress from the web given the defaults did\nnot work.\nWhat do you have in your /etc/fedora.repo and /etc/fedora-update.repo files?\n\ncheers\njules\n\n2011/3/7 Ed Avis <eda at waniasset.com>\n\n> >*Error: Cannot retrieve repository metadata (repomd.xml) for\n> repository:\n> >fedora. Please verify its path and try again\n>\n> This is a yum error and not specific to R.  Can you install any package\n> at all?\n> Sometimes I see this error but it goes away again after a few hours.\n>\n> --\n> Ed Avis <eda at waniasset.com>\n>\n> ______________________________________________________________________\n> This email has been scanned by the MessageLabs Email Security System.\n> For more information please visit http://www.messagelabs.com/email\n> ______________________________________________________________________\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear Ed,\nI cannot update. For example, \"sudo yum update\" gave me the following error:\n\nhttp://fedora.mirrors.tds.net/pub/fedora/releases/14/Everything/x86_64/os/repodata/repomd.xml:\n[Errno 14] Peer ce",
       "thread_id": "thread-9e1fbb04fc57",
       "thread_depth": 2,
-      "month": "2011-03"
+      "month": "2011-03",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/ec77fec2/attachment.pl"
+      ]
     },
     {
       "id": "msg-4b380a31297e",
@@ -140,11 +149,14 @@
         "<07CC43C25304A546B995A31E70BF56B5044500@wcl-exc.wcl.local>",
         "<AANLkTikoO36786koMn=ci8XyRrH8qZMBW-qSQ7KLKBk8@mail.gmail.com>"
       ],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/b63f8e46/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/b63f8e46/attachment.pl>",
+      "body_plain": "See below for what I have in /etc/yum.repos.d after installing Fedora\n14.\n\n \n\n==> fedora-updates-testing.repo <==\n\n[updates-testing]\n\nname=Fedora $releasever - $basearch - Test Updates\n\nfailovermethod=priority\n\n#baseurl=http://download.fedoraproject.org/pub/fedora/linux/updates/test\ning/$releasever/$basearch/\n\nmirrorlist=https://mirrors.fedoraproject.org/metalink?repo=updates-testi\nng-f$releasever&arch=$basearch\n\nenabled=0\n\ngpgcheck=1\n\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$basearch\n\n \n\n[updates-testing-debuginfo]\n\nname=Fedora $releasever - $basearch - Test Updates Debug\n\nfailovermethod=priority\n\n#baseurl=http://download.fedoraproject.org/pub/fedora/linux/updates/test\ning/$releasever/$basearch/debug/\n\nmirrorlist=https://mirrors.fedoraproject.org/metalink?repo=updates-testi\nng-debug-f$releasever&arch=$basearch\n\nenabled=0\n\ngpgcheck=1\n\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$basearch\n\n \n\n[updates-testing-source]\n\nname=Fedora $releasever - Test Updates Source\n\nfailovermethod=priority\n\n#baseurl=http://download.fedoraproject.org/pub/fedora/linux/updates/test\ning/$releasever/SRPMS/\n\nmirrorlist=https://mirrors.fedoraproject.org/metalink?repo=updates-testi\nng-source-f$releasever&arch=$basearch\n\nenabled=0\n\ngpgcheck=1\n\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$basearch\n\n \n\n==> fedora-updates.repo <==\n\n[updates]\n\nname=Fedora $releasever - $basearch - Updates\n\nfailovermethod=priority\n\n#baseurl=http://download.fedoraproject.org/pub/fedora/linux/updates/$rel\neasever/$basearch/\n\nmirrorlist=https://mirrors.fedoraproject.org/metalink?repo=updates-relea\nsed-f$releasever&arch=$basearch\n\nenabled=1\n\ngpgcheck=1\n\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$basearch\n\n \n\n[updates-debuginfo]\n\nname=Fedora $releasever - $basearch - Updates - Debug\n\nfailovermethod=priority\n\n#baseurl=http://download.fedoraproject.org/pub/fedora/linux/updates/$rel\neasever/$basearch/debug/\n\nmirrorlist=https://mirrors.fedoraproject.org/metalink?repo=updates-relea\nsed-debug-f$releasever&arch=$basearch\n\nenabled=0\n\ngpgcheck=1\n\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$basearch\n\n \n\n[updates-source]\n\nname=Fedora $releasever - Updates Source\n\nfailovermethod=priority\n\n#baseurl=http://download.fedoraproject.org/pub/fedora/linux/updates/$rel\neasever/SRPMS/\n\nmirrorlist=https://mirrors.fedoraproject.org/metalink?repo=updates-relea\nsed-source-f$releasever&arch=$basearch\n\nenabled=0\n\ngpgcheck=1\n\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$basearch\n\n \n\n==> fedora.repo <==\n\n[fedora]\n\nname=Fedora $releasever - $basearch\n\nfailovermethod=priority\n\n#baseurl=http://download.fedoraproject.org/pub/fedora/linux/releases/$re\nleasever/Everything/$basearch/os/\n\nmirrorlist=https://mirrors.fedoraproject.org/metalink?repo=fedora-$relea\nsever&arch=$basearch\n\nenabled=1\n\nmetadata_expire=7d\n\ngpgcheck=1\n\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$basearch\n\n \n\n[fedora-debuginfo]\n\nname=Fedora $releasever - $basearch - Debug\n\nfailovermethod=priority\n\n#baseurl=http://download.fedoraproject.org/pub/fedora/linux/releases/$re\nleasever/Everything/$basearch/debug/\n\nmirrorlist=https://mirrors.fedoraproject.org/metalink?repo=fedora-debug-\n$releasever&arch=$basearch\n\nenabled=0\n\nmetadata_expire=7d\n\ngpgcheck=1\n\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$basearch\n\n \n\n[fedora-source]\n\nname=Fedora $releasever - Source\n\nfailovermethod=priority\n\n#baseurl=http://download.fedoraproject.org/pub/fedora/linux/releases/$re\nleasever/Everything/source/SRPMS/\n\nmirrorlist=https://mirrors.fedoraproject.org/metalink?repo=fedora-source\n-$releasever&arch=$basearch\n\nenabled=0\n\nmetadata_expire=7d\n\ngpgcheck=1\n\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$basearch\n\n \n\n--\nEd Avis <eda at waniasset.com>\n\n\n______________________________________________________________________\nThis email has been scanned by the MessageLabs Email Security System.\nFor more information please visit http://www.messagelabs.com/email \n______________________________________________________________________\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "See below for what I have in /etc/yum.repos.d after installing Fedora\n14.\n\n \n\n==> fedora-updates-testing.repo <==\n\n[updates-testing]\n\nname=Fedora $releasever - $basearch - Test Updates\n\nfailovermethod",
       "thread_id": "thread-9e1fbb04fc57",
       "thread_depth": 3,
-      "month": "2011-03"
+      "month": "2011-03",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/b63f8e46/attachment.pl"
+      ]
     },
     {
       "id": "msg-4e69177a2147",
@@ -160,11 +172,14 @@
         "<07CC43C25304A546B995A31E70BF56B5044500@wcl-exc.wcl.local>",
         "<AANLkTikoO36786koMn=ci8XyRrH8qZMBW-qSQ7KLKBk8@mail.gmail.com>"
       ],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/cffdffb6/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/cffdffb6/attachment.pl>",
+      "body_plain": "Hi again Ed,\nIt seems that the failure with yum had to do with a bad connection to\ninternet.\nNow I've got a better connection (the right connection) and left the lines\nin the fedora.repo and fedora-updates.repo files starting with mirrorlist\nand commented all others http lines.\nI manage to do a comprehensive update (my first one)\ncheers\njules\n\n\n2011/3/9 jules hernandez <jules.hernandez.sanchez at gmail.com>\n\n> Dear Ed,\n> I cannot update. For example, \"sudo yum update\" gave me the following\n> error:\n>\n>\n> http://fedora.mirrors.tds.net/pub/fedora/releases/14/Everything/x86_64/os/repodata/repomd.xml:\n> [Errno 14] Peer cert cannot be verified or peer cert invalid\n> Trying other mirror.\n>\n> Error: Cannot retrieve repository metadata (repomd.xml) for repository:\n> fedora. Please verify its path and try again\n>\n> Admitedly, I obtained that http adress from the web given the defaults did\n> not work.\n> What do you have in your /etc/fedora.repo and /etc/fedora-update.repo\n> files?\n>\n> cheers\n> jules\n>\n> 2011/3/7 Ed Avis <eda at waniasset.com>\n>\n> >*Error: Cannot retrieve repository metadata (repomd.xml) for\n>> repository:\n>> >fedora. Please verify its path and try again\n>>\n>> This is a yum error and not specific to R.  Can you install any package\n>> at all?\n>> Sometimes I see this error but it goes away again after a few hours.\n>>\n>> --\n>> Ed Avis <eda at waniasset.com>\n>>\n>> ______________________________________________________________________\n>> This email has been scanned by the MessageLabs Email Security System.\n>> For more information please visit http://www.messagelabs.com/email\n>> ______________________________________________________________________\n>>\n>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi again Ed,\nIt seems that the failure with yum had to do with a bad connection to\ninternet.\nNow I've got a better connection (the right connection) and left the lines\nin the fedora.repo and fedora-up",
       "thread_id": "thread-9e1fbb04fc57",
       "thread_depth": 3,
-      "month": "2011-03"
+      "month": "2011-03",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/cffdffb6/attachment.pl"
+      ]
     },
     {
       "id": "msg-f988e9840663",

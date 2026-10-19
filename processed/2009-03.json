@@ -13,11 +13,14 @@
       "subject_clean": "dotplot() lattice charts return blank image (jpeg, bmp, png) file",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090303/907cc499/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090303/907cc499/attachment.pl>",
+      "body_plain": "Thanks in advance for the help.  Trying to run a basic dotplot in lattice from R command line.  When the file is created, in Fedora, it is blank image (jpeg, bmp, png).  Image produces correctly in Windows environment.  Libraries lattice and latticeExtra are loaded.  Code:\n\n-----------------\njpeg(file = \"/tmp/img/temp31.jpg\", width = 768, height=768)\nxy <- dotplot(1:10)\nprint(xy)\ndev.off()\n-----------------\n\nUsing plot(1:10) instead of dotplot produces an image file. Also, I can successfully produce an image for dotplot() in pdf like this:\n\n-----------------\ntrellis.device(device = \"pdf\",file = \"/tmp/img/temp31.pdf\")\nxy <- dotplot(1:10)\nprint(xy)\ndev.off()\n-----------------\n\nThanks for any help you can provide.  Fedora version and R Session info is below.\n\nKevin\n\n-----------------\n[root at domU-12-31-39-00-58-82 /]# uname -r\n2.6.21.7-2.fc8xen\n\n-----------------\n> sessionInfo()\nR version 2.8.0 (2008-10-20)\ni686-redhat-linux-gnu\n\nlocale:\nC\n\nattached base packages:\n[1] grid      stats     graphics  grDevices utils     datasets  methods\n[8] base\n\nother attached packages:\n[1] latticeExtra_0.5-4 RColorBrewer_1.0-2 lattice_0.17-20\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Thanks in advance for the help.  Trying to run a basic dotplot in lattice from R command line.  When the file is created, in Fedora, it is blank image (jpeg, bmp, png).  Image produces correctly in Wi",
       "thread_id": "thread-2eeb193536c0",
       "thread_depth": 0,
-      "month": "2009-03"
+      "month": "2009-03",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090303/907cc499/attachment.pl"
+      ]
     },
     {
       "id": "msg-b18d7523f7dd",

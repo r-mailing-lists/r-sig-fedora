@@ -241,11 +241,14 @@
       "subject_clean": "SOS! The R Console very quietly closed and exited without giving any errors/warnings...after I loaded the RODBC library...",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120527/24454423/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120527/24454423/attachment.pl>",
+      "body_plain": "Hi all,\n\nPlease pardon me for seemingly double-post.\n\nI was referred to this r-sig-fedora mailing-list kindly by a member of\nr-sig-db mailing-list... because my platform is Red Hat Enterprice.\n\nThank you!\n\n---------------\n\nHelp! The R Console very quietly closed and exited without giving any\nerrors/warnings...after I loaded the RODBC library...\n\nLoading required package: RODBC\n\n--------------\n\nR Console closed and exited quietly after loading \"RODBC\"...\n\nI suspect that's segment fault crash...\n\nbut how do I figure out what exactly is the problem? where can I find the\ncore dump?\n\nThanks a lot!\n\n(but this doesn't occur when I use R in RStudio...)\n\n----------------------------------------\n\nOn Sat, May 26, 2012 at 10:27 PM, Michael <comtech.usa at gmail.com> wrote:\n\nHi all,\n\nIt's very strange. In RStudio, I can successfully load(\"RODBC\"). But in the\nplain R Console, I just couldn't get it work:\n\n(For some special and important reasons, I have to make the RODBC work in R\nConsole, not the RStudio.)\n\nAt first, the some shared library \"libodbc.so\" couldn't be found... it's\nright there, but R Console just couldn't find it.\n\nI then find that the\n\nSys.getenv(\"LD_LIBRARY_PATH\") is different for R Console vs. RStudio.\n\nWeirdly, the LD_LIBRARY_PATH in RStudio even doesn't have any \"ODBC\"\nterms/words in its long string...\n\nI guess RStudio has some special configuration for RODBC, so it doesn't\nrequire LD_LIBRARY_PATH to be set up for ODBC at all.\n\nI then added the ODBC library path into the LD_LIBRARY_PATH in R Console.\n\nI found that this problem is solved...\n\nBut then the R Console complained that the \"ODBCINI\" was set up correctly.\n\nSo I compared the \"ODBCINI\" in RStudio vs. \"ODBCINI\" in R Console, found\nthe R Console one seems to be missing.\n\nI then copied the \"ODBCINI\" from RStudio and pasted it into R Console.\n\nNow the load(\"RODBC\") can run in the plain R Console, but then the whole R\nconsole crashed without giving any errors/warnings...\n\nIt exited back to the shell prompt...\n\nWhat can I do? Anybody please shed some lights on me on this?\n\nThanks a lot!\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi all,\n\nPlease pardon me for seemingly double-post.\n\nI was referred to this r-sig-fedora mailing-list kindly by a member of\nr-sig-db mailing-list... because my platform is Red Hat Enterprice.\n\nThank ",
       "thread_id": "thread-2e829da2b3b8",
       "thread_depth": 0,
-      "month": "2012-05"
+      "month": "2012-05",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120527/24454423/attachment.pl"
+      ]
     }
   ],
   "threads": [

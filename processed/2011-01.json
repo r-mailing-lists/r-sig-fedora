@@ -13,11 +13,14 @@
       "subject_clean": "Ubuntu?",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110128/bf55f688/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110128/bf55f688/attachment.pl>",
+      "body_plain": "Hello,\n\nWhat is your opinion on Ubuntu.  I´ve encountered a couple hurdles here.\n\nThe Keyboard: I have to hit the quote button twice to get a quote or\napostrophe! I tried adjusting keyboard settings but nothing changed.  And\nthe RKWard GUI won´t recognize quotes from my machines even though they show\nup on the RKWard text editor. On the other hand, RKWard will quoted material\nwhien  I copy and paste material with quotes, such as in a help.search\nquery.\n\nThank you in advance,\n\nMatt\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello,\n\nWhat is your opinion on Ubuntu.  I´ve encountered a couple hurdles here.\n\nThe Keyboard: I have to hit the quote button twice to get a quote or\napostrophe! I tried adjusting keyboard settings b",
       "thread_id": "thread-7a2494c7946b",
       "thread_depth": 0,
-      "month": "2011-01"
+      "month": "2011-01",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110128/bf55f688/attachment.pl"
+      ]
     },
     {
       "id": "msg-ea00b74a1cd9",

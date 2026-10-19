@@ -50,11 +50,14 @@
       "subject_clean": "gpg signature for packages",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20080910/e09cb2a4/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20080910/e09cb2a4/attachment.pl>",
+      "body_plain": "Hi all,\n\nI am new to this mailing list and I apologize if my question is naive but I\ncouldn't find help about it on the CRAN site.\n\nI have just manually set a \"cran.repo\" for yum but I don't know how can I\ninstall the gpg key for the packages. Can you please tell me how to do it?\nBy now I just used the  --nogpgcheck and it worked fine.\n\nThank you in advance,\n\nmargherita\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi all,\n\nI am new to this mailing list and I apologize if my question is naive but I\ncouldn't find help about it on the CRAN site.\n\nI have just manually set a \"cran.repo\" for yum but I don't know how ",
       "thread_id": "thread-a86a59f07fa6",
       "thread_depth": 0,
-      "month": "2008-09"
+      "month": "2008-09",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20080910/e09cb2a4/attachment.pl"
+      ]
     },
     {
       "id": "msg-8fb2eccffbeb",

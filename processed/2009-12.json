@@ -13,11 +13,14 @@
       "subject_clean": "Running a C program in R",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20091209/178aae02/attachment.pl>",
-      "body_snippet": "An embedded and charset-unspecified text was scrubbed...\nName: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20091209/178aae02/attachment.pl>",
+      "body_plain": "Dear all,\n          I would like to know how to run a C program in R. It would be\ngreat if you all can help or suggest some references.\n\nRegards,\nSubhajit.\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear all,\n          I would like to know how to run a C program in R. It would be\ngreat if you all can help or suggest some references.\n\nRegards,\nSubhajit.\n\n\t[[alternative HTML version deleted]]",
       "thread_id": "thread-917bffedc9c2",
       "thread_depth": 0,
-      "month": "2009-12"
+      "month": "2009-12",
+      "restored_from": [
+        "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20091209/178aae02/attachment.pl"
+      ]
     },
     {
       "id": "msg-eb9c6aa54dfc",
