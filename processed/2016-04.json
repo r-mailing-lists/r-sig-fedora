@@ -17,7 +17,8 @@
       "body_snippet": "$ R\n/usr/bin/R: line 238: /usr/lib64/R/etc/ldpaths: Permission denied\n\n$ rpm -q R\nR-3.2.3-2.fc23.x86_64\n\nThat /usr/bin/R#L238 is:\n. \"${R_HOME}/etc${R_ARCH}/ldpaths\"\n\nI noticed the error began bursting",
       "thread_id": "thread-dd3ab55f4c61",
       "thread_depth": 0,
-      "month": "2016-04"
+      "month": "2016-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-April/000446.html"
     },
     {
       "id": "msg-4ccaa2ad0d88",
@@ -36,7 +37,8 @@
       "body_snippet": "On Wed, 20 Apr 2016 20:50:57 +0000\n\"Ellen K\" <keyes at pushyes.xyz> wrote:\n\n> From: \"Ellen K\" <keyes at pushyes.xyz>\n> To: cireyapmin at gmail.com\n> Subject: RE: [R-sig-Fedora] Cannot Run On The Comma",
       "thread_id": "thread-4ccaa2ad0d88",
       "thread_depth": 0,
-      "month": "2016-04"
+      "month": "2016-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-April/000447.html"
     },
     {
       "id": "msg-cda268691d94",
@@ -56,7 +58,8 @@
       "body_snippet": "Virgo,\n\nThat message from \"Ellen\" is obviously spam and most likely a phishing\nattempt. As list administrator there is nothing I can do about it since\nthey are not subscribed under that email address.",
       "thread_id": "thread-4ccaa2ad0d88",
       "thread_depth": 1,
-      "month": "2016-04"
+      "month": "2016-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-April/000448.html"
     },
     {
       "id": "msg-81592ba71e89",
@@ -77,7 +80,8 @@
       "body_snippet": "On Thu, 21 Apr 2016 08:23:32 +0000\nMartyn Plummer <plummerm at iarc.fr> wrote:\n\n> From: Martyn Plummer <plummerm at iarc.fr>\n> To: \"cireyapmin at gmail.com\" <cireyapmin at gmail.com>,\n> \"r-sig-fedora ",
       "thread_id": "thread-4ccaa2ad0d88",
       "thread_depth": 2,
-      "month": "2016-04"
+      "month": "2016-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-April/000449.html"
     },
     {
       "id": "msg-7cf857ea3aa4",
@@ -98,7 +102,8 @@
       "body_snippet": "On Thu, 21 Apr 2016 08:23:32 +0000\nMartyn Plummer <plummerm at iarc.fr> wrote:\n\n> From: Martyn Plummer <plummerm at iarc.fr>\n> To: \"cireyapmin at gmail.com\" <cireyapmin at gmail.com>,\n> \"r-sig-fedora ",
       "thread_id": "thread-4ccaa2ad0d88",
       "thread_depth": 2,
-      "month": "2016-04"
+      "month": "2016-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-April/000450.html"
     },
     {
       "id": "msg-84504b39c697",
@@ -120,7 +125,8 @@
       "body_snippet": "On Thu, 21 Apr 2016 11:17:42 +0100\nvirgo <cireyapmin at gmail.com> wrote:\n\n> On Thu, 21 Apr 2016 08:23:32 +0000\n> Martyn Plummer <plummerm at iarc.fr> wrote:\n> \n> > From: Martyn Plummer <plummerm at i",
       "thread_id": "thread-4ccaa2ad0d88",
       "thread_depth": 3,
-      "month": "2016-04"
+      "month": "2016-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-April/000451.html"
     }
   ],
   "threads": [

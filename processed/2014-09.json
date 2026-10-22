@@ -17,7 +17,8 @@
       "body_snippet": "Dear List,\n\nI am trying to build R on Fedora against a threaded openblas installed from\nFedora's yum repos, or alternatively swap out libRblas.so with a threaded\nopenblas built locally.\n\nI have instal",
       "thread_id": "thread-94b11048cea9",
       "thread_depth": 0,
-      "month": "2014-09"
+      "month": "2014-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-September/000344.html"
     }
   ],
   "threads": [

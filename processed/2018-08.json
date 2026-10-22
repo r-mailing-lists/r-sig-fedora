@@ -19,7 +19,8 @@
       "body_snippet": "On Tuesday, 10 July 2018 14.51.39 WEST Pierre-Yves Chibon wrote:\n> Good Morning Everyone,\n> \n> I was going through my list of FTBFS packages today and I fixed all my R\n> packages but 2: qvalue and xta",
       "thread_id": "thread-ba92ecc089ad",
       "thread_depth": 0,
-      "month": "2018-08"
+      "month": "2018-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2018-August/000561.html"
     }
   ],
   "threads": [

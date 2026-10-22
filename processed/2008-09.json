@@ -19,7 +19,8 @@
       "body_snippet": "Thanks Spot.  The updates are still languishing in pending.  I am\nwondering about ways we can speed up the availability of R on Fedora.\n\nFirstly, isn't there a good case for pushing patch releases (x.",
       "thread_id": "thread-5b0b5ff3e859",
       "thread_depth": 0,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-September/000010.html"
     },
     {
       "id": "msg-b388f7100be7",
@@ -38,7 +39,8 @@
       "body_snippet": "On Tue, 2008-09-02 at 17:44 +0200, Martyn Plummer wrote:\n> Thanks Spot.  The updates are still languishing in pending.  I am\n> wondering about ways we can speed up the availability of R on Fedora.\n> \n",
       "thread_id": "thread-5b0b5ff3e859",
       "thread_depth": 1,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-September/000011.html"
     },
     {
       "id": "msg-a86a59f07fa6",
@@ -55,6 +57,7 @@
       "thread_id": "thread-a86a59f07fa6",
       "thread_depth": 0,
       "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-September/000012.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20080910/e09cb2a4/attachment.pl"
       ]
@@ -75,7 +78,8 @@
       "body_snippet": "margherita mutarelli p??e v St 10. 09. 2008 v 13:01 +0200:\n> I am new to this mailing list and I apologize if my question is naive but I\n> couldn't find help about it on the CRAN site.\n\nThere is no su",
       "thread_id": "thread-a86a59f07fa6",
       "thread_depth": 1,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-September/000014.html"
     },
     {
       "id": "msg-60cd293c7be4",
@@ -93,7 +97,8 @@
       "body_snippet": "on 09/10/2008 06:01 AM margherita mutarelli wrote:\n> Hi all,\n> \n> I am new to this mailing list and I apologize if my question is naive but I\n> couldn't find help about it on the CRAN site.\n> \n> I hav",
       "thread_id": "thread-a86a59f07fa6",
       "thread_depth": 1,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-September/000013.html"
     },
     {
       "id": "msg-b623e1f6ae79",
@@ -112,7 +117,8 @@
       "body_snippet": "One difficulty with using the CRAN repository is that you also get R\ndirectly from Fedora. I am not sure how well the two repositories play\ntogether, although the good news is that the CRAN RPMs shoul",
       "thread_id": "thread-a86a59f07fa6",
       "thread_depth": 2,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-September/000015.html"
     }
   ],
   "threads": [

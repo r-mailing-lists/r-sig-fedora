@@ -17,7 +17,8 @@
       "body_snippet": "Dear Tom,\n\nI see that RPMS for R 3.4.0 are not successfully built on Fedora, nor\non RHEL 7.\n\nhttps://koji.fedoraproject.org/koji/packageinfo?packageID=1230\n\nWhen I build with mock on Fedora 25 I also ",
       "thread_id": "thread-454477b33bf6",
       "thread_depth": 0,
-      "month": "2017-05"
+      "month": "2017-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-May/000510.html"
     },
     {
       "id": "msg-7874a3a190fe",
@@ -31,11 +32,12 @@
       "references": [
         "<1494520648.10161.5.camel@iarc.fr>"
       ],
-      "body_plain": "On Thursday, 11 May 2017 17.37.41 WEST Martyn Plummer wrote:\n> Dear Tom,\n> \n> I see that RPMS for R 3.4.0 are not successfully built on Fedora, nor\n> on RHEL 7.\n> \n> https://koji.fedoraproject.org/koji/packageinfo?packageID=1230\n> \n> When I build with mock on Fedora 25 I also get a build failure. R is\n> not able to establish the time zone inside the chroot and this triggers\n> a regression tests which is new in R 3.4.0. Specifically, in file\n> tests/reg-tests-1d.R this test fails:\n> \n> ## PR#17186 - Sys.timezone() on some Debian-derived platforms\n> (S.t <- Sys.timezone())\n> if(is.na(S.t) || !nzchar(S.t)) stop(\"could not get timezone\")\n> ## has been NA_character_  in Ubuntu 14.04.5 LTS\n> \n> \n> The work-around is to set the environment variable TZ to any non-empty\n> string before running make check, in the %check section of the SPEC\n> file, e.g.\n> \n> TZ=\"Europe/Paris\" make check\n> \n> best regards\n> Martyn\n\nThank you Martyn. :-)\n\nI am rebuilding R bumping the version since the previous version succeeded to \nbuild on el6.\n\nBTW Tom, it is probably time to get rid of the\n%defattr(-, root, root, -)\n\nafter we are already in the Spring here in the North hemisphere. :-)\n\nRegards,\n-- \nJos? Ab?lio",
+      "body_plain": "On Thursday, 11 May 2017 17.37.41 WEST Martyn Plummer wrote:\n> Dear Tom,\n> \n> I see that RPMS for R 3.4.0 are not successfully built on Fedora, nor\n> on RHEL 7.\n> \n> https://koji.fedoraproject.org/koji/packageinfo?packageID=1230\n> \n> When I build with mock on Fedora 25 I also get a build failure. R is\n> not able to establish the time zone inside the chroot and this triggers\n> a regression tests which is new in R 3.4.0. Specifically, in file\n> tests/reg-tests-1d.R this test fails:\n> \n> ## PR#17186 - Sys.timezone() on some Debian-derived platforms\n> (S.t <- Sys.timezone())\n> if(is.na(S.t) || !nzchar(S.t)) stop(\"could not get timezone\")\n> ## has been NA_character_  in Ubuntu 14.04.5 LTS\n> \n> \n> The work-around is to set the environment variable TZ to any non-empty\n> string before running make check, in the %check section of the SPEC\n> file, e.g.\n> \n> TZ=\"Europe/Paris\" make check\n> \n> best regards\n> Martyn\n\nThank you Martyn. :-)\n\nI am rebuilding R bumping the version since the previous version succeeded to \nbuild on el6.\n\nBTW Tom, it is probably time to get rid of the\n%defattr(-, root, root, -)\n\nafter we are already in the Spring here in the North hemisphere. :-)\n\nRegards,\n-- \nJosé Abílio",
       "body_snippet": "On Thursday, 11 May 2017 17.37.41 WEST Martyn Plummer wrote:\n> Dear Tom,\n> \n> I see that RPMS for R 3.4.0 are not successfully built on Fedora, nor\n> on RHEL 7.\n> \n> https://koji.fedoraproject.org/koj",
       "thread_id": "thread-454477b33bf6",
       "thread_depth": 1,
-      "month": "2017-05"
+      "month": "2017-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-May/000511.html"
     },
     {
       "id": "msg-21d6ce440bbe",
@@ -50,11 +52,12 @@
         "<1494520648.10161.5.camel@iarc.fr>",
         "<4177975.MF5k9LdnlB@myth>"
       ],
-      "body_plain": "Thanks. I've been traveling almost non stop for the last several months. I\nappreciate your help here.\n\nOn May 12, 2017 10:25 AM, \"Jos? Ab?lio Matos\" <jamatos at fc.up.pt> wrote:\n\n> On Thursday, 11 May 2017 17.37.41 WEST Martyn Plummer wrote:\n> > Dear Tom,\n> >\n> > I see that RPMS for R 3.4.0 are not successfully built on Fedora, nor\n> > on RHEL 7.\n> >\n> > https://koji.fedoraproject.org/koji/packageinfo?packageID=1230\n> >\n> > When I build with mock on Fedora 25 I also get a build failure. R is\n> > not able to establish the time zone inside the chroot and this triggers\n> > a regression tests which is new in R 3.4.0. Specifically, in file\n> > tests/reg-tests-1d.R this test fails:\n> >\n> > ## PR#17186 - Sys.timezone() on some Debian-derived platforms\n> > (S.t <- Sys.timezone())\n> > if(is.na(S.t) || !nzchar(S.t)) stop(\"could not get timezone\")\n> > ## has been NA_character_  in Ubuntu 14.04.5 LTS\n> >\n> >\n> > The work-around is to set the environment variable TZ to any non-empty\n> > string before running make check, in the %check section of the SPEC\n> > file, e.g.\n> >\n> > TZ=\"Europe/Paris\" make check\n> >\n> > best regards\n> > Martyn\n>\n> Thank you Martyn. :-)\n>\n> I am rebuilding R bumping the version since the previous version succeeded\n> to\n> build on el6.\n>\n> BTW Tom, it is probably time to get rid of the\n> %defattr(-, root, root, -)\n>\n> after we are already in the Spring here in the North hemisphere. :-)\n>\n> Regards,\n> --\n> Jos? Ab?lio\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
-      "body_snippet": "Thanks. I've been traveling almost non stop for the last several months. I\nappreciate your help here.\n\nOn May 12, 2017 10:25 AM, \"Jos? Ab?lio Matos\" <jamatos at fc.up.pt> wrote:\n\n> On Thursday, 11 May",
+      "body_plain": "Thanks. I've been traveling almost non stop for the last several months. I\nappreciate your help here.\n\nOn May 12, 2017 10:25 AM, \"José Abílio Matos\" <jamatos at fc.up.pt> wrote:\n\n> On Thursday, 11 May 2017 17.37.41 WEST Martyn Plummer wrote:\n> > Dear Tom,\n> >\n> > I see that RPMS for R 3.4.0 are not successfully built on Fedora, nor\n> > on RHEL 7.\n> >\n> > https://koji.fedoraproject.org/koji/packageinfo?packageID=1230\n> >\n> > When I build with mock on Fedora 25 I also get a build failure. R is\n> > not able to establish the time zone inside the chroot and this triggers\n> > a regression tests which is new in R 3.4.0. Specifically, in file\n> > tests/reg-tests-1d.R this test fails:\n> >\n> > ## PR#17186 - Sys.timezone() on some Debian-derived platforms\n> > (S.t <- Sys.timezone())\n> > if(is.na(S.t) || !nzchar(S.t)) stop(\"could not get timezone\")\n> > ## has been NA_character_  in Ubuntu 14.04.5 LTS\n> >\n> >\n> > The work-around is to set the environment variable TZ to any non-empty\n> > string before running make check, in the %check section of the SPEC\n> > file, e.g.\n> >\n> > TZ=\"Europe/Paris\" make check\n> >\n> > best regards\n> > Martyn\n>\n> Thank you Martyn. :-)\n>\n> I am rebuilding R bumping the version since the previous version succeeded\n> to\n> build on el6.\n>\n> BTW Tom, it is probably time to get rid of the\n> %defattr(-, root, root, -)\n>\n> after we are already in the Spring here in the North hemisphere. :-)\n>\n> Regards,\n> --\n> José Abílio\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Thanks. I've been traveling almost non stop for the last several months. I\nappreciate your help here.\n\nOn May 12, 2017 10:25 AM, \"José Abílio Matos\" <jamatos at fc.up.pt> wrote:\n\n> On Thursday, 11 May",
       "thread_id": "thread-454477b33bf6",
       "thread_depth": 2,
-      "month": "2017-05"
+      "month": "2017-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-May/000512.html"
     },
     {
       "id": "msg-6f7acc87b0b9",
@@ -70,7 +73,8 @@
       "body_snippet": "Hi\n\nI planned to learn R and their machine learning algorithms such as xgboost.\nI just installed R 3.3 in our CentOS linux system.\nLinus system: centos-release-6-9.el6.12.3.x86_64\nI used the command: ",
       "thread_id": "thread-6f7acc87b0b9",
       "thread_depth": 0,
-      "month": "2017-05"
+      "month": "2017-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-May/000513.html"
     },
     {
       "id": "msg-952ab390f4f8",
@@ -88,7 +92,8 @@
       "body_snippet": "On 05/15/2017 10:31 PM, Shu-Ju Tu wrote:\n> /dmlc-core/include/dmlc/./base.h:71: note: #pragma message: Will need\n> g++-4.6 or higher to compile allthe features in dmlc-core, compile\n> without c++0x, s",
       "thread_id": "thread-6f7acc87b0b9",
       "thread_depth": 1,
-      "month": "2017-05"
+      "month": "2017-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-May/000514.html"
     }
   ],
   "threads": [

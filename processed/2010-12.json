@@ -17,7 +17,8 @@
       "body_snippet": "R 2.12.1 is built now for Fedora and EPEL. It is in \"updates-testing\"\n(or it will be within the next 24 hours).\n\nIn accordance with the new policies on Fedora Updates, these new\npackages will not be p",
       "thread_id": "thread-63d05b585bd4",
       "thread_depth": 0,
-      "month": "2010-12"
+      "month": "2010-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-December/000167.html"
     }
   ],
   "threads": [

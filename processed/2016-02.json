@@ -24,7 +24,8 @@
       "body_snippet": "Got past my libgfortran issue\n     ln -s  /usr/lib64/libgfortran.so.3 /usr/lib/libgfortran.so\n\nNow if I could get RCurl and rstan installed.\n\nThanks,\nLarry\n\n\n-----Original Message-----\nFrom: Tom Calla",
       "thread_id": "thread-41a991bd8a46",
       "thread_depth": 0,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000428.html"
     },
     {
       "id": "msg-ed903994f3c0",
@@ -48,7 +49,8 @@
       "body_snippet": "On 02/01/2016 03:45 PM, Patrick, Larry B [CSSM] wrote:\n> Got past my libgfortran issue\n>      ln -s  /usr/lib64/libgfortran.so.3 /usr/lib/libgfortran.so\n\nMaybe to /usr/lib64/libgfortran.so ? You _shou",
       "thread_id": "thread-41a991bd8a46",
       "thread_depth": 1,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000429.html"
     },
     {
       "id": "msg-9c47334f02dd",
@@ -73,7 +75,8 @@
       "body_snippet": "Tom,\n\nFirst of thanks for setting up your RHEL-6 VM to help me!\n\nUntil I did that link it would not install. I didn't have any libgfortran files in /usr/lib so I did that soft link. Maybe something di",
       "thread_id": "thread-41a991bd8a46",
       "thread_depth": 2,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000430.html"
     },
     {
       "id": "msg-5fcf0e9f84cf",
@@ -99,7 +102,8 @@
       "body_snippet": "On 02/03/2016 09:33 AM, Patrick, Larry B [CSSM] wrote:\n> I didn't have any libgfortran files in /usr/lib so I did that soft link. Maybe something didn't fully install or configure. I have inherited th",
       "thread_id": "thread-41a991bd8a46",
       "thread_depth": 3,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000431.html"
     },
     {
       "id": "msg-4a6a6ca456c8",
@@ -126,7 +130,8 @@
       "body_snippet": "On 02/03/2016 09:52 AM, Tom Callaway wrote:\n\n> Are you trying to build R and components for i686 rather than x86_64?\n\nNever mind. Your logs make it clear that you're building for x86_64.\n\nCan you shar",
       "thread_id": "thread-41a991bd8a46",
       "thread_depth": 4,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000432.html"
     },
     {
       "id": "msg-630d1f72d90e",
@@ -154,7 +159,8 @@
       "body_snippet": "I used epel to install again. I removed the original installation that seemed from epel also.\n\n     [root at ping /]# pkg-config --list-all |grep libcurl\n      [root at ping /]#\nThat doesn't look good",
       "thread_id": "thread-41a991bd8a46",
       "thread_depth": 5,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000433.html"
     },
     {
       "id": "msg-9a9692b2336e",
@@ -183,7 +189,8 @@
       "body_snippet": "Umm,\n\nwhich curl-config\n\n?\n\nI.e., there might be two of them and you picking up the wrong one.\nJust a hunch, I am more than rusty on Fedora these days.\n\n-pd\n\n\nOn 03 Feb 2016, at 16:06 , Patrick, Larry",
       "thread_id": "thread-41a991bd8a46",
       "thread_depth": 6,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000434.html"
     },
     {
       "id": "msg-257dd585581e",
@@ -212,7 +219,8 @@
       "body_snippet": "Both RCurl and rstan seem to have installed now.\n\nDid the following on my RHEL6 server:\n     [root at ping ~]# export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib64/pkgconfig/\n     [root at ping ~]# /usr",
       "thread_id": "thread-41a991bd8a46",
       "thread_depth": 6,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000435.html"
     },
     {
       "id": "msg-bc50b5ff1298",
@@ -242,7 +250,8 @@
       "body_snippet": "On 02/05/2016 09:58 AM, Patrick, Larry B [CSSM] wrote:\n> Did the following on my RHEL6 server:\n>      [root at ping ~]# export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib64/pkgconfig/\n>      [root at pi",
       "thread_id": "thread-41a991bd8a46",
       "thread_depth": 7,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000436.html"
     },
     {
       "id": "msg-1248e75dd4a7",
@@ -273,7 +282,8 @@
       "body_snippet": "Tom,\n\nI don't doubt it. \n\nHopefully I can schedule some time to work on rebuilding this system with RHEL 7 to help bring it up to date :) They just needed it right now and couldn't wait for any downti",
       "thread_id": "thread-41a991bd8a46",
       "thread_depth": 8,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000437.html"
     },
     {
       "id": "msg-e9637cf5b144",
@@ -289,7 +299,8 @@
       "body_snippet": "I run R on a Fedora 23 64bit ,\n\nI encounter this problem\n\n\n*WARNING: no proj_defs.dat in PROJ.4 shared files Linking to sp version:\n1.2-2 *\n\nwhen trying  to load library(\"rgdal\",\nlib.loc=\"~/R/x86_64-r",
       "thread_id": "thread-e9637cf5b144",
       "thread_depth": 0,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000438.html"
     },
     {
       "id": "msg-cedcd7ffc9b5",
@@ -307,7 +318,8 @@
       "body_snippet": "You probably need to install header files and rebuild 'rgdal'. To get the R\nGIS stack to work, you need the '-devel' packages for 'geos', 'gdal' and\n'proj'.\n\nOn Fri, Feb 12, 2016 at 7:24 PM Jules Bash",
       "thread_id": "thread-e9637cf5b144",
       "thread_depth": 1,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000439.html"
     },
     {
       "id": "msg-01369fa0fc30",
@@ -325,7 +337,8 @@
       "body_snippet": "Jules Bashizi <jbi.octave at ...> writes:\n\n> \n> I run R on a Fedora 23 64bit ,\n> \n> I encounter this problem\n> \n> *WARNING: no proj_defs.dat in PROJ.4 shared files Linking to sp version:\n> 1.2-2 *\n\nWh",
       "thread_id": "thread-e9637cf5b144",
       "thread_depth": 1,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000440.html"
     },
     {
       "id": "msg-3f6c967b67e4",
@@ -341,7 +354,8 @@
       "body_snippet": "Dear R users\n\nI have compiled R from source in local user account (at non default\nlocation). R seems to be working fine but issuing plot() command opens a\nwindow (supposedly graph, but nothing is visi",
       "thread_id": "thread-3f6c967b67e4",
       "thread_depth": 0,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000441.html"
     },
     {
       "id": "msg-912a4a4fb3a7",
@@ -359,7 +373,8 @@
       "body_snippet": "We have had reports of the X11 device freezing. See the R bug\nrepository:\n\nhttps://bugs.r-project.org/bugzilla3/show_bug.cgi?id=16497\n\nThe fix will be included in the next major release of R. Tom's EP",
       "thread_id": "thread-3f6c967b67e4",
       "thread_depth": 1,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000442.html"
     },
     {
       "id": "msg-619f24437ab8",
@@ -378,7 +393,8 @@
       "body_snippet": "On Wed, 2016-02-17 at 11:24 +0900, ashutosh srivastava wrote:\n\n> > I have compiled R from source in local user account (at non default\n> > location). R seems to be working fine but issuing plot() comm",
       "thread_id": "thread-3f6c967b67e4",
       "thread_depth": 2,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000443.html"
     },
     {
       "id": "msg-d310ce1e2d0d",
@@ -398,7 +414,8 @@
       "body_snippet": "On Wed, 2016-02-17 at 08:45 -0700, Steven Backus wrote:\n> On Wed, 2016-02-17 at 11:24 +0900, ashutosh srivastava wrote:\n> \n> > > I have compiled R from source in local user account (at non default\n> >",
       "thread_id": "thread-3f6c967b67e4",
       "thread_depth": 3,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000444.html"
     },
     {
       "id": "msg-f03ea31c1740",
@@ -419,7 +436,8 @@
       "body_snippet": "Dear Steve and Martyn\n\nThank you for the suggestions. I will try it and get back to you.\n\nBest\nAshutosh\n\nOn Thu, Feb 18, 2016 at 1:56 AM, Martyn Plummer <plummerm at iarc.fr> wrote:\n\n> On Wed, 2016-02",
       "thread_id": "thread-3f6c967b67e4",
       "thread_depth": 4,
-      "month": "2016-02"
+      "month": "2016-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-February/000445.html"
     }
   ],
   "threads": [

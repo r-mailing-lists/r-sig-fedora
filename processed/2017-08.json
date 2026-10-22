@@ -17,7 +17,8 @@
       "body_snippet": "I just installed Fedora 26 on my laptop, and R now fails to load.  The\nerror message is missing libgfortran.so.3.  Does anyone have a fix for\nthis?  FC 26 comes with R-3.4.1 as an RPM, but it throws t",
       "thread_id": "thread-0a9823b82211",
       "thread_depth": 0,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000526.html"
     },
     {
       "id": "msg-6e548a84da68",
@@ -35,7 +36,8 @@
       "body_snippet": "On 08/02/2017 03:09 PM, Jeff Trefftzs wrote:\n> I just installed Fedora 26 on my laptop, and R now fails to load.  The\n> error message is missing libgfortran.so.3.  Does anyone have a fix for\n> this?  ",
       "thread_id": "thread-0a9823b82211",
       "thread_depth": 1,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000527.html"
     },
     {
       "id": "msg-7a86a893ad96",
@@ -54,7 +56,8 @@
       "body_snippet": "On Wed, 2017-08-02 at 15:30 -0400, Tom Callaway wrote:\n> On 08/02/2017 03:09 PM, Jeff Trefftzs wrote:\n> > I just installed Fedora 26 on my laptop, and R now fails to load. \n> >  The\n> > error message ",
       "thread_id": "thread-0a9823b82211",
       "thread_depth": 2,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000528.html"
     },
     {
       "id": "msg-75fc85540539",
@@ -70,7 +73,8 @@
       "body_snippet": "Hello,\n\nI am trying to build R from source on Scientific Linux release 6.9\n(Carbon), Linux version 2.6.32-696.3.2.el6.x86_64 (Red Hat 4.4.7-18).\n\nI load the needed modules and run:\n\n*./configure --pre",
       "thread_id": "thread-75fc85540539",
       "thread_depth": 0,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000529.html"
     },
     {
       "id": "msg-016b1982c7d6",
@@ -86,7 +90,8 @@
       "body_snippet": "Hello,\n\nwhen I want to install H misc and rms using Fedora 26. I receive the\nfollowing error message:\n\nError: package or namespace load failed for ?Hmisc? in dyn.load(file,\nDLLpath = DLLpath, ...):\n u",
       "thread_id": "thread-016b1982c7d6",
       "thread_depth": 0,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000530.html"
     },
     {
       "id": "msg-c64af9ee1161",
@@ -104,7 +109,8 @@
       "body_snippet": "There is a binary incompatibility between FC25 and FC26 so this can\nhappen when you upgrade without reinstalling R\n\n1) If you installed R from source before upgrading then rebuild and\nreinstall it.\n\n2",
       "thread_id": "thread-016b1982c7d6",
       "thread_depth": 1,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000531.html"
     },
     {
       "id": "msg-87513dace190",
@@ -120,7 +126,8 @@
       "body_snippet": "Dear list,\n\nI installed R 3.3.2 on a Red Hat Linux Enterprise 7.3 machine by adding the EPEL-repository and then installing it via yum.\nR starts up and seems to be doing fine at first sight. However, ",
       "thread_id": "thread-87513dace190",
       "thread_depth": 0,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000532.html"
     },
     {
       "id": "msg-9c1ebf1fe18f",
@@ -138,7 +145,8 @@
       "body_snippet": "On 23.08.2017 12:02, Braun, Stefan wrote:\n> Dear list,\n>\n> I installed R 3.3.2 on a Red Hat Linux Enterprise 7.3 machine by adding the EPEL-repository and then installing it via yum.\n> R starts up and",
       "thread_id": "thread-87513dace190",
       "thread_depth": 1,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000533.html"
     },
     {
       "id": "msg-fad8d0db4f7b",
@@ -157,7 +165,8 @@
       "body_snippet": "It is difficult to debug this without a reproducible example. \n\nDo you have, in the file system that you are trying to list, files with\nnames that are not utf8-encoded?\n\nMartyn\n\nOn Wed, 2017-08-23 at ",
       "thread_id": "thread-87513dace190",
       "thread_depth": 2,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000534.html"
     },
     {
       "id": "msg-59b7e593f99e",
@@ -175,7 +184,8 @@
       "body_snippet": "On 08/18/2017 01:12 PM, Jaime Alvarez Benayas wrote:\n> Hello,\n> \n> I am trying to build R from source on Scientific Linux release 6.9\n> (Carbon), Linux version 2.6.32-696.3.2.el6.x86_64 (Red Hat 4.4.7",
       "thread_id": "thread-75fc85540539",
       "thread_depth": 1,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000535.html"
     },
     {
       "id": "msg-01bbe4a40ba4",
@@ -190,11 +200,12 @@
         "<CAP+QG4yPMgDrwik9F4sef2E6_mqwZ3vYMdNNJbNSmP683eawEQ@mail.gmail.com>",
         "<cd69ac0c-28ab-5c58-e2e8-06a4535f6c75@redhat.com>"
       ],
-      "body_plain": "Hello,\n\nI am installing R in an environment where I am not admin...\n\nThanks\n\n-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: mi?rcoles, 23 de agosto de 2017 19:42\nTo: Jaime Alvarez Benayas <jalvarezbenayas1 at sheffield.ac.uk>; r-sig-fedora at r-project.org\nSubject: Re: [R-sig-Fedora] No rule to make target all.R, needed by compiler.rdb building R 3.4.1 from source, Scientific Linux release 6.9 (Carbon)\n\n\n\nOn 08/18/2017 01:12 PM, Jaime Alvarez Benayas wrote:\n> Hello,\n> \n> I am trying to build R from source on Scientific Linux release 6.9 \n> (Carbon), Linux version 2.6.32-696.3.2.el6.x86_64 (Red Hat 4.4.7-18).\n\nBefore debugging this too far, is there a reason you're building from source as opposed to using the R prebuilt packages in EPEL?\n\n~tom",
-      "body_snippet": "Hello,\n\nI am installing R in an environment where I am not admin...\n\nThanks\n\n-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: mi?rcoles, 23 de agosto de 2017 19:42\n",
+      "body_plain": "Hello,\n\nI am installing R in an environment where I am not admin...\n\nThanks\n\n-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: miércoles, 23 de agosto de 2017 19:42\nTo: Jaime Alvarez Benayas <jalvarezbenayas1 at sheffield.ac.uk>; r-sig-fedora at r-project.org\nSubject: Re: [R-sig-Fedora] No rule to make target all.R, needed by compiler.rdb building R 3.4.1 from source, Scientific Linux release 6.9 (Carbon)\n\n\n\nOn 08/18/2017 01:12 PM, Jaime Alvarez Benayas wrote:\n> Hello,\n> \n> I am trying to build R from source on Scientific Linux release 6.9 \n> (Carbon), Linux version 2.6.32-696.3.2.el6.x86_64 (Red Hat 4.4.7-18).\n\nBefore debugging this too far, is there a reason you're building from source as opposed to using the R prebuilt packages in EPEL?\n\n~tom",
+      "body_snippet": "Hello,\n\nI am installing R in an environment where I am not admin...\n\nThanks\n\n-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: miércoles, 23 de agosto de 2017 19:42\n",
       "thread_id": "thread-75fc85540539",
       "thread_depth": 2,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000536.html"
     },
     {
       "id": "msg-85de23fc3bff",
@@ -212,7 +223,8 @@
       "body_snippet": "On 08/18/2017 01:12 PM, Jaime Alvarez Benayas wrote:\n> Hello,\n> \n> I am trying to build R from source on Scientific Linux release 6.9\n> (Carbon), Linux version 2.6.32-696.3.2.el6.x86_64 (Red Hat 4.4.7",
       "thread_id": "thread-75fc85540539",
       "thread_depth": 1,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000537.html"
     },
     {
       "id": "msg-9403e327fa18",
@@ -227,11 +239,12 @@
         "<CAP+QG4yPMgDrwik9F4sef2E6_mqwZ3vYMdNNJbNSmP683eawEQ@mail.gmail.com>",
         "<884a4c60-d6dd-288b-3f5d-c66dad43d68e@redhat.com>"
       ],
-      "body_plain": "Thanks again, sorry I didn't specify this. I am loading new libraries to get to this point. The script I run for \"configure\" is:\n\n#Load the new curl module\nmodule load libs/gcc/4.4.7/curl/7.47.1\n#Load the new xzutils module\nmodule load apps/gcc/4.4.7/xzutils/5.2.2\n#Load the new zlib module\nmodule load libs/gcc/4.4.7/zlib/1.2.8\n#Load the new bzip2 module\nmodule load libs/gcc/4.4.7/bzip2/1.0.6\nexport LDFLAGS=\"-L/usr/local/packages6/libs/gcc/4.4.7/bzip2/1.0.6/lib/\"\n#load pcre module\nmodule load libs/gcc/4.4.7/pcre/8.37\n\n\n#Set up environment variables and create directories\nversion=3.4.1\ninstall_dir=/fastdata/mbp15ja/R-$version\nbuild_dir=/data/mbp15ja/R-$version\nmkdir -p $build_dir\nmkdir -p $install_dir\n\ncd $build_dir\n\n#Set up modules\nmodule load libs/gcc/lapack\nmodule load libs/gcc/blas\n\n#Download, untar and enter build directory\nwget https://cran.rstudio.com/src/base/R-3/R-$version.tar.gz\ntar -xzf ./R-$version.tar.gz\ncd R-$version\n\n#Configure and build\n# Original command\n./configure --prefix $install_dir --with-blas --with-lapack --enable-R-shlib 2>&1 | tee config-R-$version.log\n\n\n\n\n\n\nIf I run the make command: \n\nmake 2>&1 | tee make-R-$version.log\n\n\nI get the following error:\n\nmake[4]: Entering directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'\nmkdir -p -- /data/mbp15ja/R-3.4.1/R-3.4.1/bin/exec\nmake[4]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'\nmake[3]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'\nmake[3]: Entering directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'\ngcc -I../../src/extra  -I. -I../../src/include -I../../src/include -I/usr/local/packages6/libs/gcc/4.4.7/curl/7.47.1/include -I/usr/local/packages6/compilers/gcc/5.4.0/include -I../../src/nmath -DHAVE_CONFIG_H   -fopenmp -fpic  -I/usr/local/packages6/compilers/gcc/5.4.0/include  -c Rmain.c -o Rmain.o\ngcc -Wl,--export-dynamic -fopenmp  -L../../lib -L/usr/local/lib/gcc/blas/1 -L/usr/local/lib/gcc/lapack/3.3.0 -L/usr/local/packages6/libs/gcc/4.4.7/bzip2/1.0.6/lib/ -o R.bin Rmain.o  -lR -lRblas\n../../lib/libR.so: undefined reference to `pcre_assign_jit_stack'\n../../lib/libR.so: undefined reference to `pcre_jit_stack_alloc'\n../../lib/libR.so: undefined reference to `pcre_free_study'\ncollect2: error: ld returned 1 exit status\nmake[3]: *** [R.bin] Error 1\nmake[3]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'\nmake[2]: *** [R] Error 2\nmake[2]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'\nmake[1]: *** [R] Error 1\nmake[1]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src'\nmake: *** [R] Error 1\n\n\nI was advised to do a dry-run trying to debug. That is why I was doing make -n\n\nI have previously loaded the PCRE library:\necho $PATH\n/usr/local/packages6/libs/gcc/4.4.7/pcre/8.37/bin:/usr/local/packages6/libs/gcc/4.4.7/bzip2/1.0.6/bin:/usr/local/packages6/apps/gcc/4.4.7/xzutils/5.2.2/bin:/usr/local/packages6/libs/gcc/4.4.7/curl/7.47.1//bin:/usr/local/packages6/R/3.2.1/bin\n\n\n\nThanks again for the help\n\n\n\n\n\n-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: mi?rcoles, 23 de agosto de 2017 20:01\nTo: Jaime Alvarez Benayas <jalvarezbenayas1 at sheffield.ac.uk>; r-sig-fedora at r-project.org\nSubject: Re: [R-sig-Fedora] No rule to make target all.R, needed by compiler.rdb building R 3.4.1 from source, Scientific Linux release 6.9 (Carbon)\n\n\n\nOn 08/18/2017 01:12 PM, Jaime Alvarez Benayas wrote:\n> Hello,\n> \n> I am trying to build R from source on Scientific Linux release 6.9 \n> (Carbon), Linux version 2.6.32-696.3.2.el6.x86_64 (Red Hat 4.4.7-18).\n\nOkay, so the versions of zlib, bzip2, xz, curl, and pcre are too old on Scientific Linux 6.9 (unless they've updated all of them when I wasn't looking). That said, I don't think your problem is there.\n\nWhy are you calling make -n instead of just make?\n\n~tom",
+      "body_plain": "Thanks again, sorry I didn't specify this. I am loading new libraries to get to this point. The script I run for \"configure\" is:\n\n#Load the new curl module\nmodule load libs/gcc/4.4.7/curl/7.47.1\n#Load the new xzutils module\nmodule load apps/gcc/4.4.7/xzutils/5.2.2\n#Load the new zlib module\nmodule load libs/gcc/4.4.7/zlib/1.2.8\n#Load the new bzip2 module\nmodule load libs/gcc/4.4.7/bzip2/1.0.6\nexport LDFLAGS=\"-L/usr/local/packages6/libs/gcc/4.4.7/bzip2/1.0.6/lib/\"\n#load pcre module\nmodule load libs/gcc/4.4.7/pcre/8.37\n\n\n#Set up environment variables and create directories\nversion=3.4.1\ninstall_dir=/fastdata/mbp15ja/R-$version\nbuild_dir=/data/mbp15ja/R-$version\nmkdir -p $build_dir\nmkdir -p $install_dir\n\ncd $build_dir\n\n#Set up modules\nmodule load libs/gcc/lapack\nmodule load libs/gcc/blas\n\n#Download, untar and enter build directory\nwget https://cran.rstudio.com/src/base/R-3/R-$version.tar.gz\ntar -xzf ./R-$version.tar.gz\ncd R-$version\n\n#Configure and build\n# Original command\n./configure --prefix $install_dir --with-blas --with-lapack --enable-R-shlib 2>&1 | tee config-R-$version.log\n\n\n\n\n\n\nIf I run the make command: \n\nmake 2>&1 | tee make-R-$version.log\n\n\nI get the following error:\n\nmake[4]: Entering directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'\nmkdir -p -- /data/mbp15ja/R-3.4.1/R-3.4.1/bin/exec\nmake[4]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'\nmake[3]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'\nmake[3]: Entering directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'\ngcc -I../../src/extra  -I. -I../../src/include -I../../src/include -I/usr/local/packages6/libs/gcc/4.4.7/curl/7.47.1/include -I/usr/local/packages6/compilers/gcc/5.4.0/include -I../../src/nmath -DHAVE_CONFIG_H   -fopenmp -fpic  -I/usr/local/packages6/compilers/gcc/5.4.0/include  -c Rmain.c -o Rmain.o\ngcc -Wl,--export-dynamic -fopenmp  -L../../lib -L/usr/local/lib/gcc/blas/1 -L/usr/local/lib/gcc/lapack/3.3.0 -L/usr/local/packages6/libs/gcc/4.4.7/bzip2/1.0.6/lib/ -o R.bin Rmain.o  -lR -lRblas\n../../lib/libR.so: undefined reference to `pcre_assign_jit_stack'\n../../lib/libR.so: undefined reference to `pcre_jit_stack_alloc'\n../../lib/libR.so: undefined reference to `pcre_free_study'\ncollect2: error: ld returned 1 exit status\nmake[3]: *** [R.bin] Error 1\nmake[3]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'\nmake[2]: *** [R] Error 2\nmake[2]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src/main'\nmake[1]: *** [R] Error 1\nmake[1]: Leaving directory `/data/mbp15ja/R-3.4.1/R-3.4.1/src'\nmake: *** [R] Error 1\n\n\nI was advised to do a dry-run trying to debug. That is why I was doing make -n\n\nI have previously loaded the PCRE library:\necho $PATH\n/usr/local/packages6/libs/gcc/4.4.7/pcre/8.37/bin:/usr/local/packages6/libs/gcc/4.4.7/bzip2/1.0.6/bin:/usr/local/packages6/apps/gcc/4.4.7/xzutils/5.2.2/bin:/usr/local/packages6/libs/gcc/4.4.7/curl/7.47.1//bin:/usr/local/packages6/R/3.2.1/bin\n\n\n\nThanks again for the help\n\n\n\n\n\n-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: miércoles, 23 de agosto de 2017 20:01\nTo: Jaime Alvarez Benayas <jalvarezbenayas1 at sheffield.ac.uk>; r-sig-fedora at r-project.org\nSubject: Re: [R-sig-Fedora] No rule to make target all.R, needed by compiler.rdb building R 3.4.1 from source, Scientific Linux release 6.9 (Carbon)\n\n\n\nOn 08/18/2017 01:12 PM, Jaime Alvarez Benayas wrote:\n> Hello,\n> \n> I am trying to build R from source on Scientific Linux release 6.9 \n> (Carbon), Linux version 2.6.32-696.3.2.el6.x86_64 (Red Hat 4.4.7-18).\n\nOkay, so the versions of zlib, bzip2, xz, curl, and pcre are too old on Scientific Linux 6.9 (unless they've updated all of them when I wasn't looking). That said, I don't think your problem is there.\n\nWhy are you calling make -n instead of just make?\n\n~tom",
       "body_snippet": "Thanks again, sorry I didn't specify this. I am loading new libraries to get to this point. The script I run for \"configure\" is:\n\n#Load the new curl module\nmodule load libs/gcc/4.4.7/curl/7.47.1\n#Load",
       "thread_id": "thread-75fc85540539",
       "thread_depth": 2,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000538.html"
     },
     {
       "id": "msg-9310463b7448",
@@ -251,7 +264,8 @@
       "body_snippet": "On 08/23/2017 03:58 PM, Jaime Alvarez Benayas wrote:\n> ../../lib/libR.so: undefined reference to `pcre_assign_jit_stack'\n> ../../lib/libR.so: undefined reference to `pcre_jit_stack_alloc'\n> ../../lib/",
       "thread_id": "thread-75fc85540539",
       "thread_depth": 3,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000539.html"
     },
     {
       "id": "msg-80ff91783193",
@@ -268,11 +282,12 @@
         "<00de01d31c4a$3c1c4680$b454d380$@sheffield.ac.uk>",
         "<88ba6670-d662-8d29-63a6-d0fe71105442@redhat.com>"
       ],
-      "body_plain": "Hello,\n\nThanks again. I have checked the configure step, the only messages I get containing pcre are:\n\nchecking for pcre_fullinfo in -lpcre... yes\nchecking pcre.h usability... yes\nchecking pcre.h presence... yes\nchecking for pcre.h... yes\nchecking pcre/pcre.h usability... no\nchecking pcre/pcre.h presence... no\nchecking for pcre/pcre.h... no\nchecking if PCRE version >= 8.20, < 10.0 and has UTF-8 support... yes\nchecking if PCRE version >= 8.32... yes\nchecking whether PCRE support suffices... yes\n\n\nThe final status from the command:\n\nR is now configured for x86_64-pc-linux-gnu\n\n  Source directory:          .\n  Installation directory:    /fastdata/mbp15ja/R-3.4.1\n\n  C compiler:                gcc  -I/usr/local/packages6/compilers/gcc/5.4.0/include\n  Fortran 77 compiler:       gfortran  -g -O2\n\n  Default C++ compiler:      g++   -g -O2\n  C++98 compiler:            g++  -g -O2\n  C++11 compiler:            g++ -std=gnu++11 -g -O2\n  C++14 compiler:            g++ -std=gnu++14 -g -O2\n  C++17 compiler:\n  Fortran 90/95 compiler:    gfortran -g -O2\n  Obj-C compiler:\n\n  Interfaces supported:      X11, tcltk\n  External libraries:        readline, curl\n  Additional capabilities:   PNG, JPEG, NLS, cairo\n  Options enabled:           shared R library, shared BLAS, R profiling\n\n  Capabilities skipped:      TIFF, ICU\n  Options not enabled:       memory profiling\n\n  Recommended packages:      yes\n\n\n\nI haven't seen the JIT message but will give a try at the glibc-devel:\n\n\nHere is the whole log from the configure command\nhttps://www.dropbox.com/s/m4g2w1hrr2uqldr/configure%20result%20R.txt?dl=0\n\n\n\n-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: mi?rcoles, 23 de agosto de 2017 21:48\nTo: Jaime Alvarez Benayas <jalvarezbenayas1 at sheffield.ac.uk>; r-sig-fedora at r-project.org\nSubject: Re: [R-sig-Fedora] No rule to make target all.R, needed by compiler.rdb building R 3.4.1 from source, Scientific Linux release 6.9 (Carbon)\n\n\n\nOn 08/23/2017 03:58 PM, Jaime Alvarez Benayas wrote:\n> ../../lib/libR.so: undefined reference to `pcre_assign_jit_stack'\n> ../../lib/libR.so: undefined reference to `pcre_jit_stack_alloc'\n> ../../lib/libR.so: undefined reference to `pcre_free_study'\n\nThis is the error. Your PCRE is being built with SUPPORT_JIT undefined.\n\nYou should see some warning during the configure phase for PCRE that says \"JIT support requires pthreads\" or something like that. You should get that from glibc-devel.\n\n~tom",
+      "body_plain": "Hello,\n\nThanks again. I have checked the configure step, the only messages I get containing pcre are:\n\nchecking for pcre_fullinfo in -lpcre... yes\nchecking pcre.h usability... yes\nchecking pcre.h presence... yes\nchecking for pcre.h... yes\nchecking pcre/pcre.h usability... no\nchecking pcre/pcre.h presence... no\nchecking for pcre/pcre.h... no\nchecking if PCRE version >= 8.20, < 10.0 and has UTF-8 support... yes\nchecking if PCRE version >= 8.32... yes\nchecking whether PCRE support suffices... yes\n\n\nThe final status from the command:\n\nR is now configured for x86_64-pc-linux-gnu\n\n  Source directory:          .\n  Installation directory:    /fastdata/mbp15ja/R-3.4.1\n\n  C compiler:                gcc  -I/usr/local/packages6/compilers/gcc/5.4.0/include\n  Fortran 77 compiler:       gfortran  -g -O2\n\n  Default C++ compiler:      g++   -g -O2\n  C++98 compiler:            g++  -g -O2\n  C++11 compiler:            g++ -std=gnu++11 -g -O2\n  C++14 compiler:            g++ -std=gnu++14 -g -O2\n  C++17 compiler:\n  Fortran 90/95 compiler:    gfortran -g -O2\n  Obj-C compiler:\n\n  Interfaces supported:      X11, tcltk\n  External libraries:        readline, curl\n  Additional capabilities:   PNG, JPEG, NLS, cairo\n  Options enabled:           shared R library, shared BLAS, R profiling\n\n  Capabilities skipped:      TIFF, ICU\n  Options not enabled:       memory profiling\n\n  Recommended packages:      yes\n\n\n\nI haven't seen the JIT message but will give a try at the glibc-devel:\n\n\nHere is the whole log from the configure command\nhttps://www.dropbox.com/s/m4g2w1hrr2uqldr/configure%20result%20R.txt?dl=0\n\n\n\n-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: miércoles, 23 de agosto de 2017 21:48\nTo: Jaime Alvarez Benayas <jalvarezbenayas1 at sheffield.ac.uk>; r-sig-fedora at r-project.org\nSubject: Re: [R-sig-Fedora] No rule to make target all.R, needed by compiler.rdb building R 3.4.1 from source, Scientific Linux release 6.9 (Carbon)\n\n\n\nOn 08/23/2017 03:58 PM, Jaime Alvarez Benayas wrote:\n> ../../lib/libR.so: undefined reference to `pcre_assign_jit_stack'\n> ../../lib/libR.so: undefined reference to `pcre_jit_stack_alloc'\n> ../../lib/libR.so: undefined reference to `pcre_free_study'\n\nThis is the error. Your PCRE is being built with SUPPORT_JIT undefined.\n\nYou should see some warning during the configure phase for PCRE that says \"JIT support requires pthreads\" or something like that. You should get that from glibc-devel.\n\n~tom",
       "body_snippet": "Hello,\n\nThanks again. I have checked the configure step, the only messages I get containing pcre are:\n\nchecking for pcre_fullinfo in -lpcre... yes\nchecking pcre.h usability... yes\nchecking pcre.h pres",
       "thread_id": "thread-75fc85540539",
       "thread_depth": 4,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000540.html"
     },
     {
       "id": "msg-1753c85fc3c8",
@@ -290,11 +305,12 @@
         "<88ba6670-d662-8d29-63a6-d0fe71105442@redhat.com>",
         "<00ff01d31c6a$f401dbf0$dc0593d0$@sheffield.ac.uk>"
       ],
-      "body_plain": "No, not R's configure, PCRE's configure. The PCRE library that you've built\nis missing some functionality.\n\n~tom\n\nOn Aug 23, 2017 7:53 PM, \"Jaime Alvarez Benayas\" <\njalvarezbenayas1 at sheffield.ac.uk> wrote:\n\n> Hello,\n>\n> Thanks again. I have checked the configure step, the only messages I get\n> containing pcre are:\n>\n> checking for pcre_fullinfo in -lpcre... yes\n> checking pcre.h usability... yes\n> checking pcre.h presence... yes\n> checking for pcre.h... yes\n> checking pcre/pcre.h usability... no\n> checking pcre/pcre.h presence... no\n> checking for pcre/pcre.h... no\n> checking if PCRE version >= 8.20, < 10.0 and has UTF-8 support... yes\n> checking if PCRE version >= 8.32... yes\n> checking whether PCRE support suffices... yes\n>\n>\n> The final status from the command:\n>\n> R is now configured for x86_64-pc-linux-gnu\n>\n>   Source directory:          .\n>   Installation directory:    /fastdata/mbp15ja/R-3.4.1\n>\n>   C compiler:                gcc  -I/usr/local/packages6/\n> compilers/gcc/5.4.0/include\n>   Fortran 77 compiler:       gfortran  -g -O2\n>\n>   Default C++ compiler:      g++   -g -O2\n>   C++98 compiler:            g++  -g -O2\n>   C++11 compiler:            g++ -std=gnu++11 -g -O2\n>   C++14 compiler:            g++ -std=gnu++14 -g -O2\n>   C++17 compiler:\n>   Fortran 90/95 compiler:    gfortran -g -O2\n>   Obj-C compiler:\n>\n>   Interfaces supported:      X11, tcltk\n>   External libraries:        readline, curl\n>   Additional capabilities:   PNG, JPEG, NLS, cairo\n>   Options enabled:           shared R library, shared BLAS, R profiling\n>\n>   Capabilities skipped:      TIFF, ICU\n>   Options not enabled:       memory profiling\n>\n>   Recommended packages:      yes\n>\n>\n>\n> I haven't seen the JIT message but will give a try at the glibc-devel:\n>\n>\n> Here is the whole log from the configure command\n> https://www.dropbox.com/s/m4g2w1hrr2uqldr/configure%20result%20R.txt?dl=0\n>\n>\n>\n> -----Original Message-----\n> From: Tom Callaway [mailto:tcallawa at redhat.com]\n> Sent: mi?rcoles, 23 de agosto de 2017 21:48\n> To: Jaime Alvarez Benayas <jalvarezbenayas1 at sheffield.ac.uk>;\n> r-sig-fedora at r-project.org\n> Subject: Re: [R-sig-Fedora] No rule to make target all.R, needed by\n> compiler.rdb building R 3.4.1 from source, Scientific Linux release 6.9\n> (Carbon)\n>\n>\n>\n> On 08/23/2017 03:58 PM, Jaime Alvarez Benayas wrote:\n> > ../../lib/libR.so: undefined reference to `pcre_assign_jit_stack'\n> > ../../lib/libR.so: undefined reference to `pcre_jit_stack_alloc'\n> > ../../lib/libR.so: undefined reference to `pcre_free_study'\n>\n> This is the error. Your PCRE is being built with SUPPORT_JIT undefined.\n>\n> You should see some warning during the configure phase for PCRE that says\n> \"JIT support requires pthreads\" or something like that. You should get that\n> from glibc-devel.\n>\n> ~tom\n>\n>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_plain": "No, not R's configure, PCRE's configure. The PCRE library that you've built\nis missing some functionality.\n\n~tom\n\nOn Aug 23, 2017 7:53 PM, \"Jaime Alvarez Benayas\" <\njalvarezbenayas1 at sheffield.ac.uk> wrote:\n\n> Hello,\n>\n> Thanks again. I have checked the configure step, the only messages I get\n> containing pcre are:\n>\n> checking for pcre_fullinfo in -lpcre... yes\n> checking pcre.h usability... yes\n> checking pcre.h presence... yes\n> checking for pcre.h... yes\n> checking pcre/pcre.h usability... no\n> checking pcre/pcre.h presence... no\n> checking for pcre/pcre.h... no\n> checking if PCRE version >= 8.20, < 10.0 and has UTF-8 support... yes\n> checking if PCRE version >= 8.32... yes\n> checking whether PCRE support suffices... yes\n>\n>\n> The final status from the command:\n>\n> R is now configured for x86_64-pc-linux-gnu\n>\n>   Source directory:          .\n>   Installation directory:    /fastdata/mbp15ja/R-3.4.1\n>\n>   C compiler:                gcc  -I/usr/local/packages6/\n> compilers/gcc/5.4.0/include\n>   Fortran 77 compiler:       gfortran  -g -O2\n>\n>   Default C++ compiler:      g++   -g -O2\n>   C++98 compiler:            g++  -g -O2\n>   C++11 compiler:            g++ -std=gnu++11 -g -O2\n>   C++14 compiler:            g++ -std=gnu++14 -g -O2\n>   C++17 compiler:\n>   Fortran 90/95 compiler:    gfortran -g -O2\n>   Obj-C compiler:\n>\n>   Interfaces supported:      X11, tcltk\n>   External libraries:        readline, curl\n>   Additional capabilities:   PNG, JPEG, NLS, cairo\n>   Options enabled:           shared R library, shared BLAS, R profiling\n>\n>   Capabilities skipped:      TIFF, ICU\n>   Options not enabled:       memory profiling\n>\n>   Recommended packages:      yes\n>\n>\n>\n> I haven't seen the JIT message but will give a try at the glibc-devel:\n>\n>\n> Here is the whole log from the configure command\n> https://www.dropbox.com/s/m4g2w1hrr2uqldr/configure%20result%20R.txt?dl=0\n>\n>\n>\n> -----Original Message-----\n> From: Tom Callaway [mailto:tcallawa at redhat.com]\n> Sent: miércoles, 23 de agosto de 2017 21:48\n> To: Jaime Alvarez Benayas <jalvarezbenayas1 at sheffield.ac.uk>;\n> r-sig-fedora at r-project.org\n> Subject: Re: [R-sig-Fedora] No rule to make target all.R, needed by\n> compiler.rdb building R 3.4.1 from source, Scientific Linux release 6.9\n> (Carbon)\n>\n>\n>\n> On 08/23/2017 03:58 PM, Jaime Alvarez Benayas wrote:\n> > ../../lib/libR.so: undefined reference to `pcre_assign_jit_stack'\n> > ../../lib/libR.so: undefined reference to `pcre_jit_stack_alloc'\n> > ../../lib/libR.so: undefined reference to `pcre_free_study'\n>\n> This is the error. Your PCRE is being built with SUPPORT_JIT undefined.\n>\n> You should see some warning during the configure phase for PCRE that says\n> \"JIT support requires pthreads\" or something like that. You should get that\n> from glibc-devel.\n>\n> ~tom\n>\n>\n>\n\n\t[[alternative HTML version deleted]]",
       "body_snippet": "No, not R's configure, PCRE's configure. The PCRE library that you've built\nis missing some functionality.\n\n~tom\n\nOn Aug 23, 2017 7:53 PM, \"Jaime Alvarez Benayas\" <\njalvarezbenayas1 at sheffield.ac.uk",
       "thread_id": "thread-75fc85540539",
       "thread_depth": 5,
-      "month": "2017-08"
+      "month": "2017-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-August/000541.html"
     }
   ],
   "threads": [

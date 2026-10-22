@@ -17,7 +17,8 @@
       "body_snippet": "R 2.12.0 is built now for Fedora and EPEL. It is in \"updates-testing\"\n(or it will be within the next 24 hours).\n\nI did not do this build for Fedora 12, as that release will be\nEnd-Of-Life in a month.\n",
       "thread_id": "thread-24f2bac60128",
       "thread_depth": 0,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000153.html"
     },
     {
       "id": "msg-dc0b1dadd8d7",
@@ -35,7 +36,8 @@
       "body_snippet": "On 11/02/2010 09:49 PM, Tom \"spot\" Callaway wrote:\n> R 2.12.0 is built now for Fedora and EPEL. It is in \"updates-testing\"\n> (or it will be within the next 24 hours).\n\nFor rather large values of 24, i",
       "thread_id": "thread-24f2bac60128",
       "thread_depth": 1,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000154.html"
     },
     {
       "id": "msg-5900002c8381",
@@ -54,7 +56,8 @@
       "body_snippet": "On Sat, 06 Nov 2010 08:55:04 +0100 Peter Dalgaard wrote:\n\nPD> ...I tried this twice and it has zero effect on the karma!\n\nI suppose you did this anonymously and not with a fedora account. I\ncould add ",
       "thread_id": "thread-24f2bac60128",
       "thread_depth": 2,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000155.html"
     },
     {
       "id": "msg-b4e569f47d67",
@@ -74,7 +77,8 @@
       "body_snippet": "On 11/06/2010 08:47 AM, Stefan Grosse wrote:\n> On Sat, 06 Nov 2010 08:55:04 +0100 Peter Dalgaard wrote:\n> \n> PD> ...I tried this twice and it has zero effect on the karma!\n> \n> I suppose you did this ",
       "thread_id": "thread-24f2bac60128",
       "thread_depth": 3,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000156.html"
     },
     {
       "id": "msg-c95194e2ed11",
@@ -95,7 +99,8 @@
       "body_snippet": "On Sat, Nov 6, 2010 at 9:44 AM, Tom \"spot\" Callaway <tcallawa at redhat.com> wrote:\n\n> ~spot\n>\n> _______________________________________________\n\nHi, Spot\n\nThis reminds me.  You remember a few months ",
       "thread_id": "thread-24f2bac60128",
       "thread_depth": 4,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000157.html"
     },
     {
       "id": "msg-004b29a307e8",
@@ -111,7 +116,8 @@
       "body_snippet": "Hi,\n\nI installed F14 on release, but was diquieted to note that my symlinked \nGotoBLAS (http://cran.r-project.org/doc/manuals/R-admin.html#Shared-BLAS, \nfoot of paragraph) prevented R (compiled from s",
       "thread_id": "thread-004b29a307e8",
       "thread_depth": 0,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000158.html"
     },
     {
       "id": "msg-4ddfc3e3c97f",
@@ -129,7 +135,8 @@
       "body_snippet": "On Mon, 2010-11-08 at 08:54 +0100, Roger Bivand wrote:\n> Hi,\n> \n> I installed F14 on release, but was diquieted to note that my symlinked \n> GotoBLAS (http://cran.r-project.org/doc/manuals/R-admin.htm",
       "thread_id": "thread-004b29a307e8",
       "thread_depth": 1,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000159.html"
     },
     {
       "id": "msg-4699ff762268",
@@ -148,7 +155,8 @@
       "body_snippet": "On Mon, 8 Nov 2010, Gavin Simpson wrote:\n\n> On Mon, 2010-11-08 at 08:54 +0100, Roger Bivand wrote:\n>> Hi,\n>>\n>> I installed F14 on release, but was diquieted to note that my symlinked\n>> GotoBLAS (htt",
       "thread_id": "thread-004b29a307e8",
       "thread_depth": 2,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000160.html"
     },
     {
       "id": "msg-15e33ec3f3c2",
@@ -164,7 +172,8 @@
       "body_snippet": "Greetings.  I understand that R 2.12 has been available for about three weeks, \nbut I haven't seen a Fedora version yet.  Can anybody tell me the status?  I'm \ngetting some pressure to install the new",
       "thread_id": "thread-15e33ec3f3c2",
       "thread_depth": 0,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000161.html"
     },
     {
       "id": "msg-52b1aaf93ce4",
@@ -182,7 +191,8 @@
       "body_snippet": "On Nov 8, 2010, at 10:23 , Michael Hannon wrote:\n\n> Greetings.  I understand that R 2.12 has been available for about three weeks, \n> but I haven't seen a Fedora version yet.  Can anybody tell me the ",
       "thread_id": "thread-15e33ec3f3c2",
       "thread_depth": 1,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000162.html"
     },
     {
       "id": "msg-8f4cc4587274",
@@ -204,7 +214,8 @@
       "body_snippet": "On 11/07/2010 11:33 PM, Paul Johnson wrote:\n> Even though nobody but me seems to care, I think it is better to do\n> what Ubuntu does, where Renviron has at the end\n> \n> R_LIBS_USER=${R_LIBS_USER-'~/R/",
       "thread_id": "thread-24f2bac60128",
       "thread_depth": 5,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000163.html"
     },
     {
       "id": "msg-6c71bd5e6083",
@@ -227,7 +238,8 @@
       "body_snippet": "On Mon, Nov 15, 2010 at 11:45 AM, Tom \"spot\" Callaway\n<tcallawa at redhat.com> wrote:\n> On 11/07/2010 11:33 PM, Paul Johnson wrote:\n\n>> I believe it is recommended to use R_LIBS_SITE. That way, they d",
       "thread_id": "thread-24f2bac60128",
       "thread_depth": 6,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000164.html"
     },
     {
       "id": "msg-ad12ac409032",
@@ -243,7 +255,8 @@
       "body_snippet": "Hi,",
       "thread_id": "thread-ad12ac409032",
       "thread_depth": 0,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000165.html"
     },
     {
       "id": "msg-cce9064353ea",
@@ -259,7 +272,8 @@
       "body_snippet": "Hi,\nI tried to run rpubchem in R 2-12.0 on Fedora 13, after installing XML and RCurl'.\n\nThe sequence of commands were , just following the paper by Rajarshi Guha.\n\naids <- find.assay.id(\"lung+cancer+c",
       "thread_id": "thread-cce9064353ea",
       "thread_depth": 0,
-      "month": "2010-11"
+      "month": "2010-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-November/000166.html"
     }
   ],
   "threads": [

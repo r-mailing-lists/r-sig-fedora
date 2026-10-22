@@ -17,7 +17,8 @@
       "body_snippet": "I am migrating from 64-bit RHEL 5 to 64-bit Fedora 12 and I'm getting the\nfollowing error when I run ./configure in the directory R-2.10.1...\n\nchecking for IceConnectionNumber in -lICE... yes\nchecking",
       "thread_id": "thread-f6da66dae8d8",
       "thread_depth": 0,
-      "month": "2010-04"
+      "month": "2010-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-April/000119.html"
     },
     {
       "id": "msg-896e7455dd35",
@@ -35,7 +36,8 @@
       "body_snippet": "On Fri, 2010-04-16 at 17:59 -0500, Dennis.Burian at faa.gov wrote:\n> I am migrating from 64-bit RHEL 5 to 64-bit Fedora 12 and I'm getting the\n> following error when I run ./configure in the directory",
       "thread_id": "thread-f6da66dae8d8",
       "thread_depth": 1,
-      "month": "2010-04"
+      "month": "2010-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-April/000120.html"
     },
     {
       "id": "msg-6f88313b3b0c",
@@ -54,7 +56,8 @@
       "body_snippet": "On Apr 16, 2010, at 6:15 PM, Gavin Simpson wrote:\n\n> On Fri, 2010-04-16 at 17:59 -0500, Dennis.Burian at faa.gov wrote:\n>> I am migrating from 64-bit RHEL 5 to 64-bit Fedora 12 and I'm getting the\n>> ",
       "thread_id": "thread-f6da66dae8d8",
       "thread_depth": 2,
-      "month": "2010-04"
+      "month": "2010-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-April/000121.html"
     },
     {
       "id": "msg-e9d97b9f16aa",
@@ -72,7 +75,8 @@
       "body_snippet": "On Fri, Apr 16, 2010 at 05:59:40PM -0500, Dennis.Burian at faa.gov wrote:\n> \n> I've used yum search to look for X11 packages and on the key word Intrinsic\n> without seeing something obvious.  Which pa",
       "thread_id": "thread-f6da66dae8d8",
       "thread_depth": 1,
-      "month": "2010-04"
+      "month": "2010-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-April/000122.html"
     },
     {
       "id": "msg-9868cff4abe1",
@@ -90,7 +94,8 @@
       "body_snippet": "Thanks Gavin and Marc, never thought to look in the Appendix.\n\nPierre, that would be simpler, wouldn't it;  thanks for the suggestion,  DB\n\nDennis Burian, Ph.D.\nFunctional Genomics Group\nCivil Aerospa",
       "thread_id": "thread-9868cff4abe1",
       "thread_depth": 0,
-      "month": "2010-04"
+      "month": "2010-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-April/000123.html"
     },
     {
       "id": "msg-e23781cc3435",
@@ -106,7 +111,8 @@
       "body_snippet": "R 2.11.0 is built now for Fedora and EPEL. It is in \"updates-testing\".\n\nIn accordance with the new policies on Fedora Updates, these new\npackages will not be pushed as official updates until they eith",
       "thread_id": "thread-e23781cc3435",
       "thread_depth": 0,
-      "month": "2010-04"
+      "month": "2010-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-April/000124.html"
     },
     {
       "id": "msg-ad75ccddb008",
@@ -122,7 +128,8 @@
       "body_snippet": "Dear all,\n\nThere is a some group of people which is gathering at this moment to\nbuild a RPMs R-repository. \n\nThis repository will be built using R2rpm which mean:\n- No -devel subpackage\n- Automated sp",
       "thread_id": "thread-ad75ccddb008",
       "thread_depth": 0,
-      "month": "2010-04"
+      "month": "2010-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-April/000125.html"
     }
   ],
   "threads": [

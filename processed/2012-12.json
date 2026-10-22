@@ -17,7 +17,8 @@
       "body_snippet": "Hi,\n\nI haven't used my system in a while now and wanted to update R.\nRunning yum update R fails because of missing dependency texinfo-tex\nI have installed the EPEL yum repo configurations but\nyum inst",
       "thread_id": "thread-fb27fcd90a43",
       "thread_depth": 0,
-      "month": "2012-12"
+      "month": "2012-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-December/000278.html"
     },
     {
       "id": "msg-f9657e9f7d7c",
@@ -35,7 +36,8 @@
       "body_snippet": "On Dec 18, 2012, at 5:09 PM, Christos Hatzis <chatzis-rhel at nuverabio.com> wrote:\n\n> Hi,\n> \n> I haven't used my system in a while now and wanted to update R.\n> Running yum update R fails because of ",
       "thread_id": "thread-fb27fcd90a43",
       "thread_depth": 1,
-      "month": "2012-12"
+      "month": "2012-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-December/000279.html"
     },
     {
       "id": "msg-ee0aab8f0196",
@@ -54,7 +56,8 @@
       "body_snippet": "Thank you Marc.\n\nThat's right, my subscription to RHEL has lapsed as this system has\nremained unused for a couple of years and I am debating whether it would\nbe worth it for the occasional use.\n\nMy ap",
       "thread_id": "thread-fb27fcd90a43",
       "thread_depth": 2,
-      "month": "2012-12"
+      "month": "2012-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-December/000280.html"
     },
     {
       "id": "msg-67fa0771df6d",
@@ -74,7 +77,8 @@
       "body_snippet": "Happy to help Christos,\n\nThe EPEL (*Extra* Packages for Enterprise Linux) only provides supplementary binaries, like R, that are not otherwise in the RHEL repos. Thus, the EPEL cannot be used for inst",
       "thread_id": "thread-fb27fcd90a43",
       "thread_depth": 3,
-      "month": "2012-12"
+      "month": "2012-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-December/000281.html"
     },
     {
       "id": "msg-69acf914be4e",
@@ -95,7 +99,8 @@
       "body_snippet": "Thanks again Marc.  This is very helpful.\n\nI will probably move my system to CentOS (with help from someone who\nknows what he/she is doing). \n\nSo it not really advised to mix and match components, i.e",
       "thread_id": "thread-fb27fcd90a43",
       "thread_depth": 4,
-      "month": "2012-12"
+      "month": "2012-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-December/000282.html"
     },
     {
       "id": "msg-f91962db36aa",
@@ -117,7 +122,8 @@
       "body_snippet": "Theoretically, CentOS and RHEL are binary compatible, presuming you use the correct repos.\n\nHowever, theory does not always reflect reality.\n\nIf this is a system that you have any intentions of using ",
       "thread_id": "thread-fb27fcd90a43",
       "thread_depth": 5,
-      "month": "2012-12"
+      "month": "2012-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-December/000283.html"
     }
   ],
   "threads": [

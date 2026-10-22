@@ -17,7 +17,8 @@
       "body_snippet": "I wonder if anyone has already built a Fedora package for R-MKL (did\nnot found entry in rpmfusion)?\n\nI just installed parrallel-studio-xe-2016 and would like to build R\nwith the Intel compiler and MKL",
       "thread_id": "thread-97116ff8a597",
       "thread_depth": 0,
-      "month": "2015-08"
+      "month": "2015-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-August/000378.html"
     },
     {
       "id": "msg-552756434083",
@@ -35,7 +36,8 @@
       "body_snippet": "On 08/31/2015 03:20 AM, arnaud gaboury wrote:\n> I wonder if anyone has already built a Fedora package for R-MKL (did\n> not found entry in rpmfusion)?\n> \n> I just installed parrallel-studio-xe-2016 and",
       "thread_id": "thread-97116ff8a597",
       "thread_depth": 1,
-      "month": "2015-08"
+      "month": "2015-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-August/000379.html"
     }
   ],
   "threads": [

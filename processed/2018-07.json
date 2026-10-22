@@ -17,7 +17,8 @@
       "body_snippet": "Good Morning Everyone,\n\nI was going through my list of FTBFS packages today and I fixed all my R\npackages but 2: qvalue and xtable.\nqvalue requires ggplot2\nxtable requires: lsmeans, spdep, splm, sphet",
       "thread_id": "thread-ca907c0d5067",
       "thread_depth": 0,
-      "month": "2018-07"
+      "month": "2018-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2018-July/000560.html"
     }
   ],
   "threads": [

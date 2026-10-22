@@ -18,6 +18,7 @@
       "thread_id": "thread-7a2494c7946b",
       "thread_depth": 0,
       "month": "2011-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-January/000168.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110128/bf55f688/attachment.pl"
       ]
@@ -34,11 +35,12 @@
       "references": [
         "<AANLkTi=bSgfs-i0jOSdDjsSN2Ds=VduQm1jTbnJ9V0a9@mail.gmail.com>"
       ],
-      "body_plain": "On Jan 28, 2011, at 2:29 PM, Matthew Bascom wrote:\n\n> Hello,\n> \n> What is your opinion on Ubuntu.  I?ve encountered a couple hurdles here.\n> \n> The Keyboard: I have to hit the quote button twice to get a quote or\n> apostrophe! I tried adjusting keyboard settings but nothing changed.  And\n> the RKWard GUI won?t recognize quotes from my machines even though they show\n> up on the RKWard text editor. On the other hand, RKWard will quoted material\n> whien  I copy and paste material with quotes, such as in a help.search\n> query.\n> \n> Thank you in advance,\n> \n> Matt\n\n\nYou would be better served by posing your initial question to r-sig-debian, since Ubuntu is a Debian derivative.\n\nMore info here:\n\n  https://stat.ethz.ch/mailman/listinfo/r-sig-debian\n\nThere are also RKWard specific resources. More info here:\n\n  http://rkward.sourceforge.net/\n\nHTH,\n\nMarc Schwartz",
-      "body_snippet": "On Jan 28, 2011, at 2:29 PM, Matthew Bascom wrote:\n\n> Hello,\n> \n> What is your opinion on Ubuntu.  I?ve encountered a couple hurdles here.\n> \n> The Keyboard: I have to hit the quote button twice to ge",
+      "body_plain": "On Jan 28, 2011, at 2:29 PM, Matthew Bascom wrote:\n\n> Hello,\n> \n> What is your opinion on Ubuntu.  I´ve encountered a couple hurdles here.\n> \n> The Keyboard: I have to hit the quote button twice to get a quote or\n> apostrophe! I tried adjusting keyboard settings but nothing changed.  And\n> the RKWard GUI won´t recognize quotes from my machines even though they show\n> up on the RKWard text editor. On the other hand, RKWard will quoted material\n> whien  I copy and paste material with quotes, such as in a help.search\n> query.\n> \n> Thank you in advance,\n> \n> Matt\n\n\nYou would be better served by posing your initial question to r-sig-debian, since Ubuntu is a Debian derivative.\n\nMore info here:\n\n  https://stat.ethz.ch/mailman/listinfo/r-sig-debian\n\nThere are also RKWard specific resources. More info here:\n\n  http://rkward.sourceforge.net/\n\nHTH,\n\nMarc Schwartz",
+      "body_snippet": "On Jan 28, 2011, at 2:29 PM, Matthew Bascom wrote:\n\n> Hello,\n> \n> What is your opinion on Ubuntu.  I´ve encountered a couple hurdles here.\n> \n> The Keyboard: I have to hit the quote button twice to ge",
       "thread_id": "thread-7a2494c7946b",
       "thread_depth": 1,
-      "month": "2011-01"
+      "month": "2011-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-January/000169.html"
     }
   ],
   "threads": [

@@ -17,7 +17,8 @@
       "body_snippet": "I want to create a clean .rpm package for R built with MKL and ICC. I\nfollow Fedora instrcutions[0] to create the package. As a base, I use\nthe R-3.2.2.src.rpm.\n\nI am left with this error:\n\n----------",
       "thread_id": "thread-bfdb8919b1e4",
       "thread_depth": 0,
-      "month": "2015-09"
+      "month": "2015-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-September/000380.html"
     },
     {
       "id": "msg-612aed9c85ed",
@@ -35,7 +36,8 @@
       "body_snippet": "On 09/07/2015 06:16 AM, arnaud gaboury wrote:\n> I want to create a clean .rpm package for R built with MKL and ICC. I\n> follow Fedora instrcutions[0] to create the package. As a base, I use\n> the R-3.",
       "thread_id": "thread-bfdb8919b1e4",
       "thread_depth": 1,
-      "month": "2015-09"
+      "month": "2015-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-September/000381.html"
     },
     {
       "id": "msg-58edd4400580",
@@ -54,7 +56,8 @@
       "body_snippet": "On Tue, Sep 8, 2015 at 7:36 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n> On 09/07/2015 06:16 AM, arnaud gaboury wrote:\n>> I want to create a clean .rpm package for R built with MKL and ICC. I\n>>",
       "thread_id": "thread-bfdb8919b1e4",
       "thread_depth": 2,
-      "month": "2015-09"
+      "month": "2015-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-September/000383.html"
     },
     {
       "id": "msg-c77b92af331a",
@@ -74,7 +77,8 @@
       "body_snippet": "On 09/08/2015 01:51 PM, arnaud gaboury wrote:\n> So no idea why, at this part of the process, icc is not found. Weird,\n> as building manually from source (no rpmbuild) is OK.\n\nHm. Is icc in a normal pl",
       "thread_id": "thread-bfdb8919b1e4",
       "thread_depth": 3,
-      "month": "2015-09"
+      "month": "2015-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-September/000382.html"
     },
     {
       "id": "msg-31fb8357e31a",
@@ -95,7 +99,8 @@
       "body_snippet": "On Tue, Sep 8, 2015 at 7:58 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n> On 09/08/2015 01:51 PM, arnaud gaboury wrote:\n>> So no idea why, at this part of the process, icc is not found. Weird,\n>>",
       "thread_id": "thread-bfdb8919b1e4",
       "thread_depth": 4,
-      "month": "2015-09"
+      "month": "2015-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-September/000384.html"
     },
     {
       "id": "msg-b7a1f42e9438",
@@ -113,7 +118,8 @@
       "body_snippet": "Steven Backus <backus at ...> writes:\n\n> \n> I'm on RHEL 6.6, R version 3.2.1 Patched (2015-07-30 r68761) --\n> \"World-Famous Astronaut\".  Issuing the x11() command hangs R and\n> does not complete.  A w",
       "thread_id": "thread-b7a1f42e9438",
       "thread_depth": 0,
-      "month": "2015-09"
+      "month": "2015-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-September/000385.html"
     },
     {
       "id": "msg-b1356202e9b0",
@@ -132,7 +138,8 @@
       "body_snippet": "On 09/15/2015 09:12 AM, Ashley Ford wrote:\n> Steven Backus <backus at ...> writes:\n> \n>>\n>> I'm on RHEL 6.6, R version 3.2.1 Patched (2015-07-30 r68761) --\n>> \"World-Famous Astronaut\".  Issuing the x1",
       "thread_id": "thread-b7a1f42e9438",
       "thread_depth": 1,
-      "month": "2015-09"
+      "month": "2015-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-September/000386.html"
     },
     {
       "id": "msg-922e0851ac4b",
@@ -152,7 +159,8 @@
       "body_snippet": "> First question: Are you using the nvidia binary driver?\n\nYes, yum downgrade xorg-x11-server-Xorg-1.15.0-36.el6.x86_64 /root/xorg-x11-server-Xorg-1.15.0-26.el6_6.x86_64.rpm\nand editing /etc/yum.conf ",
       "thread_id": "thread-b7a1f42e9438",
       "thread_depth": 2,
-      "month": "2015-09"
+      "month": "2015-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-September/000387.html"
     },
     {
       "id": "msg-e95c8b52bd36",
@@ -168,7 +176,8 @@
       "body_snippet": "Yes, I have nvidia,\nrecent updates includexorg-x11-drv-nvidia-devel-352.39-1.el6.x86_64 Tue 08 Sep 2015 04:07:42 PM BSTxorg-x11-drv-nvidia-gl-352.39-1.el6.x86_64 ? ?Tue 08 Sep 2015 04:04:03 PM BSTxorg",
       "thread_id": "thread-e95c8b52bd36",
       "thread_depth": 0,
-      "month": "2015-09"
+      "month": "2015-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-September/000388.html"
     },
     {
       "id": "msg-205b5d6dc571",
@@ -186,7 +195,8 @@
       "body_snippet": "This bug is also being looked at on the main R bug list.  \n\nhttps://bugs.r-project.org/bugzilla3/show_bug.cgi?id=16497\n\nhttps://bugs.r-project.org/bugzilla3/show_bug.cgi?id=16535\n\n\nRed Hat have found ",
       "thread_id": "thread-205b5d6dc571",
       "thread_depth": 0,
-      "month": "2015-09"
+      "month": "2015-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-September/000389.html"
     }
   ],
   "threads": [

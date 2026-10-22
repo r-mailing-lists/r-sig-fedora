@@ -19,7 +19,8 @@
       "body_snippet": "On 12/24/2011 10:39 PM, Mark Leeds wrote:\n> Does anyone know what the problem might be ? Maybe a difference with gcc ?\n> It's only a warning but it scares me a little because the variables should\n> be",
       "thread_id": "thread-889b3b9c7f19",
       "thread_depth": 0,
-      "month": "2012-01"
+      "month": "2012-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-January/000224.html"
     },
     {
       "id": "msg-a6b2311710e5",
@@ -39,6 +40,7 @@
       "thread_id": "thread-889b3b9c7f19",
       "thread_depth": 1,
       "month": "2012-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-January/000225.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120104/c3d697b9/attachment.pl"
       ]
@@ -61,7 +63,8 @@
       "body_snippet": "On 01/04/2012 05:06 PM, Mark Leeds wrote:\n> thanks tom: I've just been letting the error happen and everything seems\n> fine. When you have a chance, could you explain what you'd like me to do\n> ? I'd ",
       "thread_id": "thread-889b3b9c7f19",
       "thread_depth": 2,
-      "month": "2012-01"
+      "month": "2012-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-January/000226.html"
     },
     {
       "id": "msg-cbe90c1c101e",
@@ -83,6 +86,7 @@
       "thread_id": "thread-889b3b9c7f19",
       "thread_depth": 3,
       "month": "2012-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-January/000227.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120104/fbe2eae1/attachment.pl"
       ]

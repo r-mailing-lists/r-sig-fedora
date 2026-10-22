@@ -17,7 +17,8 @@
       "body_snippet": "Hi\n\nDoes anyone know how to install geepack on fedora 16 - 64bit - R\n\ngoogle only yields a couple of hits with unanswered Q\n\nInstallation just throws an error with an undefined symbol. Previous\nversio",
       "thread_id": "thread-f4294b124b2f",
       "thread_depth": 0,
-      "month": "2011-12"
+      "month": "2011-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-December/000220.html"
     },
     {
       "id": "msg-70d9f9a8eb79",
@@ -35,7 +36,8 @@
       "body_snippet": "On Wed, 2011-12-14 at 18:08 +1000, Peter Baker wrote:\n> Error in dyn.load(file, DLLpath = DLLpath, ...) :\n>   unable to load shared object\n> '/usr/lib64/R/library/geepack/libs/geepack.so':\n>   /usr/li",
       "thread_id": "thread-f4294b124b2f",
       "thread_depth": 1,
-      "month": "2011-12"
+      "month": "2011-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-December/000221.html"
     },
     {
       "id": "msg-b3c1ed0a3eac",
@@ -53,7 +55,8 @@
       "body_snippet": "On Dec 14, 2011, at 2:08 AM, Peter Baker wrote:\n\n> Hi\n> \n> Does anyone know how to install geepack on fedora 16 - 64bit - R\n> \n> google only yields a couple of hits with unanswered Q\n> \n> Installation",
       "thread_id": "thread-f4294b124b2f",
       "thread_depth": 1,
-      "month": "2011-12"
+      "month": "2011-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-December/000222.html"
     },
     {
       "id": "msg-01c5af7eaa6e",
@@ -70,6 +73,7 @@
       "thread_id": "thread-01c5af7eaa6e",
       "thread_depth": 0,
       "month": "2011-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-December/000223.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111224/e38d7f87/attachment.pl"
       ]

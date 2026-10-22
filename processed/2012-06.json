@@ -17,7 +17,8 @@
       "body_snippet": "Greetings!\n\nI have just signed up to r-sig-fedora because I have\ninstalled Scientific Linux 6.2 (my first Red Hat based\nLinux since over 10 years ago ... ). I'm trying this for\nbasically 2 reasons: fi",
       "thread_id": "thread-f611366d144f",
       "thread_depth": 0,
-      "month": "2012-06"
+      "month": "2012-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-June/000274.html"
     },
     {
       "id": "msg-3bf61bfad18e",
@@ -35,7 +36,8 @@
       "body_snippet": "On Jun 30, 2012, at 1:25 PM, Ted Harding wrote:\n\n> Greetings!\n> \n> I have just signed up to r-sig-fedora because I have\n> installed Scientific Linux 6.2 (my first Red Hat based\n> Linux since over 10 y",
       "thread_id": "thread-f611366d144f",
       "thread_depth": 1,
-      "month": "2012-06"
+      "month": "2012-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-June/000275.html"
     },
     {
       "id": "msg-6dde0e7b75b7",
@@ -51,7 +53,8 @@
       "body_snippet": "On 30-Jun-2012 19:50:15 Marc Schwartz wrote:\n> On Jun 30, 2012, at 1:25 PM, Ted Harding wrote:\n>> Greetings!\n>> \n>> I have just signed up to r-sig-fedora because I have\n>> installed Scientific Linux 6",
       "thread_id": "thread-f611366d144f",
       "thread_depth": 2,
-      "month": "2012-06"
+      "month": "2012-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-June/000276.html"
     }
   ],
   "threads": [

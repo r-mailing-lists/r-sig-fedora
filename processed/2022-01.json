@@ -17,7 +17,8 @@
       "body_snippet": "Hi,\nI am once again trying to install the necessary dependencies for\nbuilding R on a new installation of Fedora 35. Is there any easier way\nto do this than running ./configure many times and plugging ",
       "thread_id": "thread-347e29148139",
       "thread_depth": 0,
-      "month": "2022-01"
+      "month": "2022-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-January/000801.html"
     },
     {
       "id": "msg-2b1dd90fa8ae",
@@ -35,7 +36,8 @@
       "body_snippet": "sudo dnf --enablerepo=\"*-source\" builddep R\n\nThis will look at the Fedora R source package (from the Fedora source\nrepositories, normally disabled) and install all the BuildRequires it\nspecifies.\n\nI c",
       "thread_id": "thread-347e29148139",
       "thread_depth": 1,
-      "month": "2022-01"
+      "month": "2022-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-January/000802.html"
     },
     {
       "id": "msg-3a74343209ad",
@@ -54,7 +56,8 @@
       "body_snippet": "Hi Tom,\nAs I maintain a few packages on CRAN, The Rules say I should build\nthem with an up to the minute version of R. Whenever I have installed\nR from a repo, it always seems to be a few versions beh",
       "thread_id": "thread-347e29148139",
       "thread_depth": 2,
-      "month": "2022-01"
+      "month": "2022-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-January/000803.html"
     },
     {
       "id": "msg-4b4be3369167",
@@ -74,7 +77,8 @@
       "body_snippet": "On Friday, 7 January 2022 07.30.22 WET Jim Lemon wrote:\n> Hi Tom,\n> As I maintain a few packages on CRAN, The Rules say I should build\n> them with an up to the minute version of R. Whenever I have ins",
       "thread_id": "thread-347e29148139",
       "thread_depth": 3,
-      "month": "2022-01"
+      "month": "2022-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-January/000804.html"
     },
     {
       "id": "msg-25503e426a2f",
@@ -91,11 +95,12 @@
         "<CA+8X3fX3zQwhZVntVvNcsNqwyesGwgpr8jXVF=LgX35EyirYdQ@mail.gmail.com>",
         "<3408710.iIbC2pHGDl@griffin>"
       ],
-      "body_plain": "Hi,\n\nFWIW, a good solution to check packages on the latest R version (in\nparticular the development version) is to upload them to Winbuilder:\nhttps://win-builder.r-project.org/\n\n(I even seem to remember that CRAN recommends this.)\n\n\nBest\n\n\nLe vendredi 07 janvier 2022 ? 12:16 +0000, Jos? Ab?lio Matos a ?crit?:\n> On Friday, 7 January 2022 07.30.22 WET Jim Lemon wrote:\n> > Hi Tom,\n> > As I maintain a few packages on CRAN, The Rules say I should build\n> > them with an up to the minute version of R. Whenever I have\n> > installed\n> > R from a repo, it always seems to be a few versions behind. I'll\n> > let\n> > you know how it goes. Thanks.\n> > \n> > Jim\n> \n> Please take what follows as genuine curiosity, because it is. :-)\n> \n> Your remark seems strange because in general Tom rebuilds R in one or\n> two \n> weeks after it is released, at least for point releases.\n> \n> The issue sometimes happens when a new release happens where in some\n> cases the \n> only viable option is to rebuild all the R packages. In that case we\n> need to \n> come with a way to automatically rebuild the packages (because order\n> matters \n> here).\n> \n> Is this the problem that you are seeing?\n> \n> Another worthwhile mentioning project is:\n> https://copr.fedorainfracloud.org/coprs/iucar/cran/\n> \n> Best regards,\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\t[[alternative HTML version deleted]]",
+      "body_plain": "Hi,\n\nFWIW, a good solution to check packages on the latest R version (in\nparticular the development version) is to upload them to Winbuilder:\nhttps://win-builder.r-project.org/\n\n(I even seem to remember that CRAN recommends this.)\n\n\nBest\n\n\nLe vendredi 07 janvier 2022 à 12:16 +0000, José Abílio Matos a écrit :\n> On Friday, 7 January 2022 07.30.22 WET Jim Lemon wrote:\n> > Hi Tom,\n> > As I maintain a few packages on CRAN, The Rules say I should build\n> > them with an up to the minute version of R. Whenever I have\n> > installed\n> > R from a repo, it always seems to be a few versions behind. I'll\n> > let\n> > you know how it goes. Thanks.\n> > \n> > Jim\n> \n> Please take what follows as genuine curiosity, because it is. :-)\n> \n> Your remark seems strange because in general Tom rebuilds R in one or\n> two \n> weeks after it is released, at least for point releases.\n> \n> The issue sometimes happens when a new release happens where in some\n> cases the \n> only viable option is to rebuild all the R packages. In that case we\n> need to \n> come with a way to automatically rebuild the packages (because order\n> matters \n> here).\n> \n> Is this the problem that you are seeing?\n> \n> Another worthwhile mentioning project is:\n> https://copr.fedorainfracloud.org/coprs/iucar/cran/\n> \n> Best regards,\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\t[[alternative HTML version deleted]]",
       "body_snippet": "Hi,\n\nFWIW, a good solution to check packages on the latest R version (in\nparticular the development version) is to upload them to Winbuilder:\nhttps://win-builder.r-project.org/\n\n(I even seem to rememb",
       "thread_id": "thread-347e29148139",
       "thread_depth": 4,
-      "month": "2022-01"
+      "month": "2022-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-January/000805.html"
     },
     {
       "id": "msg-c621c5c17ebc",
@@ -113,11 +118,12 @@
         "<3408710.iIbC2pHGDl@griffin>",
         "<b970c15fc28b4b1d0252cb2cd7321a256719e892.camel@club.fr>"
       ],
-      "body_plain": "And nowadays there's also R-hub [1], rocker containers [2] for local\ntesting (which, combined with distrobox [3], is very convenient), and\nof course r-actions on GitHub [4] for CI testing.\n\nI?aki\n\n[1] https://r-hub.github.io/rhub/\n[2] https://github.com/rocker-org/rocker\n[3] https://fedoramagazine.org/run-distrobox-on-fedora-linux/\n[4] https://github.com/r-lib/actions/tree/v2-branch/examples\n\n\nOn Fri, 7 Jan 2022 at 16:02, Milan Bouchet-Valat <nalimilan at club.fr> wrote:\n>\n> Hi,\n>\n> FWIW, a good solution to check packages on the latest R version (in\n> particular the development version) is to upload them to Winbuilder:\n> https://win-builder.r-project.org/\n>\n> (I even seem to remember that CRAN recommends this.)\n>\n>\n> Best\n>\n>\n> Le vendredi 07 janvier 2022 ? 12:16 +0000, Jos? Ab?lio Matos a ?crit :\n> > On Friday, 7 January 2022 07.30.22 WET Jim Lemon wrote:\n> > > Hi Tom,\n> > > As I maintain a few packages on CRAN, The Rules say I should build\n> > > them with an up to the minute version of R. Whenever I have\n> > > installed\n> > > R from a repo, it always seems to be a few versions behind. I'll\n> > > let\n> > > you know how it goes. Thanks.\n> > >\n> > > Jim\n> >\n> > Please take what follows as genuine curiosity, because it is. :-)\n> >\n> > Your remark seems strange because in general Tom rebuilds R in one or\n> > two\n> > weeks after it is released, at least for point releases.\n> >\n> > The issue sometimes happens when a new release happens where in some\n> > cases the\n> > only viable option is to rebuild all the R packages. In that case we\n> > need to\n> > come with a way to automatically rebuild the packages (because order\n> > matters\n> > here).\n> >\n> > Is this the problem that you are seeing?\n> >\n> > Another worthwhile mentioning project is:\n> > https://copr.fedorainfracloud.org/coprs/iucar/cran/\n> >\n> > Best regards,\n> > _______________________________________________\n> > R-SIG-Fedora mailing list\n> > R-SIG-Fedora at r-project.org\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n>\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\n-- \nI?aki ?car",
-      "body_snippet": "And nowadays there's also R-hub [1], rocker containers [2] for local\ntesting (which, combined with distrobox [3], is very convenient), and\nof course r-actions on GitHub [4] for CI testing.\n\nI?aki\n\n[1]",
+      "body_plain": "And nowadays there's also R-hub [1], rocker containers [2] for local\ntesting (which, combined with distrobox [3], is very convenient), and\nof course r-actions on GitHub [4] for CI testing.\n\nIñaki\n\n[1] https://r-hub.github.io/rhub/\n[2] https://github.com/rocker-org/rocker\n[3] https://fedoramagazine.org/run-distrobox-on-fedora-linux/\n[4] https://github.com/r-lib/actions/tree/v2-branch/examples\n\n\nOn Fri, 7 Jan 2022 at 16:02, Milan Bouchet-Valat <nalimilan at club.fr> wrote:\n>\n> Hi,\n>\n> FWIW, a good solution to check packages on the latest R version (in\n> particular the development version) is to upload them to Winbuilder:\n> https://win-builder.r-project.org/\n>\n> (I even seem to remember that CRAN recommends this.)\n>\n>\n> Best\n>\n>\n> Le vendredi 07 janvier 2022 à 12:16 +0000, José Abílio Matos a écrit :\n> > On Friday, 7 January 2022 07.30.22 WET Jim Lemon wrote:\n> > > Hi Tom,\n> > > As I maintain a few packages on CRAN, The Rules say I should build\n> > > them with an up to the minute version of R. Whenever I have\n> > > installed\n> > > R from a repo, it always seems to be a few versions behind. I'll\n> > > let\n> > > you know how it goes. Thanks.\n> > >\n> > > Jim\n> >\n> > Please take what follows as genuine curiosity, because it is. :-)\n> >\n> > Your remark seems strange because in general Tom rebuilds R in one or\n> > two\n> > weeks after it is released, at least for point releases.\n> >\n> > The issue sometimes happens when a new release happens where in some\n> > cases the\n> > only viable option is to rebuild all the R packages. In that case we\n> > need to\n> > come with a way to automatically rebuild the packages (because order\n> > matters\n> > here).\n> >\n> > Is this the problem that you are seeing?\n> >\n> > Another worthwhile mentioning project is:\n> > https://copr.fedorainfracloud.org/coprs/iucar/cran/\n> >\n> > Best regards,\n> > _______________________________________________\n> > R-SIG-Fedora mailing list\n> > R-SIG-Fedora at r-project.org\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n>\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\n-- \nIñaki Úcar",
+      "body_snippet": "And nowadays there's also R-hub [1], rocker containers [2] for local\ntesting (which, combined with distrobox [3], is very convenient), and\nof course r-actions on GitHub [4] for CI testing.\n\nIñaki\n\n[1]",
       "thread_id": "thread-347e29148139",
       "thread_depth": 5,
-      "month": "2022-01"
+      "month": "2022-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-January/000806.html"
     }
   ],
   "threads": [

@@ -17,7 +17,8 @@
       "body_snippet": "Hi All,\n\nI have installed on a RHEL 5.7 server the recent R-3.3.0 rpm but I would like to upgrade to the latest now available R-3.3.1 . I have not found so far the rpm, I would like to know if and whe",
       "thread_id": "thread-3125734fbcc1",
       "thread_depth": 0,
-      "month": "2016-07"
+      "month": "2016-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-July/000476.html"
     },
     {
       "id": "msg-da97859a12e6",
@@ -35,7 +36,8 @@
       "body_snippet": "On 07/05/2016 10:34 AM, Sangalli Cristiano Giovanni (Ext. - UniCredit\nBusiness Integrated Solutions) wrote:\n> \n> Hi All,\n> \n> I have installed on a RHEL 5.7 server the recent R-3.3.0 rpm but I would l",
       "thread_id": "thread-3125734fbcc1",
       "thread_depth": 1,
-      "month": "2016-07"
+      "month": "2016-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-July/000477.html"
     },
     {
       "id": "msg-0f8266a3f354",
@@ -51,7 +53,8 @@
       "body_snippet": "Greetings.\nSorry I am a bit new to this list.\nI am trying to compile R-3.3.0 and/or R-3.3.1 on computational cluster running Centos 6.6\nI have custom installation of zlib 1.2.8 , but it's not in defau",
       "thread_id": "thread-0f8266a3f354",
       "thread_depth": 0,
-      "month": "2016-07"
+      "month": "2016-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-July/000478.html"
     },
     {
       "id": "msg-198803f09c47",
@@ -69,7 +72,8 @@
       "body_snippet": "On 07/05/2016 12:52 PM, Syagin, Fedor wrote:\n> Greetings.\n> Sorry I am a bit new to this list.\n> I am trying to compile R-3.3.0 and/or R-3.3.1 on computational cluster running Centos 6.6\n> I have cust",
       "thread_id": "thread-0f8266a3f354",
       "thread_depth": 1,
-      "month": "2016-07"
+      "month": "2016-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-July/000479.html"
     },
     {
       "id": "msg-8ecf0df701cc",
@@ -88,7 +92,8 @@
       "body_snippet": "I would still have to use custom locations.\nI need to make sure we have access to multiple R versions. (So people still have access to old versions if they need them) so \nneed to be  very careful abou",
       "thread_id": "thread-0f8266a3f354",
       "thread_depth": 2,
-      "month": "2016-07"
+      "month": "2016-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-July/000480.html"
     },
     {
       "id": "msg-47102a09817c",
@@ -107,7 +112,8 @@
       "body_snippet": "Hi Tom\n\nThanks a lot for your kind answer.\n\nCris\n\n-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: Tuesday, July 05, 2016 5:35 PM\nTo: Sangalli Cristiano Giovanni (E",
       "thread_id": "thread-3125734fbcc1",
       "thread_depth": 2,
-      "month": "2016-07"
+      "month": "2016-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-July/000481.html"
     },
     {
       "id": "msg-6828898807c3",
@@ -127,7 +133,8 @@
       "body_snippet": "Since I've gotten a few off-list replies, I feel like it's worth\npointing out why people are having trouble building R from source on\nRHEL/CentOS 5 & 6.\n\nR has always depended on some third party libr",
       "thread_id": "thread-6828898807c3",
       "thread_depth": 0,
-      "month": "2016-07"
+      "month": "2016-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-July/000482.html"
     },
     {
       "id": "msg-6410ba07cc3e",
@@ -148,7 +155,8 @@
       "body_snippet": "Hi Tom\n\nSorry for the late feedback. I could install the RPMs built by you successfully without issues. \n\nThanks again for your quick answer.\n\nCris\n\n-----Original Message-----\nFrom: R-SIG-Fedora [mail",
       "thread_id": "thread-6828898807c3",
       "thread_depth": 1,
-      "month": "2016-07"
+      "month": "2016-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-July/000483.html"
     },
     {
       "id": "msg-6e4bd5c35e44",
@@ -162,11 +170,12 @@
       "references": [
         "<684074347.5374479.1469488803296.JavaMail.yahoo.ref@mail.yahoo.com>"
       ],
-      "body_plain": "I tried to install?R-core-3.3.0-8.el6.x86_64.rpm on a?el6.x86_64 box. ?I do not have su rights to this box. ?I get the following message.\n~> rpm -ivh R-core-3.3.0-8.el6.x86_64.rpmerror: Failed dependencies:? ? ? ? tex(dvips) is needed by R-core-3.3.0-8.el6.x86_64? ? ? ? tex(latex) is needed by R-core-3.3.0-8.el6.x86_64\nCan I still use this?\n\t[[alternative HTML version deleted]]",
-      "body_snippet": "I tried to install?R-core-3.3.0-8.el6.x86_64.rpm on a?el6.x86_64 box. ?I do not have su rights to this box. ?I get the following message.\n~> rpm -ivh R-core-3.3.0-8.el6.x86_64.rpmerror: Failed depende",
+      "body_plain": "I tried to install R-core-3.3.0-8.el6.x86_64.rpm on a el6.x86_64 box.  I do not have su rights to this box.  I get the following message.\n~> rpm -ivh R-core-3.3.0-8.el6.x86_64.rpmerror: Failed dependencies:        tex(dvips) is needed by R-core-3.3.0-8.el6.x86_64        tex(latex) is needed by R-core-3.3.0-8.el6.x86_64\nCan I still use this?\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I tried to install R-core-3.3.0-8.el6.x86_64.rpm on a el6.x86_64 box.  I do not have su rights to this box.  I get the following message.\n~> rpm -ivh R-core-3.3.0-8.el6.x86_64.rpmerror: Failed depende",
       "thread_id": "thread-6e4bd5c35e44",
       "thread_depth": 0,
-      "month": "2016-07"
+      "month": "2016-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-July/000484.html"
     }
   ],
   "threads": [

@@ -17,7 +17,8 @@
       "body_snippet": "I'm very ignorant of the building of rpms and spec files but should R \nhave a requirement (both build and run) tzdata? I was exploring the spec \nfile and couldn't see it mentioned but, AFAICT, it is r",
       "thread_id": "thread-3ce6c896d8bf",
       "thread_depth": 0,
-      "month": "2023-07"
+      "month": "2023-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2023-July/000860.html"
     }
   ],
   "threads": [

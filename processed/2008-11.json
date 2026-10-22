@@ -19,7 +19,8 @@
       "body_snippet": "On Tue, 2008-11-25 at 13:13 -0500, Joshua Kramer wrote:\n> Howdy Folks,\n> \n> I am running R version 2.7.2 (2008-08-25) on CentOS 5.2 - the standard RPM \n> distribution.\n> \n> I am having a curious occur",
       "thread_id": "thread-568433c45cdf",
       "thread_depth": 1,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-November/000052.html"
     },
     {
       "id": "msg-568433c45cdf",
@@ -35,7 +36,8 @@
       "body_snippet": "Howdy Folks,\n\nI am running R version 2.7.2 (2008-08-25) on CentOS 5.2 - the standard RPM \ndistribution.\n\nI am having a curious occurance trying to run a R script from within a \nshell script.  Basicall",
       "thread_id": "thread-568433c45cdf",
       "thread_depth": 0,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-November/000051.html"
     },
     {
       "id": "msg-872aaadae90e",
@@ -54,7 +56,8 @@
       "body_snippet": "Thanks for the help Tom!\n\n>> /usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.log\n>\n> I'm just guessing here, but those ' ' single quotes don",
       "thread_id": "thread-568433c45cdf",
       "thread_depth": 2,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-November/000053.html"
     },
     {
       "id": "msg-8c2c177956ed",
@@ -70,7 +73,8 @@
       "body_snippet": "Hi all,\n\nI installed F10 Final today. This was a clean install, not an upgrade\nfrom F9.\n\nKudos the the Fedora team as the level of maturity noted in the install\nprocess, including using encrypted part",
       "thread_id": "thread-8c2c177956ed",
       "thread_depth": 0,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-November/000054.html"
     },
     {
       "id": "msg-182637b15234",
@@ -90,7 +94,8 @@
       "body_snippet": "On Tue, 2008-11-25 at 14:12 -0500, Joshua Kramer wrote:\n> Thanks for the help Tom!\n> \n> >> /usr/bin/R CMD BATCH --no-restore --no-save '--args $taxFile $taxFile.taxonomy' batchMakeTax.R batchMakeTax.l",
       "thread_id": "thread-568433c45cdf",
       "thread_depth": 3,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-November/000055.html"
     }
   ],
   "threads": [

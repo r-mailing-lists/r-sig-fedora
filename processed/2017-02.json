@@ -17,7 +17,8 @@
       "body_snippet": "Hi All,\n\nSorry if this email does not concern you, but I needed help to install R\nand R-Studio on a Redhat Linux Enterprise Server WITHOUT Internet\nconnection.\n\nI have a Mac and can scp rpm packages t",
       "thread_id": "thread-9a7353755c82",
       "thread_depth": 0,
-      "month": "2017-02"
+      "month": "2017-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-February/000503.html"
     },
     {
       "id": "msg-7a7d4673c5a3",
@@ -35,7 +36,8 @@
       "body_snippet": "Hello Shankar,\n\nOn Thu, Feb 02, 2017 at 06:44:14PM +0530, Shankar Pandey wrote:\n> Hi All,\n> \n> Sorry if this email does not concern you, but I needed help to install R\n> and R-Studio on a Redhat Linux",
       "thread_id": "thread-9a7353755c82",
       "thread_depth": 1,
-      "month": "2017-02"
+      "month": "2017-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-February/000504.html"
     },
     {
       "id": "msg-41dc71bdb665",
@@ -51,7 +53,8 @@
       "body_snippet": "Hi, professors\r\n\r\n         I??d like to install R-3.3.2 from .tar.gz on my linux system(CentOS 6.4). When installing, R told me that the version of zlib was too old.\r\n\r\n         So, I eager to know wh",
       "thread_id": "thread-41dc71bdb665",
       "thread_depth": 0,
-      "month": "2017-02"
+      "month": "2017-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-February/000505.html"
     },
     {
       "id": "msg-dea575b3aade",
@@ -69,7 +72,8 @@
       "body_snippet": "On Tue, 2017-02-07 at 08:39 +0000, nw?? wrote:\n> Hi, professors\n> \n> ?????????I'd like to install R-3.3.2 from .tar.gz on my linux\n> system(CentOS 6.4). When installing, R told me that the version of\n",
       "thread_id": "thread-41dc71bdb665",
       "thread_depth": 1,
-      "month": "2017-02"
+      "month": "2017-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-February/000506.html"
     },
     {
       "id": "msg-126a25d847be",
@@ -88,7 +92,8 @@
       "body_snippet": "Dear Martyn,\n\n\tThank you so much for your suggestion. Can I install R by rpm WITHOUT Internet? This Linux server cannot connect to web.\n\nBest Regards\n\nWei Ning\nCtrip, Shanghai\n-----????-----\n???: Mart",
       "thread_id": "thread-41dc71bdb665",
       "thread_depth": 2,
-      "month": "2017-02"
+      "month": "2017-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-February/000507.html"
     },
     {
       "id": "msg-6f06b86c44f1",
@@ -108,7 +113,8 @@
       "body_snippet": "On Tue, 2017-02-07 at 10:13 +0000, nw?? wrote:\n> Dear Martyn,\n> \n> \tThank you so much for your suggestion. Can I install R by rpm\n> WITHOUT Internet? This Linux server cannot connect to web.\n\nThe same",
       "thread_id": "thread-41dc71bdb665",
       "thread_depth": 3,
-      "month": "2017-02"
+      "month": "2017-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-February/000508.html"
     },
     {
       "id": "msg-73a3bb76ef38",
@@ -129,7 +135,8 @@
       "body_snippet": "Dear Martyn,\n\n\tI'm really grateful to you and your useful suggestions! I will try and tell you a good news once I accomplish the installation.\n\nBest Regards\n\nWei Ning\nCtrip, Shanghai\n\n-----????-----\n?",
       "thread_id": "thread-41dc71bdb665",
       "thread_depth": 4,
-      "month": "2017-02"
+      "month": "2017-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-February/000509.html"
     }
   ],
   "threads": [

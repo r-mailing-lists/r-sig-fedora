@@ -17,7 +17,8 @@
       "body_snippet": "I have a Fedora linux 24 64bit workstation I am trying to install rgl on and I keep running into this error:\n\ntrying URL 'https://cran.cnr.berkeley.edu/src/contrib/rgl_0.97.0.tar.gz'\nContent type 'app",
       "thread_id": "thread-b1916a13dbf3",
       "thread_depth": 0,
-      "month": "2017-01"
+      "month": "2017-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-January/000492.html"
     },
     {
       "id": "msg-863241346f1f",
@@ -35,7 +36,8 @@
       "body_snippet": "On Wed, 2017-01-11 at 19:49 +0000, Weiner, Michael wrote:\n> I have a Fedora linux 24 64bit workstation I am trying to install rgl\n> on and I keep running into this error:\n> \n> trying URL 'https://cran",
       "thread_id": "thread-b1916a13dbf3",
       "thread_depth": 1,
-      "month": "2017-01"
+      "month": "2017-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-January/000493.html"
     },
     {
       "id": "msg-c5b8d1cd0605",
@@ -54,7 +56,8 @@
       "body_snippet": "----Original Message-----\nFrom: Martyn Plummer [mailto:plummerm at iarc.fr] \nSent: Thursday, January 12, 2017 3:36 AM\nTo: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\nSubject: R",
       "thread_id": "thread-b1916a13dbf3",
       "thread_depth": 2,
-      "month": "2017-01"
+      "month": "2017-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-January/000494.html"
     },
     {
       "id": "msg-338184812b92",
@@ -74,7 +77,8 @@
       "body_snippet": "On Thu, 2017-01-12 at 12:29 +0000, Weiner, Michael wrote:\n> ----Original Message-----\n> From: Martyn Plummer [mailto:plummerm at iarc.fr]?\n> Sent: Thursday, January 12, 2017 3:36 AM\n> To: Weiner, Mich",
       "thread_id": "thread-b1916a13dbf3",
       "thread_depth": 3,
-      "month": "2017-01"
+      "month": "2017-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-January/000495.html"
     },
     {
       "id": "msg-ce60d8c0bc0d",
@@ -95,7 +99,8 @@
       "body_snippet": "-----Original Message-----\nFrom: Martyn Plummer [mailto:plummerm at iarc.fr] \nSent: Thursday, January 12, 2017 7:41 AM\nTo: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\nSubject: ",
       "thread_id": "thread-b1916a13dbf3",
       "thread_depth": 4,
-      "month": "2017-01"
+      "month": "2017-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-January/000496.html"
     },
     {
       "id": "msg-07f410a20d1d",
@@ -117,7 +122,8 @@
       "body_snippet": "On Thu, 2017-01-12 at 12:45 +0000, Weiner, Michael wrote:\n> -----Original Message-----\n> From: Martyn Plummer [mailto:plummerm at iarc.fr]?\n> Sent: Thursday, January 12, 2017 7:41 AM\n> To: Weiner, Mic",
       "thread_id": "thread-b1916a13dbf3",
       "thread_depth": 5,
-      "month": "2017-01"
+      "month": "2017-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-January/000497.html"
     },
     {
       "id": "msg-74a990c5d0eb",
@@ -138,7 +144,8 @@
       "body_snippet": "-----Original Message-----\nFrom: Weiner, Michael \nSent: Thursday, January 12, 2017 7:46 AM\nTo: r-sig-fedora at r-project.org\nSubject: RE: [R-sig-Fedora] rgl\n\n-----Original Message-----\nFrom: Martyn Pl",
       "thread_id": "thread-b1916a13dbf3",
       "thread_depth": 4,
-      "month": "2017-01"
+      "month": "2017-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-January/000498.html"
     },
     {
       "id": "msg-e7c90d4115fe",
@@ -160,7 +167,8 @@
       "body_snippet": "On 01/12/2017 08:01 AM, Weiner, Michael wrote:\n\n> I resolved this by reinstalling mesa-libGL (dnf reinstall libGL) seems /lib64/libGL.so.1.2.0 was missing off the disk.\n\nAny chance that you have the N",
       "thread_id": "thread-b1916a13dbf3",
       "thread_depth": 5,
-      "month": "2017-01"
+      "month": "2017-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-January/000499.html"
     },
     {
       "id": "msg-e39fbc0e95ef",
@@ -183,7 +191,8 @@
       "body_snippet": "-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: Thursday, January 12, 2017 8:25 AM\nTo: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\nSubject:",
       "thread_id": "thread-b1916a13dbf3",
       "thread_depth": 6,
-      "month": "2017-01"
+      "month": "2017-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-January/000500.html"
     },
     {
       "id": "msg-332be216d928",
@@ -207,7 +216,8 @@
       "body_snippet": "On 01/12/2017 08:26 AM, Weiner, Michael wrote:\n> EXACTLY!!! I use the NVidia drivers from their site, and that is exactly what happened. I reinstalled mesa-libGL.x86_64 and that resolved the issue (th",
       "thread_id": "thread-b1916a13dbf3",
       "thread_depth": 7,
-      "month": "2017-01"
+      "month": "2017-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-January/000501.html"
     },
     {
       "id": "msg-5d10d58f00db",
@@ -232,7 +242,8 @@
       "body_snippet": "-----Original Message-----\nFrom: Tom Callaway [mailto:tcallawa at redhat.com] \nSent: Thursday, January 12, 2017 8:30 AM\nTo: Weiner, Michael <weinerm at ccf.org>; r-sig-fedora at r-project.org\nSubject:",
       "thread_id": "thread-b1916a13dbf3",
       "thread_depth": 8,
-      "month": "2017-01"
+      "month": "2017-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-January/000502.html"
     }
   ],
   "threads": [

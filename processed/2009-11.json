@@ -17,7 +17,8 @@
       "body_snippet": "Hi,\n\nI am totally new to Linux and trying to install R and related tools.  I\ndownloaded the rpm files for el4/x86_64 from the CRAN repository and\ntried to run rpm but it did not go through complaining",
       "thread_id": "thread-c3ca87f6e698",
       "thread_depth": 0,
-      "month": "2009-11"
+      "month": "2009-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-November/000095.html"
     },
     {
       "id": "msg-e5618818ce22",
@@ -35,7 +36,8 @@
       "body_snippet": "On Nov 13, 2009, at 1:59 PM, Christos Hatzis wrote:\n\n> Hi,\n>\n> I am totally new to Linux and trying to install R and related  \n> tools.  I\n> downloaded the rpm files for el4/x86_64 from the CRAN repos",
       "thread_id": "thread-c3ca87f6e698",
       "thread_depth": 1,
-      "month": "2009-11"
+      "month": "2009-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-November/000098.html"
     },
     {
       "id": "msg-2f639586e910",
@@ -54,7 +56,8 @@
       "body_snippet": "Thank you Marc.\nI will try this out.\n\n-Christos\n\n-----Original Message-----\nFrom: Marc Schwartz [mailto:marc_schwartz at me.com] \nSent: Friday, November 13, 2009 3:12 PM\nTo: christos.hatzis at nuverab",
       "thread_id": "thread-c3ca87f6e698",
       "thread_depth": 2,
-      "month": "2009-11"
+      "month": "2009-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-November/000097.html"
     },
     {
       "id": "msg-e0ca72dc2902",
@@ -73,7 +76,8 @@
       "body_snippet": "The installation seems to have gone through ok, but this is what I am\ngetting at the end:\n\n--> Finished Dependency Resolution\nR-devel-2.9.2-1.el5.x86_64 from epel has depsolving problems\n  --> Missing",
       "thread_id": "thread-c3ca87f6e698",
       "thread_depth": 2,
-      "month": "2009-11"
+      "month": "2009-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-November/000096.html"
     },
     {
       "id": "msg-b2d26b2d83eb",
@@ -93,7 +97,8 @@
       "body_snippet": "Hmmm....that would suggest that yum is not picking up the default RHEL  \nrepos for some reason, as it would seem logical that those files would  \nbe there as opposed to the EPEL. Typically, yum will g",
       "thread_id": "thread-c3ca87f6e698",
       "thread_depth": 3,
-      "month": "2009-11"
+      "month": "2009-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-November/000099.html"
     },
     {
       "id": "msg-723116555a88",
@@ -112,7 +117,8 @@
       "body_snippet": "On Fri, 13 Nov 2009, Marc Schwartz wrote:\n\n> Note that the latest version available appears to be 2.9.2 and I suspect that \n> this is due to the imminent release of Fedora 12, which is presumably \n> c",
       "thread_id": "thread-c3ca87f6e698",
       "thread_depth": 2,
-      "month": "2009-11"
+      "month": "2009-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-November/000100.html"
     },
     {
       "id": "msg-3ce7d7386fcd",
@@ -132,7 +138,8 @@
       "body_snippet": "On Nov 13, 2009, at 3:47 PM, R P Herrold wrote:\n\n> On Fri, 13 Nov 2009, Marc Schwartz wrote:\n>\n>> Note that the latest version available appears to be 2.9.2 and I  \n>> suspect that this is due to the ",
       "thread_id": "thread-c3ca87f6e698",
       "thread_depth": 3,
-      "month": "2009-11"
+      "month": "2009-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-November/000101.html"
     },
     {
       "id": "msg-253f32d35388",
@@ -153,7 +160,8 @@
       "body_snippet": "Marc,\n\nIt seems that the RHEL is there and is active.  I'd rather stay with RHEL\nsince I do have purchased support.\nI have started the process of registering the system with RHN so I will try\nto see i",
       "thread_id": "thread-c3ca87f6e698",
       "thread_depth": 4,
-      "month": "2009-11"
+      "month": "2009-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-November/000102.html"
     },
     {
       "id": "msg-814d8de3e35b",
@@ -175,7 +183,8 @@
       "body_snippet": "After registering with the RHN, su -c 'yum install R' worked fine.\nI now have a working version of R:\n\n> sessionInfo()\nR version 2.9.2 (2009-08-24)\nx86_64-redhat-linux-gnu\n\nMarc, you mentioned there i",
       "thread_id": "thread-c3ca87f6e698",
       "thread_depth": 5,
-      "month": "2009-11"
+      "month": "2009-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-November/000104.html"
     },
     {
       "id": "msg-da018a221206",
@@ -198,7 +207,8 @@
       "body_snippet": "Hi Christos,\n\nThe R 2.10.0 RPMs will be in the EPEL testing repo until the so-called  \nBodhi system has sufficient positive Karma to move them to release.  \nYou can see the current status here:\n\n   ht",
       "thread_id": "thread-c3ca87f6e698",
       "thread_depth": 6,
-      "month": "2009-11"
+      "month": "2009-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-November/000103.html"
     },
     {
       "id": "msg-1602e12cab09",
@@ -222,7 +232,8 @@
       "body_snippet": "Sorry, correction on the command below:\n\n   su -c \"yum --enablerepo=epel-testing update R\"\n\nTime for more coffee...\n\nMarc\n\nOn Nov 17, 2009, at 10:47 AM, Marc Schwartz wrote:\n\n> Hi Christos,\n>\n> The R ",
       "thread_id": "thread-c3ca87f6e698",
       "thread_depth": 7,
-      "month": "2009-11"
+      "month": "2009-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-November/000105.html"
     },
     {
       "id": "msg-b203ba9eacf9",
@@ -247,7 +258,8 @@
       "body_snippet": "Thanks for all your help, Marc.\n\nThis is like a new ecosystem for me, living in the Windows world for too\nmany years, but will eventually feel like home.  My memories on Unix are\nfrom the Apollo/Domai",
       "thread_id": "thread-c3ca87f6e698",
       "thread_depth": 8,
-      "month": "2009-11"
+      "month": "2009-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-November/000106.html"
     }
   ],
   "threads": [

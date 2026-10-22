@@ -17,7 +17,8 @@
       "body_snippet": "It seems that \"make\" is not declared as a dependency of R-core/R-devel\nin fedora/rhel. Therefore one some servers R CMD config does not work:\n\nR CMD config --ldflags\n/usr/lib64/R/bin/config: line 150:",
       "thread_id": "thread-461bbf9effae",
       "thread_depth": 0,
-      "month": "2014-08"
+      "month": "2014-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-August/000336.html"
     },
     {
       "id": "msg-35641bec0250",
@@ -33,7 +34,8 @@
       "body_snippet": "Not specifically an R question, but hopefully some Fedora users might\nknow the answer. I am creating an rpm for an R application that uses\nen_US.UTF-8:\n\n  Sys.setlocale(category='LC_ALL', 'en_US.UTF-8",
       "thread_id": "thread-35641bec0250",
       "thread_depth": 0,
-      "month": "2014-08"
+      "month": "2014-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-August/000337.html"
     },
     {
       "id": "msg-41d99bc2f0c2",
@@ -51,7 +53,8 @@
       "body_snippet": "On 08/08/2014 11:10 AM, Jeroen Ooms wrote:\n> It seems that \"make\" is not declared as a dependency of R-core/R-devel\n> in fedora/rhel. Therefore one some servers R CMD config does not work:\n> \n> R CMD ",
       "thread_id": "thread-461bbf9effae",
       "thread_depth": 1,
-      "month": "2014-08"
+      "month": "2014-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-August/000338.html"
     },
     {
       "id": "msg-edb4c26f5430",
@@ -69,7 +72,8 @@
       "body_snippet": "On 08/08/2014 11:25 AM, Jeroen Ooms wrote:\n> Not specifically an R question, but hopefully some Fedora users might\n> know the answer. I am creating an rpm for an R application that uses\n> en_US.UTF-8:",
       "thread_id": "thread-35641bec0250",
       "thread_depth": 1,
-      "month": "2014-08"
+      "month": "2014-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-August/000339.html"
     },
     {
       "id": "msg-a1a228de2ef5",
@@ -88,7 +92,8 @@
       "body_snippet": "On Fri, Aug 8, 2014 at 1:50 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n> I am, and I just committed the fix to add Requires: make to the R-core\n> packages. Sorry for the delay in responding, I'v",
       "thread_id": "thread-461bbf9effae",
       "thread_depth": 2,
-      "month": "2014-08"
+      "month": "2014-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-August/000340.html"
     },
     {
       "id": "msg-947ba5c829e9",
@@ -104,7 +109,8 @@
       "body_snippet": "On Debian/Ubuntu, system wide environment variables and options are\nset in respectively /etc/R/Renviron.site and /etc/R/Rprofile.site.\nThese files are automatically created when r-base is installed, a",
       "thread_id": "thread-947ba5c829e9",
       "thread_depth": 0,
-      "month": "2014-08"
+      "month": "2014-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-August/000341.html"
     },
     {
       "id": "msg-2ea192f909f0",
@@ -122,7 +128,8 @@
       "body_snippet": "On 12/08/14 03:13, Jeroen Ooms wrote:\n> On Debian/Ubuntu, system wide environment variables and options are\n> set in respectively /etc/R/Renviron.site and /etc/R/Rprofile.site.\n> These files are autom",
       "thread_id": "thread-947ba5c829e9",
       "thread_depth": 1,
-      "month": "2014-08"
+      "month": "2014-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-August/000342.html"
     },
     {
       "id": "msg-e10cba532a91",
@@ -138,7 +145,8 @@
       "body_snippet": "I am trying to create an rpm package for opencpu. The rpm package\ncompiles and installs a few R packages during build. When Rcpp is\nincluded, rpmbuild automatically generates a dependency on /usr/bin/",
       "thread_id": "thread-e10cba532a91",
       "thread_depth": 0,
-      "month": "2014-08"
+      "month": "2014-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-August/000343.html"
     }
   ],
   "threads": [

@@ -17,7 +17,8 @@
       "body_snippet": "I previously posted about this problem on the r-help list, but was told \nthat I\nshould switch over to the r-sig-fedora list.  So here goes:\n\nWhen trying to do a plot in a certain context I got an erro",
       "thread_id": "thread-d5bcac48d3c8",
       "thread_depth": 0,
-      "month": "2013-01"
+      "month": "2013-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-January/000284.html"
     },
     {
       "id": "msg-27df01283449",
@@ -35,7 +36,8 @@
       "body_snippet": "Rolf,\n\nLike Marc, I'm getting rusty on the Fedora details, but it's possible that the X server or the font server needs to be reset before changes take hold. Possible \"xset fp rehash\" in a terminal wi",
       "thread_id": "thread-d5bcac48d3c8",
       "thread_depth": 1,
-      "month": "2013-01"
+      "month": "2013-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-January/000285.html"
     },
     {
       "id": "msg-deef707c947c",
@@ -54,7 +56,8 @@
       "body_snippet": "On 01/13/2013 12:48 PM, peter dalgaard wrote:\n> Rolf,\n>\n> Like Marc, I'm getting rusty on the Fedora details, but it's possible that the X server or the font server needs to be reset before changes ta",
       "thread_id": "thread-d5bcac48d3c8",
       "thread_depth": 2,
-      "month": "2013-01"
+      "month": "2013-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-January/000286.html"
     },
     {
       "id": "msg-3132f36ec5e8",
@@ -74,7 +77,8 @@
       "body_snippet": "On Jan 12, 2013, at 6:08 PM, Rolf Turner <rolf.turner at xtra.co.nz> wrote:\n\n> On 01/13/2013 12:48 PM, peter dalgaard wrote:\n>> Rolf,\n>> \n>> Like Marc, I'm getting rusty on the Fedora details, but it'",
       "thread_id": "thread-d5bcac48d3c8",
       "thread_depth": 3,
-      "month": "2013-01"
+      "month": "2013-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-January/000287.html"
     },
     {
       "id": "msg-acde8305faa6",
@@ -95,7 +99,8 @@
       "body_snippet": "Please see end of message.\n\nOn 01/14/2013 04:32 AM, Marc Schwartz wrote:\n> On Jan 12, 2013, at 6:08 PM, Rolf Turner<rolf.turner at xtra.co.nz>  wrote:\n>\n>> On 01/13/2013 12:48 PM, peter dalgaard wrote",
       "thread_id": "thread-d5bcac48d3c8",
       "thread_depth": 4,
-      "month": "2013-01"
+      "month": "2013-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-January/000288.html"
     },
     {
       "id": "msg-b29c513d3904",
@@ -117,7 +122,8 @@
       "body_snippet": "On Jan 13, 2013, at 21:52 , Rolf Turner wrote:\n\n> \n> \n> I am getting frantic.  Is there no-one out there who can give me a clue as to how\n> to resolve this problem?  Basically my system is now warped ",
       "thread_id": "thread-d5bcac48d3c8",
       "thread_depth": 5,
-      "month": "2013-01"
+      "month": "2013-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-January/000289.html"
     },
     {
       "id": "msg-aba3241981d1",
@@ -140,7 +146,8 @@
       "body_snippet": "It turns out that I was kidding myself about \"cairo\".\n\nI did X11.options(type=\"cairo\") and then did plot(1:10) and got the\nunsatisfactory non-textually annotated plot.  What I didn't realize was\nthat ",
       "thread_id": "thread-d5bcac48d3c8",
       "thread_depth": 6,
-      "month": "2013-01"
+      "month": "2013-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-January/000290.html"
     }
   ],
   "threads": [

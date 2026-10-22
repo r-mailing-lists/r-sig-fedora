@@ -17,7 +17,8 @@
       "body_snippet": "Dear All,\n\nI am having the following problem while trying to install the rgl\npackage on R 2.7.0:\n\nconfigure: error: missing required header GL/glu.h\nERROR: configuration failed for package 'rgl'\n** Re",
       "thread_id": "thread-5bb0aea50a83",
       "thread_depth": 0,
-      "month": "2008-05"
+      "month": "2008-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-May/000000.html"
     },
     {
       "id": "msg-963be3fd0bf3",
@@ -33,7 +34,8 @@
       "body_snippet": "> Dear All,\n> \n> I am having the following problem while trying to install the rgl\n> package on R 2.7.0:\n> \n> configure: error: missing required header GL/glu.h\n> ERROR: configuration failed for packa",
       "thread_id": "thread-963be3fd0bf3",
       "thread_depth": 0,
-      "month": "2008-05"
+      "month": "2008-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-May/000001.html"
     },
     {
       "id": "msg-440d7cf4450d",
@@ -51,7 +53,8 @@
       "body_snippet": "On Tue, May 20, 2008 at 6:53 PM, Marc Schwartz\n<marc_schwartz at comcast.net> wrote:\n>> I am having the following problem while trying to install the rgl\n>> package on R 2.7.0:\n>>\n>> configure: error:",
       "thread_id": "thread-963be3fd0bf3",
       "thread_depth": 1,
-      "month": "2008-05"
+      "month": "2008-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-May/000002.html"
     },
     {
       "id": "msg-5db2e1b7a116",
@@ -67,7 +70,8 @@
       "body_snippet": "Finally, the RPMs for 2.7.0 arrived, but it looks like they were not \nbuilt against the Cairo libs, at least not on F8 (based on the reports, \nI should probably wait a couple of weeks before upgrading",
       "thread_id": "thread-5db2e1b7a116",
       "thread_depth": 0,
-      "month": "2008-05"
+      "month": "2008-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-May/000003.html"
     }
   ],
   "threads": [

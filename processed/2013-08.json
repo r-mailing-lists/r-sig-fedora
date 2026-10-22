@@ -17,7 +17,8 @@
       "body_snippet": "I am currently (still) running Fedora 17 --- having not managed to screw \nmy courage to the sticking place and upgrade.\nEven though we are now up to Fedora 20, I think. The traffic on the \nFedora mail",
       "thread_id": "thread-4dde7f641353",
       "thread_depth": 0,
-      "month": "2013-08"
+      "month": "2013-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-August/000297.html"
     },
     {
       "id": "msg-bd9c8395e7a9",
@@ -36,6 +37,7 @@
       "thread_id": "thread-4dde7f641353",
       "thread_depth": 1,
       "month": "2013-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-August/000299.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130802/15fea883/attachment.pl"
       ]
@@ -56,7 +58,8 @@
       "body_snippet": "On Aug 2, 2013, at 5:01 AM, Rolf Turner <rolf.turner at xtra.co.nz> wrote:\n\n> \n> \n> I am currently (still) running Fedora 17 --- having not managed to screw my courage to the sticking place and upgrad",
       "thread_id": "thread-4dde7f641353",
       "thread_depth": 1,
-      "month": "2013-08"
+      "month": "2013-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-August/000298.html"
     },
     {
       "id": "msg-e94e27f2409e",
@@ -74,7 +77,8 @@
       "body_snippet": "On 08/02/2013 06:01 AM, Rolf Turner wrote:\n> \n> \n> I am currently (still) running Fedora 17 --- having not managed to screw\n> my courage to the sticking place and upgrade.\n> Even though we are now up ",
       "thread_id": "thread-4dde7f641353",
       "thread_depth": 1,
-      "month": "2013-08"
+      "month": "2013-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-August/000300.html"
     },
     {
       "id": "msg-cac3773e66a3",
@@ -93,7 +97,8 @@
       "body_snippet": "Thanks to everyone who responded and confirmed my hope that I am not such\na complete idiot as I probably am! :-)\n\nLooks like I'm going to have to bite the bullet and upgrade soon, but.  \nPsigh!!!\n\n   ",
       "thread_id": "thread-4dde7f641353",
       "thread_depth": 2,
-      "month": "2013-08"
+      "month": "2013-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-August/000301.html"
     },
     {
       "id": "msg-bbda29d2e775",
@@ -114,6 +119,7 @@
       "thread_id": "thread-4dde7f641353",
       "thread_depth": 3,
       "month": "2013-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-August/000302.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130806/ece16585/attachment.pl"
       ]
@@ -136,6 +142,7 @@
       "thread_id": "thread-4dde7f641353",
       "thread_depth": 2,
       "month": "2013-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-August/000303.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130811/7f5c821b/attachment.pl"
       ]
@@ -155,6 +162,7 @@
       "thread_id": "thread-dca94c798ac8",
       "thread_depth": 0,
       "month": "2013-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-August/000304.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130815/5f0bda82/attachment.pl"
       ]
@@ -174,6 +182,7 @@
       "thread_id": "thread-1e8c8ad69426",
       "thread_depth": 0,
       "month": "2013-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-August/000305.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130816/b7bb6885/attachment.pl"
       ]

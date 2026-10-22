@@ -17,7 +17,8 @@
       "body_snippet": "I am trying to build R on a Centos server without admin privileges (or \nsupport), so I can call R functions from NetLogo models (via the NetLogo \nR extension or possibly Rserve), but I'm getting stuck",
       "thread_id": "thread-a0d36f068b94",
       "thread_depth": 0,
-      "month": "2013-09"
+      "month": "2013-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-September/000306.html"
     }
   ],
   "threads": [

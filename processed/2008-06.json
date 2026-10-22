@@ -17,7 +17,8 @@
       "body_snippet": "Excuse my asking here than on R-help, but it may be a Fedora question. On \nFedora 7, I'm running a fresh R 2.7.1 built from source, usually in en_GB, \nbut also tried in en_GB.UTF8. Running example(plo",
       "thread_id": "thread-738080dd21f1",
       "thread_depth": 0,
-      "month": "2008-06"
+      "month": "2008-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-June/000004.html"
     },
     {
       "id": "msg-8767b968e1df",
@@ -35,7 +36,8 @@
       "body_snippet": "on 06/30/2008 04:26 AM Roger Bivand wrote:\n> Excuse my asking here than on R-help, but it may be a Fedora question. \n> On Fedora 7, I'm running a fresh R 2.7.1 built from source, usually in \n> en_GB, ",
       "thread_id": "thread-738080dd21f1",
       "thread_depth": 1,
-      "month": "2008-06"
+      "month": "2008-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-June/000005.html"
     },
     {
       "id": "msg-b7a042b05290",
@@ -54,7 +56,8 @@
       "body_snippet": "Marc Schwartz wrote:\n> on 06/30/2008 04:26 AM Roger Bivand wrote:\n>> Excuse my asking here than on R-help, but it may be a Fedora\n>> question. On Fedora 7, I'm running a fresh R 2.7.1 built from sourc",
       "thread_id": "thread-738080dd21f1",
       "thread_depth": 2,
-      "month": "2008-06"
+      "month": "2008-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-June/000006.html"
     },
     {
       "id": "msg-c1288de2c75d",
@@ -75,7 +78,8 @@
       "body_snippet": "on 06/30/2008 05:26 PM Roger Bivand wrote:\n> On Mon, 30 Jun 2008, Peter Dalgaard wrote:\n> \n>> Marc Schwartz wrote:\n>>> on 06/30/2008 04:26 AM Roger Bivand wrote:\n>>>> Excuse my asking here than on R-h",
       "thread_id": "thread-c1288de2c75d",
       "thread_depth": 0,
-      "month": "2008-06"
+      "month": "2008-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-July/000008.html"
     }
   ],
   "threads": [

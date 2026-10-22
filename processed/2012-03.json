@@ -17,7 +17,8 @@
       "body_snippet": "Is there somewhere a succinct guide to just how much extra crud we need \nto install on RHEL to make use of EPEL packages?\n\n[root at troll-1 noarch]# rpm -ivh R2spec-4.1.0-1.el6.noarch.rpm\nerror: Faile",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 0,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000228.html"
     },
     {
       "id": "msg-8009e3b09576",
@@ -35,7 +36,8 @@
       "body_snippet": "On Mar 12, 2012, at 3:10 PM, Allen S. Rout wrote:\n\n> \n> \n> Is there somewhere a succinct guide to just how much extra crud we need to install on RHEL to make use of EPEL packages?\n> \n> [root at troll-",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 1,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000229.html"
     },
     {
       "id": "msg-97f9e7a02dc2",
@@ -53,7 +55,8 @@
       "body_snippet": "On Mon, 2012-03-12 at 16:10 -0400, Allen S. Rout wrote:\n> Is there somewhere a succinct guide to just how much extra crud we\n> need to install on RHEL to make use of EPEL packages? \n\nAll the informati",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 1,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000230.html"
     },
     {
       "id": "msg-1fd6c71b808c",
@@ -72,7 +75,8 @@
       "body_snippet": "On 03/12/2012 04:32 PM, Marc Schwartz wrote:\n>\n>\n> Otherwise known as \"RPM Hell\", which is why years ago, Fedora and RH moved to 'yum' as the default package manager, since yum handles all of the depe",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 2,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000231.html"
     },
     {
       "id": "msg-81ee0d95475e",
@@ -92,7 +96,8 @@
       "body_snippet": "On Mar 12, 2012, at 3:49 PM, Allen S. Rout wrote:\n\n> On 03/12/2012 04:32 PM, Marc Schwartz wrote:\n>> \n>> \n>> Otherwise known as \"RPM Hell\", which is why years ago, Fedora and RH moved to 'yum' as the ",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 3,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000232.html"
     },
     {
       "id": "msg-d2f83dbd9739",
@@ -112,7 +117,8 @@
       "body_snippet": "On Mon, 2012-03-12 at 16:49 -0400, Allen S. Rout wrote:\n> \n> So, having pulled R2spec 4.1.0-1.el5 into my rhel5.5 system,\n> \n> -bash-3.2$ R2spec --help\n> Traceback (most recent call last):\n>    File \"",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 3,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000233.html"
     },
     {
       "id": "msg-7f384ae0bfa6",
@@ -133,7 +139,8 @@
       "body_snippet": "On 03/13/2012 02:14 AM, Pierre-Yves Chibon wrote:\n\n> hm, I am thinking of an older version of python-argparse. Do you have\n> 1.2.1 ? (which is available on EPEL btw).\n\nWas at 1.0.1; updated to 1.2.1, ",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 4,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000235.html"
     },
     {
       "id": "msg-e972f1f18225",
@@ -155,6 +162,7 @@
       "thread_id": "thread-233a4d916976",
       "thread_depth": 4,
       "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000234.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120313/d60508ff/attachment.pl"
       ]
@@ -178,7 +186,8 @@
       "body_snippet": "On 03/12/2012 07:28 PM, Marc Schwartz wrote:\n>  [...]\n\nSo I've updated everything Python from EPEL on my RHEL 5 box.   Versions \nincluded below.\n\n\n#  R2spec -p RColorBrewer\nTraceback (most recent call",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 4,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000236.html"
     },
     {
       "id": "msg-38eeb820f4fc",
@@ -200,7 +209,8 @@
       "body_snippet": "On Tue, 2012-03-13 at 09:23 -0400, Allen S. Rout wrote:\n> On 03/13/2012 02:14 AM, Pierre-Yves Chibon wrote:\n> \n> > hm, I am thinking of an older version of python-argparse. Do you\n> have\n> > 1.2.1 ? (",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 5,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000237.html"
     },
     {
       "id": "msg-ba68ae97f03f",
@@ -222,7 +232,8 @@
       "body_snippet": "On Tue, 2012-03-13 at 09:50 -0400, Allen S. Rout wrote:\n> On 03/12/2012 07:28 PM, Marc Schwartz wrote:\n> >  [...]\n> \n> So I've updated everything Python from EPEL on my RHEL 5 box.\n> Versions included",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 5,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000238.html"
     },
     {
       "id": "msg-2a145b68372b",
@@ -244,7 +255,8 @@
       "body_snippet": "> From: Allen S. Rout <asr at ufl.edu>\n>\n>On 03/12/2012 07:28 PM, Marc Schwartz wrote:\n>>? [...]\n>\n>So I've updated everything Python from EPEL on my RHEL 5 box.?? Versions\n>included below.\n>\n>\n>#? R2",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 5,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000239.html"
     },
     {
       "id": "msg-3a50b78dd054",
@@ -263,7 +275,8 @@
       "body_snippet": "On 03/13/2012 11:25 AM, Pierre-Yves Chibon wrote:\n > On Tue, 2012-03-13 at 09:23 -0400, Allen S. Rout wrote:\n >>\n >> [... patches ...]\n >\n > Sure :)\n\n\nOK, here are four of them.\n\nOne fixes the depende",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 2,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000240.html"
     },
     {
       "id": "msg-85faccdaf21a",
@@ -279,7 +292,8 @@
       "body_snippet": "On a totally different topic (or maybe not so different)...\n\nI noticed that r-repo.org's first release is also its last release. \nWhat's blocking you?  Can I help?\n\n- Allen S. Rout",
       "thread_id": "thread-85faccdaf21a",
       "thread_depth": 0,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000241.html"
     },
     {
       "id": "msg-fa28eada403c",
@@ -297,7 +311,8 @@
       "body_snippet": "On Tue, 2012-03-13 at 17:04 -0400, Allen S. Rout wrote:\n> \n> On a totally different topic (or maybe not so different)...\n> \n> I noticed that r-repo.org's first release is also its last release. \n> Wha",
       "thread_id": "thread-85faccdaf21a",
       "thread_depth": 1,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000242.html"
     },
     {
       "id": "msg-d876d744a99e",
@@ -317,7 +332,8 @@
       "body_snippet": "On Tue, 2012-03-13 at 17:02 -0400, Allen S. Rout wrote:\n> One fixes the dependencies I happened to run into.\n\nApplied and pushed\n\n> One reverts the .format invocations to '%'\n\nApplied and pushed\n\n> Th",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 3,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000243.html"
     },
     {
       "id": "msg-208d4805cb99",
@@ -338,7 +354,8 @@
       "body_snippet": "On 03/13/2012 05:21 PM, Pierre-Yves Chibon wrote:\n> On Tue, 2012-03-13 at 17:02 -0400, Allen S. Rout wrote:\n>\n>> In the other, I've made the '-p' package name willing to accept both\n>> \"packagename\"  ",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 4,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000244.html"
     },
     {
       "id": "msg-8723ee04014b",
@@ -360,7 +377,8 @@
       "body_snippet": "On Wed, 2012-03-14 at 09:54 -0400, Allen S. Rout wrote:\n> On 03/13/2012 05:21 PM, Pierre-Yves Chibon wrote:\n> > On Tue, 2012-03-13 at 17:02 -0400, Allen S. Rout wrote:\n> >\n> >> In the other, I've made",
       "thread_id": "thread-233a4d916976",
       "thread_depth": 5,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000245.html"
     },
     {
       "id": "msg-9f80a133dd90",
@@ -379,7 +397,8 @@
       "body_snippet": "On 03/13/2012 05:12 PM, Pierre-Yves Chibon wrote:\n> All the specs are on github and\n> still a number of them needs to be finish actually (quite a number of\n> empty %file section as the build didn't fi",
       "thread_id": "thread-85faccdaf21a",
       "thread_depth": 2,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000246.html"
     },
     {
       "id": "msg-784a32a33132",
@@ -399,7 +418,8 @@
       "body_snippet": "On Wed, 2012-03-14 at 10:38 -0400, Allen S. Rout wrote:\n> On 03/13/2012 05:12 PM, Pierre-Yves Chibon wrote:\n> > All the specs are on github and\n> > still a number of them needs to be finish actually (",
       "thread_id": "thread-85faccdaf21a",
       "thread_depth": 3,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000247.html"
     },
     {
       "id": "msg-61f0affed177",
@@ -420,7 +440,8 @@
       "body_snippet": "On 03/19/2012 05:12 AM, Pierre-Yves Chibon wrote:\n\n\n> I think the idea of R-repo is more in line with what you have in\n> mind.  R2spec is a tool to generate spec file and make them as\n> compliant as p",
       "thread_id": "thread-85faccdaf21a",
       "thread_depth": 4,
-      "month": "2012-03"
+      "month": "2012-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-March/000248.html"
     }
   ],
   "threads": [

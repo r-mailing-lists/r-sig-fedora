@@ -20,7 +20,8 @@
       "body_snippet": "I am cross-posting this to r-sig-fedora (I hope that's not an egregious \nsin) in the hope that doing so might provide some source of insight.\n\nI tried\n\n     sudo yum install zlib\n\nand was told\n\n> Pack",
       "thread_id": "thread-36616601fd8c",
       "thread_depth": 0,
-      "month": "2015-05"
+      "month": "2015-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-May/000369.html"
     },
     {
       "id": "msg-da70a61a2e13",
@@ -40,7 +41,8 @@
       "body_snippet": "1. R 3.2.0 is packaged for Fedora now; it's in Rawhide and Fedora 22.\nI'm running Fedora 22 (late beta) and haven't had any problems with R.\nRStudio Desktop Preview (0.99.435) from the RStudio Fedora ",
       "thread_id": "thread-36616601fd8c",
       "thread_depth": 1,
-      "month": "2015-05"
+      "month": "2015-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-May/000370.html"
     },
     {
       "id": "msg-9f2cf86a1671",
@@ -61,7 +63,8 @@
       "body_snippet": "On 11/05/15 12:06, M. Edward (Ed) Borasky wrote:\n> 1. R 3.2.0 is packaged for Fedora now; it's in Rawhide and Fedora 22.\n> I'm running Fedora 22 (late beta) and haven't had any problems with R.\n> RStu",
       "thread_id": "thread-36616601fd8c",
       "thread_depth": 2,
-      "month": "2015-05"
+      "month": "2015-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-May/000371.html"
     },
     {
       "id": "msg-c5dd218aa33b",
@@ -77,7 +80,8 @@
       "body_snippet": "I just landed in Paris, and haven't read backwards in this thread, but I've done 3.2.0 builds for all current Fedora releases, they're all in updates-testing (I think the Fedora 22 builds are in updat",
       "thread_id": "thread-c5dd218aa33b",
       "thread_depth": 0,
-      "month": "2015-05"
+      "month": "2015-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-May/000372.html"
     },
     {
       "id": "msg-54d13b517ab9",
@@ -95,7 +99,8 @@
       "body_snippet": "On 11/05/15 16:19, Tom Callaway wrote:\n> I just landed in Paris, and haven't read backwards in this thread,\n> but I've done 3.2.0 builds for all current Fedora releases, they're\n> all in updates-testi",
       "thread_id": "thread-c5dd218aa33b",
       "thread_depth": 1,
-      "month": "2015-05"
+      "month": "2015-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-May/000373.html"
     },
     {
       "id": "msg-0cfdb9f6d66a",
@@ -110,11 +115,12 @@
         "<0d598c13-e2ec-4a01-8d1f-6c4f323302a5@email.android.com>",
         "<55505D7D.5080005@auckland.ac.nz>"
       ],
-      "body_plain": "On Monday 11 May 2015 19:42:53 Rolf Turner wrote:\n> It certainly did!  Success.  Thank you hugely!\n> \n> But if I may ask a supplementary question:  You say \"If you really want \n> to build from source ....\".  No, I don't *want* to; I have to.  At least \n> in my understanding.  I run the ancient and beyond end-of-life Fedora \n> 17.  (I haven't the nerve to try to upgrade; my current system may be \n> kludgey, but at least it works.  And I *know* that if I try to upgrade \n> all hell will break loose.)  It is my understanding that \"current Fedora \n> releases\" *do not* include Fedora 17.  Or do they?\n> If so, how would I get my hands on an R binary for Fedora 17?\n\nThe list of supported versions is here:\nhttps://fedoraproject.org/wiki/Releases\n\nIn short each version is supported for one month after the release of version N+2.\n\nThat means in particular that as soon as Fedora 22 is released Fedora will be supported one more month.\n\n> That's really just an academic question at present, since I have now \n> managed, thanks to your help, to build R 3.2.0 from source.\n> \n> Thanks again.\n> \n> cheers,\n> \n> Rolf Turner\n\nIf you prefer a short release cycle a reasonable approach is CentOS where R is packaged in the EPEL repositories, that belong the Fedora infrastructure.\n\nRegards,\n-- \nJos? Ab?lio",
+      "body_plain": "On Monday 11 May 2015 19:42:53 Rolf Turner wrote:\n> It certainly did!  Success.  Thank you hugely!\n> \n> But if I may ask a supplementary question:  You say \"If you really want \n> to build from source ....\".  No, I don't *want* to; I have to.  At least \n> in my understanding.  I run the ancient and beyond end-of-life Fedora \n> 17.  (I haven't the nerve to try to upgrade; my current system may be \n> kludgey, but at least it works.  And I *know* that if I try to upgrade \n> all hell will break loose.)  It is my understanding that \"current Fedora \n> releases\" *do not* include Fedora 17.  Or do they?\n> If so, how would I get my hands on an R binary for Fedora 17?\n\nThe list of supported versions is here:\nhttps://fedoraproject.org/wiki/Releases\n\nIn short each version is supported for one month after the release of version N+2.\n\nThat means in particular that as soon as Fedora 22 is released Fedora will be supported one more month.\n\n> That's really just an academic question at present, since I have now \n> managed, thanks to your help, to build R 3.2.0 from source.\n> \n> Thanks again.\n> \n> cheers,\n> \n> Rolf Turner\n\nIf you prefer a short release cycle a reasonable approach is CentOS where R is packaged in the EPEL repositories, that belong the Fedora infrastructure.\n\nRegards,\n-- \nJosé Abílio",
       "body_snippet": "On Monday 11 May 2015 19:42:53 Rolf Turner wrote:\n> It certainly did!  Success.  Thank you hugely!\n> \n> But if I may ask a supplementary question:  You say \"If you really want \n> to build from source ",
       "thread_id": "thread-c5dd218aa33b",
       "thread_depth": 2,
-      "month": "2015-05"
+      "month": "2015-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-May/000374.html"
     },
     {
       "id": "msg-66a0141240af",
@@ -133,7 +139,8 @@
       "body_snippet": "On 05/11/2015 09:42 AM, Rolf Turner wrote:\n> It certainly did!  Success.  Thank you hugely!\n> \n> But if I may ask a supplementary question:  You say \"If you really want\n> to build from source ....\".  ",
       "thread_id": "thread-c5dd218aa33b",
       "thread_depth": 2,
-      "month": "2015-05"
+      "month": "2015-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-May/000375.html"
     },
     {
       "id": "msg-d32ac77706ed",
@@ -155,7 +162,8 @@
       "body_snippet": "Hi Rolf,\n\nI watched a review of Fedora 22 beta on youtube and I'm keen to try it.  I\nlike what they've done with nautilus and with the notifications.\n\nIf it's released as planned on the 26th and is we",
       "thread_id": "thread-36616601fd8c",
       "thread_depth": 3,
-      "month": "2015-05"
+      "month": "2015-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-May/000376.html"
     }
   ],
   "threads": [

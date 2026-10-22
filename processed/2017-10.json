@@ -17,7 +17,8 @@
       "body_snippet": "Dear All,\n\nI am trying to install\n\nigraph package\n\nbut getting the following error:\n\n------------------\nmake: *** [/usr/lib64/R/etc/Makeconf:159: foreign-graphml.o] Error 1\nERROR: compilation failed f",
       "thread_id": "thread-4f8e1c6be559",
       "thread_depth": 0,
-      "month": "2017-10"
+      "month": "2017-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-October/000542.html"
     },
     {
       "id": "msg-b321f32b405e",
@@ -35,7 +36,8 @@
       "body_snippet": "On 10/09/2017 11:16 AM, Paul Smith wrote:\n> Dear All,\n> \n> I am trying to install\n> \n> igraph package\n> \n> but getting the following error:\n> \n> ------------------\n> make: *** [/usr/lib64/R/etc/Makeco",
       "thread_id": "thread-4f8e1c6be559",
       "thread_depth": 1,
-      "month": "2017-10"
+      "month": "2017-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-October/000543.html"
     },
     {
       "id": "msg-3e4a268ce8cd",
@@ -54,7 +56,8 @@
       "body_snippet": "On Mon, Oct 9, 2017 at 4:42 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> On 10/09/2017 11:16 AM, Paul Smith wrote:\n>>\n>> I am trying to install\n>>\n>> igraph package\n>>\n>> but getting the follo",
       "thread_id": "thread-4f8e1c6be559",
       "thread_depth": 2,
-      "month": "2017-10"
+      "month": "2017-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-October/000544.html"
     },
     {
       "id": "msg-c481f0057c04",
@@ -74,7 +77,8 @@
       "body_snippet": "Hello,\n\nCould you please test the solution at \nhttps://stackoverflow.com/questions/45318188/getting-error-in-function-igraph-write-graph-graphml-while-installing-igrap\n\nSpecifically -\n\ninstall.package",
       "thread_id": "thread-4f8e1c6be559",
       "thread_depth": 3,
-      "month": "2017-10"
+      "month": "2017-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-October/000545.html"
     },
     {
       "id": "msg-0f31db54370a",
@@ -95,7 +99,8 @@
       "body_snippet": "Thanks, Saint Pai, that did the trick!\n\nPaul\n\n\nOn Wed, Oct 11, 2017 at 12:33 PM, Pai <mkpai at redhat.com> wrote:\n> Hello,\n>\n> Could you please test the solution at\n> https://stackoverflow.com/questio",
       "thread_id": "thread-4f8e1c6be559",
       "thread_depth": 4,
-      "month": "2017-10"
+      "month": "2017-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-October/000546.html"
     },
     {
       "id": "msg-6bbc69b57150",
@@ -111,7 +116,8 @@
       "body_snippet": "Hello,\n\nI am trying to run the greport package by Frank Harell on Fedora 26.\nHowever, there are two software issues. Adobe Acrobat reader is\nrecommended, but Adobe does have a version for Linux anymor",
       "thread_id": "thread-6bbc69b57150",
       "thread_depth": 0,
-      "month": "2017-10"
+      "month": "2017-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-October/000547.html"
     },
     {
       "id": "msg-f4216203d708",
@@ -127,7 +133,8 @@
       "body_snippet": "What packages provide R-cran-ggplot2 and R-cran-caret in RHEL 7?",
       "thread_id": "thread-f4216203d708",
       "thread_depth": 0,
-      "month": "2017-10"
+      "month": "2017-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-October/000548.html"
     }
   ],
   "threads": [

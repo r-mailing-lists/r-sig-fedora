@@ -18,6 +18,7 @@
       "thread_id": "thread-00db6f25f957",
       "thread_depth": 0,
       "month": "2014-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-April/000309.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140402/3890ca95/attachment.pl"
       ]
@@ -38,7 +39,8 @@
       "body_snippet": "On Apr 2, 2014, at 3:05 PM, Eric Kaufmann <kaufmann at slu.edu> wrote:\n\n> Hello,\n> \n> I am trying to install rjags on R 3.0.0 that is running on CentOS 6.4. Jags\n> is installed and seems to be working",
       "thread_id": "thread-00db6f25f957",
       "thread_depth": 1,
-      "month": "2014-04"
+      "month": "2014-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-April/000310.html"
     },
     {
       "id": "msg-2d2f0b447f8c",
@@ -55,6 +57,7 @@
       "thread_id": "thread-2d2f0b447f8c",
       "thread_depth": 0,
       "month": "2014-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-April/000311.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140420/a04bb049/attachment.pl"
       ]
@@ -75,7 +78,8 @@
       "body_snippet": "On 19 Apr 2014, at 23:33 , Steve Taylor <steve.taylor.nz at gmail.com> wrote:\n\n> Hi there,\n> \n> Can anyone help with this?\n> \n> I tried to install.packages('lme4') and got lots of warning and error\n> ",
       "thread_id": "thread-2d2f0b447f8c",
       "thread_depth": 1,
-      "month": "2014-04"
+      "month": "2014-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-April/000312.html"
     },
     {
       "id": "msg-1e3e94ab83bd",
@@ -95,6 +99,7 @@
       "thread_id": "thread-2d2f0b447f8c",
       "thread_depth": 2,
       "month": "2014-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-April/000313.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20140420/4b9cb9eb/attachment.pl"
       ]
@@ -117,7 +122,8 @@
       "body_snippet": "Hi,\n\nIf you are installing to default system-wide locations, you will need to be SU/root in order to have the requisite privileges. If you try to install as a regular user, you will need to define alt",
       "thread_id": "thread-2d2f0b447f8c",
       "thread_depth": 3,
-      "month": "2014-04"
+      "month": "2014-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-April/000314.html"
     }
   ],
   "threads": [

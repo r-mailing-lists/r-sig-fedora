@@ -21,7 +21,8 @@
       "body_snippet": "Tom \"spot\" Callaway wrote:\n> On Mon, 2008-12-22 at 22:50 +0100, Peter Dalgaard wrote:\n> \n>> Er, I don't think you can be sure that everyone knows the magic \n>> incantations...\n>>\n>> Is this it?\n>>\n>> ",
       "thread_id": "thread-442416df897f",
       "thread_depth": 0,
-      "month": "2009-01"
+      "month": "2009-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-January/000062.html"
     },
     {
       "id": "msg-f9e1e85b6ca2",
@@ -42,7 +43,8 @@
       "body_snippet": "On Sun, 2009-01-04 at 12:33 +0100, Peter Dalgaard wrote:\n\n> Finally got around to testing it (sorry, but it didn't reach testing \n> till the 24th, and we have this thing call Christmas around here...)",
       "thread_id": "thread-442416df897f",
       "thread_depth": 1,
-      "month": "2009-01"
+      "month": "2009-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-January/000063.html"
     },
     {
       "id": "msg-6661dcc097ef",
@@ -64,7 +66,8 @@
       "body_snippet": "Tom \"spot\" Callaway wrote:\n> On Sun, 2009-01-04 at 12:33 +0100, Peter Dalgaard wrote:\n> \n>> Finally got around to testing it (sorry, but it didn't reach testing \n>> till the 24th, and we have this thi",
       "thread_id": "thread-442416df897f",
       "thread_depth": 2,
-      "month": "2009-01"
+      "month": "2009-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-January/000064.html"
     },
     {
       "id": "msg-0f1a0e400da2",
@@ -80,7 +83,8 @@
       "body_snippet": "Dear list(s),\n\nSeveral people are actually really interested to package the CRAN or \nBioconductor in RPM using R2spec.\nOne of the features that R2spec should handle is the %file section of \nthe spec f",
       "thread_id": "thread-0f1a0e400da2",
       "thread_depth": 0,
-      "month": "2009-01"
+      "month": "2009-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-January/000065.html"
     },
     {
       "id": "msg-a749d3233915",
@@ -103,7 +107,8 @@
       "body_snippet": "On Sun, 2009-01-04 at 15:51 +0100, Peter Dalgaard wrote:\n> Tom \"spot\" Callaway wrote:\n> > On Sun, 2009-01-04 at 12:33 +0100, Peter Dalgaard wrote:\n> > \n> >> Finally got around to testing it (sorry, bu",
       "thread_id": "thread-442416df897f",
       "thread_depth": 3,
-      "month": "2009-01"
+      "month": "2009-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-January/000066.html"
     },
     {
       "id": "msg-867754eefde6",
@@ -127,7 +132,8 @@
       "body_snippet": "On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:\n\n> I think we need to add pango-devel as a build requirement, so that the\n> cairo graphics device uses the pango layout engine.\n> \n> If you wan",
       "thread_id": "thread-442416df897f",
       "thread_depth": 4,
-      "month": "2009-01"
+      "month": "2009-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-January/000067.html"
     },
     {
       "id": "msg-1af36c818d66",
@@ -152,7 +158,8 @@
       "body_snippet": "On Mon, 2009-01-05 at 10:09 -0500, Tom \"spot\" Callaway wrote:\n> On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:\n> \n> > I think we need to add pango-devel as a build requirement, so that the\n>",
       "thread_id": "thread-442416df897f",
       "thread_depth": 5,
-      "month": "2009-01"
+      "month": "2009-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-January/000068.html"
     },
     {
       "id": "msg-4c6413e5f478",
@@ -178,7 +185,8 @@
       "body_snippet": "Tom \"spot\" Callaway wrote:\n> On Mon, 2009-01-05 at 10:09 -0500, Tom \"spot\" Callaway wrote:\n>> On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:\n>>\n>>> I think we need to add pango-devel as a bu",
       "thread_id": "thread-442416df897f",
       "thread_depth": 6,
-      "month": "2009-01"
+      "month": "2009-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-January/000069.html"
     },
     {
       "id": "msg-d4201d8c59fc",
@@ -206,7 +214,8 @@
       "body_snippet": "Pierre-Yves wrote:\n  [...]\n>>>\n>>> It has not pushed to testing yet, but here are the URLs for the updated\n>>> builds:\n>>>\n>>> https://admin.fedoraproject.org/updates/R-2.8.1-2.fc9\n>>> https://admin.f",
       "thread_id": "thread-d4201d8c59fc",
       "thread_depth": 0,
-      "month": "2009-01"
+      "month": "2009-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-January/000070.html"
     },
     {
       "id": "msg-336210f58612",
@@ -233,7 +242,8 @@
       "body_snippet": "On Mon, 2009-01-05 at 22:01 +0100, Peter Dalgaard wrote:\n\n> Package R-devel-2.8.1-2.fc9.i386.rpm is not signed\n> \n> Is this to be expected?\n\nYes. Packages are signed as part of the updates push proces",
       "thread_id": "thread-442416df897f",
       "thread_depth": 7,
-      "month": "2009-01"
+      "month": "2009-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-January/000071.html"
     },
     {
       "id": "msg-21867876d8d5",
@@ -250,6 +260,7 @@
       "thread_id": "thread-21867876d8d5",
       "thread_depth": 0,
       "month": "2009-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-January/000072.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090129/8bba291b/attachment.pl"
       ]
@@ -270,7 +281,8 @@
       "body_snippet": "on 01/29/2009 07:36 AM subhajit dutta wrote:\n> Hi everyone,\n>              I cannot install package \"svmpath\" on R 2.8.1 on Redhat Linux\n> .In fact I cannot install package externally.I am new to Linu",
       "thread_id": "thread-21867876d8d5",
       "thread_depth": 1,
-      "month": "2009-01"
+      "month": "2009-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-January/000073.html"
     }
   ],
   "threads": [

@@ -17,7 +17,8 @@
       "body_snippet": "I did a standard install of R on Fedora 13 using yum as root, which I\nassumed installed both the base packages and the devel packages needed\nto install R Commander (there weren't any optional packages",
       "thread_id": "thread-829b602e72a1",
       "thread_depth": 0,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000132.html"
     },
     {
       "id": "msg-91b162cc1560",
@@ -35,7 +36,8 @@
       "body_snippet": "On Jul 1, 2010, at 1:01 PM, Carlo Tambuatco wrote:\n\n> I did a standard install of R on Fedora 13 using yum as root, which I\n> assumed installed both the base packages and the devel packages needed\n> t",
       "thread_id": "thread-829b602e72a1",
       "thread_depth": 1,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000133.html"
     },
     {
       "id": "msg-625e999f35d1",
@@ -55,6 +57,7 @@
       "thread_id": "thread-829b602e72a1",
       "thread_depth": 2,
       "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000134.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20100702/bae0b4d8/attachment.pl"
       ]
@@ -77,7 +80,8 @@
       "body_snippet": "On Jul 2, 2010, at 11:00 AM, Carlo Tambuatco wrote:\n\n> \n> On Jul 2, 2010, at 8:59 AM, Marc Schwartz wrote:\n> \n>> \n>> On Jul 1, 2010, at 1:01 PM, Carlo Tambuatco wrote:\n>> \n>>> I did a standard install",
       "thread_id": "thread-829b602e72a1",
       "thread_depth": 3,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000135.html"
     },
     {
       "id": "msg-bc7facbb8aa7",
@@ -97,7 +101,8 @@
       "body_snippet": "On 07/02/2010 12:00 PM, Carlo Tambuatco wrote:\n>> Not all R CRAN packages are available via the Fedora yum repos. Thus, it is not possible for the R yum base/devel RPM packages to include all possible",
       "thread_id": "thread-829b602e72a1",
       "thread_depth": 3,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000136.html"
     },
     {
       "id": "msg-289286e4eb8b",
@@ -113,7 +118,8 @@
       "body_snippet": "I've googled around the archives for R-help and R-sig Fedora and found\nthat a lot of people have had the same errors I've gotten when\nstarting up the X11() module:\n\nError in X11() : X11 module cannot ",
       "thread_id": "thread-289286e4eb8b",
       "thread_depth": 0,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000137.html"
     },
     {
       "id": "msg-bcb26a107ce0",
@@ -131,7 +137,8 @@
       "body_snippet": "On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n\n> I've googled around the archives for R-help and R-sig Fedora and found\n> that a lot of people have had the same errors I've gotten when\n> starting",
       "thread_id": "thread-289286e4eb8b",
       "thread_depth": 1,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000138.html"
     },
     {
       "id": "msg-d42be1fbcd89",
@@ -150,7 +157,8 @@
       "body_snippet": "On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n> On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n>\n>    \n>> I've googled around the archives for R-help and R-sig Fedora and found\n>> that a lot of peo",
       "thread_id": "thread-289286e4eb8b",
       "thread_depth": 2,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000139.html"
     },
     {
       "id": "msg-aa12199254d8",
@@ -169,7 +177,8 @@
       "body_snippet": "On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n> On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n>\n>    \n>> I've googled around the archives for R-help and R-sig Fedora and found\n>> that a lot of peo",
       "thread_id": "thread-289286e4eb8b",
       "thread_depth": 2,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000140.html"
     },
     {
       "id": "msg-b43204bc14c0",
@@ -190,7 +199,8 @@
       "body_snippet": "On Fri, Jul 2, 2010 at 11:19 AM, Tom \"spot\" Callaway\n<tcallawa at redhat.com> wrote:\n> On 07/02/2010 12:00 PM, Carlo Tambuatco wrote:\n\n> At this time, there is no external repository that I am aware o",
       "thread_id": "thread-829b602e72a1",
       "thread_depth": 4,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000141.html"
     },
     {
       "id": "msg-61f706016af3",
@@ -210,7 +220,8 @@
       "body_snippet": "On Jul 3, 2010, at 4:24 PM, Carlo Tambuatco wrote:\n\n> On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n>> On Jul 3, 2010, at 7:54 AM, Carlo Tambuatco wrote:\n>> \n>>   \n>>> I've googled around the archives ",
       "thread_id": "thread-289286e4eb8b",
       "thread_depth": 3,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000142.html"
     },
     {
       "id": "msg-b5450bbc0322",
@@ -231,7 +242,8 @@
       "body_snippet": "On 07/04/2010 12:27 PM, Marc Schwartz wrote:\n> On Jul 3, 2010, at 4:24 PM, Carlo Tambuatco wrote:\n>\n>    \n>> On 07/03/2010 11:46 AM, Marc Schwartz wrote:\n>>      \n>>> On Jul 3, 2010, at 7:54 AM, Carlo",
       "thread_id": "thread-289286e4eb8b",
       "thread_depth": 4,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000143.html"
     },
     {
       "id": "msg-68c7bb40a565",
@@ -253,7 +265,8 @@
       "body_snippet": "On 07/04/2010 02:30 PM, Carlo Tambuatco wrote:\n> On 07/04/2010 12:27 PM, Marc Schwartz wrote:\n>> On Jul 3, 2010, at 4:24 PM, Carlo Tambuatco wrote:\n>>\n>>   \n>>> On 07/03/2010 11:46 AM, Marc Schwartz w",
       "thread_id": "thread-289286e4eb8b",
       "thread_depth": 5,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000144.html"
     },
     {
       "id": "msg-dca896176d34",
@@ -276,7 +289,8 @@
       "body_snippet": "On 07/06/2010 08:51 AM, Tom \"spot\" Callaway wrote:\n> On 07/04/2010 02:30 PM, Carlo Tambuatco wrote:\n>    \n>> On 07/04/2010 12:27 PM, Marc Schwartz wrote:\n>>      \n>>> On Jul 3, 2010, at 4:24 PM, Carlo",
       "thread_id": "thread-289286e4eb8b",
       "thread_depth": 6,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000145.html"
     },
     {
       "id": "msg-d0a86f6e024c",
@@ -300,7 +314,8 @@
       "body_snippet": "On 07/06/2010 03:01 PM, Carlo Tambuatco wrote:\n\n> This is what ls revealed about my /usr/local/lib directory:\n> \n> total 4344\n> drwxr-xr-x. 3 root root    4096 Jun 19 17:04 blender\n> drwxr-xr-x. 2 roo",
       "thread_id": "thread-289286e4eb8b",
       "thread_depth": 7,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000146.html"
     },
     {
       "id": "msg-a6048b776a27",
@@ -325,7 +340,8 @@
       "body_snippet": "On 07/06/2010 03:15 PM, Tom \"spot\" Callaway wrote:\n> On 07/06/2010 03:01 PM, Carlo Tambuatco wrote:\n>\n>    \n>> This is what ls revealed about my /usr/local/lib directory:\n>>\n>> total 4344\n>> drwxr-xr-",
       "thread_id": "thread-289286e4eb8b",
       "thread_depth": 8,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000147.html"
     },
     {
       "id": "msg-1613ea03a040",
@@ -351,7 +367,8 @@
       "body_snippet": "On 07/06/2010 03:42 PM, Carlo Tambuatco wrote:\n> On 07/06/2010 03:15 PM, Tom \"spot\" Callaway wrote:\n\n> You're saying I have to choose between running Blender and running X11()\n> in R?\n> Is there a way",
       "thread_id": "thread-289286e4eb8b",
       "thread_depth": 9,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000148.html"
     },
     {
       "id": "msg-f2dac27dd925",
@@ -378,7 +395,8 @@
       "body_snippet": "On 07/06/2010 03:47 PM, Tom \"spot\" Callaway wrote:\n> On 07/06/2010 03:42 PM, Carlo Tambuatco wrote:\n>    \n>> On 07/06/2010 03:15 PM, Tom \"spot\" Callaway wrote:\n>>      \n>    \n>> You're saying I have t",
       "thread_id": "thread-289286e4eb8b",
       "thread_depth": 10,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000149.html"
     },
     {
       "id": "msg-7f1f3f262b91",
@@ -406,7 +424,8 @@
       "body_snippet": "On 07/06/2010 03:56 PM, Carlo Tambuatco wrote:\n\n> I did download blender from the Fedora repositories, so it should\n> already use the proper modern system libfreetype libs. Where do you\n> suggest I sh",
       "thread_id": "thread-289286e4eb8b",
       "thread_depth": 11,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-July/000150.html"
     }
   ],
   "threads": [

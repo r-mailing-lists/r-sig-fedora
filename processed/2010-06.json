@@ -17,7 +17,8 @@
       "body_snippet": "R 2.11.1 is built now for Fedora and EPEL. It is in \"updates-testing\"\n(or it will be within the next 24 hours).\n\nIt will likely be the last R update for Fedora 11.\n\nIn accordance with the new policies",
       "thread_id": "thread-36245841f422",
       "thread_depth": 0,
-      "month": "2010-06"
+      "month": "2010-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-June/000126.html"
     },
     {
       "id": "msg-e9c4bde1ceff",
@@ -33,7 +34,8 @@
       "body_snippet": "I asked a couple of months ago in r-sig-fedora about a difference I\nnoticed between Ubuntu and RedHat/Fedora.  Now I think I've figured\nout the cause is a little issue in packaging but I don't know ho",
       "thread_id": "thread-e9c4bde1ceff",
       "thread_depth": 0,
-      "month": "2010-06"
+      "month": "2010-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-June/000127.html"
     },
     {
       "id": "msg-47e06f639d90",
@@ -51,7 +53,8 @@
       "body_snippet": "On 06/03/2010 12:14 PM, Paul Johnson wrote:\n> R_LIBS_SITE=${R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library'}\n> \n> I wondered why the RedHat/Fedora install of the",
       "thread_id": "thread-e9c4bde1ceff",
       "thread_depth": 1,
-      "month": "2010-06"
+      "month": "2010-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-June/000128.html"
     },
     {
       "id": "msg-6ef903ecbfb9",
@@ -70,7 +73,8 @@
       "body_snippet": "Dear Tom\n\nThanks for answering.\n\nPlease let me check with the R Core Team on this question. Their\ndocuments say \"do not change ?R_HOME/etc/Renviron? itself. Note that\nthis is distinct from ?R_HOME/etc",
       "thread_id": "thread-e9c4bde1ceff",
       "thread_depth": 2,
-      "month": "2010-06"
+      "month": "2010-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-June/000129.html"
     },
     {
       "id": "msg-9522fa5cfea7",
@@ -89,7 +93,8 @@
       "body_snippet": "<Dennis.Burian at ...> writes:\n\n> \n> Thanks Gavin and Marc, never thought to look in the Appendix.\n> \n> Pierre, that would be simpler, wouldn't it;  thanks for the suggestion,  DB\n> \n> Dennis Burian, ",
       "thread_id": "thread-9522fa5cfea7",
       "thread_depth": 0,
-      "month": "2010-06"
+      "month": "2010-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-June/000130.html"
     },
     {
       "id": "msg-6f486e2507e5",
@@ -107,7 +112,8 @@
       "body_snippet": "Ranjit,\n\nThanks for the follow up, the open source community is incredible.\n\nLong story short, I was able to install through the repositories.  Then\ncleaned up some other issues (tcl/tk, java and othe",
       "thread_id": "thread-6f486e2507e5",
       "thread_depth": 0,
-      "month": "2010-06"
+      "month": "2010-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-June/000131.html"
     }
   ],
   "threads": [

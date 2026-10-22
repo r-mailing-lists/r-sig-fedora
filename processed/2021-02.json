@@ -13,11 +13,12 @@
       "subject_clean": "Normalize latex path",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "Hi,\n  due to an unrelated bug report in maxima I found out that some packages \ninstall latex packages in /usr/share/texmf/tex/latex. Instead of using the \nprefix %{_datadir}/texmf we can use the canonical %_texmf defined by texlive.\n\nIs there any objection to change the location to the canonical location?\nActually if you look into the spec file we are using a symbolic link. As far \nas I can see the change is harmless.\n\nProbably the %postun and %posttrans sections can be simplified.\n\nBest regards,\n-- \nJos? Ab?lio",
+      "body_plain": "Hi,\n  due to an unrelated bug report in maxima I found out that some packages \ninstall latex packages in /usr/share/texmf/tex/latex. Instead of using the \nprefix %{_datadir}/texmf we can use the canonical %_texmf defined by texlive.\n\nIs there any objection to change the location to the canonical location?\nActually if you look into the spec file we are using a symbolic link. As far \nas I can see the change is harmless.\n\nProbably the %postun and %posttrans sections can be simplified.\n\nBest regards,\n-- \nJosé Abílio",
       "body_snippet": "Hi,\n  due to an unrelated bug report in maxima I found out that some packages \ninstall latex packages in /usr/share/texmf/tex/latex. Instead of using the \nprefix %{_datadir}/texmf we can use the canon",
       "thread_id": "thread-5421a50bb5cb",
       "thread_depth": 0,
-      "month": "2021-02"
+      "month": "2021-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2021-February/000723.html"
     },
     {
       "id": "msg-3147ad11fe5b",
@@ -31,11 +32,12 @@
       "references": [
         "<3347871.iIbC2pHGDl@griffin>"
       ],
-      "body_plain": "Seems reasonable.\n\n~spot\n\nOn Thu, Feb 4, 2021 at 11:15 AM Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n\n> Hi,\n>   due to an unrelated bug report in maxima I found out that some packages\n> install latex packages in /usr/share/texmf/tex/latex. Instead of using the\n> prefix %{_datadir}/texmf we can use the canonical %_texmf defined by\n> texlive.\n>\n> Is there any objection to change the location to the canonical location?\n> Actually if you look into the spec file we are using a symbolic link. As\n> far\n> as I can see the change is harmless.\n>\n> Probably the %postun and %posttrans sections can be simplified.\n>\n> Best regards,\n> --\n> Jos? Ab?lio\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
-      "body_snippet": "Seems reasonable.\n\n~spot\n\nOn Thu, Feb 4, 2021 at 11:15 AM Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n\n> Hi,\n>   due to an unrelated bug report in maxima I found out that some packages\n> install la",
+      "body_plain": "Seems reasonable.\n\n~spot\n\nOn Thu, Feb 4, 2021 at 11:15 AM José Abílio Matos <jamatos at fc.up.pt> wrote:\n\n> Hi,\n>   due to an unrelated bug report in maxima I found out that some packages\n> install latex packages in /usr/share/texmf/tex/latex. Instead of using the\n> prefix %{_datadir}/texmf we can use the canonical %_texmf defined by\n> texlive.\n>\n> Is there any objection to change the location to the canonical location?\n> Actually if you look into the spec file we are using a symbolic link. As\n> far\n> as I can see the change is harmless.\n>\n> Probably the %postun and %posttrans sections can be simplified.\n>\n> Best regards,\n> --\n> José Abílio\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Seems reasonable.\n\n~spot\n\nOn Thu, Feb 4, 2021 at 11:15 AM José Abílio Matos <jamatos at fc.up.pt> wrote:\n\n> Hi,\n>   due to an unrelated bug report in maxima I found out that some packages\n> install la",
       "thread_id": "thread-5421a50bb5cb",
       "thread_depth": 1,
-      "month": "2021-02"
+      "month": "2021-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2021-February/000724.html"
     }
   ],
   "threads": [

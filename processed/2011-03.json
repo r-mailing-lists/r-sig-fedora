@@ -18,6 +18,7 @@
       "thread_id": "thread-8f19aacea0a0",
       "thread_depth": 0,
       "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000171.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110302/ad359f16/attachment.pl"
       ]
@@ -38,7 +39,8 @@
       "body_snippet": "On 03/02/2011 10:46 AM, Sean O'Keeffe wrote:\n> Hi,\n> I've been trying to get a shared library version of the R package(version\n> 2.12.1) installed on a CentOS 5 system. (It installs fine without but o",
       "thread_id": "thread-8f19aacea0a0",
       "thread_depth": 1,
-      "month": "2011-03"
+      "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000172.html"
     },
     {
       "id": "msg-0a64d78975f8",
@@ -56,7 +58,8 @@
       "body_snippet": "On Mar 2, 2011, at 9:46 AM, Sean O'Keeffe wrote:\n\n> Hi,\n> I've been trying to get a shared library version of the R package(version\n> 2.12.1) installed on a CentOS 5 system. (It installs fine without ",
       "thread_id": "thread-8f19aacea0a0",
       "thread_depth": 1,
-      "month": "2011-03"
+      "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000173.html"
     },
     {
       "id": "msg-2a266972a849",
@@ -74,7 +77,8 @@
       "body_snippet": "On Wed, Mar 2, 2011 at 9:46 AM, Sean O'Keeffe <so2346 at columbia.edu> wrote:\n> Hi,\n> I've been trying to get a shared library version of the R package(version\n> 2.12.1) installed on a CentOS 5 system",
       "thread_id": "thread-8f19aacea0a0",
       "thread_depth": 1,
-      "month": "2011-03"
+      "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000174.html"
     },
     {
       "id": "msg-9e1fbb04fc57",
@@ -91,6 +95,7 @@
       "thread_id": "thread-9e1fbb04fc57",
       "thread_depth": 0,
       "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000175.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110307/1df434f8/attachment.pl"
       ]
@@ -111,7 +116,8 @@
       "body_snippet": ">*Error: Cannot retrieve repository metadata (repomd.xml) for\nrepository:\n>fedora. Please verify its path and try again\n\nThis is a yum error and not specific to R.  Can you install any package\nat all?",
       "thread_id": "thread-9e1fbb04fc57",
       "thread_depth": 1,
-      "month": "2011-03"
+      "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000176.html"
     },
     {
       "id": "msg-08234d57933a",
@@ -131,6 +137,7 @@
       "thread_id": "thread-9e1fbb04fc57",
       "thread_depth": 2,
       "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000177.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/ec77fec2/attachment.pl"
       ]
@@ -154,6 +161,7 @@
       "thread_id": "thread-9e1fbb04fc57",
       "thread_depth": 3,
       "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000178.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/b63f8e46/attachment.pl"
       ]
@@ -177,6 +185,7 @@
       "thread_id": "thread-9e1fbb04fc57",
       "thread_depth": 3,
       "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000179.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20110309/cffdffb6/attachment.pl"
       ]
@@ -191,11 +200,12 @@
       "subject_clean": "Latest version RPM for RHEL5",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "Hello,\n\nAs of now, the latest version RPM for RHEL5 is 2.10 (http://probability.ca/cran/bin/linux/redhat/el5/x86_64/).\n\nI would really like to be able to use some features/fixes in later versions. So can a 2.12.2 RPM for RHEL5 be compiled? Thank you.\n\nWilliam\nNOTICE: Confidential message which may be privileged. Unauthorized use/disclosure prohibited. If received in error, please go to www.td.com/legal for instructions.\nAVIS : Message confidentiel dont le contenu peut ?tre privil?gi?. Utilisation/divulgation interdites sans permission. Si re?u par erreur, pri?re d'aller au www.td.com/francais/avis_juridique pour des instructions.",
+      "body_plain": "Hello,\n\nAs of now, the latest version RPM for RHEL5 is 2.10 (http://probability.ca/cran/bin/linux/redhat/el5/x86_64/).\n\nI would really like to be able to use some features/fixes in later versions. So can a 2.12.2 RPM for RHEL5 be compiled? Thank you.\n\nWilliam\nNOTICE: Confidential message which may be privileged. Unauthorized use/disclosure prohibited. If received in error, please go to www.td.com/legal for instructions.\nAVIS : Message confidentiel dont le contenu peut être privilégié. Utilisation/divulgation interdites sans permission. Si reçu par erreur, prière d'aller au www.td.com/francais/avis_juridique pour des instructions.",
       "body_snippet": "Hello,\n\nAs of now, the latest version RPM for RHEL5 is 2.10 (http://probability.ca/cran/bin/linux/redhat/el5/x86_64/).\n\nI would really like to be able to use some features/fixes in later versions. So ",
       "thread_id": "thread-f988e9840663",
       "thread_depth": 0,
-      "month": "2011-03"
+      "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000180.html"
     },
     {
       "id": "msg-348b10180f01",
@@ -213,7 +223,8 @@
       "body_snippet": "On Mar 15, 2011, at 2:08 PM, Fu, Jie Ning wrote:\n\n> Hello,\n> \n> As of now, the latest version RPM for RHEL5 is 2.10 (http://probability.ca/cran/bin/linux/redhat/el5/x86_64/).\n> \n> I would really like ",
       "thread_id": "thread-f988e9840663",
       "thread_depth": 1,
-      "month": "2011-03"
+      "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000181.html"
     },
     {
       "id": "msg-78a46095d973",
@@ -229,7 +240,8 @@
       "body_snippet": "Hello,\n\nI wish to package the nutshell package. I need help to understand which\nlicense is relevant.\n\nThe upstream page at\nhttp://cran.r-project.org/web/packages/nutshell/index.html says\nthat the lice",
       "thread_id": "thread-78a46095d973",
       "thread_depth": 0,
-      "month": "2011-03"
+      "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000182.html"
     },
     {
       "id": "msg-aa4ad336ed7e",
@@ -247,7 +259,8 @@
       "body_snippet": "Pai <mkpai at redhat.com> wrote:\n\n>I wish to package the nutshell package. I need help to understand which\n>license is relevant.\n\n>The audioscrobbler data is made avaialable under the following Creati",
       "thread_id": "thread-78a46095d973",
       "thread_depth": 1,
-      "month": "2011-03"
+      "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000183.html"
     },
     {
       "id": "msg-1a6db2181dd0",
@@ -266,7 +279,8 @@
       "body_snippet": "Hello Ed,\n\n> \n> >The audioscrobbler data is made avaialable under the following Creative\n> >Commons license:\n> >\n> >\thttp://creativecommons.org/licenses/by-nc-sa/1.0/\n> \n> That's 'non-commercial use o",
       "thread_id": "thread-78a46095d973",
       "thread_depth": 2,
-      "month": "2011-03"
+      "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000184.html"
     },
     {
       "id": "msg-0b2c0833d0b4",
@@ -282,11 +296,12 @@
         "<07CC43C25304A546B995A31E70BF56B50445D0@wcl-exc.wcl.local>",
         "<20110316073125.GB3373@mkpai.csb>"
       ],
-      "body_plain": "On Wednesday 16 March 2011 07:31:25 Pai wrote:\n> I take this to mean that R-nutshell is not appropriate for Fedora :(\n\nIt is if you remove the non-free conforming part of the package.\n\nThe next question is if the package is still interesting without that part.\n\n> Thanks for the prompt reply to a newbie.\n> \n> Regards,\n> -- Pai\n\n-- \nJos? Ab?lio",
+      "body_plain": "On Wednesday 16 March 2011 07:31:25 Pai wrote:\n> I take this to mean that R-nutshell is not appropriate for Fedora :(\n\nIt is if you remove the non-free conforming part of the package.\n\nThe next question is if the package is still interesting without that part.\n\n> Thanks for the prompt reply to a newbie.\n> \n> Regards,\n> -- Pai\n\n-- \nJosé Abílio",
       "body_snippet": "On Wednesday 16 March 2011 07:31:25 Pai wrote:\n> I take this to mean that R-nutshell is not appropriate for Fedora :(\n\nIt is if you remove the non-free conforming part of the package.\n\nThe next questi",
       "thread_id": "thread-78a46095d973",
       "thread_depth": 3,
-      "month": "2011-03"
+      "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-March/000185.html"
     }
   ],
   "threads": [

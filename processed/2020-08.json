@@ -13,11 +13,12 @@
       "subject_clean": "Rebuild against FlexiBLAS",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "Hi,\n\nR has been built against FlexiBLAS in rawhide [1, 2]. These are the R\npackages that need to be rebuilt:\n\nR-ape-0:5.4-2.fc33.x86_64\nR-expm-0:0.999.4-7.fc33.x86_64\nR-gee-0:4.13.20-4.fc33.x86_64\nR-gss-0:2.2.2-3.fc33.x86_64\nR-igraph-0:1.2.5-3.fc33.x86_64\nR-msm-0:1.6.8-5.fc33.x86_64\nR-preprocessCore-0:1.50.0-4.fc33.x86_64\nR-qtl-0:1.46.2-4.fc33.x86_64\nR-quadprog-0:1.5.8-5.fc33.x86_64\n\nCould somebody with provenpackager superpowers bump the release and\nrebuild them, please? Thanks in advance!\n\n[1] https://src.fedoraproject.org/rpms/R/pull-request/5\n[2] https://fedoraproject.org/wiki/Changes/FlexiBLAS_as_BLAS/LAPACK_manager\n\n-- \nI?aki ?car",
+      "body_plain": "Hi,\n\nR has been built against FlexiBLAS in rawhide [1, 2]. These are the R\npackages that need to be rebuilt:\n\nR-ape-0:5.4-2.fc33.x86_64\nR-expm-0:0.999.4-7.fc33.x86_64\nR-gee-0:4.13.20-4.fc33.x86_64\nR-gss-0:2.2.2-3.fc33.x86_64\nR-igraph-0:1.2.5-3.fc33.x86_64\nR-msm-0:1.6.8-5.fc33.x86_64\nR-preprocessCore-0:1.50.0-4.fc33.x86_64\nR-qtl-0:1.46.2-4.fc33.x86_64\nR-quadprog-0:1.5.8-5.fc33.x86_64\n\nCould somebody with provenpackager superpowers bump the release and\nrebuild them, please? Thanks in advance!\n\n[1] https://src.fedoraproject.org/rpms/R/pull-request/5\n[2] https://fedoraproject.org/wiki/Changes/FlexiBLAS_as_BLAS/LAPACK_manager\n\n-- \nIñaki Úcar",
       "body_snippet": "Hi,\n\nR has been built against FlexiBLAS in rawhide [1, 2]. These are the R\npackages that need to be rebuilt:\n\nR-ape-0:5.4-2.fc33.x86_64\nR-expm-0:0.999.4-7.fc33.x86_64\nR-gee-0:4.13.20-4.fc33.x86_64\nR-g",
       "thread_id": "thread-3e97f6fb2b78",
       "thread_depth": 0,
-      "month": "2020-08"
+      "month": "2020-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2020-August/000697.html"
     },
     {
       "id": "msg-a4d89dab66f7",
@@ -31,11 +32,12 @@
       "references": [
         "<CALEXWq0MNfEfVho2or2+KY+JnraYq-Q32M13+Xk4yfS-S38ZLg@mail.gmail.com>"
       ],
-      "body_plain": "I'm on it.\n\nThanks,\nTom\n\nOn Mon, Aug 10, 2020 at 8:24 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n\n> Hi,\n>\n> R has been built against FlexiBLAS in rawhide [1, 2]. These are the R\n> packages that need to be rebuilt:\n>\n> R-ape-0:5.4-2.fc33.x86_64\n> R-expm-0:0.999.4-7.fc33.x86_64\n> R-gee-0:4.13.20-4.fc33.x86_64\n> R-gss-0:2.2.2-3.fc33.x86_64\n> R-igraph-0:1.2.5-3.fc33.x86_64\n> R-msm-0:1.6.8-5.fc33.x86_64\n> R-preprocessCore-0:1.50.0-4.fc33.x86_64\n> R-qtl-0:1.46.2-4.fc33.x86_64\n> R-quadprog-0:1.5.8-5.fc33.x86_64\n>\n> Could somebody with provenpackager superpowers bump the release and\n> rebuild them, please? Thanks in advance!\n>\n> [1] https://src.fedoraproject.org/rpms/R/pull-request/5\n> [2]\n> https://fedoraproject.org/wiki/Changes/FlexiBLAS_as_BLAS/LAPACK_manager\n>\n> --\n> I?aki ?car\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
-      "body_snippet": "I'm on it.\n\nThanks,\nTom\n\nOn Mon, Aug 10, 2020 at 8:24 AM I?aki Ucar <iucar at fedoraproject.org> wrote:\n\n> Hi,\n>\n> R has been built against FlexiBLAS in rawhide [1, 2]. These are the R\n> packages that",
+      "body_plain": "I'm on it.\n\nThanks,\nTom\n\nOn Mon, Aug 10, 2020 at 8:24 AM Iñaki Ucar <iucar at fedoraproject.org> wrote:\n\n> Hi,\n>\n> R has been built against FlexiBLAS in rawhide [1, 2]. These are the R\n> packages that need to be rebuilt:\n>\n> R-ape-0:5.4-2.fc33.x86_64\n> R-expm-0:0.999.4-7.fc33.x86_64\n> R-gee-0:4.13.20-4.fc33.x86_64\n> R-gss-0:2.2.2-3.fc33.x86_64\n> R-igraph-0:1.2.5-3.fc33.x86_64\n> R-msm-0:1.6.8-5.fc33.x86_64\n> R-preprocessCore-0:1.50.0-4.fc33.x86_64\n> R-qtl-0:1.46.2-4.fc33.x86_64\n> R-quadprog-0:1.5.8-5.fc33.x86_64\n>\n> Could somebody with provenpackager superpowers bump the release and\n> rebuild them, please? Thanks in advance!\n>\n> [1] https://src.fedoraproject.org/rpms/R/pull-request/5\n> [2]\n> https://fedoraproject.org/wiki/Changes/FlexiBLAS_as_BLAS/LAPACK_manager\n>\n> --\n> Iñaki Úcar\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I'm on it.\n\nThanks,\nTom\n\nOn Mon, Aug 10, 2020 at 8:24 AM Iñaki Ucar <iucar at fedoraproject.org> wrote:\n\n> Hi,\n>\n> R has been built against FlexiBLAS in rawhide [1, 2]. These are the R\n> packages that",
       "thread_id": "thread-3e97f6fb2b78",
       "thread_depth": 1,
-      "month": "2020-08"
+      "month": "2020-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2020-August/000698.html"
     },
     {
       "id": "msg-9a3c278726c9",
@@ -50,11 +52,12 @@
         "<CALEXWq0MNfEfVho2or2+KY+JnraYq-Q32M13+Xk4yfS-S38ZLg@mail.gmail.com>",
         "<CACp8ZrLkXXb=pNdP-KbE9_bX-XQZLFCTjfWi=n6YFpbUtdDdhg@mail.gmail.com>"
       ],
-      "body_plain": "These should all be finished now.\n\nThanks,\nTom\n\nOn Mon, Aug 10, 2020 at 10:05 AM Tom Callaway <spotrh at gmail.com> wrote:\n\n> I'm on it.\n>\n> Thanks,\n> Tom\n>\n> On Mon, Aug 10, 2020 at 8:24 AM I?aki Ucar <iucar at fedoraproject.org>\n> wrote:\n>\n>> Hi,\n>>\n>> R has been built against FlexiBLAS in rawhide [1, 2]. These are the R\n>> packages that need to be rebuilt:\n>>\n>> R-ape-0:5.4-2.fc33.x86_64\n>> R-expm-0:0.999.4-7.fc33.x86_64\n>> R-gee-0:4.13.20-4.fc33.x86_64\n>> R-gss-0:2.2.2-3.fc33.x86_64\n>> R-igraph-0:1.2.5-3.fc33.x86_64\n>> R-msm-0:1.6.8-5.fc33.x86_64\n>> R-preprocessCore-0:1.50.0-4.fc33.x86_64\n>> R-qtl-0:1.46.2-4.fc33.x86_64\n>> R-quadprog-0:1.5.8-5.fc33.x86_64\n>>\n>> Could somebody with provenpackager superpowers bump the release and\n>> rebuild them, please? Thanks in advance!\n>>\n>> [1] https://src.fedoraproject.org/rpms/R/pull-request/5\n>> [2]\n>> https://fedoraproject.org/wiki/Changes/FlexiBLAS_as_BLAS/LAPACK_manager\n>>\n>> --\n>> I?aki ?car\n>>\n>> _______________________________________________\n>> R-SIG-Fedora mailing list\n>> R-SIG-Fedora at r-project.org\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>>\n>\n\n\t[[alternative HTML version deleted]]",
-      "body_snippet": "These should all be finished now.\n\nThanks,\nTom\n\nOn Mon, Aug 10, 2020 at 10:05 AM Tom Callaway <spotrh at gmail.com> wrote:\n\n> I'm on it.\n>\n> Thanks,\n> Tom\n>\n> On Mon, Aug 10, 2020 at 8:24 AM I?aki Uca",
+      "body_plain": "These should all be finished now.\n\nThanks,\nTom\n\nOn Mon, Aug 10, 2020 at 10:05 AM Tom Callaway <spotrh at gmail.com> wrote:\n\n> I'm on it.\n>\n> Thanks,\n> Tom\n>\n> On Mon, Aug 10, 2020 at 8:24 AM Iñaki Ucar <iucar at fedoraproject.org>\n> wrote:\n>\n>> Hi,\n>>\n>> R has been built against FlexiBLAS in rawhide [1, 2]. These are the R\n>> packages that need to be rebuilt:\n>>\n>> R-ape-0:5.4-2.fc33.x86_64\n>> R-expm-0:0.999.4-7.fc33.x86_64\n>> R-gee-0:4.13.20-4.fc33.x86_64\n>> R-gss-0:2.2.2-3.fc33.x86_64\n>> R-igraph-0:1.2.5-3.fc33.x86_64\n>> R-msm-0:1.6.8-5.fc33.x86_64\n>> R-preprocessCore-0:1.50.0-4.fc33.x86_64\n>> R-qtl-0:1.46.2-4.fc33.x86_64\n>> R-quadprog-0:1.5.8-5.fc33.x86_64\n>>\n>> Could somebody with provenpackager superpowers bump the release and\n>> rebuild them, please? Thanks in advance!\n>>\n>> [1] https://src.fedoraproject.org/rpms/R/pull-request/5\n>> [2]\n>> https://fedoraproject.org/wiki/Changes/FlexiBLAS_as_BLAS/LAPACK_manager\n>>\n>> --\n>> Iñaki Úcar\n>>\n>> _______________________________________________\n>> R-SIG-Fedora mailing list\n>> R-SIG-Fedora at r-project.org\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "These should all be finished now.\n\nThanks,\nTom\n\nOn Mon, Aug 10, 2020 at 10:05 AM Tom Callaway <spotrh at gmail.com> wrote:\n\n> I'm on it.\n>\n> Thanks,\n> Tom\n>\n> On Mon, Aug 10, 2020 at 8:24 AM Iñaki Uca",
       "thread_id": "thread-3e97f6fb2b78",
       "thread_depth": 2,
-      "month": "2020-08"
+      "month": "2020-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2020-August/000699.html"
     },
     {
       "id": "msg-ba9dd6052ccc",
@@ -74,7 +77,8 @@
       "body_snippet": "On Monday, 27 July 2020 08.08.58 WEST Elliott Sales de Andrade wrote:\n> I'm not exactly fluent in Haskell, but Jens Petersen has a tool called\n> fbrnch [1], which is able to calculate the build order,",
       "thread_id": "thread-ba9dd6052ccc",
       "thread_depth": 0,
-      "month": "2020-08"
+      "month": "2020-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2020-August/000700.html"
     },
     {
       "id": "msg-06129fb3f209",
@@ -90,7 +94,8 @@
       "body_snippet": "I tried R2spec to create the spec files necessary to have Rcpparmadillo.\n\nI noticed that it has some issues, one example is that it placed some files \nirrespectively if they were present in the tar or",
       "thread_id": "thread-06129fb3f209",
       "thread_depth": 0,
-      "month": "2020-08"
+      "month": "2020-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2020-August/000701.html"
     },
     {
       "id": "msg-6c8c0e9a7459",
@@ -104,11 +109,12 @@
       "references": [
         "<3002016.5fSG56mABF@myth>"
       ],
-      "body_plain": "Hi Jos?,\n\nOn Mon, 10 Aug 2020 at 11:20, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> I tried R2spec to create the spec files necessary to have Rcpparmadillo.\n>\n> I noticed that it has some issues, one example is that it placed some files\n> irrespectively if they were present in the tar or not.\n>\n\nI would like to update this, but I'd also like to grab Jason's\npreliminary R macros, put them in R-rpm-macros, and just wholesale\nreplace most of this boilerplate. I just haven't had much chance to\nreally try it out.\n\n> One functionality that I think it would be nice to have would to update a\n> given spec file with the updated dependencies.\n>\n\nThis is something I have started on, but it got a bit sidetracked.\nWhat I needed was a URL to grab previous archives, which Inaki\nprovided some time ago. But then R2spec needed the ability to\nsubstitute macros in URLs for the version, and so I've left it at that\nfor a while. I guess I can go back to working on that some time soon.\n\n> What do you think of this?\n>\n> Regards,\n> --\n> Jos? Ab?lio\n\n--\nElliott",
-      "body_snippet": "Hi Jos?,\n\nOn Mon, 10 Aug 2020 at 11:20, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> I tried R2spec to create the spec files necessary to have Rcpparmadillo.\n>\n> I noticed that it has some issue",
+      "body_plain": "Hi José,\n\nOn Mon, 10 Aug 2020 at 11:20, José Abílio Matos <jamatos at fc.up.pt> wrote:\n>\n> I tried R2spec to create the spec files necessary to have Rcpparmadillo.\n>\n> I noticed that it has some issues, one example is that it placed some files\n> irrespectively if they were present in the tar or not.\n>\n\nI would like to update this, but I'd also like to grab Jason's\npreliminary R macros, put them in R-rpm-macros, and just wholesale\nreplace most of this boilerplate. I just haven't had much chance to\nreally try it out.\n\n> One functionality that I think it would be nice to have would to update a\n> given spec file with the updated dependencies.\n>\n\nThis is something I have started on, but it got a bit sidetracked.\nWhat I needed was a URL to grab previous archives, which Inaki\nprovided some time ago. But then R2spec needed the ability to\nsubstitute macros in URLs for the version, and so I've left it at that\nfor a while. I guess I can go back to working on that some time soon.\n\n> What do you think of this?\n>\n> Regards,\n> --\n> José Abílio\n\n--\nElliott",
+      "body_snippet": "Hi José,\n\nOn Mon, 10 Aug 2020 at 11:20, José Abílio Matos <jamatos at fc.up.pt> wrote:\n>\n> I tried R2spec to create the spec files necessary to have Rcpparmadillo.\n>\n> I noticed that it has some issue",
       "thread_id": "thread-06129fb3f209",
       "thread_depth": 1,
-      "month": "2020-08"
+      "month": "2020-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2020-August/000702.html"
     },
     {
       "id": "msg-70a8bb4d8fab",
@@ -123,11 +129,12 @@
         "<3002016.5fSG56mABF@myth>",
         "<CAJP_ize4hbL5_YBb_FuQZvTNPdtGiZDQzDiomEOAbHS6++b=_Q@mail.gmail.com>"
       ],
-      "body_plain": "On Tue, 11 Aug 2020 at 02:35, Elliott Sales de Andrade\n<quantum.analyst at gmail.com> wrote:\n>\n> Hi Jos?,\n>\n> On Mon, 10 Aug 2020 at 11:20, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n> >\n> > I tried R2spec to create the spec files necessary to have Rcpparmadillo.\n> >\n> > I noticed that it has some issues, one example is that it placed some files\n> > irrespectively if they were present in the tar or not.\n> >\n>\n> I would like to update this, but I'd also like to grab Jason's\n> preliminary R macros, put them in R-rpm-macros, and just wholesale\n> replace most of this boilerplate. I just haven't had much chance to\n> really try it out.\n>\n\nAlso, I had some plans to simplify some of the texlive dependencies,\nbut I was waiting till after branching so I could do a F34 Change for\nany larger spec rewrites.\n\n> > One functionality that I think it would be nice to have would to update a\n> > given spec file with the updated dependencies.\n> >\n>\n> This is something I have started on, but it got a bit sidetracked.\n> What I needed was a URL to grab previous archives, which Inaki\n> provided some time ago. But then R2spec needed the ability to\n> substitute macros in URLs for the version, and so I've left it at that\n> for a while. I guess I can go back to working on that some time soon.\n>\n> > What do you think of this?\n> >\n> > Regards,\n> > --\n> > Jos? Ab?lio\n>\n> --\n> Elliott\n\n-- \nElliott",
-      "body_snippet": "On Tue, 11 Aug 2020 at 02:35, Elliott Sales de Andrade\n<quantum.analyst at gmail.com> wrote:\n>\n> Hi Jos?,\n>\n> On Mon, 10 Aug 2020 at 11:20, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n> >\n> > I tri",
+      "body_plain": "On Tue, 11 Aug 2020 at 02:35, Elliott Sales de Andrade\n<quantum.analyst at gmail.com> wrote:\n>\n> Hi José,\n>\n> On Mon, 10 Aug 2020 at 11:20, José Abílio Matos <jamatos at fc.up.pt> wrote:\n> >\n> > I tried R2spec to create the spec files necessary to have Rcpparmadillo.\n> >\n> > I noticed that it has some issues, one example is that it placed some files\n> > irrespectively if they were present in the tar or not.\n> >\n>\n> I would like to update this, but I'd also like to grab Jason's\n> preliminary R macros, put them in R-rpm-macros, and just wholesale\n> replace most of this boilerplate. I just haven't had much chance to\n> really try it out.\n>\n\nAlso, I had some plans to simplify some of the texlive dependencies,\nbut I was waiting till after branching so I could do a F34 Change for\nany larger spec rewrites.\n\n> > One functionality that I think it would be nice to have would to update a\n> > given spec file with the updated dependencies.\n> >\n>\n> This is something I have started on, but it got a bit sidetracked.\n> What I needed was a URL to grab previous archives, which Inaki\n> provided some time ago. But then R2spec needed the ability to\n> substitute macros in URLs for the version, and so I've left it at that\n> for a while. I guess I can go back to working on that some time soon.\n>\n> > What do you think of this?\n> >\n> > Regards,\n> > --\n> > José Abílio\n>\n> --\n> Elliott\n\n-- \nElliott",
+      "body_snippet": "On Tue, 11 Aug 2020 at 02:35, Elliott Sales de Andrade\n<quantum.analyst at gmail.com> wrote:\n>\n> Hi José,\n>\n> On Mon, 10 Aug 2020 at 11:20, José Abílio Matos <jamatos at fc.up.pt> wrote:\n> >\n> > I tri",
       "thread_id": "thread-06129fb3f209",
       "thread_depth": 2,
-      "month": "2020-08"
+      "month": "2020-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2020-August/000703.html"
     },
     {
       "id": "msg-00d69d6f3e0e",
@@ -141,11 +148,12 @@
       "references": [
         "<CALEXWq0MNfEfVho2or2+KY+JnraYq-Q32M13+Xk4yfS-S38ZLg@mail.gmail.com>"
       ],
-      "body_plain": "Hi I?aki,\n\nOn Mon, 10 Aug 2020 at 08:24, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> Hi,\n>\n> R has been built against FlexiBLAS in rawhide [1, 2]. These are the R\n> packages that need to be rebuilt:\n>\n> ...\n\nI noticed that R-sfsmisc is failing on koschei, and it appears to be\nrelated to this BLAS change:\n\nhttps://koschei.fedoraproject.org/build/8692462\n\nAny ideas here?\n\n>\n> Could somebody with provenpackager superpowers bump the release and\n> rebuild them, please? Thanks in advance!\n>\n> [1] https://src.fedoraproject.org/rpms/R/pull-request/5\n> [2] https://fedoraproject.org/wiki/Changes/FlexiBLAS_as_BLAS/LAPACK_manager\n>\n> --\n> I?aki ?car\n>\n\n-- \nElliott",
-      "body_snippet": "Hi I?aki,\n\nOn Mon, 10 Aug 2020 at 08:24, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> Hi,\n>\n> R has been built against FlexiBLAS in rawhide [1, 2]. These are the R\n> packages that need to be reb",
+      "body_plain": "Hi Iñaki,\n\nOn Mon, 10 Aug 2020 at 08:24, Iñaki Ucar <iucar at fedoraproject.org> wrote:\n>\n> Hi,\n>\n> R has been built against FlexiBLAS in rawhide [1, 2]. These are the R\n> packages that need to be rebuilt:\n>\n> ...\n\nI noticed that R-sfsmisc is failing on koschei, and it appears to be\nrelated to this BLAS change:\n\nhttps://koschei.fedoraproject.org/build/8692462\n\nAny ideas here?\n\n>\n> Could somebody with provenpackager superpowers bump the release and\n> rebuild them, please? Thanks in advance!\n>\n> [1] https://src.fedoraproject.org/rpms/R/pull-request/5\n> [2] https://fedoraproject.org/wiki/Changes/FlexiBLAS_as_BLAS/LAPACK_manager\n>\n> --\n> Iñaki Úcar\n>\n\n-- \nElliott",
+      "body_snippet": "Hi Iñaki,\n\nOn Mon, 10 Aug 2020 at 08:24, Iñaki Ucar <iucar at fedoraproject.org> wrote:\n>\n> Hi,\n>\n> R has been built against FlexiBLAS in rawhide [1, 2]. These are the R\n> packages that need to be reb",
       "thread_id": "thread-3e97f6fb2b78",
       "thread_depth": 1,
-      "month": "2020-08"
+      "month": "2020-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2020-August/000704.html"
     },
     {
       "id": "msg-49712532f4ac",
@@ -160,11 +168,12 @@
         "<CALEXWq0MNfEfVho2or2+KY+JnraYq-Q32M13+Xk4yfS-S38ZLg@mail.gmail.com>",
         "<CAJP_izdrGnLNhZHNNQYyLOsv_Lk=ZdM_iSmh1BKg9x9Zvzf5Ww@mail.gmail.com>"
       ],
-      "body_plain": "On Tue, 11 Aug 2020 at 08:47, Elliott Sales de Andrade\n<quantum.analyst at gmail.com> wrote:\n>\n> Hi I?aki,\n>\n> On Mon, 10 Aug 2020 at 08:24, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > Hi,\n> >\n> > R has been built against FlexiBLAS in rawhide [1, 2]. These are the R\n> > packages that need to be rebuilt:\n> >\n> > ...\n>\n> I noticed that R-sfsmisc is failing on koschei, and it appears to be\n> related to this BLAS change:\n>\n> https://koschei.fedoraproject.org/build/8692462\n>\n> Any ideas here?\n\nIt seems like a poorly designed test to me, because it requires a\nnarrow number of iterations (27:28) to pass. It appears to fail only\nin i686 (maybe other 32-bit architectures too?) with the new BLAS\ndefault (which FlexiBLAS sets to openblas-openmp). It would be\ninteresting to see how many iterations actually took (less or more\nthan 27:28?; I doubt it, but maybe there's some bug in\nopenblas-openmp?).\n\nAnyway, these tests were most probably set using the reference BLAS\nimplementation, so you can just\n\nexport FLEXIBLAS=netlib\n\nin the %check section, which solves the issue in that platform:\nhttps://koji.fedoraproject.org/koji/taskinfo?taskID=49072314\n\n-- \nI?aki ?car",
-      "body_snippet": "On Tue, 11 Aug 2020 at 08:47, Elliott Sales de Andrade\n<quantum.analyst at gmail.com> wrote:\n>\n> Hi I?aki,\n>\n> On Mon, 10 Aug 2020 at 08:24, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > Hi,\n",
+      "body_plain": "On Tue, 11 Aug 2020 at 08:47, Elliott Sales de Andrade\n<quantum.analyst at gmail.com> wrote:\n>\n> Hi Iñaki,\n>\n> On Mon, 10 Aug 2020 at 08:24, Iñaki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > Hi,\n> >\n> > R has been built against FlexiBLAS in rawhide [1, 2]. These are the R\n> > packages that need to be rebuilt:\n> >\n> > ...\n>\n> I noticed that R-sfsmisc is failing on koschei, and it appears to be\n> related to this BLAS change:\n>\n> https://koschei.fedoraproject.org/build/8692462\n>\n> Any ideas here?\n\nIt seems like a poorly designed test to me, because it requires a\nnarrow number of iterations (27:28) to pass. It appears to fail only\nin i686 (maybe other 32-bit architectures too?) with the new BLAS\ndefault (which FlexiBLAS sets to openblas-openmp). It would be\ninteresting to see how many iterations actually took (less or more\nthan 27:28?; I doubt it, but maybe there's some bug in\nopenblas-openmp?).\n\nAnyway, these tests were most probably set using the reference BLAS\nimplementation, so you can just\n\nexport FLEXIBLAS=netlib\n\nin the %check section, which solves the issue in that platform:\nhttps://koji.fedoraproject.org/koji/taskinfo?taskID=49072314\n\n-- \nIñaki Úcar",
+      "body_snippet": "On Tue, 11 Aug 2020 at 08:47, Elliott Sales de Andrade\n<quantum.analyst at gmail.com> wrote:\n>\n> Hi Iñaki,\n>\n> On Mon, 10 Aug 2020 at 08:24, Iñaki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > Hi,\n",
       "thread_id": "thread-3e97f6fb2b78",
       "thread_depth": 2,
-      "month": "2020-08"
+      "month": "2020-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2020-August/000705.html"
     },
     {
       "id": "msg-90beb3423211",
@@ -184,7 +193,8 @@
       "body_snippet": "On Tuesday, 11 August 2020 07.37.50 WEST Elliott Sales de Andrade wrote:\n> Also, I had some plans to simplify some of the texlive dependencies,\n> but I was waiting till after branching so I could do a",
       "thread_id": "thread-06129fb3f209",
       "thread_depth": 3,
-      "month": "2020-08"
+      "month": "2020-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2020-August/000706.html"
     },
     {
       "id": "msg-9bf014fcc77a",
@@ -200,11 +210,12 @@
         "<CAJP_izfmDMMwvWgNADqznb706Fv-WjnmFTk7jHEch8gs+YRO4A@mail.gmail.com>",
         "<2429329.Lt9SDvczpP@myth>"
       ],
-      "body_plain": "On Wednesday, 12 August 2020 16.34.02 WEST Jos? Ab?lio Matos wrote:\n> Another issue that R2spec lacks and that the tool that I have developed but\n> never released (it seems) is to declare a package noarch if no compilation\n> is needed.\n\nI take this back, I think that in one case I found a bug. I will confirm it \nand if so I will report at at the toad or frog (pagure). :-)\n-- \nJos? Ab?lio",
-      "body_snippet": "On Wednesday, 12 August 2020 16.34.02 WEST Jos? Ab?lio Matos wrote:\n> Another issue that R2spec lacks and that the tool that I have developed but\n> never released (it seems) is to declare a package no",
+      "body_plain": "On Wednesday, 12 August 2020 16.34.02 WEST José Abílio Matos wrote:\n> Another issue that R2spec lacks and that the tool that I have developed but\n> never released (it seems) is to declare a package noarch if no compilation\n> is needed.\n\nI take this back, I think that in one case I found a bug. I will confirm it \nand if so I will report at at the toad or frog (pagure). :-)\n-- \nJosé Abílio",
+      "body_snippet": "On Wednesday, 12 August 2020 16.34.02 WEST José Abílio Matos wrote:\n> Another issue that R2spec lacks and that the tool that I have developed but\n> never released (it seems) is to declare a package no",
       "thread_id": "thread-06129fb3f209",
       "thread_depth": 4,
-      "month": "2020-08"
+      "month": "2020-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2020-August/000707.html"
     }
   ],
   "threads": [

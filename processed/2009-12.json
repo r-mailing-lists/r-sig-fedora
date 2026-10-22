@@ -18,6 +18,7 @@
       "thread_id": "thread-917bffedc9c2",
       "thread_depth": 0,
       "month": "2009-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-December/000107.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20091209/178aae02/attachment.pl"
       ]
@@ -38,7 +39,8 @@
       "body_snippet": "Hi Subhajit,\nThis isn't a Fedora-specific issue. You should look at the archives of\nthe R-help and R-developers mailing lists and the \"Writing R\nExtensions\" manual.\n--Gray\n\n2009/12/8 subhajit dutta <t",
       "thread_id": "thread-917bffedc9c2",
       "thread_depth": 1,
-      "month": "2009-12"
+      "month": "2009-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-December/000108.html"
     },
     {
       "id": "msg-af72505767ce",
@@ -54,7 +56,8 @@
       "body_snippet": "Hello,\n\nI am trying to install RKWard to an RHEL workstation.  I tried\n\n$ yum install rkward\n\nbut that did not work as it could not find the package in the standard\nrepositories.  The RKWard project p",
       "thread_id": "thread-af72505767ce",
       "thread_depth": 0,
-      "month": "2009-12"
+      "month": "2009-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-December/000109.html"
     },
     {
       "id": "msg-4af24d611cfb",
@@ -72,7 +75,8 @@
       "body_snippet": "On Dec 23, 2009, at 4:09 PM, Christos Hatzis wrote:\n\n> Hello,\n>\n> I am trying to install RKWard to an RHEL workstation.  I tried\n>\n> $ yum install rkward\n>\n> but that did not work as it could not find",
       "thread_id": "thread-af72505767ce",
       "thread_depth": 1,
-      "month": "2009-12"
+      "month": "2009-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-December/000110.html"
     },
     {
       "id": "msg-6b8d27c71bc3",
@@ -91,7 +95,8 @@
       "body_snippet": "Thank you Marc.\n\nTo be clear for future reference, binaries packaged for Fedora distro's\nare not to be installed on RHEL and vice versa.  Same holds for rpm's?\n\nThanks.\n-Christos\n\nOn Wed, 2009-12-23 a",
       "thread_id": "thread-af72505767ce",
       "thread_depth": 2,
-      "month": "2009-12"
+      "month": "2009-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-December/000111.html"
     },
     {
       "id": "msg-d82c38b4fd0c",
@@ -111,7 +116,8 @@
       "body_snippet": "That is correct, albeit there may very well be exceptions. RPMs and  \nbinary packages on Red Hat based distros are one and the same. The RPM  \npackage is the default means by which software is install",
       "thread_id": "thread-af72505767ce",
       "thread_depth": 3,
-      "month": "2009-12"
+      "month": "2009-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-December/000112.html"
     }
   ],
   "threads": [

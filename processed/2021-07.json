@@ -17,7 +17,8 @@
       "body_snippet": "Hi All,\n\nI am currently using R 4.0.5 on RStudio 1.4.1717 on Fedora 34. When I\nrestart R (Ctrl + Shift + F10), RStudio will always discount with R. This\nissue occurs to my two computers and has been a",
       "thread_id": "thread-4a365e3c193a",
       "thread_depth": 0,
-      "month": "2021-07"
+      "month": "2021-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2021-July/000776.html"
     },
     {
       "id": "msg-f02a0353260c",
@@ -31,11 +32,12 @@
       "references": [
         "<CADdpgawrBwtdGq3pVd1Y4cpCXOcpekq3bAQdZdiOrL3a4CRpMQ@mail.gmail.com>"
       ],
-      "body_plain": "On Mon, 12 Jul 2021 at 13:19, Yifan Liu <theyifanliu at gmail.com> wrote:\n>\n> Hi All,\n>\n> I am currently using R 4.0.5 on RStudio 1.4.1717 on Fedora 34. When I\n> restart R (Ctrl + Shift + F10), RStudio will always discount with R. This\n> issue occurs to my two computers and has been around for about one month.\n> Did anyone experience the same issue?\n\nSorry, what do you mean by \"discount with R\"?\n\n-- \nI?aki ?car",
+      "body_plain": "On Mon, 12 Jul 2021 at 13:19, Yifan Liu <theyifanliu at gmail.com> wrote:\n>\n> Hi All,\n>\n> I am currently using R 4.0.5 on RStudio 1.4.1717 on Fedora 34. When I\n> restart R (Ctrl + Shift + F10), RStudio will always discount with R. This\n> issue occurs to my two computers and has been around for about one month.\n> Did anyone experience the same issue?\n\nSorry, what do you mean by \"discount with R\"?\n\n-- \nIñaki Úcar",
       "body_snippet": "On Mon, 12 Jul 2021 at 13:19, Yifan Liu <theyifanliu at gmail.com> wrote:\n>\n> Hi All,\n>\n> I am currently using R 4.0.5 on RStudio 1.4.1717 on Fedora 34. When I\n> restart R (Ctrl + Shift + F10), RStudi",
       "thread_id": "thread-4a365e3c193a",
       "thread_depth": 1,
-      "month": "2021-07"
+      "month": "2021-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2021-July/000777.html"
     },
     {
       "id": "msg-cadebacfa75d",
@@ -51,11 +53,12 @@
         "<CALEXWq3oWKOLOMhkox+0OiJ3Dsg-R6FWpNVgC3CAx87Ns_pESQ@mail.gmail.com>",
         "<CADdpgayxRX9x_HO-fvo1=P-_np6DXBW8s6FKj91gc6FWJ5kfeQ@mail.gmail.com>"
       ],
-      "body_plain": "On Mon, 12 Jul 2021 at 17:56, Yifan Liu <theyifanliu at gmail.com> wrote:\n>\n> Sorry, it is a typo. I actually mean disconnect.\n\nI can't reproduce the issue. My session just restarts as expected. So\nprobably the cause of the issue is some session state or local\nconfiguration. Try renaming the ~/.rstudio folder and/or report this\nupstream.\n\n-- \nI?aki ?car",
+      "body_plain": "On Mon, 12 Jul 2021 at 17:56, Yifan Liu <theyifanliu at gmail.com> wrote:\n>\n> Sorry, it is a typo. I actually mean disconnect.\n\nI can't reproduce the issue. My session just restarts as expected. So\nprobably the cause of the issue is some session state or local\nconfiguration. Try renaming the ~/.rstudio folder and/or report this\nupstream.\n\n-- \nIñaki Úcar",
       "body_snippet": "On Mon, 12 Jul 2021 at 17:56, Yifan Liu <theyifanliu at gmail.com> wrote:\n>\n> Sorry, it is a typo. I actually mean disconnect.\n\nI can't reproduce the issue. My session just restarts as expected. So\npr",
       "thread_id": "thread-cadebacfa75d",
       "thread_depth": 0,
-      "month": "2021-07"
+      "month": "2021-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2021-July/000778.html"
     },
     {
       "id": "msg-f8cd7c3dbc1d",
@@ -73,7 +76,8 @@
       "body_snippet": "Makefile.in:87: *** missing separator.? Stop. \n\nI am trying to install R-4.1.0 version to fedora, and got the error above, please help!\nThanks.\n\nWith regards,Bintao\n\n\n-------------- next part --------",
       "thread_id": "thread-f8cd7c3dbc1d",
       "thread_depth": 0,
-      "month": "2021-07"
+      "month": "2021-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2021-July/000779.html"
     },
     {
       "id": "msg-3cc7aa1cc2bc",
@@ -88,11 +92,12 @@
         "<627170618.417505.1627466249658.ref@mail.yahoo.com>",
         "<627170618.417505.1627466249658@mail.yahoo.com>"
       ],
-      "body_plain": "On Wed, 28 Jul 2021 at 11:59, Bintao Cui <bintaoc at yahoo.com.au> wrote:\n>\n> Makefile.in:87: *** missing separator.  Stop.\n>\n> I am trying to install R-4.1.0 version to fedora, and got the error above, please help!\n\nThis version is available in rawhide. See [1] about how to install it.\n\n[1] https://stat.ethz.ch/pipermail/r-sig-fedora/2021-June/000770.html\n\n-- \nI?aki ?car",
+      "body_plain": "On Wed, 28 Jul 2021 at 11:59, Bintao Cui <bintaoc at yahoo.com.au> wrote:\n>\n> Makefile.in:87: *** missing separator.  Stop.\n>\n> I am trying to install R-4.1.0 version to fedora, and got the error above, please help!\n\nThis version is available in rawhide. See [1] about how to install it.\n\n[1] https://stat.ethz.ch/pipermail/r-sig-fedora/2021-June/000770.html\n\n-- \nIñaki Úcar",
       "body_snippet": "On Wed, 28 Jul 2021 at 11:59, Bintao Cui <bintaoc at yahoo.com.au> wrote:\n>\n> Makefile.in:87: *** missing separator.  Stop.\n>\n> I am trying to install R-4.1.0 version to fedora, and got the error abov",
       "thread_id": "thread-f8cd7c3dbc1d",
       "thread_depth": 1,
-      "month": "2021-07"
+      "month": "2021-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2021-July/000780.html"
     }
   ],
   "threads": [

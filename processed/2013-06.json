@@ -18,6 +18,7 @@
       "thread_id": "thread-e882cfef0b7d",
       "thread_depth": 0,
       "month": "2013-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-June/000295.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130618/be60b1c9/attachment.pl"
       ]
@@ -36,7 +37,8 @@
       "body_snippet": "Bruce Pennypacker wrote that he was having a problem using the R library \nsqldf under Red Hat 5.6:\n\n\n  > library(\"sqldf\")\n..\n  > result<-sqldf(\"select data.*, meth450part.chromStart as\nMethChromStart,",
       "thread_id": "thread-be3d3832b6bd",
       "thread_depth": 0,
-      "month": "2013-06"
+      "month": "2013-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-June/000296.html"
     }
   ],
   "threads": [

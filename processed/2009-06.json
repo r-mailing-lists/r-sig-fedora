@@ -17,7 +17,8 @@
       "body_snippet": "There was mention of this [r-sig-fedora at r-project.org] mailing \nlist on one of the other R lists overnight.  I thought the \nlist needed a bit of posting, as I could not recall seeing \ncontent recen",
       "thread_id": "thread-a91badd47e50",
       "thread_depth": 0,
-      "month": "2009-06"
+      "month": "2009-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-June/000078.html"
     },
     {
       "id": "msg-2d40b158e01c",
@@ -33,7 +34,8 @@
       "body_snippet": "Well, CentOS 5.3, which amounts to the same thing.\n\nI recently decided to upgrade my main research machine from Fedora Core \n8 -> CentOS 5.3. Basically, I was looking to move to a distro with \nlonger ",
       "thread_id": "thread-2d40b158e01c",
       "thread_depth": 0,
-      "month": "2009-06"
+      "month": "2009-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-June/000079.html"
     },
     {
       "id": "msg-c52a411100c5",
@@ -51,7 +53,8 @@
       "body_snippet": "On Fri, 26 Jun 2009, Evan Cooch wrote:\n\n> Well, CentOS 5.3, which amounts to the same thing.\n>\n> I recently decided to upgrade my main research machine from Fedora Core 8 -> \n> CentOS 5.3. Basically, ",
       "thread_id": "thread-2d40b158e01c",
       "thread_depth": 1,
-      "month": "2009-06"
+      "month": "2009-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-June/000080.html"
     },
     {
       "id": "msg-13b601c418f2",
@@ -70,7 +73,8 @@
       "body_snippet": "Hei Roger - thanks - comments below...\n\nRoger Bivand wrote:\n> On Fri, 26 Jun 2009, Evan Cooch wrote:\n>\n>>\n>> So, several quick questions:\n>>\n>> 1. anyone managed to get x86_64 R compiled under either ",
       "thread_id": "thread-2d40b158e01c",
       "thread_depth": 2,
-      "month": "2009-06"
+      "month": "2009-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-June/000081.html"
     }
   ],
   "threads": [

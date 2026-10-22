@@ -17,7 +17,8 @@
       "body_snippet": "I'm on RHEL 6.6, R version 3.2.1 Patched (2015-07-30 r68761) --\n\"World-Famous Astronaut\".  Issuing the x11() command hangs R and\ndoes not complete.  A window is partially drawn then freezes.\nDoes anyo",
       "thread_id": "thread-3a021a54ffdc",
       "thread_depth": 0,
-      "month": "2015-07"
+      "month": "2015-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2015-August/000377.html"
     }
   ],
   "threads": [

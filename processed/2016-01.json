@@ -20,7 +20,8 @@
       "body_snippet": "Dear R-SIG-Fedora,\n\nI'm finding that on CentOS 7, rgl.snapshot (a function in the R package rgl, which provides an R interface to the OpenGL 3-d graphics library) only captures a small portion what's ",
       "thread_id": "thread-bad851c17788",
       "thread_depth": 0,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000391.html"
     },
     {
       "id": "msg-8b174a483a2c",
@@ -40,7 +41,8 @@
       "body_snippet": "On 01/11/2016 10:55 AM, Wittner, Ben, Ph.D. wrote:\n> Dear R-SIG-Fedora,\n> \n> I'm finding that on CentOS 7, rgl.snapshot (a function in the R package rgl, which provides an R interface to the OpenGL 3-",
       "thread_id": "thread-bad851c17788",
       "thread_depth": 1,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000392.html"
     },
     {
       "id": "msg-3b4e174b1568",
@@ -61,7 +63,8 @@
       "body_snippet": "Dear Tom, Thank you very much for thinking about this. Please see my replies below. -Ben\n\n> Are you using the EPEL R 3.2.3 builds?\n\nI'm not sure what the question means, but I'm pretty sure the answer",
       "thread_id": "thread-bad851c17788",
       "thread_depth": 2,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000393.html"
     },
     {
       "id": "msg-2233d9966fdd",
@@ -83,7 +86,8 @@
       "body_snippet": "On 01/11/2016 01:24 PM, Wittner, Ben, Ph.D. wrote:\n> Dear Tom, Thank you very much for thinking about this. Please see my replies below. -Ben\n> \n>> Are you using the EPEL R 3.2.3 builds?\n> \n> I'm not ",
       "thread_id": "thread-bad851c17788",
       "thread_depth": 3,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000394.html"
     },
     {
       "id": "msg-54ca99d86d3b",
@@ -106,7 +110,8 @@
       "body_snippet": "Tom,\n\n> Okay. I do \"official\" package builds of R for RHEL/CentOS as part of the EPEL repository:\n\n> https://fedoraproject.org/wiki/EPEL\n\n> If its not painful for you to do so, testing my packages vs ",
       "thread_id": "thread-bad851c17788",
       "thread_depth": 4,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000395.html"
     },
     {
       "id": "msg-c198267e8835",
@@ -130,7 +135,8 @@
       "body_snippet": "On 01/11/2016 03:52 PM, Wittner, Ben, Ph.D. wrote:\n\n> I started trying to do this, but I'm stuck.\n> I started with http://us.download.nvidia.com/XFree86/Linux-x86_64/340.96/README/installdriver.html ,",
       "thread_id": "thread-bad851c17788",
       "thread_depth": 5,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000396.html"
     },
     {
       "id": "msg-15615c5aa9e8",
@@ -155,7 +161,8 @@
       "body_snippet": "Tom,\n\nBingo!\n\nI followed the instructions in the link below, which allowed me to install the nvidia driver, which fixed the original problem with rgl.snapshot.\n\nThanks very much for all your help.\n\nI ",
       "thread_id": "thread-bad851c17788",
       "thread_depth": 6,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000397.html"
     },
     {
       "id": "msg-402664b53b4c",
@@ -181,7 +188,8 @@
       "body_snippet": "On 01/11/2016 05:13 PM, Wittner, Ben, Ph.D. wrote:\n> I followed the instructions in the link below, which allowed me to install the nvidia driver, which fixed the original problem with rgl.snapshot.\n>",
       "thread_id": "thread-bad851c17788",
       "thread_depth": 7,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000398.html"
     },
     {
       "id": "msg-abc7eff41c57",
@@ -208,7 +216,8 @@
       "body_snippet": "Tom,\n\nI thought about filing a bug report with Nouveau, but it seems that working directly with Nouveau is well beyond my capabilities.\n\nI have no idea how to do most of the stuff Nouveau says to do i",
       "thread_id": "thread-bad851c17788",
       "thread_depth": 8,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000399.html"
     },
     {
       "id": "msg-90e1bd19fd9d",
@@ -234,7 +243,8 @@
       "body_snippet": "Ugh.\n\nBelow I declared victory, but today I learned that the NVIDIA driver has a problem the nouveau driver did not have. Namely, when using the NVIDIA driver, if I plot a lot of stuff in the RGL wind",
       "thread_id": "thread-bad851c17788",
       "thread_depth": 7,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000400.html"
     },
     {
       "id": "msg-c37394ee4546",
@@ -250,7 +260,8 @@
       "body_snippet": "Installed R-devel 3.2.3 on a vanilla F23 box. Installing any package\nwith C code fails with:\n\ngcc: error: /usr/lib/rpm/redhat/redhat-hardened-cc1: No such file or directory\n\nThis parameter originates ",
       "thread_id": "thread-c37394ee4546",
       "thread_depth": 0,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000401.html"
     },
     {
       "id": "msg-49a7515fa272",
@@ -268,7 +279,8 @@
       "body_snippet": "If I recall correctly:\n\ndnf install redhat-rpm-config\n\n\n\nOn 01/15/2016 08:50 PM, Jeroen Ooms wrote:\n> Installed R-devel 3.2.3 on a vanilla F23 box. Installing any package\n> with C code fails with:\n>\n>",
       "thread_id": "thread-c37394ee4546",
       "thread_depth": 1,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000402.html"
     },
     {
       "id": "msg-89bf12542209",
@@ -287,7 +299,8 @@
       "body_snippet": "On Fri, Jan 15, 2016 at 2:45 PM, Michael Smith <my.r.help at gmail.com> wrote:\n>\n> dnf install redhat-rpm-config\n\nI used:\n\n yum install /usr/lib/rpm/redhat/redhat-hardened-cc1\n\nAnd that did the job, h",
       "thread_id": "thread-c37394ee4546",
       "thread_depth": 2,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000403.html"
     },
     {
       "id": "msg-741d96a4b236",
@@ -307,7 +320,8 @@
       "body_snippet": "Le vendredi 15 janvier 2016 ? 14:48 +0100, Jeroen Ooms a ?crit?:\n> On Fri, Jan 15, 2016 at 2:45 PM, Michael Smith <my.r.help at gmail.com>\n> wrote:\n> > \n> > dnf install redhat-rpm-config\n> \n> I used:\n",
       "thread_id": "thread-c37394ee4546",
       "thread_depth": 3,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000404.html"
     },
     {
       "id": "msg-8b9289e52c45",
@@ -328,7 +342,8 @@
       "body_snippet": "On 01/15/2016 11:14 AM, Milan Bouchet-Valat wrote:\n> Le vendredi 15 janvier 2016 ? 14:48 +0100, Jeroen Ooms a ?crit :\n>> On Fri, Jan 15, 2016 at 2:45 PM, Michael Smith <my.r.help at gmail.com>\n>> wrot",
       "thread_id": "thread-c37394ee4546",
       "thread_depth": 4,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000405.html"
     },
     {
       "id": "msg-e1f68837758e",
@@ -344,7 +359,8 @@
       "body_snippet": "My apologies for an inadvertent cross-posting.  I *intended* to send \nthis message to r-sig-fedora but by mistake sent it to \nusers at lists.fedoraproject.org  .\nSo I am re-sending it to the address t",
       "thread_id": "thread-e1f68837758e",
       "thread_depth": 0,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000406.html"
     },
     {
       "id": "msg-0fd71def5611",
@@ -360,7 +376,8 @@
       "body_snippet": "Are you building from a source tarball or using the Fedora SRPM? I strongly advise you to rebuild the SRPM, because the resulting binary RPM will have all the necessary deps for building and installin",
       "thread_id": "thread-0fd71def5611",
       "thread_depth": 0,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000407.html"
     },
     {
       "id": "msg-7f7e212b939c",
@@ -378,7 +395,8 @@
       "body_snippet": "On 17/01/16 11:03, Tom Callaway wrote:\n> Are you building from a source tarball or using the Fedora SRPM? I\n> strongly advise you to rebuild the SRPM, because the resulting binary\n> RPM will have all ",
       "thread_id": "thread-0fd71def5611",
       "thread_depth": 1,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000408.html"
     },
     {
       "id": "msg-8c1004ee3498",
@@ -397,7 +415,8 @@
       "body_snippet": "On 01/16/2016 05:24 PM, Rolf Turner wrote:\n> All that being said, the question remains as to *why* R cannot find\n> \"texinfo\" when it is indeed present on my system.\n\nRather than give you a lengthy dis",
       "thread_id": "thread-0fd71def5611",
       "thread_depth": 2,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000409.html"
     },
     {
       "id": "msg-ad4173cf4eca",
@@ -417,7 +436,8 @@
       "body_snippet": "Thank you *very* much for this clear and detailed response. I will give \nit a try and report on what happens later today.\n\nThanks again.\n\ncheers,\n\nRolf\n\n-- \nTechnical Editor ANZJS\nDepartment of Statis",
       "thread_id": "thread-0fd71def5611",
       "thread_depth": 3,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000410.html"
     },
     {
       "id": "msg-5ec50ff1b41c",
@@ -437,7 +457,8 @@
       "body_snippet": "On 19/01/16 03:52, Tom Callaway wrote:\n> On 01/16/2016 05:24 PM, Rolf Turner wrote:\n>> All that being said, the question remains as to *why* R cannot find\n>> \"texinfo\" when it is indeed present on my ",
       "thread_id": "thread-0fd71def5611",
       "thread_depth": 3,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000411.html"
     },
     {
       "id": "msg-5362839a3952",
@@ -458,7 +479,8 @@
       "body_snippet": "On 01/18/2016 08:50 PM, Rolf Turner wrote:\n> Okay; tried this.  The executive summary is:  It didn't work.\n\nI normally would charge a modest fee of a good bottle of liquor or a\nsix-pack of craft beer ",
       "thread_id": "thread-0fd71def5611",
       "thread_depth": 4,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000412.html"
     },
     {
       "id": "msg-e3de99c80be5",
@@ -480,7 +502,8 @@
       "body_snippet": "On 20/01/16 12:20, Tom Callaway wrote:\n> On 01/18/2016 08:50 PM, Rolf Turner wrote:\n>> Okay; tried this.  The executive summary is:  It didn't work.\n>\n> I normally would charge a modest fee of a good ",
       "thread_id": "thread-0fd71def5611",
       "thread_depth": 5,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000413.html"
     },
     {
       "id": "msg-3cb4ff9b5112",
@@ -503,7 +526,8 @@
       "body_snippet": "On 01/19/2016 11:10 PM, Rolf Turner wrote:\n>> https://spot.fedorapeople.org/fedora17-R-deps/\n> \n> Thank you for going to all this work.\n> \n> However (as usual) I'm still at a bit of a loss.  I *think*",
       "thread_id": "thread-0fd71def5611",
       "thread_depth": 6,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000414.html"
     },
     {
       "id": "msg-7e693cd75b0c",
@@ -527,7 +551,8 @@
       "body_snippet": "On 20/01/16 18:31, Tom Callaway wrote:\n\n<SNIP>\n\n> Download all of them, except for the src.rpm (and the texinfo-debuginfo\n> package).\n>\n> Then, run:\n>\n> sudo rpm -Uvh info-6.0-2.fc17.1.x86_64.rpm\n> pe",
       "thread_id": "thread-0fd71def5611",
       "thread_depth": 7,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000415.html"
     },
     {
       "id": "msg-e860bccc0075",
@@ -543,7 +568,8 @@
       "body_snippet": "Ah yes, those. Replace the rpm -Uvh with yum update and it should resolve the dependencies for you. If that fails, just pass all of those deps (in \"\") to yum install.\n\nSorry about that!\n\nOn Jan 20, 20",
       "thread_id": "thread-e860bccc0075",
       "thread_depth": 0,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000416.html"
     },
     {
       "id": "msg-80b5ad43fdf3",
@@ -561,7 +587,8 @@
       "body_snippet": "On 21/01/16 00:35, Tom Callaway wrote:\n> Ah yes, those. Replace the rpm -Uvh with yum update and it should\n> resolve the dependencies for you. If that fails, just pass all of\n> those deps (in \"\") to y",
       "thread_id": "thread-e860bccc0075",
       "thread_depth": 1,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000417.html"
     },
     {
       "id": "msg-f7ae5ee21f54",
@@ -573,11 +600,12 @@
       "subject_clean": "html manual files nonfunctional",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "R help.start() opens a web browser as expected, but the ?Manual? html links\nare dead (although the ?Reference? and ?Miscellaneous Materials? html links\ndo work).  I get a similar problem from within RStudio.\n\n\nI?d like to get pointy-clicky html manuals working, to help migrate users\nfrom SAS to R.\n\n\nI do see R manuals on this system from the EPEL R rpm's in info and pdf\nform, for example at /usr/share/info/R-intro.gz and\n/usr/share/doc/R-3.2.3/manual/R-intro-pdf\n\n\nI?m running R-3.2.3, installed from EPEL rpm?s on RHEL6.7.\n\n\t[[alternative HTML version deleted]]",
-      "body_snippet": "R help.start() opens a web browser as expected, but the ?Manual? html links\nare dead (although the ?Reference? and ?Miscellaneous Materials? html links\ndo work).  I get a similar problem from within R",
+      "body_plain": "R help.start() opens a web browser as expected, but the “Manual” html links\nare dead (although the “Reference” and “Miscellaneous Materials” html links\ndo work).  I get a similar problem from within RStudio.\n\n\nI’d like to get pointy-clicky html manuals working, to help migrate users\nfrom SAS to R.\n\n\nI do see R manuals on this system from the EPEL R rpm's in info and pdf\nform, for example at /usr/share/info/R-intro.gz and\n/usr/share/doc/R-3.2.3/manual/R-intro-pdf\n\n\nI’m running R-3.2.3, installed from EPEL rpm’s on RHEL6.7.\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "R help.start() opens a web browser as expected, but the “Manual” html links\nare dead (although the “Reference” and “Miscellaneous Materials” html links\ndo work).  I get a similar problem from within R",
       "thread_id": "thread-f7ae5ee21f54",
       "thread_depth": 0,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000418.html"
     },
     {
       "id": "msg-4d0dce5d8361",
@@ -591,11 +619,12 @@
       "references": [
         "<CAPw=umFtT-JCak=OxOqm+MfqHuF4Y8sDXTQCtixGwYOJbzsgGg@mail.gmail.com>"
       ],
-      "body_plain": "On 01/21/2016 10:38 AM, joe cypherpunk wrote:\n> R help.start() opens a web browser as expected, but the ?Manual? html links\n> are dead (although the ?Reference? and ?Miscellaneous Materials? html links\n> do work).  I get a similar problem from within RStudio.\n> \n> \n> I?d like to get pointy-clicky html manuals working, to help migrate users\n> from SAS to R.\n> \n> \n> I do see R manuals on this system from the EPEL R rpm's in info and pdf\n> form, for example at /usr/share/info/R-intro.gz and\n> /usr/share/doc/R-3.2.3/manual/R-intro-pdf\n> \n> \n> I?m running R-3.2.3, installed from EPEL rpm?s on RHEL6.7.\n\nI see this. This is a consequence of R requiring texinfo 5.1 or newer\nand RHEL6 having texinfo 4.1. I'll bundle in pre-built manuals for those\ncases (RHEL 5 and 6 only).\n\n~tom\n\n==\nRed Hat",
-      "body_snippet": "On 01/21/2016 10:38 AM, joe cypherpunk wrote:\n> R help.start() opens a web browser as expected, but the ?Manual? html links\n> are dead (although the ?Reference? and ?Miscellaneous Materials? html link",
+      "body_plain": "On 01/21/2016 10:38 AM, joe cypherpunk wrote:\n> R help.start() opens a web browser as expected, but the “Manual” html links\n> are dead (although the “Reference” and “Miscellaneous Materials” html links\n> do work).  I get a similar problem from within RStudio.\n> \n> \n> I’d like to get pointy-clicky html manuals working, to help migrate users\n> from SAS to R.\n> \n> \n> I do see R manuals on this system from the EPEL R rpm's in info and pdf\n> form, for example at /usr/share/info/R-intro.gz and\n> /usr/share/doc/R-3.2.3/manual/R-intro-pdf\n> \n> \n> I’m running R-3.2.3, installed from EPEL rpm’s on RHEL6.7.\n\nI see this. This is a consequence of R requiring texinfo 5.1 or newer\nand RHEL6 having texinfo 4.1. I'll bundle in pre-built manuals for those\ncases (RHEL 5 and 6 only).\n\n~tom\n\n==\nRed Hat",
+      "body_snippet": "On 01/21/2016 10:38 AM, joe cypherpunk wrote:\n> R help.start() opens a web browser as expected, but the “Manual” html links\n> are dead (although the “Reference” and “Miscellaneous Materials” html link",
       "thread_id": "thread-f7ae5ee21f54",
       "thread_depth": 1,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000419.html"
     },
     {
       "id": "msg-757e42c04543",
@@ -610,11 +639,12 @@
         "<CAPw=umFtT-JCak=OxOqm+MfqHuF4Y8sDXTQCtixGwYOJbzsgGg@mail.gmail.com>",
         "<56A7E875.4030104@redhat.com>"
       ],
-      "body_plain": "On 01/26/2016 04:43 PM, Tom Callaway wrote:\n> On 01/21/2016 10:38 AM, joe cypherpunk wrote:\n>> R help.start() opens a web browser as expected, but the ?Manual? html links\n>> are dead (although the ?Reference? and ?Miscellaneous Materials? html links\n>> do work).  I get a similar problem from within RStudio.\n>>\n>>\n>> I?d like to get pointy-clicky html manuals working, to help migrate users\n>> from SAS to R.\n>>\n>>\n>> I do see R manuals on this system from the EPEL R rpm's in info and pdf\n>> form, for example at /usr/share/info/R-intro.gz and\n>> /usr/share/doc/R-3.2.3/manual/R-intro-pdf\n>>\n>>\n>> I?m running R-3.2.3, installed from EPEL rpm?s on RHEL6.7.\n> \n> I see this. This is a consequence of R requiring texinfo 5.1 or newer\n> and RHEL6 having texinfo 4.1. I'll bundle in pre-built manuals for those\n> cases (RHEL 5 and 6 only).\n\nPlease test:\n\nhttps://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-e623c6ffdd\n\n~tom\n\n==\nRed Hat",
-      "body_snippet": "On 01/26/2016 04:43 PM, Tom Callaway wrote:\n> On 01/21/2016 10:38 AM, joe cypherpunk wrote:\n>> R help.start() opens a web browser as expected, but the ?Manual? html links\n>> are dead (although the ?Re",
+      "body_plain": "On 01/26/2016 04:43 PM, Tom Callaway wrote:\n> On 01/21/2016 10:38 AM, joe cypherpunk wrote:\n>> R help.start() opens a web browser as expected, but the “Manual” html links\n>> are dead (although the “Reference” and “Miscellaneous Materials” html links\n>> do work).  I get a similar problem from within RStudio.\n>>\n>>\n>> I’d like to get pointy-clicky html manuals working, to help migrate users\n>> from SAS to R.\n>>\n>>\n>> I do see R manuals on this system from the EPEL R rpm's in info and pdf\n>> form, for example at /usr/share/info/R-intro.gz and\n>> /usr/share/doc/R-3.2.3/manual/R-intro-pdf\n>>\n>>\n>> I’m running R-3.2.3, installed from EPEL rpm’s on RHEL6.7.\n> \n> I see this. This is a consequence of R requiring texinfo 5.1 or newer\n> and RHEL6 having texinfo 4.1. I'll bundle in pre-built manuals for those\n> cases (RHEL 5 and 6 only).\n\nPlease test:\n\nhttps://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-e623c6ffdd\n\n~tom\n\n==\nRed Hat",
+      "body_snippet": "On 01/26/2016 04:43 PM, Tom Callaway wrote:\n> On 01/21/2016 10:38 AM, joe cypherpunk wrote:\n>> R help.start() opens a web browser as expected, but the “Manual” html links\n>> are dead (although the “Re",
       "thread_id": "thread-f7ae5ee21f54",
       "thread_depth": 2,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000420.html"
     },
     {
       "id": "msg-c3aa05d75fff",
@@ -630,11 +660,12 @@
         "<56A7E875.4030104@redhat.com>",
         "<56A8D500.8070605@redhat.com>"
       ],
-      "body_plain": "HTML manuals are working fine with your updated version.  That seems to\nhave fixed it.  Thanks for the quick work!\n\n\n\nOn Wed, Jan 27, 2016 at 9:32 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n\n> On 01/26/2016 04:43 PM, Tom Callaway wrote:\n> > On 01/21/2016 10:38 AM, joe cypherpunk wrote:\n> >> R help.start() opens a web browser as expected, but the ?Manual? html\n> links\n> >> are dead (although the ?Reference? and ?Miscellaneous Materials? html\n> links\n> >> do work).  I get a similar problem from within RStudio.\n> >>\n> >>\n> >> I?d like to get pointy-clicky html manuals working, to help migrate\n> users\n> >> from SAS to R.\n> >>\n> >>\n> >> I do see R manuals on this system from the EPEL R rpm's in info and pdf\n> >> form, for example at /usr/share/info/R-intro.gz and\n> >> /usr/share/doc/R-3.2.3/manual/R-intro-pdf\n> >>\n> >>\n> >> I?m running R-3.2.3, installed from EPEL rpm?s on RHEL6.7.\n> >\n> > I see this. This is a consequence of R requiring texinfo 5.1 or newer\n> > and RHEL6 having texinfo 4.1. I'll bundle in pre-built manuals for those\n> > cases (RHEL 5 and 6 only).\n>\n> Please test:\n>\n> https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-e623c6ffdd\n>\n> ~tom\n>\n> ==\n> Red Hat\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_plain": "HTML manuals are working fine with your updated version.  That seems to\nhave fixed it.  Thanks for the quick work!\n\n\n\nOn Wed, Jan 27, 2016 at 9:32 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n\n> On 01/26/2016 04:43 PM, Tom Callaway wrote:\n> > On 01/21/2016 10:38 AM, joe cypherpunk wrote:\n> >> R help.start() opens a web browser as expected, but the “Manual” html\n> links\n> >> are dead (although the “Reference” and “Miscellaneous Materials” html\n> links\n> >> do work).  I get a similar problem from within RStudio.\n> >>\n> >>\n> >> I’d like to get pointy-clicky html manuals working, to help migrate\n> users\n> >> from SAS to R.\n> >>\n> >>\n> >> I do see R manuals on this system from the EPEL R rpm's in info and pdf\n> >> form, for example at /usr/share/info/R-intro.gz and\n> >> /usr/share/doc/R-3.2.3/manual/R-intro-pdf\n> >>\n> >>\n> >> I’m running R-3.2.3, installed from EPEL rpm’s on RHEL6.7.\n> >\n> > I see this. This is a consequence of R requiring texinfo 5.1 or newer\n> > and RHEL6 having texinfo 4.1. I'll bundle in pre-built manuals for those\n> > cases (RHEL 5 and 6 only).\n>\n> Please test:\n>\n> https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-e623c6ffdd\n>\n> ~tom\n>\n> ==\n> Red Hat\n>\n\n\t[[alternative HTML version deleted]]",
       "body_snippet": "HTML manuals are working fine with your updated version.  That seems to\nhave fixed it.  Thanks for the quick work!\n\n\n\nOn Wed, Jan 27, 2016 at 9:32 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n\n> O",
       "thread_id": "thread-f7ae5ee21f54",
       "thread_depth": 3,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000421.html"
     },
     {
       "id": "msg-238ef1644514",
@@ -650,7 +681,8 @@
       "body_snippet": "RHEL 6 installed\nR version 3.2.3 from EPEL installed\n\nStart R and use the following command, but got warnings!\n\ninstall.packages(\"rstan\", dependencies = TRUE, repos = \"http://cran.r-project.org/\")\n...",
       "thread_id": "thread-238ef1644514",
       "thread_depth": 0,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000422.html"
     },
     {
       "id": "msg-b6e802f8d22d",
@@ -668,7 +700,8 @@
       "body_snippet": "On 01/27/2016 01:12 PM, Patrick, Larry B [CSSM] wrote:\n> RHEL 6 installed\n> R version 3.2.3 from EPEL installed\n> \n> Start R and use the following command, but got warnings!\n> \n> install.packages(\"rst",
       "thread_id": "thread-238ef1644514",
       "thread_depth": 1,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000423.html"
     },
     {
       "id": "msg-c3fcabf154bd",
@@ -687,7 +720,8 @@
       "body_snippet": "Confirmed that gcc-gfortran is installed\n     Package gcc-gfortran-4.4.7-16.el6.x86_64 already installed and latest version\nWhat could I check next?\n\nI do not have the following installed and will get",
       "thread_id": "thread-238ef1644514",
       "thread_depth": 2,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000424.html"
     },
     {
       "id": "msg-113dbca952e6",
@@ -707,7 +741,8 @@
       "body_snippet": "On 01/27/2016 01:55 PM, Patrick, Larry B [CSSM] wrote:\n> Confirmed that gcc-gfortran is installed\n>      Package gcc-gfortran-4.4.7-16.el6.x86_64 already installed and latest version\n> What could I ch",
       "thread_id": "thread-238ef1644514",
       "thread_depth": 3,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000425.html"
     },
     {
       "id": "msg-8e699a2e7267",
@@ -728,7 +763,8 @@
       "body_snippet": "Looks to have libgfortran installed.\n     yum list installed | grep libgfortran\n     libgfortran.x86_64                4.4.7-16.el6             @rhel-x86_64-server-6\nWhat else could I check?\n\nInstalle",
       "thread_id": "thread-238ef1644514",
       "thread_depth": 4,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000426.html"
     },
     {
       "id": "msg-2820d7d92bab",
@@ -750,7 +786,8 @@
       "body_snippet": "On 01/28/2016 09:07 AM, Patrick, Larry B [CSSM] wrote:\n> Looks to have libgfortran installed.\n>      yum list installed | grep libgfortran\n>      libgfortran.x86_64                4.4.7-16.el6        ",
       "thread_id": "thread-238ef1644514",
       "thread_depth": 5,
-      "month": "2016-01"
+      "month": "2016-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-January/000427.html"
     }
   ],
   "threads": [

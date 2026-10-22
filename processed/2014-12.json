@@ -19,7 +19,8 @@
       "body_snippet": "On 10/06/2014 10:54 AM, Martin Maechler wrote:\n> A few months ago,  Eric asked about this for CentOS 6:\n>  https://stat.ethz.ch/pipermail/r-sig-fedora/2014-April/000310.html\n> \n> and was kindly helped",
       "thread_id": "thread-ec758d7e36f3",
       "thread_depth": 0,
-      "month": "2014-12"
+      "month": "2014-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-December/000350.html"
     },
     {
       "id": "msg-7dbce064991a",
@@ -35,7 +36,8 @@
       "body_snippet": "My CMD check server started failing after upgrading to Fedora 21:\n\nLaTeX errors when creating PDF version.\n  This typically indicates Rd problems.\n  LaTeX errors found:\n  ! LaTeX Error: File `upquote.",
       "thread_id": "thread-7dbce064991a",
       "thread_depth": 0,
-      "month": "2014-12"
+      "month": "2014-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-December/000351.html"
     },
     {
       "id": "msg-1ab5b5182cb3",
@@ -53,7 +55,8 @@
       "body_snippet": "On Sun, 2014-12-14 at 12:56 -0800, Jeroen Ooms wrote:\n> My CMD check server started failing after upgrading to Fedora 21:\n> \n> LaTeX errors when creating PDF version.\n>   This typically indicates Rd p",
       "thread_id": "thread-7dbce064991a",
       "thread_depth": 1,
-      "month": "2014-12"
+      "month": "2014-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-December/000352.html"
     },
     {
       "id": "msg-57fa3870c0a0",
@@ -71,7 +74,8 @@
       "body_snippet": "On 12/14/2014 03:56 PM, Jeroen Ooms wrote:\n> My CMD check server started failing after upgrading to Fedora 21:\n> \n> LaTeX errors when creating PDF version.\n>   This typically indicates Rd problems.\n> ",
       "thread_id": "thread-7dbce064991a",
       "thread_depth": 1,
-      "month": "2014-12"
+      "month": "2014-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-December/000353.html"
     },
     {
       "id": "msg-c769884942fa",
@@ -90,7 +94,8 @@
       "body_snippet": "On Mon, Dec 15, 2014 at 6:55 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n> As pointed out, this is no longer an issue in R 3.1.2, which is in all\n> Fedora branches (except 21, where it is landing",
       "thread_id": "thread-7dbce064991a",
       "thread_depth": 2,
-      "month": "2014-12"
+      "month": "2014-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-December/000354.html"
     }
   ],
   "threads": [

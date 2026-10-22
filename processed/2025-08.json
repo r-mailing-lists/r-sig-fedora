@@ -17,7 +17,8 @@
       "body_snippet": "I noticed that some of my R packages that have been repacked in fedora\nare quite outdated, including:\n\n - R-curl\n - R-openssl\n - R-xml2\n\nThese packages will need to be updated to work with the latest\n",
       "thread_id": "thread-1f77157d9f20",
       "thread_depth": 0,
-      "month": "2025-08"
+      "month": "2025-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2025-August/000913.html"
     },
     {
       "id": "msg-fee774c0e5ee",
@@ -31,11 +32,12 @@
       "references": [
         "<CABFfbXvi+w_vovvL58MpE_ZgAdO9wcVwjTk9uomwcboJE=LzAg@mail.gmail.com>"
       ],
-      "body_plain": "Yeap, many packages are outdated because we lack hands, time for the hands\navailable, and the current guidelines do not scale very well. Also there\nare other, better, solutions for getting binary packages, including yours,\nand including my own Copr repo for Fedora, so I only update packages in the\nofficial repos when I'm forced to (e.g. when they fail and block an R\nupdate). Or if you poke me a bit.\n\nThanks for the heads-up. Updated now.\n\nI?aki\n\nOn Thu, 28 Aug 2025 at 13:48, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n\n> I noticed that some of my R packages that have been repacked in fedora\n> are quite outdated, including:\n>\n>  - R-curl\n>  - R-openssl\n>  - R-xml2\n>\n> These packages will need to be updated to work with the latest\n> versions of libcurl, libxml2, libssl, because each of these upstream\n> libs has had breaking changes recently.\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n>\n\n-- \nI?aki ?car\n\n\t[[alternative HTML version deleted]]",
+      "body_plain": "Yeap, many packages are outdated because we lack hands, time for the hands\navailable, and the current guidelines do not scale very well. Also there\nare other, better, solutions for getting binary packages, including yours,\nand including my own Copr repo for Fedora, so I only update packages in the\nofficial repos when I'm forced to (e.g. when they fail and block an R\nupdate). Or if you poke me a bit.\n\nThanks for the heads-up. Updated now.\n\nIñaki\n\nOn Thu, 28 Aug 2025 at 13:48, Jeroen Ooms <jeroenooms at gmail.com> wrote:\n\n> I noticed that some of my R packages that have been repacked in fedora\n> are quite outdated, including:\n>\n>  - R-curl\n>  - R-openssl\n>  - R-xml2\n>\n> These packages will need to be updated to work with the latest\n> versions of libcurl, libxml2, libssl, because each of these upstream\n> libs has had breaking changes recently.\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n>\n>\n\n-- \nIñaki Úcar\n\n\t[[alternative HTML version deleted]]",
       "body_snippet": "Yeap, many packages are outdated because we lack hands, time for the hands\navailable, and the current guidelines do not scale very well. Also there\nare other, better, solutions for getting binary pack",
       "thread_id": "thread-1f77157d9f20",
       "thread_depth": 1,
-      "month": "2025-08"
+      "month": "2025-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2025-August/000914.html"
     }
   ],
   "threads": [

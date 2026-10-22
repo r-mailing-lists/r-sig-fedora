@@ -17,7 +17,8 @@
       "body_snippet": "I am trying to install R 3.4.0 on RHEL6. If I look here is it there:\n\nhttp://mirror.sjc02.svwh.net/fedora-epel/6/x86_64/\n\nI did this:\n\nsudo subscription-manager repos --enable rhel-6-server-optional-r",
       "thread_id": "thread-8cd6ac9c07ca",
       "thread_depth": 0,
-      "month": "2017-07"
+      "month": "2017-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-July/000521.html"
     },
     {
       "id": "msg-cf13ee813dcf",
@@ -35,7 +36,8 @@
       "body_snippet": "On 07/21/2017 11:18 AM, Larry Martell wrote:\n> I am trying to install R 3.4.0 on RHEL6. If I look here is it there:\n>\n> http://mirror.sjc02.svwh.net/fedora-epel/6/x86_64/\n>\n> I did this:\n>\n> sudo subs",
       "thread_id": "thread-8cd6ac9c07ca",
       "thread_depth": 1,
-      "month": "2017-07"
+      "month": "2017-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-July/000522.html"
     },
     {
       "id": "msg-67f03c866e5c",
@@ -54,7 +56,8 @@
       "body_snippet": "On Fri, Jul 21, 2017 at 11:39 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n> On 07/21/2017 11:18 AM, Larry Martell wrote:\n>> I am trying to install R 3.4.0 on RHEL6. If I look here is it there:\n>>",
       "thread_id": "thread-8cd6ac9c07ca",
       "thread_depth": 2,
-      "month": "2017-07"
+      "month": "2017-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-July/000523.html"
     },
     {
       "id": "msg-67e9452fd2de",
@@ -74,7 +77,8 @@
       "body_snippet": "Hmmm. When I look at the contents of epel-release-latest-6.noarch.rpm, I\nsee:\n\n/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6\n/etc/rpm/macros.ghc-srpm\n/etc/yum.repos.d/epel-testing.repo\n/etc/yum.repos.d/epel.rep",
       "thread_id": "thread-8cd6ac9c07ca",
       "thread_depth": 3,
-      "month": "2017-07"
+      "month": "2017-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-July/000524.html"
     },
     {
       "id": "msg-26a7c16a80c3",
@@ -95,7 +99,8 @@
       "body_snippet": "On Fri, Jul 21, 2017 at 11:44 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n> Hmmm. When I look at the contents of epel-release-latest-6.noarch.rpm, I\n> see:\n>\n> /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6",
       "thread_id": "thread-8cd6ac9c07ca",
       "thread_depth": 4,
-      "month": "2017-07"
+      "month": "2017-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2017-July/000525.html"
     }
   ],
   "threads": [

@@ -17,7 +17,8 @@
       "body_snippet": "Dear list,\n\nAs just announced on my blog I released a new version of R2spec and\nthere is the changelog for this version:\n\nVersion 2.5.3 -- 02nd Aug 2009\n- Features added\n  * Prints warning if summary ",
       "thread_id": "thread-bd0498cd8d7c",
       "thread_depth": 0,
-      "month": "2009-08"
+      "month": "2009-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-August/000082.html"
     }
   ],
   "threads": [

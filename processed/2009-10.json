@@ -17,7 +17,8 @@
       "body_snippet": "Hi All, \n\n \n\nWe're trying to get R with the standard gui loaded onto CentOS 4, and\nunder certain users R will not render certain graphics. When logged in\nas root the graphics render, but under the res",
       "thread_id": "thread-ef17a0b2e136",
       "thread_depth": 0,
-      "month": "2009-10"
+      "month": "2009-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-October/000094.html"
     }
   ],
   "threads": [

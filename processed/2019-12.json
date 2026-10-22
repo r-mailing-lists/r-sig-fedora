@@ -17,7 +17,8 @@
       "body_snippet": "I have run into a problem when do loops with lots of elements in CentOS (I\nam a new user after using Ubuntu for many years).  I am attaching two\nscripts, one called\nLooping_Centos_minimal_bug_OK.R\nwhi",
       "thread_id": "thread-2568893df5a3",
       "thread_depth": 0,
-      "month": "2019-12"
+      "month": "2019-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2019-December/000709.html"
     }
   ],
   "threads": [

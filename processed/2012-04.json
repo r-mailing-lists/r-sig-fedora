@@ -17,7 +17,8 @@
       "body_snippet": "Hello ALL!\nI am running Fedora 16 x86_64. Due to some dubious problems, that i\ncouldn't resolve, with the TeXLive (2007, which is a default), I removed\nit. That removed R as well, and some other depen",
       "thread_id": "thread-52fe21ee5449",
       "thread_depth": 0,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-April/000249.html"
     },
     {
       "id": "msg-e3d68f88978b",
@@ -36,7 +37,8 @@
       "body_snippet": "Yes, I tried that alternative repo with F15, but it is quite messy. If\nyou read carefully various posts, then you will realize that the right\nway is to use CTAN installation, not what is offered under",
       "thread_id": "thread-e3d68f88978b",
       "thread_depth": 0,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-April/000250.html"
     },
     {
       "id": "msg-edb0716561a1",
@@ -57,7 +59,8 @@
       "body_snippet": "I did not want to offend anyone, or someone's effort. I wrote that I\ntried it with F15, which is a time ago. Sorry if I sounded rude!\nAnyway, it could be that TeXLive 2011 is working better now, but t",
       "thread_id": "thread-edb0716561a1",
       "thread_depth": 0,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-April/000251.html"
     },
     {
       "id": "msg-16e556d54546",
@@ -75,7 +78,8 @@
       "body_snippet": "On Wed, 18 Apr 2012, Petar Milin wrote:\n\n> Hello ALL!\n> I am running Fedora 16 x86_64. Due to some dubious problems, that i\n> couldn't resolve, with the TeXLive (2007, which is a default), I removed\n>",
       "thread_id": "thread-52fe21ee5449",
       "thread_depth": 1,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-April/000252.html"
     },
     {
       "id": "msg-348d4adb6c0e",
@@ -92,6 +96,7 @@
       "thread_id": "thread-348d4adb6c0e",
       "thread_depth": 0,
       "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-April/000253.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120421/478769b0/attachment.pl"
       ]
@@ -113,7 +118,8 @@
       "body_snippet": "Hi\n\nI've been using the F16 TexLive 2011 stable repo for F16 for quite some time\n baseurl=http://jnovy.fedorapeople.org/texlive/2011/packages.fc16/\n (not the F15 repo as that would be asking for troub",
       "thread_id": "thread-52fe21ee5449",
       "thread_depth": 2,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-April/000254.html"
     },
     {
       "id": "msg-6e7d66bc8e7b",
@@ -133,7 +139,8 @@
       "body_snippet": "Hello!\nFinally [ and contrary to Peter :-) ], I have installed TeXLive 2007\nfrom the main repo. My experience was such that R complained about\nmissing LaTeX in /usr/share/texmf/, while TeXLive 2011 is",
       "thread_id": "thread-52fe21ee5449",
       "thread_depth": 3,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-April/000255.html"
     },
     {
       "id": "msg-3e549874265a",
@@ -154,7 +161,8 @@
       "body_snippet": "Hi Petar\n\nMy guess is that you had something else floating around from previous\nfedora update/install which caused some mismatches as some binaries\nhave been put into texlive that previously weren't i",
       "thread_id": "thread-52fe21ee5449",
       "thread_depth": 4,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-April/000256.html"
     },
     {
       "id": "msg-1ffb49e19787",
@@ -176,7 +184,8 @@
       "body_snippet": "Dear Peter,\nPlease, can you explain how did you make R accept the TeXLive 2011? I\nwould like to give it a try. But, when I install TeXLive 2011, and then\nR, the later is asking for dependencies (a lis",
       "thread_id": "thread-52fe21ee5449",
       "thread_depth": 5,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-April/000257.html"
     },
     {
       "id": "msg-e360423737a9",
@@ -199,7 +208,8 @@
       "body_snippet": "Hi Petar\n\nI can only guess that the dependencies for R rpm's aren't quite\nspecified right for texlive 2011\nbut if the appropriate texlive 2011 packages are already installed\nthen there should be no pr",
       "thread_id": "thread-52fe21ee5449",
       "thread_depth": 6,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-April/000258.html"
     },
     {
       "id": "msg-d61c79bc65bc",
@@ -223,7 +233,8 @@
       "body_snippet": "Dear Peter,\nThank you so much! The texlive-collections did the trick! :-)\n\nSo, I am making this digested how-to below, from your last message.\n\nPS: I noticed you are using yum to install R-packages. I",
       "thread_id": "thread-52fe21ee5449",
       "thread_depth": 7,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-April/000259.html"
     },
     {
       "id": "msg-3b096f099925",
@@ -248,7 +259,8 @@
       "body_snippet": "Hi Petar\n\nGlad this worked!\n\nI only install R and R-devel along with the odd R package using yum -\nusually I do this so that I know I have the right dependencies are\ninstalled eg graphviz-R. Once inst",
       "thread_id": "thread-52fe21ee5449",
       "thread_depth": 8,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-April/000260.html"
     },
     {
       "id": "msg-d2822db5582c",
@@ -274,7 +286,8 @@
       "body_snippet": "Hello!\nOne correction to the how-to below: you probably must add a symbolic\nlink. Something like this:\nln -s /usr/share/R/texmf/tex/latex /usr/share/texlive/texmf/tex/latex/R\n\nBest,\nPetar\n\nOn Sat, 201",
       "thread_id": "thread-52fe21ee5449",
       "thread_depth": 9,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-April/000261.html"
     }
   ],
   "threads": [

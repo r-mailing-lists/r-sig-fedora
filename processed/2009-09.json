@@ -18,6 +18,7 @@
       "thread_id": "thread-b04629300a93",
       "thread_depth": 0,
       "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-September/000083.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090903/69057816/attachment.pl"
       ]
@@ -37,6 +38,7 @@
       "thread_id": "thread-53dd1a9f8087",
       "thread_depth": 0,
       "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-September/000084.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090914/e3b6b083/attachment.pl"
       ]
@@ -57,7 +59,8 @@
       "body_snippet": "On Mon, 14 Sep 2009 17:24:17 +0530 (IST) shanmukha patel\n<shanmukh_pes at yahoo.co.in> wrote:\n\nSP> ????? I am trying to debug R on fedora9.0. When I use gdb to debug\n\nFedora is currently at No. 11 so ",
       "thread_id": "thread-53dd1a9f8087",
       "thread_depth": 1,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-September/000085.html"
     },
     {
       "id": "msg-22cd9cace6d7",
@@ -76,7 +79,8 @@
       "body_snippet": "Stefan Grosse wrote:\n> On Mon, 14 Sep 2009 17:24:17 +0530 (IST) shanmukha patel\n> <shanmukh_pes at yahoo.co.in> wrote:\n> \n> SP>       I am trying to debug R on fedora9.0. When I use gdb to debug\n> \n> ",
       "thread_id": "thread-53dd1a9f8087",
       "thread_depth": 2,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-September/000086.html"
     },
     {
       "id": "msg-e1f275ffa2de",
@@ -93,6 +97,7 @@
       "thread_id": "thread-53dd1a9f8087",
       "thread_depth": 3,
       "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-September/000087.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20090915/d619f5bf/attachment.pl"
       ]
@@ -113,7 +118,8 @@
       "body_snippet": "shanmukha patel wrote:\n> Hi Stefan, Peter\n>     Thanks for your reply. Yeah it was a typo. I am debugging the latest \n> version of R i.e., R-2.9.2. Currently I have fedora-9 in my system, do I \n> need",
       "thread_id": "thread-53dd1a9f8087",
       "thread_depth": 4,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-September/000088.html"
     },
     {
       "id": "msg-3dbbcd997738",
@@ -132,7 +138,8 @@
       "body_snippet": "On 09/15/2009 03:34 AM, Peter Dalgaard wrote:\n> F11 and F10 presumably has R-2.9.2 prebuilt by now. (I'm still on F9 too\n> due to time and disk space constraints...)\n\nThis is correct. I'm working hard",
       "thread_id": "thread-53dd1a9f8087",
       "thread_depth": 5,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-September/000089.html"
     },
     {
       "id": "msg-bec0d31fa84f",
@@ -148,7 +155,8 @@
       "body_snippet": "Hi\n\nI've been trying to install RBGL and several other packages in gR task\nview on Fedora11 64 bit without success\n\nMy guess is that it is due to boost (fedora is at boost 1.37 which is\na few minor ve",
       "thread_id": "thread-bec0d31fa84f",
       "thread_depth": 0,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-September/000090.html"
     },
     {
       "id": "msg-287644cefb4c",
@@ -166,7 +174,8 @@
       "body_snippet": "Peter, \n\nI just installed RBGL on Fedora 10 (64 bit) without any problem. Below\nis my system information. Maybe the problem is related to the gcc\nversion, as you have suspected: \n\n$ gcc --version\ngcc ",
       "thread_id": "thread-bec0d31fa84f",
       "thread_depth": 1,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-September/000091.html"
     },
     {
       "id": "msg-505fb581f022",
@@ -185,7 +194,8 @@
       "body_snippet": "On 09/21/2009 03:25 AM, Matthias Buehlmaier wrote:\n> Peter, \n> \n> I just installed RBGL on Fedora 10 (64 bit) without any problem. Below\n> is my system information. Maybe the problem is related to the",
       "thread_id": "thread-bec0d31fa84f",
       "thread_depth": 2,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-September/000092.html"
     },
     {
       "id": "msg-0b89cf869575",
@@ -205,7 +215,8 @@
       "body_snippet": "Dear Tom and Matthias\n\nThanks very much for your prompt replies!!\n\nI have upgraded boost to testing on 64 bit box but not on netbook\n(586) so I'll let you know how it goes. Like Tom I feel a bit short",
       "thread_id": "thread-bec0d31fa84f",
       "thread_depth": 3,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2009-September/000093.html"
     }
   ],
   "threads": [

@@ -18,6 +18,7 @@
       "thread_id": "thread-1e3327eeb26d",
       "thread_depth": 0,
       "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000016.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20081017/e0ddf3ff/attachment.pl"
       ]
@@ -38,7 +39,8 @@
       "body_snippet": "Dear Han,\n\nThe short answer to your question is that you need to install the\nR-devel package, which contains the header files.  This question comes\nup a lot. Most people ask on R-help so I have to tha",
       "thread_id": "thread-1e3327eeb26d",
       "thread_depth": 1,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000017.html"
     },
     {
       "id": "msg-46984a28181f",
@@ -57,7 +59,8 @@
       "body_snippet": "On Fri, 2008-10-17 at 19:02 +0200, Martyn Plummer wrote:\n> Dear Han,\n> \n> The short answer to your question is that you need to install the\n> R-devel package, which contains the header files.  This qu",
       "thread_id": "thread-1e3327eeb26d",
       "thread_depth": 2,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000018.html"
     },
     {
       "id": "msg-c5e7c6081b73",
@@ -77,7 +80,8 @@
       "body_snippet": "On Fri, 2008-10-17 at 13:09 -0400, Tom \"spot\" Callaway wrote:\n> On Fri, 2008-10-17 at 19:02 +0200, Martyn Plummer wrote:\n> > Dear Han,\n> > \n> > The short answer to your question is that you need to in",
       "thread_id": "thread-1e3327eeb26d",
       "thread_depth": 3,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000019.html"
     },
     {
       "id": "msg-9d87e635bbe9",
@@ -98,7 +102,8 @@
       "body_snippet": "On Tue, 21 Oct 2008, Martyn Plummer wrote:\n\n> On Fri, 2008-10-17 at 13:09 -0400, Tom \"spot\" Callaway wrote:\n>> On Fri, 2008-10-17 at 19:02 +0200, Martyn Plummer wrote:\n>>> Dear Han,\n>>>\n>>> The short ",
       "thread_id": "thread-1e3327eeb26d",
       "thread_depth": 4,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000020.html"
     },
     {
       "id": "msg-6bca2d960f77",
@@ -114,7 +119,8 @@
       "body_snippet": "This email serves as an announcement that I plan to swallow up R-devel\ninto the base R package. Why?\n\n* It is causing no end of user complaints. The typical R user expects to\nbe able to do a \"CPAN\" (r",
       "thread_id": "thread-6bca2d960f77",
       "thread_depth": 0,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000021.html"
     },
     {
       "id": "msg-033bb5466357",
@@ -132,7 +138,8 @@
       "body_snippet": "On Thu, Oct 23, 2008 at 09:55:08AM -0400, Tom spot Callaway wrote:\n> * It is causing no end of user complaints. The typical R user expects to\n> be able to do a \"CPAN\" (really, I should say \"CRAN\") sty",
       "thread_id": "thread-6bca2d960f77",
       "thread_depth": 1,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000022.html"
     },
     {
       "id": "msg-8d7fc10a5f8e",
@@ -151,7 +158,8 @@
       "body_snippet": ">>>>> \"MM\" == Matthew Miller <mattdm at mattdm.org> writes:\n\nMM> Where do R packages installed this way go?\n\nInto the installing user's home directory.\n\nHonestly I don't mind either way; as an admin, ",
       "thread_id": "thread-6bca2d960f77",
       "thread_depth": 2,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000024.html"
     },
     {
       "id": "msg-0317559ee14f",
@@ -169,7 +177,8 @@
       "body_snippet": "Thank you. We really appreciate this.\nMartyn\n\nOn Thu, 2008-10-23 at 09:55 -0400, Tom \"spot\" Callaway wrote:\n> This email serves as an announcement that I plan to swallow up R-devel\n> into the base R p",
       "thread_id": "thread-6bca2d960f77",
       "thread_depth": 1,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000023.html"
     },
     {
       "id": "msg-512ab1276c48",
@@ -188,7 +197,8 @@
       "body_snippet": "On Thu, 2008-10-23 at 16:34 +0200, Enrico Scholz wrote:\n> Better solutions:\n> \n> * add it to comps.xml\n> * move 'R' to R-core, and add 'R' which depends on 'R-core' +\n> 'R-devel'\n> \n> \n> > * The size ",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 0,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000025.html"
     },
     {
       "id": "msg-39268d07c856",
@@ -208,7 +218,8 @@
       "body_snippet": "Tom \"spot\" Callaway wrote:\n> These are very good points, thanks Enrico. What would people think about\n> doing the suggested R/R-core/R-devel split instead? Users would still be\n> able to get everythin",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 1,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000026.html"
     },
     {
       "id": "msg-fb65ef8b62e5",
@@ -228,7 +239,8 @@
       "body_snippet": "Tom \"spot\" Callaway wrote:\n> On Thu, 2008-10-23 at 16:34 +0200, Enrico Scholz wrote:\n>> Better solutions:\n>>\n>> * add it to comps.xml\n>> * move 'R' to R-core, and add 'R' which depends on 'R-core' +\n>",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 1,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000027.html"
     },
     {
       "id": "msg-7345b7e0afab",
@@ -248,7 +260,8 @@
       "body_snippet": "On Thu, 2008-10-23 at 10:42 -0400, Tom \"spot\" Callaway wrote:\n> On Thu, 2008-10-23 at 16:34 +0200, Enrico Scholz wrote:\n> > Better solutions:\n> > \n> > * add it to comps.xml\n> > * move 'R' to R-core, a",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 1,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000028.html"
     },
     {
       "id": "msg-a933ed2e5a2c",
@@ -268,7 +281,8 @@
       "body_snippet": "On Thu, 2008-10-23 at 10:42 -0400, Tom \"spot\" Callaway wrote:\n\n> > > * The size of the R-devel is tiny, about 440K installed.\n\n Also, even without the deps.: yum list-installed-sizes \\*-devel\n\n...440K",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 1,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000029.html"
     },
     {
       "id": "msg-b8b98c893b51",
@@ -284,11 +298,12 @@
         "<1224772939.3601.54.camel@localhost.localdomain>",
         "<1224786127.3898.97.camel@code.and.org>"
       ],
-      "body_plain": "On Thursday 23 October 2008 19:22:07 James Antill wrote:\n> ?Well it kinda fits the \"people expect foo-core + additions\" _assuming_\n> CRAN is a requirement, but really why don't we just package more of the\n> R modules so CRAN usage isn't a requirement?\n\nThere are more than 1500 modules (the have been growing at an exponential rate \nin the last years). So while we would like to see more R packages in Fedora in \nare not even near to have a reasonable subset of R packaged.\n\nSo for the moment CRAN is really a requirement to use R in Fedora.\n\n> --\n> James Antill <james at fedoraproject.org>\n> Fedora\n\n-- \nJos? Ab?lio",
-      "body_snippet": "On Thursday 23 October 2008 19:22:07 James Antill wrote:\n> ?Well it kinda fits the \"people expect foo-core + additions\" _assuming_\n> CRAN is a requirement, but really why don't we just package more of",
+      "body_plain": "On Thursday 23 October 2008 19:22:07 James Antill wrote:\n>  Well it kinda fits the \"people expect foo-core + additions\" _assuming_\n> CRAN is a requirement, but really why don't we just package more of the\n> R modules so CRAN usage isn't a requirement?\n\nThere are more than 1500 modules (the have been growing at an exponential rate \nin the last years). So while we would like to see more R packages in Fedora in \nare not even near to have a reasonable subset of R packaged.\n\nSo for the moment CRAN is really a requirement to use R in Fedora.\n\n> --\n> James Antill <james at fedoraproject.org>\n> Fedora\n\n-- \nJosé Abílio",
+      "body_snippet": "On Thursday 23 October 2008 19:22:07 James Antill wrote:\n>  Well it kinda fits the \"people expect foo-core + additions\" _assuming_\n> CRAN is a requirement, but really why don't we just package more of",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 2,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000030.html"
     },
     {
       "id": "msg-821f2baa34b3",
@@ -308,7 +323,8 @@
       "body_snippet": "On Thu, Oct 23, 2008 at 09:34:56AM -0500, Jason L Tibbitts III wrote:\n> MM> Where do R packages installed this way go?\n> Into the installing user's home directory.\n\nIn that case, sounds fine to me.\n\n-",
       "thread_id": "thread-6bca2d960f77",
       "thread_depth": 3,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000031.html"
     },
     {
       "id": "msg-3bf6267079cf",
@@ -329,7 +345,8 @@
       "body_snippet": "On Thu, 2008-10-23 at 19:41 +0100, Jos? Matos wrote:\n> On Thursday 23 October 2008 19:22:07 James Antill wrote:\n> >  Well it kinda fits the \"people expect foo-core + additions\" _assuming_\n> > CRAN is ",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 3,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000032.html"
     },
     {
       "id": "msg-1ef94b93e1ca",
@@ -350,7 +367,8 @@
       "body_snippet": "On Thu, Oct 23, 2008 at 3:41 PM, Jos? Matos <jamatos at fc.up.pt> wrote:\n\n> On Thursday 23 October 2008 19:22:07 James Antill wrote:\n>>  Well it kinda fits the \"people expect foo-core + additions\" _as",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 3,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000033.html"
     },
     {
       "id": "msg-1c71ac3a7c91",
@@ -371,7 +389,8 @@
       "body_snippet": "On Thu, 2008-10-23 at 19:41 +0100, Jos? Matos wrote:\n> On Thursday 23 October 2008 19:22:07 James Antill wrote:\n> >  Well it kinda fits the \"people expect foo-core + additions\" _assuming_\n> > CRAN is ",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 3,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000034.html"
     },
     {
       "id": "msg-7d3abe9b09be",
@@ -393,7 +412,8 @@
       "body_snippet": ">>>>> \"MS\" == Matthew Saltzman <mjs at clemson.edu> writes:\n\nMS> This situation seems to cry out for a solution like cpan2rpm for\nMS> the Perl Archive.\n\nI believe the existing R2spec handles this nice",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 4,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000035.html"
     },
     {
       "id": "msg-43cfe3d575ff",
@@ -409,11 +429,12 @@
         "<200810231941.41824.jamatos@fc.up.pt>",
         "<22af238a0810231508j183fd334m6a1dc272e518f6b0@mail.gmail.com>"
       ],
-      "body_plain": "On Thursday 23 October 2008 23:08:53 George N. White III wrote:\n>\n> There have always been conflicts between the CRAN package system and\n> Fedora or other linux packaging Guidelines.   Users can install CRAN\n> packages without root privileges, but then the search function won't know\n> about the user's packages, and packages that rely on other library (gsl,\n> hdf5, etc) still need -dev RPM's.   Linux distros should not be trying to\n> enforce guidelines\n> for mainstream packages with their own robust package management and\n> archive networks.\n\nPlaying devil's advocate I should remark that first each language is building \nits own repository and packaging system in a sense we have lots of equivalents \nof (yum+rpm) for each language (perl,  php, python, R, tex, ...).\n\nOn the other hand for the system to be really useful it must use the least \npossible denominator (read the dumbest wins- pun intended ;-) ).\n\n> Instead, they should look for ways to improve support\n> for users who rely on those 3rd party systems.  For example:\n>\n> R-base: basic runtime without dev dependencies, for sites that provide\n> binary CRAN packages (e.g., on a shared directory) so users don't need to\n> do compiles.\n>\n> R-core: R-base + -dev dependencies for those who want to install source\n> packages from CRAN (e.g., most individual R users)\n>\n> R-X-sup(plement): -dev dependencies needed to build package X (e.g.,\n> R-hdf5-sup requires hdf5-dev for the hdf5 package from CRAN, gsl-dev\n> for gsl, etc.).  These aren't strictly necessary, but would serve to\n> link package versions on CRAN with the versions of the support libs in\n> Fed,\n> something that can take some effort (e.g., peeking in the sources) to\n> determine.   For sites\n> where users need to ask admins to install libraries, this simplifies\n> the problem of telling the admin which libs to install.\n\nI am not sure if this is right path or the right balance.\n\nAnother possible choice is to expand R2spec in scope and not only create rpm \nspec files but to discover the different dependencies and how they are solved \ninside.\n\nThere is no reason that we can not rebuild the whole CRAN (or almost all of \nit) automatically.\n\n> In the long run, linux distros should look at devising ways to capture\n> information from these\n> 3rd party package managers to help resolve dependencies automatically.\n\nAs everything with free software the survival of the fittest means that this \nwill only happen if there are people interested in spending resources to make \nthis possible.\n-- \nJos? Ab?lio",
+      "body_plain": "On Thursday 23 October 2008 23:08:53 George N. White III wrote:\n>\n> There have always been conflicts between the CRAN package system and\n> Fedora or other linux packaging Guidelines.   Users can install CRAN\n> packages without root privileges, but then the search function won't know\n> about the user's packages, and packages that rely on other library (gsl,\n> hdf5, etc) still need -dev RPM's.   Linux distros should not be trying to\n> enforce guidelines\n> for mainstream packages with their own robust package management and\n> archive networks.\n\nPlaying devil's advocate I should remark that first each language is building \nits own repository and packaging system in a sense we have lots of equivalents \nof (yum+rpm) for each language (perl,  php, python, R, tex, ...).\n\nOn the other hand for the system to be really useful it must use the least \npossible denominator (read the dumbest wins- pun intended ;-) ).\n\n> Instead, they should look for ways to improve support\n> for users who rely on those 3rd party systems.  For example:\n>\n> R-base: basic runtime without dev dependencies, for sites that provide\n> binary CRAN packages (e.g., on a shared directory) so users don't need to\n> do compiles.\n>\n> R-core: R-base + -dev dependencies for those who want to install source\n> packages from CRAN (e.g., most individual R users)\n>\n> R-X-sup(plement): -dev dependencies needed to build package X (e.g.,\n> R-hdf5-sup requires hdf5-dev for the hdf5 package from CRAN, gsl-dev\n> for gsl, etc.).  These aren't strictly necessary, but would serve to\n> link package versions on CRAN with the versions of the support libs in\n> Fed,\n> something that can take some effort (e.g., peeking in the sources) to\n> determine.   For sites\n> where users need to ask admins to install libraries, this simplifies\n> the problem of telling the admin which libs to install.\n\nI am not sure if this is right path or the right balance.\n\nAnother possible choice is to expand R2spec in scope and not only create rpm \nspec files but to discover the different dependencies and how they are solved \ninside.\n\nThere is no reason that we can not rebuild the whole CRAN (or almost all of \nit) automatically.\n\n> In the long run, linux distros should look at devising ways to capture\n> information from these\n> 3rd party package managers to help resolve dependencies automatically.\n\nAs everything with free software the survival of the fittest means that this \nwill only happen if there are people interested in spending resources to make \nthis possible.\n-- \nJosé Abílio",
       "body_snippet": "On Thursday 23 October 2008 23:08:53 George N. White III wrote:\n>\n> There have always been conflicts between the CRAN package system and\n> Fedora or other linux packaging Guidelines.   Users can insta",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 4,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000036.html"
     },
     {
       "id": "msg-7aebf455b912",
@@ -434,7 +455,8 @@
       "body_snippet": "Jos? Matos wrote:\n> On Thursday 23 October 2008 23:08:53 George N. White III wrote:\n>> There have always been conflicts between the CRAN package system and\n>> Fedora or other linux packaging Guideline",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 5,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000037.html"
     },
     {
       "id": "msg-8a68dca1aaaf",
@@ -455,7 +477,8 @@
       "body_snippet": "On Fri, Oct 24, 2008 at 3:52 AM, Jos? Matos <jamatos at fc.up.pt> wrote:\n\n> On Thursday 23 October 2008 23:08:53 George N. White III wrote:\n>>\n>> There have always been conflicts between the CRAN pack",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 5,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000038.html"
     },
     {
       "id": "msg-c7664ae8e15b",
@@ -477,7 +500,8 @@
       "body_snippet": "Hi all,\n\nFirst, thanks to all for this conversation and the directions it is taking.\n\nJust a quick Admin note.\n\nThis thread is going to three different lists, including\n\"r-sig-fedora at r-project.org\"",
       "thread_id": "thread-512ab1276c48",
       "thread_depth": 6,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000039.html"
     },
     {
       "id": "msg-0918dc5fdd2b",
@@ -493,7 +517,8 @@
       "body_snippet": "Dear All,\n\nWhen will R 2.8.0 be available for F9?\n\nThanks in advance,\n\nPaul",
       "thread_id": "thread-0918dc5fdd2b",
       "thread_depth": 0,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000040.html"
     },
     {
       "id": "msg-a21c606b7fb2",
@@ -511,7 +536,8 @@
       "body_snippet": "on 10/26/2008 08:43 AM Paul Smith wrote:\n> Dear All,\n> \n> When will R 2.8.0 be available for F9?\n> \n> Thanks in advance,\n> \n> Paul\n\nThanks to Martyn, it is available from CRAN mirrors, such as:\n\nhttp:",
       "thread_id": "thread-0918dc5fdd2b",
       "thread_depth": 1,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000041.html"
     },
     {
       "id": "msg-93ee558a0a67",
@@ -530,7 +556,8 @@
       "body_snippet": "On Sun, 2008-10-26 at 09:20 -0500, Marc Schwartz wrote:\n> I am guessing that there might be a delay in availability due to the\n> activity surrounding the very recent discussion on the consolidation\n> ",
       "thread_id": "thread-0918dc5fdd2b",
       "thread_depth": 2,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000042.html"
     },
     {
       "id": "msg-52ff375c9950",
@@ -550,7 +577,8 @@
       "body_snippet": "Tom \"spot\" Callaway wrote:\n> Give me an hour or so, and I should be able to have the new and improved\n> version out.\n\nPlease let us know when it will be available I have ~15 packages from \nBioconducto",
       "thread_id": "thread-0918dc5fdd2b",
       "thread_depth": 3,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000045.html"
     },
     {
       "id": "msg-b19ae1870de1",
@@ -570,7 +598,8 @@
       "body_snippet": "[Apologies if you get this twice.  I am resending this because the\n webmail interface seems to have eaten the last one]\n\nQuoting \"Tom \\\\spot\\\\ Callaway\" <tcallawa at redhat.com>:\n\n> On Sun, 2008-10-26",
       "thread_id": "thread-0918dc5fdd2b",
       "thread_depth": 3,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000043.html"
     },
     {
       "id": "msg-3ca040eb672b",
@@ -591,7 +620,8 @@
       "body_snippet": "On Sun, 2008-10-26 at 20:59 +0100, plummer at iarc.fr wrote:\n> If its not too late, can you add libtiff-devel as a build requirement?\n> This will enable the tiff() graphics device, which is not curren",
       "thread_id": "thread-0918dc5fdd2b",
       "thread_depth": 4,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000044.html"
     },
     {
       "id": "msg-a1f032bc506a",
@@ -611,7 +641,8 @@
       "body_snippet": "On Sun, Oct 26, 2008 at 2:49 PM, Tom spot Callaway <tcallawa at redhat.com> wrote:\n>> I am guessing that there might be a delay in availability due to the\n>> activity surrounding the very recent discu",
       "thread_id": "thread-0918dc5fdd2b",
       "thread_depth": 3,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000046.html"
     },
     {
       "id": "msg-15f00ac2e7cd",
@@ -632,7 +663,8 @@
       "body_snippet": "On Sun, 2008-10-26 at 19:22 +0100, Pierre-Yves wrote:\n> Tom \"spot\" Callaway wrote:\n> > Give me an hour or so, and I should be able to have the new and improved\n> > version out.\n> \n> Please let us know",
       "thread_id": "thread-0918dc5fdd2b",
       "thread_depth": 4,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000047.html"
     },
     {
       "id": "msg-ea84378ed321",
@@ -654,7 +686,8 @@
       "body_snippet": "Tom \"spot\" Callaway wrote:\n> On Sun, 2008-10-26 at 19:22 +0100, Pierre-Yves wrote:\n>> Tom \"spot\" Callaway wrote:\n>>> Give me an hour or so, and I should be able to have the new and improved\n>>> versio",
       "thread_id": "thread-0918dc5fdd2b",
       "thread_depth": 5,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000048.html"
     },
     {
       "id": "msg-df6fb63410d4",
@@ -677,7 +710,8 @@
       "body_snippet": "On Mon, 2008-10-27 at 19:15 +0100, Peter Dalgaard wrote:\n> Tom \"spot\" Callaway wrote:\n> > On Sun, 2008-10-26 at 19:22 +0100, Pierre-Yves wrote:\n> >> Tom \"spot\" Callaway wrote:\n> >>> Give me an hour or",
       "thread_id": "thread-0918dc5fdd2b",
       "thread_depth": 6,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000049.html"
     },
     {
       "id": "msg-b6e23c3f5768",
@@ -695,7 +729,8 @@
       "body_snippet": "Dear all,\n\nI am currently updating the libraries from bioconductor to the version \n2.3 of bioconductor made for R 2.8.0.\n\nI am adding to all these package a global variable Rversion which is \nthen use",
       "thread_id": "thread-b6e23c3f5768",
       "thread_depth": 0,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-October/000050.html"
     }
   ],
   "threads": [

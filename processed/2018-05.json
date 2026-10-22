@@ -17,7 +17,8 @@
       "body_snippet": "Dear All,\n\nI am trying to install the package bibliometrix on F28, but getting thsi error:\n\n-------------------\n** preparing package for lazy loading\nError in dyn.load(file, DLLpath = DLLpath, ...) :\n",
       "thread_id": "thread-10042bb3ea13",
       "thread_depth": 0,
-      "month": "2018-05"
+      "month": "2018-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2018-May/000551.html"
     },
     {
       "id": "msg-8a59952c791c",
@@ -35,7 +36,8 @@
       "body_snippet": "I haven't upgraded yet but it looks like libgfortran.so.4 is gone in F28\n[to be replaced by libgfortran.so.5].\n\nPackages with Fortran code that you installed into your library before\nupgrading will ne",
       "thread_id": "thread-10042bb3ea13",
       "thread_depth": 1,
-      "month": "2018-05"
+      "month": "2018-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2018-May/000552.html"
     },
     {
       "id": "msg-40039bfbb57f",
@@ -51,7 +53,8 @@
       "body_snippet": "On a CentOS 7 machine, I am at a loss with respect to an inability to run a\nfull R CMD check as anything involving tex files ends in tears.\n\nWe followed the README at CRAN and installed a large number",
       "thread_id": "thread-40039bfbb57f",
       "thread_depth": 0,
-      "month": "2018-05"
+      "month": "2018-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2018-May/000553.html"
     },
     {
       "id": "msg-ad0ca14dcdb1",
@@ -69,7 +72,8 @@
       "body_snippet": "On Tue, 29 May 2018, Dirk Eddelbuettel wrote:\n\n> On a CentOS 7 machine, I am at a loss with respect to an inability to run a\n> full R CMD check as anything involving tex files ends in tears.\n\nHi, Dirk",
       "thread_id": "thread-40039bfbb57f",
       "thread_depth": 1,
-      "month": "2018-05"
+      "month": "2018-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2018-May/000554.html"
     },
     {
       "id": "msg-5f83c47e0cf1",
@@ -88,7 +92,8 @@
       "body_snippet": "On 29 May 2018 at 16:37, R P Herrold wrote:\n| On Tue, 29 May 2018, Dirk Eddelbuettel wrote:\n| \n| > On a CentOS 7 machine, I am at a loss with respect to an inability to run a\n| > full R CMD check as a",
       "thread_id": "thread-40039bfbb57f",
       "thread_depth": 2,
-      "month": "2018-05"
+      "month": "2018-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2018-May/000555.html"
     },
     {
       "id": "msg-70f44a4873be",
@@ -108,7 +113,8 @@
       "body_snippet": "On 05/29/2018 04:53 PM, Dirk Eddelbuettel wrote:\n> I noticed it with a local, not-public package -- but it appears to apply with\n> any source package. I replicated with pkgKitten straight off CRAN and",
       "thread_id": "thread-40039bfbb57f",
       "thread_depth": 3,
-      "month": "2018-05"
+      "month": "2018-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2018-May/000556.html"
     },
     {
       "id": "msg-71aa47a6d0cd",
@@ -129,7 +135,8 @@
       "body_snippet": "Tom,\n\nOn 30 May 2018 at 11:34, Tom Callaway wrote:\n| On 05/29/2018 04:53 PM, Dirk Eddelbuettel wrote:\n| > I noticed it with a local, not-public package -- but it appears to apply with\n| > any source p",
       "thread_id": "thread-40039bfbb57f",
       "thread_depth": 4,
-      "month": "2018-05"
+      "month": "2018-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2018-May/000557.html"
     },
     {
       "id": "msg-eb8a2770cd3e",
@@ -151,7 +158,8 @@
       "body_snippet": "On 30 May 2018 at 11:10, Dirk Eddelbuettel wrote:\n| \n| Tom,\n| \n| On 30 May 2018 at 11:34, Tom Callaway wrote:\n| | On 05/29/2018 04:53 PM, Dirk Eddelbuettel wrote:\n| | > I noticed it with a local, not-",
       "thread_id": "thread-40039bfbb57f",
       "thread_depth": 5,
-      "month": "2018-05"
+      "month": "2018-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2018-May/000558.html"
     }
   ],
   "threads": [

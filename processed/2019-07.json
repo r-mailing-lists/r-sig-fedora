@@ -19,7 +19,8 @@
       "body_snippet": "FYI, I plan on implementing this for F31 if no issues arise.\n\n---------- Forwarded message ---------\nFrom: Ben Cotton <bcotton at redhat.com>\nDate: Tue, 2 Jul 2019 at 10:55\nSubject: Fedora 31 System-W",
       "thread_id": "thread-a0030d478780",
       "thread_depth": 0,
-      "month": "2019-07"
+      "month": "2019-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2019-July/000570.html"
     },
     {
       "id": "msg-9b059baf36ce",
@@ -34,11 +35,12 @@
         "<CA+voJeUDSGaozCUJGN8MAORdgRB3VtV5VHweFhVo2_HiL7_zRw@mail.gmail.com>",
         "<CAJP_izcMMa4pOg_RttROjx0O63wADRBV7C6oGO_rm7psDGRotw@mail.gmail.com>"
       ],
-      "body_plain": "On Thursday, 4 July 2019 10.35.18 WEST Elliott Sales de Andrade wrote:\n> FYI, I plan on implementing this for F31 if no issues arise.\n\nAre there are any R packages, other than those built in R itself, that are not \naffected by this change? :-)\n\nBecause I think that in this case the list of affected packages would be all \nthe packages with R subpackages. Or am I misunderstanding the details?\n\nBTW nice job. :-)\n\nBest regards,\n-- \nJos? Ab?lio",
+      "body_plain": "On Thursday, 4 July 2019 10.35.18 WEST Elliott Sales de Andrade wrote:\n> FYI, I plan on implementing this for F31 if no issues arise.\n\nAre there are any R packages, other than those built in R itself, that are not \naffected by this change? :-)\n\nBecause I think that in this case the list of affected packages would be all \nthe packages with R subpackages. Or am I misunderstanding the details?\n\nBTW nice job. :-)\n\nBest regards,\n-- \nJosé Abílio",
       "body_snippet": "On Thursday, 4 July 2019 10.35.18 WEST Elliott Sales de Andrade wrote:\n> FYI, I plan on implementing this for F31 if no issues arise.\n\nAre there are any R packages, other than those built in R itself,",
       "thread_id": "thread-a0030d478780",
       "thread_depth": 1,
-      "month": "2019-07"
+      "month": "2019-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2019-July/000571.html"
     },
     {
       "id": "msg-d8243d565648",
@@ -54,11 +56,12 @@
         "<CAJP_izcMMa4pOg_RttROjx0O63wADRBV7C6oGO_rm7psDGRotw@mail.gmail.com>",
         "<10148999.UyBmMMDdau@myth>"
       ],
-      "body_plain": "On Thu, 4 Jul 2019 at 06:05, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Thursday, 4 July 2019 10.35.18 WEST Elliott Sales de Andrade wrote:\n> > FYI, I plan on implementing this for F31 if no issues arise.\n>\n> Are there are any R packages, other than those built in R itself, that are not\n> affected by this change? :-)\n>\n\nOh, actually, I forgot to mention R in that list...\n\n> Because I think that in this case the list of affected packages would be all\n> the packages with R subpackages. Or am I misunderstanding the details?\n>\n\nYes, it is all packages with R subpackages. There are no required\nchanges to the specs, just a rebuild, unless FPC mandates removing\nduplicate Requires.\n\n> BTW nice job. :-)\n>\n> Best regards,\n> --\n> Jos? Ab?lio\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\n-- \nElliott",
-      "body_snippet": "On Thu, 4 Jul 2019 at 06:05, Jos? Ab?lio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Thursday, 4 July 2019 10.35.18 WEST Elliott Sales de Andrade wrote:\n> > FYI, I plan on implementing this for F31 if n",
+      "body_plain": "On Thu, 4 Jul 2019 at 06:05, José Abílio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Thursday, 4 July 2019 10.35.18 WEST Elliott Sales de Andrade wrote:\n> > FYI, I plan on implementing this for F31 if no issues arise.\n>\n> Are there are any R packages, other than those built in R itself, that are not\n> affected by this change? :-)\n>\n\nOh, actually, I forgot to mention R in that list...\n\n> Because I think that in this case the list of affected packages would be all\n> the packages with R subpackages. Or am I misunderstanding the details?\n>\n\nYes, it is all packages with R subpackages. There are no required\nchanges to the specs, just a rebuild, unless FPC mandates removing\nduplicate Requires.\n\n> BTW nice job. :-)\n>\n> Best regards,\n> --\n> José Abílio\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\n-- \nElliott",
+      "body_snippet": "On Thu, 4 Jul 2019 at 06:05, José Abílio Matos <jamatos at fc.up.pt> wrote:\n>\n> On Thursday, 4 July 2019 10.35.18 WEST Elliott Sales de Andrade wrote:\n> > FYI, I plan on implementing this for F31 if n",
       "thread_id": "thread-a0030d478780",
       "thread_depth": 2,
-      "month": "2019-07"
+      "month": "2019-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2019-July/000572.html"
     },
     {
       "id": "msg-f7df29f4fcec",
@@ -74,7 +77,8 @@
       "body_snippet": "Hi,\n\nI had an issue report from a user of my WriteXLS CRAN package indicating that Compress::Raw::Zlib is apparently not installed by default with Perl on Fedora 30.\n\nSince this appears to be a new is",
       "thread_id": "thread-f7df29f4fcec",
       "thread_depth": 0,
-      "month": "2019-07"
+      "month": "2019-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2019-July/000573.html"
     },
     {
       "id": "msg-53383ea1af0b",
@@ -92,7 +96,8 @@
       "body_snippet": "> On Jul 23, 2019, at 1:04 PM, Marc Schwartz <marc_schwartz at me.com> wrote:\n> \n> Hi,\n> \n> I had an issue report from a user of my WriteXLS CRAN package indicating that Compress::Raw::Zlib is apparen",
       "thread_id": "thread-f7df29f4fcec",
       "thread_depth": 1,
-      "month": "2019-07"
+      "month": "2019-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2019-July/000574.html"
     },
     {
       "id": "msg-9eb2ab5c367b",
@@ -111,7 +116,8 @@
       "body_snippet": "I can confirm:\n\n[spot at localhost ~]$ rpm -q perl --requires |grep Zlib\nperl-Compress-Raw-Zlib\nperl-IO-Zlib\n[spot at localhost ~]$ rpm -q perl\nperl-5.28.2-436.fc30.x86_64\n\nIt would require either not",
       "thread_id": "thread-f7df29f4fcec",
       "thread_depth": 2,
-      "month": "2019-07"
+      "month": "2019-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2019-July/000575.html"
     },
     {
       "id": "msg-ac28abf4ddfb",
@@ -131,7 +137,8 @@
       "body_snippet": "Hi Tom,\n\nThanks kindly for your reply and I hope that you are well.\n\nI appreciate your confirmation of the situation.\n\nKind Regards,\n\nMarc\n\n\n> On Jul 24, 2019, at 8:53 AM, Tom Callaway <tcallawa at re",
       "thread_id": "thread-f7df29f4fcec",
       "thread_depth": 3,
-      "month": "2019-07"
+      "month": "2019-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2019-July/000576.html"
     },
     {
       "id": "msg-90df9f043571",
@@ -147,7 +154,8 @@
       "body_snippet": "Hi,\n\n(This message is cross-posted to the Fedora devel and R SIG Fedora\nmailing lists.)\n\nCurrently, R-core installs macros.R which defines one macro:\n%_R_make_search_index   /usr/lib/rpm/R-make-search",
       "thread_id": "thread-90df9f043571",
       "thread_depth": 0,
-      "month": "2019-07"
+      "month": "2019-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2019-July/000577.html"
     }
   ],
   "threads": [

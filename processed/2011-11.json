@@ -18,6 +18,7 @@
       "thread_id": "thread-a76812d5a58c",
       "thread_depth": 0,
       "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000196.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111105/75b0b0ad/attachment.pl"
       ]
@@ -39,6 +40,7 @@
       "thread_id": "thread-a76812d5a58c",
       "thread_depth": 1,
       "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000197.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111106/e29701f8/attachment.pl"
       ]
@@ -60,7 +62,8 @@
       "body_snippet": "On Sun, 2011-11-06 at 10:36 +1300, Steve Taylor wrote:\n> I'd like to know that too. \"yum info R\" shows that the repository is\n> lagging by two versions of R.  I've asked about getting that updated on\n",
       "thread_id": "thread-a76812d5a58c",
       "thread_depth": 2,
-      "month": "2011-11"
+      "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000198.html"
     },
     {
       "id": "msg-3f6e826f0f88",
@@ -79,7 +82,8 @@
       "body_snippet": "On Sun, 2011-11-06 at 10:36 +1300, Steve Taylor wrote:\n> I'd like to know that too. \"yum info R\" shows that the repository is\n> lagging by two versions of R.  I've asked about getting that updated on\n",
       "thread_id": "thread-a76812d5a58c",
       "thread_depth": 2,
-      "month": "2011-11"
+      "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000199.html"
     },
     {
       "id": "msg-1d5a6fa83cb3",
@@ -100,6 +104,7 @@
       "thread_id": "thread-a76812d5a58c",
       "thread_depth": 3,
       "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000200.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111105/ed02b985/attachment.pl"
       ]
@@ -123,7 +128,8 @@
       "body_snippet": "On Sat, 2011-11-05 at 21:07 -0400, Mark Leeds wrote:\n> Hi All: I did what Gavin explained and I got the error\n> \n> \"configure: error: --with-readline=yes (default) and headers/libs are not\n> available",
       "thread_id": "thread-a76812d5a58c",
       "thread_depth": 4,
-      "month": "2011-11"
+      "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000201.html"
     },
     {
       "id": "msg-a2676b1a35da",
@@ -140,6 +146,7 @@
       "thread_id": "thread-a2676b1a35da",
       "thread_depth": 0,
       "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000202.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111106/5c465545/attachment.pl"
       ]
@@ -161,6 +168,7 @@
       "thread_id": "thread-a2676b1a35da",
       "thread_depth": 1,
       "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000203.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111106/f1daf7cf/attachment.pl"
       ]
@@ -181,7 +189,8 @@
       "body_snippet": "On Sun, 2011-11-06 at 18:43 -0500, Mark Leeds wrote:\n> Hi Everyone: Gavin's been so generous and patient that I figured I'd give\n> him a break and send this snag to the list. When I do get this workin",
       "thread_id": "thread-a2676b1a35da",
       "thread_depth": 1,
-      "month": "2011-11"
+      "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000204.html"
     },
     {
       "id": "msg-0226cc316d4d",
@@ -202,7 +211,8 @@
       "body_snippet": "On 11/06/2011 01:07 AM, Mark Leeds wrote:\n> Hi All: I did what Gavin explained and I got the error\n>\n> \"configure: error: --with-readline=yes (default) and headers/libs are not\n> available\".\n>\n> so th",
       "thread_id": "thread-a76812d5a58c",
       "thread_depth": 4,
-      "month": "2011-11"
+      "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000205.html"
     },
     {
       "id": "msg-95bb1ad29dc6",
@@ -227,6 +237,7 @@
       "thread_id": "thread-95bb1ad29dc6",
       "thread_depth": 0,
       "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000206.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111107/50dc9531/attachment.pl"
       ]
@@ -254,7 +265,8 @@
       "body_snippet": "On Nov 7, 2011, at 9:00 AM, Mark Leeds wrote:\n\n> Hi Jose: I started totally from scratch and did that yum-builddep R as you\n> suggested.\n> \n> Then I checked out the latest R 2.14 branch using svn.  Bu",
       "thread_id": "thread-95bb1ad29dc6",
       "thread_depth": 1,
-      "month": "2011-11"
+      "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000207.html"
     },
     {
       "id": "msg-29c786220284",
@@ -281,6 +293,7 @@
       "thread_id": "thread-95bb1ad29dc6",
       "thread_depth": 2,
       "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000208.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111107/257a2633/attachment.pl"
       ]
@@ -308,7 +321,8 @@
       "body_snippet": "On Mon, 2011-11-07 at 10:00 -0500, Mark Leeds wrote:\n> Hi Jose: I started totally from scratch and did that yum-builddep R as you\n> suggested.\n> \n>  Then I checked out the latest R 2.14 branch using s",
       "thread_id": "thread-95bb1ad29dc6",
       "thread_depth": 1,
-      "month": "2011-11"
+      "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000209.html"
     },
     {
       "id": "msg-170b3042c3c9",
@@ -325,6 +339,7 @@
       "thread_id": "thread-170b3042c3c9",
       "thread_depth": 0,
       "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000210.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111107/1f3619d7/attachment.pl"
       ]
@@ -344,6 +359,7 @@
       "thread_id": "thread-4f4cce6fb046",
       "thread_depth": 0,
       "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000211.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111107/de151e41/attachment.pl"
       ]
@@ -364,7 +380,8 @@
       "body_snippet": "On Mon, 2011-11-07 at 15:39 -0500, Mark Leeds wrote:\n> Hi Everyone: It turns out that there's still a small ( I hope ) problem.\n> I'm close but that only counts in horse shoes and hand grenades.\n\nWhat",
       "thread_id": "thread-4f4cce6fb046",
       "thread_depth": 1,
-      "month": "2011-11"
+      "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000212.html"
     },
     {
       "id": "msg-43b219c351de",
@@ -380,7 +397,8 @@
       "body_snippet": "Hello: I've included a txt file ( some day, when I have more time, I'll\nturn it into latex )  that has the steps for installing R from source on\nFedora. It was\nwritten only for people like myself who ",
       "thread_id": "thread-43b219c351de",
       "thread_depth": 0,
-      "month": "2011-11"
+      "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000213.html"
     },
     {
       "id": "msg-f1a1f3ecbcc7",
@@ -399,6 +417,7 @@
       "thread_id": "thread-43b219c351de",
       "thread_depth": 1,
       "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000214.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111109/e8c3a236/attachment.pl"
       ]
@@ -420,7 +439,8 @@
       "body_snippet": "On 11/09/2011 02:27 AM, Steve Taylor wrote:\n> Yes, I got the attachment - thanks!  Might give it a go in the next few\n> days, if the repository hasn't been updated with an RPM.  I've already\n> learnt ",
       "thread_id": "thread-43b219c351de",
       "thread_depth": 2,
-      "month": "2011-11"
+      "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000215.html"
     },
     {
       "id": "msg-50dd691100c4",
@@ -439,7 +459,8 @@
       "body_snippet": "On Nov 9, 2011, at 08:27 , Steve Taylor wrote:\n\n> Yes, I got the attachment - thanks!  Might give it a go in the next few\n> days, if the repository hasn't been updated with an RPM.  I've already\n> lea",
       "thread_id": "thread-43b219c351de",
       "thread_depth": 2,
-      "month": "2011-11"
+      "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000216.html"
     },
     {
       "id": "msg-b292b1b37385",
@@ -460,6 +481,7 @@
       "thread_id": "thread-43b219c351de",
       "thread_depth": 3,
       "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000217.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20111109/c0e42de0/attachment.pl"
       ]
@@ -482,7 +504,8 @@
       "body_snippet": "On Wed, 2011-11-09 at 16:54 +0100, peter dalgaard wrote:\n> On Nov 9, 2011, at 08:27 , Steve Taylor wrote:\n> \n> > Yes, I got the attachment - thanks!  Might give it a go in the next\n> few\n> > days, if ",
       "thread_id": "thread-43b219c351de",
       "thread_depth": 3,
-      "month": "2011-11"
+      "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000218.html"
     },
     {
       "id": "msg-e2dfe2238679",
@@ -503,7 +526,8 @@
       "body_snippet": "On Nov 10, 2011, at 18:08 , Gavin Simpson wrote:\n\n> <snip />\n> \n>> Mark, one note: I'd keep the builddir completely separate from the\n>> srcdir, and not as a subdirectory. I.e. ../R/configure rather\n>",
       "thread_id": "thread-43b219c351de",
       "thread_depth": 4,
-      "month": "2011-11"
+      "month": "2011-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2011-November/000219.html"
     }
   ],
   "threads": [

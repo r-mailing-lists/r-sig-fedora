@@ -17,7 +17,8 @@
       "body_snippet": "Hi, everybody.\n\nI've got some Centos Linux systems and some Ubuntu Linux systems.  R's\nbasically the same in either place, but the packaging of R for Debian\nsystems seems better to me than it is on Fe",
       "thread_id": "thread-266541d0477b",
       "thread_depth": 0,
-      "month": "2010-02"
+      "month": "2010-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-February/000113.html"
     },
     {
       "id": "msg-010529923e9f",
@@ -35,7 +36,8 @@
       "body_snippet": "On 02/03/2010 09:12 PM, Paul Johnson wrote:\n> One of the really handy R packaging ideas they have\n> is to customize R environment so that there are several directories in\n> the package path.\n> \n> It a",
       "thread_id": "thread-266541d0477b",
       "thread_depth": 1,
-      "month": "2010-02"
+      "month": "2010-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-February/000114.html"
     },
     {
       "id": "msg-241d11d1ff92",
@@ -54,7 +56,8 @@
       "body_snippet": "Tom \"spot\" Callaway wrote:\n\n> \n> Also, I'm not sure why there is so much hierarchy in the proposed\n> setting for R_LIBS_USER. The R version, perhaps is understandable, but\n> the target architecture?\n\n",
       "thread_id": "thread-266541d0477b",
       "thread_depth": 2,
-      "month": "2010-02"
+      "month": "2010-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-February/000115.html"
     },
     {
       "id": "msg-6a802b8ed4c3",
@@ -74,7 +77,8 @@
       "body_snippet": "On 02/08/2010 04:07 PM, Peter Dalgaard wrote:\n> Think networked drives. Is the users home dir mounted on Linux, Solaris,\n> Mac, or maybe a P: drive on Windows?\n\nWell, having also been there, I think t",
       "thread_id": "thread-266541d0477b",
       "thread_depth": 3,
-      "month": "2010-02"
+      "month": "2010-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-February/000116.html"
     }
   ],
   "threads": [

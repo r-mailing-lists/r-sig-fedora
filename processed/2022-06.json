@@ -17,7 +17,8 @@
       "body_snippet": "Dear All,\n\nWhen will quarto be available on Fedora?\n\nhttps://quarto.org/\n\nThanks in advance,\n\nPaul",
       "thread_id": "thread-e1c83e0dcf38",
       "thread_depth": 0,
-      "month": "2022-06"
+      "month": "2022-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-June/000810.html"
     },
     {
       "id": "msg-0afdc1d63270",
@@ -33,7 +34,8 @@
       "body_snippet": "Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\nI'm trying to run rstudio server in a fedora 36 toolbox. I run the following commands:\n\n[",
       "thread_id": "thread-0afdc1d63270",
       "thread_depth": 0,
-      "month": "2022-06"
+      "month": "2022-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-June/000811.html"
     },
     {
       "id": "msg-00db38e4144e",
@@ -47,11 +49,12 @@
       "references": [
         "<1781300216.20655.1655217107907@office.mailbox.org>"
       ],
-      "body_plain": "On Tue, 14 Jun 2022 at 16:33, <tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n> I'm trying to run rstudio server in a fedora 36 toolbox. I run the following commands:\n>\n> [toolbox]$ sudo dnf install rstudio-server\n> [toolbox]$ rserver --server-daemonize=0 --auth-none=1 --server-user=$(whoami)\n>\n> but this errors with the following:\n>\n> 2022-06-14T14:29:55.478369Z [rserver] ERROR system error 13 (Permission denied) [path: /var/run/rstudio-server, target-dir: ]; OCCURRED AT rstudio::core::Error rstudio::core::FilePath::createDirectory(const std::string&) const src/cpp/shared_core/FilePath.cpp:842; LOGGED FROM: int main(int, char* const*) src/cpp/server/ServerMain.cpp:626\n>\n> Do the instructions need updating or am I missing something obvious?\n\nThis is kind-of-a hack that used to work, but apparently there are new\nconstraints now, and more options are required to circumvent the\ndefault directories. We would need to figure out the new options and\nmaybe provide a wrapper if this becomes too complicated.\n\n-- \nI?aki ?car",
+      "body_plain": "On Tue, 14 Jun 2022 at 16:33, <tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n> I'm trying to run rstudio server in a fedora 36 toolbox. I run the following commands:\n>\n> [toolbox]$ sudo dnf install rstudio-server\n> [toolbox]$ rserver --server-daemonize=0 --auth-none=1 --server-user=$(whoami)\n>\n> but this errors with the following:\n>\n> 2022-06-14T14:29:55.478369Z [rserver] ERROR system error 13 (Permission denied) [path: /var/run/rstudio-server, target-dir: ]; OCCURRED AT rstudio::core::Error rstudio::core::FilePath::createDirectory(const std::string&) const src/cpp/shared_core/FilePath.cpp:842; LOGGED FROM: int main(int, char* const*) src/cpp/server/ServerMain.cpp:626\n>\n> Do the instructions need updating or am I missing something obvious?\n\nThis is kind-of-a hack that used to work, but apparently there are new\nconstraints now, and more options are required to circumvent the\ndefault directories. We would need to figure out the new options and\nmaybe provide a wrapper if this becomes too complicated.\n\n-- \nIñaki Úcar",
       "body_snippet": "On Tue, 14 Jun 2022 at 16:33, <tim.taylor at hiddenelephants.co.uk> wrote:\n>\n> Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n> I'm tryi",
       "thread_id": "thread-0afdc1d63270",
       "thread_depth": 1,
-      "month": "2022-06"
+      "month": "2022-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-June/000812.html"
     },
     {
       "id": "msg-54b0b8a0448a",
@@ -66,11 +69,12 @@
         "<1781300216.20655.1655217107907@office.mailbox.org>",
         "<CALEXWq25zNSKSm45W3t+ePg=Rq0NG0LNb5mLQ2Kgy3b1Rfxe5A@mail.gmail.com>"
       ],
-      "body_plain": "It seems that running the following once:\n\n[toolbox]$ sudo rserver --server-user=$(whoami) --verify-installation=1\n\ncreates the necessary files, and then you can just run:\n\n[toolbox]$ rserver --server-user=$(whoami)\n\nHope it helps.\nI?aki\n\nOn Tue, 14 Jun 2022 at 18:44, I?aki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Tue, 14 Jun 2022 at 16:33, <tim.taylor at hiddenelephants.co.uk> wrote:\n> >\n> > Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n> > I'm trying to run rstudio server in a fedora 36 toolbox. I run the following commands:\n> >\n> > [toolbox]$ sudo dnf install rstudio-server\n> > [toolbox]$ rserver --server-daemonize=0 --auth-none=1 --server-user=$(whoami)\n> >\n> > but this errors with the following:\n> >\n> > 2022-06-14T14:29:55.478369Z [rserver] ERROR system error 13 (Permission denied) [path: /var/run/rstudio-server, target-dir: ]; OCCURRED AT rstudio::core::Error rstudio::core::FilePath::createDirectory(const std::string&) const src/cpp/shared_core/FilePath.cpp:842; LOGGED FROM: int main(int, char* const*) src/cpp/server/ServerMain.cpp:626\n> >\n> > Do the instructions need updating or am I missing something obvious?\n>\n> This is kind-of-a hack that used to work, but apparently there are new\n> constraints now, and more options are required to circumvent the\n> default directories. We would need to figure out the new options and\n> maybe provide a wrapper if this becomes too complicated.\n>\n> --\n> I?aki ?car\n\n\n\n-- \nI?aki ?car",
+      "body_plain": "It seems that running the following once:\n\n[toolbox]$ sudo rserver --server-user=$(whoami) --verify-installation=1\n\ncreates the necessary files, and then you can just run:\n\n[toolbox]$ rserver --server-user=$(whoami)\n\nHope it helps.\nIñaki\n\nOn Tue, 14 Jun 2022 at 18:44, Iñaki Ucar <iucar at fedoraproject.org> wrote:\n>\n> On Tue, 14 Jun 2022 at 16:33, <tim.taylor at hiddenelephants.co.uk> wrote:\n> >\n> > Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n> > I'm trying to run rstudio server in a fedora 36 toolbox. I run the following commands:\n> >\n> > [toolbox]$ sudo dnf install rstudio-server\n> > [toolbox]$ rserver --server-daemonize=0 --auth-none=1 --server-user=$(whoami)\n> >\n> > but this errors with the following:\n> >\n> > 2022-06-14T14:29:55.478369Z [rserver] ERROR system error 13 (Permission denied) [path: /var/run/rstudio-server, target-dir: ]; OCCURRED AT rstudio::core::Error rstudio::core::FilePath::createDirectory(const std::string&) const src/cpp/shared_core/FilePath.cpp:842; LOGGED FROM: int main(int, char* const*) src/cpp/server/ServerMain.cpp:626\n> >\n> > Do the instructions need updating or am I missing something obvious?\n>\n> This is kind-of-a hack that used to work, but apparently there are new\n> constraints now, and more options are required to circumvent the\n> default directories. We would need to figure out the new options and\n> maybe provide a wrapper if this becomes too complicated.\n>\n> --\n> Iñaki Úcar\n\n\n\n-- \nIñaki Úcar",
       "body_snippet": "It seems that running the following once:\n\n[toolbox]$ sudo rserver --server-user=$(whoami) --verify-installation=1\n\ncreates the necessary files, and then you can just run:\n\n[toolbox]$ rserver --server",
       "thread_id": "thread-0afdc1d63270",
       "thread_depth": 2,
-      "month": "2022-06"
+      "month": "2022-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-June/000813.html"
     },
     {
       "id": "msg-08f67d7fbdd5",
@@ -86,11 +90,12 @@
         "<CALEXWq25zNSKSm45W3t+ePg=Rq0NG0LNb5mLQ2Kgy3b1Rfxe5A@mail.gmail.com>",
         "<CALEXWq3SRFFY0RjxfsEj0aZ4csrAyo34gaK6AzDEtiO0d8e8ag@mail.gmail.com>"
       ],
-      "body_plain": "Excellent - That worked. Many thanks as always!\n\nTim\n> On 14/06/2022 19:40 BST I?aki Ucar <iucar at fedoraproject.org> wrote:\n> \n>  \n> It seems that running the following once:\n> \n> [toolbox]$ sudo rserver --server-user=$(whoami) --verify-installation=1\n> \n> creates the necessary files, and then you can just run:\n> \n> [toolbox]$ rserver --server-user=$(whoami)\n> \n> Hope it helps.\n> I?aki\n> \n> On Tue, 14 Jun 2022 at 18:44, I?aki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > On Tue, 14 Jun 2022 at 16:33, <tim.taylor at hiddenelephants.co.uk> wrote:\n> > >\n> > > Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n> > > I'm trying to run rstudio server in a fedora 36 toolbox. I run the following commands:\n> > >\n> > > [toolbox]$ sudo dnf install rstudio-server\n> > > [toolbox]$ rserver --server-daemonize=0 --auth-none=1 --server-user=$(whoami)\n> > >\n> > > but this errors with the following:\n> > >\n> > > 2022-06-14T14:29:55.478369Z [rserver] ERROR system error 13 (Permission denied) [path: /var/run/rstudio-server, target-dir: ]; OCCURRED AT rstudio::core::Error rstudio::core::FilePath::createDirectory(const std::string&) const src/cpp/shared_core/FilePath.cpp:842; LOGGED FROM: int main(int, char* const*) src/cpp/server/ServerMain.cpp:626\n> > >\n> > > Do the instructions need updating or am I missing something obvious?\n> >\n> > This is kind-of-a hack that used to work, but apparently there are new\n> > constraints now, and more options are required to circumvent the\n> > default directories. We would need to figure out the new options and\n> > maybe provide a wrapper if this becomes too complicated.\n> >\n> > --\n> > I?aki ?car\n> \n> \n> \n> -- \n> I?aki ?car",
-      "body_snippet": "Excellent - That worked. Many thanks as always!\n\nTim\n> On 14/06/2022 19:40 BST I?aki Ucar <iucar at fedoraproject.org> wrote:\n> \n>  \n> It seems that running the following once:\n> \n> [toolbox]$ sudo rs",
+      "body_plain": "Excellent - That worked. Many thanks as always!\n\nTim\n> On 14/06/2022 19:40 BST Iñaki Ucar <iucar at fedoraproject.org> wrote:\n> \n>  \n> It seems that running the following once:\n> \n> [toolbox]$ sudo rserver --server-user=$(whoami) --verify-installation=1\n> \n> creates the necessary files, and then you can just run:\n> \n> [toolbox]$ rserver --server-user=$(whoami)\n> \n> Hope it helps.\n> Iñaki\n> \n> On Tue, 14 Jun 2022 at 18:44, Iñaki Ucar <iucar at fedoraproject.org> wrote:\n> >\n> > On Tue, 14 Jun 2022 at 16:33, <tim.taylor at hiddenelephants.co.uk> wrote:\n> > >\n> > > Following the instructions at https://cran.r-project.org/bin/linux/fedora/#toolbox-container-based-development\n> > > I'm trying to run rstudio server in a fedora 36 toolbox. I run the following commands:\n> > >\n> > > [toolbox]$ sudo dnf install rstudio-server\n> > > [toolbox]$ rserver --server-daemonize=0 --auth-none=1 --server-user=$(whoami)\n> > >\n> > > but this errors with the following:\n> > >\n> > > 2022-06-14T14:29:55.478369Z [rserver] ERROR system error 13 (Permission denied) [path: /var/run/rstudio-server, target-dir: ]; OCCURRED AT rstudio::core::Error rstudio::core::FilePath::createDirectory(const std::string&) const src/cpp/shared_core/FilePath.cpp:842; LOGGED FROM: int main(int, char* const*) src/cpp/server/ServerMain.cpp:626\n> > >\n> > > Do the instructions need updating or am I missing something obvious?\n> >\n> > This is kind-of-a hack that used to work, but apparently there are new\n> > constraints now, and more options are required to circumvent the\n> > default directories. We would need to figure out the new options and\n> > maybe provide a wrapper if this becomes too complicated.\n> >\n> > --\n> > Iñaki Úcar\n> \n> \n> \n> -- \n> Iñaki Úcar",
+      "body_snippet": "Excellent - That worked. Many thanks as always!\n\nTim\n> On 14/06/2022 19:40 BST Iñaki Ucar <iucar at fedoraproject.org> wrote:\n> \n>  \n> It seems that running the following once:\n> \n> [toolbox]$ sudo rs",
       "thread_id": "thread-0afdc1d63270",
       "thread_depth": 3,
-      "month": "2022-06"
+      "month": "2022-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-June/000814.html"
     }
   ],
   "threads": [

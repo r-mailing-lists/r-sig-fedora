@@ -18,6 +18,7 @@
       "thread_id": "thread-153e4fbf885e",
       "thread_depth": 0,
       "month": "2008-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-December/000056.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20081206/3ac42a80/attachment.pl"
       ]
@@ -38,7 +39,8 @@
       "body_snippet": "on 12/06/2008 05:00 PM Sakda Chaiworawitkul wrote:\n> Hi,\n> \n> I can't find any forum that's directly applicable to opensuse. My\n> apology if I post on a wrong mailing list. But I really like R and\n> w",
       "thread_id": "thread-153e4fbf885e",
       "thread_depth": 1,
-      "month": "2008-12"
+      "month": "2008-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-December/000057.html"
     },
     {
       "id": "msg-4e8f276c9238",
@@ -54,7 +56,8 @@
       "body_snippet": "R 2.8.1 is packaged up and queued up for testing. Please test this out:\n\nFedora 9:\nhttps://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc9,R-2.8.1-1.fc9\nFedora 10:\nhttps://admin.fedoraproject.org/upda",
       "thread_id": "thread-4e8f276c9238",
       "thread_depth": 0,
-      "month": "2008-12"
+      "month": "2008-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-December/000058.html"
     },
     {
       "id": "msg-b9fc94e4b67d",
@@ -72,7 +75,8 @@
       "body_snippet": "Tom \"spot\" Callaway wrote:\n> R 2.8.1 is packaged up and queued up for testing. Please test this out:\n> \n> Fedora 9:\n> https://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc9,R-2.8.1-1.fc9\n> Fedora 10:",
       "thread_id": "thread-4e8f276c9238",
       "thread_depth": 1,
-      "month": "2008-12"
+      "month": "2008-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-December/000059.html"
     },
     {
       "id": "msg-68e3eff373c5",
@@ -91,7 +95,8 @@
       "body_snippet": "On Mon, 2008-12-22 at 22:50 +0100, Peter Dalgaard wrote:\n\n> Er, I don't think you can be sure that everyone knows the magic \n> incantations...\n> \n> Is this it?\n> \n>   yum --enablerepo=updates-testing-",
       "thread_id": "thread-4e8f276c9238",
       "thread_depth": 2,
-      "month": "2008-12"
+      "month": "2008-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-December/000060.html"
     },
     {
       "id": "msg-d44be141b2b9",
@@ -107,7 +112,8 @@
       "body_snippet": "Has anyone installed R on an Acer Aspire One with the OS of Linpus Linux Lite?  I'd like to know if it's R would work on the machine before getting it.  Thanks.\n\nTim\n\nPS: please direct a copy of the a",
       "thread_id": "thread-d44be141b2b9",
       "thread_depth": 0,
-      "month": "2008-12"
+      "month": "2008-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2008-December/000061.html"
     }
   ],
   "threads": [

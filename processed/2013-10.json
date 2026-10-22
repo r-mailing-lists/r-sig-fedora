@@ -17,7 +17,8 @@
       "body_snippet": "I thought that Fedora 18 and Fedora 19 included packages for R.\nBut now I find that yum reports nothing available:\n\n# yum install R-devel R\nLoaded plugins: auto-update-debuginfo, langpacks, refresh-pa",
       "thread_id": "thread-e230b6b32be5",
       "thread_depth": 0,
-      "month": "2013-10"
+      "month": "2013-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-October/000307.html"
     },
     {
       "id": "msg-00603fdfd463",
@@ -35,7 +36,8 @@
       "body_snippet": "In Fedora, the R packages are listed as R-core and R-core-devel.  Try that.\n\nOn 10/18/2013 12:37 PM, Ed Avis wrote:\n> I thought that Fedora 18 and Fedora 19 included packages for R.\n> But now I find t",
       "thread_id": "thread-e230b6b32be5",
       "thread_depth": 1,
-      "month": "2013-10"
+      "month": "2013-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-October/000308.html"
     }
   ],
   "threads": [

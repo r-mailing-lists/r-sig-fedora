@@ -17,7 +17,8 @@
       "body_snippet": "Updated my R install on my GNU/Linux boxes (running CentOS 6.8) from \n3.2.x -> 3.3.0, using latest from epel (i.e., not compiling from \nsource), and while said upgrade seemed to go fine, am now (post-",
       "thread_id": "thread-67c81a64cdeb",
       "thread_depth": 0,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000452.html"
     },
     {
       "id": "msg-4a09950f13c9",
@@ -35,7 +36,8 @@
       "body_snippet": "On 06/04/2016 12:10 PM, Evan Cooch wrote:\n> Updated my R install on my GNU/Linux boxes (running CentOS 6.8) from\n> 3.2.x -> 3.3.0, using latest from epel (i.e., not compiling from\n> source), and while",
       "thread_id": "thread-67c81a64cdeb",
       "thread_depth": 1,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000453.html"
     },
     {
       "id": "msg-cb68ce387881",
@@ -54,7 +56,8 @@
       "body_snippet": "Thanks very much. I had more or less reached the same conclusions -- I \nwas just about to rebuild RPMs for source for zlib, etc, and update \nthose, and try again, but I've had mixed success in doing t",
       "thread_id": "thread-67c81a64cdeb",
       "thread_depth": 2,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000454.html"
     },
     {
       "id": "msg-7633df1879cf",
@@ -74,7 +77,8 @@
       "body_snippet": "On 06/06/2016 10:00 AM, Evan Cooch wrote:\n> Thanks very much. I had more or less reached the same conclusions -- I\n> was just about to rebuild RPMs for source for zlib, etc, and update\n> those, and tr",
       "thread_id": "thread-67c81a64cdeb",
       "thread_depth": 3,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000455.html"
     },
     {
       "id": "msg-4b5c4629a68a",
@@ -95,7 +99,8 @@
       "body_snippet": "Understood. Thanks for the feedback.\n\nOn 6/6/2016 10:04 AM, Tom Callaway wrote:\n> On 06/06/2016 10:00 AM, Evan Cooch wrote:\n>> Thanks very much. I had more or less reached the same conclusions -- I\n>>",
       "thread_id": "thread-67c81a64cdeb",
       "thread_depth": 4,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000456.html"
     },
     {
       "id": "msg-a9ed0f7133f3",
@@ -111,7 +116,8 @@
       "body_snippet": "Apologies if this email is a top post. I'm not sure how to reply to a\nthread if I'm not subscribed.\n\nWe recently encountered the same issue that Evan reported on 6/4 and I can\nconfirm that updated to ",
       "thread_id": "thread-a9ed0f7133f3",
       "thread_depth": 0,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000457.html"
     },
     {
       "id": "msg-8e59f8cf0ed0",
@@ -129,7 +135,8 @@
       "body_snippet": "On 06/06/2016 05:04 PM, Brian Fallik wrote:\n> Apologies if this email is a top post. I'm not sure how to reply to a\n> thread if I'm not subscribed.\n> \n> We recently encountered the same issue that Eva",
       "thread_id": "thread-a9ed0f7133f3",
       "thread_depth": 1,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000458.html"
     },
     {
       "id": "msg-033877377b30",
@@ -148,7 +155,8 @@
       "body_snippet": "On Tue, Jun 7, 2016 at 11:46 AM, Tom Callaway <tcallawa at redhat.com> wrote:\n\n> On 06/06/2016 05:04 PM, Brian Fallik wrote:\n> > Apologies if this email is a top post. I'm not sure how to reply to a\n>",
       "thread_id": "thread-a9ed0f7133f3",
       "thread_depth": 2,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000459.html"
     },
     {
       "id": "msg-1b416d6b88a3",
@@ -167,7 +175,8 @@
       "body_snippet": "On 6/7/2016 11:46 AM, Tom Callaway wrote:\n> On 06/06/2016 05:04 PM, Brian Fallik wrote:\n>> Apologies if this email is a top post. I'm not sure how to reply to a\n>> thread if I'm not subscribed.\n>>\n>> ",
       "thread_id": "thread-a9ed0f7133f3",
       "thread_depth": 2,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000460.html"
     },
     {
       "id": "msg-337debcb4371",
@@ -183,7 +192,8 @@
       "body_snippet": "*All boxes are EL6 x86_64, fully up to date*\n\n\nUpdated to R 3.3.0-3 recently, however just yesterday I tried to update a couple packages for a user and noticed almost nothing would build. I was (am) g",
       "thread_id": "thread-337debcb4371",
       "thread_depth": 0,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000461.html"
     },
     {
       "id": "msg-396c1694a591",
@@ -203,7 +213,8 @@
       "body_snippet": "Hi Tom,\n\nI'm seeing another similar build failure with the recent 3.3.0-5 and I'm a\nbit stumped about what's going on.\n\nOn a fresh VM, after installing 3.3.0-5 and then running:\n  install.packages(c(\"",
       "thread_id": "thread-a9ed0f7133f3",
       "thread_depth": 3,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000462.html"
     },
     {
       "id": "msg-4e326611e230",
@@ -221,7 +232,8 @@
       "body_snippet": "On 6/8/2016 12:47 PM, TRISTAN J PAUTSCH wrote:\n> *All boxes are EL6 x86_64, fully up to date*\n>\n>\n> Updated to R 3.3.0-3 recently, however just yesterday I tried to update a couple packages for a user",
       "thread_id": "thread-337debcb4371",
       "thread_depth": 1,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000463.html"
     },
     {
       "id": "msg-eef4155bba35",
@@ -242,7 +254,8 @@
       "body_snippet": "Brian Fallik <brian at ...> writes:\n\n> \n> Hi Tom,\n> \n> I'm seeing another similar build failure with the recent 3.3.0-5 and I'm a\n> bit stumped about what's going on.\n> \n> On a fresh VM, after install",
       "thread_id": "thread-a9ed0f7133f3",
       "thread_depth": 4,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000464.html"
     },
     {
       "id": "msg-138f05c15bd4",
@@ -258,7 +271,8 @@
       "body_snippet": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20160609/f0591918/attachment.html>",
       "thread_id": "thread-138f05c15bd4",
       "thread_depth": 0,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000465.html"
     },
     {
       "id": "msg-9081a8c741ee",
@@ -274,7 +288,8 @@
       "body_snippet": "I know, I know, you've heard this song before... ;)\n\nEL5: https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-09c8007e64\n\nEL6: https://bodhi.fedoraproject.org/updates/FEDORA-EPEL-2016-0a9e4df655\n",
       "thread_id": "thread-9081a8c741ee",
       "thread_depth": 0,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000466.html"
     },
     {
       "id": "msg-db4302a3a1b5",
@@ -292,7 +307,8 @@
       "body_snippet": "I just tested 3.3.0-8 and it seems to fix our build failure. I gave\npositive karma. Thanks for the quick turnaround.\n\nbrian\n\n\nOn Thu, Jun 9, 2016 at 12:05 PM, Tom Callaway <tcallawa at redhat.com> wro",
       "thread_id": "thread-9081a8c741ee",
       "thread_depth": 1,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000467.html"
     },
     {
       "id": "msg-455b8c00b38b",
@@ -308,7 +324,8 @@
       "body_snippet": "> Please go download -8 and test it. \n\nSorry to be ignorant but how do I do that in EL6?\n\nThanks!",
       "thread_id": "thread-455b8c00b38b",
       "thread_depth": 0,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000468.html"
     },
     {
       "id": "msg-aced53172824",
@@ -326,7 +343,8 @@
       "body_snippet": "Hi,\n\nOn Fri, Jun 10, 2016 at 12:28 PM, Rob Steele <robsteele at yahoo.com> wrote:\n\n> > Please go download -8 and test it.\n>\n> Sorry to be ignorant but how do I do that in EL6?\n>\n\nYou can download the ",
       "thread_id": "thread-455b8c00b38b",
       "thread_depth": 1,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000469.html"
     },
     {
       "id": "msg-64014ef14030",
@@ -341,11 +359,12 @@
         "<D54A386C-0A0E-4C60-B75B-5F43B8C036B8@yahoo.com>",
         "<CAAfzxsC3gmsbQFyNPfoO32pK4EXzucea4yAMN9Sc3=3Do9xPEA@mail.gmail.com>"
       ],
-      "body_plain": "Worked?thanks!\n\n> On Jun 10, 2016, at 1:54 PM, Brian Fallik <bfallik at clypd.com> wrote:\n> \n> Hi,\n> \n> On Fri, Jun 10, 2016 at 12:28 PM, Rob Steele <robsteele at yahoo.com <mailto:robsteele at yahoo.com>> wrote:\n> > Please go download -8 and test it.\n> \n> Sorry to be ignorant but how do I do that in EL6?\n> \n> You can download the RPMs here:\n>   http://koji.fedoraproject.org/koji/buildinfo?buildID=771672 <http://koji.fedoraproject.org/koji/buildinfo?buildID=771672>\n>  \n> \n> Thanks!\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org <mailto:R-SIG-Fedora at r-project.org>\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora <https://stat.ethz.ch/mailman/listinfo/r-sig-fedora>\n> \n\n\n\t[[alternative HTML version deleted]]",
-      "body_snippet": "Worked?thanks!\n\n> On Jun 10, 2016, at 1:54 PM, Brian Fallik <bfallik at clypd.com> wrote:\n> \n> Hi,\n> \n> On Fri, Jun 10, 2016 at 12:28 PM, Rob Steele <robsteele at yahoo.com <mailto:robsteele at yahoo.",
+      "body_plain": "Worked—thanks!\n\n> On Jun 10, 2016, at 1:54 PM, Brian Fallik <bfallik at clypd.com> wrote:\n> \n> Hi,\n> \n> On Fri, Jun 10, 2016 at 12:28 PM, Rob Steele <robsteele at yahoo.com <mailto:robsteele at yahoo.com>> wrote:\n> > Please go download -8 and test it.\n> \n> Sorry to be ignorant but how do I do that in EL6?\n> \n> You can download the RPMs here:\n>   http://koji.fedoraproject.org/koji/buildinfo?buildID=771672 <http://koji.fedoraproject.org/koji/buildinfo?buildID=771672>\n>  \n> \n> Thanks!\n> \n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org <mailto:R-SIG-Fedora at r-project.org>\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora <https://stat.ethz.ch/mailman/listinfo/r-sig-fedora>\n> \n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Worked—thanks!\n\n> On Jun 10, 2016, at 1:54 PM, Brian Fallik <bfallik at clypd.com> wrote:\n> \n> Hi,\n> \n> On Fri, Jun 10, 2016 at 12:28 PM, Rob Steele <robsteele at yahoo.com <mailto:robsteele at yahoo.",
       "thread_id": "thread-455b8c00b38b",
       "thread_depth": 2,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000470.html"
     },
     {
       "id": "msg-9254c193f567",
@@ -361,7 +380,8 @@
       "body_snippet": "Hello,\nI have installed R on redhat6.\nI downloadzdbthe tar from rcran. Andnthen untar it and did:\n\n./configure --enable-R-shlib --with-readline=no --with-x=no\n\nMake\nMake install\n\nAnd added the R_home ",
       "thread_id": "thread-9254c193f567",
       "thread_depth": 0,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000471.html"
     },
     {
       "id": "msg-e43153b6d762",
@@ -377,7 +397,8 @@
       "body_snippet": "Dear All,\n\nI am writing a project that will involve me writing code in R and php. i\nwould appreciate if someone guide me on how to integrate R to php\ni wish to write an upload system in php that R wil",
       "thread_id": "thread-e43153b6d762",
       "thread_depth": 0,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000472.html"
     },
     {
       "id": "msg-e111175e05bf",
@@ -395,7 +416,8 @@
       "body_snippet": "You might be able to do something with Rapache / openCPU.\n\nOn Wed, Jun 29, 2016 at 5:26 PM Jules Bashizi <jbi.octave at gmail.com> wrote:\n\n> Dear All,\n>\n> I am writing a project that will involve me w",
       "thread_id": "thread-e43153b6d762",
       "thread_depth": 1,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000473.html"
     },
     {
       "id": "msg-d4801620dd64",
@@ -415,7 +437,8 @@
       "body_snippet": "thanks Edward  for the reply . i installed rapache it runs R on apache but\nfor strange reason can not integrate R into php .\nI will be trying opencpu then. but any other solution is most welcomed like",
       "thread_id": "thread-d4801620dd64",
       "thread_depth": 0,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000474.html"
     },
     {
       "id": "msg-f92346058162",
@@ -436,7 +459,8 @@
       "body_snippet": "This doesn't answer your question, but are you sure you don't want to use shiny?\nhttp://shiny.rstudio.com/\nThis would obviate the need for PHP, hence, the need for R-PHP integration.\n\n-- Mike\n      Fr",
       "thread_id": "thread-d4801620dd64",
       "thread_depth": 1,
-      "month": "2016-06"
+      "month": "2016-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-June/000475.html"
     }
   ],
   "threads": [

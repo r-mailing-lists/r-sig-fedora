@@ -17,7 +17,8 @@
       "body_snippet": "A few months ago,  Eric asked about this for CentOS 6:\n https://stat.ethz.ch/pipermail/r-sig-fedora/2014-April/000310.html\n\nand was kindly helped by Marc Schwartz.\nOTOH, we are running Fedora 19,  cur",
       "thread_id": "thread-b70bf4636dac",
       "thread_depth": 0,
-      "month": "2014-10"
+      "month": "2014-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-October/000345.html"
     },
     {
       "id": "msg-d2f126e39a92",
@@ -35,7 +36,8 @@
       "body_snippet": "The primary source of RPMS for JAGS is the repository created by Lars Vilhuber:\nhttp://download.opensuse.org/repositories/home:/cornell_vrdc/\n\nIt is true that Lars does not create RPMs for Fedora, pre",
       "thread_id": "thread-b70bf4636dac",
       "thread_depth": 1,
-      "month": "2014-10"
+      "month": "2014-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-October/000346.html"
     },
     {
       "id": "msg-069c8293eef4",
@@ -54,7 +56,8 @@
       "body_snippet": "On Mon, Oct 6, 2014 at 8:13 PM, Martyn Plummer <plummerm at iarc.fr> wrote:\n> The primary source of RPMS for JAGS is the repository created by Lars Vilhuber:\n> http://download.opensuse.org/repositorie",
       "thread_id": "thread-b70bf4636dac",
       "thread_depth": 2,
-      "month": "2014-10"
+      "month": "2014-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-October/000347.html"
     },
     {
       "id": "msg-b05848296ced",
@@ -74,7 +77,8 @@
       "body_snippet": "Thanks Jeroen. Lars uses OBS as well, so he just added Fedora to his\nlist of repositories. Fedora RPMs are now available at\n\nhttp://download.opensuse.org/repositories/home:/cornell_vrdc/Fedora_20/\n\nMa",
       "thread_id": "thread-b70bf4636dac",
       "thread_depth": 3,
-      "month": "2014-10"
+      "month": "2014-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-October/000348.html"
     },
     {
       "id": "msg-b1ef01084477",
@@ -95,7 +99,8 @@
       "body_snippet": ">>>>> Martyn Plummer <plummerm at iarc.fr>\n>>>>>     on Tue, 7 Oct 2014 16:46:17 +0000 writes:\n\n    > Thanks Jeroen. Lars uses OBS as well, so he just added\n    > Fedora to his list of repositories. F",
       "thread_id": "thread-b70bf4636dac",
       "thread_depth": 4,
-      "month": "2014-10"
+      "month": "2014-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2014-October/000349.html"
     }
   ],
   "threads": [

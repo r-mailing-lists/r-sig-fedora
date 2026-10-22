@@ -17,7 +17,8 @@
       "body_snippet": "So with a major new version of R coming along, it seems like a\nreasonable point at which to try to pick up the \"Let's make a CRAN repo\nfor the red-hat-like folks!\" task again.\n\nThe last time I tried t",
       "thread_id": "thread-342ad1eb6896",
       "thread_depth": 0,
-      "month": "2013-03"
+      "month": "2013-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-March/000291.html"
     },
     {
       "id": "msg-ce980407c6f8",
@@ -36,6 +37,7 @@
       "thread_id": "thread-342ad1eb6896",
       "thread_depth": 1,
       "month": "2013-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-March/000292.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20130328/94e8b2fa/attachment.pl"
       ]
@@ -57,7 +59,8 @@
       "body_snippet": "On 03/28/2013 04:25 PM, Jos? Matos wrote:\n> On Wednesday 27 March 2013 16:56:25 Allen S. Rout wrote:\n>>\n>> So with a major new version of R coming along, it seems like a\n>> reasonable point at which t",
       "thread_id": "thread-342ad1eb6896",
       "thread_depth": 2,
-      "month": "2013-03"
+      "month": "2013-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2013-March/000293.html"
     }
   ],
   "threads": [

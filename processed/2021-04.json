@@ -17,7 +17,8 @@
       "body_snippet": "Hello, I am contacting you because it seems that there is a problem with your tutorial to install R LIEN, I use a Centos7 server, I have epel and installed R which works, however I cannot install cert",
       "thread_id": "thread-23e19c1ade64",
       "thread_depth": 0,
-      "month": "2021-04"
+      "month": "2021-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2021-April/000734.html"
     },
     {
       "id": "msg-691d98b3403d",
@@ -31,11 +32,12 @@
       "references": [
         "<PA4PR10MB449453435335FDF03E0BB993A4489@PA4PR10MB4494.EURPRD10.PROD.OUTLOOK.COM>"
       ],
-      "body_plain": "On Tue, 20 Apr 2021 at 13:29, Bilal Abd <bilalabd at outlook.fr> wrote:\n>\n> Hello, I am contacting you because it seems that there is a problem with your tutorial to install R LIEN, I use a Centos7 server, I have epel and installed R which works, however I cannot install certain libraries which depend on packages like \"curl\", \"TTR\" etc ..\n> These libraries are available according to your site with the command \"dnf repoquery --repo = fedora-source R- *\" except that one indicates to me \"Error: Unknown repo : fedora-source \"I did a lot of research on the internet and this repo does not seem to exist, the only site where I find \"fedora-source\" is yours ... I tried to replace \"fedora- source\" by \"fedora\" or \"fedora-packager\"etc ... without success ...I also installed curl and Rcurl from the command line (yum install curl etc ...) but that doesn't change anything and curl is just an example of the bigger problem.\n\nThat command is for Fedora. Try \"repoquery R-*\" on CentOS 7. You'll\nsee that there is a very limited number of packages included in EPEL\n7. Also, the R version is outdated, as it is the toolchain available\nthere, so you won't be able to install many packages from CRAN. My\nrecommendation is to upgrade to CentOS 8.\n\n-- \nI?aki ?car",
+      "body_plain": "On Tue, 20 Apr 2021 at 13:29, Bilal Abd <bilalabd at outlook.fr> wrote:\n>\n> Hello, I am contacting you because it seems that there is a problem with your tutorial to install R LIEN, I use a Centos7 server, I have epel and installed R which works, however I cannot install certain libraries which depend on packages like \"curl\", \"TTR\" etc ..\n> These libraries are available according to your site with the command \"dnf repoquery --repo = fedora-source R- *\" except that one indicates to me \"Error: Unknown repo : fedora-source \"I did a lot of research on the internet and this repo does not seem to exist, the only site where I find \"fedora-source\" is yours ... I tried to replace \"fedora- source\" by \"fedora\" or \"fedora-packager\"etc ... without success ...I also installed curl and Rcurl from the command line (yum install curl etc ...) but that doesn't change anything and curl is just an example of the bigger problem.\n\nThat command is for Fedora. Try \"repoquery R-*\" on CentOS 7. You'll\nsee that there is a very limited number of packages included in EPEL\n7. Also, the R version is outdated, as it is the toolchain available\nthere, so you won't be able to install many packages from CRAN. My\nrecommendation is to upgrade to CentOS 8.\n\n-- \nIñaki Úcar",
       "body_snippet": "On Tue, 20 Apr 2021 at 13:29, Bilal Abd <bilalabd at outlook.fr> wrote:\n>\n> Hello, I am contacting you because it seems that there is a problem with your tutorial to install R LIEN, I use a Centos7 se",
       "thread_id": "thread-23e19c1ade64",
       "thread_depth": 1,
-      "month": "2021-04"
+      "month": "2021-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2021-April/000735.html"
     }
   ],
   "threads": [

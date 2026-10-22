@@ -17,7 +17,8 @@
       "body_snippet": "I wonder whether it may potentially be worth putting a small note about running rstudio-desktop under Xorg rather than Wayland in the CRAN projects notes [1]? In Fedora 36 Beta under Wayland (and with",
       "thread_id": "thread-749387171aea",
       "thread_depth": 0,
-      "month": "2022-04"
+      "month": "2022-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-April/000807.html"
     },
     {
       "id": "msg-3c75d9f84415",
@@ -31,11 +32,12 @@
       "references": [
         "<217835706.557902.1649060245073@office.mailbox.org>"
       ],
-      "body_plain": "On Mon, 4 Apr 2022 at 10:18, <tim.taylor at hiddenelephants.co.uk> wrote:\n>\n>  I wonder whether it may potentially be worth putting a small note about running rstudio-desktop under Xorg rather than Wayland in the CRAN projects notes [1]? In Fedora 36 Beta under Wayland (and with the Nvidia driver) RStudio quickly becomes sluggish/non-responsive for me. I guess this could improve prior to release but thought I'd flag now in case useful.\n\nThanks for the report. Which version? Is this under GNOME or KDE?\n(Maybe other?) There seems to be some GNOME regression that is being\ndiscussed in the fedora-devel mailing list. It could be related, or it\ncould be related to the NVIDIA driver. We ship the rstudio.desktop\nfile with \"Exec=env QT_QPA_PLATFORM=xcb rstudio %F\". So if you launch\nRStudio from your desktop menu, that should help under Wayland, in\ntheory. I'll try to test this when I find some time.\n\nI?aki\n\n>\n>  Tim\n>\n>  [1] https://cran.r-project.org/bin/linux/fedora/\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\n--\nI?aki ?car",
+      "body_plain": "On Mon, 4 Apr 2022 at 10:18, <tim.taylor at hiddenelephants.co.uk> wrote:\n>\n>  I wonder whether it may potentially be worth putting a small note about running rstudio-desktop under Xorg rather than Wayland in the CRAN projects notes [1]? In Fedora 36 Beta under Wayland (and with the Nvidia driver) RStudio quickly becomes sluggish/non-responsive for me. I guess this could improve prior to release but thought I'd flag now in case useful.\n\nThanks for the report. Which version? Is this under GNOME or KDE?\n(Maybe other?) There seems to be some GNOME regression that is being\ndiscussed in the fedora-devel mailing list. It could be related, or it\ncould be related to the NVIDIA driver. We ship the rstudio.desktop\nfile with \"Exec=env QT_QPA_PLATFORM=xcb rstudio %F\". So if you launch\nRStudio from your desktop menu, that should help under Wayland, in\ntheory. I'll try to test this when I find some time.\n\nIñaki\n\n>\n>  Tim\n>\n>  [1] https://cran.r-project.org/bin/linux/fedora/\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Fedora mailing list\n> R-SIG-Fedora at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n\n\n\n--\nIñaki Úcar",
       "body_snippet": "On Mon, 4 Apr 2022 at 10:18, <tim.taylor at hiddenelephants.co.uk> wrote:\n>\n>  I wonder whether it may potentially be worth putting a small note about running rstudio-desktop under Xorg rather than Wa",
       "thread_id": "thread-749387171aea",
       "thread_depth": 1,
-      "month": "2022-04"
+      "month": "2022-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-April/000808.html"
     },
     {
       "id": "msg-aaa693254078",
@@ -50,11 +52,12 @@
         "<217835706.557902.1649060245073@office.mailbox.org>",
         "<CALEXWq3d78t+-4pKORWYYLytza-QD-yHfp+YKfWf7_GrKH6BHQ@mail.gmail.com>"
       ],
-      "body_plain": "Using Gnome. Details below.\n\ngnome-desktop4.x86_64   42.0-1.fc36\nrstudio.x86_64          2022.02.1+461-1.fc36\nrstudio-desktop.x86_64  2022.02.1+461-1.fc36 \nNVIDIA Driver Version:  510.60.02\n\nI'll keep checking as things update over the next few days and let you know if it resolves itself:\n\nCheers\n\nTim\n\n> On 04/04/2022 13:43 I?aki Ucar <iucar at fedoraproject.org> wrote:\n> \n>  \n> On Mon, 4 Apr 2022 at 10:18, <tim.taylor at hiddenelephants.co.uk> wrote:\n> >\n> >  I wonder whether it may potentially be worth putting a small note about running rstudio-desktop under Xorg rather than Wayland in the CRAN projects notes [1]? In Fedora 36 Beta under Wayland (and with the Nvidia driver) RStudio quickly becomes sluggish/non-responsive for me. I guess this could improve prior to release but thought I'd flag now in case useful.\n> \n> Thanks for the report. Which version? Is this under GNOME or KDE?\n> (Maybe other?) There seems to be some GNOME regression that is being\n> discussed in the fedora-devel mailing list. It could be related, or it\n> could be related to the NVIDIA driver. We ship the rstudio.desktop\n> file with \"Exec=env QT_QPA_PLATFORM=xcb rstudio %F\". So if you launch\n> RStudio from your desktop menu, that should help under Wayland, in\n> theory. I'll try to test this when I find some time.\n> \n> I?aki\n> \n> >\n> >  Tim\n> >\n> >  [1] https://cran.r-project.org/bin/linux/fedora/\n> >         [[alternative HTML version deleted]]\n> >\n> > _______________________________________________\n> > R-SIG-Fedora mailing list\n> > R-SIG-Fedora at r-project.org\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> \n> \n> \n> --\n> I?aki ?car",
+      "body_plain": "Using Gnome. Details below.\n\ngnome-desktop4.x86_64   42.0-1.fc36\nrstudio.x86_64          2022.02.1+461-1.fc36\nrstudio-desktop.x86_64  2022.02.1+461-1.fc36 \nNVIDIA Driver Version:  510.60.02\n\nI'll keep checking as things update over the next few days and let you know if it resolves itself:\n\nCheers\n\nTim\n\n> On 04/04/2022 13:43 Iñaki Ucar <iucar at fedoraproject.org> wrote:\n> \n>  \n> On Mon, 4 Apr 2022 at 10:18, <tim.taylor at hiddenelephants.co.uk> wrote:\n> >\n> >  I wonder whether it may potentially be worth putting a small note about running rstudio-desktop under Xorg rather than Wayland in the CRAN projects notes [1]? In Fedora 36 Beta under Wayland (and with the Nvidia driver) RStudio quickly becomes sluggish/non-responsive for me. I guess this could improve prior to release but thought I'd flag now in case useful.\n> \n> Thanks for the report. Which version? Is this under GNOME or KDE?\n> (Maybe other?) There seems to be some GNOME regression that is being\n> discussed in the fedora-devel mailing list. It could be related, or it\n> could be related to the NVIDIA driver. We ship the rstudio.desktop\n> file with \"Exec=env QT_QPA_PLATFORM=xcb rstudio %F\". So if you launch\n> RStudio from your desktop menu, that should help under Wayland, in\n> theory. I'll try to test this when I find some time.\n> \n> Iñaki\n> \n> >\n> >  Tim\n> >\n> >  [1] https://cran.r-project.org/bin/linux/fedora/\n> >         [[alternative HTML version deleted]]\n> >\n> > _______________________________________________\n> > R-SIG-Fedora mailing list\n> > R-SIG-Fedora at r-project.org\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-fedora\n> \n> \n> \n> --\n> Iñaki Úcar",
       "body_snippet": "Using Gnome. Details below.\n\ngnome-desktop4.x86_64   42.0-1.fc36\nrstudio.x86_64          2022.02.1+461-1.fc36\nrstudio-desktop.x86_64  2022.02.1+461-1.fc36 \nNVIDIA Driver Version:  510.60.02\n\nI'll keep",
       "thread_id": "thread-749387171aea",
       "thread_depth": 2,
-      "month": "2022-04"
+      "month": "2022-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2022-April/000809.html"
     }
   ],
   "threads": [

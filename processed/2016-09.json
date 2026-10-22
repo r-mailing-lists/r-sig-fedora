@@ -17,7 +17,8 @@
       "body_snippet": "Hello.\n\nI have installed R with dnf.\n\nAlso I have installed gmp and gmp-devel with dnf (I think gmp was already\ninstalled).\n\nIn R I did\n\n> install.packages('Rmpfr')\n\nBut then I get\n\nconfigure: error: ",
       "thread_id": "thread-082465ff772e",
       "thread_depth": 0,
-      "month": "2016-09"
+      "month": "2016-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-September/000486.html"
     },
     {
       "id": "msg-ed67d1f312f5",
@@ -35,7 +36,8 @@
       "body_snippet": "It works for me. For more information you need to download the source\npackage and install via\n\ntar xfvz gmp_0.5-12.tar.gz?\nR CMD INSTALL gmp\n\nThen view the contents of gmp/config.log for a more detail",
       "thread_id": "thread-082465ff772e",
       "thread_depth": 1,
-      "month": "2016-09"
+      "month": "2016-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-September/000487.html"
     },
     {
       "id": "msg-428298fe28f9",
@@ -51,7 +53,8 @@
       "body_snippet": "Where are the R docs located on EL6? It seems neither R.home(\"doc\")\nnor Sys.getenv(\"R_DOC_DIR\") exists?",
       "thread_id": "thread-428298fe28f9",
       "thread_depth": 0,
-      "month": "2016-09"
+      "month": "2016-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-September/000488.html"
     },
     {
       "id": "msg-9e91d6828c1a",
@@ -69,7 +72,8 @@
       "body_snippet": "On 09/16/2016 10:28 AM, Jeroen Ooms wrote:\n> Where are the R docs located on EL6? It seems neither R.home(\"doc\")\n> nor Sys.getenv(\"R_DOC_DIR\") exists?\n\n/usr/share/doc/R-3.3.1\n\n~tom\n\n==\nRed Hat",
       "thread_id": "thread-428298fe28f9",
       "thread_depth": 1,
-      "month": "2016-09"
+      "month": "2016-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-September/000489.html"
     },
     {
       "id": "msg-18b255f57a6c",
@@ -88,7 +92,8 @@
       "body_snippet": "On Wed, Sep 21, 2016 at 7:39 PM, Tom Callaway <tcallawa at redhat.com> wrote:\n>\n> On 09/16/2016 10:28 AM, Jeroen Ooms wrote:\n> > Where are the R docs located on EL6? It seems neither R.home(\"doc\")\n> >",
       "thread_id": "thread-428298fe28f9",
       "thread_depth": 2,
-      "month": "2016-09"
+      "month": "2016-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-September/000490.html"
     },
     {
       "id": "msg-7c23130617c3",
@@ -108,7 +113,8 @@
       "body_snippet": "On Thu, 2016-09-22 at 17:55 +0200, Jeroen Ooms wrote:\n> On Wed, Sep 21, 2016 at 7:39 PM, Tom Callaway <tcallawa at redhat.com>\n> wrote:\n> > \n> > \n> > On 09/16/2016 10:28 AM, Jeroen Ooms wrote:\n> > > \n",
       "thread_id": "thread-428298fe28f9",
       "thread_depth": 3,
-      "month": "2016-09"
+      "month": "2016-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-September/000491.html"
     }
   ],
   "threads": [

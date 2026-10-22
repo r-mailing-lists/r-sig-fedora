@@ -17,7 +17,8 @@
       "body_snippet": "Hi, I'm trying to get the 'xts' library from CRAN packaged for Fedora 12, and\none of its dependencies is 'Hmisc'.  I have created a spec file for that using\nR2spec, but building it fails with somethin",
       "thread_id": "thread-81ca94d7c815",
       "thread_depth": 0,
-      "month": "2010-10"
+      "month": "2010-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-October/000151.html"
     },
     {
       "id": "msg-c0b9a0dc7592",
@@ -35,7 +36,8 @@
       "body_snippet": "Ed Avis <eda at ...> writes:\n\n>Error in parse_Rd(\"./man/rcspline.restate.Rd\", encoding = \"unknown\", ...) :\n>  Unexpected end of input (in \" quoted string opened at rcspline.restate.Rd:120\\\n>:39)\n>ERRO",
       "thread_id": "thread-81ca94d7c815",
       "thread_depth": 1,
-      "month": "2010-10"
+      "month": "2010-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2010-October/000152.html"
     }
   ],
   "threads": [

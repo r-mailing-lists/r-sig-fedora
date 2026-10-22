@@ -17,7 +17,8 @@
       "body_snippet": "Hello,\n\nI have installed texlive 2016 complete from the Tex website on my Fedora 24\nsystem.\n\nWhen I proceeded to install R, I was forced to install all the Fedora\ntexlive dependencies. Is there any wa",
       "thread_id": "thread-d6e2c25c2070",
       "thread_depth": 0,
-      "month": "2016-08"
+      "month": "2016-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2016-August/000485.html"
     }
   ],
   "threads": [

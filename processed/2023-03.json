@@ -17,7 +17,8 @@
       "body_snippet": "Hi friends,\n\nR-gh's latest version grew a dependency on httr2 (which has a suggests for\n%check on docopt), so I made two new packages for Fedora. They're both\nnoarch and simple, should be quick review",
       "thread_id": "thread-d850c0411409",
       "thread_depth": 0,
-      "month": "2023-03"
+      "month": "2023-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2023-March/000843.html"
     }
   ],
   "threads": [

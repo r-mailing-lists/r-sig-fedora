@@ -17,7 +17,8 @@
       "body_snippet": "Hi all,\n\nPlease bear with me because I'm not all that familiar with R. I manage a \nresearch cluster that's running Red Hat 5.6 (64-bit), and we recently \ninstalled version 2.15.0 of R for some users. ",
       "thread_id": "thread-72b617f315fd",
       "thread_depth": 0,
-      "month": "2012-05"
+      "month": "2012-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-May/000262.html"
     },
     {
       "id": "msg-141867e72c33",
@@ -35,7 +36,8 @@
       "body_snippet": "On May 21, 2012, at 3:30 PM, Bruce Pennypacker wrote:\n\n> Hi all,\n> \n> Please bear with me because I'm not all that familiar with R. I manage a research cluster that's running Red Hat 5.6 (64-bit), and",
       "thread_id": "thread-72b617f315fd",
       "thread_depth": 1,
-      "month": "2012-05"
+      "month": "2012-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-May/000263.html"
     },
     {
       "id": "msg-af212997c5ed",
@@ -54,7 +56,8 @@
       "body_snippet": "On May 21, 2012, at 22:54 , Marc Schwartz wrote:\n\n> On May 21, 2012, at 3:30 PM, Bruce Pennypacker wrote:\n> \n>> Hi all,\n>> \n>> Please bear with me because I'm not all that familiar with R. I manage a ",
       "thread_id": "thread-72b617f315fd",
       "thread_depth": 2,
-      "month": "2012-05"
+      "month": "2012-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-May/000264.html"
     },
     {
       "id": "msg-64331dea0c4e",
@@ -73,7 +76,8 @@
       "body_snippet": "On 5/21/12 4:54 PM, Marc Schwartz wrote\n>\n> What does:\n>\n>    capabilities(\"tcltk\")\n>\n> show?\n>\n> It should return TRUE if all is generally well. If it does come back TRUE, check the output of:\n>\n>   ",
       "thread_id": "thread-72b617f315fd",
       "thread_depth": 2,
-      "month": "2012-05"
+      "month": "2012-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-May/000265.html"
     },
     {
       "id": "msg-76985ffc9be5",
@@ -93,7 +97,8 @@
       "body_snippet": "On 5/22/12 2:56 AM, peter dalgaard wrote:\n> As I read the error message, Tcl as such is working fine. However, the \n> min function seems to be new in Tcl 8.5, and it is unclear which \n> version is in ",
       "thread_id": "thread-72b617f315fd",
       "thread_depth": 3,
-      "month": "2012-05"
+      "month": "2012-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-May/000266.html"
     },
     {
       "id": "msg-e2db7ee591c5",
@@ -114,7 +119,8 @@
       "body_snippet": "On May 22, 2012, at 15:28 , Bruce Pennypacker wrote:\n\n> On 5/22/12 2:56 AM, peter dalgaard wrote:\n>> As I read the error message, Tcl as such is working fine. However, the min function seems to be new",
       "thread_id": "thread-72b617f315fd",
       "thread_depth": 4,
-      "month": "2012-05"
+      "month": "2012-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-May/000267.html"
     },
     {
       "id": "msg-8145c55caa4e",
@@ -135,7 +141,8 @@
       "body_snippet": "On May 22, 2012, at 8:28 AM, Bruce Pennypacker wrote:\n\n> On 5/22/12 2:56 AM, peter dalgaard wrote:\n>> As I read the error message, Tcl as such is working fine. However, the min function seems to be ne",
       "thread_id": "thread-72b617f315fd",
       "thread_depth": 4,
-      "month": "2012-05"
+      "month": "2012-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-May/000268.html"
     },
     {
       "id": "msg-5306b5c6b30c",
@@ -157,7 +164,8 @@
       "body_snippet": "On 05/22/2012 10:36 AM, Marc Schwartz wrote:\n> \n> On May 22, 2012, at 8:28 AM, Bruce Pennypacker wrote:\n> \n>> On 5/22/12 2:56 AM, peter dalgaard wrote:\n>>> As I read the error message, Tcl as such is ",
       "thread_id": "thread-72b617f315fd",
       "thread_depth": 5,
-      "month": "2012-05"
+      "month": "2012-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-May/000269.html"
     },
     {
       "id": "msg-2c793bccb170",
@@ -180,7 +188,8 @@
       "body_snippet": "On May 22, 2012, at 9:48 AM, Tom Callaway wrote:\n\n> On 05/22/2012 10:36 AM, Marc Schwartz wrote:\n>> \n>> On May 22, 2012, at 8:28 AM, Bruce Pennypacker wrote:\n>> \n>>> On 5/22/12 2:56 AM, peter dalgaard",
       "thread_id": "thread-72b617f315fd",
       "thread_depth": 6,
-      "month": "2012-05"
+      "month": "2012-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-May/000270.html"
     },
     {
       "id": "msg-ab91a9256ae2",
@@ -204,7 +213,8 @@
       "body_snippet": "On 05/22/2012 11:09 AM, Marc Schwartz wrote:\n\n> Hi Tom,\n> \n> Thanks for jumping in. My read, and I would ask Peter to comment as well, is that this requirement seems to be specific to the 'sqldf' pack",
       "thread_id": "thread-72b617f315fd",
       "thread_depth": 7,
-      "month": "2012-05"
+      "month": "2012-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-May/000271.html"
     },
     {
       "id": "msg-f40d3e299401",
@@ -229,7 +239,8 @@
       "body_snippet": "On May 22, 2012, at 17:13 , Tom Callaway wrote:\n\n> On 05/22/2012 11:09 AM, Marc Schwartz wrote:\n> \n>> Hi Tom,\n>> \n>> Thanks for jumping in. My read, and I would ask Peter to comment as well, is that t",
       "thread_id": "thread-72b617f315fd",
       "thread_depth": 8,
-      "month": "2012-05"
+      "month": "2012-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-May/000272.html"
     },
     {
       "id": "msg-2e829da2b3b8",
@@ -246,6 +257,7 @@
       "thread_id": "thread-2e829da2b3b8",
       "thread_depth": 0,
       "month": "2012-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-fedora/2012-May/000273.html",
       "restored_from": [
         "https://stat.ethz.ch/pipermail/r-sig-fedora/attachments/20120527/24454423/attachment.pl"
       ]
